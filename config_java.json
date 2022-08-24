@@ -1,0 +1,6 @@
+{
+   "invokerPackage": "org.openapitools.ccapi.client",
+   "apiPackage": "org.openapitools.ccapi.client.api",
+   "modelPackage": "org.openapitools.ccapi.client.model"
+}
+
