@@ -8,6 +8,4 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
-rootProject.name = 'clustercontrol-conductor'
-// include('app', 'list', 'vultr-api', 'clustercontrol-api', 'clustercontrol-conductor', 'utilities')
-include('vultr-api', 'clustercontrol-api', 'clustercontrol-conductor')
+rootProject.name = 'clustercontrol-client-sdk'
