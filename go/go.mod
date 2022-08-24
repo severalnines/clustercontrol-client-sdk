@@ -1,4 +1,4 @@
-module github.com/premnalla/clustercontrol-client-sdk/go
+module github.com/severalnines/clustercontrol-client-sdk/go
 
 go 1.17
 
