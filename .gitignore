@@ -1,15 +1,46 @@
-# Binaries for programs and plugins
+# Binaries
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
+*.out
+
+# Miscellaneus
+.DS_Store
+.go
+
+# IDEs
+.idea
+
+# Package Files #
+*.jar
+*.war
+*.ear
 
 # Test binary, built with `go test -c`
 *.test
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# exclude jar for gradle wrapper
+!gradle/wrapper/*.jar
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# build files
+#**/target
+target
+.gradle
+build
+
+# Other
+bin
+vendor
+
+# terraform
+.terraform*
+terraform*
+
+#/bin
+#/.go
+#/.container-*
+#/.dockerfile-*
+#/.licenses
+
