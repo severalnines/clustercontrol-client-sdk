@@ -49,11 +49,11 @@ type ResponseCheckClusterName struct {
 func RunTest() {
 	authenticateWithCmon()
 
-	listTemplates()
-
 	getAllClusterInfo()
 
 	discovery()
+
+	listTemplates()
 }
 
 func NewConfiguration(url string) *openapi.Configuration {
