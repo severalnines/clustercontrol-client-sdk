@@ -30,6 +30,11 @@
             <artifactId>clustercontrol-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.severalnines</groupId>
+            <artifactId>clustercontrol-api-example</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
