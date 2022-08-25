@@ -18,7 +18,7 @@ buildscript {
 */
 
 plugins {
-    id 'com.severalnines.clustercontrol.clientsdk.java-library-conventions'
+    id 'com.severalnines.clustercontrol.conductor.java-library-conventions'
 }
 
 /*

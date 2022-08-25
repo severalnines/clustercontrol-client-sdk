@@ -3,16 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>clustercontrol-api</artifactId>
+        <artifactId>clustercontrol-client-sdk</artifactId>
         <groupId>com.severalnines</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.severalnines</groupId>
-    <artifactId>packaging</artifactId>
+    <artifactId>ccsdk-package</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>packaging</name>
+    <name>ccsdk-package</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -30,18 +30,6 @@
             <artifactId>clustercontrol-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>com.severalnines</groupId>
-            <artifactId>vultr-api</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
-      <dependency>
-        <groupId>com.severalnines</groupId>
-        <artifactId>clustercontrol-conductor</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </dependency>
-      -->
     </dependencies>
 
     <build>

@@ -11,8 +11,6 @@
             <unpack>false</unpack>
             <excludes>
                 <exclude>com.severalnines:clustercontrol-api:*</exclude>
-                <exclude>com.severalnines:vultr-api:*</exclude>
-                <exclude>com.severalnines:clustercontrol-conductor:*</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
@@ -21,8 +19,6 @@
             <useAllReactorProjects>true</useAllReactorProjects>
             <includes>
                 <include>com.severalnines:clustercontrol-api:*</include>
-                <include>com.severalnines:vultr-api:*</include>
-                <include>com.severalnines:clustercontrol-conductor:*</include>
             </includes>
             <binaries>
                 <unpack>false</unpack>
