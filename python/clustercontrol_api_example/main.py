@@ -1,4 +1,4 @@
-from cc_test import authenticate
+from clustercontrol_api_example import authenticate
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 

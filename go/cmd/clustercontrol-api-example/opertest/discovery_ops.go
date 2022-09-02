@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func discovery() {
+func Discovery() {
 	discov := *openapi.NewDiscovery("checkClusterName")
 	discov.SetNewClusterName("foo")
 	resp, err := gApiClient.DiscoveryApi.DiscoveryPost(gNewCtx).Discovery(discov).Execute()

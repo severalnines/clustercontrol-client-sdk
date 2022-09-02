@@ -47,11 +47,11 @@ type ResponseCheckClusterName struct {
 }
 
 func RunTest() {
-	authenticateWithCmon()
+	AuthenticateWithCmon()
 
 	getAllClusterInfo()
 
-	discovery()
+	Discovery()
 
 	listTemplates()
 }
@@ -77,7 +77,7 @@ func printError(err error, resp *http.Response) {
 	fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
 }
 
-func authenticateWithCmon() {
+func AuthenticateWithCmon() {
 	// URL := "https://cchost:9501/v2"
 	URL := os.Getenv("CC_URL")
 
@@ -92,7 +92,7 @@ func authenticateWithCmon() {
 		printError(err, resp)
 		return
 	}
-	// fmt.Fprintf(os.Stderr, "Resp `AuthApi.AuthPost`: %v\n", resp)
+	fmt.Fprintf(os.Stderr, "Resp `AuthApi.AuthPost`: %v\n", resp)
 
 	// fmt.Println("#Cookies: ", len(resp.Cookies()))
 	for _, cookie := range resp.Cookies() {
