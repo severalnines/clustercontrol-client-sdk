@@ -10,19 +10,25 @@ import org.openapitools.ccapi.client.api.ClustersApi;
 import org.openapitools.ccapi.client.api.DiscoveryApi;
 import org.openapitools.ccapi.client.api.JobsApi;
 import org.openapitools.ccapi.client.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class CcTest {
+
+    private static final Logger logger
+            = LoggerFactory.getLogger(CcTest.class);
+
     public CcTest() {
     }
 
     public void authenticateWithCmon() {
         String URL = System.getenv("CC_URL");
-        String API_USER = System.getenv("API_USER");
-        String API_USER_PW = System.getenv("API_USER_PW");
-        System.out.println("CC_URL: " + URL);
+        String API_USER = System.getenv("CC_API_USER");
+        String API_USER_PW = System.getenv("CC_API_USER_PW");
+        logger.info("CC_URL: {}", URL);
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         // defaultClient.setDebugging(true);
         defaultClient.setBasePath(URL);
@@ -35,9 +41,9 @@ public class CcTest {
         authenticate.password(API_USER_PW);
         try {
             // authApiInstance.authPost(authenticate);
-            System.out.println("Auth request: " + authenticate.toString());
+            logger.debug("Auth request: {}", authenticate.toString());
             ApiResponse<Void> resp = authApiInstance.authPostWithHttpInfo(authenticate);
-            System.out.println("Auth response: " + resp.getData());
+            logger.debug("Auth response: {}", resp.getData());
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -50,17 +56,18 @@ public class CcTest {
         discovery.setOperation(Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
         try {
             // discovApiInstance.discoveryPost(discovery);
-            System.out.println("Discovery request: " + discovery.toString());
+            logger.debug("Discovery request: {}", discovery.toString());
             ApiResponse<Void> resp = discovApiInstance.discoveryPostWithHttpInfo(discovery);
-            System.out.println("Discovery response: " + resp.getData());
+            logger.debug("Discovery response: {}", resp.getData());
             // String respStr = String.valueOf(resp.getData());
             // System.out.println(respStr);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DiscoveryApi#discoveryPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
+            // System.err.println("Exception when calling DiscoveryApi#discoveryPost");
+            // System.err.println("Status code: " + e.getCode());
+            // System.err.println("Reason: " + e.getResponseBody());
+            // System.err.println("Response headers: " + e.getResponseHeaders());
+            // e.printStackTrace();
+            logger.warn("Exception: {}", e.getCause());
         }
 
     }
@@ -86,7 +93,7 @@ public class CcTest {
         jsjD.setClusterType(JobsJobJobSpecJobData.ClusterTypeEnum.REPLICATION);
         jsjD.setConfigTemplate("my.cnf.repl80");
         jsjD.setDataDir("/var/lib/mysql");
-        jsjD.setDbPassword("pA0d7HJuTAb1YDAJSmGD");
+        jsjD.setDbPassword("Xxxx123Yyyy456Zzzz");
         jsjD.setDisableFirewall(true);
         jsjD.setDisableSelinux(true);
         jsjD.setGenerateToken(true);
@@ -122,11 +129,12 @@ public class CcTest {
             // System.out.println("CreateCluster job response: " + resp.getData());
             ret = String.valueOf(resp.getData());
         } catch (ApiException e) {
-            System.err.println("Exception when calling JobsApi#jobsPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
+            // System.err.println("Exception when calling JobsApi#jobsPost");
+            // System.err.println("Status code: " + e.getCode());
+            // System.err.println("Reason: " + e.getResponseBody());
+            // System.err.println("Response headers: " + e.getResponseHeaders());
+            // e.printStackTrace();
+            logger.warn("Exception: {}", e.getCause());
         }
 
         return ret;
@@ -152,11 +160,12 @@ public class CcTest {
             ret = String.valueOf(resp.getData());;
             // System.out.println("Get Job response:" + ret);
         } catch (ApiException e) {
-            System.err.println("Exception when calling JobsApi#jobsPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
+            // System.err.println("Exception when calling JobsApi#jobsPost");
+            // System.err.println("Status code: " + e.getCode());
+            // System.err.println("Reason: " + e.getResponseBody());
+            // System.err.println("Response headers: " + e.getResponseHeaders());
+            // e.printStackTrace();
+            logger.warn("Exception: {}", e.getCause());
         }
 
         return ret;
@@ -178,11 +187,12 @@ public class CcTest {
             // System.out.println("ClusterInfo response: " + resp.getData());
             ret = String.valueOf(resp.getData());
         } catch (ApiException e) {
-            System.err.println("Exception when calling JobsApi#jobsPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
+            // System.err.println("Exception when calling JobsApi#jobsPost");
+            // System.err.println("Status code: " + e.getCode());
+            // System.err.println("Reason: " + e.getResponseBody());
+            // System.err.println("Response headers: " + e.getResponseHeaders());
+            // e.printStackTrace();
+            logger.warn("Exception: {}", e.getCause());
         }
 
         return ret;

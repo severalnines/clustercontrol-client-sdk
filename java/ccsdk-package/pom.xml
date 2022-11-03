@@ -5,21 +5,22 @@
     <parent>
         <artifactId>clustercontrol-client-sdk</artifactId>
         <groupId>com.severalnines</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <groupId>com.severalnines</groupId>
     <artifactId>ccsdk-package</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>ccsdk-package</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>http://www.severalnines.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <clustercontrol-api.version>1.0.0</clustercontrol-api.version>
+        <clustercontrol-api-example.version>1.0.0</clustercontrol-api-example.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -28,12 +29,12 @@
         <dependency>
             <groupId>com.severalnines</groupId>
             <artifactId>clustercontrol-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${clustercontrol-api.version}</version>
         </dependency>
         <dependency>
             <groupId>com.severalnines</groupId>
             <artifactId>clustercontrol-api-example</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${clustercontrol-api-example.version}</version>
         </dependency>
     </dependencies>
 
@@ -58,27 +59,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>build-package</id>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
         </plugins>
     </build>
 </project>
