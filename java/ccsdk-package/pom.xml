@@ -13,7 +13,7 @@
     <version>1.0.0</version>
 
     <name>ccsdk-package</name>
-    <url>http://www.severalnines.com</url>
+    <url>https://www.severalnines.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

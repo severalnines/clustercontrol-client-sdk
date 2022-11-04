@@ -7,7 +7,7 @@
 
 ``` export CC_API_USER=prem```
 
-```java -cp ./target/vsphere-samples-X.X.X.X.jar com.severalnines.vmware.test.ListVMs --server <> --datacenter <> --cluster <> --vmfolder <> --skip-server-verification```
+```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.CcTest```
 
 e.g. ```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.CcTest``` 
 
