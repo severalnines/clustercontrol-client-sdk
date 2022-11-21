@@ -25,7 +25,7 @@ public abstract class AbstractPostgresqlClusterJob extends AbstractDbClusterJob 
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractPostgresqlClusterJob.class);
 
-    public AbstractPostgresqlClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public AbstractPostgresqlClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 

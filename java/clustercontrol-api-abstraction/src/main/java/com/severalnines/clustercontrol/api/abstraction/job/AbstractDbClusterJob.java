@@ -34,41 +34,41 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractDbClusterJob.class);
 
-    public enum DbClusterJobTypeEnum {
-        CREATE_DB_CLUSTER("create_cluster"), DELETE_DB_CLUSTER("delete_cluster"), IMPORT_DB_CLUSTER("register_cluster");
-        private String value;
+//    public enum DbClusterJobTypeEnum {
+//        CREATE_DB_CLUSTER("create_cluster"), DELETE_DB_CLUSTER("delete_cluster"), IMPORT_DB_CLUSTER("register_cluster");
+//        private String value;
+//
+//        DbClusterJobTypeEnum(String value) {
+//            this.value = value;
+//        }
+//
+//        public String getValue() {
+//            return this.value;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return String.valueOf(value);
+//        }
+//
+//        public static DbClusterJobTypeEnum fromValue(String value) {
+//            for (DbClusterJobTypeEnum b : DbClusterJobTypeEnum.values()) {
+//                if (b.value.equals(value)) {
+//                    return b;
+//                }
+//            }
+//            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+//        }
+//
+//    }
 
-        DbClusterJobTypeEnum(String value) {
-            this.value = value;
-        }
+    private JobsJobJobSpec.CommandEnum jobType;
 
-        public String getValue() {
-            return this.value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static DbClusterJobTypeEnum fromValue(String value) {
-            for (DbClusterJobTypeEnum b : DbClusterJobTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-    }
-
-    private DbClusterJobTypeEnum jobType;
-
-    public DbClusterJobTypeEnum getDbClusterOpType() {
+    public JobsJobJobSpec.CommandEnum getDbClusterOpType() {
         return jobType;
     }
 
-    AbstractDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    AbstractDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr);
         this.jobType = jobType;
     }
@@ -76,13 +76,61 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
     @Override
     public String execute() throws ClusterControlApiException {
         switch (getDbClusterOpType()) {
-            case CREATE_DB_CLUSTER:
+            case CREATE_CLUSTER:
                 return createCluster();
+            case REMOVE_CLUSTER:
+                return removeCluster();
             default:
                 logger.warn("Unsupported DbClusterOpType (enum: {})", getDbClusterOpType());
                 break;
         }
         return "";
+    }
+
+    protected String removeCluster() throws ClusterControlApiException {
+        String ret = "";
+
+        DbCluster createDetails;
+        try {
+            createDetails = JsonSerializeDeserialize.jsonToObject(getJsonInput(), DbCluster.class);
+        } catch (Exception e) {
+            logger.warn("Exception in jsonToObject: ", e);
+            throw new ClusterControlApiException(e);
+        }
+
+        try {
+            ApiClient defaultClient = getAuthStrategy().getApiClient();
+            JobsApi apiInstance = new JobsApi(defaultClient);
+            Jobs jobs = new Jobs();
+            jobs.setOperation(Jobs.OperationEnum.CREATEJOBINSTANCE);
+            jobs.setClusterId(createDetails.getClusterId());
+
+            JobsJob jj = new JobsJob();
+            jj.setClassName("CmonJobInstance");
+
+            JobsJobJobSpec jSpec = new JobsJobJobSpec();
+            jSpec.setCommand(JobsJobJobSpec.CommandEnum.REMOVE_CLUSTER);
+
+            JobsJobJobSpecJobData jsjD = new JobsJobJobSpecJobData();
+            jsjD.setClusterid(createDetails.getClusterId());
+            jsjD.setClusterName(createDetails.getClusterName());
+
+            jSpec.setJobData(jsjD);
+            jj.setJobSpec(jSpec);
+            jobs.setJob(jj);
+
+            logger.debug("RemoveClusterPost request: {}", jobs);
+            if (!AbstractAuthenticationStrategy.IsDebugMode()) {
+                ApiResponse<Void> resp = apiInstance.jobsPostWithHttpInfo(jobs);
+                ret = String.valueOf(resp.getData());
+                logger.debug("RemoveClusterPost resp: {}", ret);
+            }
+        } catch (Exception e) {
+            logger.warn("Exception:", e);
+            handleException(e);
+        }
+
+        return ret;
     }
 
     protected String createCluster() throws ClusterControlApiException {
@@ -151,11 +199,11 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             jj.setJobSpec(jSpec);
             jobs.setJob(jj);
 
-            logger.debug("CrateClusterPost request: {}", jobs);
+            logger.debug("CreateClusterPost request: {}", jobs);
             if (!AbstractAuthenticationStrategy.IsDebugMode()) {
                 ApiResponse<Void> resp = apiInstance.jobsPostWithHttpInfo(jobs);
                 ret = String.valueOf(resp.getData());
-                logger.debug("CrateClusterPost resp: {}", ret);
+                logger.debug("CreateClusterPost resp: {}", ret);
             }
         } catch (Exception e) {
             logger.warn("Exception:", e);

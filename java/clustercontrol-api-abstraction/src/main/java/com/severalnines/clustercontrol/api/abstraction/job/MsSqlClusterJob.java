@@ -20,6 +20,7 @@ import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiE
 import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlInputException;
 import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
 import com.severalnines.clustercontrol.api.abstraction.pojo.Host;
+import org.openapitools.ccapi.client.model.JobsJobJobSpec;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobData;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataNodesInner;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class MsSqlClusterJob extends AbstractDbClusterJob {
 
     private static final Logger logger = LoggerFactory.getLogger(MsSqlClusterJob.class);
 
-    public MsSqlClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public MsSqlClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 

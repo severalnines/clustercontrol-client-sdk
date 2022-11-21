@@ -178,6 +178,14 @@ public final class SampleMain {
         logger.info("CreateCluster response: {}", createRet);
     }
 
+    void removeCluster() throws Exception {
+        DbCluster dbCluster = new DbCluster();
+        dbCluster.setClusterName("api-abstraction-test");
+        dbCluster.setClusterId(21);
+        String createRet = myCcClient.removeCluster(JsonSerializeDeserialize.objectToJson(dbCluster));
+        logger.info("CreateCluster response: {}", createRet);
+    }
+
     public static void main(String[] args) throws Exception {
         JsonSerializeDeserialize.SetSnakeNaming();
         SimpleAuthenticationStrategy authStrategy = new SimpleAuthenticationStrategy();
@@ -216,5 +224,8 @@ public final class SampleMain {
 
         // Elasticsearch
         sm.createElasticsearchCluster();
+
+        // Remove cluster
+        sm.removeCluster();
     }
 }

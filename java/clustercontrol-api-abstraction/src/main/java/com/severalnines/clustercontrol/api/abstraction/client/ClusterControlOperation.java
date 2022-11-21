@@ -36,6 +36,8 @@ public interface ClusterControlOperation {
 
     public String createElastisearchCluster(String jsonStr) throws ClusterControlApiException;
 
+    public String removeCluster(String jsonStr) throws ClusterControlApiException;
+
     //    public String createMysqlReplicationCluster(String jsonStr) throws ClusterControlApiException;
 //
 //    public String createMariaReplicationCluster(String jsonStr) throws ClusterControlApiException;

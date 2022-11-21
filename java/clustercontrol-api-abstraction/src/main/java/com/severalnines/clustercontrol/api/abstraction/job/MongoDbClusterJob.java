@@ -33,7 +33,7 @@ public class MongoDbClusterJob extends AbstractDbClusterJob {
 
     private static final Logger logger = LoggerFactory.getLogger(MongoDbClusterJob.class);
 
-    public MongoDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public MongoDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 

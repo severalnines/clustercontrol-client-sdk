@@ -17,6 +17,7 @@ package com.severalnines.clustercontrol.api.abstraction.job;
 
 import com.severalnines.clustercontrol.api.abstraction.common.AbstractAuthenticationStrategy;
 import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
+import org.openapitools.ccapi.client.model.JobsJobJobSpec;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class TimescaleDbClusterJob extends AbstractPostgresqlClusterJob {
 
     private static final Logger logger = LoggerFactory.getLogger(TimescaleDbClusterJob.class);
 
-    public TimescaleDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public TimescaleDbClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 

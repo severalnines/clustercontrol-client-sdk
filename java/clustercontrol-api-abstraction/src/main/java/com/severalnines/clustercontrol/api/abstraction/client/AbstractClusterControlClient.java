@@ -79,4 +79,9 @@ abstract class AbstractClusterControlClient implements ClusterControlOperation  
     public String createElastisearchCluster(String jsonStr) throws ClusterControlApiException {
         return null;
     }
+
+    @Override
+    public String removeCluster(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
 }

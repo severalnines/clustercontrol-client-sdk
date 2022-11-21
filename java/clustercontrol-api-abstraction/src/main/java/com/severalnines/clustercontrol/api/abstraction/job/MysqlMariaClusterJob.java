@@ -25,7 +25,7 @@ public class MysqlMariaClusterJob extends AbstractDbClusterJob {
 
     private static final Logger logger = LoggerFactory.getLogger(MysqlMariaClusterJob.class);
 
-    public MysqlMariaClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public MysqlMariaClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 

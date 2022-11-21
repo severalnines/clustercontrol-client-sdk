@@ -21,6 +21,7 @@ import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlInpu
 import com.severalnines.clustercontrol.api.abstraction.common.DbConstants;
 import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
 import com.severalnines.clustercontrol.api.abstraction.pojo.Host;
+import org.openapitools.ccapi.client.model.JobsJobJobSpec;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobData;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataNodesInner;
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class RedisClusterJob extends AbstractDbClusterJob {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisClusterJob.class);
 
-    public RedisClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, DbClusterJobTypeEnum jobType) {
+    public RedisClusterJob(AbstractAuthenticationStrategy authStrategy, String jsonStr, JobsJobJobSpec.CommandEnum jobType) {
         super(authStrategy, jsonStr, jobType);
     }
 
