@@ -1,6 +1,6 @@
 # HostApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -25,7 +25,7 @@ import org.openapitools.ccapi.client.api.HostApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://cchost:9501/v2");
+    defaultClient.setBasePath("https://<cchost>:9501/v2");
 
     HostApi apiInstance = new HostApi(defaultClient);
     Host host = new Host(); // Host | (Un)Register servers, Shutdown servers, etc

@@ -80,9 +80,9 @@ Name | Type | Description | Notes
 **SshPort** | Pointer to **string** |  | [optional] 
 **SshUser** | Pointer to **string** |  | [optional] 
 **SudoPassword** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 **Vendor** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **SoftwarePackage** | Pointer to **string** |  | [optional] 
 **ServerAddress** | Pointer to **string** |  | [optional] 
@@ -2029,31 +2029,6 @@ SetSudoPassword sets SudoPassword field to given value.
 
 HasSudoPassword returns a boolean if a field has been set.
 
-### GetType
-
-`func (o *JobsJobJobSpecJobData) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *JobsJobJobSpecJobData) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *JobsJobJobSpecJobData) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *JobsJobJobSpecJobData) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
 ### GetUserId
 
 `func (o *JobsJobJobSpecJobData) GetUserId() int32`
@@ -2103,6 +2078,31 @@ SetVendor sets Vendor field to given value.
 `func (o *JobsJobJobSpecJobData) HasVendor() bool`
 
 HasVendor returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *JobsJobJobSpecJobData) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *JobsJobJobSpecJobData) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *JobsJobJobSpecJobData) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *JobsJobJobSpecJobData) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetVersion
 

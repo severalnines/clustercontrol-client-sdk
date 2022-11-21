@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -56,7 +56,7 @@ func (o *Host) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Host) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +68,7 @@ func (o *Host) SetOperation(v string) {
 
 // GetServers returns the Servers field value if set, zero value otherwise.
 func (o *Host) GetServers() []HostServersInner {
-	if o == nil || o.Servers == nil {
+	if o == nil || isNil(o.Servers) {
 		var ret []HostServersInner
 		return ret
 	}
@@ -78,15 +78,15 @@ func (o *Host) GetServers() []HostServersInner {
 // GetServersOk returns a tuple with the Servers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetServersOk() ([]HostServersInner, bool) {
-	if o == nil || o.Servers == nil {
-		return nil, false
+	if o == nil || isNil(o.Servers) {
+    return nil, false
 	}
 	return o.Servers, true
 }
 
 // HasServers returns a boolean if a field has been set.
 func (o *Host) HasServers() bool {
-	if o != nil && o.Servers != nil {
+	if o != nil && !isNil(o.Servers) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *Host) SetServers(v []HostServersInner) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Host) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -110,15 +110,15 @@ func (o *Host) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Host) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -132,7 +132,7 @@ func (o *Host) SetClusterId(v int32) {
 
 // GetDryRun returns the DryRun field value if set, zero value otherwise.
 func (o *Host) GetDryRun() bool {
-	if o == nil || o.DryRun == nil {
+	if o == nil || isNil(o.DryRun) {
 		var ret bool
 		return ret
 	}
@@ -142,15 +142,15 @@ func (o *Host) GetDryRun() bool {
 // GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetDryRunOk() (*bool, bool) {
-	if o == nil || o.DryRun == nil {
-		return nil, false
+	if o == nil || isNil(o.DryRun) {
+    return nil, false
 	}
 	return o.DryRun, true
 }
 
 // HasDryRun returns a boolean if a field has been set.
 func (o *Host) HasDryRun() bool {
-	if o != nil && o.DryRun != nil {
+	if o != nil && !isNil(o.DryRun) {
 		return true
 	}
 
@@ -164,7 +164,7 @@ func (o *Host) SetDryRun(v bool) {
 
 // GetHost returns the Host field value if set, zero value otherwise.
 func (o *Host) GetHost() HostHost {
-	if o == nil || o.Host == nil {
+	if o == nil || isNil(o.Host) {
 		var ret HostHost
 		return ret
 	}
@@ -174,15 +174,15 @@ func (o *Host) GetHost() HostHost {
 // GetHostOk returns a tuple with the Host field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetHostOk() (*HostHost, bool) {
-	if o == nil || o.Host == nil {
-		return nil, false
+	if o == nil || isNil(o.Host) {
+    return nil, false
 	}
 	return o.Host, true
 }
 
 // HasHost returns a boolean if a field has been set.
 func (o *Host) HasHost() bool {
-	if o != nil && o.Host != nil {
+	if o != nil && !isNil(o.Host) {
 		return true
 	}
 
@@ -199,16 +199,16 @@ func (o Host) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.Servers != nil {
+	if !isNil(o.Servers) {
 		toSerialize["servers"] = o.Servers
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.DryRun != nil {
+	if !isNil(o.DryRun) {
 		toSerialize["dry_run"] = o.DryRun
 	}
-	if o.Host != nil {
+	if !isNil(o.Host) {
 		toSerialize["host"] = o.Host
 	}
 	return json.Marshal(toSerialize)

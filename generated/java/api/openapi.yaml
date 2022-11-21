@@ -2,15 +2,16 @@ openapi: 3.0.1
 info:
   contact:
     email: sales@severalnines.com
-  description: This is a ...
+  description: REST API (V2) specification for ClusterControl - AI Powered Database
+    automation tool for multi/hybrid cloud database deployment.
   termsOfService: https://severalnines.com/terms/
-  title: Severalnines ClusterControl
-  version: 1.0.0
+  title: Severalnines ClusterControl REST API (V2)
+  version: OpenAPI specification v1.0.0
 externalDocs:
   description: Find out more about ClusterControl
-  url: https://www.severalnines.com/clustercontrol/docs
+  url: https://docs.severalnines.com/docs/clustercontrol/
 servers:
-- url: https://cchost:9501/v2
+- url: https://<cchost>:9501/v2
 paths:
   /auth:
     post:
@@ -878,7 +879,7 @@ components:
               cluster_type: mssql_single
               master_address: master_address
               usePackageForDataDir: true
-              type: type
+              type: postgresql
               enable_uninstall: true
               hostname: hostname
               mysql_semi_sync: true
@@ -2236,7 +2237,7 @@ components:
         cluster_type: mssql_single
         master_address: master_address
         usePackageForDataDir: true
-        type: type
+        type: postgresql
         enable_uninstall: true
         hostname: hostname
         mysql_semi_sync: true
@@ -2517,6 +2518,7 @@ components:
           - postgresql_single
           - replication
           - galera
+          - elastic
           type: string
         company_id:
           type: string
@@ -2662,8 +2664,6 @@ components:
           type: string
         sudo_password:
           type: string
-        type:
-          type: string
         user_id:
           type: integer
         vendor:
@@ -2672,6 +2672,19 @@ components:
           - percona
           - microsoft
           - redis
+          - oracle
+          - mariadb
+          - elasticsearch
+          - 10gen
+          type: string
+        type:
+          enum:
+          - postgresql
+          - redis
+          - microsoft
+          - elasticsearch
+          - mysql
+          - mongodb
           type: string
         version:
           type: string
@@ -2746,7 +2759,7 @@ components:
           cluster_type: mssql_single
           master_address: master_address
           usePackageForDataDir: true
-          type: type
+          type: postgresql
           enable_uninstall: true
           hostname: hostname
           mysql_semi_sync: true
@@ -3033,7 +3046,7 @@ components:
             cluster_type: mssql_single
             master_address: master_address
             usePackageForDataDir: true
-            type: type
+            type: postgresql
             enable_uninstall: true
             hostname: hostname
             mysql_semi_sync: true

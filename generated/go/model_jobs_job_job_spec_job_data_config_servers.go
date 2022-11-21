@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -40,7 +40,7 @@ func NewJobsJobJobSpecJobDataConfigServersWithDefaults() *JobsJobJobSpecJobDataC
 
 // GetRs returns the Rs field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServers) GetRs() string {
-	if o == nil || o.Rs == nil {
+	if o == nil || isNil(o.Rs) {
 		var ret string
 		return ret
 	}
@@ -50,15 +50,15 @@ func (o *JobsJobJobSpecJobDataConfigServers) GetRs() string {
 // GetRsOk returns a tuple with the Rs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) GetRsOk() (*string, bool) {
-	if o == nil || o.Rs == nil {
-		return nil, false
+	if o == nil || isNil(o.Rs) {
+    return nil, false
 	}
 	return o.Rs, true
 }
 
 // HasRs returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) HasRs() bool {
-	if o != nil && o.Rs != nil {
+	if o != nil && !isNil(o.Rs) {
 		return true
 	}
 
@@ -72,7 +72,7 @@ func (o *JobsJobJobSpecJobDataConfigServers) SetRs(v string) {
 
 // GetMembers returns the Members field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServers) GetMembers() []JobsJobJobSpecJobDataConfigServersMembersInner {
-	if o == nil || o.Members == nil {
+	if o == nil || isNil(o.Members) {
 		var ret []JobsJobJobSpecJobDataConfigServersMembersInner
 		return ret
 	}
@@ -82,15 +82,15 @@ func (o *JobsJobJobSpecJobDataConfigServers) GetMembers() []JobsJobJobSpecJobDat
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) GetMembersOk() ([]JobsJobJobSpecJobDataConfigServersMembersInner, bool) {
-	if o == nil || o.Members == nil {
-		return nil, false
+	if o == nil || isNil(o.Members) {
+    return nil, false
 	}
 	return o.Members, true
 }
 
 // HasMembers returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) HasMembers() bool {
-	if o != nil && o.Members != nil {
+	if o != nil && !isNil(o.Members) {
 		return true
 	}
 
@@ -104,10 +104,10 @@ func (o *JobsJobJobSpecJobDataConfigServers) SetMembers(v []JobsJobJobSpecJobDat
 
 func (o JobsJobJobSpecJobDataConfigServers) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Rs != nil {
+	if !isNil(o.Rs) {
 		toSerialize["rs"] = o.Rs
 	}
-	if o.Members != nil {
+	if !isNil(o.Members) {
 		toSerialize["members"] = o.Members
 	}
 	return json.Marshal(toSerialize)

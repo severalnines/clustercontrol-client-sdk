@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -57,7 +57,7 @@ func (o *Config) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Config) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +69,7 @@ func (o *Config) SetOperation(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *Config) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -79,15 +79,15 @@ func (o *Config) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *Config) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o *Config) SetHostname(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *Config) GetPort() int32 {
-	if o == nil || o.Port == nil {
+	if o == nil || isNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -111,15 +111,15 @@ func (o *Config) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetPortOk() (*int32, bool) {
-	if o == nil || o.Port == nil {
-		return nil, false
+	if o == nil || isNil(o.Port) {
+    return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *Config) HasPort() bool {
-	if o != nil && o.Port != nil {
+	if o != nil && !isNil(o.Port) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *Config) SetPort(v int32) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *Config) GetConfiguration() []ConfigConfigurationInner {
-	if o == nil || o.Configuration == nil {
+	if o == nil || isNil(o.Configuration) {
 		var ret []ConfigConfigurationInner
 		return ret
 	}
@@ -143,15 +143,15 @@ func (o *Config) GetConfiguration() []ConfigConfigurationInner {
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetConfigurationOk() ([]ConfigConfigurationInner, bool) {
-	if o == nil || o.Configuration == nil {
-		return nil, false
+	if o == nil || isNil(o.Configuration) {
+    return nil, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *Config) HasConfiguration() bool {
-	if o != nil && o.Configuration != nil {
+	if o != nil && !isNil(o.Configuration) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o *Config) SetConfiguration(v []ConfigConfigurationInner) {
 
 // GetLdapConfiguration returns the LdapConfiguration field value if set, zero value otherwise.
 func (o *Config) GetLdapConfiguration() ConfigLdapConfiguration {
-	if o == nil || o.LdapConfiguration == nil {
+	if o == nil || isNil(o.LdapConfiguration) {
 		var ret ConfigLdapConfiguration
 		return ret
 	}
@@ -175,15 +175,15 @@ func (o *Config) GetLdapConfiguration() ConfigLdapConfiguration {
 // GetLdapConfigurationOk returns a tuple with the LdapConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetLdapConfigurationOk() (*ConfigLdapConfiguration, bool) {
-	if o == nil || o.LdapConfiguration == nil {
-		return nil, false
+	if o == nil || isNil(o.LdapConfiguration) {
+    return nil, false
 	}
 	return o.LdapConfiguration, true
 }
 
 // HasLdapConfiguration returns a boolean if a field has been set.
 func (o *Config) HasLdapConfiguration() bool {
-	if o != nil && o.LdapConfiguration != nil {
+	if o != nil && !isNil(o.LdapConfiguration) {
 		return true
 	}
 
@@ -197,7 +197,7 @@ func (o *Config) SetLdapConfiguration(v ConfigLdapConfiguration) {
 
 // GetLicensedata returns the Licensedata field value if set, zero value otherwise.
 func (o *Config) GetLicensedata() string {
-	if o == nil || o.Licensedata == nil {
+	if o == nil || isNil(o.Licensedata) {
 		var ret string
 		return ret
 	}
@@ -207,15 +207,15 @@ func (o *Config) GetLicensedata() string {
 // GetLicensedataOk returns a tuple with the Licensedata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetLicensedataOk() (*string, bool) {
-	if o == nil || o.Licensedata == nil {
-		return nil, false
+	if o == nil || isNil(o.Licensedata) {
+    return nil, false
 	}
 	return o.Licensedata, true
 }
 
 // HasLicensedata returns a boolean if a field has been set.
 func (o *Config) HasLicensedata() bool {
-	if o != nil && o.Licensedata != nil {
+	if o != nil && !isNil(o.Licensedata) {
 		return true
 	}
 
@@ -232,19 +232,19 @@ func (o Config) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.Port != nil {
+	if !isNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
-	if o.Configuration != nil {
+	if !isNil(o.Configuration) {
 		toSerialize["configuration"] = o.Configuration
 	}
-	if o.LdapConfiguration != nil {
+	if !isNil(o.LdapConfiguration) {
 		toSerialize["ldap_configuration"] = o.LdapConfiguration
 	}
-	if o.Licensedata != nil {
+	if !isNil(o.Licensedata) {
 		toSerialize["licensedata"] = o.Licensedata
 	}
 	return json.Marshal(toSerialize)

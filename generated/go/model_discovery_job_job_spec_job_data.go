@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -42,7 +42,7 @@ func NewDiscoveryJobJobSpecJobDataWithDefaults() *DiscoveryJobJobSpecJobData {
 
 // GetClusterType returns the ClusterType field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobData) GetClusterType() string {
-	if o == nil || o.ClusterType == nil {
+	if o == nil || isNil(o.ClusterType) {
 		var ret string
 		return ret
 	}
@@ -52,15 +52,15 @@ func (o *DiscoveryJobJobSpecJobData) GetClusterType() string {
 // GetClusterTypeOk returns a tuple with the ClusterType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobData) GetClusterTypeOk() (*string, bool) {
-	if o == nil || o.ClusterType == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterType) {
+    return nil, false
 	}
 	return o.ClusterType, true
 }
 
 // HasClusterType returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobData) HasClusterType() bool {
-	if o != nil && o.ClusterType != nil {
+	if o != nil && !isNil(o.ClusterType) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *DiscoveryJobJobSpecJobData) SetClusterType(v string) {
 
 // GetMysqlVersion returns the MysqlVersion field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobData) GetMysqlVersion() string {
-	if o == nil || o.MysqlVersion == nil {
+	if o == nil || isNil(o.MysqlVersion) {
 		var ret string
 		return ret
 	}
@@ -84,15 +84,15 @@ func (o *DiscoveryJobJobSpecJobData) GetMysqlVersion() string {
 // GetMysqlVersionOk returns a tuple with the MysqlVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobData) GetMysqlVersionOk() (*string, bool) {
-	if o == nil || o.MysqlVersion == nil {
-		return nil, false
+	if o == nil || isNil(o.MysqlVersion) {
+    return nil, false
 	}
 	return o.MysqlVersion, true
 }
 
 // HasMysqlVersion returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobData) HasMysqlVersion() bool {
-	if o != nil && o.MysqlVersion != nil {
+	if o != nil && !isNil(o.MysqlVersion) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *DiscoveryJobJobSpecJobData) SetMysqlVersion(v string) {
 
 // GetVendor returns the Vendor field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobData) GetVendor() string {
-	if o == nil || o.Vendor == nil {
+	if o == nil || isNil(o.Vendor) {
 		var ret string
 		return ret
 	}
@@ -116,15 +116,15 @@ func (o *DiscoveryJobJobSpecJobData) GetVendor() string {
 // GetVendorOk returns a tuple with the Vendor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobData) GetVendorOk() (*string, bool) {
-	if o == nil || o.Vendor == nil {
-		return nil, false
+	if o == nil || isNil(o.Vendor) {
+    return nil, false
 	}
 	return o.Vendor, true
 }
 
 // HasVendor returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobData) HasVendor() bool {
-	if o != nil && o.Vendor != nil {
+	if o != nil && !isNil(o.Vendor) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *DiscoveryJobJobSpecJobData) SetVendor(v string) {
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobData) GetNodes() []DiscoveryJobJobSpecJobDataNodesInner {
-	if o == nil || o.Nodes == nil {
+	if o == nil || isNil(o.Nodes) {
 		var ret []DiscoveryJobJobSpecJobDataNodesInner
 		return ret
 	}
@@ -148,15 +148,15 @@ func (o *DiscoveryJobJobSpecJobData) GetNodes() []DiscoveryJobJobSpecJobDataNode
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobData) GetNodesOk() ([]DiscoveryJobJobSpecJobDataNodesInner, bool) {
-	if o == nil || o.Nodes == nil {
-		return nil, false
+	if o == nil || isNil(o.Nodes) {
+    return nil, false
 	}
 	return o.Nodes, true
 }
 
 // HasNodes returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobData) HasNodes() bool {
-	if o != nil && o.Nodes != nil {
+	if o != nil && !isNil(o.Nodes) {
 		return true
 	}
 
@@ -170,16 +170,16 @@ func (o *DiscoveryJobJobSpecJobData) SetNodes(v []DiscoveryJobJobSpecJobDataNode
 
 func (o DiscoveryJobJobSpecJobData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClusterType != nil {
+	if !isNil(o.ClusterType) {
 		toSerialize["cluster_type"] = o.ClusterType
 	}
-	if o.MysqlVersion != nil {
+	if !isNil(o.MysqlVersion) {
 		toSerialize["mysql_version"] = o.MysqlVersion
 	}
-	if o.Vendor != nil {
+	if !isNil(o.Vendor) {
 		toSerialize["vendor"] = o.Vendor
 	}
-	if o.Nodes != nil {
+	if !isNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes
 	}
 	return json.Marshal(toSerialize)

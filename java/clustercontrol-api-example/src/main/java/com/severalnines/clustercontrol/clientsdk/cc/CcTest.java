@@ -1,6 +1,22 @@
+/*
+ *     Copyright 2022 Severalnines Inc. @ https://severalnines.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *          http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.severalnines.clustercontrol.clientsdk.cc;
 
-import com.severalnines.clustercontrol.clientsdk.common.JsonSerializeDeserialize;
+import com.severalnines.clustercontrol.api.abstraction.common.JsonSerializeDeserialize;
+import com.severalnines.clustercontrol.api.abstraction.pojo.ClusterControlApiResponse;
 import org.openapitools.ccapi.client.ApiClient;
 import org.openapitools.ccapi.client.ApiException;
 import org.openapitools.ccapi.client.ApiResponse;
@@ -13,9 +29,6 @@ import org.openapitools.ccapi.client.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class CcTest {
 
     private static final Logger logger
@@ -27,6 +40,7 @@ public class CcTest {
     public void authenticateWithCmon() {
         String URL = System.getenv("CC_URL");
         String API_USER = System.getenv("CC_API_USER");
+        // String API_USER = System.getenv("CC_API_USER") + "f";
         String API_USER_PW = System.getenv("CC_API_USER_PW");
         logger.info("CC_URL: {}", URL);
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -40,12 +54,25 @@ public class CcTest {
         authenticate.userName(API_USER);
         authenticate.password(API_USER_PW);
         try {
-            // authApiInstance.authPost(authenticate);
-            logger.debug("Auth request: {}", authenticate.toString());
+            // logger.trace("Auth request: {}", authenticate.toString());
             ApiResponse<Void> resp = authApiInstance.authPostWithHttpInfo(authenticate);
-            logger.debug("Auth response: {}", resp.getData());
-        } catch (ApiException e) {
-            e.printStackTrace();
+            String sResp = String.valueOf(resp.getData());
+            // logger.info("Auth response: {}", resp.getData());
+            // logger.info("Auth response: {}", sResp);
+            System.out.println(sResp);
+            ClusterControlApiResponse respPojo = JsonSerializeDeserialize.jsonToObject(
+                    sResp, ClusterControlApiResponse.class);
+            logger.info("Controller:{}, Request status:{}", respPojo.getControllerId(), respPojo.getRequestStatus());
+            if (!respPojo.isRequestStatusOk()) {
+                logger.warn("Authentication failed: {}", sResp);
+                Authenticate newAuth = new Authenticate();
+                newAuth.setUserName(authenticate.getUserName());
+                StringBuffer pw = new StringBuffer("XXXXXXXX")
+                        .append(authenticate.getPassword().substring(authenticate.getPassword().length()-4));
+                logger.info("Authentication details: {}", pw);
+            }
+        } catch (Exception e) {
+            logger.warn("Exception in AuthenticatePost:", e);
         }
     }
 
@@ -67,9 +94,8 @@ public class CcTest {
             // System.err.println("Reason: " + e.getResponseBody());
             // System.err.println("Response headers: " + e.getResponseHeaders());
             // e.printStackTrace();
-            logger.warn("Exception: {}", e.getCause());
+            logger.warn("Exception:", e);
         }
-
     }
 
 
@@ -134,7 +160,7 @@ public class CcTest {
             // System.err.println("Reason: " + e.getResponseBody());
             // System.err.println("Response headers: " + e.getResponseHeaders());
             // e.printStackTrace();
-            logger.warn("Exception: {}", e.getCause());
+            logger.warn("Exception:", e);
         }
 
         return ret;
@@ -157,7 +183,8 @@ public class CcTest {
             // apiInstance.jobsPost(jobs);
             ApiResponse<Void> resp = apiInstance.jobsPostWithHttpInfo(jobs);
             // System.out.println("CreateCluster job response: " + resp.getData());
-            ret = String.valueOf(resp.getData());;
+            ret = String.valueOf(resp.getData());
+            ;
             // System.out.println("Get Job response:" + ret);
         } catch (ApiException e) {
             // System.err.println("Exception when calling JobsApi#jobsPost");
@@ -165,7 +192,7 @@ public class CcTest {
             // System.err.println("Reason: " + e.getResponseBody());
             // System.err.println("Response headers: " + e.getResponseHeaders());
             // e.printStackTrace();
-            logger.warn("Exception: {}", e.getCause());
+            logger.warn("Exception:", e);
         }
 
         return ret;
@@ -192,7 +219,7 @@ public class CcTest {
             // System.err.println("Reason: " + e.getResponseBody());
             // System.err.println("Response headers: " + e.getResponseHeaders());
             // e.printStackTrace();
-            logger.warn("Exception: {}", e.getCause());
+            logger.warn("Exception:", e);
         }
 
         return ret;
@@ -226,6 +253,7 @@ public class CcTest {
     }
 
     public static void main(String[] args) {
+        JsonSerializeDeserialize.SetSnakeNaming();
         CcTest cct = new CcTest();
         cct.authenticateWithCmon();
         cct.discoveryTest();

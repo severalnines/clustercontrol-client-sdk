@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -39,7 +39,7 @@ func NewBackupBackupRecordWithDefaults() *BackupBackupRecord {
 
 // GetBackupId returns the BackupId field value if set, zero value otherwise.
 func (o *BackupBackupRecord) GetBackupId() int32 {
-	if o == nil || o.BackupId == nil {
+	if o == nil || isNil(o.BackupId) {
 		var ret int32
 		return ret
 	}
@@ -49,15 +49,15 @@ func (o *BackupBackupRecord) GetBackupId() int32 {
 // GetBackupIdOk returns a tuple with the BackupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupBackupRecord) GetBackupIdOk() (*int32, bool) {
-	if o == nil || o.BackupId == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupId) {
+    return nil, false
 	}
 	return o.BackupId, true
 }
 
 // HasBackupId returns a boolean if a field has been set.
 func (o *BackupBackupRecord) HasBackupId() bool {
-	if o != nil && o.BackupId != nil {
+	if o != nil && !isNil(o.BackupId) {
 		return true
 	}
 
@@ -71,7 +71,7 @@ func (o *BackupBackupRecord) SetBackupId(v int32) {
 
 func (o BackupBackupRecord) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.BackupId != nil {
+	if !isNil(o.BackupId) {
 		toSerialize["backup_id"] = o.BackupId
 	}
 	return json.Marshal(toSerialize)

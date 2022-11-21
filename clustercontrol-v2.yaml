@@ -884,7 +884,7 @@ components:
                     cluster_type:
                       type: string
                       enum: ["mssql_single","redis","mongodb","mssql_ao_async",
-                        "postgresql_single","replication","galera"]
+                        "postgresql_single","replication","galera","elastic"]
                     company_id:
                       type: string
                     config_template:
@@ -1016,13 +1016,14 @@ components:
                       type: string
                     sudo_password:
                       type: string
-                    type:
-                      type: string
                     user_id:
                       type: integer
                     vendor:
                       type: string
-                      enum: ["default","percona","microsoft","redis"]
+                      enum: ["default","percona","microsoft","redis","oracle","mariadb","elasticsearch","10gen"]
+                    type:
+                      type: string
+                      enum: ["postgresql","redis","microsoft","elasticsearch","mysql","mongodb"]
                     version:
                       type: string
                     software_package:

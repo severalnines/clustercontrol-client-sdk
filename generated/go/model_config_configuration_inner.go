@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -42,7 +42,7 @@ func NewConfigConfigurationInnerWithDefaults() *ConfigConfigurationInner {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConfigConfigurationInner) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -52,15 +52,15 @@ func (o *ConfigConfigurationInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigConfigurationInner) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
+	if o == nil || isNil(o.Name) {
+    return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ConfigConfigurationInner) HasName() bool {
-	if o != nil && o.Name != nil {
+	if o != nil && !isNil(o.Name) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *ConfigConfigurationInner) SetName(v string) {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *ConfigConfigurationInner) GetValue() string {
-	if o == nil || o.Value == nil {
+	if o == nil || isNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -84,15 +84,15 @@ func (o *ConfigConfigurationInner) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigConfigurationInner) GetValueOk() (*string, bool) {
-	if o == nil || o.Value == nil {
-		return nil, false
+	if o == nil || isNil(o.Value) {
+    return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *ConfigConfigurationInner) HasValue() bool {
-	if o != nil && o.Value != nil {
+	if o != nil && !isNil(o.Value) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *ConfigConfigurationInner) SetValue(v string) {
 
 // GetGroup returns the Group field value if set, zero value otherwise.
 func (o *ConfigConfigurationInner) GetGroup() string {
-	if o == nil || o.Group == nil {
+	if o == nil || isNil(o.Group) {
 		var ret string
 		return ret
 	}
@@ -116,15 +116,15 @@ func (o *ConfigConfigurationInner) GetGroup() string {
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigConfigurationInner) GetGroupOk() (*string, bool) {
-	if o == nil || o.Group == nil {
-		return nil, false
+	if o == nil || isNil(o.Group) {
+    return nil, false
 	}
 	return o.Group, true
 }
 
 // HasGroup returns a boolean if a field has been set.
 func (o *ConfigConfigurationInner) HasGroup() bool {
-	if o != nil && o.Group != nil {
+	if o != nil && !isNil(o.Group) {
 		return true
 	}
 
@@ -138,13 +138,13 @@ func (o *ConfigConfigurationInner) SetGroup(v string) {
 
 func (o ConfigConfigurationInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name != nil {
+	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.Value != nil {
+	if !isNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
-	if o.Group != nil {
+	if !isNil(o.Group) {
 		toSerialize["group"] = o.Group
 	}
 	return json.Marshal(toSerialize)

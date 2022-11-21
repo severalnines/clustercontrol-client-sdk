@@ -5,15 +5,17 @@ echo "Cleaning up GoLang code in $GODIR"
 /bin/rm -rf $GODIR
 echo "Generating GoLang code in $GODIR"
 openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name go --output $GODIR
+#
 #/bin/rm ./go/pkg/openapi/*.go
 #cp $GODIR/*.go ./go/pkg/openapi/
 #
 #
-PYDIR=./generated/python
-echo "Cleaning up Python code in $PYDIR"
-/bin/rm -rf $PYDIR
-echo "Generating Python code in $PYDIR"
-openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name python -c config_py.json --output $PYDIR
+# PYDIR=./generated/python
+# echo "Cleaning up Python code in $PYDIR"
+# /bin/rm -rf $PYDIR
+# echo "Generating Python code in $PYDIR"
+# openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name python -c config_py.json --output $PYDIR
+#
 #/bin/rm -rf ./python/openapi_cc_client
 #cp -rp $PYDIR/openapi_cc_client ./python
 #

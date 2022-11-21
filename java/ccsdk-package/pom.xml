@@ -19,8 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <clustercontrol-api.version>1.0.0</clustercontrol-api.version>
-        <clustercontrol-api-example.version>1.0.0</clustercontrol-api-example.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -29,12 +27,14 @@
         <dependency>
             <groupId>com.severalnines</groupId>
             <artifactId>clustercontrol-api</artifactId>
-            <version>${clustercontrol-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.severalnines</groupId>
+            <artifactId>clustercontrol-api-abstraction</artifactId>
         </dependency>
         <dependency>
             <groupId>com.severalnines</groupId>
             <artifactId>clustercontrol-api-example</artifactId>
-            <version>${clustercontrol-api-example.version}</version>
         </dependency>
     </dependencies>
 

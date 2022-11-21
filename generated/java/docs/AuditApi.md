@@ -1,6 +1,6 @@
 # AuditApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -25,7 +25,7 @@ import org.openapitools.ccapi.client.api.AuditApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://cchost:9501/v2");
+    defaultClient.setBasePath("https://<cchost>:9501/v2");
 
     AuditApi apiInstance = new AuditApi(defaultClient);
     Audit audit = new Audit(); // Audit | Used to get the audit log entries

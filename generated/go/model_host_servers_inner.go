@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -41,7 +41,7 @@ func NewHostServersInnerWithDefaults() *HostServersInner {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *HostServersInner) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +51,15 @@ func (o *HostServersInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *HostServersInner) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *HostServersInner) SetClassName(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *HostServersInner) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -83,15 +83,15 @@ func (o *HostServersInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *HostServersInner) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *HostServersInner) SetHostname(v string) {
 
 // GetCdtPath returns the CdtPath field value if set, zero value otherwise.
 func (o *HostServersInner) GetCdtPath() string {
-	if o == nil || o.CdtPath == nil {
+	if o == nil || isNil(o.CdtPath) {
 		var ret string
 		return ret
 	}
@@ -115,15 +115,15 @@ func (o *HostServersInner) GetCdtPath() string {
 // GetCdtPathOk returns a tuple with the CdtPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetCdtPathOk() (*string, bool) {
-	if o == nil || o.CdtPath == nil {
-		return nil, false
+	if o == nil || isNil(o.CdtPath) {
+    return nil, false
 	}
 	return o.CdtPath, true
 }
 
 // HasCdtPath returns a boolean if a field has been set.
 func (o *HostServersInner) HasCdtPath() bool {
-	if o != nil && o.CdtPath != nil {
+	if o != nil && !isNil(o.CdtPath) {
 		return true
 	}
 
@@ -137,13 +137,13 @@ func (o *HostServersInner) SetCdtPath(v string) {
 
 func (o HostServersInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.CdtPath != nil {
+	if !isNil(o.CdtPath) {
 		toSerialize["cdt_path"] = o.CdtPath
 	}
 	return json.Marshal(toSerialize)

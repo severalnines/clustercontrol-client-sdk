@@ -83,9 +83,9 @@
 |**sshPort** | **String** |  |  [optional] |
 |**sshUser** | **String** |  |  [optional] |
 |**sudoPassword** | **String** |  |  [optional] |
-|**type** | **String** |  |  [optional] |
 |**userId** | **Integer** |  |  [optional] |
 |**vendor** | [**VendorEnum**](#VendorEnum) |  |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
 |**version** | **String** |  |  [optional] |
 |**softwarePackage** | **String** |  |  [optional] |
 |**serverAddress** | **String** |  |  [optional] |
@@ -145,6 +145,7 @@
 | POSTGRESQL_SINGLE | &quot;postgresql_single&quot; |
 | REPLICATION | &quot;replication&quot; |
 | GALERA | &quot;galera&quot; |
+| ELASTIC | &quot;elastic&quot; |
 
 
 
@@ -192,6 +193,23 @@
 | PERCONA | &quot;percona&quot; |
 | MICROSOFT | &quot;microsoft&quot; |
 | REDIS | &quot;redis&quot; |
+| ORACLE | &quot;oracle&quot; |
+| MARIADB | &quot;mariadb&quot; |
+| ELASTICSEARCH | &quot;elasticsearch&quot; |
+| _10GEN | &quot;10gen&quot; |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| POSTGRESQL | &quot;postgresql&quot; |
+| REDIS | &quot;redis&quot; |
+| MICROSOFT | &quot;microsoft&quot; |
+| ELASTICSEARCH | &quot;elasticsearch&quot; |
+| MYSQL | &quot;mysql&quot; |
+| MONGODB | &quot;mongodb&quot; |
 
 
 

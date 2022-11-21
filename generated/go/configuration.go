@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -106,7 +106,7 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "https://cchost:9501/v2",
+				URL: "https://<cchost>:9501/v2",
 				Description: "No description provided",
 			},
 		},
@@ -124,7 +124,7 @@ func (c *Configuration) AddDefaultHeader(key string, value string) {
 // URL formats template on a index using given variables
 func (sc ServerConfigurations) URL(index int, variables map[string]string) (string, error) {
 	if index < 0 || len(sc) <= index {
-		return "", fmt.Errorf("Index %v out of range %v", index, len(sc)-1)
+		return "", fmt.Errorf("index %v out of range %v", index, len(sc)-1)
 	}
 	server := sc[index]
 	url := server.URL
@@ -139,7 +139,7 @@ func (sc ServerConfigurations) URL(index int, variables map[string]string) (stri
 				}
 			}
 			if !found {
-				return "", fmt.Errorf("The variable %s in the server URL has invalid value %v. Must be %v", name, value, variable.EnumValues)
+				return "", fmt.Errorf("the variable %s in the server URL has invalid value %v. Must be %v", name, value, variable.EnumValues)
 			}
 			url = strings.Replace(url, "{"+name+"}", value, -1)
 		} else {

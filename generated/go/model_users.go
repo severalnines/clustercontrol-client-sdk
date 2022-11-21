@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -60,7 +60,7 @@ func (o *Users) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Users) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -72,7 +72,7 @@ func (o *Users) SetOperation(v string) {
 
 // GetCreateGroup returns the CreateGroup field value if set, zero value otherwise.
 func (o *Users) GetCreateGroup() bool {
-	if o == nil || o.CreateGroup == nil {
+	if o == nil || isNil(o.CreateGroup) {
 		var ret bool
 		return ret
 	}
@@ -82,15 +82,15 @@ func (o *Users) GetCreateGroup() bool {
 // GetCreateGroupOk returns a tuple with the CreateGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetCreateGroupOk() (*bool, bool) {
-	if o == nil || o.CreateGroup == nil {
-		return nil, false
+	if o == nil || isNil(o.CreateGroup) {
+    return nil, false
 	}
 	return o.CreateGroup, true
 }
 
 // HasCreateGroup returns a boolean if a field has been set.
 func (o *Users) HasCreateGroup() bool {
-	if o != nil && o.CreateGroup != nil {
+	if o != nil && !isNil(o.CreateGroup) {
 		return true
 	}
 
@@ -104,7 +104,7 @@ func (o *Users) SetCreateGroup(v bool) {
 
 // GetNewPassword returns the NewPassword field value if set, zero value otherwise.
 func (o *Users) GetNewPassword() string {
-	if o == nil || o.NewPassword == nil {
+	if o == nil || isNil(o.NewPassword) {
 		var ret string
 		return ret
 	}
@@ -114,15 +114,15 @@ func (o *Users) GetNewPassword() string {
 // GetNewPasswordOk returns a tuple with the NewPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetNewPasswordOk() (*string, bool) {
-	if o == nil || o.NewPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.NewPassword) {
+    return nil, false
 	}
 	return o.NewPassword, true
 }
 
 // HasNewPassword returns a boolean if a field has been set.
 func (o *Users) HasNewPassword() bool {
-	if o != nil && o.NewPassword != nil {
+	if o != nil && !isNil(o.NewPassword) {
 		return true
 	}
 
@@ -136,7 +136,7 @@ func (o *Users) SetNewPassword(v string) {
 
 // GetOldPassword returns the OldPassword field value if set, zero value otherwise.
 func (o *Users) GetOldPassword() string {
-	if o == nil || o.OldPassword == nil {
+	if o == nil || isNil(o.OldPassword) {
 		var ret string
 		return ret
 	}
@@ -146,15 +146,15 @@ func (o *Users) GetOldPassword() string {
 // GetOldPasswordOk returns a tuple with the OldPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetOldPasswordOk() (*string, bool) {
-	if o == nil || o.OldPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.OldPassword) {
+    return nil, false
 	}
 	return o.OldPassword, true
 }
 
 // HasOldPassword returns a boolean if a field has been set.
 func (o *Users) HasOldPassword() bool {
-	if o != nil && o.OldPassword != nil {
+	if o != nil && !isNil(o.OldPassword) {
 		return true
 	}
 
@@ -168,7 +168,7 @@ func (o *Users) SetOldPassword(v string) {
 
 // GetGroupName returns the GroupName field value if set, zero value otherwise.
 func (o *Users) GetGroupName() string {
-	if o == nil || o.GroupName == nil {
+	if o == nil || isNil(o.GroupName) {
 		var ret string
 		return ret
 	}
@@ -178,15 +178,15 @@ func (o *Users) GetGroupName() string {
 // GetGroupNameOk returns a tuple with the GroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetGroupNameOk() (*string, bool) {
-	if o == nil || o.GroupName == nil {
-		return nil, false
+	if o == nil || isNil(o.GroupName) {
+    return nil, false
 	}
 	return o.GroupName, true
 }
 
 // HasGroupName returns a boolean if a field has been set.
 func (o *Users) HasGroupName() bool {
-	if o != nil && o.GroupName != nil {
+	if o != nil && !isNil(o.GroupName) {
 		return true
 	}
 
@@ -200,7 +200,7 @@ func (o *Users) SetGroupName(v string) {
 
 // GetReplacePrimaryGroup returns the ReplacePrimaryGroup field value if set, zero value otherwise.
 func (o *Users) GetReplacePrimaryGroup() bool {
-	if o == nil || o.ReplacePrimaryGroup == nil {
+	if o == nil || isNil(o.ReplacePrimaryGroup) {
 		var ret bool
 		return ret
 	}
@@ -210,15 +210,15 @@ func (o *Users) GetReplacePrimaryGroup() bool {
 // GetReplacePrimaryGroupOk returns a tuple with the ReplacePrimaryGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetReplacePrimaryGroupOk() (*bool, bool) {
-	if o == nil || o.ReplacePrimaryGroup == nil {
-		return nil, false
+	if o == nil || isNil(o.ReplacePrimaryGroup) {
+    return nil, false
 	}
 	return o.ReplacePrimaryGroup, true
 }
 
 // HasReplacePrimaryGroup returns a boolean if a field has been set.
 func (o *Users) HasReplacePrimaryGroup() bool {
-	if o != nil && o.ReplacePrimaryGroup != nil {
+	if o != nil && !isNil(o.ReplacePrimaryGroup) {
 		return true
 	}
 
@@ -232,7 +232,7 @@ func (o *Users) SetReplacePrimaryGroup(v bool) {
 
 // GetWithTags returns the WithTags field value if set, zero value otherwise.
 func (o *Users) GetWithTags() []string {
-	if o == nil || o.WithTags == nil {
+	if o == nil || isNil(o.WithTags) {
 		var ret []string
 		return ret
 	}
@@ -242,15 +242,15 @@ func (o *Users) GetWithTags() []string {
 // GetWithTagsOk returns a tuple with the WithTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetWithTagsOk() ([]string, bool) {
-	if o == nil || o.WithTags == nil {
-		return nil, false
+	if o == nil || isNil(o.WithTags) {
+    return nil, false
 	}
 	return o.WithTags, true
 }
 
 // HasWithTags returns a boolean if a field has been set.
 func (o *Users) HasWithTags() bool {
-	if o != nil && o.WithTags != nil {
+	if o != nil && !isNil(o.WithTags) {
 		return true
 	}
 
@@ -264,7 +264,7 @@ func (o *Users) SetWithTags(v []string) {
 
 // GetUser returns the User field value if set, zero value otherwise.
 func (o *Users) GetUser() UsersUser {
-	if o == nil || o.User == nil {
+	if o == nil || isNil(o.User) {
 		var ret UsersUser
 		return ret
 	}
@@ -274,15 +274,15 @@ func (o *Users) GetUser() UsersUser {
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetUserOk() (*UsersUser, bool) {
-	if o == nil || o.User == nil {
-		return nil, false
+	if o == nil || isNil(o.User) {
+    return nil, false
 	}
 	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *Users) HasUser() bool {
-	if o != nil && o.User != nil {
+	if o != nil && !isNil(o.User) {
 		return true
 	}
 
@@ -296,7 +296,7 @@ func (o *Users) SetUser(v UsersUser) {
 
 // GetGroup returns the Group field value if set, zero value otherwise.
 func (o *Users) GetGroup() UsersGroup {
-	if o == nil || o.Group == nil {
+	if o == nil || isNil(o.Group) {
 		var ret UsersGroup
 		return ret
 	}
@@ -306,15 +306,15 @@ func (o *Users) GetGroup() UsersGroup {
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Users) GetGroupOk() (*UsersGroup, bool) {
-	if o == nil || o.Group == nil {
-		return nil, false
+	if o == nil || isNil(o.Group) {
+    return nil, false
 	}
 	return o.Group, true
 }
 
 // HasGroup returns a boolean if a field has been set.
 func (o *Users) HasGroup() bool {
-	if o != nil && o.Group != nil {
+	if o != nil && !isNil(o.Group) {
 		return true
 	}
 
@@ -331,28 +331,28 @@ func (o Users) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.CreateGroup != nil {
+	if !isNil(o.CreateGroup) {
 		toSerialize["create_group"] = o.CreateGroup
 	}
-	if o.NewPassword != nil {
+	if !isNil(o.NewPassword) {
 		toSerialize["new_password"] = o.NewPassword
 	}
-	if o.OldPassword != nil {
+	if !isNil(o.OldPassword) {
 		toSerialize["old_password"] = o.OldPassword
 	}
-	if o.GroupName != nil {
+	if !isNil(o.GroupName) {
 		toSerialize["group_name"] = o.GroupName
 	}
-	if o.ReplacePrimaryGroup != nil {
+	if !isNil(o.ReplacePrimaryGroup) {
 		toSerialize["replace_primary_group"] = o.ReplacePrimaryGroup
 	}
-	if o.WithTags != nil {
+	if !isNil(o.WithTags) {
 		toSerialize["with_tags"] = o.WithTags
 	}
-	if o.User != nil {
+	if !isNil(o.User) {
 		toSerialize["user"] = o.User
 	}
-	if o.Group != nil {
+	if !isNil(o.Group) {
 		toSerialize["group"] = o.Group
 	}
 	return json.Marshal(toSerialize)

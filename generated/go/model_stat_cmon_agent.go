@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -55,7 +55,7 @@ func (o *StatCmonAgent) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -67,7 +67,7 @@ func (o *StatCmonAgent) SetOperation(v string) {
 
 // GetApiKey returns the ApiKey field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetApiKey() string {
-	if o == nil || o.ApiKey == nil {
+	if o == nil || isNil(o.ApiKey) {
 		var ret string
 		return ret
 	}
@@ -77,15 +77,15 @@ func (o *StatCmonAgent) GetApiKey() string {
 // GetApiKeyOk returns a tuple with the ApiKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetApiKeyOk() (*string, bool) {
-	if o == nil || o.ApiKey == nil {
-		return nil, false
+	if o == nil || isNil(o.ApiKey) {
+    return nil, false
 	}
 	return o.ApiKey, true
 }
 
 // HasApiKey returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasApiKey() bool {
-	if o != nil && o.ApiKey != nil {
+	if o != nil && !isNil(o.ApiKey) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o *StatCmonAgent) SetApiKey(v string) {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -109,15 +109,15 @@ func (o *StatCmonAgent) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *StatCmonAgent) SetClassName(v string) {
 
 // GetRequestData returns the RequestData field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetRequestData() StatCmonAgentRequestData {
-	if o == nil || o.RequestData == nil {
+	if o == nil || isNil(o.RequestData) {
 		var ret StatCmonAgentRequestData
 		return ret
 	}
@@ -141,15 +141,15 @@ func (o *StatCmonAgent) GetRequestData() StatCmonAgentRequestData {
 // GetRequestDataOk returns a tuple with the RequestData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetRequestDataOk() (*StatCmonAgentRequestData, bool) {
-	if o == nil || o.RequestData == nil {
-		return nil, false
+	if o == nil || isNil(o.RequestData) {
+    return nil, false
 	}
 	return o.RequestData, true
 }
 
 // HasRequestData returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasRequestData() bool {
-	if o != nil && o.RequestData != nil {
+	if o != nil && !isNil(o.RequestData) {
 		return true
 	}
 
@@ -166,13 +166,13 @@ func (o StatCmonAgent) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ApiKey != nil {
+	if !isNil(o.ApiKey) {
 		toSerialize["apiKey"] = o.ApiKey
 	}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["className"] = o.ClassName
 	}
-	if o.RequestData != nil {
+	if !isNil(o.RequestData) {
 		toSerialize["requestData"] = o.RequestData
 	}
 	return json.Marshal(toSerialize)

@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -45,7 +45,7 @@ func NewReportsReportWithDefaults() *ReportsReport {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *ReportsReport) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -55,15 +55,15 @@ func (o *ReportsReport) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *ReportsReport) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *ReportsReport) SetClassName(v string) {
 
 // GetRecipients returns the Recipients field value if set, zero value otherwise.
 func (o *ReportsReport) GetRecipients() string {
-	if o == nil || o.Recipients == nil {
+	if o == nil || isNil(o.Recipients) {
 		var ret string
 		return ret
 	}
@@ -87,15 +87,15 @@ func (o *ReportsReport) GetRecipients() string {
 // GetRecipientsOk returns a tuple with the Recipients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetRecipientsOk() (*string, bool) {
-	if o == nil || o.Recipients == nil {
-		return nil, false
+	if o == nil || isNil(o.Recipients) {
+    return nil, false
 	}
 	return o.Recipients, true
 }
 
 // HasRecipients returns a boolean if a field has been set.
 func (o *ReportsReport) HasRecipients() bool {
-	if o != nil && o.Recipients != nil {
+	if o != nil && !isNil(o.Recipients) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *ReportsReport) SetRecipients(v string) {
 
 // GetReportType returns the ReportType field value if set, zero value otherwise.
 func (o *ReportsReport) GetReportType() string {
-	if o == nil || o.ReportType == nil {
+	if o == nil || isNil(o.ReportType) {
 		var ret string
 		return ret
 	}
@@ -119,15 +119,15 @@ func (o *ReportsReport) GetReportType() string {
 // GetReportTypeOk returns a tuple with the ReportType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetReportTypeOk() (*string, bool) {
-	if o == nil || o.ReportType == nil {
-		return nil, false
+	if o == nil || isNil(o.ReportType) {
+    return nil, false
 	}
 	return o.ReportType, true
 }
 
 // HasReportType returns a boolean if a field has been set.
 func (o *ReportsReport) HasReportType() bool {
-	if o != nil && o.ReportType != nil {
+	if o != nil && !isNil(o.ReportType) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *ReportsReport) SetReportType(v string) {
 
 // GetTextFormat returns the TextFormat field value if set, zero value otherwise.
 func (o *ReportsReport) GetTextFormat() string {
-	if o == nil || o.TextFormat == nil {
+	if o == nil || isNil(o.TextFormat) {
 		var ret string
 		return ret
 	}
@@ -151,15 +151,15 @@ func (o *ReportsReport) GetTextFormat() string {
 // GetTextFormatOk returns a tuple with the TextFormat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetTextFormatOk() (*string, bool) {
-	if o == nil || o.TextFormat == nil {
-		return nil, false
+	if o == nil || isNil(o.TextFormat) {
+    return nil, false
 	}
 	return o.TextFormat, true
 }
 
 // HasTextFormat returns a boolean if a field has been set.
 func (o *ReportsReport) HasTextFormat() bool {
-	if o != nil && o.TextFormat != nil {
+	if o != nil && !isNil(o.TextFormat) {
 		return true
 	}
 
@@ -173,7 +173,7 @@ func (o *ReportsReport) SetTextFormat(v string) {
 
 // GetReportId returns the ReportId field value if set, zero value otherwise.
 func (o *ReportsReport) GetReportId() int32 {
-	if o == nil || o.ReportId == nil {
+	if o == nil || isNil(o.ReportId) {
 		var ret int32
 		return ret
 	}
@@ -183,15 +183,15 @@ func (o *ReportsReport) GetReportId() int32 {
 // GetReportIdOk returns a tuple with the ReportId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetReportIdOk() (*int32, bool) {
-	if o == nil || o.ReportId == nil {
-		return nil, false
+	if o == nil || isNil(o.ReportId) {
+    return nil, false
 	}
 	return o.ReportId, true
 }
 
 // HasReportId returns a boolean if a field has been set.
 func (o *ReportsReport) HasReportId() bool {
-	if o != nil && o.ReportId != nil {
+	if o != nil && !isNil(o.ReportId) {
 		return true
 	}
 
@@ -205,19 +205,19 @@ func (o *ReportsReport) SetReportId(v int32) {
 
 func (o ReportsReport) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.Recipients != nil {
+	if !isNil(o.Recipients) {
 		toSerialize["recipients"] = o.Recipients
 	}
-	if o.ReportType != nil {
+	if !isNil(o.ReportType) {
 		toSerialize["report_type"] = o.ReportType
 	}
-	if o.TextFormat != nil {
+	if !isNil(o.TextFormat) {
 		toSerialize["text_format"] = o.TextFormat
 	}
-	if o.ReportId != nil {
+	if !isNil(o.ReportId) {
 		toSerialize["report_id"] = o.ReportId
 	}
 	return json.Marshal(toSerialize)

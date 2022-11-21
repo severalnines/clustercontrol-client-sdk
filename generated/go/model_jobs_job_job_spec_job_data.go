@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -93,9 +93,9 @@ type JobsJobJobSpecJobData struct {
 	SshPort *string `json:"ssh_port,omitempty"`
 	SshUser *string `json:"ssh_user,omitempty"`
 	SudoPassword *string `json:"sudo_password,omitempty"`
-	Type *string `json:"type,omitempty"`
 	UserId *int32 `json:"user_id,omitempty"`
 	Vendor *string `json:"vendor,omitempty"`
+	Type *string `json:"type,omitempty"`
 	Version *string `json:"version,omitempty"`
 	SoftwarePackage *string `json:"software_package,omitempty"`
 	ServerAddress *string `json:"server_address,omitempty"`
@@ -143,7 +143,7 @@ func NewJobsJobJobSpecJobDataWithDefaults() *JobsJobJobSpecJobData {
 
 // GetAction returns the Action field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAction() string {
-	if o == nil || o.Action == nil {
+	if o == nil || isNil(o.Action) {
 		var ret string
 		return ret
 	}
@@ -153,15 +153,15 @@ func (o *JobsJobJobSpecJobData) GetAction() string {
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetActionOk() (*string, bool) {
-	if o == nil || o.Action == nil {
-		return nil, false
+	if o == nil || isNil(o.Action) {
+    return nil, false
 	}
 	return o.Action, true
 }
 
 // HasAction returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAction() bool {
-	if o != nil && o.Action != nil {
+	if o != nil && !isNil(o.Action) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *JobsJobJobSpecJobData) SetAction(v string) {
 
 // GetAddnode returns the Addnode field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAddnode() bool {
-	if o == nil || o.Addnode == nil {
+	if o == nil || isNil(o.Addnode) {
 		var ret bool
 		return ret
 	}
@@ -185,15 +185,15 @@ func (o *JobsJobJobSpecJobData) GetAddnode() bool {
 // GetAddnodeOk returns a tuple with the Addnode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetAddnodeOk() (*bool, bool) {
-	if o == nil || o.Addnode == nil {
-		return nil, false
+	if o == nil || isNil(o.Addnode) {
+    return nil, false
 	}
 	return o.Addnode, true
 }
 
 // HasAddnode returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAddnode() bool {
-	if o != nil && o.Addnode != nil {
+	if o != nil && !isNil(o.Addnode) {
 		return true
 	}
 
@@ -207,7 +207,7 @@ func (o *JobsJobJobSpecJobData) SetAddnode(v bool) {
 
 // GetAdminUsername returns the AdminUsername field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAdminUsername() string {
-	if o == nil || o.AdminUsername == nil {
+	if o == nil || isNil(o.AdminUsername) {
 		var ret string
 		return ret
 	}
@@ -217,15 +217,15 @@ func (o *JobsJobJobSpecJobData) GetAdminUsername() string {
 // GetAdminUsernameOk returns a tuple with the AdminUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetAdminUsernameOk() (*string, bool) {
-	if o == nil || o.AdminUsername == nil {
-		return nil, false
+	if o == nil || isNil(o.AdminUsername) {
+    return nil, false
 	}
 	return o.AdminUsername, true
 }
 
 // HasAdminUsername returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAdminUsername() bool {
-	if o != nil && o.AdminUsername != nil {
+	if o != nil && !isNil(o.AdminUsername) {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *JobsJobJobSpecJobData) SetAdminUsername(v string) {
 
 // GetAdminUser returns the AdminUser field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAdminUser() string {
-	if o == nil || o.AdminUser == nil {
+	if o == nil || isNil(o.AdminUser) {
 		var ret string
 		return ret
 	}
@@ -249,15 +249,15 @@ func (o *JobsJobJobSpecJobData) GetAdminUser() string {
 // GetAdminUserOk returns a tuple with the AdminUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetAdminUserOk() (*string, bool) {
-	if o == nil || o.AdminUser == nil {
-		return nil, false
+	if o == nil || isNil(o.AdminUser) {
+    return nil, false
 	}
 	return o.AdminUser, true
 }
 
 // HasAdminUser returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAdminUser() bool {
-	if o != nil && o.AdminUser != nil {
+	if o != nil && !isNil(o.AdminUser) {
 		return true
 	}
 
@@ -271,7 +271,7 @@ func (o *JobsJobJobSpecJobData) SetAdminUser(v string) {
 
 // GetAdminPassword returns the AdminPassword field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAdminPassword() string {
-	if o == nil || o.AdminPassword == nil {
+	if o == nil || isNil(o.AdminPassword) {
 		var ret string
 		return ret
 	}
@@ -281,15 +281,15 @@ func (o *JobsJobJobSpecJobData) GetAdminPassword() string {
 // GetAdminPasswordOk returns a tuple with the AdminPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetAdminPasswordOk() (*string, bool) {
-	if o == nil || o.AdminPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.AdminPassword) {
+    return nil, false
 	}
 	return o.AdminPassword, true
 }
 
 // HasAdminPassword returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAdminPassword() bool {
-	if o != nil && o.AdminPassword != nil {
+	if o != nil && !isNil(o.AdminPassword) {
 		return true
 	}
 
@@ -303,7 +303,7 @@ func (o *JobsJobJobSpecJobData) SetAdminPassword(v string) {
 
 // GetAuditEvents returns the AuditEvents field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetAuditEvents() string {
-	if o == nil || o.AuditEvents == nil {
+	if o == nil || isNil(o.AuditEvents) {
 		var ret string
 		return ret
 	}
@@ -313,15 +313,15 @@ func (o *JobsJobJobSpecJobData) GetAuditEvents() string {
 // GetAuditEventsOk returns a tuple with the AuditEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetAuditEventsOk() (*string, bool) {
-	if o == nil || o.AuditEvents == nil {
-		return nil, false
+	if o == nil || isNil(o.AuditEvents) {
+    return nil, false
 	}
 	return o.AuditEvents, true
 }
 
 // HasAuditEvents returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasAuditEvents() bool {
-	if o != nil && o.AuditEvents != nil {
+	if o != nil && !isNil(o.AuditEvents) {
 		return true
 	}
 
@@ -335,7 +335,7 @@ func (o *JobsJobJobSpecJobData) SetAuditEvents(v string) {
 
 // GetArchiveMode returns the ArchiveMode field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetArchiveMode() string {
-	if o == nil || o.ArchiveMode == nil {
+	if o == nil || isNil(o.ArchiveMode) {
 		var ret string
 		return ret
 	}
@@ -345,15 +345,15 @@ func (o *JobsJobJobSpecJobData) GetArchiveMode() string {
 // GetArchiveModeOk returns a tuple with the ArchiveMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetArchiveModeOk() (*string, bool) {
-	if o == nil || o.ArchiveMode == nil {
-		return nil, false
+	if o == nil || isNil(o.ArchiveMode) {
+    return nil, false
 	}
 	return o.ArchiveMode, true
 }
 
 // HasArchiveMode returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasArchiveMode() bool {
-	if o != nil && o.ArchiveMode != nil {
+	if o != nil && !isNil(o.ArchiveMode) {
 		return true
 	}
 
@@ -367,7 +367,7 @@ func (o *JobsJobJobSpecJobData) SetArchiveMode(v string) {
 
 // GetBackupid returns the Backupid field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupid() int32 {
-	if o == nil || o.Backupid == nil {
+	if o == nil || isNil(o.Backupid) {
 		var ret int32
 		return ret
 	}
@@ -377,15 +377,15 @@ func (o *JobsJobJobSpecJobData) GetBackupid() int32 {
 // GetBackupidOk returns a tuple with the Backupid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupidOk() (*int32, bool) {
-	if o == nil || o.Backupid == nil {
-		return nil, false
+	if o == nil || isNil(o.Backupid) {
+    return nil, false
 	}
 	return o.Backupid, true
 }
 
 // HasBackupid returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupid() bool {
-	if o != nil && o.Backupid != nil {
+	if o != nil && !isNil(o.Backupid) {
 		return true
 	}
 
@@ -399,7 +399,7 @@ func (o *JobsJobJobSpecJobData) SetBackupid(v int32) {
 
 // GetBackupId returns the BackupId field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupId() int32 {
-	if o == nil || o.BackupId == nil {
+	if o == nil || isNil(o.BackupId) {
 		var ret int32
 		return ret
 	}
@@ -409,15 +409,15 @@ func (o *JobsJobJobSpecJobData) GetBackupId() int32 {
 // GetBackupIdOk returns a tuple with the BackupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupIdOk() (*int32, bool) {
-	if o == nil || o.BackupId == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupId) {
+    return nil, false
 	}
 	return o.BackupId, true
 }
 
 // HasBackupId returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupId() bool {
-	if o != nil && o.BackupId != nil {
+	if o != nil && !isNil(o.BackupId) {
 		return true
 	}
 
@@ -431,7 +431,7 @@ func (o *JobsJobJobSpecJobData) SetBackupId(v int32) {
 
 // GetBuildFromSource returns the BuildFromSource field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBuildFromSource() bool {
-	if o == nil || o.BuildFromSource == nil {
+	if o == nil || isNil(o.BuildFromSource) {
 		var ret bool
 		return ret
 	}
@@ -441,15 +441,15 @@ func (o *JobsJobJobSpecJobData) GetBuildFromSource() bool {
 // GetBuildFromSourceOk returns a tuple with the BuildFromSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBuildFromSourceOk() (*bool, bool) {
-	if o == nil || o.BuildFromSource == nil {
-		return nil, false
+	if o == nil || isNil(o.BuildFromSource) {
+    return nil, false
 	}
 	return o.BuildFromSource, true
 }
 
 // HasBuildFromSource returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBuildFromSource() bool {
-	if o != nil && o.BuildFromSource != nil {
+	if o != nil && !isNil(o.BuildFromSource) {
 		return true
 	}
 
@@ -463,7 +463,7 @@ func (o *JobsJobJobSpecJobData) SetBuildFromSource(v bool) {
 
 // GetClusterName returns the ClusterName field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetClusterName() string {
-	if o == nil || o.ClusterName == nil {
+	if o == nil || isNil(o.ClusterName) {
 		var ret string
 		return ret
 	}
@@ -473,15 +473,15 @@ func (o *JobsJobJobSpecJobData) GetClusterName() string {
 // GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetClusterNameOk() (*string, bool) {
-	if o == nil || o.ClusterName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterName) {
+    return nil, false
 	}
 	return o.ClusterName, true
 }
 
 // HasClusterName returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasClusterName() bool {
-	if o != nil && o.ClusterName != nil {
+	if o != nil && !isNil(o.ClusterName) {
 		return true
 	}
 
@@ -495,7 +495,7 @@ func (o *JobsJobJobSpecJobData) SetClusterName(v string) {
 
 // GetClusterid returns the Clusterid field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetClusterid() int32 {
-	if o == nil || o.Clusterid == nil {
+	if o == nil || isNil(o.Clusterid) {
 		var ret int32
 		return ret
 	}
@@ -505,15 +505,15 @@ func (o *JobsJobJobSpecJobData) GetClusterid() int32 {
 // GetClusteridOk returns a tuple with the Clusterid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetClusteridOk() (*int32, bool) {
-	if o == nil || o.Clusterid == nil {
-		return nil, false
+	if o == nil || isNil(o.Clusterid) {
+    return nil, false
 	}
 	return o.Clusterid, true
 }
 
 // HasClusterid returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasClusterid() bool {
-	if o != nil && o.Clusterid != nil {
+	if o != nil && !isNil(o.Clusterid) {
 		return true
 	}
 
@@ -527,7 +527,7 @@ func (o *JobsJobJobSpecJobData) SetClusterid(v int32) {
 
 // GetClusterType returns the ClusterType field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetClusterType() string {
-	if o == nil || o.ClusterType == nil {
+	if o == nil || isNil(o.ClusterType) {
 		var ret string
 		return ret
 	}
@@ -537,15 +537,15 @@ func (o *JobsJobJobSpecJobData) GetClusterType() string {
 // GetClusterTypeOk returns a tuple with the ClusterType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetClusterTypeOk() (*string, bool) {
-	if o == nil || o.ClusterType == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterType) {
+    return nil, false
 	}
 	return o.ClusterType, true
 }
 
 // HasClusterType returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasClusterType() bool {
-	if o != nil && o.ClusterType != nil {
+	if o != nil && !isNil(o.ClusterType) {
 		return true
 	}
 
@@ -559,7 +559,7 @@ func (o *JobsJobJobSpecJobData) SetClusterType(v string) {
 
 // GetCompanyId returns the CompanyId field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetCompanyId() string {
-	if o == nil || o.CompanyId == nil {
+	if o == nil || isNil(o.CompanyId) {
 		var ret string
 		return ret
 	}
@@ -569,15 +569,15 @@ func (o *JobsJobJobSpecJobData) GetCompanyId() string {
 // GetCompanyIdOk returns a tuple with the CompanyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetCompanyIdOk() (*string, bool) {
-	if o == nil || o.CompanyId == nil {
-		return nil, false
+	if o == nil || isNil(o.CompanyId) {
+    return nil, false
 	}
 	return o.CompanyId, true
 }
 
 // HasCompanyId returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasCompanyId() bool {
-	if o != nil && o.CompanyId != nil {
+	if o != nil && !isNil(o.CompanyId) {
 		return true
 	}
 
@@ -591,7 +591,7 @@ func (o *JobsJobJobSpecJobData) SetCompanyId(v string) {
 
 // GetConfigTemplate returns the ConfigTemplate field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetConfigTemplate() string {
-	if o == nil || o.ConfigTemplate == nil {
+	if o == nil || isNil(o.ConfigTemplate) {
 		var ret string
 		return ret
 	}
@@ -601,15 +601,15 @@ func (o *JobsJobJobSpecJobData) GetConfigTemplate() string {
 // GetConfigTemplateOk returns a tuple with the ConfigTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetConfigTemplateOk() (*string, bool) {
-	if o == nil || o.ConfigTemplate == nil {
-		return nil, false
+	if o == nil || isNil(o.ConfigTemplate) {
+    return nil, false
 	}
 	return o.ConfigTemplate, true
 }
 
 // HasConfigTemplate returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasConfigTemplate() bool {
-	if o != nil && o.ConfigTemplate != nil {
+	if o != nil && !isNil(o.ConfigTemplate) {
 		return true
 	}
 
@@ -623,7 +623,7 @@ func (o *JobsJobJobSpecJobData) SetConfigTemplate(v string) {
 
 // GetBackupFailover returns the BackupFailover field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupFailover() bool {
-	if o == nil || o.BackupFailover == nil {
+	if o == nil || isNil(o.BackupFailover) {
 		var ret bool
 		return ret
 	}
@@ -633,15 +633,15 @@ func (o *JobsJobJobSpecJobData) GetBackupFailover() bool {
 // GetBackupFailoverOk returns a tuple with the BackupFailover field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupFailoverOk() (*bool, bool) {
-	if o == nil || o.BackupFailover == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupFailover) {
+    return nil, false
 	}
 	return o.BackupFailover, true
 }
 
 // HasBackupFailover returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupFailover() bool {
-	if o != nil && o.BackupFailover != nil {
+	if o != nil && !isNil(o.BackupFailover) {
 		return true
 	}
 
@@ -655,7 +655,7 @@ func (o *JobsJobJobSpecJobData) SetBackupFailover(v bool) {
 
 // GetBackupFailoverHost returns the BackupFailoverHost field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupFailoverHost() string {
-	if o == nil || o.BackupFailoverHost == nil {
+	if o == nil || isNil(o.BackupFailoverHost) {
 		var ret string
 		return ret
 	}
@@ -665,15 +665,15 @@ func (o *JobsJobJobSpecJobData) GetBackupFailoverHost() string {
 // GetBackupFailoverHostOk returns a tuple with the BackupFailoverHost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupFailoverHostOk() (*string, bool) {
-	if o == nil || o.BackupFailoverHost == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupFailoverHost) {
+    return nil, false
 	}
 	return o.BackupFailoverHost, true
 }
 
 // HasBackupFailoverHost returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupFailoverHost() bool {
-	if o != nil && o.BackupFailoverHost != nil {
+	if o != nil && !isNil(o.BackupFailoverHost) {
 		return true
 	}
 
@@ -687,7 +687,7 @@ func (o *JobsJobJobSpecJobData) SetBackupFailoverHost(v string) {
 
 // GetBackupMethod returns the BackupMethod field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupMethod() string {
-	if o == nil || o.BackupMethod == nil {
+	if o == nil || isNil(o.BackupMethod) {
 		var ret string
 		return ret
 	}
@@ -697,15 +697,15 @@ func (o *JobsJobJobSpecJobData) GetBackupMethod() string {
 // GetBackupMethodOk returns a tuple with the BackupMethod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupMethodOk() (*string, bool) {
-	if o == nil || o.BackupMethod == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupMethod) {
+    return nil, false
 	}
 	return o.BackupMethod, true
 }
 
 // HasBackupMethod returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupMethod() bool {
-	if o != nil && o.BackupMethod != nil {
+	if o != nil && !isNil(o.BackupMethod) {
 		return true
 	}
 
@@ -719,7 +719,7 @@ func (o *JobsJobJobSpecJobData) SetBackupMethod(v string) {
 
 // GetBackupMysqldumpType returns the BackupMysqldumpType field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupMysqldumpType() string {
-	if o == nil || o.BackupMysqldumpType == nil {
+	if o == nil || isNil(o.BackupMysqldumpType) {
 		var ret string
 		return ret
 	}
@@ -729,15 +729,15 @@ func (o *JobsJobJobSpecJobData) GetBackupMysqldumpType() string {
 // GetBackupMysqldumpTypeOk returns a tuple with the BackupMysqldumpType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupMysqldumpTypeOk() (*string, bool) {
-	if o == nil || o.BackupMysqldumpType == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupMysqldumpType) {
+    return nil, false
 	}
 	return o.BackupMysqldumpType, true
 }
 
 // HasBackupMysqldumpType returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupMysqldumpType() bool {
-	if o != nil && o.BackupMysqldumpType != nil {
+	if o != nil && !isNil(o.BackupMysqldumpType) {
 		return true
 	}
 
@@ -751,7 +751,7 @@ func (o *JobsJobJobSpecJobData) SetBackupMysqldumpType(v string) {
 
 // GetBackupIndividualSchemas returns the BackupIndividualSchemas field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupIndividualSchemas() bool {
-	if o == nil || o.BackupIndividualSchemas == nil {
+	if o == nil || isNil(o.BackupIndividualSchemas) {
 		var ret bool
 		return ret
 	}
@@ -761,15 +761,15 @@ func (o *JobsJobJobSpecJobData) GetBackupIndividualSchemas() bool {
 // GetBackupIndividualSchemasOk returns a tuple with the BackupIndividualSchemas field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupIndividualSchemasOk() (*bool, bool) {
-	if o == nil || o.BackupIndividualSchemas == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupIndividualSchemas) {
+    return nil, false
 	}
 	return o.BackupIndividualSchemas, true
 }
 
 // HasBackupIndividualSchemas returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupIndividualSchemas() bool {
-	if o != nil && o.BackupIndividualSchemas != nil {
+	if o != nil && !isNil(o.BackupIndividualSchemas) {
 		return true
 	}
 
@@ -783,7 +783,7 @@ func (o *JobsJobJobSpecJobData) SetBackupIndividualSchemas(v bool) {
 
 // GetBackupRetention returns the BackupRetention field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupRetention() int32 {
-	if o == nil || o.BackupRetention == nil {
+	if o == nil || isNil(o.BackupRetention) {
 		var ret int32
 		return ret
 	}
@@ -793,15 +793,15 @@ func (o *JobsJobJobSpecJobData) GetBackupRetention() int32 {
 // GetBackupRetentionOk returns a tuple with the BackupRetention field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupRetentionOk() (*int32, bool) {
-	if o == nil || o.BackupRetention == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupRetention) {
+    return nil, false
 	}
 	return o.BackupRetention, true
 }
 
 // HasBackupRetention returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupRetention() bool {
-	if o != nil && o.BackupRetention != nil {
+	if o != nil && !isNil(o.BackupRetention) {
 		return true
 	}
 
@@ -815,7 +815,7 @@ func (o *JobsJobJobSpecJobData) SetBackupRetention(v int32) {
 
 // GetExtendedInsert returns the ExtendedInsert field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetExtendedInsert() bool {
-	if o == nil || o.ExtendedInsert == nil {
+	if o == nil || isNil(o.ExtendedInsert) {
 		var ret bool
 		return ret
 	}
@@ -825,15 +825,15 @@ func (o *JobsJobJobSpecJobData) GetExtendedInsert() bool {
 // GetExtendedInsertOk returns a tuple with the ExtendedInsert field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetExtendedInsertOk() (*bool, bool) {
-	if o == nil || o.ExtendedInsert == nil {
-		return nil, false
+	if o == nil || isNil(o.ExtendedInsert) {
+    return nil, false
 	}
 	return o.ExtendedInsert, true
 }
 
 // HasExtendedInsert returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasExtendedInsert() bool {
-	if o != nil && o.ExtendedInsert != nil {
+	if o != nil && !isNil(o.ExtendedInsert) {
 		return true
 	}
 
@@ -847,7 +847,7 @@ func (o *JobsJobJobSpecJobData) SetExtendedInsert(v bool) {
 
 // GetBackupDir returns the BackupDir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupDir() string {
-	if o == nil || o.BackupDir == nil {
+	if o == nil || isNil(o.BackupDir) {
 		var ret string
 		return ret
 	}
@@ -857,15 +857,15 @@ func (o *JobsJobJobSpecJobData) GetBackupDir() string {
 // GetBackupDirOk returns a tuple with the BackupDir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupDirOk() (*string, bool) {
-	if o == nil || o.BackupDir == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupDir) {
+    return nil, false
 	}
 	return o.BackupDir, true
 }
 
 // HasBackupDir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupDir() bool {
-	if o != nil && o.BackupDir != nil {
+	if o != nil && !isNil(o.BackupDir) {
 		return true
 	}
 
@@ -879,7 +879,7 @@ func (o *JobsJobJobSpecJobData) SetBackupDir(v string) {
 
 // GetBackupsubdir returns the Backupsubdir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBackupsubdir() string {
-	if o == nil || o.Backupsubdir == nil {
+	if o == nil || isNil(o.Backupsubdir) {
 		var ret string
 		return ret
 	}
@@ -889,15 +889,15 @@ func (o *JobsJobJobSpecJobData) GetBackupsubdir() string {
 // GetBackupsubdirOk returns a tuple with the Backupsubdir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBackupsubdirOk() (*string, bool) {
-	if o == nil || o.Backupsubdir == nil {
-		return nil, false
+	if o == nil || isNil(o.Backupsubdir) {
+    return nil, false
 	}
 	return o.Backupsubdir, true
 }
 
 // HasBackupsubdir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBackupsubdir() bool {
-	if o != nil && o.Backupsubdir != nil {
+	if o != nil && !isNil(o.Backupsubdir) {
 		return true
 	}
 
@@ -911,7 +911,7 @@ func (o *JobsJobJobSpecJobData) SetBackupsubdir(v string) {
 
 // GetCcStorage returns the CcStorage field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetCcStorage() string {
-	if o == nil || o.CcStorage == nil {
+	if o == nil || isNil(o.CcStorage) {
 		var ret string
 		return ret
 	}
@@ -921,15 +921,15 @@ func (o *JobsJobJobSpecJobData) GetCcStorage() string {
 // GetCcStorageOk returns a tuple with the CcStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetCcStorageOk() (*string, bool) {
-	if o == nil || o.CcStorage == nil {
-		return nil, false
+	if o == nil || isNil(o.CcStorage) {
+    return nil, false
 	}
 	return o.CcStorage, true
 }
 
 // HasCcStorage returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasCcStorage() bool {
-	if o != nil && o.CcStorage != nil {
+	if o != nil && !isNil(o.CcStorage) {
 		return true
 	}
 
@@ -943,7 +943,7 @@ func (o *JobsJobJobSpecJobData) SetCcStorage(v string) {
 
 // GetCompression returns the Compression field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetCompression() bool {
-	if o == nil || o.Compression == nil {
+	if o == nil || isNil(o.Compression) {
 		var ret bool
 		return ret
 	}
@@ -953,15 +953,15 @@ func (o *JobsJobJobSpecJobData) GetCompression() bool {
 // GetCompressionOk returns a tuple with the Compression field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetCompressionOk() (*bool, bool) {
-	if o == nil || o.Compression == nil {
-		return nil, false
+	if o == nil || isNil(o.Compression) {
+    return nil, false
 	}
 	return o.Compression, true
 }
 
 // HasCompression returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasCompression() bool {
-	if o != nil && o.Compression != nil {
+	if o != nil && !isNil(o.Compression) {
 		return true
 	}
 
@@ -975,7 +975,7 @@ func (o *JobsJobJobSpecJobData) SetCompression(v bool) {
 
 // GetCompressionLevel returns the CompressionLevel field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetCompressionLevel() int32 {
-	if o == nil || o.CompressionLevel == nil {
+	if o == nil || isNil(o.CompressionLevel) {
 		var ret int32
 		return ret
 	}
@@ -985,15 +985,15 @@ func (o *JobsJobJobSpecJobData) GetCompressionLevel() int32 {
 // GetCompressionLevelOk returns a tuple with the CompressionLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetCompressionLevelOk() (*int32, bool) {
-	if o == nil || o.CompressionLevel == nil {
-		return nil, false
+	if o == nil || isNil(o.CompressionLevel) {
+    return nil, false
 	}
 	return o.CompressionLevel, true
 }
 
 // HasCompressionLevel returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasCompressionLevel() bool {
-	if o != nil && o.CompressionLevel != nil {
+	if o != nil && !isNil(o.CompressionLevel) {
 		return true
 	}
 
@@ -1007,7 +1007,7 @@ func (o *JobsJobJobSpecJobData) SetCompressionLevel(v int32) {
 
 // GetDbDatabase returns the DbDatabase field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDbDatabase() string {
-	if o == nil || o.DbDatabase == nil {
+	if o == nil || isNil(o.DbDatabase) {
 		var ret string
 		return ret
 	}
@@ -1017,15 +1017,15 @@ func (o *JobsJobJobSpecJobData) GetDbDatabase() string {
 // GetDbDatabaseOk returns a tuple with the DbDatabase field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDbDatabaseOk() (*string, bool) {
-	if o == nil || o.DbDatabase == nil {
-		return nil, false
+	if o == nil || isNil(o.DbDatabase) {
+    return nil, false
 	}
 	return o.DbDatabase, true
 }
 
 // HasDbDatabase returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDbDatabase() bool {
-	if o != nil && o.DbDatabase != nil {
+	if o != nil && !isNil(o.DbDatabase) {
 		return true
 	}
 
@@ -1039,7 +1039,7 @@ func (o *JobsJobJobSpecJobData) SetDbDatabase(v string) {
 
 // GetDbPassword returns the DbPassword field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDbPassword() string {
-	if o == nil || o.DbPassword == nil {
+	if o == nil || isNil(o.DbPassword) {
 		var ret string
 		return ret
 	}
@@ -1049,15 +1049,15 @@ func (o *JobsJobJobSpecJobData) GetDbPassword() string {
 // GetDbPasswordOk returns a tuple with the DbPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDbPasswordOk() (*string, bool) {
-	if o == nil || o.DbPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.DbPassword) {
+    return nil, false
 	}
 	return o.DbPassword, true
 }
 
 // HasDbPassword returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDbPassword() bool {
-	if o != nil && o.DbPassword != nil {
+	if o != nil && !isNil(o.DbPassword) {
 		return true
 	}
 
@@ -1071,7 +1071,7 @@ func (o *JobsJobJobSpecJobData) SetDbPassword(v string) {
 
 // GetDbPrivs returns the DbPrivs field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDbPrivs() string {
-	if o == nil || o.DbPrivs == nil {
+	if o == nil || isNil(o.DbPrivs) {
 		var ret string
 		return ret
 	}
@@ -1081,15 +1081,15 @@ func (o *JobsJobJobSpecJobData) GetDbPrivs() string {
 // GetDbPrivsOk returns a tuple with the DbPrivs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDbPrivsOk() (*string, bool) {
-	if o == nil || o.DbPrivs == nil {
-		return nil, false
+	if o == nil || isNil(o.DbPrivs) {
+    return nil, false
 	}
 	return o.DbPrivs, true
 }
 
 // HasDbPrivs returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDbPrivs() bool {
-	if o != nil && o.DbPrivs != nil {
+	if o != nil && !isNil(o.DbPrivs) {
 		return true
 	}
 
@@ -1103,7 +1103,7 @@ func (o *JobsJobJobSpecJobData) SetDbPrivs(v string) {
 
 // GetDbUsername returns the DbUsername field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDbUsername() string {
-	if o == nil || o.DbUsername == nil {
+	if o == nil || isNil(o.DbUsername) {
 		var ret string
 		return ret
 	}
@@ -1113,15 +1113,15 @@ func (o *JobsJobJobSpecJobData) GetDbUsername() string {
 // GetDbUsernameOk returns a tuple with the DbUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDbUsernameOk() (*string, bool) {
-	if o == nil || o.DbUsername == nil {
-		return nil, false
+	if o == nil || isNil(o.DbUsername) {
+    return nil, false
 	}
 	return o.DbUsername, true
 }
 
 // HasDbUsername returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDbUsername() bool {
-	if o != nil && o.DbUsername != nil {
+	if o != nil && !isNil(o.DbUsername) {
 		return true
 	}
 
@@ -1135,7 +1135,7 @@ func (o *JobsJobJobSpecJobData) SetDbUsername(v string) {
 
 // GetDataCenter returns the DataCenter field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDataCenter() int32 {
-	if o == nil || o.DataCenter == nil {
+	if o == nil || isNil(o.DataCenter) {
 		var ret int32
 		return ret
 	}
@@ -1145,15 +1145,15 @@ func (o *JobsJobJobSpecJobData) GetDataCenter() int32 {
 // GetDataCenterOk returns a tuple with the DataCenter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDataCenterOk() (*int32, bool) {
-	if o == nil || o.DataCenter == nil {
-		return nil, false
+	if o == nil || isNil(o.DataCenter) {
+    return nil, false
 	}
 	return o.DataCenter, true
 }
 
 // HasDataCenter returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDataCenter() bool {
-	if o != nil && o.DataCenter != nil {
+	if o != nil && !isNil(o.DataCenter) {
 		return true
 	}
 
@@ -1167,7 +1167,7 @@ func (o *JobsJobJobSpecJobData) SetDataCenter(v int32) {
 
 // GetExecUpgradeScript returns the ExecUpgradeScript field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetExecUpgradeScript() bool {
-	if o == nil || o.ExecUpgradeScript == nil {
+	if o == nil || isNil(o.ExecUpgradeScript) {
 		var ret bool
 		return ret
 	}
@@ -1177,15 +1177,15 @@ func (o *JobsJobJobSpecJobData) GetExecUpgradeScript() bool {
 // GetExecUpgradeScriptOk returns a tuple with the ExecUpgradeScript field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetExecUpgradeScriptOk() (*bool, bool) {
-	if o == nil || o.ExecUpgradeScript == nil {
-		return nil, false
+	if o == nil || isNil(o.ExecUpgradeScript) {
+    return nil, false
 	}
 	return o.ExecUpgradeScript, true
 }
 
 // HasExecUpgradeScript returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasExecUpgradeScript() bool {
-	if o != nil && o.ExecUpgradeScript != nil {
+	if o != nil && !isNil(o.ExecUpgradeScript) {
 		return true
 	}
 
@@ -1199,7 +1199,7 @@ func (o *JobsJobJobSpecJobData) SetExecUpgradeScript(v bool) {
 
 // GetExtended returns the Extended field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetExtended() bool {
-	if o == nil || o.Extended == nil {
+	if o == nil || isNil(o.Extended) {
 		var ret bool
 		return ret
 	}
@@ -1209,15 +1209,15 @@ func (o *JobsJobJobSpecJobData) GetExtended() bool {
 // GetExtendedOk returns a tuple with the Extended field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetExtendedOk() (*bool, bool) {
-	if o == nil || o.Extended == nil {
-		return nil, false
+	if o == nil || isNil(o.Extended) {
+    return nil, false
 	}
 	return o.Extended, true
 }
 
 // HasExtended returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasExtended() bool {
-	if o != nil && o.Extended != nil {
+	if o != nil && !isNil(o.Extended) {
 		return true
 	}
 
@@ -1231,7 +1231,7 @@ func (o *JobsJobJobSpecJobData) SetExtended(v bool) {
 
 // GetListeningPort returns the ListeningPort field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetListeningPort() int32 {
-	if o == nil || o.ListeningPort == nil {
+	if o == nil || isNil(o.ListeningPort) {
 		var ret int32
 		return ret
 	}
@@ -1241,15 +1241,15 @@ func (o *JobsJobJobSpecJobData) GetListeningPort() int32 {
 // GetListeningPortOk returns a tuple with the ListeningPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetListeningPortOk() (*int32, bool) {
-	if o == nil || o.ListeningPort == nil {
-		return nil, false
+	if o == nil || isNil(o.ListeningPort) {
+    return nil, false
 	}
 	return o.ListeningPort, true
 }
 
 // HasListeningPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasListeningPort() bool {
-	if o != nil && o.ListeningPort != nil {
+	if o != nil && !isNil(o.ListeningPort) {
 		return true
 	}
 
@@ -1263,7 +1263,7 @@ func (o *JobsJobJobSpecJobData) SetListeningPort(v int32) {
 
 // GetMaskPasswords returns the MaskPasswords field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMaskPasswords() bool {
-	if o == nil || o.MaskPasswords == nil {
+	if o == nil || isNil(o.MaskPasswords) {
 		var ret bool
 		return ret
 	}
@@ -1273,15 +1273,15 @@ func (o *JobsJobJobSpecJobData) GetMaskPasswords() bool {
 // GetMaskPasswordsOk returns a tuple with the MaskPasswords field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMaskPasswordsOk() (*bool, bool) {
-	if o == nil || o.MaskPasswords == nil {
-		return nil, false
+	if o == nil || isNil(o.MaskPasswords) {
+    return nil, false
 	}
 	return o.MaskPasswords, true
 }
 
 // HasMaskPasswords returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMaskPasswords() bool {
-	if o != nil && o.MaskPasswords != nil {
+	if o != nil && !isNil(o.MaskPasswords) {
 		return true
 	}
 
@@ -1295,7 +1295,7 @@ func (o *JobsJobJobSpecJobData) SetMaskPasswords(v bool) {
 
 // GetMonitorPassword returns the MonitorPassword field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMonitorPassword() string {
-	if o == nil || o.MonitorPassword == nil {
+	if o == nil || isNil(o.MonitorPassword) {
 		var ret string
 		return ret
 	}
@@ -1305,15 +1305,15 @@ func (o *JobsJobJobSpecJobData) GetMonitorPassword() string {
 // GetMonitorPasswordOk returns a tuple with the MonitorPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMonitorPasswordOk() (*string, bool) {
-	if o == nil || o.MonitorPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.MonitorPassword) {
+    return nil, false
 	}
 	return o.MonitorPassword, true
 }
 
 // HasMonitorPassword returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMonitorPassword() bool {
-	if o != nil && o.MonitorPassword != nil {
+	if o != nil && !isNil(o.MonitorPassword) {
 		return true
 	}
 
@@ -1327,7 +1327,7 @@ func (o *JobsJobJobSpecJobData) SetMonitorPassword(v string) {
 
 // GetMonitorUser returns the MonitorUser field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMonitorUser() string {
-	if o == nil || o.MonitorUser == nil {
+	if o == nil || isNil(o.MonitorUser) {
 		var ret string
 		return ret
 	}
@@ -1337,15 +1337,15 @@ func (o *JobsJobJobSpecJobData) GetMonitorUser() string {
 // GetMonitorUserOk returns a tuple with the MonitorUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMonitorUserOk() (*string, bool) {
-	if o == nil || o.MonitorUser == nil {
-		return nil, false
+	if o == nil || isNil(o.MonitorUser) {
+    return nil, false
 	}
 	return o.MonitorUser, true
 }
 
 // HasMonitorUser returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMonitorUser() bool {
-	if o != nil && o.MonitorUser != nil {
+	if o != nil && !isNil(o.MonitorUser) {
 		return true
 	}
 
@@ -1359,7 +1359,7 @@ func (o *JobsJobJobSpecJobData) SetMonitorUser(v string) {
 
 // GetUseClustering returns the UseClustering field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUseClustering() bool {
-	if o == nil || o.UseClustering == nil {
+	if o == nil || isNil(o.UseClustering) {
 		var ret bool
 		return ret
 	}
@@ -1369,15 +1369,15 @@ func (o *JobsJobJobSpecJobData) GetUseClustering() bool {
 // GetUseClusteringOk returns a tuple with the UseClustering field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUseClusteringOk() (*bool, bool) {
-	if o == nil || o.UseClustering == nil {
-		return nil, false
+	if o == nil || isNil(o.UseClustering) {
+    return nil, false
 	}
 	return o.UseClustering, true
 }
 
 // HasUseClustering returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUseClustering() bool {
-	if o != nil && o.UseClustering != nil {
+	if o != nil && !isNil(o.UseClustering) {
 		return true
 	}
 
@@ -1391,7 +1391,7 @@ func (o *JobsJobJobSpecJobData) SetUseClustering(v bool) {
 
 // GetUseRwSplit returns the UseRwSplit field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUseRwSplit() bool {
-	if o == nil || o.UseRwSplit == nil {
+	if o == nil || isNil(o.UseRwSplit) {
 		var ret bool
 		return ret
 	}
@@ -1401,15 +1401,15 @@ func (o *JobsJobJobSpecJobData) GetUseRwSplit() bool {
 // GetUseRwSplitOk returns a tuple with the UseRwSplit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUseRwSplitOk() (*bool, bool) {
-	if o == nil || o.UseRwSplit == nil {
-		return nil, false
+	if o == nil || isNil(o.UseRwSplit) {
+    return nil, false
 	}
 	return o.UseRwSplit, true
 }
 
 // HasUseRwSplit returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUseRwSplit() bool {
-	if o != nil && o.UseRwSplit != nil {
+	if o != nil && !isNil(o.UseRwSplit) {
 		return true
 	}
 
@@ -1423,7 +1423,7 @@ func (o *JobsJobJobSpecJobData) SetUseRwSplit(v bool) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -1433,15 +1433,15 @@ func (o *JobsJobJobSpecJobData) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -1455,7 +1455,7 @@ func (o *JobsJobJobSpecJobData) SetHostname(v string) {
 
 // GetMasterAddress returns the MasterAddress field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMasterAddress() string {
-	if o == nil || o.MasterAddress == nil {
+	if o == nil || isNil(o.MasterAddress) {
 		var ret string
 		return ret
 	}
@@ -1465,15 +1465,15 @@ func (o *JobsJobJobSpecJobData) GetMasterAddress() string {
 // GetMasterAddressOk returns a tuple with the MasterAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMasterAddressOk() (*string, bool) {
-	if o == nil || o.MasterAddress == nil {
-		return nil, false
+	if o == nil || isNil(o.MasterAddress) {
+    return nil, false
 	}
 	return o.MasterAddress, true
 }
 
 // HasMasterAddress returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMasterAddress() bool {
-	if o != nil && o.MasterAddress != nil {
+	if o != nil && !isNil(o.MasterAddress) {
 		return true
 	}
 
@@ -1487,7 +1487,7 @@ func (o *JobsJobJobSpecJobData) SetMasterAddress(v string) {
 
 // GetIncludeDatabases returns the IncludeDatabases field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetIncludeDatabases() string {
-	if o == nil || o.IncludeDatabases == nil {
+	if o == nil || isNil(o.IncludeDatabases) {
 		var ret string
 		return ret
 	}
@@ -1497,15 +1497,15 @@ func (o *JobsJobJobSpecJobData) GetIncludeDatabases() string {
 // GetIncludeDatabasesOk returns a tuple with the IncludeDatabases field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetIncludeDatabasesOk() (*string, bool) {
-	if o == nil || o.IncludeDatabases == nil {
-		return nil, false
+	if o == nil || isNil(o.IncludeDatabases) {
+    return nil, false
 	}
 	return o.IncludeDatabases, true
 }
 
 // HasIncludeDatabases returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasIncludeDatabases() bool {
-	if o != nil && o.IncludeDatabases != nil {
+	if o != nil && !isNil(o.IncludeDatabases) {
 		return true
 	}
 
@@ -1519,7 +1519,7 @@ func (o *JobsJobJobSpecJobData) SetIncludeDatabases(v string) {
 
 // GetInstallTimescaledb returns the InstallTimescaledb field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetInstallTimescaledb() bool {
-	if o == nil || o.InstallTimescaledb == nil {
+	if o == nil || isNil(o.InstallTimescaledb) {
 		var ret bool
 		return ret
 	}
@@ -1529,15 +1529,15 @@ func (o *JobsJobJobSpecJobData) GetInstallTimescaledb() bool {
 // GetInstallTimescaledbOk returns a tuple with the InstallTimescaledb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetInstallTimescaledbOk() (*bool, bool) {
-	if o == nil || o.InstallTimescaledb == nil {
-		return nil, false
+	if o == nil || isNil(o.InstallTimescaledb) {
+    return nil, false
 	}
 	return o.InstallTimescaledb, true
 }
 
 // HasInstallTimescaledb returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasInstallTimescaledb() bool {
-	if o != nil && o.InstallTimescaledb != nil {
+	if o != nil && !isNil(o.InstallTimescaledb) {
 		return true
 	}
 
@@ -1551,7 +1551,7 @@ func (o *JobsJobJobSpecJobData) SetInstallTimescaledb(v bool) {
 
 // GetUpdateLb returns the UpdateLb field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUpdateLb() bool {
-	if o == nil || o.UpdateLb == nil {
+	if o == nil || isNil(o.UpdateLb) {
 		var ret bool
 		return ret
 	}
@@ -1561,15 +1561,15 @@ func (o *JobsJobJobSpecJobData) GetUpdateLb() bool {
 // GetUpdateLbOk returns a tuple with the UpdateLb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUpdateLbOk() (*bool, bool) {
-	if o == nil || o.UpdateLb == nil {
-		return nil, false
+	if o == nil || isNil(o.UpdateLb) {
+    return nil, false
 	}
 	return o.UpdateLb, true
 }
 
 // HasUpdateLb returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUpdateLb() bool {
-	if o != nil && o.UpdateLb != nil {
+	if o != nil && !isNil(o.UpdateLb) {
 		return true
 	}
 
@@ -1583,7 +1583,7 @@ func (o *JobsJobJobSpecJobData) SetUpdateLb(v bool) {
 
 // GetUsePackageForDataDir returns the UsePackageForDataDir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUsePackageForDataDir() bool {
-	if o == nil || o.UsePackageForDataDir == nil {
+	if o == nil || isNil(o.UsePackageForDataDir) {
 		var ret bool
 		return ret
 	}
@@ -1593,15 +1593,15 @@ func (o *JobsJobJobSpecJobData) GetUsePackageForDataDir() bool {
 // GetUsePackageForDataDirOk returns a tuple with the UsePackageForDataDir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUsePackageForDataDirOk() (*bool, bool) {
-	if o == nil || o.UsePackageForDataDir == nil {
-		return nil, false
+	if o == nil || isNil(o.UsePackageForDataDir) {
+    return nil, false
 	}
 	return o.UsePackageForDataDir, true
 }
 
 // HasUsePackageForDataDir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUsePackageForDataDir() bool {
-	if o != nil && o.UsePackageForDataDir != nil {
+	if o != nil && !isNil(o.UsePackageForDataDir) {
 		return true
 	}
 
@@ -1615,7 +1615,7 @@ func (o *JobsJobJobSpecJobData) SetUsePackageForDataDir(v bool) {
 
 // GetEncryptBackup returns the EncryptBackup field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetEncryptBackup() bool {
-	if o == nil || o.EncryptBackup == nil {
+	if o == nil || isNil(o.EncryptBackup) {
 		var ret bool
 		return ret
 	}
@@ -1625,15 +1625,15 @@ func (o *JobsJobJobSpecJobData) GetEncryptBackup() bool {
 // GetEncryptBackupOk returns a tuple with the EncryptBackup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetEncryptBackupOk() (*bool, bool) {
-	if o == nil || o.EncryptBackup == nil {
-		return nil, false
+	if o == nil || isNil(o.EncryptBackup) {
+    return nil, false
 	}
 	return o.EncryptBackup, true
 }
 
 // HasEncryptBackup returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasEncryptBackup() bool {
-	if o != nil && o.EncryptBackup != nil {
+	if o != nil && !isNil(o.EncryptBackup) {
 		return true
 	}
 
@@ -1647,7 +1647,7 @@ func (o *JobsJobJobSpecJobData) SetEncryptBackup(v bool) {
 
 // GetThrottleRateNetbw returns the ThrottleRateNetbw field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetThrottleRateNetbw() int32 {
-	if o == nil || o.ThrottleRateNetbw == nil {
+	if o == nil || isNil(o.ThrottleRateNetbw) {
 		var ret int32
 		return ret
 	}
@@ -1657,15 +1657,15 @@ func (o *JobsJobJobSpecJobData) GetThrottleRateNetbw() int32 {
 // GetThrottleRateNetbwOk returns a tuple with the ThrottleRateNetbw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetThrottleRateNetbwOk() (*int32, bool) {
-	if o == nil || o.ThrottleRateNetbw == nil {
-		return nil, false
+	if o == nil || isNil(o.ThrottleRateNetbw) {
+    return nil, false
 	}
 	return o.ThrottleRateNetbw, true
 }
 
 // HasThrottleRateNetbw returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasThrottleRateNetbw() bool {
-	if o != nil && o.ThrottleRateNetbw != nil {
+	if o != nil && !isNil(o.ThrottleRateNetbw) {
 		return true
 	}
 
@@ -1679,7 +1679,7 @@ func (o *JobsJobJobSpecJobData) SetThrottleRateNetbw(v int32) {
 
 // GetUsePigz returns the UsePigz field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUsePigz() bool {
-	if o == nil || o.UsePigz == nil {
+	if o == nil || isNil(o.UsePigz) {
 		var ret bool
 		return ret
 	}
@@ -1689,15 +1689,15 @@ func (o *JobsJobJobSpecJobData) GetUsePigz() bool {
 // GetUsePigzOk returns a tuple with the UsePigz field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUsePigzOk() (*bool, bool) {
-	if o == nil || o.UsePigz == nil {
-		return nil, false
+	if o == nil || isNil(o.UsePigz) {
+    return nil, false
 	}
 	return o.UsePigz, true
 }
 
 // HasUsePigz returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUsePigz() bool {
-	if o != nil && o.UsePigz != nil {
+	if o != nil && !isNil(o.UsePigz) {
 		return true
 	}
 
@@ -1711,7 +1711,7 @@ func (o *JobsJobJobSpecJobData) SetUsePigz(v bool) {
 
 // GetUseQpress returns the UseQpress field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUseQpress() bool {
-	if o == nil || o.UseQpress == nil {
+	if o == nil || isNil(o.UseQpress) {
 		var ret bool
 		return ret
 	}
@@ -1721,15 +1721,15 @@ func (o *JobsJobJobSpecJobData) GetUseQpress() bool {
 // GetUseQpressOk returns a tuple with the UseQpress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUseQpressOk() (*bool, bool) {
-	if o == nil || o.UseQpress == nil {
-		return nil, false
+	if o == nil || isNil(o.UseQpress) {
+    return nil, false
 	}
 	return o.UseQpress, true
 }
 
 // HasUseQpress returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUseQpress() bool {
-	if o != nil && o.UseQpress != nil {
+	if o != nil && !isNil(o.UseQpress) {
 		return true
 	}
 
@@ -1743,7 +1743,7 @@ func (o *JobsJobJobSpecJobData) SetUseQpress(v bool) {
 
 // GetWsrepDesync returns the WsrepDesync field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetWsrepDesync() bool {
-	if o == nil || o.WsrepDesync == nil {
+	if o == nil || isNil(o.WsrepDesync) {
 		var ret bool
 		return ret
 	}
@@ -1753,15 +1753,15 @@ func (o *JobsJobJobSpecJobData) GetWsrepDesync() bool {
 // GetWsrepDesyncOk returns a tuple with the WsrepDesync field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetWsrepDesyncOk() (*bool, bool) {
-	if o == nil || o.WsrepDesync == nil {
-		return nil, false
+	if o == nil || isNil(o.WsrepDesync) {
+    return nil, false
 	}
 	return o.WsrepDesync, true
 }
 
 // HasWsrepDesync returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasWsrepDesync() bool {
-	if o != nil && o.WsrepDesync != nil {
+	if o != nil && !isNil(o.WsrepDesync) {
 		return true
 	}
 
@@ -1775,7 +1775,7 @@ func (o *JobsJobJobSpecJobData) SetWsrepDesync(v bool) {
 
 // GetXtrabackupBackupLocks returns the XtrabackupBackupLocks field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetXtrabackupBackupLocks() bool {
-	if o == nil || o.XtrabackupBackupLocks == nil {
+	if o == nil || isNil(o.XtrabackupBackupLocks) {
 		var ret bool
 		return ret
 	}
@@ -1785,15 +1785,15 @@ func (o *JobsJobJobSpecJobData) GetXtrabackupBackupLocks() bool {
 // GetXtrabackupBackupLocksOk returns a tuple with the XtrabackupBackupLocks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetXtrabackupBackupLocksOk() (*bool, bool) {
-	if o == nil || o.XtrabackupBackupLocks == nil {
-		return nil, false
+	if o == nil || isNil(o.XtrabackupBackupLocks) {
+    return nil, false
 	}
 	return o.XtrabackupBackupLocks, true
 }
 
 // HasXtrabackupBackupLocks returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasXtrabackupBackupLocks() bool {
-	if o != nil && o.XtrabackupBackupLocks != nil {
+	if o != nil && !isNil(o.XtrabackupBackupLocks) {
 		return true
 	}
 
@@ -1807,7 +1807,7 @@ func (o *JobsJobJobSpecJobData) SetXtrabackupBackupLocks(v bool) {
 
 // GetXtrabackupLockDdlPerTable returns the XtrabackupLockDdlPerTable field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetXtrabackupLockDdlPerTable() bool {
-	if o == nil || o.XtrabackupLockDdlPerTable == nil {
+	if o == nil || isNil(o.XtrabackupLockDdlPerTable) {
 		var ret bool
 		return ret
 	}
@@ -1817,15 +1817,15 @@ func (o *JobsJobJobSpecJobData) GetXtrabackupLockDdlPerTable() bool {
 // GetXtrabackupLockDdlPerTableOk returns a tuple with the XtrabackupLockDdlPerTable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetXtrabackupLockDdlPerTableOk() (*bool, bool) {
-	if o == nil || o.XtrabackupLockDdlPerTable == nil {
-		return nil, false
+	if o == nil || isNil(o.XtrabackupLockDdlPerTable) {
+    return nil, false
 	}
 	return o.XtrabackupLockDdlPerTable, true
 }
 
 // HasXtrabackupLockDdlPerTable returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasXtrabackupLockDdlPerTable() bool {
-	if o != nil && o.XtrabackupLockDdlPerTable != nil {
+	if o != nil && !isNil(o.XtrabackupLockDdlPerTable) {
 		return true
 	}
 
@@ -1839,7 +1839,7 @@ func (o *JobsJobJobSpecJobData) SetXtrabackupLockDdlPerTable(v bool) {
 
 // GetXtrabackupParallellism returns the XtrabackupParallellism field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetXtrabackupParallellism() int32 {
-	if o == nil || o.XtrabackupParallellism == nil {
+	if o == nil || isNil(o.XtrabackupParallellism) {
 		var ret int32
 		return ret
 	}
@@ -1849,15 +1849,15 @@ func (o *JobsJobJobSpecJobData) GetXtrabackupParallellism() int32 {
 // GetXtrabackupParallellismOk returns a tuple with the XtrabackupParallellism field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetXtrabackupParallellismOk() (*int32, bool) {
-	if o == nil || o.XtrabackupParallellism == nil {
-		return nil, false
+	if o == nil || isNil(o.XtrabackupParallellism) {
+    return nil, false
 	}
 	return o.XtrabackupParallellism, true
 }
 
 // HasXtrabackupParallellism returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasXtrabackupParallellism() bool {
-	if o != nil && o.XtrabackupParallellism != nil {
+	if o != nil && !isNil(o.XtrabackupParallellism) {
 		return true
 	}
 
@@ -1871,7 +1871,7 @@ func (o *JobsJobJobSpecJobData) SetXtrabackupParallellism(v int32) {
 
 // GetVerifyBackupDelay returns the VerifyBackupDelay field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetVerifyBackupDelay() int32 {
-	if o == nil || o.VerifyBackupDelay == nil {
+	if o == nil || isNil(o.VerifyBackupDelay) {
 		var ret int32
 		return ret
 	}
@@ -1881,15 +1881,15 @@ func (o *JobsJobJobSpecJobData) GetVerifyBackupDelay() int32 {
 // GetVerifyBackupDelayOk returns a tuple with the VerifyBackupDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetVerifyBackupDelayOk() (*int32, bool) {
-	if o == nil || o.VerifyBackupDelay == nil {
-		return nil, false
+	if o == nil || isNil(o.VerifyBackupDelay) {
+    return nil, false
 	}
 	return o.VerifyBackupDelay, true
 }
 
 // HasVerifyBackupDelay returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasVerifyBackupDelay() bool {
-	if o != nil && o.VerifyBackupDelay != nil {
+	if o != nil && !isNil(o.VerifyBackupDelay) {
 		return true
 	}
 
@@ -1903,7 +1903,7 @@ func (o *JobsJobJobSpecJobData) SetVerifyBackupDelay(v int32) {
 
 // GetDataDir returns the DataDir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDataDir() string {
-	if o == nil || o.DataDir == nil {
+	if o == nil || isNil(o.DataDir) {
 		var ret string
 		return ret
 	}
@@ -1913,15 +1913,15 @@ func (o *JobsJobJobSpecJobData) GetDataDir() string {
 // GetDataDirOk returns a tuple with the DataDir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDataDirOk() (*string, bool) {
-	if o == nil || o.DataDir == nil {
-		return nil, false
+	if o == nil || isNil(o.DataDir) {
+    return nil, false
 	}
 	return o.DataDir, true
 }
 
 // HasDataDir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDataDir() bool {
-	if o != nil && o.DataDir != nil {
+	if o != nil && !isNil(o.DataDir) {
 		return true
 	}
 
@@ -1935,7 +1935,7 @@ func (o *JobsJobJobSpecJobData) SetDataDir(v string) {
 
 // GetDbUser returns the DbUser field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDbUser() string {
-	if o == nil || o.DbUser == nil {
+	if o == nil || isNil(o.DbUser) {
 		var ret string
 		return ret
 	}
@@ -1945,15 +1945,15 @@ func (o *JobsJobJobSpecJobData) GetDbUser() string {
 // GetDbUserOk returns a tuple with the DbUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDbUserOk() (*string, bool) {
-	if o == nil || o.DbUser == nil {
-		return nil, false
+	if o == nil || isNil(o.DbUser) {
+    return nil, false
 	}
 	return o.DbUser, true
 }
 
 // HasDbUser returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDbUser() bool {
-	if o != nil && o.DbUser != nil {
+	if o != nil && !isNil(o.DbUser) {
 		return true
 	}
 
@@ -1967,7 +1967,7 @@ func (o *JobsJobJobSpecJobData) SetDbUser(v string) {
 
 // GetDisableFirewall returns the DisableFirewall field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDisableFirewall() bool {
-	if o == nil || o.DisableFirewall == nil {
+	if o == nil || isNil(o.DisableFirewall) {
 		var ret bool
 		return ret
 	}
@@ -1977,15 +1977,15 @@ func (o *JobsJobJobSpecJobData) GetDisableFirewall() bool {
 // GetDisableFirewallOk returns a tuple with the DisableFirewall field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDisableFirewallOk() (*bool, bool) {
-	if o == nil || o.DisableFirewall == nil {
-		return nil, false
+	if o == nil || isNil(o.DisableFirewall) {
+    return nil, false
 	}
 	return o.DisableFirewall, true
 }
 
 // HasDisableFirewall returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDisableFirewall() bool {
-	if o != nil && o.DisableFirewall != nil {
+	if o != nil && !isNil(o.DisableFirewall) {
 		return true
 	}
 
@@ -1999,7 +1999,7 @@ func (o *JobsJobJobSpecJobData) SetDisableFirewall(v bool) {
 
 // GetDisableSelinux returns the DisableSelinux field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDisableSelinux() bool {
-	if o == nil || o.DisableSelinux == nil {
+	if o == nil || isNil(o.DisableSelinux) {
 		var ret bool
 		return ret
 	}
@@ -2009,15 +2009,15 @@ func (o *JobsJobJobSpecJobData) GetDisableSelinux() bool {
 // GetDisableSelinuxOk returns a tuple with the DisableSelinux field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetDisableSelinuxOk() (*bool, bool) {
-	if o == nil || o.DisableSelinux == nil {
-		return nil, false
+	if o == nil || isNil(o.DisableSelinux) {
+    return nil, false
 	}
 	return o.DisableSelinux, true
 }
 
 // HasDisableSelinux returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasDisableSelinux() bool {
-	if o != nil && o.DisableSelinux != nil {
+	if o != nil && !isNil(o.DisableSelinux) {
 		return true
 	}
 
@@ -2031,7 +2031,7 @@ func (o *JobsJobJobSpecJobData) SetDisableSelinux(v bool) {
 
 // GetEnableUninstall returns the EnableUninstall field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetEnableUninstall() bool {
-	if o == nil || o.EnableUninstall == nil {
+	if o == nil || isNil(o.EnableUninstall) {
 		var ret bool
 		return ret
 	}
@@ -2041,15 +2041,15 @@ func (o *JobsJobJobSpecJobData) GetEnableUninstall() bool {
 // GetEnableUninstallOk returns a tuple with the EnableUninstall field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetEnableUninstallOk() (*bool, bool) {
-	if o == nil || o.EnableUninstall == nil {
-		return nil, false
+	if o == nil || isNil(o.EnableUninstall) {
+    return nil, false
 	}
 	return o.EnableUninstall, true
 }
 
 // HasEnableUninstall returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasEnableUninstall() bool {
-	if o != nil && o.EnableUninstall != nil {
+	if o != nil && !isNil(o.EnableUninstall) {
 		return true
 	}
 
@@ -2063,7 +2063,7 @@ func (o *JobsJobJobSpecJobData) SetEnableUninstall(v bool) {
 
 // GetGenerateToken returns the GenerateToken field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetGenerateToken() bool {
-	if o == nil || o.GenerateToken == nil {
+	if o == nil || isNil(o.GenerateToken) {
 		var ret bool
 		return ret
 	}
@@ -2073,15 +2073,15 @@ func (o *JobsJobJobSpecJobData) GetGenerateToken() bool {
 // GetGenerateTokenOk returns a tuple with the GenerateToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetGenerateTokenOk() (*bool, bool) {
-	if o == nil || o.GenerateToken == nil {
-		return nil, false
+	if o == nil || isNil(o.GenerateToken) {
+    return nil, false
 	}
 	return o.GenerateToken, true
 }
 
 // HasGenerateToken returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasGenerateToken() bool {
-	if o != nil && o.GenerateToken != nil {
+	if o != nil && !isNil(o.GenerateToken) {
 		return true
 	}
 
@@ -2095,7 +2095,7 @@ func (o *JobsJobJobSpecJobData) SetGenerateToken(v bool) {
 
 // GetInstallSoftware returns the InstallSoftware field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetInstallSoftware() bool {
-	if o == nil || o.InstallSoftware == nil {
+	if o == nil || isNil(o.InstallSoftware) {
 		var ret bool
 		return ret
 	}
@@ -2105,15 +2105,15 @@ func (o *JobsJobJobSpecJobData) GetInstallSoftware() bool {
 // GetInstallSoftwareOk returns a tuple with the InstallSoftware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetInstallSoftwareOk() (*bool, bool) {
-	if o == nil || o.InstallSoftware == nil {
-		return nil, false
+	if o == nil || isNil(o.InstallSoftware) {
+    return nil, false
 	}
 	return o.InstallSoftware, true
 }
 
 // HasInstallSoftware returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasInstallSoftware() bool {
-	if o != nil && o.InstallSoftware != nil {
+	if o != nil && !isNil(o.InstallSoftware) {
 		return true
 	}
 
@@ -2127,7 +2127,7 @@ func (o *JobsJobJobSpecJobData) SetInstallSoftware(v bool) {
 
 // GetUseInternalRepos returns the UseInternalRepos field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUseInternalRepos() bool {
-	if o == nil || o.UseInternalRepos == nil {
+	if o == nil || isNil(o.UseInternalRepos) {
 		var ret bool
 		return ret
 	}
@@ -2137,15 +2137,15 @@ func (o *JobsJobJobSpecJobData) GetUseInternalRepos() bool {
 // GetUseInternalReposOk returns a tuple with the UseInternalRepos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUseInternalReposOk() (*bool, bool) {
-	if o == nil || o.UseInternalRepos == nil {
-		return nil, false
+	if o == nil || isNil(o.UseInternalRepos) {
+    return nil, false
 	}
 	return o.UseInternalRepos, true
 }
 
 // HasUseInternalRepos returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUseInternalRepos() bool {
-	if o != nil && o.UseInternalRepos != nil {
+	if o != nil && !isNil(o.UseInternalRepos) {
 		return true
 	}
 
@@ -2159,7 +2159,7 @@ func (o *JobsJobJobSpecJobData) SetUseInternalRepos(v bool) {
 
 // GetLocalRepository returns the LocalRepository field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetLocalRepository() string {
-	if o == nil || o.LocalRepository == nil {
+	if o == nil || isNil(o.LocalRepository) {
 		var ret string
 		return ret
 	}
@@ -2169,15 +2169,15 @@ func (o *JobsJobJobSpecJobData) GetLocalRepository() string {
 // GetLocalRepositoryOk returns a tuple with the LocalRepository field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetLocalRepositoryOk() (*string, bool) {
-	if o == nil || o.LocalRepository == nil {
-		return nil, false
+	if o == nil || isNil(o.LocalRepository) {
+    return nil, false
 	}
 	return o.LocalRepository, true
 }
 
 // HasLocalRepository returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasLocalRepository() bool {
-	if o != nil && o.LocalRepository != nil {
+	if o != nil && !isNil(o.LocalRepository) {
 		return true
 	}
 
@@ -2191,7 +2191,7 @@ func (o *JobsJobJobSpecJobData) SetLocalRepository(v string) {
 
 // GetEnableMysqlUninstall returns the EnableMysqlUninstall field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetEnableMysqlUninstall() bool {
-	if o == nil || o.EnableMysqlUninstall == nil {
+	if o == nil || isNil(o.EnableMysqlUninstall) {
 		var ret bool
 		return ret
 	}
@@ -2201,15 +2201,15 @@ func (o *JobsJobJobSpecJobData) GetEnableMysqlUninstall() bool {
 // GetEnableMysqlUninstallOk returns a tuple with the EnableMysqlUninstall field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetEnableMysqlUninstallOk() (*bool, bool) {
-	if o == nil || o.EnableMysqlUninstall == nil {
-		return nil, false
+	if o == nil || isNil(o.EnableMysqlUninstall) {
+    return nil, false
 	}
 	return o.EnableMysqlUninstall, true
 }
 
 // HasEnableMysqlUninstall returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasEnableMysqlUninstall() bool {
-	if o != nil && o.EnableMysqlUninstall != nil {
+	if o != nil && !isNil(o.EnableMysqlUninstall) {
 		return true
 	}
 
@@ -2223,7 +2223,7 @@ func (o *JobsJobJobSpecJobData) SetEnableMysqlUninstall(v bool) {
 
 // GetMysqlSemiSync returns the MysqlSemiSync field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMysqlSemiSync() bool {
-	if o == nil || o.MysqlSemiSync == nil {
+	if o == nil || isNil(o.MysqlSemiSync) {
 		var ret bool
 		return ret
 	}
@@ -2233,15 +2233,15 @@ func (o *JobsJobJobSpecJobData) GetMysqlSemiSync() bool {
 // GetMysqlSemiSyncOk returns a tuple with the MysqlSemiSync field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMysqlSemiSyncOk() (*bool, bool) {
-	if o == nil || o.MysqlSemiSync == nil {
-		return nil, false
+	if o == nil || isNil(o.MysqlSemiSync) {
+    return nil, false
 	}
 	return o.MysqlSemiSync, true
 }
 
 // HasMysqlSemiSync returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMysqlSemiSync() bool {
-	if o != nil && o.MysqlSemiSync != nil {
+	if o != nil && !isNil(o.MysqlSemiSync) {
 		return true
 	}
 
@@ -2255,7 +2255,7 @@ func (o *JobsJobJobSpecJobData) SetMysqlSemiSync(v bool) {
 
 // GetEnableSsl returns the EnableSsl field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetEnableSsl() bool {
-	if o == nil || o.EnableSsl == nil {
+	if o == nil || isNil(o.EnableSsl) {
 		var ret bool
 		return ret
 	}
@@ -2265,15 +2265,15 @@ func (o *JobsJobJobSpecJobData) GetEnableSsl() bool {
 // GetEnableSslOk returns a tuple with the EnableSsl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetEnableSslOk() (*bool, bool) {
-	if o == nil || o.EnableSsl == nil {
-		return nil, false
+	if o == nil || isNil(o.EnableSsl) {
+    return nil, false
 	}
 	return o.EnableSsl, true
 }
 
 // HasEnableSsl returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasEnableSsl() bool {
-	if o != nil && o.EnableSsl != nil {
+	if o != nil && !isNil(o.EnableSsl) {
 		return true
 	}
 
@@ -2287,7 +2287,7 @@ func (o *JobsJobJobSpecJobData) SetEnableSsl(v bool) {
 
 // GetMongosConfTemplate returns the MongosConfTemplate field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMongosConfTemplate() string {
-	if o == nil || o.MongosConfTemplate == nil {
+	if o == nil || isNil(o.MongosConfTemplate) {
 		var ret string
 		return ret
 	}
@@ -2297,15 +2297,15 @@ func (o *JobsJobJobSpecJobData) GetMongosConfTemplate() string {
 // GetMongosConfTemplateOk returns a tuple with the MongosConfTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMongosConfTemplateOk() (*string, bool) {
-	if o == nil || o.MongosConfTemplate == nil {
-		return nil, false
+	if o == nil || isNil(o.MongosConfTemplate) {
+    return nil, false
 	}
 	return o.MongosConfTemplate, true
 }
 
 // HasMongosConfTemplate returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMongosConfTemplate() bool {
-	if o != nil && o.MongosConfTemplate != nil {
+	if o != nil && !isNil(o.MongosConfTemplate) {
 		return true
 	}
 
@@ -2319,7 +2319,7 @@ func (o *JobsJobJobSpecJobData) SetMongosConfTemplate(v string) {
 
 // GetMongodbAuthdb returns the MongodbAuthdb field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMongodbAuthdb() string {
-	if o == nil || o.MongodbAuthdb == nil {
+	if o == nil || isNil(o.MongodbAuthdb) {
 		var ret string
 		return ret
 	}
@@ -2329,15 +2329,15 @@ func (o *JobsJobJobSpecJobData) GetMongodbAuthdb() string {
 // GetMongodbAuthdbOk returns a tuple with the MongodbAuthdb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMongodbAuthdbOk() (*string, bool) {
-	if o == nil || o.MongodbAuthdb == nil {
-		return nil, false
+	if o == nil || isNil(o.MongodbAuthdb) {
+    return nil, false
 	}
 	return o.MongodbAuthdb, true
 }
 
 // HasMongodbAuthdb returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMongodbAuthdb() bool {
-	if o != nil && o.MongodbAuthdb != nil {
+	if o != nil && !isNil(o.MongodbAuthdb) {
 		return true
 	}
 
@@ -2351,7 +2351,7 @@ func (o *JobsJobJobSpecJobData) SetMongodbAuthdb(v string) {
 
 // GetNodeType returns the NodeType field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetNodeType() int32 {
-	if o == nil || o.NodeType == nil {
+	if o == nil || isNil(o.NodeType) {
 		var ret int32
 		return ret
 	}
@@ -2361,15 +2361,15 @@ func (o *JobsJobJobSpecJobData) GetNodeType() int32 {
 // GetNodeTypeOk returns a tuple with the NodeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetNodeTypeOk() (*int32, bool) {
-	if o == nil || o.NodeType == nil {
-		return nil, false
+	if o == nil || isNil(o.NodeType) {
+    return nil, false
 	}
 	return o.NodeType, true
 }
 
 // HasNodeType returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasNodeType() bool {
-	if o != nil && o.NodeType != nil {
+	if o != nil && !isNil(o.NodeType) {
 		return true
 	}
 
@@ -2383,7 +2383,7 @@ func (o *JobsJobJobSpecJobData) SetNodeType(v int32) {
 
 // GetOverwriteMysqlchk returns the OverwriteMysqlchk field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetOverwriteMysqlchk() bool {
-	if o == nil || o.OverwriteMysqlchk == nil {
+	if o == nil || isNil(o.OverwriteMysqlchk) {
 		var ret bool
 		return ret
 	}
@@ -2393,15 +2393,15 @@ func (o *JobsJobJobSpecJobData) GetOverwriteMysqlchk() bool {
 // GetOverwriteMysqlchkOk returns a tuple with the OverwriteMysqlchk field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetOverwriteMysqlchkOk() (*bool, bool) {
-	if o == nil || o.OverwriteMysqlchk == nil {
-		return nil, false
+	if o == nil || isNil(o.OverwriteMysqlchk) {
+    return nil, false
 	}
 	return o.OverwriteMysqlchk, true
 }
 
 // HasOverwriteMysqlchk returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasOverwriteMysqlchk() bool {
-	if o != nil && o.OverwriteMysqlchk != nil {
+	if o != nil && !isNil(o.OverwriteMysqlchk) {
 		return true
 	}
 
@@ -2415,7 +2415,7 @@ func (o *JobsJobJobSpecJobData) SetOverwriteMysqlchk(v bool) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetPort() int32 {
-	if o == nil || o.Port == nil {
+	if o == nil || isNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -2425,15 +2425,15 @@ func (o *JobsJobJobSpecJobData) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetPortOk() (*int32, bool) {
-	if o == nil || o.Port == nil {
-		return nil, false
+	if o == nil || isNil(o.Port) {
+    return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasPort() bool {
-	if o != nil && o.Port != nil {
+	if o != nil && !isNil(o.Port) {
 		return true
 	}
 
@@ -2447,7 +2447,7 @@ func (o *JobsJobJobSpecJobData) SetPort(v int32) {
 
 // GetSshKeyfile returns the SshKeyfile field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshKeyfile() string {
-	if o == nil || o.SshKeyfile == nil {
+	if o == nil || isNil(o.SshKeyfile) {
 		var ret string
 		return ret
 	}
@@ -2457,15 +2457,15 @@ func (o *JobsJobJobSpecJobData) GetSshKeyfile() string {
 // GetSshKeyfileOk returns a tuple with the SshKeyfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSshKeyfileOk() (*string, bool) {
-	if o == nil || o.SshKeyfile == nil {
-		return nil, false
+	if o == nil || isNil(o.SshKeyfile) {
+    return nil, false
 	}
 	return o.SshKeyfile, true
 }
 
 // HasSshKeyfile returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSshKeyfile() bool {
-	if o != nil && o.SshKeyfile != nil {
+	if o != nil && !isNil(o.SshKeyfile) {
 		return true
 	}
 
@@ -2479,7 +2479,7 @@ func (o *JobsJobJobSpecJobData) SetSshKeyfile(v string) {
 
 // GetSshPort returns the SshPort field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshPort() string {
-	if o == nil || o.SshPort == nil {
+	if o == nil || isNil(o.SshPort) {
 		var ret string
 		return ret
 	}
@@ -2489,15 +2489,15 @@ func (o *JobsJobJobSpecJobData) GetSshPort() string {
 // GetSshPortOk returns a tuple with the SshPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSshPortOk() (*string, bool) {
-	if o == nil || o.SshPort == nil {
-		return nil, false
+	if o == nil || isNil(o.SshPort) {
+    return nil, false
 	}
 	return o.SshPort, true
 }
 
 // HasSshPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSshPort() bool {
-	if o != nil && o.SshPort != nil {
+	if o != nil && !isNil(o.SshPort) {
 		return true
 	}
 
@@ -2511,7 +2511,7 @@ func (o *JobsJobJobSpecJobData) SetSshPort(v string) {
 
 // GetSshUser returns the SshUser field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshUser() string {
-	if o == nil || o.SshUser == nil {
+	if o == nil || isNil(o.SshUser) {
 		var ret string
 		return ret
 	}
@@ -2521,15 +2521,15 @@ func (o *JobsJobJobSpecJobData) GetSshUser() string {
 // GetSshUserOk returns a tuple with the SshUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSshUserOk() (*string, bool) {
-	if o == nil || o.SshUser == nil {
-		return nil, false
+	if o == nil || isNil(o.SshUser) {
+    return nil, false
 	}
 	return o.SshUser, true
 }
 
 // HasSshUser returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSshUser() bool {
-	if o != nil && o.SshUser != nil {
+	if o != nil && !isNil(o.SshUser) {
 		return true
 	}
 
@@ -2543,7 +2543,7 @@ func (o *JobsJobJobSpecJobData) SetSshUser(v string) {
 
 // GetSudoPassword returns the SudoPassword field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSudoPassword() string {
-	if o == nil || o.SudoPassword == nil {
+	if o == nil || isNil(o.SudoPassword) {
 		var ret string
 		return ret
 	}
@@ -2553,15 +2553,15 @@ func (o *JobsJobJobSpecJobData) GetSudoPassword() string {
 // GetSudoPasswordOk returns a tuple with the SudoPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSudoPasswordOk() (*string, bool) {
-	if o == nil || o.SudoPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.SudoPassword) {
+    return nil, false
 	}
 	return o.SudoPassword, true
 }
 
 // HasSudoPassword returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSudoPassword() bool {
-	if o != nil && o.SudoPassword != nil {
+	if o != nil && !isNil(o.SudoPassword) {
 		return true
 	}
 
@@ -2573,41 +2573,9 @@ func (o *JobsJobJobSpecJobData) SetSudoPassword(v string) {
 	o.SudoPassword = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobData) GetType() string {
-	if o == nil || o.Type == nil {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobData) GetTypeOk() (*string, bool) {
-	if o == nil || o.Type == nil {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *JobsJobJobSpecJobData) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *JobsJobJobSpecJobData) SetType(v string) {
-	o.Type = &v
-}
-
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUserId() int32 {
-	if o == nil || o.UserId == nil {
+	if o == nil || isNil(o.UserId) {
 		var ret int32
 		return ret
 	}
@@ -2617,15 +2585,15 @@ func (o *JobsJobJobSpecJobData) GetUserId() int32 {
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUserIdOk() (*int32, bool) {
-	if o == nil || o.UserId == nil {
-		return nil, false
+	if o == nil || isNil(o.UserId) {
+    return nil, false
 	}
 	return o.UserId, true
 }
 
 // HasUserId returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUserId() bool {
-	if o != nil && o.UserId != nil {
+	if o != nil && !isNil(o.UserId) {
 		return true
 	}
 
@@ -2639,7 +2607,7 @@ func (o *JobsJobJobSpecJobData) SetUserId(v int32) {
 
 // GetVendor returns the Vendor field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetVendor() string {
-	if o == nil || o.Vendor == nil {
+	if o == nil || isNil(o.Vendor) {
 		var ret string
 		return ret
 	}
@@ -2649,15 +2617,15 @@ func (o *JobsJobJobSpecJobData) GetVendor() string {
 // GetVendorOk returns a tuple with the Vendor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetVendorOk() (*string, bool) {
-	if o == nil || o.Vendor == nil {
-		return nil, false
+	if o == nil || isNil(o.Vendor) {
+    return nil, false
 	}
 	return o.Vendor, true
 }
 
 // HasVendor returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasVendor() bool {
-	if o != nil && o.Vendor != nil {
+	if o != nil && !isNil(o.Vendor) {
 		return true
 	}
 
@@ -2669,9 +2637,41 @@ func (o *JobsJobJobSpecJobData) SetVendor(v string) {
 	o.Vendor = &v
 }
 
+// GetType returns the Type field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetType() string {
+	if o == nil || isNil(o.Type) {
+		var ret string
+		return ret
+	}
+	return *o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetTypeOk() (*string, bool) {
+	if o == nil || isNil(o.Type) {
+    return nil, false
+	}
+	return o.Type, true
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasType() bool {
+	if o != nil && !isNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *JobsJobJobSpecJobData) SetType(v string) {
+	o.Type = &v
+}
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetVersion() string {
-	if o == nil || o.Version == nil {
+	if o == nil || isNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -2681,15 +2681,15 @@ func (o *JobsJobJobSpecJobData) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetVersionOk() (*string, bool) {
-	if o == nil || o.Version == nil {
-		return nil, false
+	if o == nil || isNil(o.Version) {
+    return nil, false
 	}
 	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasVersion() bool {
-	if o != nil && o.Version != nil {
+	if o != nil && !isNil(o.Version) {
 		return true
 	}
 
@@ -2703,7 +2703,7 @@ func (o *JobsJobJobSpecJobData) SetVersion(v string) {
 
 // GetSoftwarePackage returns the SoftwarePackage field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSoftwarePackage() string {
-	if o == nil || o.SoftwarePackage == nil {
+	if o == nil || isNil(o.SoftwarePackage) {
 		var ret string
 		return ret
 	}
@@ -2713,15 +2713,15 @@ func (o *JobsJobJobSpecJobData) GetSoftwarePackage() string {
 // GetSoftwarePackageOk returns a tuple with the SoftwarePackage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSoftwarePackageOk() (*string, bool) {
-	if o == nil || o.SoftwarePackage == nil {
-		return nil, false
+	if o == nil || isNil(o.SoftwarePackage) {
+    return nil, false
 	}
 	return o.SoftwarePackage, true
 }
 
 // HasSoftwarePackage returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSoftwarePackage() bool {
-	if o != nil && o.SoftwarePackage != nil {
+	if o != nil && !isNil(o.SoftwarePackage) {
 		return true
 	}
 
@@ -2735,7 +2735,7 @@ func (o *JobsJobJobSpecJobData) SetSoftwarePackage(v string) {
 
 // GetServerAddress returns the ServerAddress field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetServerAddress() string {
-	if o == nil || o.ServerAddress == nil {
+	if o == nil || isNil(o.ServerAddress) {
 		var ret string
 		return ret
 	}
@@ -2745,15 +2745,15 @@ func (o *JobsJobJobSpecJobData) GetServerAddress() string {
 // GetServerAddressOk returns a tuple with the ServerAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetServerAddressOk() (*string, bool) {
-	if o == nil || o.ServerAddress == nil {
-		return nil, false
+	if o == nil || isNil(o.ServerAddress) {
+    return nil, false
 	}
 	return o.ServerAddress, true
 }
 
 // HasServerAddress returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasServerAddress() bool {
-	if o != nil && o.ServerAddress != nil {
+	if o != nil && !isNil(o.ServerAddress) {
 		return true
 	}
 
@@ -2767,7 +2767,7 @@ func (o *JobsJobJobSpecJobData) SetServerAddress(v string) {
 
 // GetTerminateDbServer returns the TerminateDbServer field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetTerminateDbServer() bool {
-	if o == nil || o.TerminateDbServer == nil {
+	if o == nil || isNil(o.TerminateDbServer) {
 		var ret bool
 		return ret
 	}
@@ -2777,15 +2777,15 @@ func (o *JobsJobJobSpecJobData) GetTerminateDbServer() bool {
 // GetTerminateDbServerOk returns a tuple with the TerminateDbServer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetTerminateDbServerOk() (*bool, bool) {
-	if o == nil || o.TerminateDbServer == nil {
-		return nil, false
+	if o == nil || isNil(o.TerminateDbServer) {
+    return nil, false
 	}
 	return o.TerminateDbServer, true
 }
 
 // HasTerminateDbServer returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasTerminateDbServer() bool {
-	if o != nil && o.TerminateDbServer != nil {
+	if o != nil && !isNil(o.TerminateDbServer) {
 		return true
 	}
 
@@ -2799,7 +2799,7 @@ func (o *JobsJobJobSpecJobData) SetTerminateDbServer(v bool) {
 
 // GetXtrabackupUseMemory returns the XtrabackupUseMemory field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetXtrabackupUseMemory() int32 {
-	if o == nil || o.XtrabackupUseMemory == nil {
+	if o == nil || isNil(o.XtrabackupUseMemory) {
 		var ret int32
 		return ret
 	}
@@ -2809,15 +2809,15 @@ func (o *JobsJobJobSpecJobData) GetXtrabackupUseMemory() int32 {
 // GetXtrabackupUseMemoryOk returns a tuple with the XtrabackupUseMemory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetXtrabackupUseMemoryOk() (*int32, bool) {
-	if o == nil || o.XtrabackupUseMemory == nil {
-		return nil, false
+	if o == nil || isNil(o.XtrabackupUseMemory) {
+    return nil, false
 	}
 	return o.XtrabackupUseMemory, true
 }
 
 // HasXtrabackupUseMemory returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasXtrabackupUseMemory() bool {
-	if o != nil && o.XtrabackupUseMemory != nil {
+	if o != nil && !isNil(o.XtrabackupUseMemory) {
 		return true
 	}
 
@@ -2831,7 +2831,7 @@ func (o *JobsJobJobSpecJobData) SetXtrabackupUseMemory(v int32) {
 
 // GetInitial returns the Initial field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetInitial() bool {
-	if o == nil || o.Initial == nil {
+	if o == nil || isNil(o.Initial) {
 		var ret bool
 		return ret
 	}
@@ -2841,15 +2841,15 @@ func (o *JobsJobJobSpecJobData) GetInitial() bool {
 // GetInitialOk returns a tuple with the Initial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetInitialOk() (*bool, bool) {
-	if o == nil || o.Initial == nil {
-		return nil, false
+	if o == nil || isNil(o.Initial) {
+    return nil, false
 	}
 	return o.Initial, true
 }
 
 // HasInitial returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasInitial() bool {
-	if o != nil && o.Initial != nil {
+	if o != nil && !isNil(o.Initial) {
 		return true
 	}
 
@@ -2863,7 +2863,7 @@ func (o *JobsJobJobSpecJobData) SetInitial(v bool) {
 
 // GetReboot returns the Reboot field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetReboot() bool {
-	if o == nil || o.Reboot == nil {
+	if o == nil || isNil(o.Reboot) {
 		var ret bool
 		return ret
 	}
@@ -2873,15 +2873,15 @@ func (o *JobsJobJobSpecJobData) GetReboot() bool {
 // GetRebootOk returns a tuple with the Reboot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetRebootOk() (*bool, bool) {
-	if o == nil || o.Reboot == nil {
-		return nil, false
+	if o == nil || isNil(o.Reboot) {
+    return nil, false
 	}
 	return o.Reboot, true
 }
 
 // HasReboot returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasReboot() bool {
-	if o != nil && o.Reboot != nil {
+	if o != nil && !isNil(o.Reboot) {
 		return true
 	}
 
@@ -2895,7 +2895,7 @@ func (o *JobsJobJobSpecJobData) SetReboot(v bool) {
 
 // GetSlaveAddress returns the SlaveAddress field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSlaveAddress() string {
-	if o == nil || o.SlaveAddress == nil {
+	if o == nil || isNil(o.SlaveAddress) {
 		var ret string
 		return ret
 	}
@@ -2905,15 +2905,15 @@ func (o *JobsJobJobSpecJobData) GetSlaveAddress() string {
 // GetSlaveAddressOk returns a tuple with the SlaveAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetSlaveAddressOk() (*string, bool) {
-	if o == nil || o.SlaveAddress == nil {
-		return nil, false
+	if o == nil || isNil(o.SlaveAddress) {
+    return nil, false
 	}
 	return o.SlaveAddress, true
 }
 
 // HasSlaveAddress returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasSlaveAddress() bool {
-	if o != nil && o.SlaveAddress != nil {
+	if o != nil && !isNil(o.SlaveAddress) {
 		return true
 	}
 
@@ -2927,7 +2927,7 @@ func (o *JobsJobJobSpecJobData) SetSlaveAddress(v string) {
 
 // GetForce returns the Force field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetForce() bool {
-	if o == nil || o.Force == nil {
+	if o == nil || isNil(o.Force) {
 		var ret bool
 		return ret
 	}
@@ -2937,15 +2937,15 @@ func (o *JobsJobJobSpecJobData) GetForce() bool {
 // GetForceOk returns a tuple with the Force field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetForceOk() (*bool, bool) {
-	if o == nil || o.Force == nil {
-		return nil, false
+	if o == nil || isNil(o.Force) {
+    return nil, false
 	}
 	return o.Force, true
 }
 
 // HasForce returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasForce() bool {
-	if o != nil && o.Force != nil {
+	if o != nil && !isNil(o.Force) {
 		return true
 	}
 
@@ -2959,7 +2959,7 @@ func (o *JobsJobJobSpecJobData) SetForce(v bool) {
 
 // GetForceStop returns the ForceStop field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetForceStop() bool {
-	if o == nil || o.ForceStop == nil {
+	if o == nil || isNil(o.ForceStop) {
 		var ret bool
 		return ret
 	}
@@ -2969,15 +2969,15 @@ func (o *JobsJobJobSpecJobData) GetForceStop() bool {
 // GetForceStopOk returns a tuple with the ForceStop field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetForceStopOk() (*bool, bool) {
-	if o == nil || o.ForceStop == nil {
-		return nil, false
+	if o == nil || isNil(o.ForceStop) {
+    return nil, false
 	}
 	return o.ForceStop, true
 }
 
 // HasForceStop returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasForceStop() bool {
-	if o != nil && o.ForceStop != nil {
+	if o != nil && !isNil(o.ForceStop) {
 		return true
 	}
 
@@ -2991,7 +2991,7 @@ func (o *JobsJobJobSpecJobData) SetForceStop(v bool) {
 
 // GetStopTimeout returns the StopTimeout field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetStopTimeout() int32 {
-	if o == nil || o.StopTimeout == nil {
+	if o == nil || isNil(o.StopTimeout) {
 		var ret int32
 		return ret
 	}
@@ -3001,15 +3001,15 @@ func (o *JobsJobJobSpecJobData) GetStopTimeout() int32 {
 // GetStopTimeoutOk returns a tuple with the StopTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetStopTimeoutOk() (*int32, bool) {
-	if o == nil || o.StopTimeout == nil {
-		return nil, false
+	if o == nil || isNil(o.StopTimeout) {
+    return nil, false
 	}
 	return o.StopTimeout, true
 }
 
 // HasStopTimeout returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasStopTimeout() bool {
-	if o != nil && o.StopTimeout != nil {
+	if o != nil && !isNil(o.StopTimeout) {
 		return true
 	}
 
@@ -3023,7 +3023,7 @@ func (o *JobsJobJobSpecJobData) SetStopTimeout(v int32) {
 
 // GetPitrStopTime returns the PitrStopTime field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetPitrStopTime() string {
-	if o == nil || o.PitrStopTime == nil {
+	if o == nil || isNil(o.PitrStopTime) {
 		var ret string
 		return ret
 	}
@@ -3033,15 +3033,15 @@ func (o *JobsJobJobSpecJobData) GetPitrStopTime() string {
 // GetPitrStopTimeOk returns a tuple with the PitrStopTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetPitrStopTimeOk() (*string, bool) {
-	if o == nil || o.PitrStopTime == nil {
-		return nil, false
+	if o == nil || isNil(o.PitrStopTime) {
+    return nil, false
 	}
 	return o.PitrStopTime, true
 }
 
 // HasPitrStopTime returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasPitrStopTime() bool {
-	if o != nil && o.PitrStopTime != nil {
+	if o != nil && !isNil(o.PitrStopTime) {
 		return true
 	}
 
@@ -3055,7 +3055,7 @@ func (o *JobsJobJobSpecJobData) SetPitrStopTime(v string) {
 
 // GetPitrStopLog returns the PitrStopLog field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetPitrStopLog() string {
-	if o == nil || o.PitrStopLog == nil {
+	if o == nil || isNil(o.PitrStopLog) {
 		var ret string
 		return ret
 	}
@@ -3065,15 +3065,15 @@ func (o *JobsJobJobSpecJobData) GetPitrStopLog() string {
 // GetPitrStopLogOk returns a tuple with the PitrStopLog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetPitrStopLogOk() (*string, bool) {
-	if o == nil || o.PitrStopLog == nil {
-		return nil, false
+	if o == nil || isNil(o.PitrStopLog) {
+    return nil, false
 	}
 	return o.PitrStopLog, true
 }
 
 // HasPitrStopLog returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasPitrStopLog() bool {
-	if o != nil && o.PitrStopLog != nil {
+	if o != nil && !isNil(o.PitrStopLog) {
 		return true
 	}
 
@@ -3087,7 +3087,7 @@ func (o *JobsJobJobSpecJobData) SetPitrStopLog(v string) {
 
 // GetPitrStopPos returns the PitrStopPos field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetPitrStopPos() int32 {
-	if o == nil || o.PitrStopPos == nil {
+	if o == nil || isNil(o.PitrStopPos) {
 		var ret int32
 		return ret
 	}
@@ -3097,15 +3097,15 @@ func (o *JobsJobJobSpecJobData) GetPitrStopPos() int32 {
 // GetPitrStopPosOk returns a tuple with the PitrStopPos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetPitrStopPosOk() (*int32, bool) {
-	if o == nil || o.PitrStopPos == nil {
-		return nil, false
+	if o == nil || isNil(o.PitrStopPos) {
+    return nil, false
 	}
 	return o.PitrStopPos, true
 }
 
 // HasPitrStopPos returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasPitrStopPos() bool {
-	if o != nil && o.PitrStopPos != nil {
+	if o != nil && !isNil(o.PitrStopPos) {
 		return true
 	}
 
@@ -3119,7 +3119,7 @@ func (o *JobsJobJobSpecJobData) SetPitrStopPos(v int32) {
 
 // GetHostLocationUuid returns the HostLocationUuid field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetHostLocationUuid() string {
-	if o == nil || o.HostLocationUuid == nil {
+	if o == nil || isNil(o.HostLocationUuid) {
 		var ret string
 		return ret
 	}
@@ -3129,15 +3129,15 @@ func (o *JobsJobJobSpecJobData) GetHostLocationUuid() string {
 // GetHostLocationUuidOk returns a tuple with the HostLocationUuid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetHostLocationUuidOk() (*string, bool) {
-	if o == nil || o.HostLocationUuid == nil {
-		return nil, false
+	if o == nil || isNil(o.HostLocationUuid) {
+    return nil, false
 	}
 	return o.HostLocationUuid, true
 }
 
 // HasHostLocationUuid returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasHostLocationUuid() bool {
-	if o != nil && o.HostLocationUuid != nil {
+	if o != nil && !isNil(o.HostLocationUuid) {
 		return true
 	}
 
@@ -3151,7 +3151,7 @@ func (o *JobsJobJobSpecJobData) SetHostLocationUuid(v string) {
 
 // GetBootstrap returns the Bootstrap field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetBootstrap() bool {
-	if o == nil || o.Bootstrap == nil {
+	if o == nil || isNil(o.Bootstrap) {
 		var ret bool
 		return ret
 	}
@@ -3161,15 +3161,15 @@ func (o *JobsJobJobSpecJobData) GetBootstrap() bool {
 // GetBootstrapOk returns a tuple with the Bootstrap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetBootstrapOk() (*bool, bool) {
-	if o == nil || o.Bootstrap == nil {
-		return nil, false
+	if o == nil || isNil(o.Bootstrap) {
+    return nil, false
 	}
 	return o.Bootstrap, true
 }
 
 // HasBootstrap returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasBootstrap() bool {
-	if o != nil && o.Bootstrap != nil {
+	if o != nil && !isNil(o.Bootstrap) {
 		return true
 	}
 
@@ -3183,7 +3183,7 @@ func (o *JobsJobJobSpecJobData) SetBootstrap(v bool) {
 
 // GetUploadBackupDataToCloudStorage returns the UploadBackupDataToCloudStorage field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUploadBackupDataToCloudStorage() JobsJobJobSpecJobDataUploadBackupDataToCloudStorage {
-	if o == nil || o.UploadBackupDataToCloudStorage == nil {
+	if o == nil || isNil(o.UploadBackupDataToCloudStorage) {
 		var ret JobsJobJobSpecJobDataUploadBackupDataToCloudStorage
 		return ret
 	}
@@ -3193,15 +3193,15 @@ func (o *JobsJobJobSpecJobData) GetUploadBackupDataToCloudStorage() JobsJobJobSp
 // GetUploadBackupDataToCloudStorageOk returns a tuple with the UploadBackupDataToCloudStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetUploadBackupDataToCloudStorageOk() (*JobsJobJobSpecJobDataUploadBackupDataToCloudStorage, bool) {
-	if o == nil || o.UploadBackupDataToCloudStorage == nil {
-		return nil, false
+	if o == nil || isNil(o.UploadBackupDataToCloudStorage) {
+    return nil, false
 	}
 	return o.UploadBackupDataToCloudStorage, true
 }
 
 // HasUploadBackupDataToCloudStorage returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasUploadBackupDataToCloudStorage() bool {
-	if o != nil && o.UploadBackupDataToCloudStorage != nil {
+	if o != nil && !isNil(o.UploadBackupDataToCloudStorage) {
 		return true
 	}
 
@@ -3215,7 +3215,7 @@ func (o *JobsJobJobSpecJobData) SetUploadBackupDataToCloudStorage(v JobsJobJobSp
 
 // GetVerifyBackup returns the VerifyBackup field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetVerifyBackup() BackupScheduleJobJobDataVerifyBackup {
-	if o == nil || o.VerifyBackup == nil {
+	if o == nil || isNil(o.VerifyBackup) {
 		var ret BackupScheduleJobJobDataVerifyBackup
 		return ret
 	}
@@ -3225,15 +3225,15 @@ func (o *JobsJobJobSpecJobData) GetVerifyBackup() BackupScheduleJobJobDataVerify
 // GetVerifyBackupOk returns a tuple with the VerifyBackup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetVerifyBackupOk() (*BackupScheduleJobJobDataVerifyBackup, bool) {
-	if o == nil || o.VerifyBackup == nil {
-		return nil, false
+	if o == nil || isNil(o.VerifyBackup) {
+    return nil, false
 	}
 	return o.VerifyBackup, true
 }
 
 // HasVerifyBackup returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasVerifyBackup() bool {
-	if o != nil && o.VerifyBackup != nil {
+	if o != nil && !isNil(o.VerifyBackup) {
 		return true
 	}
 
@@ -3247,7 +3247,7 @@ func (o *JobsJobJobSpecJobData) SetVerifyBackup(v BackupScheduleJobJobDataVerify
 
 // GetConfigServers returns the ConfigServers field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetConfigServers() JobsJobJobSpecJobDataConfigServers {
-	if o == nil || o.ConfigServers == nil {
+	if o == nil || isNil(o.ConfigServers) {
 		var ret JobsJobJobSpecJobDataConfigServers
 		return ret
 	}
@@ -3257,15 +3257,15 @@ func (o *JobsJobJobSpecJobData) GetConfigServers() JobsJobJobSpecJobDataConfigSe
 // GetConfigServersOk returns a tuple with the ConfigServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetConfigServersOk() (*JobsJobJobSpecJobDataConfigServers, bool) {
-	if o == nil || o.ConfigServers == nil {
-		return nil, false
+	if o == nil || isNil(o.ConfigServers) {
+    return nil, false
 	}
 	return o.ConfigServers, true
 }
 
 // HasConfigServers returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasConfigServers() bool {
-	if o != nil && o.ConfigServers != nil {
+	if o != nil && !isNil(o.ConfigServers) {
 		return true
 	}
 
@@ -3279,7 +3279,7 @@ func (o *JobsJobJobSpecJobData) SetConfigServers(v JobsJobJobSpecJobDataConfigSe
 
 // GetMongosServers returns the MongosServers field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetMongosServers() []JobsJobJobSpecJobDataConfigServersMembersInner {
-	if o == nil || o.MongosServers == nil {
+	if o == nil || isNil(o.MongosServers) {
 		var ret []JobsJobJobSpecJobDataConfigServersMembersInner
 		return ret
 	}
@@ -3289,15 +3289,15 @@ func (o *JobsJobJobSpecJobData) GetMongosServers() []JobsJobJobSpecJobDataConfig
 // GetMongosServersOk returns a tuple with the MongosServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetMongosServersOk() ([]JobsJobJobSpecJobDataConfigServersMembersInner, bool) {
-	if o == nil || o.MongosServers == nil {
-		return nil, false
+	if o == nil || isNil(o.MongosServers) {
+    return nil, false
 	}
 	return o.MongosServers, true
 }
 
 // HasMongosServers returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasMongosServers() bool {
-	if o != nil && o.MongosServers != nil {
+	if o != nil && !isNil(o.MongosServers) {
 		return true
 	}
 
@@ -3311,7 +3311,7 @@ func (o *JobsJobJobSpecJobData) SetMongosServers(v []JobsJobJobSpecJobDataConfig
 
 // GetNode returns the Node field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetNode() JobsJobJobSpecJobDataNode {
-	if o == nil || o.Node == nil {
+	if o == nil || isNil(o.Node) {
 		var ret JobsJobJobSpecJobDataNode
 		return ret
 	}
@@ -3321,15 +3321,15 @@ func (o *JobsJobJobSpecJobData) GetNode() JobsJobJobSpecJobDataNode {
 // GetNodeOk returns a tuple with the Node field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetNodeOk() (*JobsJobJobSpecJobDataNode, bool) {
-	if o == nil || o.Node == nil {
-		return nil, false
+	if o == nil || isNil(o.Node) {
+    return nil, false
 	}
 	return o.Node, true
 }
 
 // HasNode returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasNode() bool {
-	if o != nil && o.Node != nil {
+	if o != nil && !isNil(o.Node) {
 		return true
 	}
 
@@ -3343,7 +3343,7 @@ func (o *JobsJobJobSpecJobData) SetNode(v JobsJobJobSpecJobDataNode) {
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetNodes() []JobsJobJobSpecJobDataNodesInner {
-	if o == nil || o.Nodes == nil {
+	if o == nil || isNil(o.Nodes) {
 		var ret []JobsJobJobSpecJobDataNodesInner
 		return ret
 	}
@@ -3353,15 +3353,15 @@ func (o *JobsJobJobSpecJobData) GetNodes() []JobsJobJobSpecJobDataNodesInner {
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetNodesOk() ([]JobsJobJobSpecJobDataNodesInner, bool) {
-	if o == nil || o.Nodes == nil {
-		return nil, false
+	if o == nil || isNil(o.Nodes) {
+    return nil, false
 	}
 	return o.Nodes, true
 }
 
 // HasNodes returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasNodes() bool {
-	if o != nil && o.Nodes != nil {
+	if o != nil && !isNil(o.Nodes) {
 		return true
 	}
 
@@ -3375,7 +3375,7 @@ func (o *JobsJobJobSpecJobData) SetNodes(v []JobsJobJobSpecJobDataNodesInner) {
 
 // GetNodeAdresses returns the NodeAdresses field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetNodeAdresses() []JobsJobJobSpecJobDataNodeAdressesInner {
-	if o == nil || o.NodeAdresses == nil {
+	if o == nil || isNil(o.NodeAdresses) {
 		var ret []JobsJobJobSpecJobDataNodeAdressesInner
 		return ret
 	}
@@ -3385,15 +3385,15 @@ func (o *JobsJobJobSpecJobData) GetNodeAdresses() []JobsJobJobSpecJobDataNodeAdr
 // GetNodeAdressesOk returns a tuple with the NodeAdresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetNodeAdressesOk() ([]JobsJobJobSpecJobDataNodeAdressesInner, bool) {
-	if o == nil || o.NodeAdresses == nil {
-		return nil, false
+	if o == nil || isNil(o.NodeAdresses) {
+    return nil, false
 	}
 	return o.NodeAdresses, true
 }
 
 // HasNodeAdresses returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasNodeAdresses() bool {
-	if o != nil && o.NodeAdresses != nil {
+	if o != nil && !isNil(o.NodeAdresses) {
 		return true
 	}
 
@@ -3407,7 +3407,7 @@ func (o *JobsJobJobSpecJobData) SetNodeAdresses(v []JobsJobJobSpecJobDataNodeAdr
 
 // GetTopology returns the Topology field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetTopology() JobsJobJobSpecJobDataTopology {
-	if o == nil || o.Topology == nil {
+	if o == nil || isNil(o.Topology) {
 		var ret JobsJobJobSpecJobDataTopology
 		return ret
 	}
@@ -3417,15 +3417,15 @@ func (o *JobsJobJobSpecJobData) GetTopology() JobsJobJobSpecJobDataTopology {
 // GetTopologyOk returns a tuple with the Topology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetTopologyOk() (*JobsJobJobSpecJobDataTopology, bool) {
-	if o == nil || o.Topology == nil {
-		return nil, false
+	if o == nil || isNil(o.Topology) {
+    return nil, false
 	}
 	return o.Topology, true
 }
 
 // HasTopology returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasTopology() bool {
-	if o != nil && o.Topology != nil {
+	if o != nil && !isNil(o.Topology) {
 		return true
 	}
 
@@ -3439,7 +3439,7 @@ func (o *JobsJobJobSpecJobData) SetTopology(v JobsJobJobSpecJobDataTopology) {
 
 // GetReplicaSets returns the ReplicaSets field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetReplicaSets() []JobsJobJobSpecJobDataReplicaSetsInner {
-	if o == nil || o.ReplicaSets == nil {
+	if o == nil || isNil(o.ReplicaSets) {
 		var ret []JobsJobJobSpecJobDataReplicaSetsInner
 		return ret
 	}
@@ -3449,15 +3449,15 @@ func (o *JobsJobJobSpecJobData) GetReplicaSets() []JobsJobJobSpecJobDataReplicaS
 // GetReplicaSetsOk returns a tuple with the ReplicaSets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetReplicaSetsOk() ([]JobsJobJobSpecJobDataReplicaSetsInner, bool) {
-	if o == nil || o.ReplicaSets == nil {
-		return nil, false
+	if o == nil || isNil(o.ReplicaSets) {
+    return nil, false
 	}
 	return o.ReplicaSets, true
 }
 
 // HasReplicaSets returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasReplicaSets() bool {
-	if o != nil && o.ReplicaSets != nil {
+	if o != nil && !isNil(o.ReplicaSets) {
 		return true
 	}
 
@@ -3471,7 +3471,7 @@ func (o *JobsJobJobSpecJobData) SetReplicaSets(v []JobsJobJobSpecJobDataReplicaS
 
 // GetWithTags returns the WithTags field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetWithTags() []string {
-	if o == nil || o.WithTags == nil {
+	if o == nil || isNil(o.WithTags) {
 		var ret []string
 		return ret
 	}
@@ -3481,15 +3481,15 @@ func (o *JobsJobJobSpecJobData) GetWithTags() []string {
 // GetWithTagsOk returns a tuple with the WithTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobData) GetWithTagsOk() ([]string, bool) {
-	if o == nil || o.WithTags == nil {
-		return nil, false
+	if o == nil || isNil(o.WithTags) {
+    return nil, false
 	}
 	return o.WithTags, true
 }
 
 // HasWithTags returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobData) HasWithTags() bool {
-	if o != nil && o.WithTags != nil {
+	if o != nil && !isNil(o.WithTags) {
 		return true
 	}
 
@@ -3503,319 +3503,319 @@ func (o *JobsJobJobSpecJobData) SetWithTags(v []string) {
 
 func (o JobsJobJobSpecJobData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Action != nil {
+	if !isNil(o.Action) {
 		toSerialize["action"] = o.Action
 	}
-	if o.Addnode != nil {
+	if !isNil(o.Addnode) {
 		toSerialize["addnode"] = o.Addnode
 	}
-	if o.AdminUsername != nil {
+	if !isNil(o.AdminUsername) {
 		toSerialize["admin_username"] = o.AdminUsername
 	}
-	if o.AdminUser != nil {
+	if !isNil(o.AdminUser) {
 		toSerialize["admin_user"] = o.AdminUser
 	}
-	if o.AdminPassword != nil {
+	if !isNil(o.AdminPassword) {
 		toSerialize["admin_password"] = o.AdminPassword
 	}
-	if o.AuditEvents != nil {
+	if !isNil(o.AuditEvents) {
 		toSerialize["audit_events"] = o.AuditEvents
 	}
-	if o.ArchiveMode != nil {
+	if !isNil(o.ArchiveMode) {
 		toSerialize["archive_mode"] = o.ArchiveMode
 	}
-	if o.Backupid != nil {
+	if !isNil(o.Backupid) {
 		toSerialize["backupid"] = o.Backupid
 	}
-	if o.BackupId != nil {
+	if !isNil(o.BackupId) {
 		toSerialize["backup_id"] = o.BackupId
 	}
-	if o.BuildFromSource != nil {
+	if !isNil(o.BuildFromSource) {
 		toSerialize["build_from_source"] = o.BuildFromSource
 	}
-	if o.ClusterName != nil {
+	if !isNil(o.ClusterName) {
 		toSerialize["cluster_name"] = o.ClusterName
 	}
-	if o.Clusterid != nil {
+	if !isNil(o.Clusterid) {
 		toSerialize["clusterid"] = o.Clusterid
 	}
-	if o.ClusterType != nil {
+	if !isNil(o.ClusterType) {
 		toSerialize["cluster_type"] = o.ClusterType
 	}
-	if o.CompanyId != nil {
+	if !isNil(o.CompanyId) {
 		toSerialize["company_id"] = o.CompanyId
 	}
-	if o.ConfigTemplate != nil {
+	if !isNil(o.ConfigTemplate) {
 		toSerialize["config_template"] = o.ConfigTemplate
 	}
-	if o.BackupFailover != nil {
+	if !isNil(o.BackupFailover) {
 		toSerialize["backup_failover"] = o.BackupFailover
 	}
-	if o.BackupFailoverHost != nil {
+	if !isNil(o.BackupFailoverHost) {
 		toSerialize["backup_failover_host"] = o.BackupFailoverHost
 	}
-	if o.BackupMethod != nil {
+	if !isNil(o.BackupMethod) {
 		toSerialize["backup_method"] = o.BackupMethod
 	}
-	if o.BackupMysqldumpType != nil {
+	if !isNil(o.BackupMysqldumpType) {
 		toSerialize["backup_mysqldump_type"] = o.BackupMysqldumpType
 	}
-	if o.BackupIndividualSchemas != nil {
+	if !isNil(o.BackupIndividualSchemas) {
 		toSerialize["backup_individual_schemas"] = o.BackupIndividualSchemas
 	}
-	if o.BackupRetention != nil {
+	if !isNil(o.BackupRetention) {
 		toSerialize["backup_retention"] = o.BackupRetention
 	}
-	if o.ExtendedInsert != nil {
+	if !isNil(o.ExtendedInsert) {
 		toSerialize["extended_insert"] = o.ExtendedInsert
 	}
-	if o.BackupDir != nil {
+	if !isNil(o.BackupDir) {
 		toSerialize["backup_dir"] = o.BackupDir
 	}
-	if o.Backupsubdir != nil {
+	if !isNil(o.Backupsubdir) {
 		toSerialize["backupsubdir"] = o.Backupsubdir
 	}
-	if o.CcStorage != nil {
+	if !isNil(o.CcStorage) {
 		toSerialize["cc_storage"] = o.CcStorage
 	}
-	if o.Compression != nil {
+	if !isNil(o.Compression) {
 		toSerialize["compression"] = o.Compression
 	}
-	if o.CompressionLevel != nil {
+	if !isNil(o.CompressionLevel) {
 		toSerialize["compression_level"] = o.CompressionLevel
 	}
-	if o.DbDatabase != nil {
+	if !isNil(o.DbDatabase) {
 		toSerialize["db_database"] = o.DbDatabase
 	}
-	if o.DbPassword != nil {
+	if !isNil(o.DbPassword) {
 		toSerialize["db_password"] = o.DbPassword
 	}
-	if o.DbPrivs != nil {
+	if !isNil(o.DbPrivs) {
 		toSerialize["db_privs"] = o.DbPrivs
 	}
-	if o.DbUsername != nil {
+	if !isNil(o.DbUsername) {
 		toSerialize["db_username"] = o.DbUsername
 	}
-	if o.DataCenter != nil {
+	if !isNil(o.DataCenter) {
 		toSerialize["data_center"] = o.DataCenter
 	}
-	if o.ExecUpgradeScript != nil {
+	if !isNil(o.ExecUpgradeScript) {
 		toSerialize["exec_upgrade_script"] = o.ExecUpgradeScript
 	}
-	if o.Extended != nil {
+	if !isNil(o.Extended) {
 		toSerialize["extended"] = o.Extended
 	}
-	if o.ListeningPort != nil {
+	if !isNil(o.ListeningPort) {
 		toSerialize["listening_port"] = o.ListeningPort
 	}
-	if o.MaskPasswords != nil {
+	if !isNil(o.MaskPasswords) {
 		toSerialize["mask_passwords"] = o.MaskPasswords
 	}
-	if o.MonitorPassword != nil {
+	if !isNil(o.MonitorPassword) {
 		toSerialize["monitor_password"] = o.MonitorPassword
 	}
-	if o.MonitorUser != nil {
+	if !isNil(o.MonitorUser) {
 		toSerialize["monitor_user"] = o.MonitorUser
 	}
-	if o.UseClustering != nil {
+	if !isNil(o.UseClustering) {
 		toSerialize["use_clustering"] = o.UseClustering
 	}
-	if o.UseRwSplit != nil {
+	if !isNil(o.UseRwSplit) {
 		toSerialize["use_rw_split"] = o.UseRwSplit
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.MasterAddress != nil {
+	if !isNil(o.MasterAddress) {
 		toSerialize["master_address"] = o.MasterAddress
 	}
-	if o.IncludeDatabases != nil {
+	if !isNil(o.IncludeDatabases) {
 		toSerialize["include_databases"] = o.IncludeDatabases
 	}
-	if o.InstallTimescaledb != nil {
+	if !isNil(o.InstallTimescaledb) {
 		toSerialize["install_timescaledb"] = o.InstallTimescaledb
 	}
-	if o.UpdateLb != nil {
+	if !isNil(o.UpdateLb) {
 		toSerialize["update_lb"] = o.UpdateLb
 	}
-	if o.UsePackageForDataDir != nil {
+	if !isNil(o.UsePackageForDataDir) {
 		toSerialize["usePackageForDataDir"] = o.UsePackageForDataDir
 	}
-	if o.EncryptBackup != nil {
+	if !isNil(o.EncryptBackup) {
 		toSerialize["encrypt_backup"] = o.EncryptBackup
 	}
-	if o.ThrottleRateNetbw != nil {
+	if !isNil(o.ThrottleRateNetbw) {
 		toSerialize["throttle_rate_netbw"] = o.ThrottleRateNetbw
 	}
-	if o.UsePigz != nil {
+	if !isNil(o.UsePigz) {
 		toSerialize["use_pigz"] = o.UsePigz
 	}
-	if o.UseQpress != nil {
+	if !isNil(o.UseQpress) {
 		toSerialize["use_qpress"] = o.UseQpress
 	}
-	if o.WsrepDesync != nil {
+	if !isNil(o.WsrepDesync) {
 		toSerialize["wsrep_desync"] = o.WsrepDesync
 	}
-	if o.XtrabackupBackupLocks != nil {
+	if !isNil(o.XtrabackupBackupLocks) {
 		toSerialize["xtrabackup_backup_locks"] = o.XtrabackupBackupLocks
 	}
-	if o.XtrabackupLockDdlPerTable != nil {
+	if !isNil(o.XtrabackupLockDdlPerTable) {
 		toSerialize["xtrabackup_lock_ddl_per_table"] = o.XtrabackupLockDdlPerTable
 	}
-	if o.XtrabackupParallellism != nil {
+	if !isNil(o.XtrabackupParallellism) {
 		toSerialize["xtrabackup_parallellism"] = o.XtrabackupParallellism
 	}
-	if o.VerifyBackupDelay != nil {
+	if !isNil(o.VerifyBackupDelay) {
 		toSerialize["verify_backup_delay"] = o.VerifyBackupDelay
 	}
-	if o.DataDir != nil {
+	if !isNil(o.DataDir) {
 		toSerialize["data_dir"] = o.DataDir
 	}
-	if o.DbUser != nil {
+	if !isNil(o.DbUser) {
 		toSerialize["db_user"] = o.DbUser
 	}
-	if o.DisableFirewall != nil {
+	if !isNil(o.DisableFirewall) {
 		toSerialize["disable_firewall"] = o.DisableFirewall
 	}
-	if o.DisableSelinux != nil {
+	if !isNil(o.DisableSelinux) {
 		toSerialize["disable_selinux"] = o.DisableSelinux
 	}
-	if o.EnableUninstall != nil {
+	if !isNil(o.EnableUninstall) {
 		toSerialize["enable_uninstall"] = o.EnableUninstall
 	}
-	if o.GenerateToken != nil {
+	if !isNil(o.GenerateToken) {
 		toSerialize["generate_token"] = o.GenerateToken
 	}
-	if o.InstallSoftware != nil {
+	if !isNil(o.InstallSoftware) {
 		toSerialize["install_software"] = o.InstallSoftware
 	}
-	if o.UseInternalRepos != nil {
+	if !isNil(o.UseInternalRepos) {
 		toSerialize["use_internal_repos"] = o.UseInternalRepos
 	}
-	if o.LocalRepository != nil {
+	if !isNil(o.LocalRepository) {
 		toSerialize["local_repository"] = o.LocalRepository
 	}
-	if o.EnableMysqlUninstall != nil {
+	if !isNil(o.EnableMysqlUninstall) {
 		toSerialize["enable_mysql_uninstall"] = o.EnableMysqlUninstall
 	}
-	if o.MysqlSemiSync != nil {
+	if !isNil(o.MysqlSemiSync) {
 		toSerialize["mysql_semi_sync"] = o.MysqlSemiSync
 	}
-	if o.EnableSsl != nil {
+	if !isNil(o.EnableSsl) {
 		toSerialize["enable_ssl"] = o.EnableSsl
 	}
-	if o.MongosConfTemplate != nil {
+	if !isNil(o.MongosConfTemplate) {
 		toSerialize["mongos_conf_template"] = o.MongosConfTemplate
 	}
-	if o.MongodbAuthdb != nil {
+	if !isNil(o.MongodbAuthdb) {
 		toSerialize["mongodb_authdb"] = o.MongodbAuthdb
 	}
-	if o.NodeType != nil {
+	if !isNil(o.NodeType) {
 		toSerialize["node_type"] = o.NodeType
 	}
-	if o.OverwriteMysqlchk != nil {
+	if !isNil(o.OverwriteMysqlchk) {
 		toSerialize["overwrite_mysqlchk"] = o.OverwriteMysqlchk
 	}
-	if o.Port != nil {
+	if !isNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
-	if o.SshKeyfile != nil {
+	if !isNil(o.SshKeyfile) {
 		toSerialize["ssh_keyfile"] = o.SshKeyfile
 	}
-	if o.SshPort != nil {
+	if !isNil(o.SshPort) {
 		toSerialize["ssh_port"] = o.SshPort
 	}
-	if o.SshUser != nil {
+	if !isNil(o.SshUser) {
 		toSerialize["ssh_user"] = o.SshUser
 	}
-	if o.SudoPassword != nil {
+	if !isNil(o.SudoPassword) {
 		toSerialize["sudo_password"] = o.SudoPassword
 	}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
-	}
-	if o.UserId != nil {
+	if !isNil(o.UserId) {
 		toSerialize["user_id"] = o.UserId
 	}
-	if o.Vendor != nil {
+	if !isNil(o.Vendor) {
 		toSerialize["vendor"] = o.Vendor
 	}
-	if o.Version != nil {
+	if !isNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !isNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if o.SoftwarePackage != nil {
+	if !isNil(o.SoftwarePackage) {
 		toSerialize["software_package"] = o.SoftwarePackage
 	}
-	if o.ServerAddress != nil {
+	if !isNil(o.ServerAddress) {
 		toSerialize["server_address"] = o.ServerAddress
 	}
-	if o.TerminateDbServer != nil {
+	if !isNil(o.TerminateDbServer) {
 		toSerialize["terminate_db_server"] = o.TerminateDbServer
 	}
-	if o.XtrabackupUseMemory != nil {
+	if !isNil(o.XtrabackupUseMemory) {
 		toSerialize["xtrabackup_use_memory"] = o.XtrabackupUseMemory
 	}
-	if o.Initial != nil {
+	if !isNil(o.Initial) {
 		toSerialize["initial"] = o.Initial
 	}
-	if o.Reboot != nil {
+	if !isNil(o.Reboot) {
 		toSerialize["reboot"] = o.Reboot
 	}
-	if o.SlaveAddress != nil {
+	if !isNil(o.SlaveAddress) {
 		toSerialize["slave_address"] = o.SlaveAddress
 	}
-	if o.Force != nil {
+	if !isNil(o.Force) {
 		toSerialize["force"] = o.Force
 	}
-	if o.ForceStop != nil {
+	if !isNil(o.ForceStop) {
 		toSerialize["force_stop"] = o.ForceStop
 	}
-	if o.StopTimeout != nil {
+	if !isNil(o.StopTimeout) {
 		toSerialize["stop_timeout"] = o.StopTimeout
 	}
-	if o.PitrStopTime != nil {
+	if !isNil(o.PitrStopTime) {
 		toSerialize["pitr_stop_time"] = o.PitrStopTime
 	}
-	if o.PitrStopLog != nil {
+	if !isNil(o.PitrStopLog) {
 		toSerialize["pitr_stop_log"] = o.PitrStopLog
 	}
-	if o.PitrStopPos != nil {
+	if !isNil(o.PitrStopPos) {
 		toSerialize["pitr_stop_pos"] = o.PitrStopPos
 	}
-	if o.HostLocationUuid != nil {
+	if !isNil(o.HostLocationUuid) {
 		toSerialize["host_location_uuid"] = o.HostLocationUuid
 	}
-	if o.Bootstrap != nil {
+	if !isNil(o.Bootstrap) {
 		toSerialize["bootstrap"] = o.Bootstrap
 	}
-	if o.UploadBackupDataToCloudStorage != nil {
+	if !isNil(o.UploadBackupDataToCloudStorage) {
 		toSerialize["upload_backup_data_to_cloud_storage"] = o.UploadBackupDataToCloudStorage
 	}
-	if o.VerifyBackup != nil {
+	if !isNil(o.VerifyBackup) {
 		toSerialize["verify_backup"] = o.VerifyBackup
 	}
-	if o.ConfigServers != nil {
+	if !isNil(o.ConfigServers) {
 		toSerialize["config_servers"] = o.ConfigServers
 	}
-	if o.MongosServers != nil {
+	if !isNil(o.MongosServers) {
 		toSerialize["mongos_servers"] = o.MongosServers
 	}
-	if o.Node != nil {
+	if !isNil(o.Node) {
 		toSerialize["node"] = o.Node
 	}
-	if o.Nodes != nil {
+	if !isNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes
 	}
-	if o.NodeAdresses != nil {
+	if !isNil(o.NodeAdresses) {
 		toSerialize["node_adresses"] = o.NodeAdresses
 	}
-	if o.Topology != nil {
+	if !isNil(o.Topology) {
 		toSerialize["topology"] = o.Topology
 	}
-	if o.ReplicaSets != nil {
+	if !isNil(o.ReplicaSets) {
 		toSerialize["replica_sets"] = o.ReplicaSets
 	}
-	if o.WithTags != nil {
+	if !isNil(o.WithTags) {
 		toSerialize["with_tags"] = o.WithTags
 	}
 	return json.Marshal(toSerialize)

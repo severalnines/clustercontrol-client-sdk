@@ -1,6 +1,6 @@
 # \AuthApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

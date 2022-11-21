@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -40,7 +40,7 @@ func NewClustersDatabaseWithDefaults() *ClustersDatabase {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *ClustersDatabase) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -50,15 +50,15 @@ func (o *ClustersDatabase) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersDatabase) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *ClustersDatabase) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -72,7 +72,7 @@ func (o *ClustersDatabase) SetClassName(v string) {
 
 // GetDatabaseName returns the DatabaseName field value if set, zero value otherwise.
 func (o *ClustersDatabase) GetDatabaseName() string {
-	if o == nil || o.DatabaseName == nil {
+	if o == nil || isNil(o.DatabaseName) {
 		var ret string
 		return ret
 	}
@@ -82,15 +82,15 @@ func (o *ClustersDatabase) GetDatabaseName() string {
 // GetDatabaseNameOk returns a tuple with the DatabaseName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersDatabase) GetDatabaseNameOk() (*string, bool) {
-	if o == nil || o.DatabaseName == nil {
-		return nil, false
+	if o == nil || isNil(o.DatabaseName) {
+    return nil, false
 	}
 	return o.DatabaseName, true
 }
 
 // HasDatabaseName returns a boolean if a field has been set.
 func (o *ClustersDatabase) HasDatabaseName() bool {
-	if o != nil && o.DatabaseName != nil {
+	if o != nil && !isNil(o.DatabaseName) {
 		return true
 	}
 
@@ -104,10 +104,10 @@ func (o *ClustersDatabase) SetDatabaseName(v string) {
 
 func (o ClustersDatabase) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.DatabaseName != nil {
+	if !isNil(o.DatabaseName) {
 		toSerialize["database_name"] = o.DatabaseName
 	}
 	return json.Marshal(toSerialize)

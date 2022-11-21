@@ -16,12 +16,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <clustercontrol-api.version>1.0.0</clustercontrol-api.version>
-        <jackson-databind.version>2.13.4.2</jackson-databind.version>
-        <javax-ws-rs.version>2.1.1</javax-ws-rs.version>
-        <junit.version>4.13.2</junit.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -41,18 +37,18 @@
         <dependency>
             <groupId>com.severalnines</groupId>
             <artifactId>clustercontrol-api</artifactId>
-            <version>${clustercontrol-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.severalnines</groupId>
+            <artifactId>clustercontrol-api-abstraction</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
-            <version>${javax-ws-rs.version}</version>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

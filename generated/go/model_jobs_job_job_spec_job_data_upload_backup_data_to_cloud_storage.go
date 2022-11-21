@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -44,7 +44,7 @@ func NewJobsJobJobSpecJobDataUploadBackupDataToCloudStorageWithDefaults() *JobsJ
 
 // GetBackupRetention returns the BackupRetention field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBackupRetention() int32 {
-	if o == nil || o.BackupRetention == nil {
+	if o == nil || isNil(o.BackupRetention) {
 		var ret int32
 		return ret
 	}
@@ -54,15 +54,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBackupRetention
 // GetBackupRetentionOk returns a tuple with the BackupRetention field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBackupRetentionOk() (*int32, bool) {
-	if o == nil || o.BackupRetention == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupRetention) {
+    return nil, false
 	}
 	return o.BackupRetention, true
 }
 
 // HasBackupRetention returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasBackupRetention() bool {
-	if o != nil && o.BackupRetention != nil {
+	if o != nil && !isNil(o.BackupRetention) {
 		return true
 	}
 
@@ -76,7 +76,7 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetBackupRetention
 
 // GetBucket returns the Bucket field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBucket() string {
-	if o == nil || o.Bucket == nil {
+	if o == nil || isNil(o.Bucket) {
 		var ret string
 		return ret
 	}
@@ -86,15 +86,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBucket() string
 // GetBucketOk returns a tuple with the Bucket field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetBucketOk() (*string, bool) {
-	if o == nil || o.Bucket == nil {
-		return nil, false
+	if o == nil || isNil(o.Bucket) {
+    return nil, false
 	}
 	return o.Bucket, true
 }
 
 // HasBucket returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasBucket() bool {
-	if o != nil && o.Bucket != nil {
+	if o != nil && !isNil(o.Bucket) {
 		return true
 	}
 
@@ -108,7 +108,7 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetBucket(v string
 
 // GetCloudStorageCredentialsId returns the CloudStorageCredentialsId field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageCredentialsId() int32 {
-	if o == nil || o.CloudStorageCredentialsId == nil {
+	if o == nil || isNil(o.CloudStorageCredentialsId) {
 		var ret int32
 		return ret
 	}
@@ -118,15 +118,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageCre
 // GetCloudStorageCredentialsIdOk returns a tuple with the CloudStorageCredentialsId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageCredentialsIdOk() (*int32, bool) {
-	if o == nil || o.CloudStorageCredentialsId == nil {
-		return nil, false
+	if o == nil || isNil(o.CloudStorageCredentialsId) {
+    return nil, false
 	}
 	return o.CloudStorageCredentialsId, true
 }
 
 // HasCloudStorageCredentialsId returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasCloudStorageCredentialsId() bool {
-	if o != nil && o.CloudStorageCredentialsId != nil {
+	if o != nil && !isNil(o.CloudStorageCredentialsId) {
 		return true
 	}
 
@@ -140,7 +140,7 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetCloudStorageCre
 
 // GetCloudStorageProvider returns the CloudStorageProvider field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageProvider() string {
-	if o == nil || o.CloudStorageProvider == nil {
+	if o == nil || isNil(o.CloudStorageProvider) {
 		var ret string
 		return ret
 	}
@@ -150,15 +150,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStoragePro
 // GetCloudStorageProviderOk returns a tuple with the CloudStorageProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageProviderOk() (*string, bool) {
-	if o == nil || o.CloudStorageProvider == nil {
-		return nil, false
+	if o == nil || isNil(o.CloudStorageProvider) {
+    return nil, false
 	}
 	return o.CloudStorageProvider, true
 }
 
 // HasCloudStorageProvider returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasCloudStorageProvider() bool {
-	if o != nil && o.CloudStorageProvider != nil {
+	if o != nil && !isNil(o.CloudStorageProvider) {
 		return true
 	}
 
@@ -172,7 +172,7 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetCloudStoragePro
 
 // GetCloudStorageService returns the CloudStorageService field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageService() string {
-	if o == nil || o.CloudStorageService == nil {
+	if o == nil || isNil(o.CloudStorageService) {
 		var ret string
 		return ret
 	}
@@ -182,15 +182,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageSer
 // GetCloudStorageServiceOk returns a tuple with the CloudStorageService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetCloudStorageServiceOk() (*string, bool) {
-	if o == nil || o.CloudStorageService == nil {
-		return nil, false
+	if o == nil || isNil(o.CloudStorageService) {
+    return nil, false
 	}
 	return o.CloudStorageService, true
 }
 
 // HasCloudStorageService returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasCloudStorageService() bool {
-	if o != nil && o.CloudStorageService != nil {
+	if o != nil && !isNil(o.CloudStorageService) {
 		return true
 	}
 
@@ -204,7 +204,7 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetCloudStorageSer
 
 // GetDeleteAfterUpload returns the DeleteAfterUpload field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetDeleteAfterUpload() bool {
-	if o == nil || o.DeleteAfterUpload == nil {
+	if o == nil || isNil(o.DeleteAfterUpload) {
 		var ret bool
 		return ret
 	}
@@ -214,15 +214,15 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetDeleteAfterUplo
 // GetDeleteAfterUploadOk returns a tuple with the DeleteAfterUpload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) GetDeleteAfterUploadOk() (*bool, bool) {
-	if o == nil || o.DeleteAfterUpload == nil {
-		return nil, false
+	if o == nil || isNil(o.DeleteAfterUpload) {
+    return nil, false
 	}
 	return o.DeleteAfterUpload, true
 }
 
 // HasDeleteAfterUpload returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) HasDeleteAfterUpload() bool {
-	if o != nil && o.DeleteAfterUpload != nil {
+	if o != nil && !isNil(o.DeleteAfterUpload) {
 		return true
 	}
 
@@ -236,22 +236,22 @@ func (o *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) SetDeleteAfterUplo
 
 func (o JobsJobJobSpecJobDataUploadBackupDataToCloudStorage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.BackupRetention != nil {
+	if !isNil(o.BackupRetention) {
 		toSerialize["backup_retention"] = o.BackupRetention
 	}
-	if o.Bucket != nil {
+	if !isNil(o.Bucket) {
 		toSerialize["bucket"] = o.Bucket
 	}
-	if o.CloudStorageCredentialsId != nil {
+	if !isNil(o.CloudStorageCredentialsId) {
 		toSerialize["cloud_storage_credentials_id"] = o.CloudStorageCredentialsId
 	}
-	if o.CloudStorageProvider != nil {
+	if !isNil(o.CloudStorageProvider) {
 		toSerialize["cloud_storage_provider"] = o.CloudStorageProvider
 	}
-	if o.CloudStorageService != nil {
+	if !isNil(o.CloudStorageService) {
 		toSerialize["cloud_storage_service"] = o.CloudStorageService
 	}
-	if o.DeleteAfterUpload != nil {
+	if !isNil(o.DeleteAfterUpload) {
 		toSerialize["delete_after_upload"] = o.DeleteAfterUpload
 	}
 	return json.Marshal(toSerialize)

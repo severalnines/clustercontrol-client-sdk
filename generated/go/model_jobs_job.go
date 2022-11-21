@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -45,7 +45,7 @@ func NewJobsJobWithDefaults() *JobsJob {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *JobsJob) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -55,15 +55,15 @@ func (o *JobsJob) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *JobsJob) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -77,7 +77,7 @@ func (o *JobsJob) SetClassName(v string) {
 
 // GetJobSpec returns the JobSpec field value if set, zero value otherwise.
 func (o *JobsJob) GetJobSpec() JobsJobJobSpec {
-	if o == nil || o.JobSpec == nil {
+	if o == nil || isNil(o.JobSpec) {
 		var ret JobsJobJobSpec
 		return ret
 	}
@@ -87,15 +87,15 @@ func (o *JobsJob) GetJobSpec() JobsJobJobSpec {
 // GetJobSpecOk returns a tuple with the JobSpec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetJobSpecOk() (*JobsJobJobSpec, bool) {
-	if o == nil || o.JobSpec == nil {
-		return nil, false
+	if o == nil || isNil(o.JobSpec) {
+    return nil, false
 	}
 	return o.JobSpec, true
 }
 
 // HasJobSpec returns a boolean if a field has been set.
 func (o *JobsJob) HasJobSpec() bool {
-	if o != nil && o.JobSpec != nil {
+	if o != nil && !isNil(o.JobSpec) {
 		return true
 	}
 
@@ -109,7 +109,7 @@ func (o *JobsJob) SetJobSpec(v JobsJobJobSpec) {
 
 // GetRecurrence returns the Recurrence field value if set, zero value otherwise.
 func (o *JobsJob) GetRecurrence() string {
-	if o == nil || o.Recurrence == nil {
+	if o == nil || isNil(o.Recurrence) {
 		var ret string
 		return ret
 	}
@@ -119,15 +119,15 @@ func (o *JobsJob) GetRecurrence() string {
 // GetRecurrenceOk returns a tuple with the Recurrence field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetRecurrenceOk() (*string, bool) {
-	if o == nil || o.Recurrence == nil {
-		return nil, false
+	if o == nil || isNil(o.Recurrence) {
+    return nil, false
 	}
 	return o.Recurrence, true
 }
 
 // HasRecurrence returns a boolean if a field has been set.
 func (o *JobsJob) HasRecurrence() bool {
-	if o != nil && o.Recurrence != nil {
+	if o != nil && !isNil(o.Recurrence) {
 		return true
 	}
 
@@ -141,7 +141,7 @@ func (o *JobsJob) SetRecurrence(v string) {
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *JobsJob) GetTags() []string {
-	if o == nil || o.Tags == nil {
+	if o == nil || isNil(o.Tags) {
 		var ret []string
 		return ret
 	}
@@ -151,15 +151,15 @@ func (o *JobsJob) GetTags() []string {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetTagsOk() ([]string, bool) {
-	if o == nil || o.Tags == nil {
-		return nil, false
+	if o == nil || isNil(o.Tags) {
+    return nil, false
 	}
 	return o.Tags, true
 }
 
 // HasTags returns a boolean if a field has been set.
 func (o *JobsJob) HasTags() bool {
-	if o != nil && o.Tags != nil {
+	if o != nil && !isNil(o.Tags) {
 		return true
 	}
 
@@ -173,7 +173,7 @@ func (o *JobsJob) SetTags(v []string) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *JobsJob) GetTitle() string {
-	if o == nil || o.Title == nil {
+	if o == nil || isNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -183,15 +183,15 @@ func (o *JobsJob) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetTitleOk() (*string, bool) {
-	if o == nil || o.Title == nil {
-		return nil, false
+	if o == nil || isNil(o.Title) {
+    return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *JobsJob) HasTitle() bool {
-	if o != nil && o.Title != nil {
+	if o != nil && !isNil(o.Title) {
 		return true
 	}
 
@@ -205,7 +205,7 @@ func (o *JobsJob) SetTitle(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *JobsJob) GetStatus() string {
-	if o == nil || o.Status == nil {
+	if o == nil || isNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -215,15 +215,15 @@ func (o *JobsJob) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJob) GetStatusOk() (*string, bool) {
-	if o == nil || o.Status == nil {
-		return nil, false
+	if o == nil || isNil(o.Status) {
+    return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *JobsJob) HasStatus() bool {
-	if o != nil && o.Status != nil {
+	if o != nil && !isNil(o.Status) {
 		return true
 	}
 
@@ -237,22 +237,22 @@ func (o *JobsJob) SetStatus(v string) {
 
 func (o JobsJob) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.JobSpec != nil {
+	if !isNil(o.JobSpec) {
 		toSerialize["job_spec"] = o.JobSpec
 	}
-	if o.Recurrence != nil {
+	if !isNil(o.Recurrence) {
 		toSerialize["recurrence"] = o.Recurrence
 	}
-	if o.Tags != nil {
+	if !isNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if o.Title != nil {
+	if !isNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if o.Status != nil {
+	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 	return json.Marshal(toSerialize)

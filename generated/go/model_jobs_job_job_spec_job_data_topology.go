@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -39,7 +39,7 @@ func NewJobsJobJobSpecJobDataTopologyWithDefaults() *JobsJobJobSpecJobDataTopolo
 
 // GetMasterSlaveLinks returns the MasterSlaveLinks field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataTopology) GetMasterSlaveLinks() []map[string]string {
-	if o == nil || o.MasterSlaveLinks == nil {
+	if o == nil || isNil(o.MasterSlaveLinks) {
 		var ret []map[string]string
 		return ret
 	}
@@ -49,15 +49,15 @@ func (o *JobsJobJobSpecJobDataTopology) GetMasterSlaveLinks() []map[string]strin
 // GetMasterSlaveLinksOk returns a tuple with the MasterSlaveLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataTopology) GetMasterSlaveLinksOk() ([]map[string]string, bool) {
-	if o == nil || o.MasterSlaveLinks == nil {
-		return nil, false
+	if o == nil || isNil(o.MasterSlaveLinks) {
+    return nil, false
 	}
 	return o.MasterSlaveLinks, true
 }
 
 // HasMasterSlaveLinks returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataTopology) HasMasterSlaveLinks() bool {
-	if o != nil && o.MasterSlaveLinks != nil {
+	if o != nil && !isNil(o.MasterSlaveLinks) {
 		return true
 	}
 
@@ -71,7 +71,7 @@ func (o *JobsJobJobSpecJobDataTopology) SetMasterSlaveLinks(v []map[string]strin
 
 func (o JobsJobJobSpecJobDataTopology) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.MasterSlaveLinks != nil {
+	if !isNil(o.MasterSlaveLinks) {
 		toSerialize["master_slave_links"] = o.MasterSlaveLinks
 	}
 	return json.Marshal(toSerialize)

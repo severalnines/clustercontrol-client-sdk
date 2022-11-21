@@ -1,6 +1,6 @@
 # StatCmonAgentApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -25,7 +25,7 @@ import org.openapitools.ccapi.client.api.StatCmonAgentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://cchost:9501/v2");
+    defaultClient.setBasePath("https://<cchost>:9501/v2");
 
     StatCmonAgentApi apiInstance = new StatCmonAgentApi(defaultClient);
     StatCmonAgent statCmonAgent = new StatCmonAgent(); // StatCmonAgent | Provides calls to access various statistical information about the cluster

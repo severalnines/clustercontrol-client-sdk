@@ -1,6 +1,6 @@
 # AlarmsApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -25,7 +25,7 @@ import org.openapitools.ccapi.client.api.AlarmsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://cchost:9501/v2");
+    defaultClient.setBasePath("https://<cchost>:9501/v2");
 
     AlarmsApi apiInstance = new AlarmsApi(defaultClient);
     Alarm alarm = new Alarm(); // Alarm | All things related to Alarms and Stats

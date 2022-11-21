@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -58,7 +58,7 @@ func NewJobsJobJobSpecJobDataNodeWithDefaults() *JobsJobJobSpecJobDataNode {
 
 // GetBackendNameRo returns the BackendNameRo field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetBackendNameRo() string {
-	if o == nil || o.BackendNameRo == nil {
+	if o == nil || isNil(o.BackendNameRo) {
 		var ret string
 		return ret
 	}
@@ -68,15 +68,15 @@ func (o *JobsJobJobSpecJobDataNode) GetBackendNameRo() string {
 // GetBackendNameRoOk returns a tuple with the BackendNameRo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetBackendNameRoOk() (*string, bool) {
-	if o == nil || o.BackendNameRo == nil {
-		return nil, false
+	if o == nil || isNil(o.BackendNameRo) {
+    return nil, false
 	}
 	return o.BackendNameRo, true
 }
 
 // HasBackendNameRo returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasBackendNameRo() bool {
-	if o != nil && o.BackendNameRo != nil {
+	if o != nil && !isNil(o.BackendNameRo) {
 		return true
 	}
 
@@ -90,7 +90,7 @@ func (o *JobsJobJobSpecJobDataNode) SetBackendNameRo(v string) {
 
 // GetBackendNameRw returns the BackendNameRw field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetBackendNameRw() string {
-	if o == nil || o.BackendNameRw == nil {
+	if o == nil || isNil(o.BackendNameRw) {
 		var ret string
 		return ret
 	}
@@ -100,15 +100,15 @@ func (o *JobsJobJobSpecJobDataNode) GetBackendNameRw() string {
 // GetBackendNameRwOk returns a tuple with the BackendNameRw field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetBackendNameRwOk() (*string, bool) {
-	if o == nil || o.BackendNameRw == nil {
-		return nil, false
+	if o == nil || isNil(o.BackendNameRw) {
+    return nil, false
 	}
 	return o.BackendNameRw, true
 }
 
 // HasBackendNameRw returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasBackendNameRw() bool {
-	if o != nil && o.BackendNameRw != nil {
+	if o != nil && !isNil(o.BackendNameRw) {
 		return true
 	}
 
@@ -122,7 +122,7 @@ func (o *JobsJobJobSpecJobDataNode) SetBackendNameRw(v string) {
 
 // GetDataRetention returns the DataRetention field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetDataRetention() string {
-	if o == nil || o.DataRetention == nil {
+	if o == nil || isNil(o.DataRetention) {
 		var ret string
 		return ret
 	}
@@ -132,15 +132,15 @@ func (o *JobsJobJobSpecJobDataNode) GetDataRetention() string {
 // GetDataRetentionOk returns a tuple with the DataRetention field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetDataRetentionOk() (*string, bool) {
-	if o == nil || o.DataRetention == nil {
-		return nil, false
+	if o == nil || isNil(o.DataRetention) {
+    return nil, false
 	}
 	return o.DataRetention, true
 }
 
 // HasDataRetention returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasDataRetention() bool {
-	if o != nil && o.DataRetention != nil {
+	if o != nil && !isNil(o.DataRetention) {
 		return true
 	}
 
@@ -154,7 +154,7 @@ func (o *JobsJobJobSpecJobDataNode) SetDataRetention(v string) {
 
 // GetDataRetentionSize returns the DataRetentionSize field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetDataRetentionSize() int32 {
-	if o == nil || o.DataRetentionSize == nil {
+	if o == nil || isNil(o.DataRetentionSize) {
 		var ret int32
 		return ret
 	}
@@ -164,15 +164,15 @@ func (o *JobsJobJobSpecJobDataNode) GetDataRetentionSize() int32 {
 // GetDataRetentionSizeOk returns a tuple with the DataRetentionSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetDataRetentionSizeOk() (*int32, bool) {
-	if o == nil || o.DataRetentionSize == nil {
-		return nil, false
+	if o == nil || isNil(o.DataRetentionSize) {
+    return nil, false
 	}
 	return o.DataRetentionSize, true
 }
 
 // HasDataRetentionSize returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasDataRetentionSize() bool {
-	if o != nil && o.DataRetentionSize != nil {
+	if o != nil && !isNil(o.DataRetentionSize) {
 		return true
 	}
 
@@ -186,7 +186,7 @@ func (o *JobsJobJobSpecJobDataNode) SetDataRetentionSize(v int32) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -196,15 +196,15 @@ func (o *JobsJobJobSpecJobDataNode) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -218,7 +218,7 @@ func (o *JobsJobJobSpecJobDataNode) SetHostname(v string) {
 
 // GetLbAdmin returns the LbAdmin field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetLbAdmin() string {
-	if o == nil || o.LbAdmin == nil {
+	if o == nil || isNil(o.LbAdmin) {
 		var ret string
 		return ret
 	}
@@ -228,15 +228,15 @@ func (o *JobsJobJobSpecJobDataNode) GetLbAdmin() string {
 // GetLbAdminOk returns a tuple with the LbAdmin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetLbAdminOk() (*string, bool) {
-	if o == nil || o.LbAdmin == nil {
-		return nil, false
+	if o == nil || isNil(o.LbAdmin) {
+    return nil, false
 	}
 	return o.LbAdmin, true
 }
 
 // HasLbAdmin returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasLbAdmin() bool {
-	if o != nil && o.LbAdmin != nil {
+	if o != nil && !isNil(o.LbAdmin) {
 		return true
 	}
 
@@ -250,7 +250,7 @@ func (o *JobsJobJobSpecJobDataNode) SetLbAdmin(v string) {
 
 // GetLbPassword returns the LbPassword field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetLbPassword() string {
-	if o == nil || o.LbPassword == nil {
+	if o == nil || isNil(o.LbPassword) {
 		var ret string
 		return ret
 	}
@@ -260,15 +260,15 @@ func (o *JobsJobJobSpecJobDataNode) GetLbPassword() string {
 // GetLbPasswordOk returns a tuple with the LbPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetLbPasswordOk() (*string, bool) {
-	if o == nil || o.LbPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.LbPassword) {
+    return nil, false
 	}
 	return o.LbPassword, true
 }
 
 // HasLbPassword returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasLbPassword() bool {
-	if o != nil && o.LbPassword != nil {
+	if o != nil && !isNil(o.LbPassword) {
 		return true
 	}
 
@@ -282,7 +282,7 @@ func (o *JobsJobJobSpecJobDataNode) SetLbPassword(v string) {
 
 // GetLbPolicy returns the LbPolicy field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetLbPolicy() string {
-	if o == nil || o.LbPolicy == nil {
+	if o == nil || isNil(o.LbPolicy) {
 		var ret string
 		return ret
 	}
@@ -292,15 +292,15 @@ func (o *JobsJobJobSpecJobDataNode) GetLbPolicy() string {
 // GetLbPolicyOk returns a tuple with the LbPolicy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetLbPolicyOk() (*string, bool) {
-	if o == nil || o.LbPolicy == nil {
-		return nil, false
+	if o == nil || isNil(o.LbPolicy) {
+    return nil, false
 	}
 	return o.LbPolicy, true
 }
 
 // HasLbPolicy returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasLbPolicy() bool {
-	if o != nil && o.LbPolicy != nil {
+	if o != nil && !isNil(o.LbPolicy) {
 		return true
 	}
 
@@ -314,7 +314,7 @@ func (o *JobsJobJobSpecJobDataNode) SetLbPolicy(v string) {
 
 // GetMaxConnectionBe returns the MaxConnectionBe field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionBe() int32 {
-	if o == nil || o.MaxConnectionBe == nil {
+	if o == nil || isNil(o.MaxConnectionBe) {
 		var ret int32
 		return ret
 	}
@@ -324,15 +324,15 @@ func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionBe() int32 {
 // GetMaxConnectionBeOk returns a tuple with the MaxConnectionBe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionBeOk() (*int32, bool) {
-	if o == nil || o.MaxConnectionBe == nil {
-		return nil, false
+	if o == nil || isNil(o.MaxConnectionBe) {
+    return nil, false
 	}
 	return o.MaxConnectionBe, true
 }
 
 // HasMaxConnectionBe returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasMaxConnectionBe() bool {
-	if o != nil && o.MaxConnectionBe != nil {
+	if o != nil && !isNil(o.MaxConnectionBe) {
 		return true
 	}
 
@@ -346,7 +346,7 @@ func (o *JobsJobJobSpecJobDataNode) SetMaxConnectionBe(v int32) {
 
 // GetMaxConnectionFe returns the MaxConnectionFe field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionFe() int32 {
-	if o == nil || o.MaxConnectionFe == nil {
+	if o == nil || isNil(o.MaxConnectionFe) {
 		var ret int32
 		return ret
 	}
@@ -356,15 +356,15 @@ func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionFe() int32 {
 // GetMaxConnectionFeOk returns a tuple with the MaxConnectionFe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetMaxConnectionFeOk() (*int32, bool) {
-	if o == nil || o.MaxConnectionFe == nil {
-		return nil, false
+	if o == nil || isNil(o.MaxConnectionFe) {
+    return nil, false
 	}
 	return o.MaxConnectionFe, true
 }
 
 // HasMaxConnectionFe returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasMaxConnectionFe() bool {
-	if o != nil && o.MaxConnectionFe != nil {
+	if o != nil && !isNil(o.MaxConnectionFe) {
 		return true
 	}
 
@@ -378,7 +378,7 @@ func (o *JobsJobJobSpecJobDataNode) SetMaxConnectionFe(v int32) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetPort() int32 {
-	if o == nil || o.Port == nil {
+	if o == nil || isNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -388,15 +388,15 @@ func (o *JobsJobJobSpecJobDataNode) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetPortOk() (*int32, bool) {
-	if o == nil || o.Port == nil {
-		return nil, false
+	if o == nil || isNil(o.Port) {
+    return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasPort() bool {
-	if o != nil && o.Port != nil {
+	if o != nil && !isNil(o.Port) {
 		return true
 	}
 
@@ -410,7 +410,7 @@ func (o *JobsJobJobSpecJobDataNode) SetPort(v int32) {
 
 // GetRoPort returns the RoPort field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetRoPort() int32 {
-	if o == nil || o.RoPort == nil {
+	if o == nil || isNil(o.RoPort) {
 		var ret int32
 		return ret
 	}
@@ -420,15 +420,15 @@ func (o *JobsJobJobSpecJobDataNode) GetRoPort() int32 {
 // GetRoPortOk returns a tuple with the RoPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetRoPortOk() (*int32, bool) {
-	if o == nil || o.RoPort == nil {
-		return nil, false
+	if o == nil || isNil(o.RoPort) {
+    return nil, false
 	}
 	return o.RoPort, true
 }
 
 // HasRoPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasRoPort() bool {
-	if o != nil && o.RoPort != nil {
+	if o != nil && !isNil(o.RoPort) {
 		return true
 	}
 
@@ -442,7 +442,7 @@ func (o *JobsJobJobSpecJobDataNode) SetRoPort(v int32) {
 
 // GetRwPort returns the RwPort field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetRwPort() int32 {
-	if o == nil || o.RwPort == nil {
+	if o == nil || isNil(o.RwPort) {
 		var ret int32
 		return ret
 	}
@@ -452,15 +452,15 @@ func (o *JobsJobJobSpecJobDataNode) GetRwPort() int32 {
 // GetRwPortOk returns a tuple with the RwPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetRwPortOk() (*int32, bool) {
-	if o == nil || o.RwPort == nil {
-		return nil, false
+	if o == nil || isNil(o.RwPort) {
+    return nil, false
 	}
 	return o.RwPort, true
 }
 
 // HasRwPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasRwPort() bool {
-	if o != nil && o.RwPort != nil {
+	if o != nil && !isNil(o.RwPort) {
 		return true
 	}
 
@@ -474,7 +474,7 @@ func (o *JobsJobJobSpecJobDataNode) SetRwPort(v int32) {
 
 // GetRwSplitting returns the RwSplitting field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetRwSplitting() bool {
-	if o == nil || o.RwSplitting == nil {
+	if o == nil || isNil(o.RwSplitting) {
 		var ret bool
 		return ret
 	}
@@ -484,15 +484,15 @@ func (o *JobsJobJobSpecJobDataNode) GetRwSplitting() bool {
 // GetRwSplittingOk returns a tuple with the RwSplitting field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetRwSplittingOk() (*bool, bool) {
-	if o == nil || o.RwSplitting == nil {
-		return nil, false
+	if o == nil || isNil(o.RwSplitting) {
+    return nil, false
 	}
 	return o.RwSplitting, true
 }
 
 // HasRwSplitting returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasRwSplitting() bool {
-	if o != nil && o.RwSplitting != nil {
+	if o != nil && !isNil(o.RwSplitting) {
 		return true
 	}
 
@@ -506,7 +506,7 @@ func (o *JobsJobJobSpecJobDataNode) SetRwSplitting(v bool) {
 
 // GetStatsSocket returns the StatsSocket field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetStatsSocket() string {
-	if o == nil || o.StatsSocket == nil {
+	if o == nil || isNil(o.StatsSocket) {
 		var ret string
 		return ret
 	}
@@ -516,15 +516,15 @@ func (o *JobsJobJobSpecJobDataNode) GetStatsSocket() string {
 // GetStatsSocketOk returns a tuple with the StatsSocket field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetStatsSocketOk() (*string, bool) {
-	if o == nil || o.StatsSocket == nil {
-		return nil, false
+	if o == nil || isNil(o.StatsSocket) {
+    return nil, false
 	}
 	return o.StatsSocket, true
 }
 
 // HasStatsSocket returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasStatsSocket() bool {
-	if o != nil && o.StatsSocket != nil {
+	if o != nil && !isNil(o.StatsSocket) {
 		return true
 	}
 
@@ -538,7 +538,7 @@ func (o *JobsJobJobSpecJobDataNode) SetStatsSocket(v string) {
 
 // GetTimeoutClient returns the TimeoutClient field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetTimeoutClient() int32 {
-	if o == nil || o.TimeoutClient == nil {
+	if o == nil || isNil(o.TimeoutClient) {
 		var ret int32
 		return ret
 	}
@@ -548,15 +548,15 @@ func (o *JobsJobJobSpecJobDataNode) GetTimeoutClient() int32 {
 // GetTimeoutClientOk returns a tuple with the TimeoutClient field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetTimeoutClientOk() (*int32, bool) {
-	if o == nil || o.TimeoutClient == nil {
-		return nil, false
+	if o == nil || isNil(o.TimeoutClient) {
+    return nil, false
 	}
 	return o.TimeoutClient, true
 }
 
 // HasTimeoutClient returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasTimeoutClient() bool {
-	if o != nil && o.TimeoutClient != nil {
+	if o != nil && !isNil(o.TimeoutClient) {
 		return true
 	}
 
@@ -570,7 +570,7 @@ func (o *JobsJobJobSpecJobDataNode) SetTimeoutClient(v int32) {
 
 // GetTimeoutServer returns the TimeoutServer field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetTimeoutServer() int32 {
-	if o == nil || o.TimeoutServer == nil {
+	if o == nil || isNil(o.TimeoutServer) {
 		var ret int32
 		return ret
 	}
@@ -580,15 +580,15 @@ func (o *JobsJobJobSpecJobDataNode) GetTimeoutServer() int32 {
 // GetTimeoutServerOk returns a tuple with the TimeoutServer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetTimeoutServerOk() (*int32, bool) {
-	if o == nil || o.TimeoutServer == nil {
-		return nil, false
+	if o == nil || isNil(o.TimeoutServer) {
+    return nil, false
 	}
 	return o.TimeoutServer, true
 }
 
 // HasTimeoutServer returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasTimeoutServer() bool {
-	if o != nil && o.TimeoutServer != nil {
+	if o != nil && !isNil(o.TimeoutServer) {
 		return true
 	}
 
@@ -602,7 +602,7 @@ func (o *JobsJobJobSpecJobDataNode) SetTimeoutServer(v int32) {
 
 // GetXinetdAllowFrom returns the XinetdAllowFrom field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetXinetdAllowFrom() string {
-	if o == nil || o.XinetdAllowFrom == nil {
+	if o == nil || isNil(o.XinetdAllowFrom) {
 		var ret string
 		return ret
 	}
@@ -612,15 +612,15 @@ func (o *JobsJobJobSpecJobDataNode) GetXinetdAllowFrom() string {
 // GetXinetdAllowFromOk returns a tuple with the XinetdAllowFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetXinetdAllowFromOk() (*string, bool) {
-	if o == nil || o.XinetdAllowFrom == nil {
-		return nil, false
+	if o == nil || isNil(o.XinetdAllowFrom) {
+    return nil, false
 	}
 	return o.XinetdAllowFrom, true
 }
 
 // HasXinetdAllowFrom returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasXinetdAllowFrom() bool {
-	if o != nil && o.XinetdAllowFrom != nil {
+	if o != nil && !isNil(o.XinetdAllowFrom) {
 		return true
 	}
 
@@ -634,7 +634,7 @@ func (o *JobsJobJobSpecJobDataNode) SetXinetdAllowFrom(v string) {
 
 // GetScrapeInterval returns the ScrapeInterval field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetScrapeInterval() string {
-	if o == nil || o.ScrapeInterval == nil {
+	if o == nil || isNil(o.ScrapeInterval) {
 		var ret string
 		return ret
 	}
@@ -644,15 +644,15 @@ func (o *JobsJobJobSpecJobDataNode) GetScrapeInterval() string {
 // GetScrapeIntervalOk returns a tuple with the ScrapeInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetScrapeIntervalOk() (*string, bool) {
-	if o == nil || o.ScrapeInterval == nil {
-		return nil, false
+	if o == nil || isNil(o.ScrapeInterval) {
+    return nil, false
 	}
 	return o.ScrapeInterval, true
 }
 
 // HasScrapeInterval returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasScrapeInterval() bool {
-	if o != nil && o.ScrapeInterval != nil {
+	if o != nil && !isNil(o.ScrapeInterval) {
 		return true
 	}
 
@@ -666,7 +666,7 @@ func (o *JobsJobJobSpecJobDataNode) SetScrapeInterval(v string) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNode) GetConfiguration() []JobsJobJobSpecJobDataNodeConfigurationInner {
-	if o == nil || o.Configuration == nil {
+	if o == nil || isNil(o.Configuration) {
 		var ret []JobsJobJobSpecJobDataNodeConfigurationInner
 		return ret
 	}
@@ -676,15 +676,15 @@ func (o *JobsJobJobSpecJobDataNode) GetConfiguration() []JobsJobJobSpecJobDataNo
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNode) GetConfigurationOk() ([]JobsJobJobSpecJobDataNodeConfigurationInner, bool) {
-	if o == nil || o.Configuration == nil {
-		return nil, false
+	if o == nil || isNil(o.Configuration) {
+    return nil, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNode) HasConfiguration() bool {
-	if o != nil && o.Configuration != nil {
+	if o != nil && !isNil(o.Configuration) {
 		return true
 	}
 
@@ -698,64 +698,64 @@ func (o *JobsJobJobSpecJobDataNode) SetConfiguration(v []JobsJobJobSpecJobDataNo
 
 func (o JobsJobJobSpecJobDataNode) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.BackendNameRo != nil {
+	if !isNil(o.BackendNameRo) {
 		toSerialize["backend_name_ro"] = o.BackendNameRo
 	}
-	if o.BackendNameRw != nil {
+	if !isNil(o.BackendNameRw) {
 		toSerialize["backend_name_rw"] = o.BackendNameRw
 	}
-	if o.DataRetention != nil {
+	if !isNil(o.DataRetention) {
 		toSerialize["data_retention"] = o.DataRetention
 	}
-	if o.DataRetentionSize != nil {
+	if !isNil(o.DataRetentionSize) {
 		toSerialize["data_retention_size"] = o.DataRetentionSize
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.LbAdmin != nil {
+	if !isNil(o.LbAdmin) {
 		toSerialize["lb_admin"] = o.LbAdmin
 	}
-	if o.LbPassword != nil {
+	if !isNil(o.LbPassword) {
 		toSerialize["lb_password"] = o.LbPassword
 	}
-	if o.LbPolicy != nil {
+	if !isNil(o.LbPolicy) {
 		toSerialize["lb_policy"] = o.LbPolicy
 	}
-	if o.MaxConnectionBe != nil {
+	if !isNil(o.MaxConnectionBe) {
 		toSerialize["max_connection_be"] = o.MaxConnectionBe
 	}
-	if o.MaxConnectionFe != nil {
+	if !isNil(o.MaxConnectionFe) {
 		toSerialize["max_connection_fe"] = o.MaxConnectionFe
 	}
-	if o.Port != nil {
+	if !isNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
-	if o.RoPort != nil {
+	if !isNil(o.RoPort) {
 		toSerialize["ro_port"] = o.RoPort
 	}
-	if o.RwPort != nil {
+	if !isNil(o.RwPort) {
 		toSerialize["rw_port"] = o.RwPort
 	}
-	if o.RwSplitting != nil {
+	if !isNil(o.RwSplitting) {
 		toSerialize["rw_splitting"] = o.RwSplitting
 	}
-	if o.StatsSocket != nil {
+	if !isNil(o.StatsSocket) {
 		toSerialize["stats_socket"] = o.StatsSocket
 	}
-	if o.TimeoutClient != nil {
+	if !isNil(o.TimeoutClient) {
 		toSerialize["timeout_client"] = o.TimeoutClient
 	}
-	if o.TimeoutServer != nil {
+	if !isNil(o.TimeoutServer) {
 		toSerialize["timeout_server"] = o.TimeoutServer
 	}
-	if o.XinetdAllowFrom != nil {
+	if !isNil(o.XinetdAllowFrom) {
 		toSerialize["xinetd_allow_from"] = o.XinetdAllowFrom
 	}
-	if o.ScrapeInterval != nil {
+	if !isNil(o.ScrapeInterval) {
 		toSerialize["scrape_interval"] = o.ScrapeInterval
 	}
-	if o.Configuration != nil {
+	if !isNil(o.Configuration) {
 		toSerialize["configuration"] = o.Configuration
 	}
 	return json.Marshal(toSerialize)

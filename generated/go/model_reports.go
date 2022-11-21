@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -54,7 +54,7 @@ func (o *Reports) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Reports) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -66,7 +66,7 @@ func (o *Reports) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Reports) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -76,15 +76,15 @@ func (o *Reports) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Reports) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Reports) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *Reports) SetClusterId(v int32) {
 
 // GetReport returns the Report field value if set, zero value otherwise.
 func (o *Reports) GetReport() ReportsReport {
-	if o == nil || o.Report == nil {
+	if o == nil || isNil(o.Report) {
 		var ret ReportsReport
 		return ret
 	}
@@ -108,15 +108,15 @@ func (o *Reports) GetReport() ReportsReport {
 // GetReportOk returns a tuple with the Report field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Reports) GetReportOk() (*ReportsReport, bool) {
-	if o == nil || o.Report == nil {
-		return nil, false
+	if o == nil || isNil(o.Report) {
+    return nil, false
 	}
 	return o.Report, true
 }
 
 // HasReport returns a boolean if a field has been set.
 func (o *Reports) HasReport() bool {
-	if o != nil && o.Report != nil {
+	if o != nil && !isNil(o.Report) {
 		return true
 	}
 
@@ -133,10 +133,10 @@ func (o Reports) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.Report != nil {
+	if !isNil(o.Report) {
 		toSerialize["report"] = o.Report
 	}
 	return json.Marshal(toSerialize)

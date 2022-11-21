@@ -10,17 +10,27 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <junit-jupiter-version>5.9.1</junit-jupiter-version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <slf4j.version>2.0.3</slf4j.version>
         <logback.version>1.4.4</logback.version>
+
+        <jackson-databind.version>2.13.4.2</jackson-databind.version>
+        <javax-ws-rs-api.version>2.1.1</javax-ws-rs-api.version>
+
+        <clustercontrol-api.version>1.0.0</clustercontrol-api.version>
+        <clustercontrol-api-abstraction.version>1.0.0</clustercontrol-api-abstraction.version>
+        <clustercontrol-api-example.version>1.0.0</clustercontrol-api-example.version>
+
+        <junit-jupiter-version>5.9.1</junit-jupiter-version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
     <packaging>pom</packaging>
 
     <modules>
         <module>clustercontrol-api</module>
+        <module>clustercontrol-api-abstraction</module>
         <module>clustercontrol-api-example</module>
         <module>ccsdk-package</module>
     </modules>
@@ -38,9 +48,40 @@
                 <version>${logback.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax-ws-rs-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>clustercontrol-api</artifactId>
+                <version>${clustercontrol-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>clustercontrol-api-abstraction</artifactId>
+                <version>${clustercontrol-api-abstraction.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.severalnines</groupId>
+                <artifactId>clustercontrol-api-example</artifactId>
+                <version>${clustercontrol-api-example.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>${junit-jupiter-version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -56,7 +56,7 @@ func (o *Alarm) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +68,7 @@ func (o *Alarm) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Alarm) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -78,15 +78,15 @@ func (o *Alarm) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Alarm) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *Alarm) SetClusterId(v int32) {
 
 // GetAlarmId returns the AlarmId field value if set, zero value otherwise.
 func (o *Alarm) GetAlarmId() int32 {
-	if o == nil || o.AlarmId == nil {
+	if o == nil || isNil(o.AlarmId) {
 		var ret int32
 		return ret
 	}
@@ -110,15 +110,15 @@ func (o *Alarm) GetAlarmId() int32 {
 // GetAlarmIdOk returns a tuple with the AlarmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetAlarmIdOk() (*int32, bool) {
-	if o == nil || o.AlarmId == nil {
-		return nil, false
+	if o == nil || isNil(o.AlarmId) {
+    return nil, false
 	}
 	return o.AlarmId, true
 }
 
 // HasAlarmId returns a boolean if a field has been set.
 func (o *Alarm) HasAlarmId() bool {
-	if o != nil && o.AlarmId != nil {
+	if o != nil && !isNil(o.AlarmId) {
 		return true
 	}
 
@@ -132,7 +132,7 @@ func (o *Alarm) SetAlarmId(v int32) {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *Alarm) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -142,15 +142,15 @@ func (o *Alarm) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *Alarm) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -164,7 +164,7 @@ func (o *Alarm) SetClassName(v string) {
 
 // GetIgnore returns the Ignore field value if set, zero value otherwise.
 func (o *Alarm) GetIgnore() bool {
-	if o == nil || o.Ignore == nil {
+	if o == nil || isNil(o.Ignore) {
 		var ret bool
 		return ret
 	}
@@ -174,15 +174,15 @@ func (o *Alarm) GetIgnore() bool {
 // GetIgnoreOk returns a tuple with the Ignore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetIgnoreOk() (*bool, bool) {
-	if o == nil || o.Ignore == nil {
-		return nil, false
+	if o == nil || isNil(o.Ignore) {
+    return nil, false
 	}
 	return o.Ignore, true
 }
 
 // HasIgnore returns a boolean if a field has been set.
 func (o *Alarm) HasIgnore() bool {
-	if o != nil && o.Ignore != nil {
+	if o != nil && !isNil(o.Ignore) {
 		return true
 	}
 
@@ -199,16 +199,16 @@ func (o Alarm) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.AlarmId != nil {
+	if !isNil(o.AlarmId) {
 		toSerialize["alarm_id"] = o.AlarmId
 	}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.Ignore != nil {
+	if !isNil(o.Ignore) {
 		toSerialize["ignore"] = o.Ignore
 	}
 	return json.Marshal(toSerialize)
