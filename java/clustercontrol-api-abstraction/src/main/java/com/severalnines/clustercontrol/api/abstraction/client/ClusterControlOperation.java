@@ -38,6 +38,8 @@ public interface ClusterControlOperation {
 
     public String removeCluster(String jsonStr) throws ClusterControlApiException;
 
+    public String getJob(String jsonStr) throws ClusterControlApiException;
+
     //    public String createMysqlReplicationCluster(String jsonStr) throws ClusterControlApiException;
 //
 //    public String createMariaReplicationCluster(String jsonStr) throws ClusterControlApiException;

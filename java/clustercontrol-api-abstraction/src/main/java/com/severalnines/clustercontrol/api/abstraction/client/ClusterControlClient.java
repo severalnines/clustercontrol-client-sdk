@@ -16,6 +16,7 @@
 package com.severalnines.clustercontrol.api.abstraction.client;
 
 import com.severalnines.clustercontrol.api.abstraction.common.AbstractAuthenticationStrategy;
+import com.severalnines.clustercontrol.api.abstraction.common.AbstractClusterControlOperation;
 import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiException;
 import com.severalnines.clustercontrol.api.abstraction.common.DefaultClusterControlOpExecStrategy;
 import com.severalnines.clustercontrol.api.abstraction.job.*;
@@ -136,6 +137,16 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     public String removeCluster(String jsonStr) throws ClusterControlApiException {
         AbstractDbClusterJob rmClustJob = new RemoveClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.REMOVE_CLUSTER);
+
+        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
+                getAuthStrategy(), rmClustJob);
+
+        return execStrategy.executeOp();
+    }
+
+    @Override
+    public String getJob(String jsonStr) throws ClusterControlApiException {
+        AbstractClusterControlOperation rmClustJob = new ClusterControlJob(getAuthStrategy(), jsonStr);
 
         DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
                 getAuthStrategy(), rmClustJob);

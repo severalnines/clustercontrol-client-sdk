@@ -84,4 +84,9 @@ abstract class AbstractClusterControlClient implements ClusterControlOperation  
     public String removeCluster(String jsonStr) throws ClusterControlApiException {
         return null;
     }
+
+    @Override
+    public String getJob(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
 }

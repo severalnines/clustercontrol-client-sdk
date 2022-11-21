@@ -95,7 +95,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             createDetails = JsonSerializeDeserialize.jsonToObject(getJsonInput(), DbCluster.class);
         } catch (Exception e) {
             logger.warn("Exception in jsonToObject: ", e);
-            throw new ClusterControlApiException(e);
+            throw new ClusterControlInputException(e);
         }
 
         try {
@@ -141,7 +141,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             createDetails = JsonSerializeDeserialize.jsonToObject(getJsonInput(), DbCluster.class);
         } catch (Exception e) {
             logger.warn("Exception in jsonToObject: ", e);
-            throw new ClusterControlApiException(e);
+            throw new ClusterControlInputException(e);
         }
 
         try {

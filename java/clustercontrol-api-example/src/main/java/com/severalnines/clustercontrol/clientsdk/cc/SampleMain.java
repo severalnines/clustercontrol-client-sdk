@@ -183,7 +183,14 @@ public final class SampleMain {
         dbCluster.setClusterName("api-abstraction-test");
         dbCluster.setClusterId(21);
         String createRet = myCcClient.removeCluster(JsonSerializeDeserialize.objectToJson(dbCluster));
-        logger.info("CreateCluster response: {}", createRet);
+        logger.info("RemoveCluster response: {}", createRet);
+    }
+
+    void getJob() throws Exception {
+        Job job = new Job();
+        job.setJobId(21);
+        String createRet = myCcClient.getJob(JsonSerializeDeserialize.objectToJson(job));
+        logger.info("GetJob response: {}", createRet);
     }
 
     public static void main(String[] args) throws Exception {
@@ -227,5 +234,8 @@ public final class SampleMain {
 
         // Remove cluster
         sm.removeCluster();
+
+        // Get job
+        sm.getJob();
     }
 }
