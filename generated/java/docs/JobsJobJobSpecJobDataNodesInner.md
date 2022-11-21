@@ -25,6 +25,8 @@
 |**datadir** | **String** |  |  [optional] |
 |**backupDir** | **String** |  |  [optional] |
 |**synchronous** | **Boolean** |  |  [optional] |
+|**protocol** | [**ProtocolEnum**](#ProtocolEnum) |  |  [optional] |
+|**roles** | [**RolesEnum**](#RolesEnum) |  |  [optional] |
 
 
 
@@ -37,6 +39,8 @@
 | CMONHOST | &quot;CmonHost&quot; |
 | CMONPBMAGENTHOST | &quot;CmonPBMAgentHost&quot; |
 | CMONPGBOUNCERHOST | &quot;CmonPgBouncerHost&quot; |
+| CMONMSSQLHOST | &quot;CmonMsSqlHost&quot; |
+| CMONELASTICHOST | &quot;CmonElasticHost&quot; |
 
 
 
@@ -45,6 +49,24 @@
 | Name | Value |
 |---- | -----|
 | NONE | &quot;none&quot; |
+
+
+
+## Enum: ProtocolEnum
+
+| Name | Value |
+|---- | -----|
+| ELASTIC | &quot;elastic&quot; |
+
+
+
+## Enum: RolesEnum
+
+| Name | Value |
+|---- | -----|
+| MASTER | &quot;master&quot; |
+| DATA | &quot;data&quot; |
+| MASTER_DATA | &quot;master-data&quot; |
 
 
 

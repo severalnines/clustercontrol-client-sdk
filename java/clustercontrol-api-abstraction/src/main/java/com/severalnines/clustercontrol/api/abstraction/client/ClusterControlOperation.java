@@ -30,6 +30,12 @@ public interface ClusterControlOperation {
 
     public String createMongoCluster(String jsonStr) throws ClusterControlApiException;
 
+    public String createRedisCluster(String jsonStr) throws ClusterControlApiException;
+
+    public String createMsSqlCluster(String jsonStr) throws ClusterControlApiException;
+
+    public String createElastisearchCluster(String jsonStr) throws ClusterControlApiException;
+
     //    public String createMysqlReplicationCluster(String jsonStr) throws ClusterControlApiException;
 //
 //    public String createMariaReplicationCluster(String jsonStr) throws ClusterControlApiException;

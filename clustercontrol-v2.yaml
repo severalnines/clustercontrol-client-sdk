@@ -1056,6 +1056,12 @@ components:
                       type: string
                     bootstrap:
                       type: boolean
+                    snapshot_locaiton:
+                      type: string
+                    snapshot_repository:
+                      type: string
+                    storage_host:
+                      type: string
                     upload_backup_data_to_cloud_storage:
                       type: object
                       properties:
@@ -1176,7 +1182,7 @@ components:
                           class_name:
                             type: string
                             enum: ["CmonRedisHost","CmonRedisSentinelHost","CmonHost",
-                              "CmonPBMAgentHost","CmonPgBouncerHost"]
+                              "CmonPBMAgentHost","CmonPgBouncerHost","CmonMsSqlHost","CmonElasticHost"]
                           cdt_path:
                             type: string
                           acl:
@@ -1212,6 +1218,12 @@ components:
                             type: string
                           synchronous:
                             type: boolean
+                          protocol:
+                            type: string
+                            enum: ["elastic"]
+                          roles:
+                            type: string
+                            enum: ["master","data","master-data"]
                     node_adresses:
                       type: array
                       items:

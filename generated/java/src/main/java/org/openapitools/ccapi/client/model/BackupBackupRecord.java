@@ -48,7 +48,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * BackupBackupRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T11:54:25.905584-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
 public class BackupBackupRecord {
   public static final String SERIALIZED_NAME_BACKUP_ID = "backup_id";
   @SerializedName(SERIALIZED_NAME_BACKUP_ID)

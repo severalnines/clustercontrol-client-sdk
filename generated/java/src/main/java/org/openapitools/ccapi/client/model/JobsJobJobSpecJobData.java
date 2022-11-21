@@ -59,7 +59,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T11:54:25.905584-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
 public class JobsJobJobSpecJobData {
   /**
    * Gets or Sets action
@@ -868,6 +868,18 @@ public class JobsJobJobSpecJobData {
   public static final String SERIALIZED_NAME_BOOTSTRAP = "bootstrap";
   @SerializedName(SERIALIZED_NAME_BOOTSTRAP)
   private Boolean bootstrap;
+
+  public static final String SERIALIZED_NAME_SNAPSHOT_LOCAITON = "snapshot_locaiton";
+  @SerializedName(SERIALIZED_NAME_SNAPSHOT_LOCAITON)
+  private String snapshotLocaiton;
+
+  public static final String SERIALIZED_NAME_SNAPSHOT_REPOSITORY = "snapshot_repository";
+  @SerializedName(SERIALIZED_NAME_SNAPSHOT_REPOSITORY)
+  private String snapshotRepository;
+
+  public static final String SERIALIZED_NAME_STORAGE_HOST = "storage_host";
+  @SerializedName(SERIALIZED_NAME_STORAGE_HOST)
+  private String storageHost;
 
   public static final String SERIALIZED_NAME_UPLOAD_BACKUP_DATA_TO_CLOUD_STORAGE = "upload_backup_data_to_cloud_storage";
   @SerializedName(SERIALIZED_NAME_UPLOAD_BACKUP_DATA_TO_CLOUD_STORAGE)
@@ -3097,6 +3109,75 @@ public class JobsJobJobSpecJobData {
   }
 
 
+  public JobsJobJobSpecJobData snapshotLocaiton(String snapshotLocaiton) {
+    
+    this.snapshotLocaiton = snapshotLocaiton;
+    return this;
+  }
+
+   /**
+   * Get snapshotLocaiton
+   * @return snapshotLocaiton
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSnapshotLocaiton() {
+    return snapshotLocaiton;
+  }
+
+
+  public void setSnapshotLocaiton(String snapshotLocaiton) {
+    this.snapshotLocaiton = snapshotLocaiton;
+  }
+
+
+  public JobsJobJobSpecJobData snapshotRepository(String snapshotRepository) {
+    
+    this.snapshotRepository = snapshotRepository;
+    return this;
+  }
+
+   /**
+   * Get snapshotRepository
+   * @return snapshotRepository
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSnapshotRepository() {
+    return snapshotRepository;
+  }
+
+
+  public void setSnapshotRepository(String snapshotRepository) {
+    this.snapshotRepository = snapshotRepository;
+  }
+
+
+  public JobsJobJobSpecJobData storageHost(String storageHost) {
+    
+    this.storageHost = storageHost;
+    return this;
+  }
+
+   /**
+   * Get storageHost
+   * @return storageHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStorageHost() {
+    return storageHost;
+  }
+
+
+  public void setStorageHost(String storageHost) {
+    this.storageHost = storageHost;
+  }
+
+
   public JobsJobJobSpecJobData uploadBackupDataToCloudStorage(JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage) {
     
     this.uploadBackupDataToCloudStorage = uploadBackupDataToCloudStorage;
@@ -3472,6 +3553,9 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.pitrStopPos, jobsJobJobSpecJobData.pitrStopPos) &&
         Objects.equals(this.hostLocationUuid, jobsJobJobSpecJobData.hostLocationUuid) &&
         Objects.equals(this.bootstrap, jobsJobJobSpecJobData.bootstrap) &&
+        Objects.equals(this.snapshotLocaiton, jobsJobJobSpecJobData.snapshotLocaiton) &&
+        Objects.equals(this.snapshotRepository, jobsJobJobSpecJobData.snapshotRepository) &&
+        Objects.equals(this.storageHost, jobsJobJobSpecJobData.storageHost) &&
         Objects.equals(this.uploadBackupDataToCloudStorage, jobsJobJobSpecJobData.uploadBackupDataToCloudStorage) &&
         Objects.equals(this.verifyBackup, jobsJobJobSpecJobData.verifyBackup) &&
         Objects.equals(this.configServers, jobsJobJobSpecJobData.configServers) &&
@@ -3486,7 +3570,7 @@ public class JobsJobJobSpecJobData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, addnode, adminUsername, adminUser, adminPassword, auditEvents, archiveMode, backupid, backupId, buildFromSource, clusterName, clusterid, clusterType, companyId, configTemplate, backupFailover, backupFailoverHost, backupMethod, backupMysqldumpType, backupIndividualSchemas, backupRetention, extendedInsert, backupDir, backupsubdir, ccStorage, compression, compressionLevel, dbDatabase, dbPassword, dbPrivs, dbUsername, dataCenter, execUpgradeScript, extended, listeningPort, maskPasswords, monitorPassword, monitorUser, useClustering, useRwSplit, hostname, masterAddress, includeDatabases, installTimescaledb, updateLb, usePackageForDataDir, encryptBackup, throttleRateNetbw, usePigz, useQpress, wsrepDesync, xtrabackupBackupLocks, xtrabackupLockDdlPerTable, xtrabackupParallellism, verifyBackupDelay, dataDir, dbUser, disableFirewall, disableSelinux, enableUninstall, generateToken, installSoftware, useInternalRepos, localRepository, enableMysqlUninstall, mysqlSemiSync, enableSsl, mongosConfTemplate, mongodbAuthdb, nodeType, overwriteMysqlchk, port, sshKeyfile, sshPort, sshUser, sudoPassword, userId, vendor, type, version, softwarePackage, serverAddress, terminateDbServer, xtrabackupUseMemory, initial, reboot, slaveAddress, force, forceStop, stopTimeout, pitrStopTime, pitrStopLog, pitrStopPos, hostLocationUuid, bootstrap, uploadBackupDataToCloudStorage, verifyBackup, configServers, mongosServers, node, nodes, nodeAdresses, topology, replicaSets, withTags);
+    return Objects.hash(action, addnode, adminUsername, adminUser, adminPassword, auditEvents, archiveMode, backupid, backupId, buildFromSource, clusterName, clusterid, clusterType, companyId, configTemplate, backupFailover, backupFailoverHost, backupMethod, backupMysqldumpType, backupIndividualSchemas, backupRetention, extendedInsert, backupDir, backupsubdir, ccStorage, compression, compressionLevel, dbDatabase, dbPassword, dbPrivs, dbUsername, dataCenter, execUpgradeScript, extended, listeningPort, maskPasswords, monitorPassword, monitorUser, useClustering, useRwSplit, hostname, masterAddress, includeDatabases, installTimescaledb, updateLb, usePackageForDataDir, encryptBackup, throttleRateNetbw, usePigz, useQpress, wsrepDesync, xtrabackupBackupLocks, xtrabackupLockDdlPerTable, xtrabackupParallellism, verifyBackupDelay, dataDir, dbUser, disableFirewall, disableSelinux, enableUninstall, generateToken, installSoftware, useInternalRepos, localRepository, enableMysqlUninstall, mysqlSemiSync, enableSsl, mongosConfTemplate, mongodbAuthdb, nodeType, overwriteMysqlchk, port, sshKeyfile, sshPort, sshUser, sudoPassword, userId, vendor, type, version, softwarePackage, serverAddress, terminateDbServer, xtrabackupUseMemory, initial, reboot, slaveAddress, force, forceStop, stopTimeout, pitrStopTime, pitrStopLog, pitrStopPos, hostLocationUuid, bootstrap, snapshotLocaiton, snapshotRepository, storageHost, uploadBackupDataToCloudStorage, verifyBackup, configServers, mongosServers, node, nodes, nodeAdresses, topology, replicaSets, withTags);
   }
 
   @Override
@@ -3588,6 +3672,9 @@ public class JobsJobJobSpecJobData {
     sb.append("    pitrStopPos: ").append(toIndentedString(pitrStopPos)).append("\n");
     sb.append("    hostLocationUuid: ").append(toIndentedString(hostLocationUuid)).append("\n");
     sb.append("    bootstrap: ").append(toIndentedString(bootstrap)).append("\n");
+    sb.append("    snapshotLocaiton: ").append(toIndentedString(snapshotLocaiton)).append("\n");
+    sb.append("    snapshotRepository: ").append(toIndentedString(snapshotRepository)).append("\n");
+    sb.append("    storageHost: ").append(toIndentedString(storageHost)).append("\n");
     sb.append("    uploadBackupDataToCloudStorage: ").append(toIndentedString(uploadBackupDataToCloudStorage)).append("\n");
     sb.append("    verifyBackup: ").append(toIndentedString(verifyBackup)).append("\n");
     sb.append("    configServers: ").append(toIndentedString(configServers)).append("\n");
@@ -3715,6 +3802,9 @@ public class JobsJobJobSpecJobData {
     openapiFields.add("pitr_stop_pos");
     openapiFields.add("host_location_uuid");
     openapiFields.add("bootstrap");
+    openapiFields.add("snapshot_locaiton");
+    openapiFields.add("snapshot_repository");
+    openapiFields.add("storage_host");
     openapiFields.add("upload_backup_data_to_cloud_storage");
     openapiFields.add("verify_backup");
     openapiFields.add("config_servers");
@@ -3878,6 +3968,15 @@ public class JobsJobJobSpecJobData {
       }
       if ((jsonObj.get("host_location_uuid") != null && !jsonObj.get("host_location_uuid").isJsonNull()) && !jsonObj.get("host_location_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host_location_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_location_uuid").toString()));
+      }
+      if ((jsonObj.get("snapshot_locaiton") != null && !jsonObj.get("snapshot_locaiton").isJsonNull()) && !jsonObj.get("snapshot_locaiton").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `snapshot_locaiton` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_locaiton").toString()));
+      }
+      if ((jsonObj.get("snapshot_repository") != null && !jsonObj.get("snapshot_repository").isJsonNull()) && !jsonObj.get("snapshot_repository").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `snapshot_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_repository").toString()));
+      }
+      if ((jsonObj.get("storage_host") != null && !jsonObj.get("storage_host").isJsonNull()) && !jsonObj.get("storage_host").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `storage_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_host").toString()));
       }
       // validate the optional field `upload_backup_data_to_cloud_storage`
       if (jsonObj.get("upload_backup_data_to_cloud_storage") != null && !jsonObj.get("upload_backup_data_to_cloud_storage").isJsonNull()) {

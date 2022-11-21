@@ -30,6 +30,11 @@ public class MysqlMariaClusterJob extends AbstractDbClusterJob {
     }
 
     @Override
+    protected void setDefaultDbUser(JobsJobJobSpecJobData jsjD) {
+        jsjD.setDbUser("root");
+    }
+
+    @Override
     protected void setDefaultPort(JobsJobJobSpecJobData jsjD) {
         jsjD.setPort(3306);
     }

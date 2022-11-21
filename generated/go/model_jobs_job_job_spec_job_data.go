@@ -112,6 +112,9 @@ type JobsJobJobSpecJobData struct {
 	PitrStopPos *int32 `json:"pitr_stop_pos,omitempty"`
 	HostLocationUuid *string `json:"host_location_uuid,omitempty"`
 	Bootstrap *bool `json:"bootstrap,omitempty"`
+	SnapshotLocaiton *string `json:"snapshot_locaiton,omitempty"`
+	SnapshotRepository *string `json:"snapshot_repository,omitempty"`
+	StorageHost *string `json:"storage_host,omitempty"`
 	UploadBackupDataToCloudStorage *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage `json:"upload_backup_data_to_cloud_storage,omitempty"`
 	VerifyBackup *BackupScheduleJobJobDataVerifyBackup `json:"verify_backup,omitempty"`
 	ConfigServers *JobsJobJobSpecJobDataConfigServers `json:"config_servers,omitempty"`
@@ -3181,6 +3184,102 @@ func (o *JobsJobJobSpecJobData) SetBootstrap(v bool) {
 	o.Bootstrap = &v
 }
 
+// GetSnapshotLocaiton returns the SnapshotLocaiton field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSnapshotLocaiton() string {
+	if o == nil || isNil(o.SnapshotLocaiton) {
+		var ret string
+		return ret
+	}
+	return *o.SnapshotLocaiton
+}
+
+// GetSnapshotLocaitonOk returns a tuple with the SnapshotLocaiton field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSnapshotLocaitonOk() (*string, bool) {
+	if o == nil || isNil(o.SnapshotLocaiton) {
+    return nil, false
+	}
+	return o.SnapshotLocaiton, true
+}
+
+// HasSnapshotLocaiton returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSnapshotLocaiton() bool {
+	if o != nil && !isNil(o.SnapshotLocaiton) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotLocaiton gets a reference to the given string and assigns it to the SnapshotLocaiton field.
+func (o *JobsJobJobSpecJobData) SetSnapshotLocaiton(v string) {
+	o.SnapshotLocaiton = &v
+}
+
+// GetSnapshotRepository returns the SnapshotRepository field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSnapshotRepository() string {
+	if o == nil || isNil(o.SnapshotRepository) {
+		var ret string
+		return ret
+	}
+	return *o.SnapshotRepository
+}
+
+// GetSnapshotRepositoryOk returns a tuple with the SnapshotRepository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSnapshotRepositoryOk() (*string, bool) {
+	if o == nil || isNil(o.SnapshotRepository) {
+    return nil, false
+	}
+	return o.SnapshotRepository, true
+}
+
+// HasSnapshotRepository returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSnapshotRepository() bool {
+	if o != nil && !isNil(o.SnapshotRepository) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotRepository gets a reference to the given string and assigns it to the SnapshotRepository field.
+func (o *JobsJobJobSpecJobData) SetSnapshotRepository(v string) {
+	o.SnapshotRepository = &v
+}
+
+// GetStorageHost returns the StorageHost field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetStorageHost() string {
+	if o == nil || isNil(o.StorageHost) {
+		var ret string
+		return ret
+	}
+	return *o.StorageHost
+}
+
+// GetStorageHostOk returns a tuple with the StorageHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetStorageHostOk() (*string, bool) {
+	if o == nil || isNil(o.StorageHost) {
+    return nil, false
+	}
+	return o.StorageHost, true
+}
+
+// HasStorageHost returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasStorageHost() bool {
+	if o != nil && !isNil(o.StorageHost) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageHost gets a reference to the given string and assigns it to the StorageHost field.
+func (o *JobsJobJobSpecJobData) SetStorageHost(v string) {
+	o.StorageHost = &v
+}
+
 // GetUploadBackupDataToCloudStorage returns the UploadBackupDataToCloudStorage field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetUploadBackupDataToCloudStorage() JobsJobJobSpecJobDataUploadBackupDataToCloudStorage {
 	if o == nil || isNil(o.UploadBackupDataToCloudStorage) {
@@ -3787,6 +3886,15 @@ func (o JobsJobJobSpecJobData) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Bootstrap) {
 		toSerialize["bootstrap"] = o.Bootstrap
+	}
+	if !isNil(o.SnapshotLocaiton) {
+		toSerialize["snapshot_locaiton"] = o.SnapshotLocaiton
+	}
+	if !isNil(o.SnapshotRepository) {
+		toSerialize["snapshot_repository"] = o.SnapshotRepository
+	}
+	if !isNil(o.StorageHost) {
+		toSerialize["storage_host"] = o.StorageHost
 	}
 	if !isNil(o.UploadBackupDataToCloudStorage) {
 		toSerialize["upload_backup_data_to_cloud_storage"] = o.UploadBackupDataToCloudStorage

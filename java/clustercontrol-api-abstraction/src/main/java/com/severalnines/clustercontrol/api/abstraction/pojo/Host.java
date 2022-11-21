@@ -47,6 +47,14 @@ public class Host {
         this.priority = priority;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
         return hostname;
@@ -55,4 +63,5 @@ public class Host {
     String hostname;
     String port;
     String priority;
+    String roles;
 }

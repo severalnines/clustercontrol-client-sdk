@@ -811,6 +811,30 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
+     * Test the property 'snapshotLocaiton'
+     */
+    @Test
+    public void snapshotLocaitonTest() {
+        // TODO: test snapshotLocaiton
+    }
+
+    /**
+     * Test the property 'snapshotRepository'
+     */
+    @Test
+    public void snapshotRepositoryTest() {
+        // TODO: test snapshotRepository
+    }
+
+    /**
+     * Test the property 'storageHost'
+     */
+    @Test
+    public void storageHostTest() {
+        // TODO: test storageHost
+    }
+
+    /**
      * Test the property 'uploadBackupDataToCloudStorage'
      */
     @Test

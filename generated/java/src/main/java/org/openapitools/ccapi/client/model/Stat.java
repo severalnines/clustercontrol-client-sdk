@@ -48,7 +48,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Stat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T11:54:25.905584-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
 public class Stat {
   /**
    * Gets or Sets operation

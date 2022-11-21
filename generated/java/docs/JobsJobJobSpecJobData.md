@@ -102,6 +102,9 @@
 |**pitrStopPos** | **Integer** |  |  [optional] |
 |**hostLocationUuid** | **String** |  |  [optional] |
 |**bootstrap** | **Boolean** |  |  [optional] |
+|**snapshotLocaiton** | **String** |  |  [optional] |
+|**snapshotRepository** | **String** |  |  [optional] |
+|**storageHost** | **String** |  |  [optional] |
 |**uploadBackupDataToCloudStorage** | [**JobsJobJobSpecJobDataUploadBackupDataToCloudStorage**](JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md) |  |  [optional] |
 |**verifyBackup** | [**BackupScheduleJobJobDataVerifyBackup**](BackupScheduleJobJobDataVerifyBackup.md) |  |  [optional] |
 |**configServers** | [**JobsJobJobSpecJobDataConfigServers**](JobsJobJobSpecJobDataConfigServers.md) |  |  [optional] |

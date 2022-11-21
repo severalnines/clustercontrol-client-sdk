@@ -119,6 +119,8 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
 
             setClusterType(jsjD, createDetails);
 
+            setType(jsjD, createDetails);
+
             setDbUser(jsjD, createDetails);
 
             if (!setPort(jsjD, createDetails)) {
@@ -126,6 +128,10 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             }
 
             setAdditionalFields(jsjD, createDetails);
+
+            setSnapshotLocation(jsjD, createDetails);
+            setSnapshotRepository(jsjD, createDetails);
+            setSnapshotStorageHost(jsjD, createDetails);
 
             setTemplate(jsjD, createDetails);
 
@@ -189,6 +195,9 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
         }
     }
 
+    protected void setType(JobsJobJobSpecJobData jsjD, DbCluster createDetails) {
+    }
+
     abstract protected void setClusterType(JobsJobJobSpecJobData jsjD, DbCluster createDetails)
             throws ClusterControlApiException;
 
@@ -228,7 +237,6 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
     }
 
     protected void setDefaultDbUser(JobsJobJobSpecJobData jsjD) {
-        jsjD.setDbUser("root");
     }
 
     protected void setDefaultPort(JobsJobJobSpecJobData jsjD) {
@@ -353,6 +361,18 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
     }
 
     protected void setReplicasets(JobsJobJobSpecJobData jsjD, DbCluster createDetails) throws ClusterControlApiException {
+
+    }
+
+    protected void setSnapshotLocation(JobsJobJobSpecJobData jsjD, DbCluster createDetails) throws ClusterControlApiException {
+
+    }
+
+    protected void setSnapshotRepository(JobsJobJobSpecJobData jsjD, DbCluster createDetails) throws ClusterControlApiException {
+
+    }
+
+    protected void setSnapshotStorageHost(JobsJobJobSpecJobData jsjD, DbCluster createDetails) throws ClusterControlApiException {
 
     }
 

@@ -48,7 +48,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataNodesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T11:54:25.905584-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
 public class JobsJobJobSpecJobDataNodesInner {
   /**
    * Gets or Sets className
@@ -63,7 +63,11 @@ public class JobsJobJobSpecJobDataNodesInner {
     
     CMONPBMAGENTHOST("CmonPBMAgentHost"),
     
-    CMONPGBOUNCERHOST("CmonPgBouncerHost");
+    CMONPGBOUNCERHOST("CmonPgBouncerHost"),
+    
+    CMONMSSQLHOST("CmonMsSqlHost"),
+    
+    CMONELASTICHOST("CmonElasticHost");
 
     private String value;
 
@@ -219,6 +223,108 @@ public class JobsJobJobSpecJobDataNodesInner {
   public static final String SERIALIZED_NAME_SYNCHRONOUS = "synchronous";
   @SerializedName(SERIALIZED_NAME_SYNCHRONOUS)
   private Boolean synchronous;
+
+  /**
+   * Gets or Sets protocol
+   */
+  @JsonAdapter(ProtocolEnum.Adapter.class)
+  public enum ProtocolEnum {
+    ELASTIC("elastic");
+
+    private String value;
+
+    ProtocolEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProtocolEnum fromValue(String value) {
+      for (ProtocolEnum b : ProtocolEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ProtocolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProtocolEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ProtocolEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
+  @SerializedName(SERIALIZED_NAME_PROTOCOL)
+  private ProtocolEnum protocol;
+
+  /**
+   * Gets or Sets roles
+   */
+  @JsonAdapter(RolesEnum.Adapter.class)
+  public enum RolesEnum {
+    MASTER("master"),
+    
+    DATA("data"),
+    
+    MASTER_DATA("master-data");
+
+    private String value;
+
+    RolesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RolesEnum fromValue(String value) {
+      for (RolesEnum b : RolesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RolesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RolesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RolesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RolesEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ROLES = "roles";
+  @SerializedName(SERIALIZED_NAME_ROLES)
+  private RolesEnum roles;
 
   public JobsJobJobSpecJobDataNodesInner() {
   }
@@ -637,6 +743,52 @@ public class JobsJobJobSpecJobDataNodesInner {
   }
 
 
+  public JobsJobJobSpecJobDataNodesInner protocol(ProtocolEnum protocol) {
+    
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProtocolEnum getProtocol() {
+    return protocol;
+  }
+
+
+  public void setProtocol(ProtocolEnum protocol) {
+    this.protocol = protocol;
+  }
+
+
+  public JobsJobJobSpecJobDataNodesInner roles(RolesEnum roles) {
+    
+    this.roles = roles;
+    return this;
+  }
+
+   /**
+   * Get roles
+   * @return roles
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RolesEnum getRoles() {
+    return roles;
+  }
+
+
+  public void setRoles(RolesEnum roles) {
+    this.roles = roles;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -664,12 +816,14 @@ public class JobsJobJobSpecJobDataNodesInner {
         Objects.equals(this.configfile, jobsJobJobSpecJobDataNodesInner.configfile) &&
         Objects.equals(this.datadir, jobsJobJobSpecJobDataNodesInner.datadir) &&
         Objects.equals(this.backupDir, jobsJobJobSpecJobDataNodesInner.backupDir) &&
-        Objects.equals(this.synchronous, jobsJobJobSpecJobDataNodesInner.synchronous);
+        Objects.equals(this.synchronous, jobsJobJobSpecJobDataNodesInner.synchronous) &&
+        Objects.equals(this.protocol, jobsJobJobSpecJobDataNodesInner.protocol) &&
+        Objects.equals(this.roles, jobsJobJobSpecJobDataNodesInner.roles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(className, cdtPath, acl, clusterid, ip, maintenanceMode, maintenanceModeActive, timestamp, uniqueId, hostname, hostnameData, hostnameInternal, port, nodetype, configfile, datadir, backupDir, synchronous);
+    return Objects.hash(className, cdtPath, acl, clusterid, ip, maintenanceMode, maintenanceModeActive, timestamp, uniqueId, hostname, hostnameData, hostnameInternal, port, nodetype, configfile, datadir, backupDir, synchronous, protocol, roles);
   }
 
   @Override
@@ -694,6 +848,8 @@ public class JobsJobJobSpecJobDataNodesInner {
     sb.append("    datadir: ").append(toIndentedString(datadir)).append("\n");
     sb.append("    backupDir: ").append(toIndentedString(backupDir)).append("\n");
     sb.append("    synchronous: ").append(toIndentedString(synchronous)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -734,6 +890,8 @@ public class JobsJobJobSpecJobDataNodesInner {
     openapiFields.add("datadir");
     openapiFields.add("backup_dir");
     openapiFields.add("synchronous");
+    openapiFields.add("protocol");
+    openapiFields.add("roles");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -797,6 +955,12 @@ public class JobsJobJobSpecJobDataNodesInner {
       }
       if ((jsonObj.get("backup_dir") != null && !jsonObj.get("backup_dir").isJsonNull()) && !jsonObj.get("backup_dir").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `backup_dir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_dir").toString()));
+      }
+      if ((jsonObj.get("protocol") != null && !jsonObj.get("protocol").isJsonNull()) && !jsonObj.get("protocol").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
+      }
+      if ((jsonObj.get("roles") != null && !jsonObj.get("roles").isJsonNull()) && !jsonObj.get("roles").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `roles` to be a primitive type in the JSON string but got `%s`", jsonObj.get("roles").toString()));
       }
   }
 

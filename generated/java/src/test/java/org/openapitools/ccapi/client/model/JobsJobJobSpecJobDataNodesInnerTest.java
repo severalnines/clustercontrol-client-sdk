@@ -183,4 +183,20 @@ public class JobsJobJobSpecJobDataNodesInnerTest {
         // TODO: test synchronous
     }
 
+    /**
+     * Test the property 'protocol'
+     */
+    @Test
+    public void protocolTest() {
+        // TODO: test protocol
+    }
+
+    /**
+     * Test the property 'roles'
+     */
+    @Test
+    public void rolesTest() {
+        // TODO: test roles
+    }
+
 }

@@ -64,4 +64,19 @@ abstract class AbstractClusterControlClient implements ClusterControlOperation  
     public String createMongoCluster(String jsonStr) throws ClusterControlApiException {
         return null;
     }
+
+    @Override
+    public String createRedisCluster(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
+    public String createMsSqlCluster(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
+    public String createElastisearchCluster(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
 }

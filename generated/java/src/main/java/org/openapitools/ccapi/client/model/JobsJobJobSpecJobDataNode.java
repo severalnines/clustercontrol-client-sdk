@@ -51,7 +51,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataNode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T11:54:25.905584-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
 public class JobsJobJobSpecJobDataNode {
   public static final String SERIALIZED_NAME_BACKEND_NAME_RO = "backend_name_ro";
   @SerializedName(SERIALIZED_NAME_BACKEND_NAME_RO)

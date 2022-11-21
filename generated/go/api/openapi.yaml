@@ -868,6 +868,7 @@ components:
                 server_address: server_address
               generate_token: true
               install_software: true
+              snapshot_repository: snapshot_repository
               ssh_port: ssh_port
               topology:
                 master_slave_links:
@@ -911,6 +912,7 @@ components:
               compression: true
               build_from_source: true
               verify_backup_delay: 6
+              snapshot_locaiton: snapshot_locaiton
               bootstrap: true
               extended: true
               mongos_servers:
@@ -952,6 +954,7 @@ components:
               overwrite_mysqlchk: true
               backup_mysqldump_type: Complete
               node_type: 7
+              storage_host: storage_host
               with_tags:
               - with_tags
               - with_tags
@@ -1054,10 +1057,12 @@ components:
                 datadir: datadir
                 synchronous: true
                 ip: ip
+                roles: master
                 backup_dir: backup_dir
                 acl: acl
                 clusterid: 5
                 hostname: hostname
+                protocol: elastic
                 cdt_path: cdt_path
                 port: port
                 maintenance_mode_active: true
@@ -1072,10 +1077,12 @@ components:
                 datadir: datadir
                 synchronous: true
                 ip: ip
+                roles: master
                 backup_dir: backup_dir
                 acl: acl
                 clusterid: 5
                 hostname: hostname
+                protocol: elastic
                 cdt_path: cdt_path
                 port: port
                 maintenance_mode_active: true
@@ -2048,10 +2055,12 @@ components:
         datadir: datadir
         synchronous: true
         ip: ip
+        roles: master
         backup_dir: backup_dir
         acl: acl
         clusterid: 5
         hostname: hostname
+        protocol: elastic
         cdt_path: cdt_path
         port: port
         maintenance_mode_active: true
@@ -2066,6 +2075,8 @@ components:
           - CmonHost
           - CmonPBMAgentHost
           - CmonPgBouncerHost
+          - CmonMsSqlHost
+          - CmonElasticHost
           type: string
         cdt_path:
           type: string
@@ -2103,6 +2114,16 @@ components:
           type: string
         synchronous:
           type: boolean
+        protocol:
+          enum:
+          - elastic
+          type: string
+        roles:
+          enum:
+          - master
+          - data
+          - master-data
+          type: string
       type: object
     Jobs_job_job_spec_job_data_node_adresses_inner:
       example:
@@ -2226,6 +2247,7 @@ components:
           server_address: server_address
         generate_token: true
         install_software: true
+        snapshot_repository: snapshot_repository
         ssh_port: ssh_port
         topology:
           master_slave_links:
@@ -2269,6 +2291,7 @@ components:
         compression: true
         build_from_source: true
         verify_backup_delay: 6
+        snapshot_locaiton: snapshot_locaiton
         bootstrap: true
         extended: true
         mongos_servers:
@@ -2310,6 +2333,7 @@ components:
         overwrite_mysqlchk: true
         backup_mysqldump_type: Complete
         node_type: 7
+        storage_host: storage_host
         with_tags:
         - with_tags
         - with_tags
@@ -2412,10 +2436,12 @@ components:
           datadir: datadir
           synchronous: true
           ip: ip
+          roles: master
           backup_dir: backup_dir
           acl: acl
           clusterid: 5
           hostname: hostname
+          protocol: elastic
           cdt_path: cdt_path
           port: port
           maintenance_mode_active: true
@@ -2430,10 +2456,12 @@ components:
           datadir: datadir
           synchronous: true
           ip: ip
+          roles: master
           backup_dir: backup_dir
           acl: acl
           clusterid: 5
           hostname: hostname
+          protocol: elastic
           cdt_path: cdt_path
           port: port
           maintenance_mode_active: true
@@ -2682,6 +2710,12 @@ components:
           type: string
         bootstrap:
           type: boolean
+        snapshot_locaiton:
+          type: string
+        snapshot_repository:
+          type: string
+        storage_host:
+          type: string
         upload_backup_data_to_cloud_storage:
           $ref: '#/components/schemas/Jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage'
         verify_backup:
@@ -2748,6 +2782,7 @@ components:
             server_address: server_address
           generate_token: true
           install_software: true
+          snapshot_repository: snapshot_repository
           ssh_port: ssh_port
           topology:
             master_slave_links:
@@ -2791,6 +2826,7 @@ components:
           compression: true
           build_from_source: true
           verify_backup_delay: 6
+          snapshot_locaiton: snapshot_locaiton
           bootstrap: true
           extended: true
           mongos_servers:
@@ -2832,6 +2868,7 @@ components:
           overwrite_mysqlchk: true
           backup_mysqldump_type: Complete
           node_type: 7
+          storage_host: storage_host
           with_tags:
           - with_tags
           - with_tags
@@ -2934,10 +2971,12 @@ components:
             datadir: datadir
             synchronous: true
             ip: ip
+            roles: master
             backup_dir: backup_dir
             acl: acl
             clusterid: 5
             hostname: hostname
+            protocol: elastic
             cdt_path: cdt_path
             port: port
             maintenance_mode_active: true
@@ -2952,10 +2991,12 @@ components:
             datadir: datadir
             synchronous: true
             ip: ip
+            roles: master
             backup_dir: backup_dir
             acl: acl
             clusterid: 5
             hostname: hostname
+            protocol: elastic
             cdt_path: cdt_path
             port: port
             maintenance_mode_active: true
@@ -3035,6 +3076,7 @@ components:
               server_address: server_address
             generate_token: true
             install_software: true
+            snapshot_repository: snapshot_repository
             ssh_port: ssh_port
             topology:
               master_slave_links:
@@ -3078,6 +3120,7 @@ components:
             compression: true
             build_from_source: true
             verify_backup_delay: 6
+            snapshot_locaiton: snapshot_locaiton
             bootstrap: true
             extended: true
             mongos_servers:
@@ -3119,6 +3162,7 @@ components:
             overwrite_mysqlchk: true
             backup_mysqldump_type: Complete
             node_type: 7
+            storage_host: storage_host
             with_tags:
             - with_tags
             - with_tags
@@ -3221,10 +3265,12 @@ components:
               datadir: datadir
               synchronous: true
               ip: ip
+              roles: master
               backup_dir: backup_dir
               acl: acl
               clusterid: 5
               hostname: hostname
+              protocol: elastic
               cdt_path: cdt_path
               port: port
               maintenance_mode_active: true
@@ -3239,10 +3285,12 @@ components:
               datadir: datadir
               synchronous: true
               ip: ip
+              roles: master
               backup_dir: backup_dir
               acl: acl
               clusterid: 5
               hostname: hostname
+              protocol: elastic
               cdt_path: cdt_path
               port: port
               maintenance_mode_active: true

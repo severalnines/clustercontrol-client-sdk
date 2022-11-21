@@ -35,6 +35,8 @@ type JobsJobJobSpecJobDataNodesInner struct {
 	Datadir *string `json:"datadir,omitempty"`
 	BackupDir *string `json:"backup_dir,omitempty"`
 	Synchronous *bool `json:"synchronous,omitempty"`
+	Protocol *string `json:"protocol,omitempty"`
+	Roles *string `json:"roles,omitempty"`
 }
 
 // NewJobsJobJobSpecJobDataNodesInner instantiates a new JobsJobJobSpecJobDataNodesInner object
@@ -630,6 +632,70 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetSynchronous(v bool) {
 	o.Synchronous = &v
 }
 
+// GetProtocol returns the Protocol field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNodesInner) GetProtocol() string {
+	if o == nil || isNil(o.Protocol) {
+		var ret string
+		return ret
+	}
+	return *o.Protocol
+}
+
+// GetProtocolOk returns a tuple with the Protocol field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) GetProtocolOk() (*string, bool) {
+	if o == nil || isNil(o.Protocol) {
+    return nil, false
+	}
+	return o.Protocol, true
+}
+
+// HasProtocol returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) HasProtocol() bool {
+	if o != nil && !isNil(o.Protocol) {
+		return true
+	}
+
+	return false
+}
+
+// SetProtocol gets a reference to the given string and assigns it to the Protocol field.
+func (o *JobsJobJobSpecJobDataNodesInner) SetProtocol(v string) {
+	o.Protocol = &v
+}
+
+// GetRoles returns the Roles field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNodesInner) GetRoles() string {
+	if o == nil || isNil(o.Roles) {
+		var ret string
+		return ret
+	}
+	return *o.Roles
+}
+
+// GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) GetRolesOk() (*string, bool) {
+	if o == nil || isNil(o.Roles) {
+    return nil, false
+	}
+	return o.Roles, true
+}
+
+// HasRoles returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) HasRoles() bool {
+	if o != nil && !isNil(o.Roles) {
+		return true
+	}
+
+	return false
+}
+
+// SetRoles gets a reference to the given string and assigns it to the Roles field.
+func (o *JobsJobJobSpecJobDataNodesInner) SetRoles(v string) {
+	o.Roles = &v
+}
+
 func (o JobsJobJobSpecJobDataNodesInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.ClassName) {
@@ -685,6 +751,12 @@ func (o JobsJobJobSpecJobDataNodesInner) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Synchronous) {
 		toSerialize["synchronous"] = o.Synchronous
+	}
+	if !isNil(o.Protocol) {
+		toSerialize["protocol"] = o.Protocol
+	}
+	if !isNil(o.Roles) {
+		toSerialize["roles"] = o.Roles
 	}
 	return json.Marshal(toSerialize)
 }

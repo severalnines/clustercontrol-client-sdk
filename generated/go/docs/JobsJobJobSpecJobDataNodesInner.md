@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **Datadir** | Pointer to **string** |  | [optional] 
 **BackupDir** | Pointer to **string** |  | [optional] 
 **Synchronous** | Pointer to **bool** |  | [optional] 
+**Protocol** | Pointer to **string** |  | [optional] 
+**Roles** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -491,6 +493,56 @@ SetSynchronous sets Synchronous field to given value.
 `func (o *JobsJobJobSpecJobDataNodesInner) HasSynchronous() bool`
 
 HasSynchronous returns a boolean if a field has been set.
+
+### GetProtocol
+
+`func (o *JobsJobJobSpecJobDataNodesInner) GetProtocol() string`
+
+GetProtocol returns the Protocol field if non-nil, zero value otherwise.
+
+### GetProtocolOk
+
+`func (o *JobsJobJobSpecJobDataNodesInner) GetProtocolOk() (*string, bool)`
+
+GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProtocol
+
+`func (o *JobsJobJobSpecJobDataNodesInner) SetProtocol(v string)`
+
+SetProtocol sets Protocol field to given value.
+
+### HasProtocol
+
+`func (o *JobsJobJobSpecJobDataNodesInner) HasProtocol() bool`
+
+HasProtocol returns a boolean if a field has been set.
+
+### GetRoles
+
+`func (o *JobsJobJobSpecJobDataNodesInner) GetRoles() string`
+
+GetRoles returns the Roles field if non-nil, zero value otherwise.
+
+### GetRolesOk
+
+`func (o *JobsJobJobSpecJobDataNodesInner) GetRolesOk() (*string, bool)`
+
+GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoles
+
+`func (o *JobsJobJobSpecJobDataNodesInner) SetRoles(v string)`
+
+SetRoles sets Roles field to given value.
+
+### HasRoles
+
+`func (o *JobsJobJobSpecJobDataNodesInner) HasRoles() bool`
+
+HasRoles returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

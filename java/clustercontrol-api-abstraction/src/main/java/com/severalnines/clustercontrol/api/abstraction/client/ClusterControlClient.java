@@ -97,4 +97,39 @@ public class ClusterControlClient extends AbstractClusterControlClient {
 
         return execStrategy.executeOp();
     }
+
+    @Override
+    public String createRedisCluster(String jsonStr) throws ClusterControlApiException {
+        AbstractDbClusterJob crClustJob = new RedisClusterJob(
+                getAuthStrategy(), jsonStr, AbstractDbClusterJob.DbClusterJobTypeEnum.CREATE_DB_CLUSTER);
+
+        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
+                getAuthStrategy(), crClustJob);
+
+        return execStrategy.executeOp();
+    }
+
+    @Override
+    public String createMsSqlCluster(String jsonStr) throws ClusterControlApiException {
+        AbstractDbClusterJob crClustJob = new MsSqlClusterJob(
+                getAuthStrategy(), jsonStr, AbstractDbClusterJob.DbClusterJobTypeEnum.CREATE_DB_CLUSTER);
+
+        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
+                getAuthStrategy(), crClustJob);
+
+        return execStrategy.executeOp();
+    }
+
+    @Override
+    public String createElastisearchCluster(String jsonStr) throws ClusterControlApiException {
+        AbstractDbClusterJob crClustJob = new ElasticsearchClusterJob(
+                getAuthStrategy(), jsonStr, AbstractDbClusterJob.DbClusterJobTypeEnum.CREATE_DB_CLUSTER);
+
+        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
+                getAuthStrategy(), crClustJob);
+
+        return execStrategy.executeOp();
+
+    }
+
 }

@@ -130,6 +130,54 @@ public final class SampleMain {
         logger.info("CreateCluster response: {}", createRet);
     }
 
+    void createRedisCluster() throws Exception {
+        DbCluster dbCluster = new DbCluster();
+        dbCluster.setClusterName("api-abstraction-test");
+        dbCluster.setClusterType("redis"); // options: replication, postgresql_single, redis, mssql_single, mssql_ao_async, galera, elastic
+        dbCluster.setDbAdminUserPw("XXX");
+        dbCluster.setDbVersion("6.0"); // 5 or 6
+        Host r1 = new Host("r1");
+        dbCluster.addHost(r1);
+        Host r2 = new Host("r2");
+        dbCluster.addHost(r2);
+        Host r3 = new Host("r3");
+        dbCluster.addHost(r3);
+        String createRet = myCcClient.createRedisCluster(JsonSerializeDeserialize.objectToJson(dbCluster));
+        logger.info("CreateCluster response: {}", createRet);
+    }
+
+    void createMsSqlCluster() throws Exception {
+        DbCluster dbCluster = new DbCluster();
+        dbCluster.setClusterName("api-abstraction-test");
+        dbCluster.setClusterType("mssql_ao_async"); // options: replication, postgresql_single, redis, mssql_single, mssql_ao_async, galera, elastic
+        dbCluster.setDbAdminUserPw("XXX");
+        dbCluster.setDbVersion("2019");
+        Host r1 = new Host("r1");
+        dbCluster.addHost(r1);
+        Host r2 = new Host("r2");
+        dbCluster.addHost(r2);String createRet = myCcClient.createMsSqlCluster(JsonSerializeDeserialize.objectToJson(dbCluster));
+        logger.info("CreateCluster response: {}", createRet);
+    }
+
+    void createElasticsearchCluster() throws Exception {
+        DbCluster dbCluster = new DbCluster();
+        dbCluster.setClusterName("api-abstraction-test");
+        dbCluster.setClusterType("elastic"); // options: replication, postgresql_single, redis, mssql_single, mssql_ao_async, galera, elastic
+        dbCluster.setDbAdminUser("admin");
+        dbCluster.setDbAdminUserPw("XXX");
+        dbCluster.setDbVersion("8.1.3");
+        dbCluster.setSnapshotLocaiton("/mnt/data");
+        dbCluster.setSnapshotRepository("cc_snapshots");
+        Host r1 = new Host("r1");
+        r1.setRoles("master-data");
+        dbCluster.addHost(r1);
+        Host r2 = new Host("r2");
+        r2.setRoles("master-data");
+        dbCluster.setStorageHost("r1");
+        dbCluster.addHost(r2);String createRet = myCcClient.createElastisearchCluster(JsonSerializeDeserialize.objectToJson(dbCluster));
+        logger.info("CreateCluster response: {}", createRet);
+    }
+
     public static void main(String[] args) throws Exception {
         JsonSerializeDeserialize.SetSnakeNaming();
         SimpleAuthenticationStrategy authStrategy = new SimpleAuthenticationStrategy();
@@ -160,5 +208,13 @@ public final class SampleMain {
         // MongoDB cluster (replicaset and sharded)
         sm.createMongoCluster();
 
+        // Redis
+        sm.createRedisCluster();
+
+        // MS SQL Server
+        sm.createMsSqlCluster();
+
+        // Elasticsearch
+        sm.createElasticsearchCluster();
     }
 }

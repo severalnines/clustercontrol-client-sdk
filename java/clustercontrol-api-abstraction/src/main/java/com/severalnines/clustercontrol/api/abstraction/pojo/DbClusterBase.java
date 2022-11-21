@@ -181,6 +181,30 @@ public class DbClusterBase {
         this.sudoPassword = sudoPassword;
     }
 
+    public String getSnapshotLocaiton() {
+        return snapshotLocaiton;
+    }
+
+    public void setSnapshotLocaiton(String snapshotLocaiton) {
+        this.snapshotLocaiton = snapshotLocaiton;
+    }
+
+    public String getSnapshotRepository() {
+        return snapshotRepository;
+    }
+
+    public void setSnapshotRepository(String snapshotRepository) {
+        this.snapshotRepository = snapshotRepository;
+    }
+
+    public String getStorageHost() {
+        return storageHost;
+    }
+
+    public void setStorageHost(String storageHost) {
+        this.storageHost = storageHost;
+    }
+
     String clusterName;
     int clusterId;
     String dbAdminUser;
@@ -200,4 +224,7 @@ public class DbClusterBase {
     MongoServer configServers;
     List<Host> mongosServers = new ArrayList<>();
     List<MongoReplicaset> replicaSets = new ArrayList<>();
+    String snapshotLocaiton;
+    String snapshotRepository;
+    String storageHost;
 }
