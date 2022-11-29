@@ -188,15 +188,57 @@ public final class SampleMain {
 
     void getJob() throws Exception {
         Job job = new Job();
-        job.setJobId(21);
+        job.setJobId(6802);
         String createRet = myCcClient.getJob(JsonSerializeDeserialize.objectToJson(job));
         logger.info("GetJob response: {}", createRet);
+    }
+
+    void scheduleBackup() throws Exception {
+        BackupSpec bs = new BackupSpec();
+        bs.setClusterId(22);
+        bs.setEncryptBackup(true);
+        bs.setSchedule("0 12 * * 5");
+        bs.setHostname("mysql-1");
+        bs.setPort(3306);
+        bs.setBackupMethod("xtrabackupfull");
+
+        String createRet = myCcClient.createBackupSchedule(JsonSerializeDeserialize.objectToJson(bs));
+        logger.info("ScheduleBackup response: {}", createRet);
+    }
+
+    void createBackup() throws Exception {
+        BackupSpec bs = new BackupSpec();
+        bs.setClusterId(22);
+        bs.setEncryptBackup(true);
+        bs.setHostname("mysql-1");
+        bs.setPort(3306);
+        bs.setBackupMethod("xtrabackupfull");
+
+        String createRet = myCcClient.createBackup(JsonSerializeDeserialize.objectToJson(bs));
+        logger.info("ScheduleBackup response: {}", createRet);
+    }
+
+    void deleteBackup() throws Exception {
+        BackupSpec bs = new BackupSpec();
+        bs.setClusterId(22);
+        bs.setBackupId(634);
+
+        String createRet = myCcClient.deleteBackup(JsonSerializeDeserialize.objectToJson(bs));
+        logger.info("ScheduleBackup response: {}", createRet);
+    }
+
+    void getClusterInfo() throws Exception {
+        DbCluster clus = new DbCluster();
+        clus.setClusterId(22);
+
+        String createRet = myCcClient.getClusterInfo(JsonSerializeDeserialize.objectToJson(clus));
+        logger.info("ScheduleBackup response: {}", createRet);
     }
 
     public static void main(String[] args) throws Exception {
         JsonSerializeDeserialize.SetSnakeNaming();
         SimpleAuthenticationStrategy authStrategy = new SimpleAuthenticationStrategy();
-        AbstractAuthenticationStrategy.TurnOnDebug();
+        // AbstractAuthenticationStrategy.TurnOnDebug();
         // AbstractAuthenticationStrategy.TurnOffDebug();
 
         ClusterControlClient ccClient = new ClusterControlClient(authStrategy);
@@ -214,28 +256,40 @@ public final class SampleMain {
         SampleMain sm = new SampleMain(ccClient);
 
         // MySQL cluster
-        sm.createMysqlMasterSlaveCluster();
-        sm.createMysqlGaleraCluster();
+//        sm.createMysqlMasterSlaveCluster();
+//        sm.createMysqlGaleraCluster();
 
         // PG & TimescaleDB cluster
-        sm.createPgCluster();
+//        sm.createPgCluster();
 
         // MongoDB cluster (replicaset and sharded)
-        sm.createMongoCluster();
+//        sm.createMongoCluster();
 
         // Redis
-        sm.createRedisCluster();
+//        sm.createRedisCluster();
 
         // MS SQL Server
-        sm.createMsSqlCluster();
+//        sm.createMsSqlCluster();
 
         // Elasticsearch
-        sm.createElasticsearchCluster();
+//        sm.createElasticsearchCluster();
 
         // Remove cluster
-        sm.removeCluster();
+//        sm.removeCluster();
 
         // Get job
         sm.getJob();
+
+        // Backup schedule
+        sm.scheduleBackup();
+
+        // Create backup
+        sm.createBackup();
+
+        // Delete backup
+        sm.deleteBackup();
+
+        // Get cluster info/details
+        sm.getClusterInfo();
     }
 }

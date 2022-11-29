@@ -41,6 +41,7 @@
 | SUCCESS | &quot;success&quot; |
 | ADD_REPLICATION_SLAVE | &quot;add_replication_slave&quot; |
 | DEPLOY_CMONAGENTS | &quot;deploy_cmonagents&quot; |
+| DELETE_BACKUP | &quot;delete_backup&quot; |
 
 
 

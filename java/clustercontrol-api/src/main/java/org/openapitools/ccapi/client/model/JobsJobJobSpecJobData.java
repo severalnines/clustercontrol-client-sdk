@@ -59,7 +59,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
 public class JobsJobJobSpecJobData {
   /**
    * Gets or Sets action
@@ -334,6 +334,8 @@ public class JobsJobJobSpecJobData {
    */
   @JsonAdapter(BackupMethodEnum.Adapter.class)
   public enum BackupMethodEnum {
+    PG_BASEBACKUP("pg_basebackup"),
+    
     XTRABACKUPFULL("xtrabackupfull"),
     
     XTRABACKUPINCR("xtrabackupincr"),
@@ -344,13 +346,21 @@ public class JobsJobJobSpecJobData {
     
     PGBACKRESTDIFF("pgbackrestdiff"),
     
-    PG_BASEBACKUP("pg_basebackup"),
-    
     MYSQLDUMP("mysqldump"),
+    
+    MONGODUMP("mongodump"),
     
     PERCONA_BACKUP_MONGODB("percona-backup-mongodb"),
     
-    MSSQLCERT("mssqlcert");
+    PGDUMPALL("pgdumpall"),
+    
+    MARIABACKUPFULL("mariabackupfull"),
+    
+    MARIABACKUPINCR("mariabackupincr"),
+    
+    MSSQLCERT("mssqlcert"),
+    
+    NDB("ndb");
 
     private String value;
 

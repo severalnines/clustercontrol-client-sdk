@@ -89,4 +89,34 @@ abstract class AbstractClusterControlClient implements ClusterControlOperation  
     public String getJob(String jsonStr) throws ClusterControlApiException {
         return null;
     }
+
+    @Override
+    public String createBackupSchedule(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+//    @Override
+//    public String deleteBackupSchedule(String jsonStr) throws ClusterControlApiException {
+//        return null;
+//    }
+
+    @Override
+    public String createBackup(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
+    public String deleteBackup(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
+    public String deleteBackupRecord(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
+    public String getClusterInfo(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
 }

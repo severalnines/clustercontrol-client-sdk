@@ -50,7 +50,7 @@ import org.openapitools.ccapi.client.JSON;
  * Also ckeck the passed create_cluster job
  */
 @ApiModel(description = "Also ckeck the passed create_cluster job")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
 public class DiscoveryJob {
   /**
    * Gets or Sets className

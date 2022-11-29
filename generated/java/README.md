@@ -2,7 +2,7 @@
 
 Severalnines ClusterControl REST API (V2)
 - API version: OpenAPI specification v1.0.0
-  - Build date: 2022-11-21T15:50:08.265886-05:00[America/New_York]
+  - Build date: 2022-11-28T20:03:34.941519-05:00[America/New_York]
 
 REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 

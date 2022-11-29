@@ -40,6 +40,19 @@ public interface ClusterControlOperation {
 
     public String getJob(String jsonStr) throws ClusterControlApiException;
 
+    public String createBackupSchedule(String jsonStr) throws ClusterControlApiException;
+
+    // Not supported in the V2 API yet
+//    public String deleteBackupSchedule(String jsonStr) throws ClusterControlApiException;
+
+    public String createBackup(String jsonStr) throws ClusterControlApiException;
+
+    public String deleteBackup(String jsonStr) throws ClusterControlApiException;
+
+    public String deleteBackupRecord(String jsonStr) throws ClusterControlApiException;
+
+    public String getClusterInfo(String jsonStr) throws ClusterControlApiException;
+
     //    public String createMysqlReplicationCluster(String jsonStr) throws ClusterControlApiException;
 //
 //    public String createMariaReplicationCluster(String jsonStr) throws ClusterControlApiException;

@@ -164,15 +164,20 @@
 
 | Name | Value |
 |---- | -----|
+| PG_BASEBACKUP | &quot;pg_basebackup&quot; |
 | XTRABACKUPFULL | &quot;xtrabackupfull&quot; |
 | XTRABACKUPINCR | &quot;xtrabackupincr&quot; |
 | PGBACKRESTFULL | &quot;pgbackrestfull&quot; |
 | PGBACKRESTINCR | &quot;pgbackrestincr&quot; |
 | PGBACKRESTDIFF | &quot;pgbackrestdiff&quot; |
-| PG_BASEBACKUP | &quot;pg_basebackup&quot; |
 | MYSQLDUMP | &quot;mysqldump&quot; |
+| MONGODUMP | &quot;mongodump&quot; |
 | PERCONA_BACKUP_MONGODB | &quot;percona-backup-mongodb&quot; |
+| PGDUMPALL | &quot;pgdumpall&quot; |
+| MARIABACKUPFULL | &quot;mariabackupfull&quot; |
+| MARIABACKUPINCR | &quot;mariabackupincr&quot; |
 | MSSQLCERT | &quot;mssqlcert&quot; |
+| NDB | &quot;ndb&quot; |
 
 
 

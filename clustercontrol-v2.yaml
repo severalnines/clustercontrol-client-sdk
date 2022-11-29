@@ -467,7 +467,8 @@ components:
                       enum: ["auto"]
                     backup_method:
                       type: string
-                      enum: ["pg_basebackup"]
+                      enum: ["pg_basebackup","xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr","pgbackrestdiff","mysqldump",
+                      "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
                     backup_retention:
                       type: integer
                     backupdir:
@@ -849,7 +850,7 @@ components:
                   "disable_recovery","enable_recovery","restart","enable_db_readonly",
                   "error_report","calculate_db_growth","enable_node_recovery",
                   "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
-                  "success","add_replication_slave","deploy_cmonagents"]
+                  "success","add_replication_slave","deploy_cmonagents","delete_backup"]
                 id:
                   type: integer
                 job_data:
@@ -896,9 +897,8 @@ components:
                       enum: ["auto"]
                     backup_method:
                       type: string
-                      enum: ["xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr",
-                        "pgbackrestdiff","pg_basebackup","mysqldump","percona-backup-mongodb",
-                        "mssqlcert"]
+                      enum: ["pg_basebackup","xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr","pgbackrestdiff","mysqldump",
+                      "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
                     backup_mysqldump_type:
                       type: string
                       enum: ["Complete","SchemaAndData","SchemaOnly","DataOnly","MySQLDbOnly"]

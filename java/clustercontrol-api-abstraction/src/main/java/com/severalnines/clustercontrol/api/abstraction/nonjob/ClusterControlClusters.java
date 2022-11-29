@@ -18,26 +18,29 @@ package com.severalnines.clustercontrol.api.abstraction.nonjob;
 import com.severalnines.clustercontrol.api.abstraction.common.AbstractAuthenticationStrategy;
 import com.severalnines.clustercontrol.api.abstraction.common.AbstractClusterControlOperation;
 import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiException;
+import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
 import org.openapitools.ccapi.client.ApiClient;
 import org.openapitools.ccapi.client.ApiException;
 import org.openapitools.ccapi.client.ApiResponse;
+import org.openapitools.ccapi.client.api.ClustersApi;
 import org.openapitools.ccapi.client.api.DiscoveryApi;
+import org.openapitools.ccapi.client.model.Clusters;
 import org.openapitools.ccapi.client.model.Discovery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ClusterDiscovery extends AbstractClusterControlOperation {
+public class ClusterControlClusters extends AbstractClusterControlOperation {
 
     private static final Logger logger
-            = LoggerFactory.getLogger(ClusterDiscovery.class);
+            = LoggerFactory.getLogger(ClusterControlClusters.class);
 
-    private Discovery.OperationEnum opType;
+    private Clusters.OperationEnum opType;
 
-    protected Discovery.OperationEnum getOpType() {
+    protected Clusters.OperationEnum getOpType() {
         return opType;
     }
 
-    public ClusterDiscovery(AbstractAuthenticationStrategy authStrategy, String jsonStr, Discovery.OperationEnum opType) {
+    public ClusterControlClusters(AbstractAuthenticationStrategy authStrategy, String jsonStr, Clusters.OperationEnum opType) {
         super(authStrategy, jsonStr);
         this.opType = opType;
     }
@@ -45,8 +48,8 @@ public class ClusterDiscovery extends AbstractClusterControlOperation {
     @Override
     public String execute() throws ClusterControlApiException {
         switch (getOpType()) {
-            case GETSUPPORTEDCLUSTERTYPES:
-                return getSupportedClusterTypes();
+            case GETCLUSTERINFO:
+                return getClusterInfo();
             default:
                 logger.warn("Unsupported Op (enum:{})", getOpType());
                 break;
@@ -54,20 +57,23 @@ public class ClusterDiscovery extends AbstractClusterControlOperation {
         return null;
     }
 
-    protected String getSupportedClusterTypes() throws ClusterControlApiException {
-        String ret = null;
+    protected String getClusterInfo() throws ClusterControlApiException {
+        String ret = "";
+
+        DbCluster createDetails = formDbClusterDetails(getJsonInput());
 
         try {
             ApiClient defaultClient = getAuthStrategy().getApiClient();
-            DiscoveryApi discovApiInstance = new DiscoveryApi(defaultClient);
-            Discovery discovery = new Discovery(); // Discovery | All things related to Clusters and cluster Hosts
-            discovery.setOperation(Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
+            ClustersApi clustersApi = new ClustersApi(defaultClient);
+            Clusters clusters = new Clusters(); // Discovery | All things related to Clusters and cluster Hosts
+            clusters.setOperation(Clusters.OperationEnum.GETCLUSTERINFO);
+            clusters.setClusterId(createDetails.getClusterId());
 
-            logger.debug("Discovery request: {}", discovery);
+            logger.debug("ClustersPost request: {}", clusters);
             if (!AbstractAuthenticationStrategy.IsDebugMode()) {
-                ApiResponse<Void> resp = discovApiInstance.discoveryPostWithHttpInfo(discovery);
+                ApiResponse<Void> resp = clustersApi.clustersPostWithHttpInfo(clusters);
                 ret = String.valueOf(resp.getData());
-                logger.debug("Discovery response: {}", ret);
+                logger.debug("ClustersPost response: {}", ret);
             }
         } catch (ApiException e) {
             logger.warn("Exception:", e);

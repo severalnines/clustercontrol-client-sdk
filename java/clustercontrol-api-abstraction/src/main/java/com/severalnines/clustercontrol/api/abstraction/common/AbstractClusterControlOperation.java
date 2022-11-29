@@ -15,7 +15,9 @@
  */
 package com.severalnines.clustercontrol.api.abstraction.common;
 
+import com.severalnines.clustercontrol.api.abstraction.pojo.BackupSpec;
 import com.severalnines.clustercontrol.api.abstraction.pojo.ClusterControlApiResponse;
+import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
 import org.openapitools.ccapi.client.ApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,4 +64,23 @@ public abstract class AbstractClusterControlOperation implements ClusterControlO
         }
         throw new ClusterControlApiException(e);
     }
+
+    protected DbCluster formDbClusterDetails(String jsonStr) throws ClusterControlInputException {
+        try {
+            return (JsonSerializeDeserialize.jsonToObject(getJsonInput(), DbCluster.class));
+        } catch (Exception e) {
+            logger.warn("Exception in jsonToObject: ", e);
+            throw new ClusterControlInputException(e);
+        }
+    }
+
+    protected BackupSpec formBackupDetails(String jsonStr) throws ClusterControlInputException {
+        try {
+            return (JsonSerializeDeserialize.jsonToObject(getJsonInput(), BackupSpec.class));
+        } catch (Exception e) {
+            logger.warn("Exception in jsonToObject: ", e);
+            throw new ClusterControlInputException(e);
+        }
+    }
+
 }

@@ -931,7 +931,7 @@ components:
               db_password: db_password
               company_id: company_id
               use_rw_split: true
-              backup_method: xtrabackupfull
+              backup_method: pg_basebackup
               software_package: software_package
               initial: true
               pitr_stop_time: pitr_stop_time
@@ -1452,6 +1452,19 @@ components:
         backup_method:
           enum:
           - pg_basebackup
+          - xtrabackupfull
+          - xtrabackupincr
+          - pgbackrestfull
+          - pgbackrestincr
+          - pgbackrestdiff
+          - mysqldump
+          - mongodump
+          - percona-backup-mongodb
+          - pgdumpall
+          - mariabackupfull
+          - mariabackupincr
+          - mssqlcert
+          - ndb
           type: string
         backup_retention:
           type: integer
@@ -2310,7 +2323,7 @@ components:
         db_password: db_password
         company_id: company_id
         use_rw_split: true
-        backup_method: xtrabackupfull
+        backup_method: pg_basebackup
         software_package: software_package
         initial: true
         pitr_stop_time: pitr_stop_time
@@ -2524,15 +2537,20 @@ components:
           type: string
         backup_method:
           enum:
+          - pg_basebackup
           - xtrabackupfull
           - xtrabackupincr
           - pgbackrestfull
           - pgbackrestincr
           - pgbackrestdiff
-          - pg_basebackup
           - mysqldump
+          - mongodump
           - percona-backup-mongodb
+          - pgdumpall
+          - mariabackupfull
+          - mariabackupincr
           - mssqlcert
+          - ndb
           type: string
         backup_mysqldump_type:
           enum:
@@ -2845,7 +2863,7 @@ components:
           db_password: db_password
           company_id: company_id
           use_rw_split: true
-          backup_method: xtrabackupfull
+          backup_method: pg_basebackup
           software_package: software_package
           initial: true
           pitr_stop_time: pitr_stop_time
@@ -3033,6 +3051,7 @@ components:
           - success
           - add_replication_slave
           - deploy_cmonagents
+          - delete_backup
           type: string
         id:
           type: integer
@@ -3139,7 +3158,7 @@ components:
             db_password: db_password
             company_id: company_id
             use_rw_split: true
-            backup_method: xtrabackupfull
+            backup_method: pg_basebackup
             software_package: software_package
             initial: true
             pitr_stop_time: pitr_stop_time

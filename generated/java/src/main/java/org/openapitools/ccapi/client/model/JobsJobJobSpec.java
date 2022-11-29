@@ -49,7 +49,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T15:50:08.265886-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
 public class JobsJobJobSpec {
   /**
    * Gets or Sets command
@@ -102,7 +102,9 @@ public class JobsJobJobSpec {
     
     ADD_REPLICATION_SLAVE("add_replication_slave"),
     
-    DEPLOY_CMONAGENTS("deploy_cmonagents");
+    DEPLOY_CMONAGENTS("deploy_cmonagents"),
+    
+    DELETE_BACKUP("delete_backup");
 
     private String value;
 
