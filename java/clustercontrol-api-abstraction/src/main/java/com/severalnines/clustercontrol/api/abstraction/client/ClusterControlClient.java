@@ -15,25 +15,20 @@
  */
 package com.severalnines.clustercontrol.api.abstraction.client;
 
-import com.severalnines.clustercontrol.api.abstraction.common.AbstractAuthenticationStrategy;
-import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiException;
-import com.severalnines.clustercontrol.api.abstraction.common.DefaultClusterControlOpExecStrategy;
+import com.severalnines.clustercontrol.api.abstraction.common.*;
 import com.severalnines.clustercontrol.api.abstraction.job.*;
 import com.severalnines.clustercontrol.api.abstraction.nonjob.AuthenticateWithClusterControl;
 import com.severalnines.clustercontrol.api.abstraction.nonjob.BackupSchedule;
 import com.severalnines.clustercontrol.api.abstraction.nonjob.ClusterControlClusters;
 import com.severalnines.clustercontrol.api.abstraction.nonjob.ClusterDiscovery;
-import org.openapitools.ccapi.client.model.Backup;
-import org.openapitools.ccapi.client.model.Clusters;
-import org.openapitools.ccapi.client.model.Discovery;
-import org.openapitools.ccapi.client.model.JobsJobJobSpec;
+import com.severalnines.clustercontrol.api.abstraction.pojo.DbCluster;
+import org.openapitools.ccapi.client.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ClusterControlClient extends AbstractClusterControlClient {
 
-    private static final Logger logger
-            = LoggerFactory.getLogger(ClusterControlClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClusterControlClient.class);
 
     public ClusterControlClient(AbstractAuthenticationStrategy reAuthStrategy) {
         super(reAuthStrategy);
@@ -41,21 +36,68 @@ public class ClusterControlClient extends AbstractClusterControlClient {
 
     @Override
     public String authenticateUser(String jsonStr) throws ClusterControlApiException {
-        AuthenticateWithClusterControl ccAuth = new AuthenticateWithClusterControl(
-                getAuthStrategy(), jsonStr);
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), ccAuth);
+        AuthenticateWithClusterControl ccAuth = new AuthenticateWithClusterControl(getAuthStrategy(), jsonStr);
+        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(getAuthStrategy(), ccAuth);
         execStrategy.executeOp();
         return ("{\"status\": \"Success\"");
     }
 
     @Override
     public String getSuportedClusterTypes(String jsonStr) throws ClusterControlApiException {
-        ClusterDiscovery discov = new ClusterDiscovery(getAuthStrategy(), jsonStr,
-                Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
+        ClusterDiscovery discov = new ClusterDiscovery(
+                getAuthStrategy(), jsonStr, Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
+
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), discov);
+
+        return execStrategy.executeOp();
+    }
+
+    @Override
+    public String createDatabaseCluster(String jsonStr) throws ClusterControlApiException {
+        DbCluster createDetails;
+        try {
+            createDetails = JsonSerializeDeserialize.jsonToObject(jsonStr, DbCluster.class);
+        } catch (Exception e) {
+            logger.warn("Exception in jsonToObject: ", e);
+            throw new ClusterControlInputException(e);
+        }
+
+        AbstractDbClusterJob crClustJob = null;
+        switch (JobsJobJobSpecJobData.ClusterTypeEnum.fromValue(createDetails.getClusterType())) {
+            case REPLICATION:
+            case GALERA:
+                crClustJob = new MysqlMariaClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            case ELASTIC:
+                crClustJob = new ElasticsearchClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            case MONGODB:
+                crClustJob = new MongoDbClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            case MSSQL_SINGLE:
+            case MSSQL_AO_ASYNC:
+                crClustJob = new MsSqlClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            case POSTGRESQL_SINGLE:
+                crClustJob = new PostgresqlClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            case REDIS:
+                crClustJob = new RedisClusterJob(
+                        getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
+                break;
+            default:
+                logger.warn("Unsupported cluster_type: {}", createDetails.getClusterType());
+                break;
+        }
 
         DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), discov);
+                getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -65,8 +107,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MysqlMariaClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -76,8 +118,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new PostgresqlClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -87,8 +129,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new TimescaleDbClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -98,8 +140,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MongoDbClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -109,8 +151,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new RedisClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -120,8 +162,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MsSqlClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -131,8 +173,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new ElasticsearchClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), crClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
 
         return execStrategy.executeOp();
     }
@@ -142,8 +184,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob rmClustJob = new RemoveClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.REMOVE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), rmClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), rmClustJob);
 
         return execStrategy.executeOp();
     }
@@ -152,19 +194,19 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     public String getJob(String jsonStr) throws ClusterControlApiException {
         ClusterControlJob rmClustJob = new ClusterControlJob(getAuthStrategy(), jsonStr);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), rmClustJob);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), rmClustJob);
 
         return execStrategy.executeOp();
     }
 
     @Override
     public String createBackupSchedule(String jsonStr) throws ClusterControlApiException {
-        BackupSchedule backupSchedule = new BackupSchedule(getAuthStrategy(), jsonStr,
-                Backup.OperationEnum.SCHEDULEBACKUP);
+        BackupSchedule backupSchedule = new BackupSchedule(
+                getAuthStrategy(), jsonStr, Backup.OperationEnum.SCHEDULEBACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), backupSchedule);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backupSchedule);
 
         return execStrategy.executeOp();
     }
@@ -176,44 +218,42 @@ public class ClusterControlClient extends AbstractClusterControlClient {
 
     @Override
     public String createBackup(String jsonStr) throws ClusterControlApiException {
-        BackupJob backup = new BackupJob(
-                getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.BACKUP);
+        BackupJob backup = new BackupJob(getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.BACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), backup);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backup);
 
         return execStrategy.executeOp();
     }
 
     @Override
     public String deleteBackup(String jsonStr) throws ClusterControlApiException {
-        BackupJob backup = new BackupJob(
-                getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.DELETE_BACKUP);
+        BackupJob backup = new BackupJob(getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.DELETE_BACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), backup);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backup);
 
         return execStrategy.executeOp();
     }
 
     @Override
     public String deleteBackupRecord(String jsonStr) throws ClusterControlApiException {
-        BackupSchedule backupSchedule = new BackupSchedule(getAuthStrategy(), jsonStr,
-                Backup.OperationEnum.DELETEBACKUPRECORD);
+        BackupSchedule backupSchedule = new BackupSchedule(
+                getAuthStrategy(), jsonStr, Backup.OperationEnum.DELETEBACKUPRECORD);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), backupSchedule);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backupSchedule);
 
         return execStrategy.executeOp();
     }
 
     @Override
     public String getClusterInfo(String jsonStr) throws ClusterControlApiException {
-        ClusterControlClusters clusters = new ClusterControlClusters(getAuthStrategy(), jsonStr,
-                Clusters.OperationEnum.GETCLUSTERINFO);
+        ClusterControlClusters clusters = new ClusterControlClusters(
+                getAuthStrategy(), jsonStr, Clusters.OperationEnum.GETCLUSTERINFO);
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
-                getAuthStrategy(), clusters);
+        DefaultClusterControlOpExecStrategy execStrategy =
+                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), clusters);
 
         return execStrategy.executeOp();
     }

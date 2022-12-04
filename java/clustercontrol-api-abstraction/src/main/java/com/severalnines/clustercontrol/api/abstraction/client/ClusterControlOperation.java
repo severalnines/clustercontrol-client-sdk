@@ -1,7 +1,3 @@
-package com.severalnines.clustercontrol.api.abstraction.client;
-
-import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiException;
-
 /*
  *     Copyright 2022 Severalnines Inc. @ https://severalnines.com
  *
@@ -17,10 +13,16 @@ import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiE
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.severalnines.clustercontrol.api.abstraction.client;
+
+import com.severalnines.clustercontrol.api.abstraction.common.ClusterControlApiException;
+
 public interface ClusterControlOperation {
     public String authenticateUser(String jsonStr) throws ClusterControlApiException;
 
     public String getSuportedClusterTypes(String jsonStr) throws ClusterControlApiException;
+
+    public String createDatabaseCluster(String jsonStr) throws ClusterControlApiException;
 
     public String createMysqlMariaCluster(String jsonStr) throws ClusterControlApiException;
 

@@ -229,10 +229,11 @@ public final class SampleMain {
 
     void getClusterInfo() throws Exception {
         DbCluster clus = new DbCluster();
-        clus.setClusterId(22);
+        // clus.setClusterId(13);
+        clus.setClusterName("mysql-replication");
 
         String createRet = myCcClient.getClusterInfo(JsonSerializeDeserialize.objectToJson(clus));
-        logger.info("ScheduleBackup response: {}", createRet);
+        logger.info("GetClusterInfo response: {}", createRet);
     }
 
     public static void main(String[] args) throws Exception {
@@ -278,18 +279,18 @@ public final class SampleMain {
 //        sm.removeCluster();
 
         // Get job
-        sm.getJob();
+//         sm.getJob();
 
         // Backup schedule
-        sm.scheduleBackup();
+//         sm.scheduleBackup();
 
         // Create backup
-        sm.createBackup();
+//         sm.createBackup();
 
         // Delete backup
-        sm.deleteBackup();
+//         sm.deleteBackup();
 
         // Get cluster info/details
-        sm.getClusterInfo();
+//         sm.getClusterInfo();
     }
 }

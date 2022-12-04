@@ -46,6 +46,11 @@ abstract class AbstractClusterControlClient implements ClusterControlOperation  
     }
 
     @Override
+    public String createDatabaseCluster(String jsonStr) throws ClusterControlApiException {
+        return null;
+    }
+
+    @Override
     public String createMysqlMariaCluster(String jsonStr) throws ClusterControlApiException {
         return null;
     }

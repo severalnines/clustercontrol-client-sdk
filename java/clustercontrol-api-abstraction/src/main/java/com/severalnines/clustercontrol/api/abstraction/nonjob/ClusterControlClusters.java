@@ -67,7 +67,10 @@ public class ClusterControlClusters extends AbstractClusterControlOperation {
             ClustersApi clustersApi = new ClustersApi(defaultClient);
             Clusters clusters = new Clusters(); // Discovery | All things related to Clusters and cluster Hosts
             clusters.setOperation(Clusters.OperationEnum.GETCLUSTERINFO);
-            clusters.setClusterId(createDetails.getClusterId());
+            if (createDetails.getClusterId() > 0) {
+                clusters.setClusterId(createDetails.getClusterId());
+            }
+            clusters.setClusterName(createDetails.getClusterName());
 
             logger.debug("ClustersPost request: {}", clusters);
             if (!AbstractAuthenticationStrategy.IsDebugMode()) {

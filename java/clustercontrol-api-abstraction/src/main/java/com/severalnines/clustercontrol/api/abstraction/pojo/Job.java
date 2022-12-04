@@ -19,15 +19,24 @@ public class Job {
         this.status = status;
     }
 
-    public String getStatus_text() {
-        return status_text;
+    public String getStatusText() {
+        return statusText;
     }
 
-    public void setStatus_text(String status_text) {
-        this.status_text = status_text;
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
     }
 
-    private int jobId;
+//    public String getClusterName() {
+//        return clusterName;
+//    }
+//
+//    public void setClusterName(String clusterName) {
+//        this.clusterName = clusterName;
+//    }
+
+    private Integer jobId;
     private String status;
-    private String status_text;
+    private String statusText;
+//    private String clusterName;
 }
