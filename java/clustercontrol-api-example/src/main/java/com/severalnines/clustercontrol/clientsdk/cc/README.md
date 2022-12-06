@@ -7,8 +7,8 @@
 
 ``` export CC_API_USER=prem```
 
-```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.CcTest```
+```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.SampleMain```
 
-e.g. ```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.CcTest``` 
+e.g. ```java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.SampleMain``` 
 
 
