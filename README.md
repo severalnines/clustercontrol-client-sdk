@@ -1,4 +1,4 @@
-# clustercontrol-client-sdk
+# ClusterControl Client SDK
 ClusterControl Client SDK built on ClusterControl's REST API.
 
 ## Table of Contents
