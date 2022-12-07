@@ -38,8 +38,6 @@ Here are instructions on how to setup Maven.
    mvn -DskipTests clean package
    ````
 
-We also provide an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/java).
-
 ## Running sample
 
 Setup ClusterControl credentials as environment variables:
