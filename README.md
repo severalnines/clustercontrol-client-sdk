@@ -1,7 +1,15 @@
 # clustercontrol-client-sdk
-ClusterControl Client SDK built on ClusterControl's REST API using OpenAPI spec and code generator.
+ClusterControl Client SDK built on ClusterControl's REST API.
 
-# Introduction
+## Table of Contents
+- [Introduction](#introduction)
+- [SDK for various programming languages](#sdk-for-various-proramming-languages)
+  - [API binding for Java](#api-binding-for-java)
+  - [API binding for Python](#api-binding-for-python)
+  - [API binding for GoLang](#api-binding-for-golang)
+- [Generating Sources from the API definition](#generating-sources-from-api-definition)
+
+## Introduction
 ClusterControl is a platrform which has a HTTPS based 'RPC' API to provide complete access and control of the CMON Controller which is our workflow engine.
 The CMON API documentation is readily available [here](https://severalnines.com/downloads/cmon/cmon-docs/current/rpcv2.html)
 
@@ -13,7 +21,42 @@ The OpenAPI documentation is machine readable and makes it easy formally describ
 
 You can use your favourite system language such as Go or Pyton to create applications which integrates with ClusterControl to manage and monitor your databases.
 
-# Generate Client API libraries with the OpenAPI Generator 
+## SDK for various programming languages
+ClusterControl API (v2) SDK has bindings for various programming languages.
+
+### API binding for Java
+API binding for Java is available the `java` subdirectory. It requires Apache Maven to build. Here are the build instructions.
+
+Setting up Apache Maven
+Here are instructions on how to setup Maven.
+1. Download the latest maven from <https://maven.apache.org/download.cgi> and extract it to your machine.
+2. Install JDK 8 and set JAVA_HOME to the directory where JDK is installed.
+   ```` bash
+   export JAVA_HOME=<jdk-install-dir>
+   ````
+3. Update PATH environment variable to include the maven and jdk "bin" directories.
+   ```` bash
+   export PATH=<maven-bin-dir>:$JAVA_HOME/bin:$PATH
+   ````
+
+Building Java bindings:
+
+   ```` bash
+   git clone https://github.com/severalnines/clustercontrol-client-sdk.git
+   cd clustercontrol-client-sdk/java
+   mvn -DskipTests clean install
+   ````
+
+
+### API binding for Python
+API binding for Python is available the `python` subdirectory.
+
+### API binding for GoLang
+API binding for GoLang is available the `go` subdirectory.
+
+
+## Generating Sources from the API definition 
+**NOTE:** It is not required for you to do generate new sources from the API definition. However, if you happend to modify the API definition, then you will have to generate new sources from the definition in order for the sources to reflect changes to the definition.
 
 * Install Java Runtime 8. Skip these steps if you already have the latest generated language bindings.
 
