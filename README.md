@@ -25,7 +25,7 @@ You can use your favourite system language such as Go or Pyton to create applica
 ClusterControl API (v2) SDK has bindings for various programming languages.
 
 ### API binding for Java
-API binding for Java is available the `java` subdirectory. It requires Apache Maven to build. Here are the build instructions.
+API binding for Java is available in the `java` subdirectory. It requires Apache Maven to build. Here are the build instructions.
 
 Setting up Apache Maven
 Here are instructions on how to setup Maven.
@@ -47,16 +47,22 @@ Building Java bindings:
    mvn -DskipTests clean install
    ````
 
+We also provide an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/java).
 
 ### API binding for Python
-API binding for Python is available the `python` subdirectory.
+API binding for Python is available in the `python` subdirectory.
+
+We hope to provide in the very near future an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/python).
+
 
 ### API binding for GoLang
-API binding for GoLang is available the `go` subdirectory.
+API binding for GoLang is available in the `go` subdirectory.
+
+We hope to provide in the very near future an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/go).
 
 
 ## Generating Sources from the API definition 
-**NOTE:** It is not required for you to do generate new sources from the API definition. However, if you happend to modify the API definition, then you will have to generate new sources from the definition in order for the sources to reflect changes to the definition.
+(**NOTE:** It is not required for you to generate new sources from the API definition. However, if you happend to modify the API definition, then you will have to generate new sources from the definition in order for the sources to reflect changes to the definition.)
 
 * Install Java Runtime 8. Skip these steps if you already have the latest generated language bindings.
 
@@ -103,10 +109,10 @@ make go
 ```
 The next step is to write your first applicaton which calls upon these generated client API stubs.
 
-# Get Started
-## User Authentication - RPC Key
+## Get Started
+### User Authentication - RPC Key
 TBD
-## Deploy a Cluster
+### Deploy a Cluster
 TBD
-## List Clusters
+### List Clusters
 TBD
