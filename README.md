@@ -44,7 +44,7 @@ Building Java bindings:
    ```` bash
    git clone https://github.com/severalnines/clustercontrol-client-sdk.git
    cd clustercontrol-client-sdk/java
-   mvn -DskipTests clean install
+   mvn -DskipTests clean package
    ````
 
 We also provide an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/java).
