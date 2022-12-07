@@ -107,12 +107,5 @@ make go
 # https://opencollective.com/openapi_generator/donate                          #
 ################################################################################
 ```
-The next step is to write your first applicaton which calls upon these generated client API stubs.
 
-## Get Started
-### User Authentication - RPC Key
-TBD
-### Deploy a Cluster
-TBD
-### List Clusters
-TBD
+The next step is to write your first applicaton which calls upon these generated client API stubs. Checkout the respective binding subdirs for `java`, `python` and `go`.
