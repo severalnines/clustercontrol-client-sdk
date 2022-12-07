@@ -1,4 +1,4 @@
-# clustercontrol-client-sdk for Java
+# ClusterControl Client SDK for Java
 ClusterControl Client SDK for Java built on ClusterControl's REST API.
 
 ## Table of Contents
