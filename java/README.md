@@ -7,6 +7,7 @@ ClusterControl Client SDK for Java built on ClusterControl's REST API.
 - [Prerequisites](#prerequisites)
   - [Setting up Apache Maven](#setting-up-apache-maven)
 - [Building from sources](#building-from-sources)
+- [Running sample](#running-sample)
 
 ## Introduction
 
@@ -15,7 +16,7 @@ ClusterControl Client SDK for Java built on ClusterControl's REST API.
 ## API binding for Java
 This is the API binding for Java. It requires Apache Maven to build. Here are the build instructions.
 
-## Prerequuisites
+## Prerequisites
 
 ### Setting up Apache Maven
 Here are instructions on how to setup Maven.
@@ -38,3 +39,19 @@ Here are instructions on how to setup Maven.
    ````
 
 We also provide an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/java).
+
+## Running sample
+
+Setup ClusterControl credentials as environment variables:
+
+   ```` bash
+   export CC_URL="https://10.63.1.217:9501/v2"
+   export CC_API_USER="the-cc-user"
+   export CC_API_USER_PW="LLLMMMNNN"
+   ````
+
+Finally, run the sample applicatioin in the same terminal:
+   ```` bash
+   java -cp ./ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar com.severalnines.clustercontrol.clientsdk.cc.SampleMain
+   ````
+
