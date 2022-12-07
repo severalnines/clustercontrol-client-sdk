@@ -93,7 +93,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
                 break;
             default:
                 logger.warn("Unsupported cluster_type: {}", createDetails.getClusterType());
-                break;
+                throw new ClusterControlApiException("Unsupported cluster_type:" + createDetails.getClusterType());
+                // break;
         }
 
         DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
