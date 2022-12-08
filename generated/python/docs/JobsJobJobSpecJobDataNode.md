@@ -23,8 +23,7 @@ Name | Type | Description | Notes
 **timeout_server** | **int** |  | [optional] 
 **xinetd_allow_from** | **str** |  | [optional] 
 **scrape_interval** | **str** |  | [optional] 
-**configuration** | [**[JobsJobJobSpecJobDataNodeConfigurationInner]**](JobsJobJobSpecJobDataNodeConfigurationInner.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**configuration** | [**list[JobsJobJobSpecJobDataNodeConfigurationInner]**](JobsJobJobSpecJobDataNodeConfigurationInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

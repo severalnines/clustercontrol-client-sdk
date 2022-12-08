@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **acl** | **str** |  | [optional] 
 **clusterid** | **int** |  | [optional] 
 **ip** | **str** |  | [optional] 
-**maintenance_mode** | **str** |  | [optional]  if omitted the server will use the default value of "none"
+**maintenance_mode** | **str** |  | [optional] 
 **maintenance_mode_active** | **bool** |  | [optional] 
 **timestamp** | **int** |  | [optional] 
 **unique_id** | **int** |  | [optional] 
@@ -22,7 +22,8 @@ Name | Type | Description | Notes
 **datadir** | **str** |  | [optional] 
 **backup_dir** | **str** |  | [optional] 
 **synchronous** | **bool** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**protocol** | **str** |  | [optional] 
+**roles** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

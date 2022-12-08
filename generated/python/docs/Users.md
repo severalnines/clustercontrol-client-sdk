@@ -10,10 +10,9 @@ Name | Type | Description | Notes
 **old_password** | **str** |  | [optional] 
 **group_name** | **str** |  | [optional] 
 **replace_primary_group** | **bool** |  | [optional] 
-**with_tags** | **[str]** |  | [optional] 
+**with_tags** | **list[str]** |  | [optional] 
 **user** | [**UsersUser**](UsersUser.md) |  | [optional] 
 **group** | [**UsersGroup**](UsersGroup.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
