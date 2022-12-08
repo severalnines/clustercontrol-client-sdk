@@ -18,10 +18,10 @@ package com.severalnines.clustercontrol.api.abstraction.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultClusterControlOpExecStrategy extends AbstractClusterControlOpExecStrategy {
+public class DefaultClusterControlOperationProxy extends AbstractClusterControlOperationProxy {
 
     private static final Logger logger
-            = LoggerFactory.getLogger(DefaultClusterControlOpExecStrategy.class);
+            = LoggerFactory.getLogger(DefaultClusterControlOperationProxy.class);
 
     private ClusterControlOperation ccOp;
 
@@ -35,12 +35,13 @@ public class DefaultClusterControlOpExecStrategy extends AbstractClusterControlO
         return authStrategy;
     }
 
-    public DefaultClusterControlOpExecStrategy(AbstractAuthenticationStrategy authStrategy, ClusterControlOperation op) {
+    public DefaultClusterControlOperationProxy(AbstractAuthenticationStrategy authStrategy, ClusterControlOperation op) {
         this.authStrategy = authStrategy;
         this.ccOp = op;
     }
 
-    public String executeOp() throws ClusterControlApiException {
+    @Override
+    public String execute() throws ClusterControlApiException {
         String opRet = "";
 
         int numReties = 5;
@@ -62,4 +63,27 @@ public class DefaultClusterControlOpExecStrategy extends AbstractClusterControlO
 
         return opRet;
     }
+
+//    public String execute() throws ClusterControlApiException {
+//        String opRet = "";
+//
+//        int numReties = 5;
+//        boolean isSuccess = false;
+//        while (numReties > 0 && !isSuccess) {
+//            try {
+//                opRet = getCcOp().execute();
+//                logger.debug(opRet);
+//                isSuccess = true;
+//            } catch (ClusterControlApiException e) {
+//                if (e instanceof ClusterControlAuthRequiredException) {
+//                    getAuthStrategy().authenticateWithClusterControl();
+//                    --numReties;
+//                } else {
+//                    throw new ClusterControlApiException(e);
+//                }
+//            }
+//        }
+//
+//        return opRet;
+//    }
 }

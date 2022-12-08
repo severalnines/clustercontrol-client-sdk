@@ -37,8 +37,8 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     @Override
     public String authenticateUser(String jsonStr) throws ClusterControlApiException {
         AuthenticateWithClusterControl ccAuth = new AuthenticateWithClusterControl(getAuthStrategy(), jsonStr);
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(getAuthStrategy(), ccAuth);
-        execStrategy.executeOp();
+        DefaultClusterControlOperationProxy proxy = new DefaultClusterControlOperationProxy(getAuthStrategy(), ccAuth);
+        proxy.execute();
         return ("{\"status\": \"Success\"");
     }
 
@@ -47,10 +47,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         ClusterDiscovery discov = new ClusterDiscovery(
                 getAuthStrategy(), jsonStr, Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), discov);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), discov);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -97,10 +97,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
                 // break;
         }
 
-        DefaultClusterControlOpExecStrategy execStrategy = new DefaultClusterControlOpExecStrategy(
+        DefaultClusterControlOperationProxy proxy = new DefaultClusterControlOperationProxy(
                 getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -108,10 +108,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MysqlMariaClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -119,10 +119,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new PostgresqlClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -130,10 +130,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new TimescaleDbClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -141,10 +141,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MongoDbClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -152,10 +152,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new RedisClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -163,10 +163,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new MsSqlClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -174,10 +174,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob crClustJob = new ElasticsearchClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.CREATE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), crClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), crClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -185,20 +185,20 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         AbstractDbClusterJob rmClustJob = new RemoveClusterJob(
                 getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.REMOVE_CLUSTER);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), rmClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), rmClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
     public String getJob(String jsonStr) throws ClusterControlApiException {
         ClusterControlJob rmClustJob = new ClusterControlJob(getAuthStrategy(), jsonStr);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), rmClustJob);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), rmClustJob);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -206,10 +206,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         BackupSchedule backupSchedule = new BackupSchedule(
                 getAuthStrategy(), jsonStr, Backup.OperationEnum.SCHEDULEBACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backupSchedule);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), backupSchedule);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
 //    @Override
@@ -221,20 +221,20 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     public String createBackup(String jsonStr) throws ClusterControlApiException {
         BackupJob backup = new BackupJob(getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.BACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backup);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), backup);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
     public String deleteBackup(String jsonStr) throws ClusterControlApiException {
         BackupJob backup = new BackupJob(getAuthStrategy(), jsonStr, JobsJobJobSpec.CommandEnum.DELETE_BACKUP);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backup);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), backup);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -242,10 +242,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         BackupSchedule backupSchedule = new BackupSchedule(
                 getAuthStrategy(), jsonStr, Backup.OperationEnum.DELETEBACKUPRECORD);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), backupSchedule);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), backupSchedule);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
     @Override
@@ -253,10 +253,10 @@ public class ClusterControlClient extends AbstractClusterControlClient {
         ClusterControlClusters clusters = new ClusterControlClusters(
                 getAuthStrategy(), jsonStr, Clusters.OperationEnum.GETCLUSTERINFO);
 
-        DefaultClusterControlOpExecStrategy execStrategy =
-                new DefaultClusterControlOpExecStrategy(getAuthStrategy(), clusters);
+        DefaultClusterControlOperationProxy proxy =
+                new DefaultClusterControlOperationProxy(getAuthStrategy(), clusters);
 
-        return execStrategy.executeOp();
+        return proxy.execute();
     }
 
 }

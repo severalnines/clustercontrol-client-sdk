@@ -15,5 +15,9 @@
  */
 package com.severalnines.clustercontrol.api.abstraction.common;
 
-public abstract class AbstractClusterControlOpExecStrategy {
+public abstract class AbstractClusterControlOperationProxy implements ClusterControlOperaionProxy {
+    @Override
+    public String execute() throws ClusterControlApiException {
+        return null;
+    }
 }
