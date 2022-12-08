@@ -1,9 +1,9 @@
 import os
 import openapi_cc_client
 from openapi_cc_client.api import auth_api
-from openapi_cc_client.model.authenticate import Authenticate
+from openapi_cc_client.models.authenticate import Authenticate
 from openapi_cc_client.api import clusters_api
-from openapi_cc_client.model.clusters import Clusters
+from openapi_cc_client.models.clusters import Clusters
 
 configuration = openapi_cc_client.Configuration(
     # host="https://cchost:9501/v2"
