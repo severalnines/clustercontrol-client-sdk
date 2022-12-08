@@ -49,7 +49,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-22T11:46:18.304848-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
 public class JobsJobJobSpec {
   /**
    * Gets or Sets command
