@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -57,7 +57,7 @@ func (o *Cloud) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +69,7 @@ func (o *Cloud) SetOperation(v string) {
 
 // GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *Cloud) GetProvider() string {
-	if o == nil || o.Provider == nil {
+	if o == nil || isNil(o.Provider) {
 		var ret string
 		return ret
 	}
@@ -79,15 +79,15 @@ func (o *Cloud) GetProvider() string {
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetProviderOk() (*string, bool) {
-	if o == nil || o.Provider == nil {
-		return nil, false
+	if o == nil || isNil(o.Provider) {
+    return nil, false
 	}
 	return o.Provider, true
 }
 
 // HasProvider returns a boolean if a field has been set.
 func (o *Cloud) HasProvider() bool {
-	if o != nil && o.Provider != nil {
+	if o != nil && !isNil(o.Provider) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o *Cloud) SetProvider(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Cloud) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -111,15 +111,15 @@ func (o *Cloud) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
+	if o == nil || isNil(o.Name) {
+    return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Cloud) HasName() bool {
-	if o != nil && o.Name != nil {
+	if o != nil && !isNil(o.Name) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *Cloud) SetName(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *Cloud) GetComment() string {
-	if o == nil || o.Comment == nil {
+	if o == nil || isNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -143,15 +143,15 @@ func (o *Cloud) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetCommentOk() (*string, bool) {
-	if o == nil || o.Comment == nil {
-		return nil, false
+	if o == nil || isNil(o.Comment) {
+    return nil, false
 	}
 	return o.Comment, true
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *Cloud) HasComment() bool {
-	if o != nil && o.Comment != nil {
+	if o != nil && !isNil(o.Comment) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o *Cloud) SetComment(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Cloud) GetId() int32 {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -175,15 +175,15 @@ func (o *Cloud) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetIdOk() (*int32, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
+	if o == nil || isNil(o.Id) {
+    return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Cloud) HasId() bool {
-	if o != nil && o.Id != nil {
+	if o != nil && !isNil(o.Id) {
 		return true
 	}
 
@@ -197,7 +197,7 @@ func (o *Cloud) SetId(v int32) {
 
 // GetCredentials returns the Credentials field value if set, zero value otherwise.
 func (o *Cloud) GetCredentials() CloudCredentials {
-	if o == nil || o.Credentials == nil {
+	if o == nil || isNil(o.Credentials) {
 		var ret CloudCredentials
 		return ret
 	}
@@ -207,15 +207,15 @@ func (o *Cloud) GetCredentials() CloudCredentials {
 // GetCredentialsOk returns a tuple with the Credentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetCredentialsOk() (*CloudCredentials, bool) {
-	if o == nil || o.Credentials == nil {
-		return nil, false
+	if o == nil || isNil(o.Credentials) {
+    return nil, false
 	}
 	return o.Credentials, true
 }
 
 // HasCredentials returns a boolean if a field has been set.
 func (o *Cloud) HasCredentials() bool {
-	if o != nil && o.Credentials != nil {
+	if o != nil && !isNil(o.Credentials) {
 		return true
 	}
 
@@ -232,19 +232,19 @@ func (o Cloud) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.Provider != nil {
+	if !isNil(o.Provider) {
 		toSerialize["provider"] = o.Provider
 	}
-	if o.Name != nil {
+	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.Comment != nil {
+	if !isNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if o.Id != nil {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Credentials != nil {
+	if !isNil(o.Credentials) {
 		toSerialize["credentials"] = o.Credentials
 	}
 	return json.Marshal(toSerialize)

@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -43,7 +43,7 @@ func NewBackupScheduleWithDefaults() *BackupSchedule {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *BackupSchedule) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -53,15 +53,15 @@ func (o *BackupSchedule) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *BackupSchedule) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -75,7 +75,7 @@ func (o *BackupSchedule) SetClassName(v string) {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *BackupSchedule) GetEnabled() bool {
-	if o == nil || o.Enabled == nil {
+	if o == nil || isNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -85,15 +85,15 @@ func (o *BackupSchedule) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetEnabledOk() (*bool, bool) {
-	if o == nil || o.Enabled == nil {
-		return nil, false
+	if o == nil || isNil(o.Enabled) {
+    return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *BackupSchedule) HasEnabled() bool {
-	if o != nil && o.Enabled != nil {
+	if o != nil && !isNil(o.Enabled) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *BackupSchedule) SetEnabled(v bool) {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *BackupSchedule) GetSchedule() string {
-	if o == nil || o.Schedule == nil {
+	if o == nil || isNil(o.Schedule) {
 		var ret string
 		return ret
 	}
@@ -117,15 +117,15 @@ func (o *BackupSchedule) GetSchedule() string {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetScheduleOk() (*string, bool) {
-	if o == nil || o.Schedule == nil {
-		return nil, false
+	if o == nil || isNil(o.Schedule) {
+    return nil, false
 	}
 	return o.Schedule, true
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *BackupSchedule) HasSchedule() bool {
-	if o != nil && o.Schedule != nil {
+	if o != nil && !isNil(o.Schedule) {
 		return true
 	}
 
@@ -139,7 +139,7 @@ func (o *BackupSchedule) SetSchedule(v string) {
 
 // GetScheduleId returns the ScheduleId field value if set, zero value otherwise.
 func (o *BackupSchedule) GetScheduleId() int32 {
-	if o == nil || o.ScheduleId == nil {
+	if o == nil || isNil(o.ScheduleId) {
 		var ret int32
 		return ret
 	}
@@ -149,15 +149,15 @@ func (o *BackupSchedule) GetScheduleId() int32 {
 // GetScheduleIdOk returns a tuple with the ScheduleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetScheduleIdOk() (*int32, bool) {
-	if o == nil || o.ScheduleId == nil {
-		return nil, false
+	if o == nil || isNil(o.ScheduleId) {
+    return nil, false
 	}
 	return o.ScheduleId, true
 }
 
 // HasScheduleId returns a boolean if a field has been set.
 func (o *BackupSchedule) HasScheduleId() bool {
-	if o != nil && o.ScheduleId != nil {
+	if o != nil && !isNil(o.ScheduleId) {
 		return true
 	}
 
@@ -171,7 +171,7 @@ func (o *BackupSchedule) SetScheduleId(v int32) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *BackupSchedule) GetJob() BackupScheduleJob {
-	if o == nil || o.Job == nil {
+	if o == nil || isNil(o.Job) {
 		var ret BackupScheduleJob
 		return ret
 	}
@@ -181,15 +181,15 @@ func (o *BackupSchedule) GetJob() BackupScheduleJob {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetJobOk() (*BackupScheduleJob, bool) {
-	if o == nil || o.Job == nil {
-		return nil, false
+	if o == nil || isNil(o.Job) {
+    return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *BackupSchedule) HasJob() bool {
-	if o != nil && o.Job != nil {
+	if o != nil && !isNil(o.Job) {
 		return true
 	}
 
@@ -203,19 +203,19 @@ func (o *BackupSchedule) SetJob(v BackupScheduleJob) {
 
 func (o BackupSchedule) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.Enabled != nil {
+	if !isNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if o.Schedule != nil {
+	if !isNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
 	}
-	if o.ScheduleId != nil {
+	if !isNil(o.ScheduleId) {
 		toSerialize["schedule_id"] = o.ScheduleId
 	}
-	if o.Job != nil {
+	if !isNil(o.Job) {
 		toSerialize["job"] = o.Job
 	}
 	return json.Marshal(toSerialize)

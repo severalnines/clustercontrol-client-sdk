@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -57,7 +57,7 @@ func (o *Authenticate) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +69,7 @@ func (o *Authenticate) SetOperation(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *Authenticate) GetUserName() string {
-	if o == nil || o.UserName == nil {
+	if o == nil || isNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -79,15 +79,15 @@ func (o *Authenticate) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetUserNameOk() (*string, bool) {
-	if o == nil || o.UserName == nil {
-		return nil, false
+	if o == nil || isNil(o.UserName) {
+    return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *Authenticate) HasUserName() bool {
-	if o != nil && o.UserName != nil {
+	if o != nil && !isNil(o.UserName) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o *Authenticate) SetUserName(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *Authenticate) GetPassword() string {
-	if o == nil || o.Password == nil {
+	if o == nil || isNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -111,15 +111,15 @@ func (o *Authenticate) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetPasswordOk() (*string, bool) {
-	if o == nil || o.Password == nil {
-		return nil, false
+	if o == nil || isNil(o.Password) {
+    return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *Authenticate) HasPassword() bool {
-	if o != nil && o.Password != nil {
+	if o != nil && !isNil(o.Password) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *Authenticate) SetPassword(v string) {
 
 // GetSignature returns the Signature field value if set, zero value otherwise.
 func (o *Authenticate) GetSignature() string {
-	if o == nil || o.Signature == nil {
+	if o == nil || isNil(o.Signature) {
 		var ret string
 		return ret
 	}
@@ -143,15 +143,15 @@ func (o *Authenticate) GetSignature() string {
 // GetSignatureOk returns a tuple with the Signature field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetSignatureOk() (*string, bool) {
-	if o == nil || o.Signature == nil {
-		return nil, false
+	if o == nil || isNil(o.Signature) {
+    return nil, false
 	}
 	return o.Signature, true
 }
 
 // HasSignature returns a boolean if a field has been set.
 func (o *Authenticate) HasSignature() bool {
-	if o != nil && o.Signature != nil {
+	if o != nil && !isNil(o.Signature) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o *Authenticate) SetSignature(v string) {
 
 // GetNewPassword returns the NewPassword field value if set, zero value otherwise.
 func (o *Authenticate) GetNewPassword() string {
-	if o == nil || o.NewPassword == nil {
+	if o == nil || isNil(o.NewPassword) {
 		var ret string
 		return ret
 	}
@@ -175,15 +175,15 @@ func (o *Authenticate) GetNewPassword() string {
 // GetNewPasswordOk returns a tuple with the NewPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetNewPasswordOk() (*string, bool) {
-	if o == nil || o.NewPassword == nil {
-		return nil, false
+	if o == nil || isNil(o.NewPassword) {
+    return nil, false
 	}
 	return o.NewPassword, true
 }
 
 // HasNewPassword returns a boolean if a field has been set.
 func (o *Authenticate) HasNewPassword() bool {
-	if o != nil && o.NewPassword != nil {
+	if o != nil && !isNil(o.NewPassword) {
 		return true
 	}
 
@@ -197,7 +197,7 @@ func (o *Authenticate) SetNewPassword(v string) {
 
 // GetPasswordResetToken returns the PasswordResetToken field value if set, zero value otherwise.
 func (o *Authenticate) GetPasswordResetToken() string {
-	if o == nil || o.PasswordResetToken == nil {
+	if o == nil || isNil(o.PasswordResetToken) {
 		var ret string
 		return ret
 	}
@@ -207,15 +207,15 @@ func (o *Authenticate) GetPasswordResetToken() string {
 // GetPasswordResetTokenOk returns a tuple with the PasswordResetToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetPasswordResetTokenOk() (*string, bool) {
-	if o == nil || o.PasswordResetToken == nil {
-		return nil, false
+	if o == nil || isNil(o.PasswordResetToken) {
+    return nil, false
 	}
 	return o.PasswordResetToken, true
 }
 
 // HasPasswordResetToken returns a boolean if a field has been set.
 func (o *Authenticate) HasPasswordResetToken() bool {
-	if o != nil && o.PasswordResetToken != nil {
+	if o != nil && !isNil(o.PasswordResetToken) {
 		return true
 	}
 
@@ -232,19 +232,19 @@ func (o Authenticate) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.UserName != nil {
+	if !isNil(o.UserName) {
 		toSerialize["user_name"] = o.UserName
 	}
-	if o.Password != nil {
+	if !isNil(o.Password) {
 		toSerialize["password"] = o.Password
 	}
-	if o.Signature != nil {
+	if !isNil(o.Signature) {
 		toSerialize["signature"] = o.Signature
 	}
-	if o.NewPassword != nil {
+	if !isNil(o.NewPassword) {
 		toSerialize["new_password"] = o.NewPassword
 	}
-	if o.PasswordResetToken != nil {
+	if !isNil(o.PasswordResetToken) {
 		toSerialize["password_reset_token"] = o.PasswordResetToken
 	}
 	return json.Marshal(toSerialize)

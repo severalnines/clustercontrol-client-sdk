@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -63,7 +63,7 @@ func (o *Clusters) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -75,7 +75,7 @@ func (o *Clusters) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Clusters) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -85,15 +85,15 @@ func (o *Clusters) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Clusters) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -107,7 +107,7 @@ func (o *Clusters) SetClusterId(v int32) {
 
 // GetClusterName returns the ClusterName field value if set, zero value otherwise.
 func (o *Clusters) GetClusterName() string {
-	if o == nil || o.ClusterName == nil {
+	if o == nil || isNil(o.ClusterName) {
 		var ret string
 		return ret
 	}
@@ -117,15 +117,15 @@ func (o *Clusters) GetClusterName() string {
 // GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetClusterNameOk() (*string, bool) {
-	if o == nil || o.ClusterName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterName) {
+    return nil, false
 	}
 	return o.ClusterName, true
 }
 
 // HasClusterName returns a boolean if a field has been set.
 func (o *Clusters) HasClusterName() bool {
-	if o != nil && o.ClusterName != nil {
+	if o != nil && !isNil(o.ClusterName) {
 		return true
 	}
 
@@ -139,7 +139,7 @@ func (o *Clusters) SetClusterName(v string) {
 
 // GetWithHosts returns the WithHosts field value if set, zero value otherwise.
 func (o *Clusters) GetWithHosts() bool {
-	if o == nil || o.WithHosts == nil {
+	if o == nil || isNil(o.WithHosts) {
 		var ret bool
 		return ret
 	}
@@ -149,15 +149,15 @@ func (o *Clusters) GetWithHosts() bool {
 // GetWithHostsOk returns a tuple with the WithHosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetWithHostsOk() (*bool, bool) {
-	if o == nil || o.WithHosts == nil {
-		return nil, false
+	if o == nil || isNil(o.WithHosts) {
+    return nil, false
 	}
 	return o.WithHosts, true
 }
 
 // HasWithHosts returns a boolean if a field has been set.
 func (o *Clusters) HasWithHosts() bool {
-	if o != nil && o.WithHosts != nil {
+	if o != nil && !isNil(o.WithHosts) {
 		return true
 	}
 
@@ -171,7 +171,7 @@ func (o *Clusters) SetWithHosts(v bool) {
 
 // GetWithSheetInfo returns the WithSheetInfo field value if set, zero value otherwise.
 func (o *Clusters) GetWithSheetInfo() bool {
-	if o == nil || o.WithSheetInfo == nil {
+	if o == nil || isNil(o.WithSheetInfo) {
 		var ret bool
 		return ret
 	}
@@ -181,15 +181,15 @@ func (o *Clusters) GetWithSheetInfo() bool {
 // GetWithSheetInfoOk returns a tuple with the WithSheetInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetWithSheetInfoOk() (*bool, bool) {
-	if o == nil || o.WithSheetInfo == nil {
-		return nil, false
+	if o == nil || isNil(o.WithSheetInfo) {
+    return nil, false
 	}
 	return o.WithSheetInfo, true
 }
 
 // HasWithSheetInfo returns a boolean if a field has been set.
 func (o *Clusters) HasWithSheetInfo() bool {
-	if o != nil && o.WithSheetInfo != nil {
+	if o != nil && !isNil(o.WithSheetInfo) {
 		return true
 	}
 
@@ -203,7 +203,7 @@ func (o *Clusters) SetWithSheetInfo(v bool) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *Clusters) GetConfiguration() []ClustersConfigurationInner {
-	if o == nil || o.Configuration == nil {
+	if o == nil || isNil(o.Configuration) {
 		var ret []ClustersConfigurationInner
 		return ret
 	}
@@ -213,15 +213,15 @@ func (o *Clusters) GetConfiguration() []ClustersConfigurationInner {
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetConfigurationOk() ([]ClustersConfigurationInner, bool) {
-	if o == nil || o.Configuration == nil {
-		return nil, false
+	if o == nil || isNil(o.Configuration) {
+    return nil, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *Clusters) HasConfiguration() bool {
-	if o != nil && o.Configuration != nil {
+	if o != nil && !isNil(o.Configuration) {
 		return true
 	}
 
@@ -235,7 +235,7 @@ func (o *Clusters) SetConfiguration(v []ClustersConfigurationInner) {
 
 // GetAccount returns the Account field value if set, zero value otherwise.
 func (o *Clusters) GetAccount() ClustersAccount {
-	if o == nil || o.Account == nil {
+	if o == nil || isNil(o.Account) {
 		var ret ClustersAccount
 		return ret
 	}
@@ -245,15 +245,15 @@ func (o *Clusters) GetAccount() ClustersAccount {
 // GetAccountOk returns a tuple with the Account field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetAccountOk() (*ClustersAccount, bool) {
-	if o == nil || o.Account == nil {
-		return nil, false
+	if o == nil || isNil(o.Account) {
+    return nil, false
 	}
 	return o.Account, true
 }
 
 // HasAccount returns a boolean if a field has been set.
 func (o *Clusters) HasAccount() bool {
-	if o != nil && o.Account != nil {
+	if o != nil && !isNil(o.Account) {
 		return true
 	}
 
@@ -267,7 +267,7 @@ func (o *Clusters) SetAccount(v ClustersAccount) {
 
 // GetFilterStrings returns the FilterStrings field value if set, zero value otherwise.
 func (o *Clusters) GetFilterStrings() string {
-	if o == nil || o.FilterStrings == nil {
+	if o == nil || isNil(o.FilterStrings) {
 		var ret string
 		return ret
 	}
@@ -277,15 +277,15 @@ func (o *Clusters) GetFilterStrings() string {
 // GetFilterStringsOk returns a tuple with the FilterStrings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetFilterStringsOk() (*string, bool) {
-	if o == nil || o.FilterStrings == nil {
-		return nil, false
+	if o == nil || isNil(o.FilterStrings) {
+    return nil, false
 	}
 	return o.FilterStrings, true
 }
 
 // HasFilterStrings returns a boolean if a field has been set.
 func (o *Clusters) HasFilterStrings() bool {
-	if o != nil && o.FilterStrings != nil {
+	if o != nil && !isNil(o.FilterStrings) {
 		return true
 	}
 
@@ -299,7 +299,7 @@ func (o *Clusters) SetFilterStrings(v string) {
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
 func (o *Clusters) GetLimit() int32 {
-	if o == nil || o.Limit == nil {
+	if o == nil || isNil(o.Limit) {
 		var ret int32
 		return ret
 	}
@@ -309,15 +309,15 @@ func (o *Clusters) GetLimit() int32 {
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetLimitOk() (*int32, bool) {
-	if o == nil || o.Limit == nil {
-		return nil, false
+	if o == nil || isNil(o.Limit) {
+    return nil, false
 	}
 	return o.Limit, true
 }
 
 // HasLimit returns a boolean if a field has been set.
 func (o *Clusters) HasLimit() bool {
-	if o != nil && o.Limit != nil {
+	if o != nil && !isNil(o.Limit) {
 		return true
 	}
 
@@ -331,7 +331,7 @@ func (o *Clusters) SetLimit(v int32) {
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *Clusters) GetOffset() int32 {
-	if o == nil || o.Offset == nil {
+	if o == nil || isNil(o.Offset) {
 		var ret int32
 		return ret
 	}
@@ -341,15 +341,15 @@ func (o *Clusters) GetOffset() int32 {
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetOffsetOk() (*int32, bool) {
-	if o == nil || o.Offset == nil {
-		return nil, false
+	if o == nil || isNil(o.Offset) {
+    return nil, false
 	}
 	return o.Offset, true
 }
 
 // HasOffset returns a boolean if a field has been set.
 func (o *Clusters) HasOffset() bool {
-	if o != nil && o.Offset != nil {
+	if o != nil && !isNil(o.Offset) {
 		return true
 	}
 
@@ -363,7 +363,7 @@ func (o *Clusters) SetOffset(v int32) {
 
 // GetDatabase returns the Database field value if set, zero value otherwise.
 func (o *Clusters) GetDatabase() ClustersDatabase {
-	if o == nil || o.Database == nil {
+	if o == nil || isNil(o.Database) {
 		var ret ClustersDatabase
 		return ret
 	}
@@ -373,15 +373,15 @@ func (o *Clusters) GetDatabase() ClustersDatabase {
 // GetDatabaseOk returns a tuple with the Database field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetDatabaseOk() (*ClustersDatabase, bool) {
-	if o == nil || o.Database == nil {
-		return nil, false
+	if o == nil || isNil(o.Database) {
+    return nil, false
 	}
 	return o.Database, true
 }
 
 // HasDatabase returns a boolean if a field has been set.
 func (o *Clusters) HasDatabase() bool {
-	if o != nil && o.Database != nil {
+	if o != nil && !isNil(o.Database) {
 		return true
 	}
 
@@ -395,7 +395,7 @@ func (o *Clusters) SetDatabase(v ClustersDatabase) {
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
 func (o *Clusters) GetNodes() []string {
-	if o == nil || o.Nodes == nil {
+	if o == nil || isNil(o.Nodes) {
 		var ret []string
 		return ret
 	}
@@ -405,15 +405,15 @@ func (o *Clusters) GetNodes() []string {
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Clusters) GetNodesOk() ([]string, bool) {
-	if o == nil || o.Nodes == nil {
-		return nil, false
+	if o == nil || isNil(o.Nodes) {
+    return nil, false
 	}
 	return o.Nodes, true
 }
 
 // HasNodes returns a boolean if a field has been set.
 func (o *Clusters) HasNodes() bool {
-	if o != nil && o.Nodes != nil {
+	if o != nil && !isNil(o.Nodes) {
 		return true
 	}
 
@@ -430,37 +430,37 @@ func (o Clusters) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.ClusterName != nil {
+	if !isNil(o.ClusterName) {
 		toSerialize["cluster_name"] = o.ClusterName
 	}
-	if o.WithHosts != nil {
+	if !isNil(o.WithHosts) {
 		toSerialize["with_hosts"] = o.WithHosts
 	}
-	if o.WithSheetInfo != nil {
+	if !isNil(o.WithSheetInfo) {
 		toSerialize["with_sheet_info"] = o.WithSheetInfo
 	}
-	if o.Configuration != nil {
+	if !isNil(o.Configuration) {
 		toSerialize["configuration"] = o.Configuration
 	}
-	if o.Account != nil {
+	if !isNil(o.Account) {
 		toSerialize["account"] = o.Account
 	}
-	if o.FilterStrings != nil {
+	if !isNil(o.FilterStrings) {
 		toSerialize["filter_strings"] = o.FilterStrings
 	}
-	if o.Limit != nil {
+	if !isNil(o.Limit) {
 		toSerialize["limit"] = o.Limit
 	}
-	if o.Offset != nil {
+	if !isNil(o.Offset) {
 		toSerialize["offset"] = o.Offset
 	}
-	if o.Database != nil {
+	if !isNil(o.Database) {
 		toSerialize["database"] = o.Database
 	}
-	if o.Nodes != nil {
+	if !isNil(o.Nodes) {
 		toSerialize["nodes"] = o.Nodes
 	}
 	return json.Marshal(toSerialize)

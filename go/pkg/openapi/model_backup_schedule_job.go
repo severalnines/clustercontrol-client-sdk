@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -40,7 +40,7 @@ func NewBackupScheduleJobWithDefaults() *BackupScheduleJob {
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *BackupScheduleJob) GetCommand() string {
-	if o == nil || o.Command == nil {
+	if o == nil || isNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -50,15 +50,15 @@ func (o *BackupScheduleJob) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJob) GetCommandOk() (*string, bool) {
-	if o == nil || o.Command == nil {
-		return nil, false
+	if o == nil || isNil(o.Command) {
+    return nil, false
 	}
 	return o.Command, true
 }
 
 // HasCommand returns a boolean if a field has been set.
 func (o *BackupScheduleJob) HasCommand() bool {
-	if o != nil && o.Command != nil {
+	if o != nil && !isNil(o.Command) {
 		return true
 	}
 
@@ -72,7 +72,7 @@ func (o *BackupScheduleJob) SetCommand(v string) {
 
 // GetJobData returns the JobData field value if set, zero value otherwise.
 func (o *BackupScheduleJob) GetJobData() BackupScheduleJobJobData {
-	if o == nil || o.JobData == nil {
+	if o == nil || isNil(o.JobData) {
 		var ret BackupScheduleJobJobData
 		return ret
 	}
@@ -82,15 +82,15 @@ func (o *BackupScheduleJob) GetJobData() BackupScheduleJobJobData {
 // GetJobDataOk returns a tuple with the JobData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJob) GetJobDataOk() (*BackupScheduleJobJobData, bool) {
-	if o == nil || o.JobData == nil {
-		return nil, false
+	if o == nil || isNil(o.JobData) {
+    return nil, false
 	}
 	return o.JobData, true
 }
 
 // HasJobData returns a boolean if a field has been set.
 func (o *BackupScheduleJob) HasJobData() bool {
-	if o != nil && o.JobData != nil {
+	if o != nil && !isNil(o.JobData) {
 		return true
 	}
 
@@ -104,10 +104,10 @@ func (o *BackupScheduleJob) SetJobData(v BackupScheduleJobJobData) {
 
 func (o BackupScheduleJob) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Command != nil {
+	if !isNil(o.Command) {
 		toSerialize["command"] = o.Command
 	}
-	if o.JobData != nil {
+	if !isNil(o.JobData) {
 		toSerialize["job_data"] = o.JobData
 	}
 	return json.Marshal(toSerialize)

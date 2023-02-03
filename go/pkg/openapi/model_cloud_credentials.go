@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -41,7 +41,7 @@ func NewCloudCredentialsWithDefaults() *CloudCredentials {
 
 // GetAccessKeyId returns the AccessKeyId field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeyId() string {
-	if o == nil || o.AccessKeyId == nil {
+	if o == nil || isNil(o.AccessKeyId) {
 		var ret string
 		return ret
 	}
@@ -51,15 +51,15 @@ func (o *CloudCredentials) GetAccessKeyId() string {
 // GetAccessKeyIdOk returns a tuple with the AccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeyIdOk() (*string, bool) {
-	if o == nil || o.AccessKeyId == nil {
-		return nil, false
+	if o == nil || isNil(o.AccessKeyId) {
+    return nil, false
 	}
 	return o.AccessKeyId, true
 }
 
 // HasAccessKeyId returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeyId() bool {
-	if o != nil && o.AccessKeyId != nil {
+	if o != nil && !isNil(o.AccessKeyId) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *CloudCredentials) SetAccessKeyId(v string) {
 
 // GetAccessKeySecret returns the AccessKeySecret field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeySecret() string {
-	if o == nil || o.AccessKeySecret == nil {
+	if o == nil || isNil(o.AccessKeySecret) {
 		var ret string
 		return ret
 	}
@@ -83,15 +83,15 @@ func (o *CloudCredentials) GetAccessKeySecret() string {
 // GetAccessKeySecretOk returns a tuple with the AccessKeySecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeySecretOk() (*string, bool) {
-	if o == nil || o.AccessKeySecret == nil {
-		return nil, false
+	if o == nil || isNil(o.AccessKeySecret) {
+    return nil, false
 	}
 	return o.AccessKeySecret, true
 }
 
 // HasAccessKeySecret returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeySecret() bool {
-	if o != nil && o.AccessKeySecret != nil {
+	if o != nil && !isNil(o.AccessKeySecret) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *CloudCredentials) SetAccessKeySecret(v string) {
 
 // GetAccessKeyRegion returns the AccessKeyRegion field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeyRegion() string {
-	if o == nil || o.AccessKeyRegion == nil {
+	if o == nil || isNil(o.AccessKeyRegion) {
 		var ret string
 		return ret
 	}
@@ -115,15 +115,15 @@ func (o *CloudCredentials) GetAccessKeyRegion() string {
 // GetAccessKeyRegionOk returns a tuple with the AccessKeyRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeyRegionOk() (*string, bool) {
-	if o == nil || o.AccessKeyRegion == nil {
-		return nil, false
+	if o == nil || isNil(o.AccessKeyRegion) {
+    return nil, false
 	}
 	return o.AccessKeyRegion, true
 }
 
 // HasAccessKeyRegion returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeyRegion() bool {
-	if o != nil && o.AccessKeyRegion != nil {
+	if o != nil && !isNil(o.AccessKeyRegion) {
 		return true
 	}
 
@@ -137,13 +137,13 @@ func (o *CloudCredentials) SetAccessKeyRegion(v string) {
 
 func (o CloudCredentials) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AccessKeyId != nil {
+	if !isNil(o.AccessKeyId) {
 		toSerialize["access_key_id"] = o.AccessKeyId
 	}
-	if o.AccessKeySecret != nil {
+	if !isNil(o.AccessKeySecret) {
 		toSerialize["access_key_secret"] = o.AccessKeySecret
 	}
-	if o.AccessKeyRegion != nil {
+	if !isNil(o.AccessKeyRegion) {
 		toSerialize["access_key_region"] = o.AccessKeyRegion
 	}
 	return json.Marshal(toSerialize)

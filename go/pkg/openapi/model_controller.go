@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -54,7 +54,7 @@ func (o *Controller) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Controller) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -66,7 +66,7 @@ func (o *Controller) SetOperation(v string) {
 
 // GetClientIpAddress returns the ClientIpAddress field value if set, zero value otherwise.
 func (o *Controller) GetClientIpAddress() string {
-	if o == nil || o.ClientIpAddress == nil {
+	if o == nil || isNil(o.ClientIpAddress) {
 		var ret string
 		return ret
 	}
@@ -76,15 +76,15 @@ func (o *Controller) GetClientIpAddress() string {
 // GetClientIpAddressOk returns a tuple with the ClientIpAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Controller) GetClientIpAddressOk() (*string, bool) {
-	if o == nil || o.ClientIpAddress == nil {
-		return nil, false
+	if o == nil || isNil(o.ClientIpAddress) {
+    return nil, false
 	}
 	return o.ClientIpAddress, true
 }
 
 // HasClientIpAddress returns a boolean if a field has been set.
 func (o *Controller) HasClientIpAddress() bool {
-	if o != nil && o.ClientIpAddress != nil {
+	if o != nil && !isNil(o.ClientIpAddress) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *Controller) SetClientIpAddress(v string) {
 
 // GetControllerKey returns the ControllerKey field value if set, zero value otherwise.
 func (o *Controller) GetControllerKey() string {
-	if o == nil || o.ControllerKey == nil {
+	if o == nil || isNil(o.ControllerKey) {
 		var ret string
 		return ret
 	}
@@ -108,15 +108,15 @@ func (o *Controller) GetControllerKey() string {
 // GetControllerKeyOk returns a tuple with the ControllerKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Controller) GetControllerKeyOk() (*string, bool) {
-	if o == nil || o.ControllerKey == nil {
-		return nil, false
+	if o == nil || isNil(o.ControllerKey) {
+    return nil, false
 	}
 	return o.ControllerKey, true
 }
 
 // HasControllerKey returns a boolean if a field has been set.
 func (o *Controller) HasControllerKey() bool {
-	if o != nil && o.ControllerKey != nil {
+	if o != nil && !isNil(o.ControllerKey) {
 		return true
 	}
 
@@ -133,10 +133,10 @@ func (o Controller) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClientIpAddress != nil {
+	if !isNil(o.ClientIpAddress) {
 		toSerialize["client_ip_address"] = o.ClientIpAddress
 	}
-	if o.ControllerKey != nil {
+	if !isNil(o.ControllerKey) {
 		toSerialize["controller_key"] = o.ControllerKey
 	}
 	return json.Marshal(toSerialize)

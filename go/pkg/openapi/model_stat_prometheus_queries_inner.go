@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -42,7 +42,7 @@ func NewStatPrometheusQueriesInnerWithDefaults() *StatPrometheusQueriesInner {
 
 // GetQuery returns the Query field value if set, zero value otherwise.
 func (o *StatPrometheusQueriesInner) GetQuery() string {
-	if o == nil || o.Query == nil {
+	if o == nil || isNil(o.Query) {
 		var ret string
 		return ret
 	}
@@ -52,15 +52,15 @@ func (o *StatPrometheusQueriesInner) GetQuery() string {
 // GetQueryOk returns a tuple with the Query field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheusQueriesInner) GetQueryOk() (*string, bool) {
-	if o == nil || o.Query == nil {
-		return nil, false
+	if o == nil || isNil(o.Query) {
+    return nil, false
 	}
 	return o.Query, true
 }
 
 // HasQuery returns a boolean if a field has been set.
 func (o *StatPrometheusQueriesInner) HasQuery() bool {
-	if o != nil && o.Query != nil {
+	if o != nil && !isNil(o.Query) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *StatPrometheusQueriesInner) SetQuery(v string) {
 
 // GetStep returns the Step field value if set, zero value otherwise.
 func (o *StatPrometheusQueriesInner) GetStep() int32 {
-	if o == nil || o.Step == nil {
+	if o == nil || isNil(o.Step) {
 		var ret int32
 		return ret
 	}
@@ -84,15 +84,15 @@ func (o *StatPrometheusQueriesInner) GetStep() int32 {
 // GetStepOk returns a tuple with the Step field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheusQueriesInner) GetStepOk() (*int32, bool) {
-	if o == nil || o.Step == nil {
-		return nil, false
+	if o == nil || isNil(o.Step) {
+    return nil, false
 	}
 	return o.Step, true
 }
 
 // HasStep returns a boolean if a field has been set.
 func (o *StatPrometheusQueriesInner) HasStep() bool {
-	if o != nil && o.Step != nil {
+	if o != nil && !isNil(o.Step) {
 		return true
 	}
 
@@ -106,10 +106,10 @@ func (o *StatPrometheusQueriesInner) SetStep(v int32) {
 
 func (o StatPrometheusQueriesInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Query != nil {
+	if !isNil(o.Query) {
 		toSerialize["query"] = o.Query
 	}
-	if o.Step != nil {
+	if !isNil(o.Step) {
 		toSerialize["step"] = o.Step
 	}
 	return json.Marshal(toSerialize)

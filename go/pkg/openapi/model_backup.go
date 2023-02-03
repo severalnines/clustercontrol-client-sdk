@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -56,7 +56,7 @@ func (o *Backup) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Backup) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +68,7 @@ func (o *Backup) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Backup) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -78,15 +78,15 @@ func (o *Backup) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Backup) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *Backup) SetClusterId(v int32) {
 
 // GetAscending returns the Ascending field value if set, zero value otherwise.
 func (o *Backup) GetAscending() bool {
-	if o == nil || o.Ascending == nil {
+	if o == nil || isNil(o.Ascending) {
 		var ret bool
 		return ret
 	}
@@ -110,15 +110,15 @@ func (o *Backup) GetAscending() bool {
 // GetAscendingOk returns a tuple with the Ascending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetAscendingOk() (*bool, bool) {
-	if o == nil || o.Ascending == nil {
-		return nil, false
+	if o == nil || isNil(o.Ascending) {
+    return nil, false
 	}
 	return o.Ascending, true
 }
 
 // HasAscending returns a boolean if a field has been set.
 func (o *Backup) HasAscending() bool {
-	if o != nil && o.Ascending != nil {
+	if o != nil && !isNil(o.Ascending) {
 		return true
 	}
 
@@ -132,7 +132,7 @@ func (o *Backup) SetAscending(v bool) {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *Backup) GetSchedule() BackupSchedule {
-	if o == nil || o.Schedule == nil {
+	if o == nil || isNil(o.Schedule) {
 		var ret BackupSchedule
 		return ret
 	}
@@ -142,15 +142,15 @@ func (o *Backup) GetSchedule() BackupSchedule {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetScheduleOk() (*BackupSchedule, bool) {
-	if o == nil || o.Schedule == nil {
-		return nil, false
+	if o == nil || isNil(o.Schedule) {
+    return nil, false
 	}
 	return o.Schedule, true
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *Backup) HasSchedule() bool {
-	if o != nil && o.Schedule != nil {
+	if o != nil && !isNil(o.Schedule) {
 		return true
 	}
 
@@ -164,7 +164,7 @@ func (o *Backup) SetSchedule(v BackupSchedule) {
 
 // GetBackupRecord returns the BackupRecord field value if set, zero value otherwise.
 func (o *Backup) GetBackupRecord() BackupBackupRecord {
-	if o == nil || o.BackupRecord == nil {
+	if o == nil || isNil(o.BackupRecord) {
 		var ret BackupBackupRecord
 		return ret
 	}
@@ -174,15 +174,15 @@ func (o *Backup) GetBackupRecord() BackupBackupRecord {
 // GetBackupRecordOk returns a tuple with the BackupRecord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetBackupRecordOk() (*BackupBackupRecord, bool) {
-	if o == nil || o.BackupRecord == nil {
-		return nil, false
+	if o == nil || isNil(o.BackupRecord) {
+    return nil, false
 	}
 	return o.BackupRecord, true
 }
 
 // HasBackupRecord returns a boolean if a field has been set.
 func (o *Backup) HasBackupRecord() bool {
-	if o != nil && o.BackupRecord != nil {
+	if o != nil && !isNil(o.BackupRecord) {
 		return true
 	}
 
@@ -199,16 +199,16 @@ func (o Backup) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.Ascending != nil {
+	if !isNil(o.Ascending) {
 		toSerialize["ascending"] = o.Ascending
 	}
-	if o.Schedule != nil {
+	if !isNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
 	}
-	if o.BackupRecord != nil {
+	if !isNil(o.BackupRecord) {
 		toSerialize["backup_record"] = o.BackupRecord
 	}
 	return json.Marshal(toSerialize)

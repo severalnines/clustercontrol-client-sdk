@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -61,7 +61,7 @@ func (o *Stat) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Stat) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -73,7 +73,7 @@ func (o *Stat) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Stat) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -83,15 +83,15 @@ func (o *Stat) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Stat) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *Stat) SetClusterId(v int32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Stat) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -115,15 +115,15 @@ func (o *Stat) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
+	if o == nil || isNil(o.Name) {
+    return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Stat) HasName() bool {
-	if o != nil && o.Name != nil {
+	if o != nil && !isNil(o.Name) {
 		return true
 	}
 
@@ -137,7 +137,7 @@ func (o *Stat) SetName(v string) {
 
 // GetStartDatetime returns the StartDatetime field value if set, zero value otherwise.
 func (o *Stat) GetStartDatetime() string {
-	if o == nil || o.StartDatetime == nil {
+	if o == nil || isNil(o.StartDatetime) {
 		var ret string
 		return ret
 	}
@@ -147,15 +147,15 @@ func (o *Stat) GetStartDatetime() string {
 // GetStartDatetimeOk returns a tuple with the StartDatetime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetStartDatetimeOk() (*string, bool) {
-	if o == nil || o.StartDatetime == nil {
-		return nil, false
+	if o == nil || isNil(o.StartDatetime) {
+    return nil, false
 	}
 	return o.StartDatetime, true
 }
 
 // HasStartDatetime returns a boolean if a field has been set.
 func (o *Stat) HasStartDatetime() bool {
-	if o != nil && o.StartDatetime != nil {
+	if o != nil && !isNil(o.StartDatetime) {
 		return true
 	}
 
@@ -169,7 +169,7 @@ func (o *Stat) SetStartDatetime(v string) {
 
 // GetEndDatetime returns the EndDatetime field value if set, zero value otherwise.
 func (o *Stat) GetEndDatetime() string {
-	if o == nil || o.EndDatetime == nil {
+	if o == nil || isNil(o.EndDatetime) {
 		var ret string
 		return ret
 	}
@@ -179,15 +179,15 @@ func (o *Stat) GetEndDatetime() string {
 // GetEndDatetimeOk returns a tuple with the EndDatetime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetEndDatetimeOk() (*string, bool) {
-	if o == nil || o.EndDatetime == nil {
-		return nil, false
+	if o == nil || isNil(o.EndDatetime) {
+    return nil, false
 	}
 	return o.EndDatetime, true
 }
 
 // HasEndDatetime returns a boolean if a field has been set.
 func (o *Stat) HasEndDatetime() bool {
-	if o != nil && o.EndDatetime != nil {
+	if o != nil && !isNil(o.EndDatetime) {
 		return true
 	}
 
@@ -201,7 +201,7 @@ func (o *Stat) SetEndDatetime(v string) {
 
 // GetWithHosts returns the WithHosts field value if set, zero value otherwise.
 func (o *Stat) GetWithHosts() bool {
-	if o == nil || o.WithHosts == nil {
+	if o == nil || isNil(o.WithHosts) {
 		var ret bool
 		return ret
 	}
@@ -211,15 +211,15 @@ func (o *Stat) GetWithHosts() bool {
 // GetWithHostsOk returns a tuple with the WithHosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetWithHostsOk() (*bool, bool) {
-	if o == nil || o.WithHosts == nil {
-		return nil, false
+	if o == nil || isNil(o.WithHosts) {
+    return nil, false
 	}
 	return o.WithHosts, true
 }
 
 // HasWithHosts returns a boolean if a field has been set.
 func (o *Stat) HasWithHosts() bool {
-	if o != nil && o.WithHosts != nil {
+	if o != nil && !isNil(o.WithHosts) {
 		return true
 	}
 
@@ -233,7 +233,7 @@ func (o *Stat) SetWithHosts(v bool) {
 
 // GetCalculatePerSec returns the CalculatePerSec field value if set, zero value otherwise.
 func (o *Stat) GetCalculatePerSec() bool {
-	if o == nil || o.CalculatePerSec == nil {
+	if o == nil || isNil(o.CalculatePerSec) {
 		var ret bool
 		return ret
 	}
@@ -243,15 +243,15 @@ func (o *Stat) GetCalculatePerSec() bool {
 // GetCalculatePerSecOk returns a tuple with the CalculatePerSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetCalculatePerSecOk() (*bool, bool) {
-	if o == nil || o.CalculatePerSec == nil {
-		return nil, false
+	if o == nil || isNil(o.CalculatePerSec) {
+    return nil, false
 	}
 	return o.CalculatePerSec, true
 }
 
 // HasCalculatePerSec returns a boolean if a field has been set.
 func (o *Stat) HasCalculatePerSec() bool {
-	if o != nil && o.CalculatePerSec != nil {
+	if o != nil && !isNil(o.CalculatePerSec) {
 		return true
 	}
 
@@ -268,22 +268,22 @@ func (o Stat) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.Name != nil {
+	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if o.StartDatetime != nil {
+	if !isNil(o.StartDatetime) {
 		toSerialize["start_datetime"] = o.StartDatetime
 	}
-	if o.EndDatetime != nil {
+	if !isNil(o.EndDatetime) {
 		toSerialize["end_datetime"] = o.EndDatetime
 	}
-	if o.WithHosts != nil {
+	if !isNil(o.WithHosts) {
 		toSerialize["with_hosts"] = o.WithHosts
 	}
-	if o.CalculatePerSec != nil {
+	if !isNil(o.CalculatePerSec) {
 		toSerialize["calculate_per_sec"] = o.CalculatePerSec
 	}
 	return json.Marshal(toSerialize)

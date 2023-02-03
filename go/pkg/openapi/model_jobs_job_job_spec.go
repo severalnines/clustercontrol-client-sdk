@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -41,7 +41,7 @@ func NewJobsJobJobSpecWithDefaults() *JobsJobJobSpec {
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *JobsJobJobSpec) GetCommand() string {
-	if o == nil || o.Command == nil {
+	if o == nil || isNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -51,15 +51,15 @@ func (o *JobsJobJobSpec) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpec) GetCommandOk() (*string, bool) {
-	if o == nil || o.Command == nil {
-		return nil, false
+	if o == nil || isNil(o.Command) {
+    return nil, false
 	}
 	return o.Command, true
 }
 
 // HasCommand returns a boolean if a field has been set.
 func (o *JobsJobJobSpec) HasCommand() bool {
-	if o != nil && o.Command != nil {
+	if o != nil && !isNil(o.Command) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *JobsJobJobSpec) SetCommand(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *JobsJobJobSpec) GetId() int32 {
-	if o == nil || o.Id == nil {
+	if o == nil || isNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -83,15 +83,15 @@ func (o *JobsJobJobSpec) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpec) GetIdOk() (*int32, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
+	if o == nil || isNil(o.Id) {
+    return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *JobsJobJobSpec) HasId() bool {
-	if o != nil && o.Id != nil {
+	if o != nil && !isNil(o.Id) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *JobsJobJobSpec) SetId(v int32) {
 
 // GetJobData returns the JobData field value if set, zero value otherwise.
 func (o *JobsJobJobSpec) GetJobData() JobsJobJobSpecJobData {
-	if o == nil || o.JobData == nil {
+	if o == nil || isNil(o.JobData) {
 		var ret JobsJobJobSpecJobData
 		return ret
 	}
@@ -115,15 +115,15 @@ func (o *JobsJobJobSpec) GetJobData() JobsJobJobSpecJobData {
 // GetJobDataOk returns a tuple with the JobData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpec) GetJobDataOk() (*JobsJobJobSpecJobData, bool) {
-	if o == nil || o.JobData == nil {
-		return nil, false
+	if o == nil || isNil(o.JobData) {
+    return nil, false
 	}
 	return o.JobData, true
 }
 
 // HasJobData returns a boolean if a field has been set.
 func (o *JobsJobJobSpec) HasJobData() bool {
-	if o != nil && o.JobData != nil {
+	if o != nil && !isNil(o.JobData) {
 		return true
 	}
 
@@ -137,13 +137,13 @@ func (o *JobsJobJobSpec) SetJobData(v JobsJobJobSpecJobData) {
 
 func (o JobsJobJobSpec) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Command != nil {
+	if !isNil(o.Command) {
 		toSerialize["command"] = o.Command
 	}
-	if o.Id != nil {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.JobData != nil {
+	if !isNil(o.JobData) {
 		toSerialize["job_data"] = o.JobData
 	}
 	return json.Marshal(toSerialize)

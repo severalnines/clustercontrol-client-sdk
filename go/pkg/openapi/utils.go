@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+    "reflect"
 	"time"
 )
 
@@ -326,4 +327,18 @@ func (v NullableTime) MarshalJSON() ([]byte, error) {
 func (v *NullableTime) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
+}
+
+// isNil checks if an input is nil
+func isNil(i interface{}) bool {
+    if i == nil {
+        return true
+    }
+    switch reflect.TypeOf(i).Kind() {
+    case reflect.Chan, reflect.Func, reflect.Map, reflect.Ptr, reflect.UnsafePointer, reflect.Interface, reflect.Slice:
+        return reflect.ValueOf(i).IsNil()
+    case reflect.Array:
+        return reflect.ValueOf(i).IsZero()
+    }
+    return false
 }

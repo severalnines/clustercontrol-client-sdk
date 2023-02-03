@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -41,7 +41,7 @@ func NewHostHostWithDefaults() *HostHost {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *HostHost) GetClassName() string {
-	if o == nil || o.ClassName == nil {
+	if o == nil || isNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +51,15 @@ func (o *HostHost) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetClassNameOk() (*string, bool) {
-	if o == nil || o.ClassName == nil {
-		return nil, false
+	if o == nil || isNil(o.ClassName) {
+    return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *HostHost) HasClassName() bool {
-	if o != nil && o.ClassName != nil {
+	if o != nil && !isNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *HostHost) SetClassName(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *HostHost) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -83,15 +83,15 @@ func (o *HostHost) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *HostHost) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -105,7 +105,7 @@ func (o *HostHost) SetHostname(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *HostHost) GetPort() int32 {
-	if o == nil || o.Port == nil {
+	if o == nil || isNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -115,15 +115,15 @@ func (o *HostHost) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetPortOk() (*int32, bool) {
-	if o == nil || o.Port == nil {
-		return nil, false
+	if o == nil || isNil(o.Port) {
+    return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *HostHost) HasPort() bool {
-	if o != nil && o.Port != nil {
+	if o != nil && !isNil(o.Port) {
 		return true
 	}
 
@@ -137,13 +137,13 @@ func (o *HostHost) SetPort(v int32) {
 
 func (o HostHost) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ClassName != nil {
+	if !isNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.Port != nil {
+	if !isNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
 	return json.Marshal(toSerialize)

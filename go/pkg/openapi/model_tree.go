@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -54,7 +54,7 @@ func (o *Tree) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Tree) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -66,7 +66,7 @@ func (o *Tree) SetOperation(v string) {
 
 // GetAcl returns the Acl field value if set, zero value otherwise.
 func (o *Tree) GetAcl() string {
-	if o == nil || o.Acl == nil {
+	if o == nil || isNil(o.Acl) {
 		var ret string
 		return ret
 	}
@@ -76,15 +76,15 @@ func (o *Tree) GetAcl() string {
 // GetAclOk returns a tuple with the Acl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Tree) GetAclOk() (*string, bool) {
-	if o == nil || o.Acl == nil {
-		return nil, false
+	if o == nil || isNil(o.Acl) {
+    return nil, false
 	}
 	return o.Acl, true
 }
 
 // HasAcl returns a boolean if a field has been set.
 func (o *Tree) HasAcl() bool {
-	if o != nil && o.Acl != nil {
+	if o != nil && !isNil(o.Acl) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *Tree) SetAcl(v string) {
 
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *Tree) GetPath() string {
-	if o == nil || o.Path == nil {
+	if o == nil || isNil(o.Path) {
 		var ret string
 		return ret
 	}
@@ -108,15 +108,15 @@ func (o *Tree) GetPath() string {
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Tree) GetPathOk() (*string, bool) {
-	if o == nil || o.Path == nil {
-		return nil, false
+	if o == nil || isNil(o.Path) {
+    return nil, false
 	}
 	return o.Path, true
 }
 
 // HasPath returns a boolean if a field has been set.
 func (o *Tree) HasPath() bool {
-	if o != nil && o.Path != nil {
+	if o != nil && !isNil(o.Path) {
 		return true
 	}
 
@@ -133,10 +133,10 @@ func (o Tree) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.Acl != nil {
+	if !isNil(o.Acl) {
 		toSerialize["acl"] = o.Acl
 	}
-	if o.Path != nil {
+	if !isNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
 	return json.Marshal(toSerialize)

@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -57,7 +57,7 @@ func (o *Maintenance) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetOperationOk() (*string, bool) {
 	if o == nil {
-		return nil, false
+    return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +69,7 @@ func (o *Maintenance) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Maintenance) GetClusterId() int32 {
-	if o == nil || o.ClusterId == nil {
+	if o == nil || isNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -79,15 +79,15 @@ func (o *Maintenance) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetClusterIdOk() (*int32, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
+	if o == nil || isNil(o.ClusterId) {
+    return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Maintenance) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+	if o != nil && !isNil(o.ClusterId) {
 		return true
 	}
 
@@ -101,7 +101,7 @@ func (o *Maintenance) SetClusterId(v int32) {
 
 // GetDeadline returns the Deadline field value if set, zero value otherwise.
 func (o *Maintenance) GetDeadline() string {
-	if o == nil || o.Deadline == nil {
+	if o == nil || isNil(o.Deadline) {
 		var ret string
 		return ret
 	}
@@ -111,15 +111,15 @@ func (o *Maintenance) GetDeadline() string {
 // GetDeadlineOk returns a tuple with the Deadline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetDeadlineOk() (*string, bool) {
-	if o == nil || o.Deadline == nil {
-		return nil, false
+	if o == nil || isNil(o.Deadline) {
+    return nil, false
 	}
 	return o.Deadline, true
 }
 
 // HasDeadline returns a boolean if a field has been set.
 func (o *Maintenance) HasDeadline() bool {
-	if o != nil && o.Deadline != nil {
+	if o != nil && !isNil(o.Deadline) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *Maintenance) SetDeadline(v string) {
 
 // GetInitiate returns the Initiate field value if set, zero value otherwise.
 func (o *Maintenance) GetInitiate() string {
-	if o == nil || o.Initiate == nil {
+	if o == nil || isNil(o.Initiate) {
 		var ret string
 		return ret
 	}
@@ -143,15 +143,15 @@ func (o *Maintenance) GetInitiate() string {
 // GetInitiateOk returns a tuple with the Initiate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetInitiateOk() (*string, bool) {
-	if o == nil || o.Initiate == nil {
-		return nil, false
+	if o == nil || isNil(o.Initiate) {
+    return nil, false
 	}
 	return o.Initiate, true
 }
 
 // HasInitiate returns a boolean if a field has been set.
 func (o *Maintenance) HasInitiate() bool {
-	if o != nil && o.Initiate != nil {
+	if o != nil && !isNil(o.Initiate) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o *Maintenance) SetInitiate(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *Maintenance) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -175,15 +175,15 @@ func (o *Maintenance) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *Maintenance) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -197,7 +197,7 @@ func (o *Maintenance) SetHostname(v string) {
 
 // GetUUID returns the UUID field value if set, zero value otherwise.
 func (o *Maintenance) GetUUID() string {
-	if o == nil || o.UUID == nil {
+	if o == nil || isNil(o.UUID) {
 		var ret string
 		return ret
 	}
@@ -207,15 +207,15 @@ func (o *Maintenance) GetUUID() string {
 // GetUUIDOk returns a tuple with the UUID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetUUIDOk() (*string, bool) {
-	if o == nil || o.UUID == nil {
-		return nil, false
+	if o == nil || isNil(o.UUID) {
+    return nil, false
 	}
 	return o.UUID, true
 }
 
 // HasUUID returns a boolean if a field has been set.
 func (o *Maintenance) HasUUID() bool {
-	if o != nil && o.UUID != nil {
+	if o != nil && !isNil(o.UUID) {
 		return true
 	}
 
@@ -232,19 +232,19 @@ func (o Maintenance) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-	if o.ClusterId != nil {
+	if !isNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-	if o.Deadline != nil {
+	if !isNil(o.Deadline) {
 		toSerialize["deadline"] = o.Deadline
 	}
-	if o.Initiate != nil {
+	if !isNil(o.Initiate) {
 		toSerialize["initiate"] = o.Initiate
 	}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.UUID != nil {
+	if !isNil(o.UUID) {
 		toSerialize["UUID"] = o.UUID
 	}
 	return json.Marshal(toSerialize)

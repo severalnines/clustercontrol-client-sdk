@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -40,7 +40,7 @@ func NewUsersUserPublicKeysInnerWithDefaults() *UsersUserPublicKeysInner {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *UsersUserPublicKeysInner) GetKey() string {
-	if o == nil || o.Key == nil {
+	if o == nil || isNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -50,15 +50,15 @@ func (o *UsersUserPublicKeysInner) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserPublicKeysInner) GetKeyOk() (*string, bool) {
-	if o == nil || o.Key == nil {
-		return nil, false
+	if o == nil || isNil(o.Key) {
+    return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *UsersUserPublicKeysInner) HasKey() bool {
-	if o != nil && o.Key != nil {
+	if o != nil && !isNil(o.Key) {
 		return true
 	}
 
@@ -72,7 +72,7 @@ func (o *UsersUserPublicKeysInner) SetKey(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UsersUserPublicKeysInner) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil || isNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -82,15 +82,15 @@ func (o *UsersUserPublicKeysInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserPublicKeysInner) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
+	if o == nil || isNil(o.Name) {
+    return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UsersUserPublicKeysInner) HasName() bool {
-	if o != nil && o.Name != nil {
+	if o != nil && !isNil(o.Name) {
 		return true
 	}
 
@@ -104,10 +104,10 @@ func (o *UsersUserPublicKeysInner) SetName(v string) {
 
 func (o UsersUserPublicKeysInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Key != nil {
+	if !isNil(o.Key) {
 		toSerialize["key"] = o.Key
 	}
-	if o.Name != nil {
+	if !isNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	return json.Marshal(toSerialize)

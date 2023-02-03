@@ -1,9 +1,9 @@
 /*
-Severalnines ClusterControl
+Severalnines ClusterControl REST API (V2)
 
-This is a ...
+REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
-API version: 1.0.0
+API version: OpenAPI specification v1.0.0
 Contact: sales@severalnines.com
 */
 
@@ -42,7 +42,7 @@ func NewJobsJobJobSpecJobDataConfigServersMembersInnerWithDefaults() *JobsJobJob
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostname() string {
-	if o == nil || o.Hostname == nil {
+	if o == nil || isNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -52,15 +52,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameOk() (*string, bool) {
-	if o == nil || o.Hostname == nil {
-		return nil, false
+	if o == nil || isNil(o.Hostname) {
+    return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostname() bool {
-	if o != nil && o.Hostname != nil {
+	if o != nil && !isNil(o.Hostname) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostname(v string) {
 
 // GetHostnameData returns the HostnameData field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameData() string {
-	if o == nil || o.HostnameData == nil {
+	if o == nil || isNil(o.HostnameData) {
 		var ret string
 		return ret
 	}
@@ -84,15 +84,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameData() strin
 // GetHostnameDataOk returns a tuple with the HostnameData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameDataOk() (*string, bool) {
-	if o == nil || o.HostnameData == nil {
-		return nil, false
+	if o == nil || isNil(o.HostnameData) {
+    return nil, false
 	}
 	return o.HostnameData, true
 }
 
 // HasHostnameData returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostnameData() bool {
-	if o != nil && o.HostnameData != nil {
+	if o != nil && !isNil(o.HostnameData) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostnameData(v strin
 
 // GetHostnameInternal returns the HostnameInternal field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternal() string {
-	if o == nil || o.HostnameInternal == nil {
+	if o == nil || isNil(o.HostnameInternal) {
 		var ret string
 		return ret
 	}
@@ -116,15 +116,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternal() s
 // GetHostnameInternalOk returns a tuple with the HostnameInternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternalOk() (*string, bool) {
-	if o == nil || o.HostnameInternal == nil {
-		return nil, false
+	if o == nil || isNil(o.HostnameInternal) {
+    return nil, false
 	}
 	return o.HostnameInternal, true
 }
 
 // HasHostnameInternal returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostnameInternal() bool {
-	if o != nil && o.HostnameInternal != nil {
+	if o != nil && !isNil(o.HostnameInternal) {
 		return true
 	}
 
@@ -138,7 +138,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostnameInternal(v s
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPort() string {
-	if o == nil || o.Port == nil {
+	if o == nil || isNil(o.Port) {
 		var ret string
 		return ret
 	}
@@ -148,15 +148,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPort() string {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPortOk() (*string, bool) {
-	if o == nil || o.Port == nil {
-		return nil, false
+	if o == nil || isNil(o.Port) {
+    return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasPort() bool {
-	if o != nil && o.Port != nil {
+	if o != nil && !isNil(o.Port) {
 		return true
 	}
 
@@ -170,16 +170,16 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetPort(v string) {
 
 func (o JobsJobJobSpecJobDataConfigServersMembersInner) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Hostname != nil {
+	if !isNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
 	}
-	if o.HostnameData != nil {
+	if !isNil(o.HostnameData) {
 		toSerialize["hostname_data"] = o.HostnameData
 	}
-	if o.HostnameInternal != nil {
+	if !isNil(o.HostnameInternal) {
 		toSerialize["hostname_internal"] = o.HostnameInternal
 	}
-	if o.Port != nil {
+	if !isNil(o.Port) {
 		toSerialize["port"] = o.Port
 	}
 	return json.Marshal(toSerialize)
