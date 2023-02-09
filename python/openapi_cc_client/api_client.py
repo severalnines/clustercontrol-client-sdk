@@ -241,7 +241,8 @@ class ApiClient(object):
         if _return_http_data_only:
             # Prem: CHANGED
             # return (return_data)
-            return (return_data.data.encode('utf-8'))
+            # return (return_data.data.encode('utf-8'))
+            return (return_data.data)
         else:
             return (return_data, response_data.status,
                     response_data.getheaders())
