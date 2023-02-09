@@ -44,3 +44,6 @@ terraform*
 #/.dockerfile-*
 #/.licenses
 
+# pycache
+**/__pycache__/
+
