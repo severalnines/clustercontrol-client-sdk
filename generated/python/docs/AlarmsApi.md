@@ -15,11 +15,14 @@ GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 ### Example
 
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_cc_client
+from openapi_cc_client.models.alarm import Alarm
+from openapi_cc_client.models.alarm_response import AlarmResponse
 from openapi_cc_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://<cchost>:9501/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_cc_client.Configuration(
@@ -28,7 +31,7 @@ configuration = openapi_cc_client.Configuration(
 
 
 # Enter a context with an instance of the API client
-with openapi_cc_client.ApiClient() as api_client:
+with openapi_cc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_cc_client.AlarmsApi(api_client)
     alarm = openapi_cc_client.Alarm() # Alarm | All things related to Alarms and Stats
@@ -36,10 +39,13 @@ with openapi_cc_client.ApiClient() as api_client:
     try:
         # GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
         api_response = api_instance.alarm_post(alarm)
+        print("The response of AlarmsApi->alarm_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AlarmsApi->alarm_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

@@ -1,3 +1,4 @@
+.github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
 .openapi-generator-ignore
@@ -105,6 +106,7 @@ openapi_cc_client/api/stat_prometheus_api.py
 openapi_cc_client/api/tree_api.py
 openapi_cc_client/api/users_api.py
 openapi_cc_client/api_client.py
+openapi_cc_client/api_response.py
 openapi_cc_client/configuration.py
 openapi_cc_client/exceptions.py
 openapi_cc_client/models/__init__.py
@@ -170,7 +172,9 @@ openapi_cc_client/models/users_user.py
 openapi_cc_client/models/users_user_groups_inner.py
 openapi_cc_client/models/users_user_public_keys_inner.py
 openapi_cc_client/models/users_user_timezone.py
+openapi_cc_client/py.typed
 openapi_cc_client/rest.py
+pyproject.toml
 requirements.txt
 setup.cfg
 setup.py

@@ -105,14 +105,31 @@ Name | Type | Description | Notes
 **upload_backup_data_to_cloud_storage** | [**JobsJobJobSpecJobDataUploadBackupDataToCloudStorage**](JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md) |  | [optional] 
 **verify_backup** | [**BackupScheduleJobJobDataVerifyBackup**](BackupScheduleJobJobDataVerifyBackup.md) |  | [optional] 
 **config_servers** | [**JobsJobJobSpecJobDataConfigServers**](JobsJobJobSpecJobDataConfigServers.md) |  | [optional] 
-**mongos_servers** | [**list[JobsJobJobSpecJobDataConfigServersMembersInner]**](JobsJobJobSpecJobDataConfigServersMembersInner.md) |  | [optional] 
+**mongos_servers** | [**List[JobsJobJobSpecJobDataConfigServersMembersInner]**](JobsJobJobSpecJobDataConfigServersMembersInner.md) |  | [optional] 
 **node** | [**JobsJobJobSpecJobDataNode**](JobsJobJobSpecJobDataNode.md) |  | [optional] 
-**nodes** | [**list[JobsJobJobSpecJobDataNodesInner]**](JobsJobJobSpecJobDataNodesInner.md) |  | [optional] 
-**node_adresses** | [**list[JobsJobJobSpecJobDataNodeAdressesInner]**](JobsJobJobSpecJobDataNodeAdressesInner.md) |  | [optional] 
+**nodes** | [**List[JobsJobJobSpecJobDataNodesInner]**](JobsJobJobSpecJobDataNodesInner.md) |  | [optional] 
+**node_adresses** | [**List[JobsJobJobSpecJobDataNodeAdressesInner]**](JobsJobJobSpecJobDataNodeAdressesInner.md) |  | [optional] 
 **topology** | [**JobsJobJobSpecJobDataTopology**](JobsJobJobSpecJobDataTopology.md) |  | [optional] 
-**replica_sets** | [**list[JobsJobJobSpecJobDataReplicaSetsInner]**](JobsJobJobSpecJobDataReplicaSetsInner.md) |  | [optional] 
-**with_tags** | **list[str]** |  | [optional] 
+**replica_sets** | [**List[JobsJobJobSpecJobDataReplicaSetsInner]**](JobsJobJobSpecJobDataReplicaSetsInner.md) |  | [optional] 
+**with_tags** | **List[str]** |  | [optional] 
 
+## Example
+
+```python
+from openapi_cc_client.models.jobs_job_job_spec_job_data import JobsJobJobSpecJobData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of JobsJobJobSpecJobData from a JSON string
+jobs_job_job_spec_job_data_instance = JobsJobJobSpecJobData.from_json(json)
+# print the JSON string representation of the object
+print JobsJobJobSpecJobData.to_json()
+
+# convert the object into a dict
+jobs_job_job_spec_job_data_dict = jobs_job_job_spec_job_data_instance.to_dict()
+# create an instance of JobsJobJobSpecJobData from a dict
+jobs_job_job_spec_job_data_form_dict = jobs_job_job_spec_job_data.from_dict(jobs_job_job_spec_job_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -21,3 +19,4 @@ from openapi_cc_client.api.stat_cmon_agent_api import StatCmonAgentApi
 from openapi_cc_client.api.stat_prometheus_api import StatPrometheusApi
 from openapi_cc_client.api.tree_api import TreeApi
 from openapi_cc_client.api.users_api import UsersApi
+

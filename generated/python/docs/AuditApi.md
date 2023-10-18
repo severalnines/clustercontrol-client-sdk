@@ -15,11 +15,13 @@ GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 ### Example
 
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_cc_client
+from openapi_cc_client.models.audit import Audit
 from openapi_cc_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://<cchost>:9501/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_cc_client.Configuration(
@@ -28,7 +30,7 @@ configuration = openapi_cc_client.Configuration(
 
 
 # Enter a context with an instance of the API client
-with openapi_cc_client.ApiClient() as api_client:
+with openapi_cc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_cc_client.AuditApi(api_client)
     audit = openapi_cc_client.Audit() # Audit | Used to get the audit log entries
@@ -36,9 +38,11 @@ with openapi_cc_client.ApiClient() as api_client:
     try:
         # GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
         api_instance.audit_post(audit)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuditApi->audit_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

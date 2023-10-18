@@ -15,11 +15,13 @@ VerifyCredentials | ListCredentials | etc
 ### Example
 
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_cc_client
+from openapi_cc_client.models.cloud import Cloud
 from openapi_cc_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://<cchost>:9501/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_cc_client.Configuration(
@@ -28,7 +30,7 @@ configuration = openapi_cc_client.Configuration(
 
 
 # Enter a context with an instance of the API client
-with openapi_cc_client.ApiClient() as api_client:
+with openapi_cc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_cc_client.CloudApi(api_client)
     cloud = openapi_cc_client.Cloud() # Cloud | calls to manage the cloud-credentials
@@ -36,9 +38,11 @@ with openapi_cc_client.ApiClient() as api_client:
     try:
         # VerifyCredentials | ListCredentials | etc
         api_instance.cloud_post(cloud)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudApi->cloud_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

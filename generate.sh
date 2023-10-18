@@ -1,30 +1,30 @@
 #!/bin/sh
 
-GODIR=./generated/go
-echo "Cleaning up GoLang code in $GODIR"
-/bin/rm -rf $GODIR
-echo "Generating GoLang code in $GODIR"
-openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name go --output $GODIR
+#GODIR=./generated/go
+#echo "Cleaning up GoLang code in $GODIR"
+#/bin/rm -rf $GODIR
+#echo "Generating GoLang code in $GODIR"
+#openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name go --output $GODIR
 #
 #/bin/rm ./go/pkg/openapi/*.go
 #cp $GODIR/*.go ./go/pkg/openapi/
 #
 #
-# PYDIR=./generated/python
-# echo "Cleaning up Python code in $PYDIR"
-# /bin/rm -rf $PYDIR
-# echo "Generating Python code in $PYDIR"
-# openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name python -c config_py.json --output $PYDIR
+PYDIR=./generated/python
+echo "Cleaning up Python code in $PYDIR"
+/bin/rm -rf $PYDIR
+echo "Generating Python code in $PYDIR"
+openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name python -c config_py.json --output $PYDIR
 #
 #/bin/rm -rf ./python/openapi_cc_client
 #cp -rp $PYDIR/openapi_cc_client ./python
 #
 #
-JAVADIR=./generated/java
-echo "Cleaning up Java code in $JAVADIR"
-/bin/rm -rf $JAVADIR
-echo "Generating Java code in $JAVADIR"
-openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name java -c config_java.json --output $JAVADIR
+#JAVADIR=./generated/java
+#echo "Cleaning up Java code in $JAVADIR"
+#/bin/rm -rf $JAVADIR
+#echo "Generating Java code in $JAVADIR"
+#openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name java -c config_java.json --output $JAVADIR
 #
 #/bin/rm -rf ./java/src
 #cp -rp $JAVADIR/src ./java
