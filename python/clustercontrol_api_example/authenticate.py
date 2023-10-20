@@ -13,7 +13,7 @@ configuration = openapi_cc_client.Configuration(
 
 def authenticateWithCC():
 # Enter a context with an instance of the API client
-    print("authenticateWithCC():")
+#     print("authenticateWithCC():")
     with openapi_cc_client.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = auth_api.AuthApi(api_client)
@@ -28,20 +28,20 @@ def authenticateWithCC():
             #kwargs = {"async_req": False}
             # Authenticate | Logout | Password Reset | Authenticate response (with challenge)
             resp = api_instance.auth_post(authenticate, async_req=False)
-            print(resp)
+            # print(resp)
         except openapi_cc_client.ApiException as e:
             print("Exception when calling AuthApi->auth_post: %s\n" % e)
 
 def getClusterInfo():
-    print("getClusterInfo():")
+    # print("getClusterInfo():")
     with openapi_cc_client.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = clusters_api.ClustersApi(api_client)
         clusters = Clusters(
             operation="getclusterinfo",
-            cluster_name="mysql-replication",
-            with_hosts=True,
-            with_sheet_info=True,
+            cluster_name="galera",
+            with_hosts=False,
+            with_sheet_info=False,
         )  # Clusters | Get cluster information
 
         # example passing only required values which don't have defaults set
@@ -53,7 +53,7 @@ def getClusterInfo():
             print("Exception when calling ClustersApi->clusters_post: %s\n" % e)
 
 def getAllClusterInfo():
-    print("getAllClusterInfo():")
+    # print("getAllClusterInfo():")
     with openapi_cc_client.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = clusters_api.ClustersApi(api_client)
