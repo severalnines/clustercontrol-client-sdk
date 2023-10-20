@@ -7,5 +7,6 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 print("Starting....")
 
 authenticate.authenticateWithCC()
-authenticate.getClusterInfo()
+#authenticate.getClusterInfo()
+authenticate.getAllClusterInfo()
 

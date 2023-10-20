@@ -51,3 +51,22 @@ def getClusterInfo():
             print(resp)
         except openapi_cc_client.ApiException as e:
             print("Exception when calling ClustersApi->clusters_post: %s\n" % e)
+
+def getAllClusterInfo():
+    print("getAllClusterInfo():")
+    with openapi_cc_client.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = clusters_api.ClustersApi(api_client)
+        clusters = Clusters(
+            operation="getallclusterinfo",
+            with_hosts=False,
+            with_sheet_info=False,
+        )  # Clusters | Get cluster information
+
+        # example passing only required values which don't have defaults set
+        try:
+            # GetClusterInfo | Get/Set Config | etc
+            resp = api_instance.clusters_post(clusters, async_req=False)
+            print(resp)
+        except openapi_cc_client.ApiException as e:
+            print("Exception when calling ClustersApi->clusters_post: %s\n" % e)
