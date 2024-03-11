@@ -413,6 +413,10 @@ func (c *APIClient) prepareRequest(
 	for header, value := range c.cfg.DefaultHeader {
 		localVarRequest.Header.Add(header, value)
 	}
+
+	// Prem
+	localVarRequest.Header.Add("Expect", "100-continue")
+
 	return localVarRequest, nil
 }
 
