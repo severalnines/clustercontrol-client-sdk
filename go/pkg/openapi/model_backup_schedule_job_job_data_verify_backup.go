@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the BackupScheduleJobJobDataVerifyBackup type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BackupScheduleJobJobDataVerifyBackup{}
+
 // BackupScheduleJobJobDataVerifyBackup struct for BackupScheduleJobJobDataVerifyBackup
 type BackupScheduleJobJobDataVerifyBackup struct {
 	DisableFirewall *bool `json:"disable_firewall,omitempty"`
@@ -43,7 +46,7 @@ func NewBackupScheduleJobJobDataVerifyBackupWithDefaults() *BackupScheduleJobJob
 
 // GetDisableFirewall returns the DisableFirewall field value if set, zero value otherwise.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableFirewall() bool {
-	if o == nil || isNil(o.DisableFirewall) {
+	if o == nil || IsNil(o.DisableFirewall) {
 		var ret bool
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableFirewall() bool {
 // GetDisableFirewallOk returns a tuple with the DisableFirewall field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableFirewallOk() (*bool, bool) {
-	if o == nil || isNil(o.DisableFirewall) {
-    return nil, false
+	if o == nil || IsNil(o.DisableFirewall) {
+		return nil, false
 	}
 	return o.DisableFirewall, true
 }
 
 // HasDisableFirewall returns a boolean if a field has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) HasDisableFirewall() bool {
-	if o != nil && !isNil(o.DisableFirewall) {
+	if o != nil && !IsNil(o.DisableFirewall) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *BackupScheduleJobJobDataVerifyBackup) SetDisableFirewall(v bool) {
 
 // GetDisableSelinux returns the DisableSelinux field value if set, zero value otherwise.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableSelinux() bool {
-	if o == nil || isNil(o.DisableSelinux) {
+	if o == nil || IsNil(o.DisableSelinux) {
 		var ret bool
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableSelinux() bool {
 // GetDisableSelinuxOk returns a tuple with the DisableSelinux field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetDisableSelinuxOk() (*bool, bool) {
-	if o == nil || isNil(o.DisableSelinux) {
-    return nil, false
+	if o == nil || IsNil(o.DisableSelinux) {
+		return nil, false
 	}
 	return o.DisableSelinux, true
 }
 
 // HasDisableSelinux returns a boolean if a field has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) HasDisableSelinux() bool {
-	if o != nil && !isNil(o.DisableSelinux) {
+	if o != nil && !IsNil(o.DisableSelinux) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *BackupScheduleJobJobDataVerifyBackup) SetDisableSelinux(v bool) {
 
 // GetInstallSoftware returns the InstallSoftware field value if set, zero value otherwise.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetInstallSoftware() bool {
-	if o == nil || isNil(o.InstallSoftware) {
+	if o == nil || IsNil(o.InstallSoftware) {
 		var ret bool
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *BackupScheduleJobJobDataVerifyBackup) GetInstallSoftware() bool {
 // GetInstallSoftwareOk returns a tuple with the InstallSoftware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetInstallSoftwareOk() (*bool, bool) {
-	if o == nil || isNil(o.InstallSoftware) {
-    return nil, false
+	if o == nil || IsNil(o.InstallSoftware) {
+		return nil, false
 	}
 	return o.InstallSoftware, true
 }
 
 // HasInstallSoftware returns a boolean if a field has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) HasInstallSoftware() bool {
-	if o != nil && !isNil(o.InstallSoftware) {
+	if o != nil && !IsNil(o.InstallSoftware) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *BackupScheduleJobJobDataVerifyBackup) SetInstallSoftware(v bool) {
 
 // GetServerAddress returns the ServerAddress field value if set, zero value otherwise.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetServerAddress() string {
-	if o == nil || isNil(o.ServerAddress) {
+	if o == nil || IsNil(o.ServerAddress) {
 		var ret string
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *BackupScheduleJobJobDataVerifyBackup) GetServerAddress() string {
 // GetServerAddressOk returns a tuple with the ServerAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetServerAddressOk() (*string, bool) {
-	if o == nil || isNil(o.ServerAddress) {
-    return nil, false
+	if o == nil || IsNil(o.ServerAddress) {
+		return nil, false
 	}
 	return o.ServerAddress, true
 }
 
 // HasServerAddress returns a boolean if a field has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) HasServerAddress() bool {
-	if o != nil && !isNil(o.ServerAddress) {
+	if o != nil && !IsNil(o.ServerAddress) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *BackupScheduleJobJobDataVerifyBackup) SetServerAddress(v string) {
 
 // GetTerminateDbServer returns the TerminateDbServer field value if set, zero value otherwise.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetTerminateDbServer() bool {
-	if o == nil || isNil(o.TerminateDbServer) {
+	if o == nil || IsNil(o.TerminateDbServer) {
 		var ret bool
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *BackupScheduleJobJobDataVerifyBackup) GetTerminateDbServer() bool {
 // GetTerminateDbServerOk returns a tuple with the TerminateDbServer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) GetTerminateDbServerOk() (*bool, bool) {
-	if o == nil || isNil(o.TerminateDbServer) {
-    return nil, false
+	if o == nil || IsNil(o.TerminateDbServer) {
+		return nil, false
 	}
 	return o.TerminateDbServer, true
 }
 
 // HasTerminateDbServer returns a boolean if a field has been set.
 func (o *BackupScheduleJobJobDataVerifyBackup) HasTerminateDbServer() bool {
-	if o != nil && !isNil(o.TerminateDbServer) {
+	if o != nil && !IsNil(o.TerminateDbServer) {
 		return true
 	}
 
@@ -202,23 +205,31 @@ func (o *BackupScheduleJobJobDataVerifyBackup) SetTerminateDbServer(v bool) {
 }
 
 func (o BackupScheduleJobJobDataVerifyBackup) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.DisableFirewall) {
-		toSerialize["disable_firewall"] = o.DisableFirewall
-	}
-	if !isNil(o.DisableSelinux) {
-		toSerialize["disable_selinux"] = o.DisableSelinux
-	}
-	if !isNil(o.InstallSoftware) {
-		toSerialize["install_software"] = o.InstallSoftware
-	}
-	if !isNil(o.ServerAddress) {
-		toSerialize["server_address"] = o.ServerAddress
-	}
-	if !isNil(o.TerminateDbServer) {
-		toSerialize["terminate_db_server"] = o.TerminateDbServer
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BackupScheduleJobJobDataVerifyBackup) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.DisableFirewall) {
+		toSerialize["disable_firewall"] = o.DisableFirewall
+	}
+	if !IsNil(o.DisableSelinux) {
+		toSerialize["disable_selinux"] = o.DisableSelinux
+	}
+	if !IsNil(o.InstallSoftware) {
+		toSerialize["install_software"] = o.InstallSoftware
+	}
+	if !IsNil(o.ServerAddress) {
+		toSerialize["server_address"] = o.ServerAddress
+	}
+	if !IsNil(o.TerminateDbServer) {
+		toSerialize["terminate_db_server"] = o.TerminateDbServer
+	}
+	return toSerialize, nil
 }
 
 type NullableBackupScheduleJobJobDataVerifyBackup struct {

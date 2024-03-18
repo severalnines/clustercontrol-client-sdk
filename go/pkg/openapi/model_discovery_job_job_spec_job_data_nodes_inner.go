@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiscoveryJobJobSpecJobDataNodesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscoveryJobJobSpecJobDataNodesInner{}
+
 // DiscoveryJobJobSpecJobDataNodesInner struct for DiscoveryJobJobSpecJobDataNodesInner
 type DiscoveryJobJobSpecJobDataNodesInner struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -41,7 +44,7 @@ func NewDiscoveryJobJobSpecJobDataNodesInnerWithDefaults() *DiscoveryJobJobSpecJ
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *DiscoveryJobJobSpecJobDataNodesInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *DiscoveryJobJobSpecJobDataNodesInner) SetClassName(v string) {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *DiscoveryJobJobSpecJobDataNodesInner) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
-    return nil, false
+	if o == nil || IsNil(o.HostName) {
+		return nil, false
 	}
 	return o.HostName, true
 }
 
 // HasHostName returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpecJobDataNodesInner) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -104,14 +107,22 @@ func (o *DiscoveryJobJobSpecJobDataNodesInner) SetHostName(v string) {
 }
 
 func (o DiscoveryJobJobSpecJobDataNodesInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.HostName) {
-		toSerialize["host_name"] = o.HostName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DiscoveryJobJobSpecJobDataNodesInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.HostName) {
+		toSerialize["host_name"] = o.HostName
+	}
+	return toSerialize, nil
 }
 
 type NullableDiscoveryJobJobSpecJobDataNodesInner struct {

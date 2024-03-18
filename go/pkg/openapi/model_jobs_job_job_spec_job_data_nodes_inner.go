@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataNodesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataNodesInner{}
+
 // JobsJobJobSpecJobDataNodesInner struct for JobsJobJobSpecJobDataNodesInner
 type JobsJobJobSpecJobDataNodesInner struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -58,7 +61,7 @@ func NewJobsJobJobSpecJobDataNodesInnerWithDefaults() *JobsJobJobSpecJobDataNode
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -68,15 +71,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -90,7 +93,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetClassName(v string) {
 
 // GetCdtPath returns the CdtPath field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetCdtPath() string {
-	if o == nil || isNil(o.CdtPath) {
+	if o == nil || IsNil(o.CdtPath) {
 		var ret string
 		return ret
 	}
@@ -100,15 +103,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetCdtPath() string {
 // GetCdtPathOk returns a tuple with the CdtPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetCdtPathOk() (*string, bool) {
-	if o == nil || isNil(o.CdtPath) {
-    return nil, false
+	if o == nil || IsNil(o.CdtPath) {
+		return nil, false
 	}
 	return o.CdtPath, true
 }
 
 // HasCdtPath returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasCdtPath() bool {
-	if o != nil && !isNil(o.CdtPath) {
+	if o != nil && !IsNil(o.CdtPath) {
 		return true
 	}
 
@@ -122,7 +125,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetCdtPath(v string) {
 
 // GetAcl returns the Acl field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetAcl() string {
-	if o == nil || isNil(o.Acl) {
+	if o == nil || IsNil(o.Acl) {
 		var ret string
 		return ret
 	}
@@ -132,15 +135,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetAcl() string {
 // GetAclOk returns a tuple with the Acl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetAclOk() (*string, bool) {
-	if o == nil || isNil(o.Acl) {
-    return nil, false
+	if o == nil || IsNil(o.Acl) {
+		return nil, false
 	}
 	return o.Acl, true
 }
 
 // HasAcl returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasAcl() bool {
-	if o != nil && !isNil(o.Acl) {
+	if o != nil && !IsNil(o.Acl) {
 		return true
 	}
 
@@ -154,7 +157,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetAcl(v string) {
 
 // GetClusterid returns the Clusterid field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetClusterid() int32 {
-	if o == nil || isNil(o.Clusterid) {
+	if o == nil || IsNil(o.Clusterid) {
 		var ret int32
 		return ret
 	}
@@ -164,15 +167,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetClusterid() int32 {
 // GetClusteridOk returns a tuple with the Clusterid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetClusteridOk() (*int32, bool) {
-	if o == nil || isNil(o.Clusterid) {
-    return nil, false
+	if o == nil || IsNil(o.Clusterid) {
+		return nil, false
 	}
 	return o.Clusterid, true
 }
 
 // HasClusterid returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasClusterid() bool {
-	if o != nil && !isNil(o.Clusterid) {
+	if o != nil && !IsNil(o.Clusterid) {
 		return true
 	}
 
@@ -186,7 +189,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetClusterid(v int32) {
 
 // GetIp returns the Ip field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetIp() string {
-	if o == nil || isNil(o.Ip) {
+	if o == nil || IsNil(o.Ip) {
 		var ret string
 		return ret
 	}
@@ -196,15 +199,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetIp() string {
 // GetIpOk returns a tuple with the Ip field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetIpOk() (*string, bool) {
-	if o == nil || isNil(o.Ip) {
-    return nil, false
+	if o == nil || IsNil(o.Ip) {
+		return nil, false
 	}
 	return o.Ip, true
 }
 
 // HasIp returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasIp() bool {
-	if o != nil && !isNil(o.Ip) {
+	if o != nil && !IsNil(o.Ip) {
 		return true
 	}
 
@@ -218,7 +221,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetIp(v string) {
 
 // GetMaintenanceMode returns the MaintenanceMode field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceMode() string {
-	if o == nil || isNil(o.MaintenanceMode) {
+	if o == nil || IsNil(o.MaintenanceMode) {
 		var ret string
 		return ret
 	}
@@ -228,15 +231,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceMode() string {
 // GetMaintenanceModeOk returns a tuple with the MaintenanceMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceModeOk() (*string, bool) {
-	if o == nil || isNil(o.MaintenanceMode) {
-    return nil, false
+	if o == nil || IsNil(o.MaintenanceMode) {
+		return nil, false
 	}
 	return o.MaintenanceMode, true
 }
 
 // HasMaintenanceMode returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasMaintenanceMode() bool {
-	if o != nil && !isNil(o.MaintenanceMode) {
+	if o != nil && !IsNil(o.MaintenanceMode) {
 		return true
 	}
 
@@ -250,7 +253,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetMaintenanceMode(v string) {
 
 // GetMaintenanceModeActive returns the MaintenanceModeActive field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceModeActive() bool {
-	if o == nil || isNil(o.MaintenanceModeActive) {
+	if o == nil || IsNil(o.MaintenanceModeActive) {
 		var ret bool
 		return ret
 	}
@@ -260,15 +263,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceModeActive() bool {
 // GetMaintenanceModeActiveOk returns a tuple with the MaintenanceModeActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetMaintenanceModeActiveOk() (*bool, bool) {
-	if o == nil || isNil(o.MaintenanceModeActive) {
-    return nil, false
+	if o == nil || IsNil(o.MaintenanceModeActive) {
+		return nil, false
 	}
 	return o.MaintenanceModeActive, true
 }
 
 // HasMaintenanceModeActive returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasMaintenanceModeActive() bool {
-	if o != nil && !isNil(o.MaintenanceModeActive) {
+	if o != nil && !IsNil(o.MaintenanceModeActive) {
 		return true
 	}
 
@@ -282,7 +285,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetMaintenanceModeActive(v bool) {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetTimestamp() int32 {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret int32
 		return ret
 	}
@@ -292,15 +295,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetTimestampOk() (*int32, bool) {
-	if o == nil || isNil(o.Timestamp) {
-    return nil, false
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
 	}
 	return o.Timestamp, true
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasTimestamp() bool {
-	if o != nil && !isNil(o.Timestamp) {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
@@ -314,7 +317,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetTimestamp(v int32) {
 
 // GetUniqueId returns the UniqueId field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetUniqueId() int32 {
-	if o == nil || isNil(o.UniqueId) {
+	if o == nil || IsNil(o.UniqueId) {
 		var ret int32
 		return ret
 	}
@@ -324,15 +327,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetUniqueId() int32 {
 // GetUniqueIdOk returns a tuple with the UniqueId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetUniqueIdOk() (*int32, bool) {
-	if o == nil || isNil(o.UniqueId) {
-    return nil, false
+	if o == nil || IsNil(o.UniqueId) {
+		return nil, false
 	}
 	return o.UniqueId, true
 }
 
 // HasUniqueId returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasUniqueId() bool {
-	if o != nil && !isNil(o.UniqueId) {
+	if o != nil && !IsNil(o.UniqueId) {
 		return true
 	}
 
@@ -346,7 +349,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetUniqueId(v int32) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -356,15 +359,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -378,7 +381,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetHostname(v string) {
 
 // GetHostnameData returns the HostnameData field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameData() string {
-	if o == nil || isNil(o.HostnameData) {
+	if o == nil || IsNil(o.HostnameData) {
 		var ret string
 		return ret
 	}
@@ -388,15 +391,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameData() string {
 // GetHostnameDataOk returns a tuple with the HostnameData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameDataOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameData) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameData) {
+		return nil, false
 	}
 	return o.HostnameData, true
 }
 
 // HasHostnameData returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasHostnameData() bool {
-	if o != nil && !isNil(o.HostnameData) {
+	if o != nil && !IsNil(o.HostnameData) {
 		return true
 	}
 
@@ -410,7 +413,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetHostnameData(v string) {
 
 // GetHostnameInternal returns the HostnameInternal field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameInternal() string {
-	if o == nil || isNil(o.HostnameInternal) {
+	if o == nil || IsNil(o.HostnameInternal) {
 		var ret string
 		return ret
 	}
@@ -420,15 +423,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameInternal() string {
 // GetHostnameInternalOk returns a tuple with the HostnameInternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetHostnameInternalOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameInternal) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameInternal) {
+		return nil, false
 	}
 	return o.HostnameInternal, true
 }
 
 // HasHostnameInternal returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasHostnameInternal() bool {
-	if o != nil && !isNil(o.HostnameInternal) {
+	if o != nil && !IsNil(o.HostnameInternal) {
 		return true
 	}
 
@@ -442,7 +445,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetHostnameInternal(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetPort() string {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret string
 		return ret
 	}
@@ -452,15 +455,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetPort() string {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetPortOk() (*string, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -474,7 +477,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetPort(v string) {
 
 // GetNodetype returns the Nodetype field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetNodetype() string {
-	if o == nil || isNil(o.Nodetype) {
+	if o == nil || IsNil(o.Nodetype) {
 		var ret string
 		return ret
 	}
@@ -484,15 +487,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetNodetype() string {
 // GetNodetypeOk returns a tuple with the Nodetype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetNodetypeOk() (*string, bool) {
-	if o == nil || isNil(o.Nodetype) {
-    return nil, false
+	if o == nil || IsNil(o.Nodetype) {
+		return nil, false
 	}
 	return o.Nodetype, true
 }
 
 // HasNodetype returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasNodetype() bool {
-	if o != nil && !isNil(o.Nodetype) {
+	if o != nil && !IsNil(o.Nodetype) {
 		return true
 	}
 
@@ -506,7 +509,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetNodetype(v string) {
 
 // GetConfigfile returns the Configfile field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetConfigfile() string {
-	if o == nil || isNil(o.Configfile) {
+	if o == nil || IsNil(o.Configfile) {
 		var ret string
 		return ret
 	}
@@ -516,15 +519,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetConfigfile() string {
 // GetConfigfileOk returns a tuple with the Configfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetConfigfileOk() (*string, bool) {
-	if o == nil || isNil(o.Configfile) {
-    return nil, false
+	if o == nil || IsNil(o.Configfile) {
+		return nil, false
 	}
 	return o.Configfile, true
 }
 
 // HasConfigfile returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasConfigfile() bool {
-	if o != nil && !isNil(o.Configfile) {
+	if o != nil && !IsNil(o.Configfile) {
 		return true
 	}
 
@@ -538,7 +541,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetConfigfile(v string) {
 
 // GetDatadir returns the Datadir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetDatadir() string {
-	if o == nil || isNil(o.Datadir) {
+	if o == nil || IsNil(o.Datadir) {
 		var ret string
 		return ret
 	}
@@ -548,15 +551,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetDatadir() string {
 // GetDatadirOk returns a tuple with the Datadir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetDatadirOk() (*string, bool) {
-	if o == nil || isNil(o.Datadir) {
-    return nil, false
+	if o == nil || IsNil(o.Datadir) {
+		return nil, false
 	}
 	return o.Datadir, true
 }
 
 // HasDatadir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasDatadir() bool {
-	if o != nil && !isNil(o.Datadir) {
+	if o != nil && !IsNil(o.Datadir) {
 		return true
 	}
 
@@ -570,7 +573,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetDatadir(v string) {
 
 // GetBackupDir returns the BackupDir field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetBackupDir() string {
-	if o == nil || isNil(o.BackupDir) {
+	if o == nil || IsNil(o.BackupDir) {
 		var ret string
 		return ret
 	}
@@ -580,15 +583,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetBackupDir() string {
 // GetBackupDirOk returns a tuple with the BackupDir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetBackupDirOk() (*string, bool) {
-	if o == nil || isNil(o.BackupDir) {
-    return nil, false
+	if o == nil || IsNil(o.BackupDir) {
+		return nil, false
 	}
 	return o.BackupDir, true
 }
 
 // HasBackupDir returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasBackupDir() bool {
-	if o != nil && !isNil(o.BackupDir) {
+	if o != nil && !IsNil(o.BackupDir) {
 		return true
 	}
 
@@ -602,7 +605,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetBackupDir(v string) {
 
 // GetSynchronous returns the Synchronous field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetSynchronous() bool {
-	if o == nil || isNil(o.Synchronous) {
+	if o == nil || IsNil(o.Synchronous) {
 		var ret bool
 		return ret
 	}
@@ -612,15 +615,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetSynchronous() bool {
 // GetSynchronousOk returns a tuple with the Synchronous field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetSynchronousOk() (*bool, bool) {
-	if o == nil || isNil(o.Synchronous) {
-    return nil, false
+	if o == nil || IsNil(o.Synchronous) {
+		return nil, false
 	}
 	return o.Synchronous, true
 }
 
 // HasSynchronous returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasSynchronous() bool {
-	if o != nil && !isNil(o.Synchronous) {
+	if o != nil && !IsNil(o.Synchronous) {
 		return true
 	}
 
@@ -634,7 +637,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetSynchronous(v bool) {
 
 // GetProtocol returns the Protocol field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetProtocol() string {
-	if o == nil || isNil(o.Protocol) {
+	if o == nil || IsNil(o.Protocol) {
 		var ret string
 		return ret
 	}
@@ -644,15 +647,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetProtocol() string {
 // GetProtocolOk returns a tuple with the Protocol field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetProtocolOk() (*string, bool) {
-	if o == nil || isNil(o.Protocol) {
-    return nil, false
+	if o == nil || IsNil(o.Protocol) {
+		return nil, false
 	}
 	return o.Protocol, true
 }
 
 // HasProtocol returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasProtocol() bool {
-	if o != nil && !isNil(o.Protocol) {
+	if o != nil && !IsNil(o.Protocol) {
 		return true
 	}
 
@@ -666,7 +669,7 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetProtocol(v string) {
 
 // GetRoles returns the Roles field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodesInner) GetRoles() string {
-	if o == nil || isNil(o.Roles) {
+	if o == nil || IsNil(o.Roles) {
 		var ret string
 		return ret
 	}
@@ -676,15 +679,15 @@ func (o *JobsJobJobSpecJobDataNodesInner) GetRoles() string {
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) GetRolesOk() (*string, bool) {
-	if o == nil || isNil(o.Roles) {
-    return nil, false
+	if o == nil || IsNil(o.Roles) {
+		return nil, false
 	}
 	return o.Roles, true
 }
 
 // HasRoles returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodesInner) HasRoles() bool {
-	if o != nil && !isNil(o.Roles) {
+	if o != nil && !IsNil(o.Roles) {
 		return true
 	}
 
@@ -697,68 +700,76 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetRoles(v string) {
 }
 
 func (o JobsJobJobSpecJobDataNodesInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.CdtPath) {
-		toSerialize["cdt_path"] = o.CdtPath
-	}
-	if !isNil(o.Acl) {
-		toSerialize["acl"] = o.Acl
-	}
-	if !isNil(o.Clusterid) {
-		toSerialize["clusterid"] = o.Clusterid
-	}
-	if !isNil(o.Ip) {
-		toSerialize["ip"] = o.Ip
-	}
-	if !isNil(o.MaintenanceMode) {
-		toSerialize["maintenance_mode"] = o.MaintenanceMode
-	}
-	if !isNil(o.MaintenanceModeActive) {
-		toSerialize["maintenance_mode_active"] = o.MaintenanceModeActive
-	}
-	if !isNil(o.Timestamp) {
-		toSerialize["timestamp"] = o.Timestamp
-	}
-	if !isNil(o.UniqueId) {
-		toSerialize["unique_id"] = o.UniqueId
-	}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.HostnameData) {
-		toSerialize["hostname_data"] = o.HostnameData
-	}
-	if !isNil(o.HostnameInternal) {
-		toSerialize["hostname_internal"] = o.HostnameInternal
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
-	}
-	if !isNil(o.Nodetype) {
-		toSerialize["nodetype"] = o.Nodetype
-	}
-	if !isNil(o.Configfile) {
-		toSerialize["configfile"] = o.Configfile
-	}
-	if !isNil(o.Datadir) {
-		toSerialize["datadir"] = o.Datadir
-	}
-	if !isNil(o.BackupDir) {
-		toSerialize["backup_dir"] = o.BackupDir
-	}
-	if !isNil(o.Synchronous) {
-		toSerialize["synchronous"] = o.Synchronous
-	}
-	if !isNil(o.Protocol) {
-		toSerialize["protocol"] = o.Protocol
-	}
-	if !isNil(o.Roles) {
-		toSerialize["roles"] = o.Roles
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataNodesInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.CdtPath) {
+		toSerialize["cdt_path"] = o.CdtPath
+	}
+	if !IsNil(o.Acl) {
+		toSerialize["acl"] = o.Acl
+	}
+	if !IsNil(o.Clusterid) {
+		toSerialize["clusterid"] = o.Clusterid
+	}
+	if !IsNil(o.Ip) {
+		toSerialize["ip"] = o.Ip
+	}
+	if !IsNil(o.MaintenanceMode) {
+		toSerialize["maintenance_mode"] = o.MaintenanceMode
+	}
+	if !IsNil(o.MaintenanceModeActive) {
+		toSerialize["maintenance_mode_active"] = o.MaintenanceModeActive
+	}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
+	if !IsNil(o.UniqueId) {
+		toSerialize["unique_id"] = o.UniqueId
+	}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.HostnameData) {
+		toSerialize["hostname_data"] = o.HostnameData
+	}
+	if !IsNil(o.HostnameInternal) {
+		toSerialize["hostname_internal"] = o.HostnameInternal
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	if !IsNil(o.Nodetype) {
+		toSerialize["nodetype"] = o.Nodetype
+	}
+	if !IsNil(o.Configfile) {
+		toSerialize["configfile"] = o.Configfile
+	}
+	if !IsNil(o.Datadir) {
+		toSerialize["datadir"] = o.Datadir
+	}
+	if !IsNil(o.BackupDir) {
+		toSerialize["backup_dir"] = o.BackupDir
+	}
+	if !IsNil(o.Synchronous) {
+		toSerialize["synchronous"] = o.Synchronous
+	}
+	if !IsNil(o.Protocol) {
+		toSerialize["protocol"] = o.Protocol
+	}
+	if !IsNil(o.Roles) {
+		toSerialize["roles"] = o.Roles
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataNodesInner struct {

@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Authenticate type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Authenticate{}
 
 // Authenticate struct for Authenticate
 type Authenticate struct {
@@ -24,6 +29,8 @@ type Authenticate struct {
 	NewPassword *string `json:"new_password,omitempty"`
 	PasswordResetToken *string `json:"password_reset_token,omitempty"`
 }
+
+type _Authenticate Authenticate
 
 // NewAuthenticate instantiates a new Authenticate object
 // This constructor will assign default values to properties that have it defined,
@@ -57,7 +64,7 @@ func (o *Authenticate) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +76,7 @@ func (o *Authenticate) SetOperation(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *Authenticate) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -79,15 +86,15 @@ func (o *Authenticate) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *Authenticate) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -101,7 +108,7 @@ func (o *Authenticate) SetUserName(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *Authenticate) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -111,15 +118,15 @@ func (o *Authenticate) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
-    return nil, false
+	if o == nil || IsNil(o.Password) {
+		return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *Authenticate) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -133,7 +140,7 @@ func (o *Authenticate) SetPassword(v string) {
 
 // GetSignature returns the Signature field value if set, zero value otherwise.
 func (o *Authenticate) GetSignature() string {
-	if o == nil || isNil(o.Signature) {
+	if o == nil || IsNil(o.Signature) {
 		var ret string
 		return ret
 	}
@@ -143,15 +150,15 @@ func (o *Authenticate) GetSignature() string {
 // GetSignatureOk returns a tuple with the Signature field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetSignatureOk() (*string, bool) {
-	if o == nil || isNil(o.Signature) {
-    return nil, false
+	if o == nil || IsNil(o.Signature) {
+		return nil, false
 	}
 	return o.Signature, true
 }
 
 // HasSignature returns a boolean if a field has been set.
 func (o *Authenticate) HasSignature() bool {
-	if o != nil && !isNil(o.Signature) {
+	if o != nil && !IsNil(o.Signature) {
 		return true
 	}
 
@@ -165,7 +172,7 @@ func (o *Authenticate) SetSignature(v string) {
 
 // GetNewPassword returns the NewPassword field value if set, zero value otherwise.
 func (o *Authenticate) GetNewPassword() string {
-	if o == nil || isNil(o.NewPassword) {
+	if o == nil || IsNil(o.NewPassword) {
 		var ret string
 		return ret
 	}
@@ -175,15 +182,15 @@ func (o *Authenticate) GetNewPassword() string {
 // GetNewPasswordOk returns a tuple with the NewPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetNewPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.NewPassword) {
-    return nil, false
+	if o == nil || IsNil(o.NewPassword) {
+		return nil, false
 	}
 	return o.NewPassword, true
 }
 
 // HasNewPassword returns a boolean if a field has been set.
 func (o *Authenticate) HasNewPassword() bool {
-	if o != nil && !isNil(o.NewPassword) {
+	if o != nil && !IsNil(o.NewPassword) {
 		return true
 	}
 
@@ -197,7 +204,7 @@ func (o *Authenticate) SetNewPassword(v string) {
 
 // GetPasswordResetToken returns the PasswordResetToken field value if set, zero value otherwise.
 func (o *Authenticate) GetPasswordResetToken() string {
-	if o == nil || isNil(o.PasswordResetToken) {
+	if o == nil || IsNil(o.PasswordResetToken) {
 		var ret string
 		return ret
 	}
@@ -207,15 +214,15 @@ func (o *Authenticate) GetPasswordResetToken() string {
 // GetPasswordResetTokenOk returns a tuple with the PasswordResetToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Authenticate) GetPasswordResetTokenOk() (*string, bool) {
-	if o == nil || isNil(o.PasswordResetToken) {
-    return nil, false
+	if o == nil || IsNil(o.PasswordResetToken) {
+		return nil, false
 	}
 	return o.PasswordResetToken, true
 }
 
 // HasPasswordResetToken returns a boolean if a field has been set.
 func (o *Authenticate) HasPasswordResetToken() bool {
-	if o != nil && !isNil(o.PasswordResetToken) {
+	if o != nil && !IsNil(o.PasswordResetToken) {
 		return true
 	}
 
@@ -228,26 +235,69 @@ func (o *Authenticate) SetPasswordResetToken(v string) {
 }
 
 func (o Authenticate) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.UserName) {
-		toSerialize["user_name"] = o.UserName
-	}
-	if !isNil(o.Password) {
-		toSerialize["password"] = o.Password
-	}
-	if !isNil(o.Signature) {
-		toSerialize["signature"] = o.Signature
-	}
-	if !isNil(o.NewPassword) {
-		toSerialize["new_password"] = o.NewPassword
-	}
-	if !isNil(o.PasswordResetToken) {
-		toSerialize["password_reset_token"] = o.PasswordResetToken
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Authenticate) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.UserName) {
+		toSerialize["user_name"] = o.UserName
+	}
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.Signature) {
+		toSerialize["signature"] = o.Signature
+	}
+	if !IsNil(o.NewPassword) {
+		toSerialize["new_password"] = o.NewPassword
+	}
+	if !IsNil(o.PasswordResetToken) {
+		toSerialize["password_reset_token"] = o.PasswordResetToken
+	}
+	return toSerialize, nil
+}
+
+func (o *Authenticate) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAuthenticate := _Authenticate{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAuthenticate)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Authenticate(varAuthenticate)
+
+	return err
 }
 
 type NullableAuthenticate struct {

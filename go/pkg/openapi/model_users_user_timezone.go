@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UsersUserTimezone type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UsersUserTimezone{}
+
 // UsersUserTimezone struct for UsersUserTimezone
 type UsersUserTimezone struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -43,7 +46,7 @@ func NewUsersUserTimezoneWithDefaults() *UsersUserTimezone {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *UsersUserTimezone) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *UsersUserTimezone) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserTimezone) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *UsersUserTimezone) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *UsersUserTimezone) SetClassName(v string) {
 
 // GetAbbreviation returns the Abbreviation field value if set, zero value otherwise.
 func (o *UsersUserTimezone) GetAbbreviation() string {
-	if o == nil || isNil(o.Abbreviation) {
+	if o == nil || IsNil(o.Abbreviation) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *UsersUserTimezone) GetAbbreviation() string {
 // GetAbbreviationOk returns a tuple with the Abbreviation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserTimezone) GetAbbreviationOk() (*string, bool) {
-	if o == nil || isNil(o.Abbreviation) {
-    return nil, false
+	if o == nil || IsNil(o.Abbreviation) {
+		return nil, false
 	}
 	return o.Abbreviation, true
 }
 
 // HasAbbreviation returns a boolean if a field has been set.
 func (o *UsersUserTimezone) HasAbbreviation() bool {
-	if o != nil && !isNil(o.Abbreviation) {
+	if o != nil && !IsNil(o.Abbreviation) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *UsersUserTimezone) SetAbbreviation(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UsersUserTimezone) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *UsersUserTimezone) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserTimezone) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UsersUserTimezone) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *UsersUserTimezone) SetName(v string) {
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *UsersUserTimezone) GetOffset() int32 {
-	if o == nil || isNil(o.Offset) {
+	if o == nil || IsNil(o.Offset) {
 		var ret int32
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *UsersUserTimezone) GetOffset() int32 {
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserTimezone) GetOffsetOk() (*int32, bool) {
-	if o == nil || isNil(o.Offset) {
-    return nil, false
+	if o == nil || IsNil(o.Offset) {
+		return nil, false
 	}
 	return o.Offset, true
 }
 
 // HasOffset returns a boolean if a field has been set.
 func (o *UsersUserTimezone) HasOffset() bool {
-	if o != nil && !isNil(o.Offset) {
+	if o != nil && !IsNil(o.Offset) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *UsersUserTimezone) SetOffset(v int32) {
 
 // GetUseDst returns the UseDst field value if set, zero value otherwise.
 func (o *UsersUserTimezone) GetUseDst() bool {
-	if o == nil || isNil(o.UseDst) {
+	if o == nil || IsNil(o.UseDst) {
 		var ret bool
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *UsersUserTimezone) GetUseDst() bool {
 // GetUseDstOk returns a tuple with the UseDst field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserTimezone) GetUseDstOk() (*bool, bool) {
-	if o == nil || isNil(o.UseDst) {
-    return nil, false
+	if o == nil || IsNil(o.UseDst) {
+		return nil, false
 	}
 	return o.UseDst, true
 }
 
 // HasUseDst returns a boolean if a field has been set.
 func (o *UsersUserTimezone) HasUseDst() bool {
-	if o != nil && !isNil(o.UseDst) {
+	if o != nil && !IsNil(o.UseDst) {
 		return true
 	}
 
@@ -202,23 +205,31 @@ func (o *UsersUserTimezone) SetUseDst(v bool) {
 }
 
 func (o UsersUserTimezone) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Abbreviation) {
-		toSerialize["abbreviation"] = o.Abbreviation
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Offset) {
-		toSerialize["offset"] = o.Offset
-	}
-	if !isNil(o.UseDst) {
-		toSerialize["use_dst"] = o.UseDst
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UsersUserTimezone) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Abbreviation) {
+		toSerialize["abbreviation"] = o.Abbreviation
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Offset) {
+		toSerialize["offset"] = o.Offset
+	}
+	if !IsNil(o.UseDst) {
+		toSerialize["use_dst"] = o.UseDst
+	}
+	return toSerialize, nil
 }
 
 type NullableUsersUserTimezone struct {

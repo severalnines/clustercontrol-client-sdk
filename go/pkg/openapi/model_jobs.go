@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Jobs type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Jobs{}
 
 // Jobs Creating and manipulating jobs, reading information about jobs
 type Jobs struct {
@@ -27,6 +32,8 @@ type Jobs struct {
 	LogLevel *string `json:"log_level,omitempty"`
 	Job *JobsJob `json:"job,omitempty"`
 }
+
+type _Jobs Jobs
 
 // NewJobs instantiates a new Jobs object
 // This constructor will assign default values to properties that have it defined,
@@ -60,7 +67,7 @@ func (o *Jobs) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -72,7 +79,7 @@ func (o *Jobs) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Jobs) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -82,15 +89,15 @@ func (o *Jobs) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Jobs) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -104,7 +111,7 @@ func (o *Jobs) SetClusterId(v int32) {
 
 // GetJobId returns the JobId field value if set, zero value otherwise.
 func (o *Jobs) GetJobId() int32 {
-	if o == nil || isNil(o.JobId) {
+	if o == nil || IsNil(o.JobId) {
 		var ret int32
 		return ret
 	}
@@ -114,15 +121,15 @@ func (o *Jobs) GetJobId() int32 {
 // GetJobIdOk returns a tuple with the JobId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetJobIdOk() (*int32, bool) {
-	if o == nil || isNil(o.JobId) {
-    return nil, false
+	if o == nil || IsNil(o.JobId) {
+		return nil, false
 	}
 	return o.JobId, true
 }
 
 // HasJobId returns a boolean if a field has been set.
 func (o *Jobs) HasJobId() bool {
-	if o != nil && !isNil(o.JobId) {
+	if o != nil && !IsNil(o.JobId) {
 		return true
 	}
 
@@ -136,7 +143,7 @@ func (o *Jobs) SetJobId(v int32) {
 
 // GetSignal returns the Signal field value if set, zero value otherwise.
 func (o *Jobs) GetSignal() int32 {
-	if o == nil || isNil(o.Signal) {
+	if o == nil || IsNil(o.Signal) {
 		var ret int32
 		return ret
 	}
@@ -146,15 +153,15 @@ func (o *Jobs) GetSignal() int32 {
 // GetSignalOk returns a tuple with the Signal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetSignalOk() (*int32, bool) {
-	if o == nil || isNil(o.Signal) {
-    return nil, false
+	if o == nil || IsNil(o.Signal) {
+		return nil, false
 	}
 	return o.Signal, true
 }
 
 // HasSignal returns a boolean if a field has been set.
 func (o *Jobs) HasSignal() bool {
-	if o != nil && !isNil(o.Signal) {
+	if o != nil && !IsNil(o.Signal) {
 		return true
 	}
 
@@ -168,7 +175,7 @@ func (o *Jobs) SetSignal(v int32) {
 
 // GetAscending returns the Ascending field value if set, zero value otherwise.
 func (o *Jobs) GetAscending() bool {
-	if o == nil || isNil(o.Ascending) {
+	if o == nil || IsNil(o.Ascending) {
 		var ret bool
 		return ret
 	}
@@ -178,15 +185,15 @@ func (o *Jobs) GetAscending() bool {
 // GetAscendingOk returns a tuple with the Ascending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetAscendingOk() (*bool, bool) {
-	if o == nil || isNil(o.Ascending) {
-    return nil, false
+	if o == nil || IsNil(o.Ascending) {
+		return nil, false
 	}
 	return o.Ascending, true
 }
 
 // HasAscending returns a boolean if a field has been set.
 func (o *Jobs) HasAscending() bool {
-	if o != nil && !isNil(o.Ascending) {
+	if o != nil && !IsNil(o.Ascending) {
 		return true
 	}
 
@@ -200,7 +207,7 @@ func (o *Jobs) SetAscending(v bool) {
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
 func (o *Jobs) GetLimit() int32 {
-	if o == nil || isNil(o.Limit) {
+	if o == nil || IsNil(o.Limit) {
 		var ret int32
 		return ret
 	}
@@ -210,15 +217,15 @@ func (o *Jobs) GetLimit() int32 {
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetLimitOk() (*int32, bool) {
-	if o == nil || isNil(o.Limit) {
-    return nil, false
+	if o == nil || IsNil(o.Limit) {
+		return nil, false
 	}
 	return o.Limit, true
 }
 
 // HasLimit returns a boolean if a field has been set.
 func (o *Jobs) HasLimit() bool {
-	if o != nil && !isNil(o.Limit) {
+	if o != nil && !IsNil(o.Limit) {
 		return true
 	}
 
@@ -232,7 +239,7 @@ func (o *Jobs) SetLimit(v int32) {
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *Jobs) GetOffset() int32 {
-	if o == nil || isNil(o.Offset) {
+	if o == nil || IsNil(o.Offset) {
 		var ret int32
 		return ret
 	}
@@ -242,15 +249,15 @@ func (o *Jobs) GetOffset() int32 {
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetOffsetOk() (*int32, bool) {
-	if o == nil || isNil(o.Offset) {
-    return nil, false
+	if o == nil || IsNil(o.Offset) {
+		return nil, false
 	}
 	return o.Offset, true
 }
 
 // HasOffset returns a boolean if a field has been set.
 func (o *Jobs) HasOffset() bool {
-	if o != nil && !isNil(o.Offset) {
+	if o != nil && !IsNil(o.Offset) {
 		return true
 	}
 
@@ -264,7 +271,7 @@ func (o *Jobs) SetOffset(v int32) {
 
 // GetLogLevel returns the LogLevel field value if set, zero value otherwise.
 func (o *Jobs) GetLogLevel() string {
-	if o == nil || isNil(o.LogLevel) {
+	if o == nil || IsNil(o.LogLevel) {
 		var ret string
 		return ret
 	}
@@ -274,15 +281,15 @@ func (o *Jobs) GetLogLevel() string {
 // GetLogLevelOk returns a tuple with the LogLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetLogLevelOk() (*string, bool) {
-	if o == nil || isNil(o.LogLevel) {
-    return nil, false
+	if o == nil || IsNil(o.LogLevel) {
+		return nil, false
 	}
 	return o.LogLevel, true
 }
 
 // HasLogLevel returns a boolean if a field has been set.
 func (o *Jobs) HasLogLevel() bool {
-	if o != nil && !isNil(o.LogLevel) {
+	if o != nil && !IsNil(o.LogLevel) {
 		return true
 	}
 
@@ -296,7 +303,7 @@ func (o *Jobs) SetLogLevel(v string) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *Jobs) GetJob() JobsJob {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret JobsJob
 		return ret
 	}
@@ -306,15 +313,15 @@ func (o *Jobs) GetJob() JobsJob {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Jobs) GetJobOk() (*JobsJob, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *Jobs) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -327,35 +334,78 @@ func (o *Jobs) SetJob(v JobsJob) {
 }
 
 func (o Jobs) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.JobId) {
-		toSerialize["job_id"] = o.JobId
-	}
-	if !isNil(o.Signal) {
-		toSerialize["signal"] = o.Signal
-	}
-	if !isNil(o.Ascending) {
-		toSerialize["ascending"] = o.Ascending
-	}
-	if !isNil(o.Limit) {
-		toSerialize["limit"] = o.Limit
-	}
-	if !isNil(o.Offset) {
-		toSerialize["offset"] = o.Offset
-	}
-	if !isNil(o.LogLevel) {
-		toSerialize["log_level"] = o.LogLevel
-	}
-	if !isNil(o.Job) {
-		toSerialize["job"] = o.Job
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Jobs) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.JobId) {
+		toSerialize["job_id"] = o.JobId
+	}
+	if !IsNil(o.Signal) {
+		toSerialize["signal"] = o.Signal
+	}
+	if !IsNil(o.Ascending) {
+		toSerialize["ascending"] = o.Ascending
+	}
+	if !IsNil(o.Limit) {
+		toSerialize["limit"] = o.Limit
+	}
+	if !IsNil(o.Offset) {
+		toSerialize["offset"] = o.Offset
+	}
+	if !IsNil(o.LogLevel) {
+		toSerialize["log_level"] = o.LogLevel
+	}
+	if !IsNil(o.Job) {
+		toSerialize["job"] = o.Job
+	}
+	return toSerialize, nil
+}
+
+func (o *Jobs) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varJobs := _Jobs{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varJobs)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Jobs(varJobs)
+
+	return err
 }
 
 type NullableJobs struct {

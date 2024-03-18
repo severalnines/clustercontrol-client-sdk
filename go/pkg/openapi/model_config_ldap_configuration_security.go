@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConfigLdapConfigurationSecurity type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConfigLdapConfigurationSecurity{}
+
 // ConfigLdapConfigurationSecurity struct for ConfigLdapConfigurationSecurity
 type ConfigLdapConfigurationSecurity struct {
 	CaCertFile *string `json:"caCertFile,omitempty"`
@@ -41,7 +44,7 @@ func NewConfigLdapConfigurationSecurityWithDefaults() *ConfigLdapConfigurationSe
 
 // GetCaCertFile returns the CaCertFile field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationSecurity) GetCaCertFile() string {
-	if o == nil || isNil(o.CaCertFile) {
+	if o == nil || IsNil(o.CaCertFile) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *ConfigLdapConfigurationSecurity) GetCaCertFile() string {
 // GetCaCertFileOk returns a tuple with the CaCertFile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationSecurity) GetCaCertFileOk() (*string, bool) {
-	if o == nil || isNil(o.CaCertFile) {
-    return nil, false
+	if o == nil || IsNil(o.CaCertFile) {
+		return nil, false
 	}
 	return o.CaCertFile, true
 }
 
 // HasCaCertFile returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationSecurity) HasCaCertFile() bool {
-	if o != nil && !isNil(o.CaCertFile) {
+	if o != nil && !IsNil(o.CaCertFile) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *ConfigLdapConfigurationSecurity) SetCaCertFile(v string) {
 
 // GetCertFile returns the CertFile field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationSecurity) GetCertFile() string {
-	if o == nil || isNil(o.CertFile) {
+	if o == nil || IsNil(o.CertFile) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *ConfigLdapConfigurationSecurity) GetCertFile() string {
 // GetCertFileOk returns a tuple with the CertFile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationSecurity) GetCertFileOk() (*string, bool) {
-	if o == nil || isNil(o.CertFile) {
-    return nil, false
+	if o == nil || IsNil(o.CertFile) {
+		return nil, false
 	}
 	return o.CertFile, true
 }
 
 // HasCertFile returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationSecurity) HasCertFile() bool {
-	if o != nil && !isNil(o.CertFile) {
+	if o != nil && !IsNil(o.CertFile) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *ConfigLdapConfigurationSecurity) SetCertFile(v string) {
 
 // GetKeyFile returns the KeyFile field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationSecurity) GetKeyFile() string {
-	if o == nil || isNil(o.KeyFile) {
+	if o == nil || IsNil(o.KeyFile) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *ConfigLdapConfigurationSecurity) GetKeyFile() string {
 // GetKeyFileOk returns a tuple with the KeyFile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationSecurity) GetKeyFileOk() (*string, bool) {
-	if o == nil || isNil(o.KeyFile) {
-    return nil, false
+	if o == nil || IsNil(o.KeyFile) {
+		return nil, false
 	}
 	return o.KeyFile, true
 }
 
 // HasKeyFile returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationSecurity) HasKeyFile() bool {
-	if o != nil && !isNil(o.KeyFile) {
+	if o != nil && !IsNil(o.KeyFile) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *ConfigLdapConfigurationSecurity) SetKeyFile(v string) {
 }
 
 func (o ConfigLdapConfigurationSecurity) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.CaCertFile) {
-		toSerialize["caCertFile"] = o.CaCertFile
-	}
-	if !isNil(o.CertFile) {
-		toSerialize["certFile"] = o.CertFile
-	}
-	if !isNil(o.KeyFile) {
-		toSerialize["keyFile"] = o.KeyFile
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConfigLdapConfigurationSecurity) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CaCertFile) {
+		toSerialize["caCertFile"] = o.CaCertFile
+	}
+	if !IsNil(o.CertFile) {
+		toSerialize["certFile"] = o.CertFile
+	}
+	if !IsNil(o.KeyFile) {
+		toSerialize["keyFile"] = o.KeyFile
+	}
+	return toSerialize, nil
 }
 
 type NullableConfigLdapConfigurationSecurity struct {

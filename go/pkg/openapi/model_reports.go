@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Reports type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Reports{}
 
 // Reports struct for Reports
 type Reports struct {
@@ -21,6 +26,8 @@ type Reports struct {
 	ClusterId *int32 `json:"cluster_id,omitempty"`
 	Report *ReportsReport `json:"report,omitempty"`
 }
+
+type _Reports Reports
 
 // NewReports instantiates a new Reports object
 // This constructor will assign default values to properties that have it defined,
@@ -54,7 +61,7 @@ func (o *Reports) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Reports) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -66,7 +73,7 @@ func (o *Reports) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Reports) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -76,15 +83,15 @@ func (o *Reports) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Reports) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Reports) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -98,7 +105,7 @@ func (o *Reports) SetClusterId(v int32) {
 
 // GetReport returns the Report field value if set, zero value otherwise.
 func (o *Reports) GetReport() ReportsReport {
-	if o == nil || isNil(o.Report) {
+	if o == nil || IsNil(o.Report) {
 		var ret ReportsReport
 		return ret
 	}
@@ -108,15 +115,15 @@ func (o *Reports) GetReport() ReportsReport {
 // GetReportOk returns a tuple with the Report field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Reports) GetReportOk() (*ReportsReport, bool) {
-	if o == nil || isNil(o.Report) {
-    return nil, false
+	if o == nil || IsNil(o.Report) {
+		return nil, false
 	}
 	return o.Report, true
 }
 
 // HasReport returns a boolean if a field has been set.
 func (o *Reports) HasReport() bool {
-	if o != nil && !isNil(o.Report) {
+	if o != nil && !IsNil(o.Report) {
 		return true
 	}
 
@@ -129,17 +136,60 @@ func (o *Reports) SetReport(v ReportsReport) {
 }
 
 func (o Reports) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.Report) {
-		toSerialize["report"] = o.Report
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Reports) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.Report) {
+		toSerialize["report"] = o.Report
+	}
+	return toSerialize, nil
+}
+
+func (o *Reports) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varReports := _Reports{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varReports)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Reports(varReports)
+
+	return err
 }
 
 type NullableReports struct {

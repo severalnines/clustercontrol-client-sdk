@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UsersUserGroupsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UsersUserGroupsInner{}
+
 // UsersUserGroupsInner struct for UsersUserGroupsInner
 type UsersUserGroupsInner struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -41,7 +44,7 @@ func NewUsersUserGroupsInnerWithDefaults() *UsersUserGroupsInner {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *UsersUserGroupsInner) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *UsersUserGroupsInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserGroupsInner) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *UsersUserGroupsInner) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *UsersUserGroupsInner) SetClassName(v string) {
 
 // GetGroupName returns the GroupName field value if set, zero value otherwise.
 func (o *UsersUserGroupsInner) GetGroupName() string {
-	if o == nil || isNil(o.GroupName) {
+	if o == nil || IsNil(o.GroupName) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *UsersUserGroupsInner) GetGroupName() string {
 // GetGroupNameOk returns a tuple with the GroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserGroupsInner) GetGroupNameOk() (*string, bool) {
-	if o == nil || isNil(o.GroupName) {
-    return nil, false
+	if o == nil || IsNil(o.GroupName) {
+		return nil, false
 	}
 	return o.GroupName, true
 }
 
 // HasGroupName returns a boolean if a field has been set.
 func (o *UsersUserGroupsInner) HasGroupName() bool {
-	if o != nil && !isNil(o.GroupName) {
+	if o != nil && !IsNil(o.GroupName) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *UsersUserGroupsInner) SetGroupName(v string) {
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *UsersUserGroupsInner) GetGroupId() int32 {
-	if o == nil || isNil(o.GroupId) {
+	if o == nil || IsNil(o.GroupId) {
 		var ret int32
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *UsersUserGroupsInner) GetGroupId() int32 {
 // GetGroupIdOk returns a tuple with the GroupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserGroupsInner) GetGroupIdOk() (*int32, bool) {
-	if o == nil || isNil(o.GroupId) {
-    return nil, false
+	if o == nil || IsNil(o.GroupId) {
+		return nil, false
 	}
 	return o.GroupId, true
 }
 
 // HasGroupId returns a boolean if a field has been set.
 func (o *UsersUserGroupsInner) HasGroupId() bool {
-	if o != nil && !isNil(o.GroupId) {
+	if o != nil && !IsNil(o.GroupId) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *UsersUserGroupsInner) SetGroupId(v int32) {
 }
 
 func (o UsersUserGroupsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.GroupName) {
-		toSerialize["group_name"] = o.GroupName
-	}
-	if !isNil(o.GroupId) {
-		toSerialize["group_id"] = o.GroupId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UsersUserGroupsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.GroupName) {
+		toSerialize["group_name"] = o.GroupName
+	}
+	if !IsNil(o.GroupId) {
+		toSerialize["group_id"] = o.GroupId
+	}
+	return toSerialize, nil
 }
 
 type NullableUsersUserGroupsInner struct {

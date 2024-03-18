@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataConfigServers type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataConfigServers{}
+
 // JobsJobJobSpecJobDataConfigServers struct for JobsJobJobSpecJobDataConfigServers
 type JobsJobJobSpecJobDataConfigServers struct {
 	Rs *string `json:"rs,omitempty"`
@@ -40,7 +43,7 @@ func NewJobsJobJobSpecJobDataConfigServersWithDefaults() *JobsJobJobSpecJobDataC
 
 // GetRs returns the Rs field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServers) GetRs() string {
-	if o == nil || isNil(o.Rs) {
+	if o == nil || IsNil(o.Rs) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *JobsJobJobSpecJobDataConfigServers) GetRs() string {
 // GetRsOk returns a tuple with the Rs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) GetRsOk() (*string, bool) {
-	if o == nil || isNil(o.Rs) {
-    return nil, false
+	if o == nil || IsNil(o.Rs) {
+		return nil, false
 	}
 	return o.Rs, true
 }
 
 // HasRs returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) HasRs() bool {
-	if o != nil && !isNil(o.Rs) {
+	if o != nil && !IsNil(o.Rs) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *JobsJobJobSpecJobDataConfigServers) SetRs(v string) {
 
 // GetMembers returns the Members field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServers) GetMembers() []JobsJobJobSpecJobDataConfigServersMembersInner {
-	if o == nil || isNil(o.Members) {
+	if o == nil || IsNil(o.Members) {
 		var ret []JobsJobJobSpecJobDataConfigServersMembersInner
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *JobsJobJobSpecJobDataConfigServers) GetMembers() []JobsJobJobSpecJobDat
 // GetMembersOk returns a tuple with the Members field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) GetMembersOk() ([]JobsJobJobSpecJobDataConfigServersMembersInner, bool) {
-	if o == nil || isNil(o.Members) {
-    return nil, false
+	if o == nil || IsNil(o.Members) {
+		return nil, false
 	}
 	return o.Members, true
 }
 
 // HasMembers returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServers) HasMembers() bool {
-	if o != nil && !isNil(o.Members) {
+	if o != nil && !IsNil(o.Members) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *JobsJobJobSpecJobDataConfigServers) SetMembers(v []JobsJobJobSpecJobDat
 }
 
 func (o JobsJobJobSpecJobDataConfigServers) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Rs) {
-		toSerialize["rs"] = o.Rs
-	}
-	if !isNil(o.Members) {
-		toSerialize["members"] = o.Members
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataConfigServers) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Rs) {
+		toSerialize["rs"] = o.Rs
+	}
+	if !IsNil(o.Members) {
+		toSerialize["members"] = o.Members
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataConfigServers struct {

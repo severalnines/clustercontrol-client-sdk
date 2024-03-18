@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// ClustersApiService ClustersApi service
-type ClustersApiService service
+// ClustersAPIService ClustersAPI service
+type ClustersAPIService service
 
 type ApiClustersPostRequest struct {
 	ctx context.Context
-	ApiService *ClustersApiService
+	ApiService *ClustersAPIService
 	clusters *Clusters
 }
 
@@ -35,7 +35,7 @@ func (r ApiClustersPostRequest) Clusters(clusters Clusters) ApiClustersPostReque
 	return r
 }
 
-func (r ApiClustersPostRequest) Execute() (*http.Response, error) {
+func (r ApiClustersPostRequest) Execute() (*ClusterResponse, *http.Response, error) {
 	return r.ApiService.ClustersPostExecute(r)
 }
 
@@ -45,7 +45,7 @@ ClustersPost GetClusterInfo | Get/Set Config | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiClustersPostRequest
 */
-func (a *ClustersApiService) ClustersPost(ctx context.Context) ApiClustersPostRequest {
+func (a *ClustersAPIService) ClustersPost(ctx context.Context) ApiClustersPostRequest {
 	return ApiClustersPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,16 +53,18 @@ func (a *ClustersApiService) ClustersPost(ctx context.Context) ApiClustersPostRe
 }
 
 // Execute executes the request
-func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (*http.Response, error) {
+//  @return ClusterResponse
+func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*ClusterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *ClusterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClustersApiService.ClustersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClustersAPIService.ClustersPost")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/clusters"
@@ -71,7 +73,7 @@ func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (*htt
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.clusters == nil {
-		return nil, reportError("clusters is required and must be specified")
+		return localVarReturnValue, nil, reportError("clusters is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -84,7 +86,7 @@ func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (*htt
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -95,19 +97,19 @@ func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (*htt
 	localVarPostBody = r.clusters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -115,8 +117,17 @@ func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (*htt
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }

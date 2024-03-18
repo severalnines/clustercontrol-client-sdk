@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// ReportsApiService ReportsApi service
-type ReportsApiService service
+// ReportsAPIService ReportsAPI service
+type ReportsAPIService service
 
 type ApiReportsPostRequest struct {
 	ctx context.Context
-	ApiService *ReportsApiService
+	ApiService *ReportsAPIService
 	reports *Reports
 }
 
@@ -45,7 +45,7 @@ ReportsPost GenerateReport | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiReportsPostRequest
 */
-func (a *ReportsApiService) ReportsPost(ctx context.Context) ApiReportsPostRequest {
+func (a *ReportsAPIService) ReportsPost(ctx context.Context) ApiReportsPostRequest {
 	return ApiReportsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *ReportsApiService) ReportsPost(ctx context.Context) ApiReportsPostReque
 }
 
 // Execute executes the request
-func (a *ReportsApiService) ReportsPostExecute(r ApiReportsPostRequest) (*http.Response, error) {
+func (a *ReportsAPIService) ReportsPostExecute(r ApiReportsPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsApiService.ReportsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReportsAPIService.ReportsPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *ReportsApiService) ReportsPostExecute(r ApiReportsPostRequest) (*http.R
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

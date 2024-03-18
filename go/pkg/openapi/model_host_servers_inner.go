@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the HostServersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &HostServersInner{}
+
 // HostServersInner struct for HostServersInner
 type HostServersInner struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -41,7 +44,7 @@ func NewHostServersInnerWithDefaults() *HostServersInner {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *HostServersInner) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *HostServersInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *HostServersInner) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *HostServersInner) SetClassName(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *HostServersInner) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *HostServersInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *HostServersInner) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *HostServersInner) SetHostname(v string) {
 
 // GetCdtPath returns the CdtPath field value if set, zero value otherwise.
 func (o *HostServersInner) GetCdtPath() string {
-	if o == nil || isNil(o.CdtPath) {
+	if o == nil || IsNil(o.CdtPath) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *HostServersInner) GetCdtPath() string {
 // GetCdtPathOk returns a tuple with the CdtPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostServersInner) GetCdtPathOk() (*string, bool) {
-	if o == nil || isNil(o.CdtPath) {
-    return nil, false
+	if o == nil || IsNil(o.CdtPath) {
+		return nil, false
 	}
 	return o.CdtPath, true
 }
 
 // HasCdtPath returns a boolean if a field has been set.
 func (o *HostServersInner) HasCdtPath() bool {
-	if o != nil && !isNil(o.CdtPath) {
+	if o != nil && !IsNil(o.CdtPath) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *HostServersInner) SetCdtPath(v string) {
 }
 
 func (o HostServersInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.CdtPath) {
-		toSerialize["cdt_path"] = o.CdtPath
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o HostServersInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.CdtPath) {
+		toSerialize["cdt_path"] = o.CdtPath
+	}
+	return toSerialize, nil
 }
 
 type NullableHostServersInner struct {

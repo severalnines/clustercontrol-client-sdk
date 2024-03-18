@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// CloudApiService CloudApi service
-type CloudApiService service
+// CloudAPIService CloudAPI service
+type CloudAPIService service
 
 type ApiCloudPostRequest struct {
 	ctx context.Context
-	ApiService *CloudApiService
+	ApiService *CloudAPIService
 	cloud *Cloud
 }
 
@@ -45,7 +45,7 @@ CloudPost VerifyCredentials | ListCredentials | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCloudPostRequest
 */
-func (a *CloudApiService) CloudPost(ctx context.Context) ApiCloudPostRequest {
+func (a *CloudAPIService) CloudPost(ctx context.Context) ApiCloudPostRequest {
 	return ApiCloudPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *CloudApiService) CloudPost(ctx context.Context) ApiCloudPostRequest {
 }
 
 // Execute executes the request
-func (a *CloudApiService) CloudPostExecute(r ApiCloudPostRequest) (*http.Response, error) {
+func (a *CloudAPIService) CloudPostExecute(r ApiCloudPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudApiService.CloudPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CloudAPIService.CloudPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *CloudApiService) CloudPostExecute(r ApiCloudPostRequest) (*http.Respons
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

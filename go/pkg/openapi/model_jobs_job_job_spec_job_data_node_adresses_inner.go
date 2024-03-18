@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataNodeAdressesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataNodeAdressesInner{}
+
 // JobsJobJobSpecJobDataNodeAdressesInner struct for JobsJobJobSpecJobDataNodeAdressesInner
 type JobsJobJobSpecJobDataNodeAdressesInner struct {
 	Hostname *string `json:"hostname,omitempty"`
@@ -43,7 +46,7 @@ func NewJobsJobJobSpecJobDataNodeAdressesInnerWithDefaults() *JobsJobJobSpecJobD
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) SetHostname(v string) {
 
 // GetMaxConnection returns the MaxConnection field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxConnection() int32 {
-	if o == nil || isNil(o.MaxConnection) {
+	if o == nil || IsNil(o.MaxConnection) {
 		var ret int32
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxConnection() int32 {
 // GetMaxConnectionOk returns a tuple with the MaxConnection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxConnectionOk() (*int32, bool) {
-	if o == nil || isNil(o.MaxConnection) {
-    return nil, false
+	if o == nil || IsNil(o.MaxConnection) {
+		return nil, false
 	}
 	return o.MaxConnection, true
 }
 
 // HasMaxConnection returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) HasMaxConnection() bool {
-	if o != nil && !isNil(o.MaxConnection) {
+	if o != nil && !IsNil(o.MaxConnection) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) SetMaxConnection(v int32) {
 
 // GetMaxReplicationLag returns the MaxReplicationLag field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxReplicationLag() int32 {
-	if o == nil || isNil(o.MaxReplicationLag) {
+	if o == nil || IsNil(o.MaxReplicationLag) {
 		var ret int32
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxReplicationLag() int32 {
 // GetMaxReplicationLagOk returns a tuple with the MaxReplicationLag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetMaxReplicationLagOk() (*int32, bool) {
-	if o == nil || isNil(o.MaxReplicationLag) {
-    return nil, false
+	if o == nil || IsNil(o.MaxReplicationLag) {
+		return nil, false
 	}
 	return o.MaxReplicationLag, true
 }
 
 // HasMaxReplicationLag returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) HasMaxReplicationLag() bool {
-	if o != nil && !isNil(o.MaxReplicationLag) {
+	if o != nil && !IsNil(o.MaxReplicationLag) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) SetMaxReplicationLag(v int32) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetPort() int32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetPortOk() (*int32, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) SetPort(v int32) {
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetWeight() int32 {
-	if o == nil || isNil(o.Weight) {
+	if o == nil || IsNil(o.Weight) {
 		var ret int32
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetWeight() int32 {
 // GetWeightOk returns a tuple with the Weight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) GetWeightOk() (*int32, bool) {
-	if o == nil || isNil(o.Weight) {
-    return nil, false
+	if o == nil || IsNil(o.Weight) {
+		return nil, false
 	}
 	return o.Weight, true
 }
 
 // HasWeight returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeAdressesInner) HasWeight() bool {
-	if o != nil && !isNil(o.Weight) {
+	if o != nil && !IsNil(o.Weight) {
 		return true
 	}
 
@@ -202,23 +205,31 @@ func (o *JobsJobJobSpecJobDataNodeAdressesInner) SetWeight(v int32) {
 }
 
 func (o JobsJobJobSpecJobDataNodeAdressesInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.MaxConnection) {
-		toSerialize["max_connection"] = o.MaxConnection
-	}
-	if !isNil(o.MaxReplicationLag) {
-		toSerialize["max_replication_lag"] = o.MaxReplicationLag
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
-	}
-	if !isNil(o.Weight) {
-		toSerialize["weight"] = o.Weight
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataNodeAdressesInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.MaxConnection) {
+		toSerialize["max_connection"] = o.MaxConnection
+	}
+	if !IsNil(o.MaxReplicationLag) {
+		toSerialize["max_replication_lag"] = o.MaxReplicationLag
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	if !IsNil(o.Weight) {
+		toSerialize["weight"] = o.Weight
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataNodeAdressesInner struct {

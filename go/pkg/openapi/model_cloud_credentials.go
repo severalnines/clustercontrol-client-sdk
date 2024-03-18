@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CloudCredentials type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CloudCredentials{}
+
 // CloudCredentials struct for CloudCredentials
 type CloudCredentials struct {
 	AccessKeyId *string `json:"access_key_id,omitempty"`
@@ -41,7 +44,7 @@ func NewCloudCredentialsWithDefaults() *CloudCredentials {
 
 // GetAccessKeyId returns the AccessKeyId field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeyId() string {
-	if o == nil || isNil(o.AccessKeyId) {
+	if o == nil || IsNil(o.AccessKeyId) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *CloudCredentials) GetAccessKeyId() string {
 // GetAccessKeyIdOk returns a tuple with the AccessKeyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeyIdOk() (*string, bool) {
-	if o == nil || isNil(o.AccessKeyId) {
-    return nil, false
+	if o == nil || IsNil(o.AccessKeyId) {
+		return nil, false
 	}
 	return o.AccessKeyId, true
 }
 
 // HasAccessKeyId returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeyId() bool {
-	if o != nil && !isNil(o.AccessKeyId) {
+	if o != nil && !IsNil(o.AccessKeyId) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *CloudCredentials) SetAccessKeyId(v string) {
 
 // GetAccessKeySecret returns the AccessKeySecret field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeySecret() string {
-	if o == nil || isNil(o.AccessKeySecret) {
+	if o == nil || IsNil(o.AccessKeySecret) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *CloudCredentials) GetAccessKeySecret() string {
 // GetAccessKeySecretOk returns a tuple with the AccessKeySecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeySecretOk() (*string, bool) {
-	if o == nil || isNil(o.AccessKeySecret) {
-    return nil, false
+	if o == nil || IsNil(o.AccessKeySecret) {
+		return nil, false
 	}
 	return o.AccessKeySecret, true
 }
 
 // HasAccessKeySecret returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeySecret() bool {
-	if o != nil && !isNil(o.AccessKeySecret) {
+	if o != nil && !IsNil(o.AccessKeySecret) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *CloudCredentials) SetAccessKeySecret(v string) {
 
 // GetAccessKeyRegion returns the AccessKeyRegion field value if set, zero value otherwise.
 func (o *CloudCredentials) GetAccessKeyRegion() string {
-	if o == nil || isNil(o.AccessKeyRegion) {
+	if o == nil || IsNil(o.AccessKeyRegion) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *CloudCredentials) GetAccessKeyRegion() string {
 // GetAccessKeyRegionOk returns a tuple with the AccessKeyRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CloudCredentials) GetAccessKeyRegionOk() (*string, bool) {
-	if o == nil || isNil(o.AccessKeyRegion) {
-    return nil, false
+	if o == nil || IsNil(o.AccessKeyRegion) {
+		return nil, false
 	}
 	return o.AccessKeyRegion, true
 }
 
 // HasAccessKeyRegion returns a boolean if a field has been set.
 func (o *CloudCredentials) HasAccessKeyRegion() bool {
-	if o != nil && !isNil(o.AccessKeyRegion) {
+	if o != nil && !IsNil(o.AccessKeyRegion) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *CloudCredentials) SetAccessKeyRegion(v string) {
 }
 
 func (o CloudCredentials) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccessKeyId) {
-		toSerialize["access_key_id"] = o.AccessKeyId
-	}
-	if !isNil(o.AccessKeySecret) {
-		toSerialize["access_key_secret"] = o.AccessKeySecret
-	}
-	if !isNil(o.AccessKeyRegion) {
-		toSerialize["access_key_region"] = o.AccessKeyRegion
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CloudCredentials) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AccessKeyId) {
+		toSerialize["access_key_id"] = o.AccessKeyId
+	}
+	if !IsNil(o.AccessKeySecret) {
+		toSerialize["access_key_secret"] = o.AccessKeySecret
+	}
+	if !IsNil(o.AccessKeyRegion) {
+		toSerialize["access_key_region"] = o.AccessKeyRegion
+	}
+	return toSerialize, nil
 }
 
 type NullableCloudCredentials struct {

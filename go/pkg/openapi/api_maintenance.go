@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// MaintenanceApiService MaintenanceApi service
-type MaintenanceApiService service
+// MaintenanceAPIService MaintenanceAPI service
+type MaintenanceAPIService service
 
 type ApiMaintenancePostRequest struct {
 	ctx context.Context
-	ApiService *MaintenanceApiService
+	ApiService *MaintenanceAPIService
 	maintenance *Maintenance
 }
 
@@ -45,7 +45,7 @@ MaintenancePost CreateJobInstance | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMaintenancePostRequest
 */
-func (a *MaintenanceApiService) MaintenancePost(ctx context.Context) ApiMaintenancePostRequest {
+func (a *MaintenanceAPIService) MaintenancePost(ctx context.Context) ApiMaintenancePostRequest {
 	return ApiMaintenancePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *MaintenanceApiService) MaintenancePost(ctx context.Context) ApiMaintena
 }
 
 // Execute executes the request
-func (a *MaintenanceApiService) MaintenancePostExecute(r ApiMaintenancePostRequest) (*http.Response, error) {
+func (a *MaintenanceAPIService) MaintenancePostExecute(r ApiMaintenancePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.MaintenancePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceAPIService.MaintenancePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *MaintenanceApiService) MaintenancePostExecute(r ApiMaintenancePostReque
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

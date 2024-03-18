@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataConfigServersMembersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataConfigServersMembersInner{}
+
 // JobsJobJobSpecJobDataConfigServersMembersInner struct for JobsJobJobSpecJobDataConfigServersMembersInner
 type JobsJobJobSpecJobDataConfigServersMembersInner struct {
 	Hostname *string `json:"hostname,omitempty"`
@@ -42,7 +45,7 @@ func NewJobsJobJobSpecJobDataConfigServersMembersInnerWithDefaults() *JobsJobJob
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostname(v string) {
 
 // GetHostnameData returns the HostnameData field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameData() string {
-	if o == nil || isNil(o.HostnameData) {
+	if o == nil || IsNil(o.HostnameData) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameData() strin
 // GetHostnameDataOk returns a tuple with the HostnameData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameDataOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameData) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameData) {
+		return nil, false
 	}
 	return o.HostnameData, true
 }
 
 // HasHostnameData returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostnameData() bool {
-	if o != nil && !isNil(o.HostnameData) {
+	if o != nil && !IsNil(o.HostnameData) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostnameData(v strin
 
 // GetHostnameInternal returns the HostnameInternal field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternal() string {
-	if o == nil || isNil(o.HostnameInternal) {
+	if o == nil || IsNil(o.HostnameInternal) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternal() s
 // GetHostnameInternalOk returns a tuple with the HostnameInternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetHostnameInternalOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameInternal) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameInternal) {
+		return nil, false
 	}
 	return o.HostnameInternal, true
 }
 
 // HasHostnameInternal returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasHostnameInternal() bool {
-	if o != nil && !isNil(o.HostnameInternal) {
+	if o != nil && !IsNil(o.HostnameInternal) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetHostnameInternal(v s
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPort() string {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPort() string {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) GetPortOk() (*string, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataConfigServersMembersInner) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -169,20 +172,28 @@ func (o *JobsJobJobSpecJobDataConfigServersMembersInner) SetPort(v string) {
 }
 
 func (o JobsJobJobSpecJobDataConfigServersMembersInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.HostnameData) {
-		toSerialize["hostname_data"] = o.HostnameData
-	}
-	if !isNil(o.HostnameInternal) {
-		toSerialize["hostname_internal"] = o.HostnameInternal
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataConfigServersMembersInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.HostnameData) {
+		toSerialize["hostname_data"] = o.HostnameData
+	}
+	if !IsNil(o.HostnameInternal) {
+		toSerialize["hostname_internal"] = o.HostnameInternal
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataConfigServersMembersInner struct {

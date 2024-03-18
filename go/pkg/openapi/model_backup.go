@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Backup type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Backup{}
 
 // Backup struct for Backup
 type Backup struct {
@@ -23,6 +28,8 @@ type Backup struct {
 	Schedule *BackupSchedule `json:"schedule,omitempty"`
 	BackupRecord *BackupBackupRecord `json:"backup_record,omitempty"`
 }
+
+type _Backup Backup
 
 // NewBackup instantiates a new Backup object
 // This constructor will assign default values to properties that have it defined,
@@ -56,7 +63,7 @@ func (o *Backup) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Backup) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +75,7 @@ func (o *Backup) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Backup) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -78,15 +85,15 @@ func (o *Backup) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Backup) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -100,7 +107,7 @@ func (o *Backup) SetClusterId(v int32) {
 
 // GetAscending returns the Ascending field value if set, zero value otherwise.
 func (o *Backup) GetAscending() bool {
-	if o == nil || isNil(o.Ascending) {
+	if o == nil || IsNil(o.Ascending) {
 		var ret bool
 		return ret
 	}
@@ -110,15 +117,15 @@ func (o *Backup) GetAscending() bool {
 // GetAscendingOk returns a tuple with the Ascending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetAscendingOk() (*bool, bool) {
-	if o == nil || isNil(o.Ascending) {
-    return nil, false
+	if o == nil || IsNil(o.Ascending) {
+		return nil, false
 	}
 	return o.Ascending, true
 }
 
 // HasAscending returns a boolean if a field has been set.
 func (o *Backup) HasAscending() bool {
-	if o != nil && !isNil(o.Ascending) {
+	if o != nil && !IsNil(o.Ascending) {
 		return true
 	}
 
@@ -132,7 +139,7 @@ func (o *Backup) SetAscending(v bool) {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *Backup) GetSchedule() BackupSchedule {
-	if o == nil || isNil(o.Schedule) {
+	if o == nil || IsNil(o.Schedule) {
 		var ret BackupSchedule
 		return ret
 	}
@@ -142,15 +149,15 @@ func (o *Backup) GetSchedule() BackupSchedule {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetScheduleOk() (*BackupSchedule, bool) {
-	if o == nil || isNil(o.Schedule) {
-    return nil, false
+	if o == nil || IsNil(o.Schedule) {
+		return nil, false
 	}
 	return o.Schedule, true
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *Backup) HasSchedule() bool {
-	if o != nil && !isNil(o.Schedule) {
+	if o != nil && !IsNil(o.Schedule) {
 		return true
 	}
 
@@ -164,7 +171,7 @@ func (o *Backup) SetSchedule(v BackupSchedule) {
 
 // GetBackupRecord returns the BackupRecord field value if set, zero value otherwise.
 func (o *Backup) GetBackupRecord() BackupBackupRecord {
-	if o == nil || isNil(o.BackupRecord) {
+	if o == nil || IsNil(o.BackupRecord) {
 		var ret BackupBackupRecord
 		return ret
 	}
@@ -174,15 +181,15 @@ func (o *Backup) GetBackupRecord() BackupBackupRecord {
 // GetBackupRecordOk returns a tuple with the BackupRecord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Backup) GetBackupRecordOk() (*BackupBackupRecord, bool) {
-	if o == nil || isNil(o.BackupRecord) {
-    return nil, false
+	if o == nil || IsNil(o.BackupRecord) {
+		return nil, false
 	}
 	return o.BackupRecord, true
 }
 
 // HasBackupRecord returns a boolean if a field has been set.
 func (o *Backup) HasBackupRecord() bool {
-	if o != nil && !isNil(o.BackupRecord) {
+	if o != nil && !IsNil(o.BackupRecord) {
 		return true
 	}
 
@@ -195,23 +202,66 @@ func (o *Backup) SetBackupRecord(v BackupBackupRecord) {
 }
 
 func (o Backup) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.Ascending) {
-		toSerialize["ascending"] = o.Ascending
-	}
-	if !isNil(o.Schedule) {
-		toSerialize["schedule"] = o.Schedule
-	}
-	if !isNil(o.BackupRecord) {
-		toSerialize["backup_record"] = o.BackupRecord
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Backup) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.Ascending) {
+		toSerialize["ascending"] = o.Ascending
+	}
+	if !IsNil(o.Schedule) {
+		toSerialize["schedule"] = o.Schedule
+	}
+	if !IsNil(o.BackupRecord) {
+		toSerialize["backup_record"] = o.BackupRecord
+	}
+	return toSerialize, nil
+}
+
+func (o *Backup) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBackup := _Backup{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBackup)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Backup(varBackup)
+
+	return err
 }
 
 type NullableBackup struct {

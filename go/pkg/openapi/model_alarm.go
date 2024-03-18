@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Alarm type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Alarm{}
 
 // Alarm struct for Alarm
 type Alarm struct {
@@ -23,6 +28,8 @@ type Alarm struct {
 	ClassName *string `json:"class_name,omitempty"`
 	Ignore *bool `json:"ignore,omitempty"`
 }
+
+type _Alarm Alarm
 
 // NewAlarm instantiates a new Alarm object
 // This constructor will assign default values to properties that have it defined,
@@ -56,7 +63,7 @@ func (o *Alarm) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +75,7 @@ func (o *Alarm) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Alarm) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -78,15 +85,15 @@ func (o *Alarm) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Alarm) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -100,7 +107,7 @@ func (o *Alarm) SetClusterId(v int32) {
 
 // GetAlarmId returns the AlarmId field value if set, zero value otherwise.
 func (o *Alarm) GetAlarmId() int32 {
-	if o == nil || isNil(o.AlarmId) {
+	if o == nil || IsNil(o.AlarmId) {
 		var ret int32
 		return ret
 	}
@@ -110,15 +117,15 @@ func (o *Alarm) GetAlarmId() int32 {
 // GetAlarmIdOk returns a tuple with the AlarmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetAlarmIdOk() (*int32, bool) {
-	if o == nil || isNil(o.AlarmId) {
-    return nil, false
+	if o == nil || IsNil(o.AlarmId) {
+		return nil, false
 	}
 	return o.AlarmId, true
 }
 
 // HasAlarmId returns a boolean if a field has been set.
 func (o *Alarm) HasAlarmId() bool {
-	if o != nil && !isNil(o.AlarmId) {
+	if o != nil && !IsNil(o.AlarmId) {
 		return true
 	}
 
@@ -132,7 +139,7 @@ func (o *Alarm) SetAlarmId(v int32) {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *Alarm) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -142,15 +149,15 @@ func (o *Alarm) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *Alarm) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -164,7 +171,7 @@ func (o *Alarm) SetClassName(v string) {
 
 // GetIgnore returns the Ignore field value if set, zero value otherwise.
 func (o *Alarm) GetIgnore() bool {
-	if o == nil || isNil(o.Ignore) {
+	if o == nil || IsNil(o.Ignore) {
 		var ret bool
 		return ret
 	}
@@ -174,15 +181,15 @@ func (o *Alarm) GetIgnore() bool {
 // GetIgnoreOk returns a tuple with the Ignore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Alarm) GetIgnoreOk() (*bool, bool) {
-	if o == nil || isNil(o.Ignore) {
-    return nil, false
+	if o == nil || IsNil(o.Ignore) {
+		return nil, false
 	}
 	return o.Ignore, true
 }
 
 // HasIgnore returns a boolean if a field has been set.
 func (o *Alarm) HasIgnore() bool {
-	if o != nil && !isNil(o.Ignore) {
+	if o != nil && !IsNil(o.Ignore) {
 		return true
 	}
 
@@ -195,23 +202,66 @@ func (o *Alarm) SetIgnore(v bool) {
 }
 
 func (o Alarm) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.AlarmId) {
-		toSerialize["alarm_id"] = o.AlarmId
-	}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Ignore) {
-		toSerialize["ignore"] = o.Ignore
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Alarm) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.AlarmId) {
+		toSerialize["alarm_id"] = o.AlarmId
+	}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Ignore) {
+		toSerialize["ignore"] = o.Ignore
+	}
+	return toSerialize, nil
+}
+
+func (o *Alarm) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAlarm := _Alarm{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAlarm)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Alarm(varAlarm)
+
+	return err
 }
 
 type NullableAlarm struct {

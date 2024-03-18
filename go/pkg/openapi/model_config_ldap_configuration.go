@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConfigLdapConfiguration type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConfigLdapConfiguration{}
+
 // ConfigLdapConfiguration struct for ConfigLdapConfiguration
 type ConfigLdapConfiguration struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -47,7 +50,7 @@ func NewConfigLdapConfigurationWithDefaults() *ConfigLdapConfiguration {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *ConfigLdapConfiguration) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
-    return nil, false
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *ConfigLdapConfiguration) SetEnabled(v bool) {
 
 // GetLdapAdminPassword returns the LdapAdminPassword field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapAdminPassword() string {
-	if o == nil || isNil(o.LdapAdminPassword) {
+	if o == nil || IsNil(o.LdapAdminPassword) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *ConfigLdapConfiguration) GetLdapAdminPassword() string {
 // GetLdapAdminPasswordOk returns a tuple with the LdapAdminPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapAdminPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.LdapAdminPassword) {
-    return nil, false
+	if o == nil || IsNil(o.LdapAdminPassword) {
+		return nil, false
 	}
 	return o.LdapAdminPassword, true
 }
 
 // HasLdapAdminPassword returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapAdminPassword() bool {
-	if o != nil && !isNil(o.LdapAdminPassword) {
+	if o != nil && !IsNil(o.LdapAdminPassword) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *ConfigLdapConfiguration) SetLdapAdminPassword(v string) {
 
 // GetLdapAdminUser returns the LdapAdminUser field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapAdminUser() string {
-	if o == nil || isNil(o.LdapAdminUser) {
+	if o == nil || IsNil(o.LdapAdminUser) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *ConfigLdapConfiguration) GetLdapAdminUser() string {
 // GetLdapAdminUserOk returns a tuple with the LdapAdminUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapAdminUserOk() (*string, bool) {
-	if o == nil || isNil(o.LdapAdminUser) {
-    return nil, false
+	if o == nil || IsNil(o.LdapAdminUser) {
+		return nil, false
 	}
 	return o.LdapAdminUser, true
 }
 
 // HasLdapAdminUser returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapAdminUser() bool {
-	if o != nil && !isNil(o.LdapAdminUser) {
+	if o != nil && !IsNil(o.LdapAdminUser) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *ConfigLdapConfiguration) SetLdapAdminUser(v string) {
 
 // GetLdapGroupSearchRoot returns the LdapGroupSearchRoot field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapGroupSearchRoot() string {
-	if o == nil || isNil(o.LdapGroupSearchRoot) {
+	if o == nil || IsNil(o.LdapGroupSearchRoot) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *ConfigLdapConfiguration) GetLdapGroupSearchRoot() string {
 // GetLdapGroupSearchRootOk returns a tuple with the LdapGroupSearchRoot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapGroupSearchRootOk() (*string, bool) {
-	if o == nil || isNil(o.LdapGroupSearchRoot) {
-    return nil, false
+	if o == nil || IsNil(o.LdapGroupSearchRoot) {
+		return nil, false
 	}
 	return o.LdapGroupSearchRoot, true
 }
 
 // HasLdapGroupSearchRoot returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapGroupSearchRoot() bool {
-	if o != nil && !isNil(o.LdapGroupSearchRoot) {
+	if o != nil && !IsNil(o.LdapGroupSearchRoot) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *ConfigLdapConfiguration) SetLdapGroupSearchRoot(v string) {
 
 // GetLdapServerUri returns the LdapServerUri field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapServerUri() string {
-	if o == nil || isNil(o.LdapServerUri) {
+	if o == nil || IsNil(o.LdapServerUri) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *ConfigLdapConfiguration) GetLdapServerUri() string {
 // GetLdapServerUriOk returns a tuple with the LdapServerUri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapServerUriOk() (*string, bool) {
-	if o == nil || isNil(o.LdapServerUri) {
-    return nil, false
+	if o == nil || IsNil(o.LdapServerUri) {
+		return nil, false
 	}
 	return o.LdapServerUri, true
 }
 
 // HasLdapServerUri returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapServerUri() bool {
-	if o != nil && !isNil(o.LdapServerUri) {
+	if o != nil && !IsNil(o.LdapServerUri) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *ConfigLdapConfiguration) SetLdapServerUri(v string) {
 
 // GetLdapUserSearchRoot returns the LdapUserSearchRoot field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapUserSearchRoot() string {
-	if o == nil || isNil(o.LdapUserSearchRoot) {
+	if o == nil || IsNil(o.LdapUserSearchRoot) {
 		var ret string
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *ConfigLdapConfiguration) GetLdapUserSearchRoot() string {
 // GetLdapUserSearchRootOk returns a tuple with the LdapUserSearchRoot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapUserSearchRootOk() (*string, bool) {
-	if o == nil || isNil(o.LdapUserSearchRoot) {
-    return nil, false
+	if o == nil || IsNil(o.LdapUserSearchRoot) {
+		return nil, false
 	}
 	return o.LdapUserSearchRoot, true
 }
 
 // HasLdapUserSearchRoot returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapUserSearchRoot() bool {
-	if o != nil && !isNil(o.LdapUserSearchRoot) {
+	if o != nil && !IsNil(o.LdapUserSearchRoot) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *ConfigLdapConfiguration) SetLdapUserSearchRoot(v string) {
 
 // GetGroupMappings returns the GroupMappings field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetGroupMappings() []ConfigLdapConfigurationGroupMappingsInner {
-	if o == nil || isNil(o.GroupMappings) {
+	if o == nil || IsNil(o.GroupMappings) {
 		var ret []ConfigLdapConfigurationGroupMappingsInner
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *ConfigLdapConfiguration) GetGroupMappings() []ConfigLdapConfigurationGr
 // GetGroupMappingsOk returns a tuple with the GroupMappings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetGroupMappingsOk() ([]ConfigLdapConfigurationGroupMappingsInner, bool) {
-	if o == nil || isNil(o.GroupMappings) {
-    return nil, false
+	if o == nil || IsNil(o.GroupMappings) {
+		return nil, false
 	}
 	return o.GroupMappings, true
 }
 
 // HasGroupMappings returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasGroupMappings() bool {
-	if o != nil && !isNil(o.GroupMappings) {
+	if o != nil && !IsNil(o.GroupMappings) {
 		return true
 	}
 
@@ -271,7 +274,7 @@ func (o *ConfigLdapConfiguration) SetGroupMappings(v []ConfigLdapConfigurationGr
 
 // GetLdapSettings returns the LdapSettings field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetLdapSettings() ConfigLdapConfigurationLdapSettings {
-	if o == nil || isNil(o.LdapSettings) {
+	if o == nil || IsNil(o.LdapSettings) {
 		var ret ConfigLdapConfigurationLdapSettings
 		return ret
 	}
@@ -281,15 +284,15 @@ func (o *ConfigLdapConfiguration) GetLdapSettings() ConfigLdapConfigurationLdapS
 // GetLdapSettingsOk returns a tuple with the LdapSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetLdapSettingsOk() (*ConfigLdapConfigurationLdapSettings, bool) {
-	if o == nil || isNil(o.LdapSettings) {
-    return nil, false
+	if o == nil || IsNil(o.LdapSettings) {
+		return nil, false
 	}
 	return o.LdapSettings, true
 }
 
 // HasLdapSettings returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasLdapSettings() bool {
-	if o != nil && !isNil(o.LdapSettings) {
+	if o != nil && !IsNil(o.LdapSettings) {
 		return true
 	}
 
@@ -303,7 +306,7 @@ func (o *ConfigLdapConfiguration) SetLdapSettings(v ConfigLdapConfigurationLdapS
 
 // GetSecurity returns the Security field value if set, zero value otherwise.
 func (o *ConfigLdapConfiguration) GetSecurity() ConfigLdapConfigurationSecurity {
-	if o == nil || isNil(o.Security) {
+	if o == nil || IsNil(o.Security) {
 		var ret ConfigLdapConfigurationSecurity
 		return ret
 	}
@@ -313,15 +316,15 @@ func (o *ConfigLdapConfiguration) GetSecurity() ConfigLdapConfigurationSecurity 
 // GetSecurityOk returns a tuple with the Security field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfiguration) GetSecurityOk() (*ConfigLdapConfigurationSecurity, bool) {
-	if o == nil || isNil(o.Security) {
-    return nil, false
+	if o == nil || IsNil(o.Security) {
+		return nil, false
 	}
 	return o.Security, true
 }
 
 // HasSecurity returns a boolean if a field has been set.
 func (o *ConfigLdapConfiguration) HasSecurity() bool {
-	if o != nil && !isNil(o.Security) {
+	if o != nil && !IsNil(o.Security) {
 		return true
 	}
 
@@ -334,35 +337,43 @@ func (o *ConfigLdapConfiguration) SetSecurity(v ConfigLdapConfigurationSecurity)
 }
 
 func (o ConfigLdapConfiguration) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Enabled) {
-		toSerialize["enabled"] = o.Enabled
-	}
-	if !isNil(o.LdapAdminPassword) {
-		toSerialize["ldapAdminPassword"] = o.LdapAdminPassword
-	}
-	if !isNil(o.LdapAdminUser) {
-		toSerialize["ldapAdminUser"] = o.LdapAdminUser
-	}
-	if !isNil(o.LdapGroupSearchRoot) {
-		toSerialize["ldapGroupSearchRoot"] = o.LdapGroupSearchRoot
-	}
-	if !isNil(o.LdapServerUri) {
-		toSerialize["ldapServerUri"] = o.LdapServerUri
-	}
-	if !isNil(o.LdapUserSearchRoot) {
-		toSerialize["ldapUserSearchRoot"] = o.LdapUserSearchRoot
-	}
-	if !isNil(o.GroupMappings) {
-		toSerialize["groupMappings"] = o.GroupMappings
-	}
-	if !isNil(o.LdapSettings) {
-		toSerialize["ldapSettings"] = o.LdapSettings
-	}
-	if !isNil(o.Security) {
-		toSerialize["security"] = o.Security
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConfigLdapConfiguration) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.LdapAdminPassword) {
+		toSerialize["ldapAdminPassword"] = o.LdapAdminPassword
+	}
+	if !IsNil(o.LdapAdminUser) {
+		toSerialize["ldapAdminUser"] = o.LdapAdminUser
+	}
+	if !IsNil(o.LdapGroupSearchRoot) {
+		toSerialize["ldapGroupSearchRoot"] = o.LdapGroupSearchRoot
+	}
+	if !IsNil(o.LdapServerUri) {
+		toSerialize["ldapServerUri"] = o.LdapServerUri
+	}
+	if !IsNil(o.LdapUserSearchRoot) {
+		toSerialize["ldapUserSearchRoot"] = o.LdapUserSearchRoot
+	}
+	if !IsNil(o.GroupMappings) {
+		toSerialize["groupMappings"] = o.GroupMappings
+	}
+	if !IsNil(o.LdapSettings) {
+		toSerialize["ldapSettings"] = o.LdapSettings
+	}
+	if !IsNil(o.Security) {
+		toSerialize["security"] = o.Security
+	}
+	return toSerialize, nil
 }
 
 type NullableConfigLdapConfiguration struct {

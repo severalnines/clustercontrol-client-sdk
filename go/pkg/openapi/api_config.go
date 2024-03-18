@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// ConfigApiService ConfigApi service
-type ConfigApiService service
+// ConfigAPIService ConfigAPI service
+type ConfigAPIService service
 
 type ApiConfigPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigApiService
+	ApiService *ConfigAPIService
 	config *Config
 }
 
@@ -45,7 +45,7 @@ ConfigPost GetConfig | xxx | xxx | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiConfigPostRequest
 */
-func (a *ConfigApiService) ConfigPost(ctx context.Context) ApiConfigPostRequest {
+func (a *ConfigAPIService) ConfigPost(ctx context.Context) ApiConfigPostRequest {
 	return ApiConfigPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *ConfigApiService) ConfigPost(ctx context.Context) ApiConfigPostRequest 
 }
 
 // Execute executes the request
-func (a *ConfigApiService) ConfigPostExecute(r ApiConfigPostRequest) (*http.Response, error) {
+func (a *ConfigAPIService) ConfigPostExecute(r ApiConfigPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigApiService.ConfigPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigAPIService.ConfigPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *ConfigApiService) ConfigPostExecute(r ApiConfigPostRequest) (*http.Resp
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

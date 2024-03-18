@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UsersUserPublicKeysInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UsersUserPublicKeysInner{}
+
 // UsersUserPublicKeysInner struct for UsersUserPublicKeysInner
 type UsersUserPublicKeysInner struct {
 	Key *string `json:"key,omitempty"`
@@ -40,7 +43,7 @@ func NewUsersUserPublicKeysInnerWithDefaults() *UsersUserPublicKeysInner {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *UsersUserPublicKeysInner) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *UsersUserPublicKeysInner) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserPublicKeysInner) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
-    return nil, false
+	if o == nil || IsNil(o.Key) {
+		return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *UsersUserPublicKeysInner) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *UsersUserPublicKeysInner) SetKey(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *UsersUserPublicKeysInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *UsersUserPublicKeysInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsersUserPublicKeysInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *UsersUserPublicKeysInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *UsersUserPublicKeysInner) SetName(v string) {
 }
 
 func (o UsersUserPublicKeysInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Key) {
-		toSerialize["key"] = o.Key
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UsersUserPublicKeysInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Key) {
+		toSerialize["key"] = o.Key
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	return toSerialize, nil
 }
 
 type NullableUsersUserPublicKeysInner struct {

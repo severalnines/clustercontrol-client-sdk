@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the StatPrometheus type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatPrometheus{}
 
 // StatPrometheus struct for StatPrometheus
 type StatPrometheus struct {
@@ -28,6 +33,8 @@ type StatPrometheus struct {
 	Step *int32 `json:"step,omitempty"`
 	Returnfrom *int32 `json:"returnfrom,omitempty"`
 }
+
+type _StatPrometheus StatPrometheus
 
 // NewStatPrometheus instantiates a new StatPrometheus object
 // This constructor will assign default values to properties that have it defined,
@@ -61,7 +68,7 @@ func (o *StatPrometheus) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -73,7 +80,7 @@ func (o *StatPrometheus) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *StatPrometheus) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -83,15 +90,15 @@ func (o *StatPrometheus) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *StatPrometheus) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -105,7 +112,7 @@ func (o *StatPrometheus) SetClusterId(v int32) {
 
 // GetClusterName returns the ClusterName field value if set, zero value otherwise.
 func (o *StatPrometheus) GetClusterName() string {
-	if o == nil || isNil(o.ClusterName) {
+	if o == nil || IsNil(o.ClusterName) {
 		var ret string
 		return ret
 	}
@@ -115,15 +122,15 @@ func (o *StatPrometheus) GetClusterName() string {
 // GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClusterName) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterName) {
+		return nil, false
 	}
 	return o.ClusterName, true
 }
 
 // HasClusterName returns a boolean if a field has been set.
 func (o *StatPrometheus) HasClusterName() bool {
-	if o != nil && !isNil(o.ClusterName) {
+	if o != nil && !IsNil(o.ClusterName) {
 		return true
 	}
 
@@ -137,7 +144,7 @@ func (o *StatPrometheus) SetClusterName(v string) {
 
 // GetQueries returns the Queries field value if set, zero value otherwise.
 func (o *StatPrometheus) GetQueries() []StatPrometheusQueriesInner {
-	if o == nil || isNil(o.Queries) {
+	if o == nil || IsNil(o.Queries) {
 		var ret []StatPrometheusQueriesInner
 		return ret
 	}
@@ -147,15 +154,15 @@ func (o *StatPrometheus) GetQueries() []StatPrometheusQueriesInner {
 // GetQueriesOk returns a tuple with the Queries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetQueriesOk() ([]StatPrometheusQueriesInner, bool) {
-	if o == nil || isNil(o.Queries) {
-    return nil, false
+	if o == nil || IsNil(o.Queries) {
+		return nil, false
 	}
 	return o.Queries, true
 }
 
 // HasQueries returns a boolean if a field has been set.
 func (o *StatPrometheus) HasQueries() bool {
-	if o != nil && !isNil(o.Queries) {
+	if o != nil && !IsNil(o.Queries) {
 		return true
 	}
 
@@ -169,7 +176,7 @@ func (o *StatPrometheus) SetQueries(v []StatPrometheusQueriesInner) {
 
 // GetStart returns the Start field value if set, zero value otherwise.
 func (o *StatPrometheus) GetStart() int32 {
-	if o == nil || isNil(o.Start) {
+	if o == nil || IsNil(o.Start) {
 		var ret int32
 		return ret
 	}
@@ -179,15 +186,15 @@ func (o *StatPrometheus) GetStart() int32 {
 // GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetStartOk() (*int32, bool) {
-	if o == nil || isNil(o.Start) {
-    return nil, false
+	if o == nil || IsNil(o.Start) {
+		return nil, false
 	}
 	return o.Start, true
 }
 
 // HasStart returns a boolean if a field has been set.
 func (o *StatPrometheus) HasStart() bool {
-	if o != nil && !isNil(o.Start) {
+	if o != nil && !IsNil(o.Start) {
 		return true
 	}
 
@@ -201,7 +208,7 @@ func (o *StatPrometheus) SetStart(v int32) {
 
 // GetEnd returns the End field value if set, zero value otherwise.
 func (o *StatPrometheus) GetEnd() int32 {
-	if o == nil || isNil(o.End) {
+	if o == nil || IsNil(o.End) {
 		var ret int32
 		return ret
 	}
@@ -211,15 +218,15 @@ func (o *StatPrometheus) GetEnd() int32 {
 // GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetEndOk() (*int32, bool) {
-	if o == nil || isNil(o.End) {
-    return nil, false
+	if o == nil || IsNil(o.End) {
+		return nil, false
 	}
 	return o.End, true
 }
 
 // HasEnd returns a boolean if a field has been set.
 func (o *StatPrometheus) HasEnd() bool {
-	if o != nil && !isNil(o.End) {
+	if o != nil && !IsNil(o.End) {
 		return true
 	}
 
@@ -233,7 +240,7 @@ func (o *StatPrometheus) SetEnd(v int32) {
 
 // GetStep returns the Step field value if set, zero value otherwise.
 func (o *StatPrometheus) GetStep() int32 {
-	if o == nil || isNil(o.Step) {
+	if o == nil || IsNil(o.Step) {
 		var ret int32
 		return ret
 	}
@@ -243,15 +250,15 @@ func (o *StatPrometheus) GetStep() int32 {
 // GetStepOk returns a tuple with the Step field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetStepOk() (*int32, bool) {
-	if o == nil || isNil(o.Step) {
-    return nil, false
+	if o == nil || IsNil(o.Step) {
+		return nil, false
 	}
 	return o.Step, true
 }
 
 // HasStep returns a boolean if a field has been set.
 func (o *StatPrometheus) HasStep() bool {
-	if o != nil && !isNil(o.Step) {
+	if o != nil && !IsNil(o.Step) {
 		return true
 	}
 
@@ -265,7 +272,7 @@ func (o *StatPrometheus) SetStep(v int32) {
 
 // GetReturnfrom returns the Returnfrom field value if set, zero value otherwise.
 func (o *StatPrometheus) GetReturnfrom() int32 {
-	if o == nil || isNil(o.Returnfrom) {
+	if o == nil || IsNil(o.Returnfrom) {
 		var ret int32
 		return ret
 	}
@@ -275,15 +282,15 @@ func (o *StatPrometheus) GetReturnfrom() int32 {
 // GetReturnfromOk returns a tuple with the Returnfrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheus) GetReturnfromOk() (*int32, bool) {
-	if o == nil || isNil(o.Returnfrom) {
-    return nil, false
+	if o == nil || IsNil(o.Returnfrom) {
+		return nil, false
 	}
 	return o.Returnfrom, true
 }
 
 // HasReturnfrom returns a boolean if a field has been set.
 func (o *StatPrometheus) HasReturnfrom() bool {
-	if o != nil && !isNil(o.Returnfrom) {
+	if o != nil && !IsNil(o.Returnfrom) {
 		return true
 	}
 
@@ -296,32 +303,75 @@ func (o *StatPrometheus) SetReturnfrom(v int32) {
 }
 
 func (o StatPrometheus) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.ClusterName) {
-		toSerialize["cluster_name"] = o.ClusterName
-	}
-	if !isNil(o.Queries) {
-		toSerialize["queries"] = o.Queries
-	}
-	if !isNil(o.Start) {
-		toSerialize["start"] = o.Start
-	}
-	if !isNil(o.End) {
-		toSerialize["end"] = o.End
-	}
-	if !isNil(o.Step) {
-		toSerialize["step"] = o.Step
-	}
-	if !isNil(o.Returnfrom) {
-		toSerialize["returnfrom"] = o.Returnfrom
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatPrometheus) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.ClusterName) {
+		toSerialize["cluster_name"] = o.ClusterName
+	}
+	if !IsNil(o.Queries) {
+		toSerialize["queries"] = o.Queries
+	}
+	if !IsNil(o.Start) {
+		toSerialize["start"] = o.Start
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
+	if !IsNil(o.Step) {
+		toSerialize["step"] = o.Step
+	}
+	if !IsNil(o.Returnfrom) {
+		toSerialize["returnfrom"] = o.Returnfrom
+	}
+	return toSerialize, nil
+}
+
+func (o *StatPrometheus) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varStatPrometheus := _StatPrometheus{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varStatPrometheus)
+
+	if err != nil {
+		return err
+	}
+
+	*o = StatPrometheus(varStatPrometheus)
+
+	return err
 }
 
 type NullableStatPrometheus struct {

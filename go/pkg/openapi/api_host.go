@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// HostApiService HostApi service
-type HostApiService service
+// HostAPIService HostAPI service
+type HostAPIService service
 
 type ApiHostPostRequest struct {
 	ctx context.Context
-	ApiService *HostApiService
+	ApiService *HostAPIService
 	host *Host
 }
 
@@ -45,7 +45,7 @@ HostPost Path for managing servers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHostPostRequest
 */
-func (a *HostApiService) HostPost(ctx context.Context) ApiHostPostRequest {
+func (a *HostAPIService) HostPost(ctx context.Context) ApiHostPostRequest {
 	return ApiHostPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *HostApiService) HostPost(ctx context.Context) ApiHostPostRequest {
 }
 
 // Execute executes the request
-func (a *HostApiService) HostPostExecute(r ApiHostPostRequest) (*http.Response, error) {
+func (a *HostAPIService) HostPostExecute(r ApiHostPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HostApiService.HostPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HostAPIService.HostPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *HostApiService) HostPostExecute(r ApiHostPostRequest) (*http.Response, 
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

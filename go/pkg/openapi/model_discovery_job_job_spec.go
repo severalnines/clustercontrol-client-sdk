@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiscoveryJobJobSpec type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscoveryJobJobSpec{}
+
 // DiscoveryJobJobSpec struct for DiscoveryJobJobSpec
 type DiscoveryJobJobSpec struct {
 	Command *string `json:"command,omitempty"`
@@ -40,7 +43,7 @@ func NewDiscoveryJobJobSpecWithDefaults() *DiscoveryJobJobSpec {
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpec) GetCommand() string {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *DiscoveryJobJobSpec) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpec) GetCommandOk() (*string, bool) {
-	if o == nil || isNil(o.Command) {
-    return nil, false
+	if o == nil || IsNil(o.Command) {
+		return nil, false
 	}
 	return o.Command, true
 }
 
 // HasCommand returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpec) HasCommand() bool {
-	if o != nil && !isNil(o.Command) {
+	if o != nil && !IsNil(o.Command) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *DiscoveryJobJobSpec) SetCommand(v string) {
 
 // GetJobData returns the JobData field value if set, zero value otherwise.
 func (o *DiscoveryJobJobSpec) GetJobData() DiscoveryJobJobSpecJobData {
-	if o == nil || isNil(o.JobData) {
+	if o == nil || IsNil(o.JobData) {
 		var ret DiscoveryJobJobSpecJobData
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *DiscoveryJobJobSpec) GetJobData() DiscoveryJobJobSpecJobData {
 // GetJobDataOk returns a tuple with the JobData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryJobJobSpec) GetJobDataOk() (*DiscoveryJobJobSpecJobData, bool) {
-	if o == nil || isNil(o.JobData) {
-    return nil, false
+	if o == nil || IsNil(o.JobData) {
+		return nil, false
 	}
 	return o.JobData, true
 }
 
 // HasJobData returns a boolean if a field has been set.
 func (o *DiscoveryJobJobSpec) HasJobData() bool {
-	if o != nil && !isNil(o.JobData) {
+	if o != nil && !IsNil(o.JobData) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *DiscoveryJobJobSpec) SetJobData(v DiscoveryJobJobSpecJobData) {
 }
 
 func (o DiscoveryJobJobSpec) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Command) {
-		toSerialize["command"] = o.Command
-	}
-	if !isNil(o.JobData) {
-		toSerialize["job_data"] = o.JobData
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DiscoveryJobJobSpec) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Command) {
+		toSerialize["command"] = o.Command
+	}
+	if !IsNil(o.JobData) {
+		toSerialize["job_data"] = o.JobData
+	}
+	return toSerialize, nil
 }
 
 type NullableDiscoveryJobJobSpec struct {

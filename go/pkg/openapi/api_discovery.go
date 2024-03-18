@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// DiscoveryApiService DiscoveryApi service
-type DiscoveryApiService service
+// DiscoveryAPIService DiscoveryAPI service
+type DiscoveryAPIService service
 
 type ApiDiscoveryPostRequest struct {
 	ctx context.Context
-	ApiService *DiscoveryApiService
+	ApiService *DiscoveryAPIService
 	discovery *Discovery
 }
 
@@ -45,7 +45,7 @@ DiscoveryPost CheckClusterName | CheckHosts | GetSupportedClusterTypes
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDiscoveryPostRequest
 */
-func (a *DiscoveryApiService) DiscoveryPost(ctx context.Context) ApiDiscoveryPostRequest {
+func (a *DiscoveryAPIService) DiscoveryPost(ctx context.Context) ApiDiscoveryPostRequest {
 	return ApiDiscoveryPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *DiscoveryApiService) DiscoveryPost(ctx context.Context) ApiDiscoveryPos
 }
 
 // Execute executes the request
-func (a *DiscoveryApiService) DiscoveryPostExecute(r ApiDiscoveryPostRequest) (*http.Response, error) {
+func (a *DiscoveryAPIService) DiscoveryPostExecute(r ApiDiscoveryPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiscoveryApiService.DiscoveryPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DiscoveryAPIService.DiscoveryPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *DiscoveryApiService) DiscoveryPostExecute(r ApiDiscoveryPostRequest) (*
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
