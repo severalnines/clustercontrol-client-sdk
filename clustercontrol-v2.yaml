@@ -930,7 +930,7 @@ components:
               properties:
                 command:
                   type: string
-                  enum: ["rolling_restart","create_cluster","remove_cluster",
+                  enum: ["rolling_restart","create_cluster","remove_cluster","add_cluster",
                   "backup","verify_backup","deploy_agents","pbmagent","addnode",
                   "pgbouncer","promote_replication_slave","setup_audit_logging",
                   "disable_recovery","enable_recovery","restart","enable_db_readonly",
@@ -1142,12 +1142,14 @@ components:
                       type: string
                     bootstrap:
                       type: boolean
-                    snapshot_locaiton:
+                    snapshot_location:
                       type: string
                     snapshot_repository:
                       type: string
                     storage_host:
                       type: string
+                    deploy_agents:
+                      type: boolean
                     upload_backup_data_to_cloud_storage:
                       type: object
                       properties:
@@ -1359,7 +1361,7 @@ components:
                                 hidden:
                                   type: boolean
                                 priority:
-                                  type: string
+                                  type: integer
                                 slave_delay:
                                   type: string
                     with_tags:
