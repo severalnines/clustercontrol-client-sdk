@@ -126,7 +126,10 @@ paths:
       responses:
         200:
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterResponse'
         405:
           description: Unauthorized
           content: {}
@@ -601,6 +604,89 @@ components:
           items:
             type: string
             description: List of nodes (hosts) to query available package upgrades on
+    ClusterResponse:
+      type: object
+      properties:
+        class_name:
+          type: string
+        operation:
+          type: string
+        cluster_id:
+          type: integer
+        cluster_name:
+          type: string
+        cluster_type:
+          type: string
+        vendor:
+          type: string
+        version:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        hosts:
+          type: array
+          items:
+            type: object
+            properties:
+              class_name:
+                type: string
+              hostid:
+                type: integer
+              datadir:
+                type: string
+              hostname:
+                type: string
+              hostname_data:
+                type: string
+              hostname_internal:
+                type: string
+              role:
+                type: string
+              synchronous:
+                type: boolean
+              member_role:
+                type: string
+              roleid:
+                type: integer
+              rs:
+                type: string
+              version:
+                type: string
+              elastic_roles:
+                type: string
+              replica:
+                type: object
+                properties:
+                  availability_mode:
+                    type: string
+                  failover_mode:
+                    type: string
+                  connected_state:
+                    type: string              
+              replicaiton_slave:
+                type: object
+                properties:
+                  master_host:
+                    type: string
+                  master_cluster_id:
+                    type: integer
+                  semisync_status:
+                    type: string
+              replication_master:
+                type: object
+                properties:
+                  slave_info:
+                    type: object
+                    properties:
+                      slaves:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            failover_mode:
+                              type: string
     Config:
       type: object
       required:
