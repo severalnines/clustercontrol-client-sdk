@@ -1,10 +1,10 @@
-# \HostApi
+# \HostAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HostPost**](HostApi.md#HostPost) | **Post** /host | Path for managing servers
+[**HostPost**](HostAPI.md#HostPost) | **Post** /host | Path for managing servers
 
 
 
@@ -20,22 +20,22 @@ Path for managing servers
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    host := *openapiclient.NewHost("Operation_example") // Host | (Un)Register servers, Shutdown servers, etc
+	host := *openapiclient.NewHost("Operation_example") // Host | (Un)Register servers, Shutdown servers, etc
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HostApi.HostPost(context.Background()).Host(host).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `HostApi.HostPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.HostAPI.HostPost(context.Background()).Host(host).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `HostAPI.HostPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

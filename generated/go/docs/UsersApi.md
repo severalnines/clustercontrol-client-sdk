@@ -1,10 +1,10 @@
-# \UsersApi
+# \UsersAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UsersPost**](UsersApi.md#UsersPost) | **Post** /users | CreateUser | etc
+[**UsersPost**](UsersAPI.md#UsersPost) | **Post** /users | CreateUser | etc
 
 
 
@@ -20,22 +20,22 @@ CreateUser | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    users := *openapiclient.NewUsers("Operation_example") // Users | Manipulate Cmon Users, users that are maintained by the Cmon controller
+	users := *openapiclient.NewUsers("Operation_example") // Users | Manipulate Cmon Users, users that are maintained by the Cmon controller
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.UsersPost(context.Background()).Users(users).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.UsersPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UsersAPI.UsersPost(context.Background()).Users(users).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UsersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

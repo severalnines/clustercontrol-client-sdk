@@ -1,10 +1,10 @@
-# \JobsApi
+# \JobsAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**JobsPost**](JobsApi.md#JobsPost) | **Post** /jobs | CreateJobInstance | etc
+[**JobsPost**](JobsAPI.md#JobsPost) | **Post** /jobs | CreateJobInstance | etc
 
 
 
@@ -20,22 +20,22 @@ CreateJobInstance | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    jobs := *openapiclient.NewJobs("Operation_example") // Jobs | Creating, manipulating, and obtaining information about jobs
+	jobs := *openapiclient.NewJobs("Operation_example") // Jobs | Creating, manipulating, and obtaining information about jobs
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsApi.JobsPost(context.Background()).Jobs(jobs).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsApi.JobsPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.JobsAPI.JobsPost(context.Background()).Jobs(jobs).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.JobsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

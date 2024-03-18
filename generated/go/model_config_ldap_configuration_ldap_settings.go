@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConfigLdapConfigurationLdapSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConfigLdapConfigurationLdapSettings{}
+
 // ConfigLdapConfigurationLdapSettings struct for ConfigLdapConfigurationLdapSettings
 type ConfigLdapConfigurationLdapSettings struct {
 	LdapEmailAttributes *string `json:"ldapEmailAttributes,omitempty"`
@@ -49,7 +52,7 @@ func NewConfigLdapConfigurationLdapSettingsWithDefaults() *ConfigLdapConfigurati
 
 // GetLdapEmailAttributes returns the LdapEmailAttributes field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapEmailAttributes() string {
-	if o == nil || isNil(o.LdapEmailAttributes) {
+	if o == nil || IsNil(o.LdapEmailAttributes) {
 		var ret string
 		return ret
 	}
@@ -59,15 +62,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapEmailAttributes() string {
 // GetLdapEmailAttributesOk returns a tuple with the LdapEmailAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapEmailAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.LdapEmailAttributes) {
-    return nil, false
+	if o == nil || IsNil(o.LdapEmailAttributes) {
+		return nil, false
 	}
 	return o.LdapEmailAttributes, true
 }
 
 // HasLdapEmailAttributes returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapEmailAttributes() bool {
-	if o != nil && !isNil(o.LdapEmailAttributes) {
+	if o != nil && !IsNil(o.LdapEmailAttributes) {
 		return true
 	}
 
@@ -81,7 +84,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapEmailAttributes(v string) {
 
 // GetLdapGroupClassName returns the LdapGroupClassName field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupClassName() string {
-	if o == nil || isNil(o.LdapGroupClassName) {
+	if o == nil || IsNil(o.LdapGroupClassName) {
 		var ret string
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupClassName() string {
 // GetLdapGroupClassNameOk returns a tuple with the LdapGroupClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.LdapGroupClassName) {
-    return nil, false
+	if o == nil || IsNil(o.LdapGroupClassName) {
+		return nil, false
 	}
 	return o.LdapGroupClassName, true
 }
 
 // HasLdapGroupClassName returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapGroupClassName() bool {
-	if o != nil && !isNil(o.LdapGroupClassName) {
+	if o != nil && !IsNil(o.LdapGroupClassName) {
 		return true
 	}
 
@@ -113,7 +116,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapGroupClassName(v string) {
 
 // GetLdapGroupIdAttributes returns the LdapGroupIdAttributes field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupIdAttributes() string {
-	if o == nil || isNil(o.LdapGroupIdAttributes) {
+	if o == nil || IsNil(o.LdapGroupIdAttributes) {
 		var ret string
 		return ret
 	}
@@ -123,15 +126,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupIdAttributes() string 
 // GetLdapGroupIdAttributesOk returns a tuple with the LdapGroupIdAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupIdAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.LdapGroupIdAttributes) {
-    return nil, false
+	if o == nil || IsNil(o.LdapGroupIdAttributes) {
+		return nil, false
 	}
 	return o.LdapGroupIdAttributes, true
 }
 
 // HasLdapGroupIdAttributes returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapGroupIdAttributes() bool {
-	if o != nil && !isNil(o.LdapGroupIdAttributes) {
+	if o != nil && !IsNil(o.LdapGroupIdAttributes) {
 		return true
 	}
 
@@ -145,7 +148,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapGroupIdAttributes(v string)
 
 // GetLdapGroupNameAttribute returns the LdapGroupNameAttribute field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupNameAttribute() string {
-	if o == nil || isNil(o.LdapGroupNameAttribute) {
+	if o == nil || IsNil(o.LdapGroupNameAttribute) {
 		var ret string
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupNameAttribute() string
 // GetLdapGroupNameAttributeOk returns a tuple with the LdapGroupNameAttribute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapGroupNameAttributeOk() (*string, bool) {
-	if o == nil || isNil(o.LdapGroupNameAttribute) {
-    return nil, false
+	if o == nil || IsNil(o.LdapGroupNameAttribute) {
+		return nil, false
 	}
 	return o.LdapGroupNameAttribute, true
 }
 
 // HasLdapGroupNameAttribute returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapGroupNameAttribute() bool {
-	if o != nil && !isNil(o.LdapGroupNameAttribute) {
+	if o != nil && !IsNil(o.LdapGroupNameAttribute) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapGroupNameAttribute(v string
 
 // GetLdapMemberAttributes returns the LdapMemberAttributes field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapMemberAttributes() string {
-	if o == nil || isNil(o.LdapMemberAttributes) {
+	if o == nil || IsNil(o.LdapMemberAttributes) {
 		var ret string
 		return ret
 	}
@@ -187,15 +190,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapMemberAttributes() string {
 // GetLdapMemberAttributesOk returns a tuple with the LdapMemberAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapMemberAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.LdapMemberAttributes) {
-    return nil, false
+	if o == nil || IsNil(o.LdapMemberAttributes) {
+		return nil, false
 	}
 	return o.LdapMemberAttributes, true
 }
 
 // HasLdapMemberAttributes returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapMemberAttributes() bool {
-	if o != nil && !isNil(o.LdapMemberAttributes) {
+	if o != nil && !IsNil(o.LdapMemberAttributes) {
 		return true
 	}
 
@@ -209,7 +212,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapMemberAttributes(v string) 
 
 // GetLdapNetworkTimeout returns the LdapNetworkTimeout field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapNetworkTimeout() string {
-	if o == nil || isNil(o.LdapNetworkTimeout) {
+	if o == nil || IsNil(o.LdapNetworkTimeout) {
 		var ret string
 		return ret
 	}
@@ -219,15 +222,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapNetworkTimeout() string {
 // GetLdapNetworkTimeoutOk returns a tuple with the LdapNetworkTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapNetworkTimeoutOk() (*string, bool) {
-	if o == nil || isNil(o.LdapNetworkTimeout) {
-    return nil, false
+	if o == nil || IsNil(o.LdapNetworkTimeout) {
+		return nil, false
 	}
 	return o.LdapNetworkTimeout, true
 }
 
 // HasLdapNetworkTimeout returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapNetworkTimeout() bool {
-	if o != nil && !isNil(o.LdapNetworkTimeout) {
+	if o != nil && !IsNil(o.LdapNetworkTimeout) {
 		return true
 	}
 
@@ -241,7 +244,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapNetworkTimeout(v string) {
 
 // GetLdapProtocolVersion returns the LdapProtocolVersion field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapProtocolVersion() string {
-	if o == nil || isNil(o.LdapProtocolVersion) {
+	if o == nil || IsNil(o.LdapProtocolVersion) {
 		var ret string
 		return ret
 	}
@@ -251,15 +254,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapProtocolVersion() string {
 // GetLdapProtocolVersionOk returns a tuple with the LdapProtocolVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapProtocolVersionOk() (*string, bool) {
-	if o == nil || isNil(o.LdapProtocolVersion) {
-    return nil, false
+	if o == nil || IsNil(o.LdapProtocolVersion) {
+		return nil, false
 	}
 	return o.LdapProtocolVersion, true
 }
 
 // HasLdapProtocolVersion returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapProtocolVersion() bool {
-	if o != nil && !isNil(o.LdapProtocolVersion) {
+	if o != nil && !IsNil(o.LdapProtocolVersion) {
 		return true
 	}
 
@@ -273,7 +276,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapProtocolVersion(v string) {
 
 // GetLdapQueryTimeLimit returns the LdapQueryTimeLimit field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapQueryTimeLimit() string {
-	if o == nil || isNil(o.LdapQueryTimeLimit) {
+	if o == nil || IsNil(o.LdapQueryTimeLimit) {
 		var ret string
 		return ret
 	}
@@ -283,15 +286,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapQueryTimeLimit() string {
 // GetLdapQueryTimeLimitOk returns a tuple with the LdapQueryTimeLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapQueryTimeLimitOk() (*string, bool) {
-	if o == nil || isNil(o.LdapQueryTimeLimit) {
-    return nil, false
+	if o == nil || IsNil(o.LdapQueryTimeLimit) {
+		return nil, false
 	}
 	return o.LdapQueryTimeLimit, true
 }
 
 // HasLdapQueryTimeLimit returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapQueryTimeLimit() bool {
-	if o != nil && !isNil(o.LdapQueryTimeLimit) {
+	if o != nil && !IsNil(o.LdapQueryTimeLimit) {
 		return true
 	}
 
@@ -305,7 +308,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapQueryTimeLimit(v string) {
 
 // GetLdapRealnameAttributes returns the LdapRealnameAttributes field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapRealnameAttributes() string {
-	if o == nil || isNil(o.LdapRealnameAttributes) {
+	if o == nil || IsNil(o.LdapRealnameAttributes) {
 		var ret string
 		return ret
 	}
@@ -315,15 +318,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapRealnameAttributes() string
 // GetLdapRealnameAttributesOk returns a tuple with the LdapRealnameAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapRealnameAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.LdapRealnameAttributes) {
-    return nil, false
+	if o == nil || IsNil(o.LdapRealnameAttributes) {
+		return nil, false
 	}
 	return o.LdapRealnameAttributes, true
 }
 
 // HasLdapRealnameAttributes returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapRealnameAttributes() bool {
-	if o != nil && !isNil(o.LdapRealnameAttributes) {
+	if o != nil && !IsNil(o.LdapRealnameAttributes) {
 		return true
 	}
 
@@ -337,7 +340,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapRealnameAttributes(v string
 
 // GetLdapUserClassName returns the LdapUserClassName field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapUserClassName() string {
-	if o == nil || isNil(o.LdapUserClassName) {
+	if o == nil || IsNil(o.LdapUserClassName) {
 		var ret string
 		return ret
 	}
@@ -347,15 +350,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapUserClassName() string {
 // GetLdapUserClassNameOk returns a tuple with the LdapUserClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapUserClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.LdapUserClassName) {
-    return nil, false
+	if o == nil || IsNil(o.LdapUserClassName) {
+		return nil, false
 	}
 	return o.LdapUserClassName, true
 }
 
 // HasLdapUserClassName returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapUserClassName() bool {
-	if o != nil && !isNil(o.LdapUserClassName) {
+	if o != nil && !IsNil(o.LdapUserClassName) {
 		return true
 	}
 
@@ -369,7 +372,7 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapUserClassName(v string) {
 
 // GetLdapUsernameAttributes returns the LdapUsernameAttributes field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapUsernameAttributes() string {
-	if o == nil || isNil(o.LdapUsernameAttributes) {
+	if o == nil || IsNil(o.LdapUsernameAttributes) {
 		var ret string
 		return ret
 	}
@@ -379,15 +382,15 @@ func (o *ConfigLdapConfigurationLdapSettings) GetLdapUsernameAttributes() string
 // GetLdapUsernameAttributesOk returns a tuple with the LdapUsernameAttributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationLdapSettings) GetLdapUsernameAttributesOk() (*string, bool) {
-	if o == nil || isNil(o.LdapUsernameAttributes) {
-    return nil, false
+	if o == nil || IsNil(o.LdapUsernameAttributes) {
+		return nil, false
 	}
 	return o.LdapUsernameAttributes, true
 }
 
 // HasLdapUsernameAttributes returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationLdapSettings) HasLdapUsernameAttributes() bool {
-	if o != nil && !isNil(o.LdapUsernameAttributes) {
+	if o != nil && !IsNil(o.LdapUsernameAttributes) {
 		return true
 	}
 
@@ -400,41 +403,49 @@ func (o *ConfigLdapConfigurationLdapSettings) SetLdapUsernameAttributes(v string
 }
 
 func (o ConfigLdapConfigurationLdapSettings) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.LdapEmailAttributes) {
-		toSerialize["ldapEmailAttributes"] = o.LdapEmailAttributes
-	}
-	if !isNil(o.LdapGroupClassName) {
-		toSerialize["ldapGroupClassName"] = o.LdapGroupClassName
-	}
-	if !isNil(o.LdapGroupIdAttributes) {
-		toSerialize["ldapGroupIdAttributes"] = o.LdapGroupIdAttributes
-	}
-	if !isNil(o.LdapGroupNameAttribute) {
-		toSerialize["ldapGroupNameAttribute"] = o.LdapGroupNameAttribute
-	}
-	if !isNil(o.LdapMemberAttributes) {
-		toSerialize["ldapMemberAttributes"] = o.LdapMemberAttributes
-	}
-	if !isNil(o.LdapNetworkTimeout) {
-		toSerialize["ldapNetworkTimeout"] = o.LdapNetworkTimeout
-	}
-	if !isNil(o.LdapProtocolVersion) {
-		toSerialize["ldapProtocolVersion"] = o.LdapProtocolVersion
-	}
-	if !isNil(o.LdapQueryTimeLimit) {
-		toSerialize["ldapQueryTimeLimit"] = o.LdapQueryTimeLimit
-	}
-	if !isNil(o.LdapRealnameAttributes) {
-		toSerialize["ldapRealnameAttributes"] = o.LdapRealnameAttributes
-	}
-	if !isNil(o.LdapUserClassName) {
-		toSerialize["ldapUserClassName"] = o.LdapUserClassName
-	}
-	if !isNil(o.LdapUsernameAttributes) {
-		toSerialize["ldapUsernameAttributes"] = o.LdapUsernameAttributes
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConfigLdapConfigurationLdapSettings) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.LdapEmailAttributes) {
+		toSerialize["ldapEmailAttributes"] = o.LdapEmailAttributes
+	}
+	if !IsNil(o.LdapGroupClassName) {
+		toSerialize["ldapGroupClassName"] = o.LdapGroupClassName
+	}
+	if !IsNil(o.LdapGroupIdAttributes) {
+		toSerialize["ldapGroupIdAttributes"] = o.LdapGroupIdAttributes
+	}
+	if !IsNil(o.LdapGroupNameAttribute) {
+		toSerialize["ldapGroupNameAttribute"] = o.LdapGroupNameAttribute
+	}
+	if !IsNil(o.LdapMemberAttributes) {
+		toSerialize["ldapMemberAttributes"] = o.LdapMemberAttributes
+	}
+	if !IsNil(o.LdapNetworkTimeout) {
+		toSerialize["ldapNetworkTimeout"] = o.LdapNetworkTimeout
+	}
+	if !IsNil(o.LdapProtocolVersion) {
+		toSerialize["ldapProtocolVersion"] = o.LdapProtocolVersion
+	}
+	if !IsNil(o.LdapQueryTimeLimit) {
+		toSerialize["ldapQueryTimeLimit"] = o.LdapQueryTimeLimit
+	}
+	if !IsNil(o.LdapRealnameAttributes) {
+		toSerialize["ldapRealnameAttributes"] = o.LdapRealnameAttributes
+	}
+	if !IsNil(o.LdapUserClassName) {
+		toSerialize["ldapUserClassName"] = o.LdapUserClassName
+	}
+	if !IsNil(o.LdapUsernameAttributes) {
+		toSerialize["ldapUsernameAttributes"] = o.LdapUsernameAttributes
+	}
+	return toSerialize, nil
 }
 
 type NullableConfigLdapConfigurationLdapSettings struct {

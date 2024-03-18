@@ -1,10 +1,10 @@
-# \DiscoveryApi
+# \DiscoveryAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DiscoveryPost**](DiscoveryApi.md#DiscoveryPost) | **Post** /discovery | CheckClusterName | CheckHosts | GetSupportedClusterTypes
+[**DiscoveryPost**](DiscoveryAPI.md#DiscoveryPost) | **Post** /discovery | CheckClusterName | CheckHosts | GetSupportedClusterTypes
 
 
 
@@ -20,22 +20,22 @@ CheckClusterName | CheckHosts | GetSupportedClusterTypes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    discovery := *openapiclient.NewDiscovery("Operation_example") // Discovery | All things related to Clusters and cluster Hosts
+	discovery := *openapiclient.NewDiscovery("Operation_example") // Discovery | All things related to Clusters and cluster Hosts
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DiscoveryApi.DiscoveryPost(context.Background()).Discovery(discovery).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DiscoveryApi.DiscoveryPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DiscoveryAPI.DiscoveryPost(context.Background()).Discovery(discovery).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DiscoveryAPI.DiscoveryPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

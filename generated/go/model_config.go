@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Config type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Config{}
 
 // Config struct for Config
 type Config struct {
@@ -24,6 +29,8 @@ type Config struct {
 	LdapConfiguration *ConfigLdapConfiguration `json:"ldap_configuration,omitempty"`
 	Licensedata *string `json:"licensedata,omitempty"`
 }
+
+type _Config Config
 
 // NewConfig instantiates a new Config object
 // This constructor will assign default values to properties that have it defined,
@@ -57,7 +64,7 @@ func (o *Config) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Config) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +76,7 @@ func (o *Config) SetOperation(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *Config) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -79,15 +86,15 @@ func (o *Config) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *Config) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -101,7 +108,7 @@ func (o *Config) SetHostname(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *Config) GetPort() int32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -111,15 +118,15 @@ func (o *Config) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetPortOk() (*int32, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *Config) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -133,7 +140,7 @@ func (o *Config) SetPort(v int32) {
 
 // GetConfiguration returns the Configuration field value if set, zero value otherwise.
 func (o *Config) GetConfiguration() []ConfigConfigurationInner {
-	if o == nil || isNil(o.Configuration) {
+	if o == nil || IsNil(o.Configuration) {
 		var ret []ConfigConfigurationInner
 		return ret
 	}
@@ -143,15 +150,15 @@ func (o *Config) GetConfiguration() []ConfigConfigurationInner {
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetConfigurationOk() ([]ConfigConfigurationInner, bool) {
-	if o == nil || isNil(o.Configuration) {
-    return nil, false
+	if o == nil || IsNil(o.Configuration) {
+		return nil, false
 	}
 	return o.Configuration, true
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *Config) HasConfiguration() bool {
-	if o != nil && !isNil(o.Configuration) {
+	if o != nil && !IsNil(o.Configuration) {
 		return true
 	}
 
@@ -165,7 +172,7 @@ func (o *Config) SetConfiguration(v []ConfigConfigurationInner) {
 
 // GetLdapConfiguration returns the LdapConfiguration field value if set, zero value otherwise.
 func (o *Config) GetLdapConfiguration() ConfigLdapConfiguration {
-	if o == nil || isNil(o.LdapConfiguration) {
+	if o == nil || IsNil(o.LdapConfiguration) {
 		var ret ConfigLdapConfiguration
 		return ret
 	}
@@ -175,15 +182,15 @@ func (o *Config) GetLdapConfiguration() ConfigLdapConfiguration {
 // GetLdapConfigurationOk returns a tuple with the LdapConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetLdapConfigurationOk() (*ConfigLdapConfiguration, bool) {
-	if o == nil || isNil(o.LdapConfiguration) {
-    return nil, false
+	if o == nil || IsNil(o.LdapConfiguration) {
+		return nil, false
 	}
 	return o.LdapConfiguration, true
 }
 
 // HasLdapConfiguration returns a boolean if a field has been set.
 func (o *Config) HasLdapConfiguration() bool {
-	if o != nil && !isNil(o.LdapConfiguration) {
+	if o != nil && !IsNil(o.LdapConfiguration) {
 		return true
 	}
 
@@ -197,7 +204,7 @@ func (o *Config) SetLdapConfiguration(v ConfigLdapConfiguration) {
 
 // GetLicensedata returns the Licensedata field value if set, zero value otherwise.
 func (o *Config) GetLicensedata() string {
-	if o == nil || isNil(o.Licensedata) {
+	if o == nil || IsNil(o.Licensedata) {
 		var ret string
 		return ret
 	}
@@ -207,15 +214,15 @@ func (o *Config) GetLicensedata() string {
 // GetLicensedataOk returns a tuple with the Licensedata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Config) GetLicensedataOk() (*string, bool) {
-	if o == nil || isNil(o.Licensedata) {
-    return nil, false
+	if o == nil || IsNil(o.Licensedata) {
+		return nil, false
 	}
 	return o.Licensedata, true
 }
 
 // HasLicensedata returns a boolean if a field has been set.
 func (o *Config) HasLicensedata() bool {
-	if o != nil && !isNil(o.Licensedata) {
+	if o != nil && !IsNil(o.Licensedata) {
 		return true
 	}
 
@@ -228,26 +235,69 @@ func (o *Config) SetLicensedata(v string) {
 }
 
 func (o Config) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
-	}
-	if !isNil(o.Configuration) {
-		toSerialize["configuration"] = o.Configuration
-	}
-	if !isNil(o.LdapConfiguration) {
-		toSerialize["ldap_configuration"] = o.LdapConfiguration
-	}
-	if !isNil(o.Licensedata) {
-		toSerialize["licensedata"] = o.Licensedata
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Config) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	if !IsNil(o.Configuration) {
+		toSerialize["configuration"] = o.Configuration
+	}
+	if !IsNil(o.LdapConfiguration) {
+		toSerialize["ldap_configuration"] = o.LdapConfiguration
+	}
+	if !IsNil(o.Licensedata) {
+		toSerialize["licensedata"] = o.Licensedata
+	}
+	return toSerialize, nil
+}
+
+func (o *Config) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varConfig := _Config{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varConfig)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Config(varConfig)
+
+	return err
 }
 
 type NullableConfig struct {

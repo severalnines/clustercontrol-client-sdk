@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataNodeConfigurationInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataNodeConfigurationInner{}
+
 // JobsJobJobSpecJobDataNodeConfigurationInner struct for JobsJobJobSpecJobDataNodeConfigurationInner
 type JobsJobJobSpecJobDataNodeConfigurationInner struct {
 	Arguments *string `json:"arguments,omitempty"`
@@ -41,7 +44,7 @@ func NewJobsJobJobSpecJobDataNodeConfigurationInnerWithDefaults() *JobsJobJobSpe
 
 // GetArguments returns the Arguments field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetArguments() string {
-	if o == nil || isNil(o.Arguments) {
+	if o == nil || IsNil(o.Arguments) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetArguments() string {
 // GetArgumentsOk returns a tuple with the Arguments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetArgumentsOk() (*string, bool) {
-	if o == nil || isNil(o.Arguments) {
-    return nil, false
+	if o == nil || IsNil(o.Arguments) {
+		return nil, false
 	}
 	return o.Arguments, true
 }
 
 // HasArguments returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) HasArguments() bool {
-	if o != nil && !isNil(o.Arguments) {
+	if o != nil && !IsNil(o.Arguments) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) SetArguments(v string) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetJob() string {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetJob() string {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetJobOk() (*string, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) SetJob(v string) {
 
 // GetScrapeInterval returns the ScrapeInterval field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetScrapeInterval() string {
-	if o == nil || isNil(o.ScrapeInterval) {
+	if o == nil || IsNil(o.ScrapeInterval) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetScrapeInterval() string
 // GetScrapeIntervalOk returns a tuple with the ScrapeInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) GetScrapeIntervalOk() (*string, bool) {
-	if o == nil || isNil(o.ScrapeInterval) {
-    return nil, false
+	if o == nil || IsNil(o.ScrapeInterval) {
+		return nil, false
 	}
 	return o.ScrapeInterval, true
 }
 
 // HasScrapeInterval returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataNodeConfigurationInner) HasScrapeInterval() bool {
-	if o != nil && !isNil(o.ScrapeInterval) {
+	if o != nil && !IsNil(o.ScrapeInterval) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *JobsJobJobSpecJobDataNodeConfigurationInner) SetScrapeInterval(v string
 }
 
 func (o JobsJobJobSpecJobDataNodeConfigurationInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Arguments) {
-		toSerialize["arguments"] = o.Arguments
-	}
-	if !isNil(o.Job) {
-		toSerialize["job"] = o.Job
-	}
-	if !isNil(o.ScrapeInterval) {
-		toSerialize["scrape_interval"] = o.ScrapeInterval
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataNodeConfigurationInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Arguments) {
+		toSerialize["arguments"] = o.Arguments
+	}
+	if !IsNil(o.Job) {
+		toSerialize["job"] = o.Job
+	}
+	if !IsNil(o.ScrapeInterval) {
+		toSerialize["scrape_interval"] = o.ScrapeInterval
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataNodeConfigurationInner struct {

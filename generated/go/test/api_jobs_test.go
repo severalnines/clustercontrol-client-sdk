@@ -1,7 +1,7 @@
 /*
 Severalnines ClusterControl REST API (V2)
 
-Testing JobsApiService
+Testing JobsAPIService
 
 */
 
@@ -10,28 +10,27 @@ Testing JobsApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_JobsApiService(t *testing.T) {
+func Test_openapi_JobsAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test JobsApiService JobsPost", func(t *testing.T) {
+	t.Run("Test JobsAPIService JobsPost", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.JobsApi.JobsPost(context.Background()).Execute()
+		httpRes, err := apiClient.JobsAPI.JobsPost(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

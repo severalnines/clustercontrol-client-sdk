@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Maintenance type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Maintenance{}
 
 // Maintenance struct for Maintenance
 type Maintenance struct {
@@ -24,6 +29,8 @@ type Maintenance struct {
 	Hostname *string `json:"hostname,omitempty"`
 	UUID *string `json:"UUID,omitempty"`
 }
+
+type _Maintenance Maintenance
 
 // NewMaintenance instantiates a new Maintenance object
 // This constructor will assign default values to properties that have it defined,
@@ -57,7 +64,7 @@ func (o *Maintenance) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +76,7 @@ func (o *Maintenance) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Maintenance) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -79,15 +86,15 @@ func (o *Maintenance) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Maintenance) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -101,7 +108,7 @@ func (o *Maintenance) SetClusterId(v int32) {
 
 // GetDeadline returns the Deadline field value if set, zero value otherwise.
 func (o *Maintenance) GetDeadline() string {
-	if o == nil || isNil(o.Deadline) {
+	if o == nil || IsNil(o.Deadline) {
 		var ret string
 		return ret
 	}
@@ -111,15 +118,15 @@ func (o *Maintenance) GetDeadline() string {
 // GetDeadlineOk returns a tuple with the Deadline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetDeadlineOk() (*string, bool) {
-	if o == nil || isNil(o.Deadline) {
-    return nil, false
+	if o == nil || IsNil(o.Deadline) {
+		return nil, false
 	}
 	return o.Deadline, true
 }
 
 // HasDeadline returns a boolean if a field has been set.
 func (o *Maintenance) HasDeadline() bool {
-	if o != nil && !isNil(o.Deadline) {
+	if o != nil && !IsNil(o.Deadline) {
 		return true
 	}
 
@@ -133,7 +140,7 @@ func (o *Maintenance) SetDeadline(v string) {
 
 // GetInitiate returns the Initiate field value if set, zero value otherwise.
 func (o *Maintenance) GetInitiate() string {
-	if o == nil || isNil(o.Initiate) {
+	if o == nil || IsNil(o.Initiate) {
 		var ret string
 		return ret
 	}
@@ -143,15 +150,15 @@ func (o *Maintenance) GetInitiate() string {
 // GetInitiateOk returns a tuple with the Initiate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetInitiateOk() (*string, bool) {
-	if o == nil || isNil(o.Initiate) {
-    return nil, false
+	if o == nil || IsNil(o.Initiate) {
+		return nil, false
 	}
 	return o.Initiate, true
 }
 
 // HasInitiate returns a boolean if a field has been set.
 func (o *Maintenance) HasInitiate() bool {
-	if o != nil && !isNil(o.Initiate) {
+	if o != nil && !IsNil(o.Initiate) {
 		return true
 	}
 
@@ -165,7 +172,7 @@ func (o *Maintenance) SetInitiate(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *Maintenance) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -175,15 +182,15 @@ func (o *Maintenance) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *Maintenance) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -197,7 +204,7 @@ func (o *Maintenance) SetHostname(v string) {
 
 // GetUUID returns the UUID field value if set, zero value otherwise.
 func (o *Maintenance) GetUUID() string {
-	if o == nil || isNil(o.UUID) {
+	if o == nil || IsNil(o.UUID) {
 		var ret string
 		return ret
 	}
@@ -207,15 +214,15 @@ func (o *Maintenance) GetUUID() string {
 // GetUUIDOk returns a tuple with the UUID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Maintenance) GetUUIDOk() (*string, bool) {
-	if o == nil || isNil(o.UUID) {
-    return nil, false
+	if o == nil || IsNil(o.UUID) {
+		return nil, false
 	}
 	return o.UUID, true
 }
 
 // HasUUID returns a boolean if a field has been set.
 func (o *Maintenance) HasUUID() bool {
-	if o != nil && !isNil(o.UUID) {
+	if o != nil && !IsNil(o.UUID) {
 		return true
 	}
 
@@ -228,26 +235,69 @@ func (o *Maintenance) SetUUID(v string) {
 }
 
 func (o Maintenance) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.Deadline) {
-		toSerialize["deadline"] = o.Deadline
-	}
-	if !isNil(o.Initiate) {
-		toSerialize["initiate"] = o.Initiate
-	}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.UUID) {
-		toSerialize["UUID"] = o.UUID
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Maintenance) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.Deadline) {
+		toSerialize["deadline"] = o.Deadline
+	}
+	if !IsNil(o.Initiate) {
+		toSerialize["initiate"] = o.Initiate
+	}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.UUID) {
+		toSerialize["UUID"] = o.UUID
+	}
+	return toSerialize, nil
+}
+
+func (o *Maintenance) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varMaintenance := _Maintenance{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varMaintenance)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Maintenance(varMaintenance)
+
+	return err
 }
 
 type NullableMaintenance struct {

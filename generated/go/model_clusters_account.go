@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ClustersAccount type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ClustersAccount{}
+
 // ClustersAccount struct for ClustersAccount
 type ClustersAccount struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -49,7 +52,7 @@ func NewClustersAccountWithDefaults() *ClustersAccount {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *ClustersAccount) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -59,15 +62,15 @@ func (o *ClustersAccount) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *ClustersAccount) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -81,7 +84,7 @@ func (o *ClustersAccount) SetClassName(v string) {
 
 // GetGrants returns the Grants field value if set, zero value otherwise.
 func (o *ClustersAccount) GetGrants() string {
-	if o == nil || isNil(o.Grants) {
+	if o == nil || IsNil(o.Grants) {
 		var ret string
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *ClustersAccount) GetGrants() string {
 // GetGrantsOk returns a tuple with the Grants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetGrantsOk() (*string, bool) {
-	if o == nil || isNil(o.Grants) {
-    return nil, false
+	if o == nil || IsNil(o.Grants) {
+		return nil, false
 	}
 	return o.Grants, true
 }
 
 // HasGrants returns a boolean if a field has been set.
 func (o *ClustersAccount) HasGrants() bool {
-	if o != nil && !isNil(o.Grants) {
+	if o != nil && !IsNil(o.Grants) {
 		return true
 	}
 
@@ -113,7 +116,7 @@ func (o *ClustersAccount) SetGrants(v string) {
 
 // GetHostAllow returns the HostAllow field value if set, zero value otherwise.
 func (o *ClustersAccount) GetHostAllow() string {
-	if o == nil || isNil(o.HostAllow) {
+	if o == nil || IsNil(o.HostAllow) {
 		var ret string
 		return ret
 	}
@@ -123,15 +126,15 @@ func (o *ClustersAccount) GetHostAllow() string {
 // GetHostAllowOk returns a tuple with the HostAllow field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetHostAllowOk() (*string, bool) {
-	if o == nil || isNil(o.HostAllow) {
-    return nil, false
+	if o == nil || IsNil(o.HostAllow) {
+		return nil, false
 	}
 	return o.HostAllow, true
 }
 
 // HasHostAllow returns a boolean if a field has been set.
 func (o *ClustersAccount) HasHostAllow() bool {
-	if o != nil && !isNil(o.HostAllow) {
+	if o != nil && !IsNil(o.HostAllow) {
 		return true
 	}
 
@@ -145,7 +148,7 @@ func (o *ClustersAccount) SetHostAllow(v string) {
 
 // GetOwnDatabase returns the OwnDatabase field value if set, zero value otherwise.
 func (o *ClustersAccount) GetOwnDatabase() string {
-	if o == nil || isNil(o.OwnDatabase) {
+	if o == nil || IsNil(o.OwnDatabase) {
 		var ret string
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *ClustersAccount) GetOwnDatabase() string {
 // GetOwnDatabaseOk returns a tuple with the OwnDatabase field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetOwnDatabaseOk() (*string, bool) {
-	if o == nil || isNil(o.OwnDatabase) {
-    return nil, false
+	if o == nil || IsNil(o.OwnDatabase) {
+		return nil, false
 	}
 	return o.OwnDatabase, true
 }
 
 // HasOwnDatabase returns a boolean if a field has been set.
 func (o *ClustersAccount) HasOwnDatabase() bool {
-	if o != nil && !isNil(o.OwnDatabase) {
+	if o != nil && !IsNil(o.OwnDatabase) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *ClustersAccount) SetOwnDatabase(v string) {
 
 // GetPrivileges returns the Privileges field value if set, zero value otherwise.
 func (o *ClustersAccount) GetPrivileges() string {
-	if o == nil || isNil(o.Privileges) {
+	if o == nil || IsNil(o.Privileges) {
 		var ret string
 		return ret
 	}
@@ -187,15 +190,15 @@ func (o *ClustersAccount) GetPrivileges() string {
 // GetPrivilegesOk returns a tuple with the Privileges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetPrivilegesOk() (*string, bool) {
-	if o == nil || isNil(o.Privileges) {
-    return nil, false
+	if o == nil || IsNil(o.Privileges) {
+		return nil, false
 	}
 	return o.Privileges, true
 }
 
 // HasPrivileges returns a boolean if a field has been set.
 func (o *ClustersAccount) HasPrivileges() bool {
-	if o != nil && !isNil(o.Privileges) {
+	if o != nil && !IsNil(o.Privileges) {
 		return true
 	}
 
@@ -209,7 +212,7 @@ func (o *ClustersAccount) SetPrivileges(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *ClustersAccount) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -219,15 +222,15 @@ func (o *ClustersAccount) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *ClustersAccount) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -241,7 +244,7 @@ func (o *ClustersAccount) SetUserName(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *ClustersAccount) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -251,15 +254,15 @@ func (o *ClustersAccount) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ClustersAccount) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
-    return nil, false
+	if o == nil || IsNil(o.Password) {
+		return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *ClustersAccount) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -272,29 +275,37 @@ func (o *ClustersAccount) SetPassword(v string) {
 }
 
 func (o ClustersAccount) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Grants) {
-		toSerialize["grants"] = o.Grants
-	}
-	if !isNil(o.HostAllow) {
-		toSerialize["host_allow"] = o.HostAllow
-	}
-	if !isNil(o.OwnDatabase) {
-		toSerialize["own_database"] = o.OwnDatabase
-	}
-	if !isNil(o.Privileges) {
-		toSerialize["privileges"] = o.Privileges
-	}
-	if !isNil(o.UserName) {
-		toSerialize["user_name"] = o.UserName
-	}
-	if !isNil(o.Password) {
-		toSerialize["password"] = o.Password
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ClustersAccount) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Grants) {
+		toSerialize["grants"] = o.Grants
+	}
+	if !IsNil(o.HostAllow) {
+		toSerialize["host_allow"] = o.HostAllow
+	}
+	if !IsNil(o.OwnDatabase) {
+		toSerialize["own_database"] = o.OwnDatabase
+	}
+	if !IsNil(o.Privileges) {
+		toSerialize["privileges"] = o.Privileges
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["user_name"] = o.UserName
+	}
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	return toSerialize, nil
 }
 
 type NullableClustersAccount struct {

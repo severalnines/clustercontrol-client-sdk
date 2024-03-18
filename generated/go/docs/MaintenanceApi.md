@@ -1,10 +1,10 @@
-# \MaintenanceApi
+# \MaintenanceAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MaintenancePost**](MaintenanceApi.md#MaintenancePost) | **Post** /maintenance | CreateJobInstance | etc
+[**MaintenancePost**](MaintenanceAPI.md#MaintenancePost) | **Post** /maintenance | CreateJobInstance | etc
 
 
 
@@ -20,22 +20,22 @@ CreateJobInstance | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    maintenance := *openapiclient.NewMaintenance("Operation_example") // Maintenance | Creating, deleting and obtaining maintenance periods
+	maintenance := *openapiclient.NewMaintenance("Operation_example") // Maintenance | Creating, deleting and obtaining maintenance periods
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MaintenanceApi.MaintenancePost(context.Background()).Maintenance(maintenance).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceApi.MaintenancePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MaintenanceAPI.MaintenancePost(context.Background()).Maintenance(maintenance).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MaintenanceAPI.MaintenancePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

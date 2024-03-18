@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Stat type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Stat{}
 
 // Stat struct for Stat
 type Stat struct {
@@ -28,6 +33,8 @@ type Stat struct {
 	WithHosts *bool `json:"with_hosts,omitempty"`
 	CalculatePerSec *bool `json:"calculate_per_sec,omitempty"`
 }
+
+type _Stat Stat
 
 // NewStat instantiates a new Stat object
 // This constructor will assign default values to properties that have it defined,
@@ -61,7 +68,7 @@ func (o *Stat) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Stat) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -73,7 +80,7 @@ func (o *Stat) SetOperation(v string) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Stat) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -83,15 +90,15 @@ func (o *Stat) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Stat) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -105,7 +112,7 @@ func (o *Stat) SetClusterId(v int32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Stat) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -115,15 +122,15 @@ func (o *Stat) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Stat) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -137,7 +144,7 @@ func (o *Stat) SetName(v string) {
 
 // GetStartDatetime returns the StartDatetime field value if set, zero value otherwise.
 func (o *Stat) GetStartDatetime() string {
-	if o == nil || isNil(o.StartDatetime) {
+	if o == nil || IsNil(o.StartDatetime) {
 		var ret string
 		return ret
 	}
@@ -147,15 +154,15 @@ func (o *Stat) GetStartDatetime() string {
 // GetStartDatetimeOk returns a tuple with the StartDatetime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetStartDatetimeOk() (*string, bool) {
-	if o == nil || isNil(o.StartDatetime) {
-    return nil, false
+	if o == nil || IsNil(o.StartDatetime) {
+		return nil, false
 	}
 	return o.StartDatetime, true
 }
 
 // HasStartDatetime returns a boolean if a field has been set.
 func (o *Stat) HasStartDatetime() bool {
-	if o != nil && !isNil(o.StartDatetime) {
+	if o != nil && !IsNil(o.StartDatetime) {
 		return true
 	}
 
@@ -169,7 +176,7 @@ func (o *Stat) SetStartDatetime(v string) {
 
 // GetEndDatetime returns the EndDatetime field value if set, zero value otherwise.
 func (o *Stat) GetEndDatetime() string {
-	if o == nil || isNil(o.EndDatetime) {
+	if o == nil || IsNil(o.EndDatetime) {
 		var ret string
 		return ret
 	}
@@ -179,15 +186,15 @@ func (o *Stat) GetEndDatetime() string {
 // GetEndDatetimeOk returns a tuple with the EndDatetime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetEndDatetimeOk() (*string, bool) {
-	if o == nil || isNil(o.EndDatetime) {
-    return nil, false
+	if o == nil || IsNil(o.EndDatetime) {
+		return nil, false
 	}
 	return o.EndDatetime, true
 }
 
 // HasEndDatetime returns a boolean if a field has been set.
 func (o *Stat) HasEndDatetime() bool {
-	if o != nil && !isNil(o.EndDatetime) {
+	if o != nil && !IsNil(o.EndDatetime) {
 		return true
 	}
 
@@ -201,7 +208,7 @@ func (o *Stat) SetEndDatetime(v string) {
 
 // GetWithHosts returns the WithHosts field value if set, zero value otherwise.
 func (o *Stat) GetWithHosts() bool {
-	if o == nil || isNil(o.WithHosts) {
+	if o == nil || IsNil(o.WithHosts) {
 		var ret bool
 		return ret
 	}
@@ -211,15 +218,15 @@ func (o *Stat) GetWithHosts() bool {
 // GetWithHostsOk returns a tuple with the WithHosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetWithHostsOk() (*bool, bool) {
-	if o == nil || isNil(o.WithHosts) {
-    return nil, false
+	if o == nil || IsNil(o.WithHosts) {
+		return nil, false
 	}
 	return o.WithHosts, true
 }
 
 // HasWithHosts returns a boolean if a field has been set.
 func (o *Stat) HasWithHosts() bool {
-	if o != nil && !isNil(o.WithHosts) {
+	if o != nil && !IsNil(o.WithHosts) {
 		return true
 	}
 
@@ -233,7 +240,7 @@ func (o *Stat) SetWithHosts(v bool) {
 
 // GetCalculatePerSec returns the CalculatePerSec field value if set, zero value otherwise.
 func (o *Stat) GetCalculatePerSec() bool {
-	if o == nil || isNil(o.CalculatePerSec) {
+	if o == nil || IsNil(o.CalculatePerSec) {
 		var ret bool
 		return ret
 	}
@@ -243,15 +250,15 @@ func (o *Stat) GetCalculatePerSec() bool {
 // GetCalculatePerSecOk returns a tuple with the CalculatePerSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Stat) GetCalculatePerSecOk() (*bool, bool) {
-	if o == nil || isNil(o.CalculatePerSec) {
-    return nil, false
+	if o == nil || IsNil(o.CalculatePerSec) {
+		return nil, false
 	}
 	return o.CalculatePerSec, true
 }
 
 // HasCalculatePerSec returns a boolean if a field has been set.
 func (o *Stat) HasCalculatePerSec() bool {
-	if o != nil && !isNil(o.CalculatePerSec) {
+	if o != nil && !IsNil(o.CalculatePerSec) {
 		return true
 	}
 
@@ -264,29 +271,72 @@ func (o *Stat) SetCalculatePerSec(v bool) {
 }
 
 func (o Stat) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.StartDatetime) {
-		toSerialize["start_datetime"] = o.StartDatetime
-	}
-	if !isNil(o.EndDatetime) {
-		toSerialize["end_datetime"] = o.EndDatetime
-	}
-	if !isNil(o.WithHosts) {
-		toSerialize["with_hosts"] = o.WithHosts
-	}
-	if !isNil(o.CalculatePerSec) {
-		toSerialize["calculate_per_sec"] = o.CalculatePerSec
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Stat) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.StartDatetime) {
+		toSerialize["start_datetime"] = o.StartDatetime
+	}
+	if !IsNil(o.EndDatetime) {
+		toSerialize["end_datetime"] = o.EndDatetime
+	}
+	if !IsNil(o.WithHosts) {
+		toSerialize["with_hosts"] = o.WithHosts
+	}
+	if !IsNil(o.CalculatePerSec) {
+		toSerialize["calculate_per_sec"] = o.CalculatePerSec
+	}
+	return toSerialize, nil
+}
+
+func (o *Stat) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varStat := _Stat{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varStat)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Stat(varStat)
+
+	return err
 }
 
 type NullableStat struct {

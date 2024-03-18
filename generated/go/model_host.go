@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Host type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Host{}
 
 // Host struct for Host
 type Host struct {
@@ -23,6 +28,8 @@ type Host struct {
 	DryRun *bool `json:"dry_run,omitempty"`
 	Host *HostHost `json:"host,omitempty"`
 }
+
+type _Host Host
 
 // NewHost instantiates a new Host object
 // This constructor will assign default values to properties that have it defined,
@@ -56,7 +63,7 @@ func (o *Host) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Host) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -68,7 +75,7 @@ func (o *Host) SetOperation(v string) {
 
 // GetServers returns the Servers field value if set, zero value otherwise.
 func (o *Host) GetServers() []HostServersInner {
-	if o == nil || isNil(o.Servers) {
+	if o == nil || IsNil(o.Servers) {
 		var ret []HostServersInner
 		return ret
 	}
@@ -78,15 +85,15 @@ func (o *Host) GetServers() []HostServersInner {
 // GetServersOk returns a tuple with the Servers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetServersOk() ([]HostServersInner, bool) {
-	if o == nil || isNil(o.Servers) {
-    return nil, false
+	if o == nil || IsNil(o.Servers) {
+		return nil, false
 	}
 	return o.Servers, true
 }
 
 // HasServers returns a boolean if a field has been set.
 func (o *Host) HasServers() bool {
-	if o != nil && !isNil(o.Servers) {
+	if o != nil && !IsNil(o.Servers) {
 		return true
 	}
 
@@ -100,7 +107,7 @@ func (o *Host) SetServers(v []HostServersInner) {
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *Host) GetClusterId() int32 {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret int32
 		return ret
 	}
@@ -110,15 +117,15 @@ func (o *Host) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetClusterIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterId) {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *Host) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && !IsNil(o.ClusterId) {
 		return true
 	}
 
@@ -132,7 +139,7 @@ func (o *Host) SetClusterId(v int32) {
 
 // GetDryRun returns the DryRun field value if set, zero value otherwise.
 func (o *Host) GetDryRun() bool {
-	if o == nil || isNil(o.DryRun) {
+	if o == nil || IsNil(o.DryRun) {
 		var ret bool
 		return ret
 	}
@@ -142,15 +149,15 @@ func (o *Host) GetDryRun() bool {
 // GetDryRunOk returns a tuple with the DryRun field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetDryRunOk() (*bool, bool) {
-	if o == nil || isNil(o.DryRun) {
-    return nil, false
+	if o == nil || IsNil(o.DryRun) {
+		return nil, false
 	}
 	return o.DryRun, true
 }
 
 // HasDryRun returns a boolean if a field has been set.
 func (o *Host) HasDryRun() bool {
-	if o != nil && !isNil(o.DryRun) {
+	if o != nil && !IsNil(o.DryRun) {
 		return true
 	}
 
@@ -164,7 +171,7 @@ func (o *Host) SetDryRun(v bool) {
 
 // GetHost returns the Host field value if set, zero value otherwise.
 func (o *Host) GetHost() HostHost {
-	if o == nil || isNil(o.Host) {
+	if o == nil || IsNil(o.Host) {
 		var ret HostHost
 		return ret
 	}
@@ -174,15 +181,15 @@ func (o *Host) GetHost() HostHost {
 // GetHostOk returns a tuple with the Host field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Host) GetHostOk() (*HostHost, bool) {
-	if o == nil || isNil(o.Host) {
-    return nil, false
+	if o == nil || IsNil(o.Host) {
+		return nil, false
 	}
 	return o.Host, true
 }
 
 // HasHost returns a boolean if a field has been set.
 func (o *Host) HasHost() bool {
-	if o != nil && !isNil(o.Host) {
+	if o != nil && !IsNil(o.Host) {
 		return true
 	}
 
@@ -195,23 +202,66 @@ func (o *Host) SetHost(v HostHost) {
 }
 
 func (o Host) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.Servers) {
-		toSerialize["servers"] = o.Servers
-	}
-	if !isNil(o.ClusterId) {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if !isNil(o.DryRun) {
-		toSerialize["dry_run"] = o.DryRun
-	}
-	if !isNil(o.Host) {
-		toSerialize["host"] = o.Host
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Host) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.Servers) {
+		toSerialize["servers"] = o.Servers
+	}
+	if !IsNil(o.ClusterId) {
+		toSerialize["cluster_id"] = o.ClusterId
+	}
+	if !IsNil(o.DryRun) {
+		toSerialize["dry_run"] = o.DryRun
+	}
+	if !IsNil(o.Host) {
+		toSerialize["host"] = o.Host
+	}
+	return toSerialize, nil
+}
+
+func (o *Host) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varHost := _Host{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varHost)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Host(varHost)
+
+	return err
 }
 
 type NullableHost struct {

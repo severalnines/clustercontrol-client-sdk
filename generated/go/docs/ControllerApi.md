@@ -1,10 +1,10 @@
-# \ControllerApi
+# \ControllerAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ControllerPost**](ControllerApi.md#ControllerPost) | **Post** /controller | Ping | Heartbeat | etc
+[**ControllerPost**](ControllerAPI.md#ControllerPost) | **Post** /controller | Ping | Heartbeat | etc
 
 
 
@@ -20,22 +20,22 @@ Ping | Heartbeat | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    controller := *openapiclient.NewController("Operation_example") // Controller | Managing controller and operate the Cmon HA subsystem
+	controller := *openapiclient.NewController("Operation_example") // Controller | Managing controller and operate the Cmon HA subsystem
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ControllerApi.ControllerPost(context.Background()).Controller(controller).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ControllerApi.ControllerPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ControllerAPI.ControllerPost(context.Background()).Controller(controller).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ControllerAPI.ControllerPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

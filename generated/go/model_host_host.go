@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the HostHost type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &HostHost{}
+
 // HostHost struct for HostHost
 type HostHost struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -41,7 +44,7 @@ func NewHostHostWithDefaults() *HostHost {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *HostHost) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *HostHost) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *HostHost) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *HostHost) SetClassName(v string) {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *HostHost) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *HostHost) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *HostHost) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *HostHost) SetHostname(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *HostHost) GetPort() int32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *HostHost) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *HostHost) GetPortOk() (*int32, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *HostHost) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *HostHost) SetPort(v int32) {
 }
 
 func (o HostHost) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o HostHost) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	return toSerialize, nil
 }
 
 type NullableHostHost struct {

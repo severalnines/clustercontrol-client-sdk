@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the JobsJobJobSpecJobDataReplicaSetsInnerMembersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &JobsJobJobSpecJobDataReplicaSetsInnerMembersInner{}
+
 // JobsJobJobSpecJobDataReplicaSetsInnerMembersInner struct for JobsJobJobSpecJobDataReplicaSetsInnerMembersInner
 type JobsJobJobSpecJobDataReplicaSetsInnerMembersInner struct {
 	Hostname *string `json:"hostname,omitempty"`
@@ -23,7 +26,7 @@ type JobsJobJobSpecJobDataReplicaSetsInnerMembersInner struct {
 	Port *string `json:"port,omitempty"`
 	ArbiterOnly *bool `json:"arbiter_only,omitempty"`
 	Hidden *bool `json:"hidden,omitempty"`
-	Priority *string `json:"priority,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
 	SlaveDelay *string `json:"slave_delay,omitempty"`
 }
 
@@ -46,7 +49,7 @@ func NewJobsJobJobSpecJobDataReplicaSetsInnerMembersInnerWithDefaults() *JobsJob
 
 // GetHostname returns the Hostname field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostname() string {
-	if o == nil || isNil(o.Hostname) {
+	if o == nil || IsNil(o.Hostname) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostname() string
 // GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameOk() (*string, bool) {
-	if o == nil || isNil(o.Hostname) {
-    return nil, false
+	if o == nil || IsNil(o.Hostname) {
+		return nil, false
 	}
 	return o.Hostname, true
 }
 
 // HasHostname returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasHostname() bool {
-	if o != nil && !isNil(o.Hostname) {
+	if o != nil && !IsNil(o.Hostname) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetHostname(v string
 
 // GetHostnameData returns the HostnameData field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameData() string {
-	if o == nil || isNil(o.HostnameData) {
+	if o == nil || IsNil(o.HostnameData) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameData() st
 // GetHostnameDataOk returns a tuple with the HostnameData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameDataOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameData) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameData) {
+		return nil, false
 	}
 	return o.HostnameData, true
 }
 
 // HasHostnameData returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasHostnameData() bool {
-	if o != nil && !isNil(o.HostnameData) {
+	if o != nil && !IsNil(o.HostnameData) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetHostnameData(v st
 
 // GetHostnameInternal returns the HostnameInternal field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameInternal() string {
-	if o == nil || isNil(o.HostnameInternal) {
+	if o == nil || IsNil(o.HostnameInternal) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameInternal(
 // GetHostnameInternalOk returns a tuple with the HostnameInternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHostnameInternalOk() (*string, bool) {
-	if o == nil || isNil(o.HostnameInternal) {
-    return nil, false
+	if o == nil || IsNil(o.HostnameInternal) {
+		return nil, false
 	}
 	return o.HostnameInternal, true
 }
 
 // HasHostnameInternal returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasHostnameInternal() bool {
-	if o != nil && !isNil(o.HostnameInternal) {
+	if o != nil && !IsNil(o.HostnameInternal) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetHostnameInternal(
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPort() string {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPort() string {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPortOk() (*string, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetPort(v string) {
 
 // GetArbiterOnly returns the ArbiterOnly field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetArbiterOnly() bool {
-	if o == nil || isNil(o.ArbiterOnly) {
+	if o == nil || IsNil(o.ArbiterOnly) {
 		var ret bool
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetArbiterOnly() boo
 // GetArbiterOnlyOk returns a tuple with the ArbiterOnly field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetArbiterOnlyOk() (*bool, bool) {
-	if o == nil || isNil(o.ArbiterOnly) {
-    return nil, false
+	if o == nil || IsNil(o.ArbiterOnly) {
+		return nil, false
 	}
 	return o.ArbiterOnly, true
 }
 
 // HasArbiterOnly returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasArbiterOnly() bool {
-	if o != nil && !isNil(o.ArbiterOnly) {
+	if o != nil && !IsNil(o.ArbiterOnly) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetArbiterOnly(v boo
 
 // GetHidden returns the Hidden field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHidden() bool {
-	if o == nil || isNil(o.Hidden) {
+	if o == nil || IsNil(o.Hidden) {
 		var ret bool
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHidden() bool {
 // GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetHiddenOk() (*bool, bool) {
-	if o == nil || isNil(o.Hidden) {
-    return nil, false
+	if o == nil || IsNil(o.Hidden) {
+		return nil, false
 	}
 	return o.Hidden, true
 }
 
 // HasHidden returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasHidden() bool {
-	if o != nil && !isNil(o.Hidden) {
+	if o != nil && !IsNil(o.Hidden) {
 		return true
 	}
 
@@ -237,9 +240,9 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetHidden(v bool) {
 }
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriority() string {
-	if o == nil || isNil(o.Priority) {
-		var ret string
+func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriority() int32 {
+	if o == nil || IsNil(o.Priority) {
+		var ret int32
 		return ret
 	}
 	return *o.Priority
@@ -247,30 +250,30 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriority() string
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriorityOk() (*string, bool) {
-	if o == nil || isNil(o.Priority) {
-    return nil, false
+func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriorityOk() (*int32, bool) {
+	if o == nil || IsNil(o.Priority) {
+		return nil, false
 	}
 	return o.Priority, true
 }
 
 // HasPriority returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasPriority() bool {
-	if o != nil && !isNil(o.Priority) {
+	if o != nil && !IsNil(o.Priority) {
 		return true
 	}
 
 	return false
 }
 
-// SetPriority gets a reference to the given string and assigns it to the Priority field.
-func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetPriority(v string) {
+// SetPriority gets a reference to the given int32 and assigns it to the Priority field.
+func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetPriority(v int32) {
 	o.Priority = &v
 }
 
 // GetSlaveDelay returns the SlaveDelay field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetSlaveDelay() string {
-	if o == nil || isNil(o.SlaveDelay) {
+	if o == nil || IsNil(o.SlaveDelay) {
 		var ret string
 		return ret
 	}
@@ -280,15 +283,15 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetSlaveDelay() stri
 // GetSlaveDelayOk returns a tuple with the SlaveDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetSlaveDelayOk() (*string, bool) {
-	if o == nil || isNil(o.SlaveDelay) {
-    return nil, false
+	if o == nil || IsNil(o.SlaveDelay) {
+		return nil, false
 	}
 	return o.SlaveDelay, true
 }
 
 // HasSlaveDelay returns a boolean if a field has been set.
 func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) HasSlaveDelay() bool {
-	if o != nil && !isNil(o.SlaveDelay) {
+	if o != nil && !IsNil(o.SlaveDelay) {
 		return true
 	}
 
@@ -301,32 +304,40 @@ func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetSlaveDelay(v stri
 }
 
 func (o JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Hostname) {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if !isNil(o.HostnameData) {
-		toSerialize["hostname_data"] = o.HostnameData
-	}
-	if !isNil(o.HostnameInternal) {
-		toSerialize["hostname_internal"] = o.HostnameInternal
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
-	}
-	if !isNil(o.ArbiterOnly) {
-		toSerialize["arbiter_only"] = o.ArbiterOnly
-	}
-	if !isNil(o.Hidden) {
-		toSerialize["hidden"] = o.Hidden
-	}
-	if !isNil(o.Priority) {
-		toSerialize["priority"] = o.Priority
-	}
-	if !isNil(o.SlaveDelay) {
-		toSerialize["slave_delay"] = o.SlaveDelay
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Hostname) {
+		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.HostnameData) {
+		toSerialize["hostname_data"] = o.HostnameData
+	}
+	if !IsNil(o.HostnameInternal) {
+		toSerialize["hostname_internal"] = o.HostnameInternal
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	if !IsNil(o.ArbiterOnly) {
+		toSerialize["arbiter_only"] = o.ArbiterOnly
+	}
+	if !IsNil(o.Hidden) {
+		toSerialize["hidden"] = o.Hidden
+	}
+	if !IsNil(o.Priority) {
+		toSerialize["priority"] = o.Priority
+	}
+	if !IsNil(o.SlaveDelay) {
+		toSerialize["slave_delay"] = o.SlaveDelay
+	}
+	return toSerialize, nil
 }
 
 type NullableJobsJobJobSpecJobDataReplicaSetsInnerMembersInner struct {

@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// AuditApiService AuditApi service
-type AuditApiService service
+// AuditAPIService AuditAPI service
+type AuditAPIService service
 
 type ApiAuditPostRequest struct {
 	ctx context.Context
-	ApiService *AuditApiService
+	ApiService *AuditAPIService
 	audit *Audit
 }
 
@@ -45,7 +45,7 @@ AuditPost GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAuditPostRequest
 */
-func (a *AuditApiService) AuditPost(ctx context.Context) ApiAuditPostRequest {
+func (a *AuditAPIService) AuditPost(ctx context.Context) ApiAuditPostRequest {
 	return ApiAuditPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *AuditApiService) AuditPost(ctx context.Context) ApiAuditPostRequest {
 }
 
 // Execute executes the request
-func (a *AuditApiService) AuditPostExecute(r ApiAuditPostRequest) (*http.Response, error) {
+func (a *AuditAPIService) AuditPostExecute(r ApiAuditPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditApiService.AuditPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditAPIService.AuditPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *AuditApiService) AuditPostExecute(r ApiAuditPostRequest) (*http.Respons
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

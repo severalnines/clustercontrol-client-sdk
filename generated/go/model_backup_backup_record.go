@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the BackupBackupRecord type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BackupBackupRecord{}
+
 // BackupBackupRecord struct for BackupBackupRecord
 type BackupBackupRecord struct {
 	BackupId *int32 `json:"backup_id,omitempty"`
@@ -39,7 +42,7 @@ func NewBackupBackupRecordWithDefaults() *BackupBackupRecord {
 
 // GetBackupId returns the BackupId field value if set, zero value otherwise.
 func (o *BackupBackupRecord) GetBackupId() int32 {
-	if o == nil || isNil(o.BackupId) {
+	if o == nil || IsNil(o.BackupId) {
 		var ret int32
 		return ret
 	}
@@ -49,15 +52,15 @@ func (o *BackupBackupRecord) GetBackupId() int32 {
 // GetBackupIdOk returns a tuple with the BackupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupBackupRecord) GetBackupIdOk() (*int32, bool) {
-	if o == nil || isNil(o.BackupId) {
-    return nil, false
+	if o == nil || IsNil(o.BackupId) {
+		return nil, false
 	}
 	return o.BackupId, true
 }
 
 // HasBackupId returns a boolean if a field has been set.
 func (o *BackupBackupRecord) HasBackupId() bool {
-	if o != nil && !isNil(o.BackupId) {
+	if o != nil && !IsNil(o.BackupId) {
 		return true
 	}
 
@@ -70,11 +73,19 @@ func (o *BackupBackupRecord) SetBackupId(v int32) {
 }
 
 func (o BackupBackupRecord) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.BackupId) {
-		toSerialize["backup_id"] = o.BackupId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BackupBackupRecord) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.BackupId) {
+		toSerialize["backup_id"] = o.BackupId
+	}
+	return toSerialize, nil
 }
 
 type NullableBackupBackupRecord struct {

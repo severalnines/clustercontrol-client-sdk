@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Audit type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Audit{}
 
 // Audit struct for Audit
 type Audit struct {
@@ -21,6 +26,8 @@ type Audit struct {
 	ClusterIds []int32 `json:"cluster_ids,omitempty"`
 	Ascending *bool `json:"ascending,omitempty"`
 }
+
+type _Audit Audit
 
 // NewAudit instantiates a new Audit object
 // This constructor will assign default values to properties that have it defined,
@@ -54,7 +61,7 @@ func (o *Audit) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Audit) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -66,7 +73,7 @@ func (o *Audit) SetOperation(v string) {
 
 // GetClusterIds returns the ClusterIds field value if set, zero value otherwise.
 func (o *Audit) GetClusterIds() []int32 {
-	if o == nil || isNil(o.ClusterIds) {
+	if o == nil || IsNil(o.ClusterIds) {
 		var ret []int32
 		return ret
 	}
@@ -76,15 +83,15 @@ func (o *Audit) GetClusterIds() []int32 {
 // GetClusterIdsOk returns a tuple with the ClusterIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Audit) GetClusterIdsOk() ([]int32, bool) {
-	if o == nil || isNil(o.ClusterIds) {
-    return nil, false
+	if o == nil || IsNil(o.ClusterIds) {
+		return nil, false
 	}
 	return o.ClusterIds, true
 }
 
 // HasClusterIds returns a boolean if a field has been set.
 func (o *Audit) HasClusterIds() bool {
-	if o != nil && !isNil(o.ClusterIds) {
+	if o != nil && !IsNil(o.ClusterIds) {
 		return true
 	}
 
@@ -98,7 +105,7 @@ func (o *Audit) SetClusterIds(v []int32) {
 
 // GetAscending returns the Ascending field value if set, zero value otherwise.
 func (o *Audit) GetAscending() bool {
-	if o == nil || isNil(o.Ascending) {
+	if o == nil || IsNil(o.Ascending) {
 		var ret bool
 		return ret
 	}
@@ -108,15 +115,15 @@ func (o *Audit) GetAscending() bool {
 // GetAscendingOk returns a tuple with the Ascending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Audit) GetAscendingOk() (*bool, bool) {
-	if o == nil || isNil(o.Ascending) {
-    return nil, false
+	if o == nil || IsNil(o.Ascending) {
+		return nil, false
 	}
 	return o.Ascending, true
 }
 
 // HasAscending returns a boolean if a field has been set.
 func (o *Audit) HasAscending() bool {
-	if o != nil && !isNil(o.Ascending) {
+	if o != nil && !IsNil(o.Ascending) {
 		return true
 	}
 
@@ -129,17 +136,60 @@ func (o *Audit) SetAscending(v bool) {
 }
 
 func (o Audit) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ClusterIds) {
-		toSerialize["cluster_ids"] = o.ClusterIds
-	}
-	if !isNil(o.Ascending) {
-		toSerialize["ascending"] = o.Ascending
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Audit) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ClusterIds) {
+		toSerialize["cluster_ids"] = o.ClusterIds
+	}
+	if !IsNil(o.Ascending) {
+		toSerialize["ascending"] = o.Ascending
+	}
+	return toSerialize, nil
+}
+
+func (o *Audit) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAudit := _Audit{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAudit)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Audit(varAudit)
+
+	return err
 }
 
 type NullableAudit struct {

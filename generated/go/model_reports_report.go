@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ReportsReport type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ReportsReport{}
+
 // ReportsReport struct for ReportsReport
 type ReportsReport struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -45,7 +48,7 @@ func NewReportsReportWithDefaults() *ReportsReport {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *ReportsReport) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *ReportsReport) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *ReportsReport) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *ReportsReport) SetClassName(v string) {
 
 // GetRecipients returns the Recipients field value if set, zero value otherwise.
 func (o *ReportsReport) GetRecipients() string {
-	if o == nil || isNil(o.Recipients) {
+	if o == nil || IsNil(o.Recipients) {
 		var ret string
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *ReportsReport) GetRecipients() string {
 // GetRecipientsOk returns a tuple with the Recipients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetRecipientsOk() (*string, bool) {
-	if o == nil || isNil(o.Recipients) {
-    return nil, false
+	if o == nil || IsNil(o.Recipients) {
+		return nil, false
 	}
 	return o.Recipients, true
 }
 
 // HasRecipients returns a boolean if a field has been set.
 func (o *ReportsReport) HasRecipients() bool {
-	if o != nil && !isNil(o.Recipients) {
+	if o != nil && !IsNil(o.Recipients) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *ReportsReport) SetRecipients(v string) {
 
 // GetReportType returns the ReportType field value if set, zero value otherwise.
 func (o *ReportsReport) GetReportType() string {
-	if o == nil || isNil(o.ReportType) {
+	if o == nil || IsNil(o.ReportType) {
 		var ret string
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *ReportsReport) GetReportType() string {
 // GetReportTypeOk returns a tuple with the ReportType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetReportTypeOk() (*string, bool) {
-	if o == nil || isNil(o.ReportType) {
-    return nil, false
+	if o == nil || IsNil(o.ReportType) {
+		return nil, false
 	}
 	return o.ReportType, true
 }
 
 // HasReportType returns a boolean if a field has been set.
 func (o *ReportsReport) HasReportType() bool {
-	if o != nil && !isNil(o.ReportType) {
+	if o != nil && !IsNil(o.ReportType) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *ReportsReport) SetReportType(v string) {
 
 // GetTextFormat returns the TextFormat field value if set, zero value otherwise.
 func (o *ReportsReport) GetTextFormat() string {
-	if o == nil || isNil(o.TextFormat) {
+	if o == nil || IsNil(o.TextFormat) {
 		var ret string
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *ReportsReport) GetTextFormat() string {
 // GetTextFormatOk returns a tuple with the TextFormat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetTextFormatOk() (*string, bool) {
-	if o == nil || isNil(o.TextFormat) {
-    return nil, false
+	if o == nil || IsNil(o.TextFormat) {
+		return nil, false
 	}
 	return o.TextFormat, true
 }
 
 // HasTextFormat returns a boolean if a field has been set.
 func (o *ReportsReport) HasTextFormat() bool {
-	if o != nil && !isNil(o.TextFormat) {
+	if o != nil && !IsNil(o.TextFormat) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *ReportsReport) SetTextFormat(v string) {
 
 // GetReportId returns the ReportId field value if set, zero value otherwise.
 func (o *ReportsReport) GetReportId() int32 {
-	if o == nil || isNil(o.ReportId) {
+	if o == nil || IsNil(o.ReportId) {
 		var ret int32
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *ReportsReport) GetReportId() int32 {
 // GetReportIdOk returns a tuple with the ReportId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ReportsReport) GetReportIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ReportId) {
-    return nil, false
+	if o == nil || IsNil(o.ReportId) {
+		return nil, false
 	}
 	return o.ReportId, true
 }
 
 // HasReportId returns a boolean if a field has been set.
 func (o *ReportsReport) HasReportId() bool {
-	if o != nil && !isNil(o.ReportId) {
+	if o != nil && !IsNil(o.ReportId) {
 		return true
 	}
 
@@ -204,23 +207,31 @@ func (o *ReportsReport) SetReportId(v int32) {
 }
 
 func (o ReportsReport) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Recipients) {
-		toSerialize["recipients"] = o.Recipients
-	}
-	if !isNil(o.ReportType) {
-		toSerialize["report_type"] = o.ReportType
-	}
-	if !isNil(o.TextFormat) {
-		toSerialize["text_format"] = o.TextFormat
-	}
-	if !isNil(o.ReportId) {
-		toSerialize["report_id"] = o.ReportId
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ReportsReport) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Recipients) {
+		toSerialize["recipients"] = o.Recipients
+	}
+	if !IsNil(o.ReportType) {
+		toSerialize["report_type"] = o.ReportType
+	}
+	if !IsNil(o.TextFormat) {
+		toSerialize["text_format"] = o.TextFormat
+	}
+	if !IsNil(o.ReportId) {
+		toSerialize["report_id"] = o.ReportId
+	}
+	return toSerialize, nil
 }
 
 type NullableReportsReport struct {

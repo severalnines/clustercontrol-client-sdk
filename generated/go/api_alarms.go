@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// AlarmsApiService AlarmsApi service
-type AlarmsApiService service
+// AlarmsAPIService AlarmsAPI service
+type AlarmsAPIService service
 
 type ApiAlarmPostRequest struct {
 	ctx context.Context
-	ApiService *AlarmsApiService
+	ApiService *AlarmsAPIService
 	alarm *Alarm
 }
 
@@ -45,7 +45,7 @@ AlarmPost GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAlarmPostRequest
 */
-func (a *AlarmsApiService) AlarmPost(ctx context.Context) ApiAlarmPostRequest {
+func (a *AlarmsAPIService) AlarmPost(ctx context.Context) ApiAlarmPostRequest {
 	return ApiAlarmPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -54,7 +54,7 @@ func (a *AlarmsApiService) AlarmPost(ctx context.Context) ApiAlarmPostRequest {
 
 // Execute executes the request
 //  @return AlarmResponse
-func (a *AlarmsApiService) AlarmPostExecute(r ApiAlarmPostRequest) (*AlarmResponse, *http.Response, error) {
+func (a *AlarmsAPIService) AlarmPostExecute(r ApiAlarmPostRequest) (*AlarmResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -62,7 +62,7 @@ func (a *AlarmsApiService) AlarmPostExecute(r ApiAlarmPostRequest) (*AlarmRespon
 		localVarReturnValue  *AlarmResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AlarmsApiService.AlarmPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AlarmsAPIService.AlarmPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -105,9 +105,9 @@ func (a *AlarmsApiService) AlarmPostExecute(r ApiAlarmPostRequest) (*AlarmRespon
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

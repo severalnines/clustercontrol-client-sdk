@@ -1,10 +1,10 @@
-# \BackupApi
+# \BackupAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BackupPost**](BackupApi.md#BackupPost) | **Post** /backup | GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
+[**BackupPost**](BackupAPI.md#BackupPost) | **Post** /backup | GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
 
 
 
@@ -20,22 +20,22 @@ GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    backup := *openapiclient.NewBackup("Operation_example") // Backup | All things related to Backups
+	backup := *openapiclient.NewBackup("Operation_example") // Backup | All things related to Backups
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BackupApi.BackupPost(context.Background()).Backup(backup).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackupApi.BackupPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.BackupAPI.BackupPost(context.Background()).Backup(backup).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackupAPI.BackupPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

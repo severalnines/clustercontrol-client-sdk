@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the BackupSchedule type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BackupSchedule{}
+
 // BackupSchedule struct for BackupSchedule
 type BackupSchedule struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -43,7 +46,7 @@ func NewBackupScheduleWithDefaults() *BackupSchedule {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *BackupSchedule) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *BackupSchedule) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *BackupSchedule) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *BackupSchedule) SetClassName(v string) {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *BackupSchedule) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *BackupSchedule) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
-    return nil, false
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *BackupSchedule) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *BackupSchedule) SetEnabled(v bool) {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *BackupSchedule) GetSchedule() string {
-	if o == nil || isNil(o.Schedule) {
+	if o == nil || IsNil(o.Schedule) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *BackupSchedule) GetSchedule() string {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetScheduleOk() (*string, bool) {
-	if o == nil || isNil(o.Schedule) {
-    return nil, false
+	if o == nil || IsNil(o.Schedule) {
+		return nil, false
 	}
 	return o.Schedule, true
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *BackupSchedule) HasSchedule() bool {
-	if o != nil && !isNil(o.Schedule) {
+	if o != nil && !IsNil(o.Schedule) {
 		return true
 	}
 
@@ -139,7 +142,7 @@ func (o *BackupSchedule) SetSchedule(v string) {
 
 // GetScheduleId returns the ScheduleId field value if set, zero value otherwise.
 func (o *BackupSchedule) GetScheduleId() int32 {
-	if o == nil || isNil(o.ScheduleId) {
+	if o == nil || IsNil(o.ScheduleId) {
 		var ret int32
 		return ret
 	}
@@ -149,15 +152,15 @@ func (o *BackupSchedule) GetScheduleId() int32 {
 // GetScheduleIdOk returns a tuple with the ScheduleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetScheduleIdOk() (*int32, bool) {
-	if o == nil || isNil(o.ScheduleId) {
-    return nil, false
+	if o == nil || IsNil(o.ScheduleId) {
+		return nil, false
 	}
 	return o.ScheduleId, true
 }
 
 // HasScheduleId returns a boolean if a field has been set.
 func (o *BackupSchedule) HasScheduleId() bool {
-	if o != nil && !isNil(o.ScheduleId) {
+	if o != nil && !IsNil(o.ScheduleId) {
 		return true
 	}
 
@@ -171,7 +174,7 @@ func (o *BackupSchedule) SetScheduleId(v int32) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *BackupSchedule) GetJob() BackupScheduleJob {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret BackupScheduleJob
 		return ret
 	}
@@ -181,15 +184,15 @@ func (o *BackupSchedule) GetJob() BackupScheduleJob {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupSchedule) GetJobOk() (*BackupScheduleJob, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *BackupSchedule) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -202,23 +205,31 @@ func (o *BackupSchedule) SetJob(v BackupScheduleJob) {
 }
 
 func (o BackupSchedule) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.Enabled) {
-		toSerialize["enabled"] = o.Enabled
-	}
-	if !isNil(o.Schedule) {
-		toSerialize["schedule"] = o.Schedule
-	}
-	if !isNil(o.ScheduleId) {
-		toSerialize["schedule_id"] = o.ScheduleId
-	}
-	if !isNil(o.Job) {
-		toSerialize["job"] = o.Job
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BackupSchedule) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.Enabled) {
+		toSerialize["enabled"] = o.Enabled
+	}
+	if !IsNil(o.Schedule) {
+		toSerialize["schedule"] = o.Schedule
+	}
+	if !IsNil(o.ScheduleId) {
+		toSerialize["schedule_id"] = o.ScheduleId
+	}
+	if !IsNil(o.Job) {
+		toSerialize["job"] = o.Job
+	}
+	return toSerialize, nil
 }
 
 type NullableBackupSchedule struct {

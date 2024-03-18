@@ -1,10 +1,10 @@
-# \AuthApi
+# \AuthAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AuthPost**](AuthApi.md#AuthPost) | **Post** /auth | Authenticate | Logout | Password Reset | Authenticate response (with challenge)
+[**AuthPost**](AuthAPI.md#AuthPost) | **Post** /auth | Authenticate | Logout | Password Reset | Authenticate response (with challenge)
 
 
 
@@ -20,22 +20,22 @@ Authenticate | Logout | Password Reset | Authenticate response (with challenge)
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    authenticate := *openapiclient.NewAuthenticate("Operation_example") // Authenticate | Authentication parameters
+	authenticate := *openapiclient.NewAuthenticate("Operation_example") // Authenticate | Authentication parameters
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthApi.AuthPost(context.Background()).Authenticate(authenticate).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthApi.AuthPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AuthAPI.AuthPost(context.Background()).Authenticate(authenticate).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.AuthPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

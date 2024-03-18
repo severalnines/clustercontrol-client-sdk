@@ -1,10 +1,10 @@
-# \AuditApi
+# \AuditAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AuditPost**](AuditApi.md#AuditPost) | **Post** /audit | GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
+[**AuditPost**](AuditAPI.md#AuditPost) | **Post** /audit | GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 
 
 
@@ -20,22 +20,22 @@ GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    audit := *openapiclient.NewAudit("Operation_example") // Audit | Used to get the audit log entries
+	audit := *openapiclient.NewAudit("Operation_example") // Audit | Used to get the audit log entries
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuditApi.AuditPost(context.Background()).Audit(audit).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuditApi.AuditPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AuditAPI.AuditPost(context.Background()).Audit(audit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuditAPI.AuditPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

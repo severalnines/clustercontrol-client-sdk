@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// AuthApiService AuthApi service
-type AuthApiService service
+// AuthAPIService AuthAPI service
+type AuthAPIService service
 
 type ApiAuthPostRequest struct {
 	ctx context.Context
-	ApiService *AuthApiService
+	ApiService *AuthAPIService
 	authenticate *Authenticate
 }
 
@@ -45,7 +45,7 @@ AuthPost Authenticate | Logout | Password Reset | Authenticate response (with ch
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAuthPostRequest
 */
-func (a *AuthApiService) AuthPost(ctx context.Context) ApiAuthPostRequest {
+func (a *AuthAPIService) AuthPost(ctx context.Context) ApiAuthPostRequest {
 	return ApiAuthPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *AuthApiService) AuthPost(ctx context.Context) ApiAuthPostRequest {
 }
 
 // Execute executes the request
-func (a *AuthApiService) AuthPostExecute(r ApiAuthPostRequest) (*http.Response, error) {
+func (a *AuthAPIService) AuthPostExecute(r ApiAuthPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthApiService.AuthPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.AuthPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *AuthApiService) AuthPostExecute(r ApiAuthPostRequest) (*http.Response, 
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

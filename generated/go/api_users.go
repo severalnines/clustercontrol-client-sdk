@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// UsersApiService UsersApi service
-type UsersApiService service
+// UsersAPIService UsersAPI service
+type UsersAPIService service
 
 type ApiUsersPostRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	users *Users
 }
 
@@ -45,7 +45,7 @@ UsersPost CreateUser | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUsersPostRequest
 */
-func (a *UsersApiService) UsersPost(ctx context.Context) ApiUsersPostRequest {
+func (a *UsersAPIService) UsersPost(ctx context.Context) ApiUsersPostRequest {
 	return ApiUsersPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *UsersApiService) UsersPost(ctx context.Context) ApiUsersPostRequest {
 }
 
 // Execute executes the request
-func (a *UsersApiService) UsersPostExecute(r ApiUsersPostRequest) (*http.Response, error) {
+func (a *UsersAPIService) UsersPostExecute(r ApiUsersPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *UsersApiService) UsersPostExecute(r ApiUsersPostRequest) (*http.Respons
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

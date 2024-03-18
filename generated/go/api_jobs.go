@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// JobsApiService JobsApi service
-type JobsApiService service
+// JobsAPIService JobsAPI service
+type JobsAPIService service
 
 type ApiJobsPostRequest struct {
 	ctx context.Context
-	ApiService *JobsApiService
+	ApiService *JobsAPIService
 	jobs *Jobs
 }
 
@@ -45,7 +45,7 @@ JobsPost CreateJobInstance | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiJobsPostRequest
 */
-func (a *JobsApiService) JobsPost(ctx context.Context) ApiJobsPostRequest {
+func (a *JobsAPIService) JobsPost(ctx context.Context) ApiJobsPostRequest {
 	return ApiJobsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *JobsApiService) JobsPost(ctx context.Context) ApiJobsPostRequest {
 }
 
 // Execute executes the request
-func (a *JobsApiService) JobsPostExecute(r ApiJobsPostRequest) (*http.Response, error) {
+func (a *JobsAPIService) JobsPostExecute(r ApiJobsPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsApiService.JobsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.JobsPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *JobsApiService) JobsPostExecute(r ApiJobsPostRequest) (*http.Response, 
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

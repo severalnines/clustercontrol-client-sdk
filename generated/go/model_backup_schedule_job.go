@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the BackupScheduleJob type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BackupScheduleJob{}
+
 // BackupScheduleJob struct for BackupScheduleJob
 type BackupScheduleJob struct {
 	Command *string `json:"command,omitempty"`
@@ -40,7 +43,7 @@ func NewBackupScheduleJobWithDefaults() *BackupScheduleJob {
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *BackupScheduleJob) GetCommand() string {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -50,15 +53,15 @@ func (o *BackupScheduleJob) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJob) GetCommandOk() (*string, bool) {
-	if o == nil || isNil(o.Command) {
-    return nil, false
+	if o == nil || IsNil(o.Command) {
+		return nil, false
 	}
 	return o.Command, true
 }
 
 // HasCommand returns a boolean if a field has been set.
 func (o *BackupScheduleJob) HasCommand() bool {
-	if o != nil && !isNil(o.Command) {
+	if o != nil && !IsNil(o.Command) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *BackupScheduleJob) SetCommand(v string) {
 
 // GetJobData returns the JobData field value if set, zero value otherwise.
 func (o *BackupScheduleJob) GetJobData() BackupScheduleJobJobData {
-	if o == nil || isNil(o.JobData) {
+	if o == nil || IsNil(o.JobData) {
 		var ret BackupScheduleJobJobData
 		return ret
 	}
@@ -82,15 +85,15 @@ func (o *BackupScheduleJob) GetJobData() BackupScheduleJobJobData {
 // GetJobDataOk returns a tuple with the JobData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BackupScheduleJob) GetJobDataOk() (*BackupScheduleJobJobData, bool) {
-	if o == nil || isNil(o.JobData) {
-    return nil, false
+	if o == nil || IsNil(o.JobData) {
+		return nil, false
 	}
 	return o.JobData, true
 }
 
 // HasJobData returns a boolean if a field has been set.
 func (o *BackupScheduleJob) HasJobData() bool {
-	if o != nil && !isNil(o.JobData) {
+	if o != nil && !IsNil(o.JobData) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *BackupScheduleJob) SetJobData(v BackupScheduleJobJobData) {
 }
 
 func (o BackupScheduleJob) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Command) {
-		toSerialize["command"] = o.Command
-	}
-	if !isNil(o.JobData) {
-		toSerialize["job_data"] = o.JobData
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o BackupScheduleJob) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Command) {
+		toSerialize["command"] = o.Command
+	}
+	if !IsNil(o.JobData) {
+		toSerialize["job_data"] = o.JobData
+	}
+	return toSerialize, nil
 }
 
 type NullableBackupScheduleJob struct {

@@ -1,10 +1,10 @@
-# \CloudApi
+# \CloudAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CloudPost**](CloudApi.md#CloudPost) | **Post** /cloud | VerifyCredentials | ListCredentials | etc
+[**CloudPost**](CloudAPI.md#CloudPost) | **Post** /cloud | VerifyCredentials | ListCredentials | etc
 
 
 
@@ -20,22 +20,22 @@ VerifyCredentials | ListCredentials | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    cloud := *openapiclient.NewCloud("Operation_example") // Cloud | calls to manage the cloud-credentials
+	cloud := *openapiclient.NewCloud("Operation_example") // Cloud | calls to manage the cloud-credentials
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CloudApi.CloudPost(context.Background()).Cloud(cloud).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CloudApi.CloudPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CloudAPI.CloudPost(context.Background()).Cloud(cloud).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CloudAPI.CloudPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

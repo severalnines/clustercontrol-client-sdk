@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Cloud type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Cloud{}
 
 // Cloud struct for Cloud
 type Cloud struct {
@@ -24,6 +29,8 @@ type Cloud struct {
 	Id *int32 `json:"id,omitempty"`
 	Credentials *CloudCredentials `json:"credentials,omitempty"`
 }
+
+type _Cloud Cloud
 
 // NewCloud instantiates a new Cloud object
 // This constructor will assign default values to properties that have it defined,
@@ -57,7 +64,7 @@ func (o *Cloud) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -69,7 +76,7 @@ func (o *Cloud) SetOperation(v string) {
 
 // GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *Cloud) GetProvider() string {
-	if o == nil || isNil(o.Provider) {
+	if o == nil || IsNil(o.Provider) {
 		var ret string
 		return ret
 	}
@@ -79,15 +86,15 @@ func (o *Cloud) GetProvider() string {
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetProviderOk() (*string, bool) {
-	if o == nil || isNil(o.Provider) {
-    return nil, false
+	if o == nil || IsNil(o.Provider) {
+		return nil, false
 	}
 	return o.Provider, true
 }
 
 // HasProvider returns a boolean if a field has been set.
 func (o *Cloud) HasProvider() bool {
-	if o != nil && !isNil(o.Provider) {
+	if o != nil && !IsNil(o.Provider) {
 		return true
 	}
 
@@ -101,7 +108,7 @@ func (o *Cloud) SetProvider(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Cloud) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -111,15 +118,15 @@ func (o *Cloud) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Cloud) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -133,7 +140,7 @@ func (o *Cloud) SetName(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *Cloud) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -143,15 +150,15 @@ func (o *Cloud) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
-    return nil, false
+	if o == nil || IsNil(o.Comment) {
+		return nil, false
 	}
 	return o.Comment, true
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *Cloud) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -165,7 +172,7 @@ func (o *Cloud) SetComment(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Cloud) GetId() int32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -175,15 +182,15 @@ func (o *Cloud) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetIdOk() (*int32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Cloud) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -197,7 +204,7 @@ func (o *Cloud) SetId(v int32) {
 
 // GetCredentials returns the Credentials field value if set, zero value otherwise.
 func (o *Cloud) GetCredentials() CloudCredentials {
-	if o == nil || isNil(o.Credentials) {
+	if o == nil || IsNil(o.Credentials) {
 		var ret CloudCredentials
 		return ret
 	}
@@ -207,15 +214,15 @@ func (o *Cloud) GetCredentials() CloudCredentials {
 // GetCredentialsOk returns a tuple with the Credentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cloud) GetCredentialsOk() (*CloudCredentials, bool) {
-	if o == nil || isNil(o.Credentials) {
-    return nil, false
+	if o == nil || IsNil(o.Credentials) {
+		return nil, false
 	}
 	return o.Credentials, true
 }
 
 // HasCredentials returns a boolean if a field has been set.
 func (o *Cloud) HasCredentials() bool {
-	if o != nil && !isNil(o.Credentials) {
+	if o != nil && !IsNil(o.Credentials) {
 		return true
 	}
 
@@ -228,26 +235,69 @@ func (o *Cloud) SetCredentials(v CloudCredentials) {
 }
 
 func (o Cloud) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.Provider) {
-		toSerialize["provider"] = o.Provider
-	}
-	if !isNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Comment) {
-		toSerialize["comment"] = o.Comment
-	}
-	if !isNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !isNil(o.Credentials) {
-		toSerialize["credentials"] = o.Credentials
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Cloud) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Comment) {
+		toSerialize["comment"] = o.Comment
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Credentials) {
+		toSerialize["credentials"] = o.Credentials
+	}
+	return toSerialize, nil
+}
+
+func (o *Cloud) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCloud := _Cloud{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCloud)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Cloud(varCloud)
+
+	return err
 }
 
 type NullableCloud struct {

@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ConfigLdapConfigurationGroupMappingsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ConfigLdapConfigurationGroupMappingsInner{}
+
 // ConfigLdapConfigurationGroupMappingsInner struct for ConfigLdapConfigurationGroupMappingsInner
 type ConfigLdapConfigurationGroupMappingsInner struct {
 	CmonGroupName *string `json:"cmonGroupName,omitempty"`
@@ -41,7 +44,7 @@ func NewConfigLdapConfigurationGroupMappingsInnerWithDefaults() *ConfigLdapConfi
 
 // GetCmonGroupName returns the CmonGroupName field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetCmonGroupName() string {
-	if o == nil || isNil(o.CmonGroupName) {
+	if o == nil || IsNil(o.CmonGroupName) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) GetCmonGroupName() string {
 // GetCmonGroupNameOk returns a tuple with the CmonGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetCmonGroupNameOk() (*string, bool) {
-	if o == nil || isNil(o.CmonGroupName) {
-    return nil, false
+	if o == nil || IsNil(o.CmonGroupName) {
+		return nil, false
 	}
 	return o.CmonGroupName, true
 }
 
 // HasCmonGroupName returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) HasCmonGroupName() bool {
-	if o != nil && !isNil(o.CmonGroupName) {
+	if o != nil && !IsNil(o.CmonGroupName) {
 		return true
 	}
 
@@ -73,7 +76,7 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) SetCmonGroupName(v string) {
 
 // GetLdapGroupId returns the LdapGroupId field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetLdapGroupId() string {
-	if o == nil || isNil(o.LdapGroupId) {
+	if o == nil || IsNil(o.LdapGroupId) {
 		var ret string
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) GetLdapGroupId() string {
 // GetLdapGroupIdOk returns a tuple with the LdapGroupId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetLdapGroupIdOk() (*string, bool) {
-	if o == nil || isNil(o.LdapGroupId) {
-    return nil, false
+	if o == nil || IsNil(o.LdapGroupId) {
+		return nil, false
 	}
 	return o.LdapGroupId, true
 }
 
 // HasLdapGroupId returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) HasLdapGroupId() bool {
-	if o != nil && !isNil(o.LdapGroupId) {
+	if o != nil && !IsNil(o.LdapGroupId) {
 		return true
 	}
 
@@ -105,7 +108,7 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) SetLdapGroupId(v string) {
 
 // GetSectionName returns the SectionName field value if set, zero value otherwise.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetSectionName() string {
-	if o == nil || isNil(o.SectionName) {
+	if o == nil || IsNil(o.SectionName) {
 		var ret string
 		return ret
 	}
@@ -115,15 +118,15 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) GetSectionName() string {
 // GetSectionNameOk returns a tuple with the SectionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) GetSectionNameOk() (*string, bool) {
-	if o == nil || isNil(o.SectionName) {
-    return nil, false
+	if o == nil || IsNil(o.SectionName) {
+		return nil, false
 	}
 	return o.SectionName, true
 }
 
 // HasSectionName returns a boolean if a field has been set.
 func (o *ConfigLdapConfigurationGroupMappingsInner) HasSectionName() bool {
-	if o != nil && !isNil(o.SectionName) {
+	if o != nil && !IsNil(o.SectionName) {
 		return true
 	}
 
@@ -136,17 +139,25 @@ func (o *ConfigLdapConfigurationGroupMappingsInner) SetSectionName(v string) {
 }
 
 func (o ConfigLdapConfigurationGroupMappingsInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.CmonGroupName) {
-		toSerialize["cmonGroupName"] = o.CmonGroupName
-	}
-	if !isNil(o.LdapGroupId) {
-		toSerialize["ldapGroupId"] = o.LdapGroupId
-	}
-	if !isNil(o.SectionName) {
-		toSerialize["sectionName"] = o.SectionName
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ConfigLdapConfigurationGroupMappingsInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CmonGroupName) {
+		toSerialize["cmonGroupName"] = o.CmonGroupName
+	}
+	if !IsNil(o.LdapGroupId) {
+		toSerialize["ldapGroupId"] = o.LdapGroupId
+	}
+	if !IsNil(o.SectionName) {
+		toSerialize["sectionName"] = o.SectionName
+	}
+	return toSerialize, nil
 }
 
 type NullableConfigLdapConfigurationGroupMappingsInner struct {

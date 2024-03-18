@@ -1,10 +1,10 @@
-# \StatPrometheusApi
+# \StatPrometheusAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**StatPrometheusQueryPost**](StatPrometheusApi.md#StatPrometheusQueryPost) | **Post** /stat/prometheus/query | GetInfo | etc
+[**StatPrometheusQueryPost**](StatPrometheusAPI.md#StatPrometheusQueryPost) | **Post** /stat/prometheus/query | GetInfo | etc
 
 
 
@@ -20,22 +20,22 @@ GetInfo | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    statPrometheus := *openapiclient.NewStatPrometheus("Operation_example") // StatPrometheus | Provides calls to access various statistical information about the cluster
+	statPrometheus := *openapiclient.NewStatPrometheus("Operation_example") // StatPrometheus | Provides calls to access various statistical information about the cluster
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StatPrometheusApi.StatPrometheusQueryPost(context.Background()).StatPrometheus(statPrometheus).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StatPrometheusApi.StatPrometheusQueryPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.StatPrometheusAPI.StatPrometheusQueryPost(context.Background()).StatPrometheus(statPrometheus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StatPrometheusAPI.StatPrometheusQueryPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

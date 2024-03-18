@@ -1,10 +1,10 @@
-# \ConfigApi
+# \ConfigAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ConfigPost**](ConfigApi.md#ConfigPost) | **Post** /config | GetConfig | xxx | xxx | etc
+[**ConfigPost**](ConfigAPI.md#ConfigPost) | **Post** /config | GetConfig | xxx | xxx | etc
 
 
 
@@ -20,22 +20,22 @@ GetConfig | xxx | xxx | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    config := *openapiclient.NewConfig("Operation_example") // Config | Provides access to various Cmon configuration files
+	config := *openapiclient.NewConfig("Operation_example") // Config | Provides access to various Cmon configuration files
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigApi.ConfigPost(context.Background()).Config(config).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigApi.ConfigPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ConfigAPI.ConfigPost(context.Background()).Config(config).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigAPI.ConfigPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

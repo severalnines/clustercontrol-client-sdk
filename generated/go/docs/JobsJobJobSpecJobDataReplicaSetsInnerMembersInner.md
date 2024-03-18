@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Port** | Pointer to **string** |  | [optional] 
 **ArbiterOnly** | Pointer to **bool** |  | [optional] 
 **Hidden** | Pointer to **bool** |  | [optional] 
-**Priority** | Pointer to **string** |  | [optional] 
+**Priority** | Pointer to **int32** |  | [optional] 
 **SlaveDelay** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -184,20 +184,20 @@ HasHidden returns a boolean if a field has been set.
 
 ### GetPriority
 
-`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriority() string`
+`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriority() int32`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriorityOk() (*string, bool)`
+`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) GetPriorityOk() (*int32, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetPriority(v string)`
+`func (o *JobsJobJobSpecJobDataReplicaSetsInnerMembersInner) SetPriority(v int32)`
 
 SetPriority sets Priority field to given value.
 

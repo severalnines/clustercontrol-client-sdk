@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the Discovery type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Discovery{}
 
 // Discovery struct for Discovery
 type Discovery struct {
@@ -26,6 +31,8 @@ type Discovery struct {
 	Job *DiscoveryJob `json:"job,omitempty"`
 	SshCredentials *DiscoverySshCredentials `json:"ssh_credentials,omitempty"`
 }
+
+type _Discovery Discovery
 
 // NewDiscovery instantiates a new Discovery object
 // This constructor will assign default values to properties that have it defined,
@@ -59,7 +66,7 @@ func (o *Discovery) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -71,7 +78,7 @@ func (o *Discovery) SetOperation(v string) {
 
 // GetNewClusterName returns the NewClusterName field value if set, zero value otherwise.
 func (o *Discovery) GetNewClusterName() string {
-	if o == nil || isNil(o.NewClusterName) {
+	if o == nil || IsNil(o.NewClusterName) {
 		var ret string
 		return ret
 	}
@@ -81,15 +88,15 @@ func (o *Discovery) GetNewClusterName() string {
 // GetNewClusterNameOk returns a tuple with the NewClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetNewClusterNameOk() (*string, bool) {
-	if o == nil || isNil(o.NewClusterName) {
-    return nil, false
+	if o == nil || IsNil(o.NewClusterName) {
+		return nil, false
 	}
 	return o.NewClusterName, true
 }
 
 // HasNewClusterName returns a boolean if a field has been set.
 func (o *Discovery) HasNewClusterName() bool {
-	if o != nil && !isNil(o.NewClusterName) {
+	if o != nil && !IsNil(o.NewClusterName) {
 		return true
 	}
 
@@ -103,7 +110,7 @@ func (o *Discovery) SetNewClusterName(v string) {
 
 // GetCheckIfAlreadyRegistered returns the CheckIfAlreadyRegistered field value if set, zero value otherwise.
 func (o *Discovery) GetCheckIfAlreadyRegistered() bool {
-	if o == nil || isNil(o.CheckIfAlreadyRegistered) {
+	if o == nil || IsNil(o.CheckIfAlreadyRegistered) {
 		var ret bool
 		return ret
 	}
@@ -113,15 +120,15 @@ func (o *Discovery) GetCheckIfAlreadyRegistered() bool {
 // GetCheckIfAlreadyRegisteredOk returns a tuple with the CheckIfAlreadyRegistered field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetCheckIfAlreadyRegisteredOk() (*bool, bool) {
-	if o == nil || isNil(o.CheckIfAlreadyRegistered) {
-    return nil, false
+	if o == nil || IsNil(o.CheckIfAlreadyRegistered) {
+		return nil, false
 	}
 	return o.CheckIfAlreadyRegistered, true
 }
 
 // HasCheckIfAlreadyRegistered returns a boolean if a field has been set.
 func (o *Discovery) HasCheckIfAlreadyRegistered() bool {
-	if o != nil && !isNil(o.CheckIfAlreadyRegistered) {
+	if o != nil && !IsNil(o.CheckIfAlreadyRegistered) {
 		return true
 	}
 
@@ -135,7 +142,7 @@ func (o *Discovery) SetCheckIfAlreadyRegistered(v bool) {
 
 // GetCheckJob returns the CheckJob field value if set, zero value otherwise.
 func (o *Discovery) GetCheckJob() bool {
-	if o == nil || isNil(o.CheckJob) {
+	if o == nil || IsNil(o.CheckJob) {
 		var ret bool
 		return ret
 	}
@@ -145,15 +152,15 @@ func (o *Discovery) GetCheckJob() bool {
 // GetCheckJobOk returns a tuple with the CheckJob field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetCheckJobOk() (*bool, bool) {
-	if o == nil || isNil(o.CheckJob) {
-    return nil, false
+	if o == nil || IsNil(o.CheckJob) {
+		return nil, false
 	}
 	return o.CheckJob, true
 }
 
 // HasCheckJob returns a boolean if a field has been set.
 func (o *Discovery) HasCheckJob() bool {
-	if o != nil && !isNil(o.CheckJob) {
+	if o != nil && !IsNil(o.CheckJob) {
 		return true
 	}
 
@@ -167,7 +174,7 @@ func (o *Discovery) SetCheckJob(v bool) {
 
 // GetCheckSshSudo returns the CheckSshSudo field value if set, zero value otherwise.
 func (o *Discovery) GetCheckSshSudo() bool {
-	if o == nil || isNil(o.CheckSshSudo) {
+	if o == nil || IsNil(o.CheckSshSudo) {
 		var ret bool
 		return ret
 	}
@@ -177,15 +184,15 @@ func (o *Discovery) GetCheckSshSudo() bool {
 // GetCheckSshSudoOk returns a tuple with the CheckSshSudo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetCheckSshSudoOk() (*bool, bool) {
-	if o == nil || isNil(o.CheckSshSudo) {
-    return nil, false
+	if o == nil || IsNil(o.CheckSshSudo) {
+		return nil, false
 	}
 	return o.CheckSshSudo, true
 }
 
 // HasCheckSshSudo returns a boolean if a field has been set.
 func (o *Discovery) HasCheckSshSudo() bool {
-	if o != nil && !isNil(o.CheckSshSudo) {
+	if o != nil && !IsNil(o.CheckSshSudo) {
 		return true
 	}
 
@@ -199,7 +206,7 @@ func (o *Discovery) SetCheckSshSudo(v bool) {
 
 // GetNodes returns the Nodes field value if set, zero value otherwise.
 func (o *Discovery) GetNodes() []DiscoveryNodesInner {
-	if o == nil || isNil(o.Nodes) {
+	if o == nil || IsNil(o.Nodes) {
 		var ret []DiscoveryNodesInner
 		return ret
 	}
@@ -209,15 +216,15 @@ func (o *Discovery) GetNodes() []DiscoveryNodesInner {
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetNodesOk() ([]DiscoveryNodesInner, bool) {
-	if o == nil || isNil(o.Nodes) {
-    return nil, false
+	if o == nil || IsNil(o.Nodes) {
+		return nil, false
 	}
 	return o.Nodes, true
 }
 
 // HasNodes returns a boolean if a field has been set.
 func (o *Discovery) HasNodes() bool {
-	if o != nil && !isNil(o.Nodes) {
+	if o != nil && !IsNil(o.Nodes) {
 		return true
 	}
 
@@ -231,7 +238,7 @@ func (o *Discovery) SetNodes(v []DiscoveryNodesInner) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *Discovery) GetJob() DiscoveryJob {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret DiscoveryJob
 		return ret
 	}
@@ -241,15 +248,15 @@ func (o *Discovery) GetJob() DiscoveryJob {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetJobOk() (*DiscoveryJob, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *Discovery) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -263,7 +270,7 @@ func (o *Discovery) SetJob(v DiscoveryJob) {
 
 // GetSshCredentials returns the SshCredentials field value if set, zero value otherwise.
 func (o *Discovery) GetSshCredentials() DiscoverySshCredentials {
-	if o == nil || isNil(o.SshCredentials) {
+	if o == nil || IsNil(o.SshCredentials) {
 		var ret DiscoverySshCredentials
 		return ret
 	}
@@ -273,15 +280,15 @@ func (o *Discovery) GetSshCredentials() DiscoverySshCredentials {
 // GetSshCredentialsOk returns a tuple with the SshCredentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Discovery) GetSshCredentialsOk() (*DiscoverySshCredentials, bool) {
-	if o == nil || isNil(o.SshCredentials) {
-    return nil, false
+	if o == nil || IsNil(o.SshCredentials) {
+		return nil, false
 	}
 	return o.SshCredentials, true
 }
 
 // HasSshCredentials returns a boolean if a field has been set.
 func (o *Discovery) HasSshCredentials() bool {
-	if o != nil && !isNil(o.SshCredentials) {
+	if o != nil && !IsNil(o.SshCredentials) {
 		return true
 	}
 
@@ -294,32 +301,75 @@ func (o *Discovery) SetSshCredentials(v DiscoverySshCredentials) {
 }
 
 func (o Discovery) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.NewClusterName) {
-		toSerialize["new_cluster_name"] = o.NewClusterName
-	}
-	if !isNil(o.CheckIfAlreadyRegistered) {
-		toSerialize["check_if_already_registered"] = o.CheckIfAlreadyRegistered
-	}
-	if !isNil(o.CheckJob) {
-		toSerialize["check_job"] = o.CheckJob
-	}
-	if !isNil(o.CheckSshSudo) {
-		toSerialize["check_ssh_sudo"] = o.CheckSshSudo
-	}
-	if !isNil(o.Nodes) {
-		toSerialize["nodes"] = o.Nodes
-	}
-	if !isNil(o.Job) {
-		toSerialize["job"] = o.Job
-	}
-	if !isNil(o.SshCredentials) {
-		toSerialize["ssh_credentials"] = o.SshCredentials
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o Discovery) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.NewClusterName) {
+		toSerialize["new_cluster_name"] = o.NewClusterName
+	}
+	if !IsNil(o.CheckIfAlreadyRegistered) {
+		toSerialize["check_if_already_registered"] = o.CheckIfAlreadyRegistered
+	}
+	if !IsNil(o.CheckJob) {
+		toSerialize["check_job"] = o.CheckJob
+	}
+	if !IsNil(o.CheckSshSudo) {
+		toSerialize["check_ssh_sudo"] = o.CheckSshSudo
+	}
+	if !IsNil(o.Nodes) {
+		toSerialize["nodes"] = o.Nodes
+	}
+	if !IsNil(o.Job) {
+		toSerialize["job"] = o.Job
+	}
+	if !IsNil(o.SshCredentials) {
+		toSerialize["ssh_credentials"] = o.SshCredentials
+	}
+	return toSerialize, nil
+}
+
+func (o *Discovery) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDiscovery := _Discovery{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDiscovery)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Discovery(varDiscovery)
+
+	return err
 }
 
 type NullableDiscovery struct {

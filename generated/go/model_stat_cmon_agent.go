@@ -13,7 +13,12 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
+
+// checks if the StatCmonAgent type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatCmonAgent{}
 
 // StatCmonAgent struct for StatCmonAgent
 type StatCmonAgent struct {
@@ -22,6 +27,8 @@ type StatCmonAgent struct {
 	ClassName *string `json:"className,omitempty"`
 	RequestData *StatCmonAgentRequestData `json:"requestData,omitempty"`
 }
+
+type _StatCmonAgent StatCmonAgent
 
 // NewStatCmonAgent instantiates a new StatCmonAgent object
 // This constructor will assign default values to properties that have it defined,
@@ -55,7 +62,7 @@ func (o *StatCmonAgent) GetOperation() string {
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetOperationOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Operation, true
 }
@@ -67,7 +74,7 @@ func (o *StatCmonAgent) SetOperation(v string) {
 
 // GetApiKey returns the ApiKey field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetApiKey() string {
-	if o == nil || isNil(o.ApiKey) {
+	if o == nil || IsNil(o.ApiKey) {
 		var ret string
 		return ret
 	}
@@ -77,15 +84,15 @@ func (o *StatCmonAgent) GetApiKey() string {
 // GetApiKeyOk returns a tuple with the ApiKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetApiKeyOk() (*string, bool) {
-	if o == nil || isNil(o.ApiKey) {
-    return nil, false
+	if o == nil || IsNil(o.ApiKey) {
+		return nil, false
 	}
 	return o.ApiKey, true
 }
 
 // HasApiKey returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasApiKey() bool {
-	if o != nil && !isNil(o.ApiKey) {
+	if o != nil && !IsNil(o.ApiKey) {
 		return true
 	}
 
@@ -99,7 +106,7 @@ func (o *StatCmonAgent) SetApiKey(v string) {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -109,15 +116,15 @@ func (o *StatCmonAgent) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -131,7 +138,7 @@ func (o *StatCmonAgent) SetClassName(v string) {
 
 // GetRequestData returns the RequestData field value if set, zero value otherwise.
 func (o *StatCmonAgent) GetRequestData() StatCmonAgentRequestData {
-	if o == nil || isNil(o.RequestData) {
+	if o == nil || IsNil(o.RequestData) {
 		var ret StatCmonAgentRequestData
 		return ret
 	}
@@ -141,15 +148,15 @@ func (o *StatCmonAgent) GetRequestData() StatCmonAgentRequestData {
 // GetRequestDataOk returns a tuple with the RequestData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgent) GetRequestDataOk() (*StatCmonAgentRequestData, bool) {
-	if o == nil || isNil(o.RequestData) {
-    return nil, false
+	if o == nil || IsNil(o.RequestData) {
+		return nil, false
 	}
 	return o.RequestData, true
 }
 
 // HasRequestData returns a boolean if a field has been set.
 func (o *StatCmonAgent) HasRequestData() bool {
-	if o != nil && !isNil(o.RequestData) {
+	if o != nil && !IsNil(o.RequestData) {
 		return true
 	}
 
@@ -162,20 +169,63 @@ func (o *StatCmonAgent) SetRequestData(v StatCmonAgentRequestData) {
 }
 
 func (o StatCmonAgent) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["operation"] = o.Operation
-	}
-	if !isNil(o.ApiKey) {
-		toSerialize["apiKey"] = o.ApiKey
-	}
-	if !isNil(o.ClassName) {
-		toSerialize["className"] = o.ClassName
-	}
-	if !isNil(o.RequestData) {
-		toSerialize["requestData"] = o.RequestData
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatCmonAgent) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["operation"] = o.Operation
+	if !IsNil(o.ApiKey) {
+		toSerialize["apiKey"] = o.ApiKey
+	}
+	if !IsNil(o.ClassName) {
+		toSerialize["className"] = o.ClassName
+	}
+	if !IsNil(o.RequestData) {
+		toSerialize["requestData"] = o.RequestData
+	}
+	return toSerialize, nil
+}
+
+func (o *StatCmonAgent) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"operation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varStatCmonAgent := _StatCmonAgent{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varStatCmonAgent)
+
+	if err != nil {
+		return err
+	}
+
+	*o = StatCmonAgent(varStatCmonAgent)
+
+	return err
 }
 
 type NullableStatCmonAgent struct {

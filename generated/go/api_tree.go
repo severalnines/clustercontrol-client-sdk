@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// TreeApiService TreeApi service
-type TreeApiService service
+// TreeAPIService TreeAPI service
+type TreeAPIService service
 
 type ApiTreePostRequest struct {
 	ctx context.Context
-	ApiService *TreeApiService
+	ApiService *TreeAPIService
 	tree *Tree
 }
 
@@ -45,7 +45,7 @@ TreePost AddACL | RemoveAcl | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTreePostRequest
 */
-func (a *TreeApiService) TreePost(ctx context.Context) ApiTreePostRequest {
+func (a *TreeAPIService) TreePost(ctx context.Context) ApiTreePostRequest {
 	return ApiTreePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *TreeApiService) TreePost(ctx context.Context) ApiTreePostRequest {
 }
 
 // Execute executes the request
-func (a *TreeApiService) TreePostExecute(r ApiTreePostRequest) (*http.Response, error) {
+func (a *TreeAPIService) TreePostExecute(r ApiTreePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TreeApiService.TreePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TreeAPIService.TreePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *TreeApiService) TreePostExecute(r ApiTreePostRequest) (*http.Response, 
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

@@ -123,7 +123,10 @@ paths:
         required: true
       responses:
         "200":
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterResponse'
           description: Successful operation
         "405":
           content: {}
@@ -639,6 +642,95 @@ components:
       required:
       - operation
       type: object
+    ClusterResponse:
+      example:
+        cluster_name: cluster_name
+        cluster_id: 0
+        vendor: vendor
+        hosts:
+        - rs: rs
+          role: role
+          replica:
+            availability_mode: availability_mode
+            connected_state: connected_state
+            failover_mode: failover_mode
+          hostname_internal: hostname_internal
+          member_role: member_role
+          datadir: datadir
+          synchronous: true
+          roleid: 1
+          hostid: 6
+          version: version
+          replication_master:
+            slave_info:
+              slaves:
+              - failover_mode: failover_mode
+              - failover_mode: failover_mode
+          hostname: hostname
+          replicaiton_slave:
+            master_host: master_host
+            master_cluster_id: 5
+            semisync_status: semisync_status
+          elastic_roles: elastic_roles
+          class_name: class_name
+          hostname_data: hostname_data
+        - rs: rs
+          role: role
+          replica:
+            availability_mode: availability_mode
+            connected_state: connected_state
+            failover_mode: failover_mode
+          hostname_internal: hostname_internal
+          member_role: member_role
+          datadir: datadir
+          synchronous: true
+          roleid: 1
+          hostid: 6
+          version: version
+          replication_master:
+            slave_info:
+              slaves:
+              - failover_mode: failover_mode
+              - failover_mode: failover_mode
+          hostname: hostname
+          replicaiton_slave:
+            master_host: master_host
+            master_cluster_id: 5
+            semisync_status: semisync_status
+          elastic_roles: elastic_roles
+          class_name: class_name
+          hostname_data: hostname_data
+        cluster_type: cluster_type
+        class_name: class_name
+        operation: operation
+        version: version
+        tags:
+        - tags
+        - tags
+      properties:
+        class_name:
+          type: string
+        operation:
+          type: string
+        cluster_id:
+          type: integer
+        cluster_name:
+          type: string
+        cluster_type:
+          type: string
+        vendor:
+          type: string
+        version:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        hosts:
+          items:
+            $ref: '#/components/schemas/ClusterResponse_hosts_inner'
+          type: array
+      type: object
     Config:
       example:
         hostname: hostname
@@ -912,7 +1004,6 @@ components:
               compression: true
               build_from_source: true
               verify_backup_delay: 6
-              snapshot_locaiton: snapshot_locaiton
               bootstrap: true
               extended: true
               mongos_servers:
@@ -928,6 +1019,7 @@ components:
               disable_selinux: true
               xtrabackup_use_memory: 5
               vendor: default
+              deploy_agents: true
               db_password: db_password
               company_id: company_id
               use_rw_split: true
@@ -947,6 +1039,7 @@ components:
               update_lb: true
               include_databases: include_databases
               cc_storage: cc_storage
+              snapshot_location: snapshot_location
               backup_failover: true
               server_address: server_address
               exec_upgrade_script: true
@@ -994,7 +1087,7 @@ components:
                   port: port
                   slave_delay: slave_delay
                   arbiter_only: true
-                  priority: priority
+                  priority: 6
                   hostname_data: hostname_data
                 - hostname: hostname
                   hidden: true
@@ -1002,7 +1095,7 @@ components:
                   port: port
                   slave_delay: slave_delay
                   arbiter_only: true
-                  priority: priority
+                  priority: 6
                   hostname_data: hostname_data
               - rs: rs
                 members:
@@ -1012,7 +1105,7 @@ components:
                   port: port
                   slave_delay: slave_delay
                   arbiter_only: true
-                  priority: priority
+                  priority: 6
                   hostname_data: hostname_data
                 - hostname: hostname
                   hidden: true
@@ -1020,7 +1113,7 @@ components:
                   port: port
                   slave_delay: slave_delay
                   arbiter_only: true
-                  priority: priority
+                  priority: 6
                   hostname_data: hostname_data
               xtrabackup_lock_ddl_per_table: true
               xtrabackup_backup_locks: true
@@ -1637,6 +1730,122 @@ components:
         database_name:
           type: string
       type: object
+    ClusterResponse_hosts_inner_replica:
+      example:
+        availability_mode: availability_mode
+        connected_state: connected_state
+        failover_mode: failover_mode
+      properties:
+        availability_mode:
+          type: string
+        failover_mode:
+          type: string
+        connected_state:
+          type: string
+      type: object
+    ClusterResponse_hosts_inner_replicaiton_slave:
+      example:
+        master_host: master_host
+        master_cluster_id: 5
+        semisync_status: semisync_status
+      properties:
+        master_host:
+          type: string
+        master_cluster_id:
+          type: integer
+        semisync_status:
+          type: string
+      type: object
+    ClusterResponse_hosts_inner_replication_master_slave_info_slaves_inner:
+      example:
+        failover_mode: failover_mode
+      properties:
+        failover_mode:
+          type: string
+      type: object
+    ClusterResponse_hosts_inner_replication_master_slave_info:
+      example:
+        slaves:
+        - failover_mode: failover_mode
+        - failover_mode: failover_mode
+      properties:
+        slaves:
+          items:
+            $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master_slave_info_slaves_inner'
+          type: array
+      type: object
+    ClusterResponse_hosts_inner_replication_master:
+      example:
+        slave_info:
+          slaves:
+          - failover_mode: failover_mode
+          - failover_mode: failover_mode
+      properties:
+        slave_info:
+          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master_slave_info'
+      type: object
+    ClusterResponse_hosts_inner:
+      example:
+        rs: rs
+        role: role
+        replica:
+          availability_mode: availability_mode
+          connected_state: connected_state
+          failover_mode: failover_mode
+        hostname_internal: hostname_internal
+        member_role: member_role
+        datadir: datadir
+        synchronous: true
+        roleid: 1
+        hostid: 6
+        version: version
+        replication_master:
+          slave_info:
+            slaves:
+            - failover_mode: failover_mode
+            - failover_mode: failover_mode
+        hostname: hostname
+        replicaiton_slave:
+          master_host: master_host
+          master_cluster_id: 5
+          semisync_status: semisync_status
+        elastic_roles: elastic_roles
+        class_name: class_name
+        hostname_data: hostname_data
+      properties:
+        class_name:
+          type: string
+        hostid:
+          type: integer
+        datadir:
+          type: string
+        hostname:
+          type: string
+        hostname_data:
+          type: string
+        hostname_internal:
+          type: string
+        role:
+          type: string
+        synchronous:
+          type: boolean
+        member_role:
+          type: string
+        roleid:
+          type: integer
+        rs:
+          type: string
+        version:
+          type: string
+        elastic_roles:
+          type: string
+        replica:
+          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replica'
+        replicaiton_slave:
+          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replicaiton_slave'
+        replication_master:
+          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master'
+      type: object
     Config_configuration_inner:
       example:
         name: name
@@ -2178,7 +2387,7 @@ components:
         port: port
         slave_delay: slave_delay
         arbiter_only: true
-        priority: priority
+        priority: 6
         hostname_data: hostname_data
       properties:
         hostname:
@@ -2194,7 +2403,7 @@ components:
         hidden:
           type: boolean
         priority:
-          type: string
+          type: integer
         slave_delay:
           type: string
       type: object
@@ -2208,7 +2417,7 @@ components:
           port: port
           slave_delay: slave_delay
           arbiter_only: true
-          priority: priority
+          priority: 6
           hostname_data: hostname_data
         - hostname: hostname
           hidden: true
@@ -2216,7 +2425,7 @@ components:
           port: port
           slave_delay: slave_delay
           arbiter_only: true
-          priority: priority
+          priority: 6
           hostname_data: hostname_data
       properties:
         rs:
@@ -2304,7 +2513,6 @@ components:
         compression: true
         build_from_source: true
         verify_backup_delay: 6
-        snapshot_locaiton: snapshot_locaiton
         bootstrap: true
         extended: true
         mongos_servers:
@@ -2320,6 +2528,7 @@ components:
         disable_selinux: true
         xtrabackup_use_memory: 5
         vendor: default
+        deploy_agents: true
         db_password: db_password
         company_id: company_id
         use_rw_split: true
@@ -2339,6 +2548,7 @@ components:
         update_lb: true
         include_databases: include_databases
         cc_storage: cc_storage
+        snapshot_location: snapshot_location
         backup_failover: true
         server_address: server_address
         exec_upgrade_script: true
@@ -2386,7 +2596,7 @@ components:
             port: port
             slave_delay: slave_delay
             arbiter_only: true
-            priority: priority
+            priority: 6
             hostname_data: hostname_data
           - hostname: hostname
             hidden: true
@@ -2394,7 +2604,7 @@ components:
             port: port
             slave_delay: slave_delay
             arbiter_only: true
-            priority: priority
+            priority: 6
             hostname_data: hostname_data
         - rs: rs
           members:
@@ -2404,7 +2614,7 @@ components:
             port: port
             slave_delay: slave_delay
             arbiter_only: true
-            priority: priority
+            priority: 6
             hostname_data: hostname_data
           - hostname: hostname
             hidden: true
@@ -2412,7 +2622,7 @@ components:
             port: port
             slave_delay: slave_delay
             arbiter_only: true
-            priority: priority
+            priority: 6
             hostname_data: hostname_data
         xtrabackup_lock_ddl_per_table: true
         xtrabackup_backup_locks: true
@@ -2728,12 +2938,14 @@ components:
           type: string
         bootstrap:
           type: boolean
-        snapshot_locaiton:
+        snapshot_location:
           type: string
         snapshot_repository:
           type: string
         storage_host:
           type: string
+        deploy_agents:
+          type: boolean
         upload_backup_data_to_cloud_storage:
           $ref: '#/components/schemas/Jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage'
         verify_backup:
@@ -2844,7 +3056,6 @@ components:
           compression: true
           build_from_source: true
           verify_backup_delay: 6
-          snapshot_locaiton: snapshot_locaiton
           bootstrap: true
           extended: true
           mongos_servers:
@@ -2860,6 +3071,7 @@ components:
           disable_selinux: true
           xtrabackup_use_memory: 5
           vendor: default
+          deploy_agents: true
           db_password: db_password
           company_id: company_id
           use_rw_split: true
@@ -2879,6 +3091,7 @@ components:
           update_lb: true
           include_databases: include_databases
           cc_storage: cc_storage
+          snapshot_location: snapshot_location
           backup_failover: true
           server_address: server_address
           exec_upgrade_script: true
@@ -2926,7 +3139,7 @@ components:
               port: port
               slave_delay: slave_delay
               arbiter_only: true
-              priority: priority
+              priority: 6
               hostname_data: hostname_data
             - hostname: hostname
               hidden: true
@@ -2934,7 +3147,7 @@ components:
               port: port
               slave_delay: slave_delay
               arbiter_only: true
-              priority: priority
+              priority: 6
               hostname_data: hostname_data
           - rs: rs
             members:
@@ -2944,7 +3157,7 @@ components:
               port: port
               slave_delay: slave_delay
               arbiter_only: true
-              priority: priority
+              priority: 6
               hostname_data: hostname_data
             - hostname: hostname
               hidden: true
@@ -2952,7 +3165,7 @@ components:
               port: port
               slave_delay: slave_delay
               arbiter_only: true
-              priority: priority
+              priority: 6
               hostname_data: hostname_data
           xtrabackup_lock_ddl_per_table: true
           xtrabackup_backup_locks: true
@@ -3030,6 +3243,7 @@ components:
           - rolling_restart
           - create_cluster
           - remove_cluster
+          - add_cluster
           - backup
           - verify_backup
           - deploy_agents
@@ -3139,7 +3353,6 @@ components:
             compression: true
             build_from_source: true
             verify_backup_delay: 6
-            snapshot_locaiton: snapshot_locaiton
             bootstrap: true
             extended: true
             mongos_servers:
@@ -3155,6 +3368,7 @@ components:
             disable_selinux: true
             xtrabackup_use_memory: 5
             vendor: default
+            deploy_agents: true
             db_password: db_password
             company_id: company_id
             use_rw_split: true
@@ -3174,6 +3388,7 @@ components:
             update_lb: true
             include_databases: include_databases
             cc_storage: cc_storage
+            snapshot_location: snapshot_location
             backup_failover: true
             server_address: server_address
             exec_upgrade_script: true
@@ -3221,7 +3436,7 @@ components:
                 port: port
                 slave_delay: slave_delay
                 arbiter_only: true
-                priority: priority
+                priority: 6
                 hostname_data: hostname_data
               - hostname: hostname
                 hidden: true
@@ -3229,7 +3444,7 @@ components:
                 port: port
                 slave_delay: slave_delay
                 arbiter_only: true
-                priority: priority
+                priority: 6
                 hostname_data: hostname_data
             - rs: rs
               members:
@@ -3239,7 +3454,7 @@ components:
                 port: port
                 slave_delay: slave_delay
                 arbiter_only: true
-                priority: priority
+                priority: 6
                 hostname_data: hostname_data
               - hostname: hostname
                 hidden: true
@@ -3247,7 +3462,7 @@ components:
                 port: port
                 slave_delay: slave_delay
                 arbiter_only: true
-                priority: priority
+                priority: 6
                 hostname_data: hostname_data
             xtrabackup_lock_ddl_per_table: true
             xtrabackup_backup_locks: true

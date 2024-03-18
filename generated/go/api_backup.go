@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// BackupApiService BackupApi service
-type BackupApiService service
+// BackupAPIService BackupAPI service
+type BackupAPIService service
 
 type ApiBackupPostRequest struct {
 	ctx context.Context
-	ApiService *BackupApiService
+	ApiService *BackupAPIService
 	backup *Backup
 }
 
@@ -45,7 +45,7 @@ BackupPost GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBackupPostRequest
 */
-func (a *BackupApiService) BackupPost(ctx context.Context) ApiBackupPostRequest {
+func (a *BackupAPIService) BackupPost(ctx context.Context) ApiBackupPostRequest {
 	return ApiBackupPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *BackupApiService) BackupPost(ctx context.Context) ApiBackupPostRequest 
 }
 
 // Execute executes the request
-func (a *BackupApiService) BackupPostExecute(r ApiBackupPostRequest) (*http.Response, error) {
+func (a *BackupAPIService) BackupPostExecute(r ApiBackupPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupApiService.BackupPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupAPIService.BackupPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *BackupApiService) BackupPostExecute(r ApiBackupPostRequest) (*http.Resp
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiscoverySshCredentials type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscoverySshCredentials{}
+
 // DiscoverySshCredentials struct for DiscoverySshCredentials
 type DiscoverySshCredentials struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -42,7 +45,7 @@ func NewDiscoverySshCredentialsWithDefaults() *DiscoverySshCredentials {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *DiscoverySshCredentials) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *DiscoverySshCredentials) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverySshCredentials) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *DiscoverySshCredentials) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *DiscoverySshCredentials) SetClassName(v string) {
 
 // GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *DiscoverySshCredentials) GetUserName() string {
-	if o == nil || isNil(o.UserName) {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *DiscoverySshCredentials) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverySshCredentials) GetUserNameOk() (*string, bool) {
-	if o == nil || isNil(o.UserName) {
-    return nil, false
+	if o == nil || IsNil(o.UserName) {
+		return nil, false
 	}
 	return o.UserName, true
 }
 
 // HasUserName returns a boolean if a field has been set.
 func (o *DiscoverySshCredentials) HasUserName() bool {
-	if o != nil && !isNil(o.UserName) {
+	if o != nil && !IsNil(o.UserName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *DiscoverySshCredentials) SetUserName(v string) {
 
 // GetPassword returns the Password field value if set, zero value otherwise.
 func (o *DiscoverySshCredentials) GetPassword() string {
-	if o == nil || isNil(o.Password) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *DiscoverySshCredentials) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverySshCredentials) GetPasswordOk() (*string, bool) {
-	if o == nil || isNil(o.Password) {
-    return nil, false
+	if o == nil || IsNil(o.Password) {
+		return nil, false
 	}
 	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *DiscoverySshCredentials) HasPassword() bool {
-	if o != nil && !isNil(o.Password) {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *DiscoverySshCredentials) SetPassword(v string) {
 
 // GetSshKeyfile returns the SshKeyfile field value if set, zero value otherwise.
 func (o *DiscoverySshCredentials) GetSshKeyfile() string {
-	if o == nil || isNil(o.SshKeyfile) {
+	if o == nil || IsNil(o.SshKeyfile) {
 		var ret string
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *DiscoverySshCredentials) GetSshKeyfile() string {
 // GetSshKeyfileOk returns a tuple with the SshKeyfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverySshCredentials) GetSshKeyfileOk() (*string, bool) {
-	if o == nil || isNil(o.SshKeyfile) {
-    return nil, false
+	if o == nil || IsNil(o.SshKeyfile) {
+		return nil, false
 	}
 	return o.SshKeyfile, true
 }
 
 // HasSshKeyfile returns a boolean if a field has been set.
 func (o *DiscoverySshCredentials) HasSshKeyfile() bool {
-	if o != nil && !isNil(o.SshKeyfile) {
+	if o != nil && !IsNil(o.SshKeyfile) {
 		return true
 	}
 
@@ -169,20 +172,28 @@ func (o *DiscoverySshCredentials) SetSshKeyfile(v string) {
 }
 
 func (o DiscoverySshCredentials) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.UserName) {
-		toSerialize["user_name"] = o.UserName
-	}
-	if !isNil(o.Password) {
-		toSerialize["password"] = o.Password
-	}
-	if !isNil(o.SshKeyfile) {
-		toSerialize["ssh_keyfile"] = o.SshKeyfile
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DiscoverySshCredentials) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["user_name"] = o.UserName
+	}
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
+	}
+	if !IsNil(o.SshKeyfile) {
+		toSerialize["ssh_keyfile"] = o.SshKeyfile
+	}
+	return toSerialize, nil
 }
 
 type NullableDiscoverySshCredentials struct {

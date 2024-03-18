@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StatCmonAgentRequestData type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatCmonAgentRequestData{}
+
 // StatCmonAgentRequestData struct for StatCmonAgentRequestData
 type StatCmonAgentRequestData struct {
 	// e.g. \"2021-06-07T09:41:43.636Z\"
@@ -47,7 +50,7 @@ func NewStatCmonAgentRequestDataWithDefaults() *StatCmonAgentRequestData {
 
 // GetBegin returns the Begin field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetBegin() string {
-	if o == nil || isNil(o.Begin) {
+	if o == nil || IsNil(o.Begin) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *StatCmonAgentRequestData) GetBegin() string {
 // GetBeginOk returns a tuple with the Begin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetBeginOk() (*string, bool) {
-	if o == nil || isNil(o.Begin) {
-    return nil, false
+	if o == nil || IsNil(o.Begin) {
+		return nil, false
 	}
 	return o.Begin, true
 }
 
 // HasBegin returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasBegin() bool {
-	if o != nil && !isNil(o.Begin) {
+	if o != nil && !IsNil(o.Begin) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *StatCmonAgentRequestData) SetBegin(v string) {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *StatCmonAgentRequestData) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *StatCmonAgentRequestData) SetClassName(v string) {
 
 // GetEnd returns the End field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetEnd() string {
-	if o == nil || isNil(o.End) {
+	if o == nil || IsNil(o.End) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *StatCmonAgentRequestData) GetEnd() string {
 // GetEndOk returns a tuple with the End field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetEndOk() (*string, bool) {
-	if o == nil || isNil(o.End) {
-    return nil, false
+	if o == nil || IsNil(o.End) {
+		return nil, false
 	}
 	return o.End, true
 }
 
 // HasEnd returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasEnd() bool {
-	if o != nil && !isNil(o.End) {
+	if o != nil && !IsNil(o.End) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *StatCmonAgentRequestData) SetEnd(v string) {
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetLimit() int32 {
-	if o == nil || isNil(o.Limit) {
+	if o == nil || IsNil(o.Limit) {
 		var ret int32
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *StatCmonAgentRequestData) GetLimit() int32 {
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetLimitOk() (*int32, bool) {
-	if o == nil || isNil(o.Limit) {
-    return nil, false
+	if o == nil || IsNil(o.Limit) {
+		return nil, false
 	}
 	return o.Limit, true
 }
 
 // HasLimit returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasLimit() bool {
-	if o != nil && !isNil(o.Limit) {
+	if o != nil && !IsNil(o.Limit) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *StatCmonAgentRequestData) SetLimit(v int32) {
 
 // GetMimeType returns the MimeType field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetMimeType() string {
-	if o == nil || isNil(o.MimeType) {
+	if o == nil || IsNil(o.MimeType) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *StatCmonAgentRequestData) GetMimeType() string {
 // GetMimeTypeOk returns a tuple with the MimeType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetMimeTypeOk() (*string, bool) {
-	if o == nil || isNil(o.MimeType) {
-    return nil, false
+	if o == nil || IsNil(o.MimeType) {
+		return nil, false
 	}
 	return o.MimeType, true
 }
 
 // HasMimeType returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasMimeType() bool {
-	if o != nil && !isNil(o.MimeType) {
+	if o != nil && !IsNil(o.MimeType) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *StatCmonAgentRequestData) SetMimeType(v string) {
 
 // GetObjectName returns the ObjectName field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetObjectName() string {
-	if o == nil || isNil(o.ObjectName) {
+	if o == nil || IsNil(o.ObjectName) {
 		var ret string
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *StatCmonAgentRequestData) GetObjectName() string {
 // GetObjectNameOk returns a tuple with the ObjectName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetObjectNameOk() (*string, bool) {
-	if o == nil || isNil(o.ObjectName) {
-    return nil, false
+	if o == nil || IsNil(o.ObjectName) {
+		return nil, false
 	}
 	return o.ObjectName, true
 }
 
 // HasObjectName returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasObjectName() bool {
-	if o != nil && !isNil(o.ObjectName) {
+	if o != nil && !IsNil(o.ObjectName) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *StatCmonAgentRequestData) SetObjectName(v string) {
 
 // GetOrigin returns the Origin field value if set, zero value otherwise.
 func (o *StatCmonAgentRequestData) GetOrigin() string {
-	if o == nil || isNil(o.Origin) {
+	if o == nil || IsNil(o.Origin) {
 		var ret string
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *StatCmonAgentRequestData) GetOrigin() string {
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatCmonAgentRequestData) GetOriginOk() (*string, bool) {
-	if o == nil || isNil(o.Origin) {
-    return nil, false
+	if o == nil || IsNil(o.Origin) {
+		return nil, false
 	}
 	return o.Origin, true
 }
 
 // HasOrigin returns a boolean if a field has been set.
 func (o *StatCmonAgentRequestData) HasOrigin() bool {
-	if o != nil && !isNil(o.Origin) {
+	if o != nil && !IsNil(o.Origin) {
 		return true
 	}
 
@@ -270,29 +273,37 @@ func (o *StatCmonAgentRequestData) SetOrigin(v string) {
 }
 
 func (o StatCmonAgentRequestData) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Begin) {
-		toSerialize["begin"] = o.Begin
-	}
-	if !isNil(o.ClassName) {
-		toSerialize["className"] = o.ClassName
-	}
-	if !isNil(o.End) {
-		toSerialize["end"] = o.End
-	}
-	if !isNil(o.Limit) {
-		toSerialize["limit"] = o.Limit
-	}
-	if !isNil(o.MimeType) {
-		toSerialize["mimeType"] = o.MimeType
-	}
-	if !isNil(o.ObjectName) {
-		toSerialize["objectName"] = o.ObjectName
-	}
-	if !isNil(o.Origin) {
-		toSerialize["origin"] = o.Origin
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatCmonAgentRequestData) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Begin) {
+		toSerialize["begin"] = o.Begin
+	}
+	if !IsNil(o.ClassName) {
+		toSerialize["className"] = o.ClassName
+	}
+	if !IsNil(o.End) {
+		toSerialize["end"] = o.End
+	}
+	if !IsNil(o.Limit) {
+		toSerialize["limit"] = o.Limit
+	}
+	if !IsNil(o.MimeType) {
+		toSerialize["mimeType"] = o.MimeType
+	}
+	if !IsNil(o.ObjectName) {
+		toSerialize["objectName"] = o.ObjectName
+	}
+	if !IsNil(o.Origin) {
+		toSerialize["origin"] = o.Origin
+	}
+	return toSerialize, nil
 }
 
 type NullableStatCmonAgentRequestData struct {

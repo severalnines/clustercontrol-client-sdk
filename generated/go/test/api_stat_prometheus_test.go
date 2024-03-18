@@ -1,7 +1,7 @@
 /*
 Severalnines ClusterControl REST API (V2)
 
-Testing StatPrometheusApiService
+Testing StatPrometheusAPIService
 
 */
 
@@ -10,28 +10,27 @@ Testing StatPrometheusApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_StatPrometheusApiService(t *testing.T) {
+func Test_openapi_StatPrometheusAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test StatPrometheusApiService StatPrometheusQueryPost", func(t *testing.T) {
+	t.Run("Test StatPrometheusAPIService StatPrometheusQueryPost", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.StatPrometheusApi.StatPrometheusQueryPost(context.Background()).Execute()
+		httpRes, err := apiClient.StatPrometheusAPI.StatPrometheusQueryPost(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

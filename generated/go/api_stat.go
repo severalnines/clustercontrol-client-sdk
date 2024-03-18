@@ -14,18 +14,18 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// StatApiService StatApi service
-type StatApiService service
+// StatAPIService StatAPI service
+type StatAPIService service
 
 type ApiStatPostRequest struct {
 	ctx context.Context
-	ApiService *StatApiService
+	ApiService *StatAPIService
 	stat *Stat
 }
 
@@ -45,7 +45,7 @@ StatPost GetInfo | etc
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStatPostRequest
 */
-func (a *StatApiService) StatPost(ctx context.Context) ApiStatPostRequest {
+func (a *StatAPIService) StatPost(ctx context.Context) ApiStatPostRequest {
 	return ApiStatPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,14 +53,14 @@ func (a *StatApiService) StatPost(ctx context.Context) ApiStatPostRequest {
 }
 
 // Execute executes the request
-func (a *StatApiService) StatPostExecute(r ApiStatPostRequest) (*http.Response, error) {
+func (a *StatAPIService) StatPostExecute(r ApiStatPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatApiService.StatPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatAPIService.StatPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -103,9 +103,9 @@ func (a *StatApiService) StatPostExecute(r ApiStatPostRequest) (*http.Response, 
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}

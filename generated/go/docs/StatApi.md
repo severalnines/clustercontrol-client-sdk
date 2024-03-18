@@ -1,10 +1,10 @@
-# \StatApi
+# \StatAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**StatPost**](StatApi.md#StatPost) | **Post** /stat | GetInfo | etc
+[**StatPost**](StatAPI.md#StatPost) | **Post** /stat | GetInfo | etc
 
 
 
@@ -20,22 +20,22 @@ GetInfo | etc
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    stat := *openapiclient.NewStat("Operation_example") // Stat | Provides calls to access various statistical information about the cluster
+	stat := *openapiclient.NewStat("Operation_example") // Stat | Provides calls to access various statistical information about the cluster
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StatApi.StatPost(context.Background()).Stat(stat).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StatApi.StatPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.StatAPI.StatPost(context.Background()).Stat(stat).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StatAPI.StatPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

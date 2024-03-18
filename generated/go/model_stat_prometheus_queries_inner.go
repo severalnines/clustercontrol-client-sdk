@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the StatPrometheusQueriesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &StatPrometheusQueriesInner{}
+
 // StatPrometheusQueriesInner struct for StatPrometheusQueriesInner
 type StatPrometheusQueriesInner struct {
 	// mysql_global_status_wsrep_cert_deps_distance{instance=~\"10.117.12.165(:[0-9]+)?\"}
@@ -42,7 +45,7 @@ func NewStatPrometheusQueriesInnerWithDefaults() *StatPrometheusQueriesInner {
 
 // GetQuery returns the Query field value if set, zero value otherwise.
 func (o *StatPrometheusQueriesInner) GetQuery() string {
-	if o == nil || isNil(o.Query) {
+	if o == nil || IsNil(o.Query) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *StatPrometheusQueriesInner) GetQuery() string {
 // GetQueryOk returns a tuple with the Query field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheusQueriesInner) GetQueryOk() (*string, bool) {
-	if o == nil || isNil(o.Query) {
-    return nil, false
+	if o == nil || IsNil(o.Query) {
+		return nil, false
 	}
 	return o.Query, true
 }
 
 // HasQuery returns a boolean if a field has been set.
 func (o *StatPrometheusQueriesInner) HasQuery() bool {
-	if o != nil && !isNil(o.Query) {
+	if o != nil && !IsNil(o.Query) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *StatPrometheusQueriesInner) SetQuery(v string) {
 
 // GetStep returns the Step field value if set, zero value otherwise.
 func (o *StatPrometheusQueriesInner) GetStep() int32 {
-	if o == nil || isNil(o.Step) {
+	if o == nil || IsNil(o.Step) {
 		var ret int32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *StatPrometheusQueriesInner) GetStep() int32 {
 // GetStepOk returns a tuple with the Step field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *StatPrometheusQueriesInner) GetStepOk() (*int32, bool) {
-	if o == nil || isNil(o.Step) {
-    return nil, false
+	if o == nil || IsNil(o.Step) {
+		return nil, false
 	}
 	return o.Step, true
 }
 
 // HasStep returns a boolean if a field has been set.
 func (o *StatPrometheusQueriesInner) HasStep() bool {
-	if o != nil && !isNil(o.Step) {
+	if o != nil && !IsNil(o.Step) {
 		return true
 	}
 
@@ -105,14 +108,22 @@ func (o *StatPrometheusQueriesInner) SetStep(v int32) {
 }
 
 func (o StatPrometheusQueriesInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.Query) {
-		toSerialize["query"] = o.Query
-	}
-	if !isNil(o.Step) {
-		toSerialize["step"] = o.Step
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o StatPrometheusQueriesInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Query) {
+		toSerialize["query"] = o.Query
+	}
+	if !IsNil(o.Step) {
+		toSerialize["step"] = o.Step
+	}
+	return toSerialize, nil
 }
 
 type NullableStatPrometheusQueriesInner struct {

@@ -1,7 +1,7 @@
 /*
 Severalnines ClusterControl REST API (V2)
 
-Testing ClustersApiService
+Testing ClustersAPIService
 
 */
 
@@ -10,28 +10,28 @@ Testing ClustersApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_ClustersApiService(t *testing.T) {
+func Test_openapi_ClustersAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test ClustersApiService ClustersPost", func(t *testing.T) {
+	t.Run("Test ClustersAPIService ClustersPost", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.ClustersApi.ClustersPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ClustersAPI.ClustersPost(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

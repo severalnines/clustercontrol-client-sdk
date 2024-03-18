@@ -1,10 +1,10 @@
-# \AlarmsApi
+# \AlarmsAPI
 
 All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AlarmPost**](AlarmsApi.md#AlarmPost) | **Post** /alarm | GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
+[**AlarmPost**](AlarmsAPI.md#AlarmPost) | **Post** /alarm | GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 
 
 
@@ -20,24 +20,24 @@ GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    alarm := *openapiclient.NewAlarm("Operation_example") // Alarm | All things related to Alarms and Stats
+	alarm := *openapiclient.NewAlarm("Operation_example") // Alarm | All things related to Alarms and Stats
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AlarmsApi.AlarmPost(context.Background()).Alarm(alarm).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AlarmsApi.AlarmPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AlarmPost`: AlarmResponse
-    fmt.Fprintf(os.Stdout, "Response from `AlarmsApi.AlarmPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AlarmsAPI.AlarmPost(context.Background()).Alarm(alarm).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AlarmsAPI.AlarmPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AlarmPost`: AlarmResponse
+	fmt.Fprintf(os.Stdout, "Response from `AlarmsAPI.AlarmPost`: %v\n", resp)
 }
 ```
 

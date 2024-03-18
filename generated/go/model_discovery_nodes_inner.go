@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiscoveryNodesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscoveryNodesInner{}
+
 // DiscoveryNodesInner struct for DiscoveryNodesInner
 type DiscoveryNodesInner struct {
 	ClassName *string `json:"class_name,omitempty"`
@@ -42,7 +45,7 @@ func NewDiscoveryNodesInnerWithDefaults() *DiscoveryNodesInner {
 
 // GetClassName returns the ClassName field value if set, zero value otherwise.
 func (o *DiscoveryNodesInner) GetClassName() string {
-	if o == nil || isNil(o.ClassName) {
+	if o == nil || IsNil(o.ClassName) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *DiscoveryNodesInner) GetClassName() string {
 // GetClassNameOk returns a tuple with the ClassName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryNodesInner) GetClassNameOk() (*string, bool) {
-	if o == nil || isNil(o.ClassName) {
-    return nil, false
+	if o == nil || IsNil(o.ClassName) {
+		return nil, false
 	}
 	return o.ClassName, true
 }
 
 // HasClassName returns a boolean if a field has been set.
 func (o *DiscoveryNodesInner) HasClassName() bool {
-	if o != nil && !isNil(o.ClassName) {
+	if o != nil && !IsNil(o.ClassName) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *DiscoveryNodesInner) SetClassName(v string) {
 
 // GetHostName returns the HostName field value if set, zero value otherwise.
 func (o *DiscoveryNodesInner) GetHostName() string {
-	if o == nil || isNil(o.HostName) {
+	if o == nil || IsNil(o.HostName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *DiscoveryNodesInner) GetHostName() string {
 // GetHostNameOk returns a tuple with the HostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryNodesInner) GetHostNameOk() (*string, bool) {
-	if o == nil || isNil(o.HostName) {
-    return nil, false
+	if o == nil || IsNil(o.HostName) {
+		return nil, false
 	}
 	return o.HostName, true
 }
 
 // HasHostName returns a boolean if a field has been set.
 func (o *DiscoveryNodesInner) HasHostName() bool {
-	if o != nil && !isNil(o.HostName) {
+	if o != nil && !IsNil(o.HostName) {
 		return true
 	}
 
@@ -106,7 +109,7 @@ func (o *DiscoveryNodesInner) SetHostName(v string) {
 
 // GetPort returns the Port field value if set, zero value otherwise.
 func (o *DiscoveryNodesInner) GetPort() int32 {
-	if o == nil || isNil(o.Port) {
+	if o == nil || IsNil(o.Port) {
 		var ret int32
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *DiscoveryNodesInner) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoveryNodesInner) GetPortOk() (*int32, bool) {
-	if o == nil || isNil(o.Port) {
-    return nil, false
+	if o == nil || IsNil(o.Port) {
+		return nil, false
 	}
 	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *DiscoveryNodesInner) HasPort() bool {
-	if o != nil && !isNil(o.Port) {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
@@ -137,17 +140,25 @@ func (o *DiscoveryNodesInner) SetPort(v int32) {
 }
 
 func (o DiscoveryNodesInner) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if !isNil(o.ClassName) {
-		toSerialize["class_name"] = o.ClassName
-	}
-	if !isNil(o.HostName) {
-		toSerialize["host_name"] = o.HostName
-	}
-	if !isNil(o.Port) {
-		toSerialize["port"] = o.Port
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DiscoveryNodesInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ClassName) {
+		toSerialize["class_name"] = o.ClassName
+	}
+	if !IsNil(o.HostName) {
+		toSerialize["host_name"] = o.HostName
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
+	}
+	return toSerialize, nil
 }
 
 type NullableDiscoveryNodesInner struct {
