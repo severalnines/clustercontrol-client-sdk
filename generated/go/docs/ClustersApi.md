@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ClustersPost
 
-> ClusterResponse ClustersPost(ctx).Clusters(clusters).Execute()
+> ClustersPost(ctx).Clusters(clusters).Execute()
 
 GetClusterInfo | Get/Set Config | etc
 
@@ -31,13 +31,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ClustersAPI.ClustersPost(context.Background()).Clusters(clusters).Execute()
+	r, err := apiClient.ClustersAPI.ClustersPost(context.Background()).Clusters(clusters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ClustersAPI.ClustersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ClustersPost`: ClusterResponse
-	fmt.Fprintf(os.Stdout, "Response from `ClustersAPI.ClustersPost`: %v\n", resp)
 }
 ```
 
@@ -56,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterResponse**](ClusterResponse.md)
+ (empty response body)
 
 ### Authorization
 
@@ -65,7 +63,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

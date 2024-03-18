@@ -35,7 +35,7 @@ func (r ApiClustersPostRequest) Clusters(clusters Clusters) ApiClustersPostReque
 	return r
 }
 
-func (r ApiClustersPostRequest) Execute() (*ClusterResponse, *http.Response, error) {
+func (r ApiClustersPostRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ClustersPostExecute(r)
 }
 
@@ -53,18 +53,16 @@ func (a *ClustersAPIService) ClustersPost(ctx context.Context) ApiClustersPostRe
 }
 
 // Execute executes the request
-//  @return ClusterResponse
-func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*ClusterResponse, *http.Response, error) {
+func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ClusterResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClustersAPIService.ClustersPost")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/clusters"
@@ -73,7 +71,7 @@ func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*Clu
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.clusters == nil {
-		return localVarReturnValue, nil, reportError("clusters is required and must be specified")
+		return nil, reportError("clusters is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -86,7 +84,7 @@ func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*Clu
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -97,19 +95,19 @@ func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*Clu
 	localVarPostBody = r.clusters
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -117,17 +115,8 @@ func (a *ClustersAPIService) ClustersPostExecute(r ApiClustersPostRequest) (*Clu
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }

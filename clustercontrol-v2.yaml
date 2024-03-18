@@ -126,10 +126,7 @@ paths:
       responses:
         200:
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClusterResponse'
+          content: {}
         405:
           description: Unauthorized
           content: {}

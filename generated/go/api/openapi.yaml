@@ -123,10 +123,7 @@ paths:
         required: true
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClusterResponse'
+          content: {}
           description: Successful operation
         "405":
           content: {}
@@ -643,70 +640,6 @@ components:
       - operation
       type: object
     ClusterResponse:
-      example:
-        cluster_name: cluster_name
-        cluster_id: 0
-        vendor: vendor
-        hosts:
-        - rs: rs
-          replication_slave:
-            master_host: master_host
-            master_cluster_id: 5
-            semisync_status: semisync_status
-          role: role
-          replica:
-            availability_mode: availability_mode
-            connected_state: connected_state
-            failover_mode: failover_mode
-          hostname_internal: hostname_internal
-          member_role: member_role
-          datadir: datadir
-          synchronous: true
-          roleid: 1
-          hostid: 6
-          version: version
-          replication_master:
-            slave_info:
-              slaves:
-              - failover_mode: failover_mode
-              - failover_mode: failover_mode
-          hostname: hostname
-          elastic_roles: elastic_roles
-          class_name: class_name
-          hostname_data: hostname_data
-        - rs: rs
-          replication_slave:
-            master_host: master_host
-            master_cluster_id: 5
-            semisync_status: semisync_status
-          role: role
-          replica:
-            availability_mode: availability_mode
-            connected_state: connected_state
-            failover_mode: failover_mode
-          hostname_internal: hostname_internal
-          member_role: member_role
-          datadir: datadir
-          synchronous: true
-          roleid: 1
-          hostid: 6
-          version: version
-          replication_master:
-            slave_info:
-              slaves:
-              - failover_mode: failover_mode
-              - failover_mode: failover_mode
-          hostname: hostname
-          elastic_roles: elastic_roles
-          class_name: class_name
-          hostname_data: hostname_data
-        cluster_type: cluster_type
-        class_name: class_name
-        operation: operation
-        version: version
-        tags:
-        - tags
-        - tags
       properties:
         class_name:
           type: string
@@ -1731,10 +1664,6 @@ components:
           type: string
       type: object
     ClusterResponse_hosts_inner_replica:
-      example:
-        availability_mode: availability_mode
-        connected_state: connected_state
-        failover_mode: failover_mode
       properties:
         availability_mode:
           type: string
@@ -1744,10 +1673,6 @@ components:
           type: string
       type: object
     ClusterResponse_hosts_inner_replication_slave:
-      example:
-        master_host: master_host
-        master_cluster_id: 5
-        semisync_status: semisync_status
       properties:
         master_host:
           type: string
@@ -1757,17 +1682,11 @@ components:
           type: string
       type: object
     ClusterResponse_hosts_inner_replication_master_slave_info_slaves_inner:
-      example:
-        failover_mode: failover_mode
       properties:
         failover_mode:
           type: string
       type: object
     ClusterResponse_hosts_inner_replication_master_slave_info:
-      example:
-        slaves:
-        - failover_mode: failover_mode
-        - failover_mode: failover_mode
       properties:
         slaves:
           items:
@@ -1775,43 +1694,11 @@ components:
           type: array
       type: object
     ClusterResponse_hosts_inner_replication_master:
-      example:
-        slave_info:
-          slaves:
-          - failover_mode: failover_mode
-          - failover_mode: failover_mode
       properties:
         slave_info:
           $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master_slave_info'
       type: object
     ClusterResponse_hosts_inner:
-      example:
-        rs: rs
-        replication_slave:
-          master_host: master_host
-          master_cluster_id: 5
-          semisync_status: semisync_status
-        role: role
-        replica:
-          availability_mode: availability_mode
-          connected_state: connected_state
-          failover_mode: failover_mode
-        hostname_internal: hostname_internal
-        member_role: member_role
-        datadir: datadir
-        synchronous: true
-        roleid: 1
-        hostid: 6
-        version: version
-        replication_master:
-          slave_info:
-            slaves:
-            - failover_mode: failover_mode
-            - failover_mode: failover_mode
-        hostname: hostname
-        elastic_roles: elastic_roles
-        class_name: class_name
-        hostname_data: hostname_data
       properties:
         class_name:
           type: string
