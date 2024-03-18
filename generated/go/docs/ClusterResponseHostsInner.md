@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Version** | Pointer to **string** |  | [optional] 
 **ElasticRoles** | Pointer to **string** |  | [optional] 
 **Replica** | Pointer to [**ClusterResponseHostsInnerReplica**](ClusterResponseHostsInnerReplica.md) |  | [optional] 
-**ReplicaitonSlave** | Pointer to [**ClusterResponseHostsInnerReplicaitonSlave**](ClusterResponseHostsInnerReplicaitonSlave.md) |  | [optional] 
+**ReplicationSlave** | Pointer to [**ClusterResponseHostsInnerReplicationSlave**](ClusterResponseHostsInnerReplicationSlave.md) |  | [optional] 
 **ReplicationMaster** | Pointer to [**ClusterResponseHostsInnerReplicationMaster**](ClusterResponseHostsInnerReplicationMaster.md) |  | [optional] 
 
 ## Methods
@@ -390,30 +390,30 @@ SetReplica sets Replica field to given value.
 
 HasReplica returns a boolean if a field has been set.
 
-### GetReplicaitonSlave
+### GetReplicationSlave
 
-`func (o *ClusterResponseHostsInner) GetReplicaitonSlave() ClusterResponseHostsInnerReplicaitonSlave`
+`func (o *ClusterResponseHostsInner) GetReplicationSlave() ClusterResponseHostsInnerReplicationSlave`
 
-GetReplicaitonSlave returns the ReplicaitonSlave field if non-nil, zero value otherwise.
+GetReplicationSlave returns the ReplicationSlave field if non-nil, zero value otherwise.
 
-### GetReplicaitonSlaveOk
+### GetReplicationSlaveOk
 
-`func (o *ClusterResponseHostsInner) GetReplicaitonSlaveOk() (*ClusterResponseHostsInnerReplicaitonSlave, bool)`
+`func (o *ClusterResponseHostsInner) GetReplicationSlaveOk() (*ClusterResponseHostsInnerReplicationSlave, bool)`
 
-GetReplicaitonSlaveOk returns a tuple with the ReplicaitonSlave field if it's non-nil, zero value otherwise
+GetReplicationSlaveOk returns a tuple with the ReplicationSlave field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetReplicaitonSlave
+### SetReplicationSlave
 
-`func (o *ClusterResponseHostsInner) SetReplicaitonSlave(v ClusterResponseHostsInnerReplicaitonSlave)`
+`func (o *ClusterResponseHostsInner) SetReplicationSlave(v ClusterResponseHostsInnerReplicationSlave)`
 
-SetReplicaitonSlave sets ReplicaitonSlave field to given value.
+SetReplicationSlave sets ReplicationSlave field to given value.
 
-### HasReplicaitonSlave
+### HasReplicationSlave
 
-`func (o *ClusterResponseHostsInner) HasReplicaitonSlave() bool`
+`func (o *ClusterResponseHostsInner) HasReplicationSlave() bool`
 
-HasReplicaitonSlave returns a boolean if a field has been set.
+HasReplicationSlave returns a boolean if a field has been set.
 
 ### GetReplicationMaster
 

@@ -649,6 +649,10 @@ components:
         vendor: vendor
         hosts:
         - rs: rs
+          replication_slave:
+            master_host: master_host
+            master_cluster_id: 5
+            semisync_status: semisync_status
           role: role
           replica:
             availability_mode: availability_mode
@@ -667,14 +671,14 @@ components:
               - failover_mode: failover_mode
               - failover_mode: failover_mode
           hostname: hostname
-          replicaiton_slave:
-            master_host: master_host
-            master_cluster_id: 5
-            semisync_status: semisync_status
           elastic_roles: elastic_roles
           class_name: class_name
           hostname_data: hostname_data
         - rs: rs
+          replication_slave:
+            master_host: master_host
+            master_cluster_id: 5
+            semisync_status: semisync_status
           role: role
           replica:
             availability_mode: availability_mode
@@ -693,10 +697,6 @@ components:
               - failover_mode: failover_mode
               - failover_mode: failover_mode
           hostname: hostname
-          replicaiton_slave:
-            master_host: master_host
-            master_cluster_id: 5
-            semisync_status: semisync_status
           elastic_roles: elastic_roles
           class_name: class_name
           hostname_data: hostname_data
@@ -1743,7 +1743,7 @@ components:
         connected_state:
           type: string
       type: object
-    ClusterResponse_hosts_inner_replicaiton_slave:
+    ClusterResponse_hosts_inner_replication_slave:
       example:
         master_host: master_host
         master_cluster_id: 5
@@ -1787,6 +1787,10 @@ components:
     ClusterResponse_hosts_inner:
       example:
         rs: rs
+        replication_slave:
+          master_host: master_host
+          master_cluster_id: 5
+          semisync_status: semisync_status
         role: role
         replica:
           availability_mode: availability_mode
@@ -1805,10 +1809,6 @@ components:
             - failover_mode: failover_mode
             - failover_mode: failover_mode
         hostname: hostname
-        replicaiton_slave:
-          master_host: master_host
-          master_cluster_id: 5
-          semisync_status: semisync_status
         elastic_roles: elastic_roles
         class_name: class_name
         hostname_data: hostname_data
@@ -1841,8 +1841,8 @@ components:
           type: string
         replica:
           $ref: '#/components/schemas/ClusterResponse_hosts_inner_replica'
-        replicaiton_slave:
-          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replicaiton_slave'
+        replication_slave:
+          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_slave'
         replication_master:
           $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master'
       type: object

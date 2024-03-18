@@ -1,4 +1,4 @@
-# ClusterResponseHostsInnerReplicaitonSlave
+# ClusterResponseHostsInnerReplicationSlave
 
 ## Properties
 
@@ -10,95 +10,95 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewClusterResponseHostsInnerReplicaitonSlave
+### NewClusterResponseHostsInnerReplicationSlave
 
-`func NewClusterResponseHostsInnerReplicaitonSlave() *ClusterResponseHostsInnerReplicaitonSlave`
+`func NewClusterResponseHostsInnerReplicationSlave() *ClusterResponseHostsInnerReplicationSlave`
 
-NewClusterResponseHostsInnerReplicaitonSlave instantiates a new ClusterResponseHostsInnerReplicaitonSlave object
+NewClusterResponseHostsInnerReplicationSlave instantiates a new ClusterResponseHostsInnerReplicationSlave object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewClusterResponseHostsInnerReplicaitonSlaveWithDefaults
+### NewClusterResponseHostsInnerReplicationSlaveWithDefaults
 
-`func NewClusterResponseHostsInnerReplicaitonSlaveWithDefaults() *ClusterResponseHostsInnerReplicaitonSlave`
+`func NewClusterResponseHostsInnerReplicationSlaveWithDefaults() *ClusterResponseHostsInnerReplicationSlave`
 
-NewClusterResponseHostsInnerReplicaitonSlaveWithDefaults instantiates a new ClusterResponseHostsInnerReplicaitonSlave object
+NewClusterResponseHostsInnerReplicationSlaveWithDefaults instantiates a new ClusterResponseHostsInnerReplicationSlave object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetMasterHost
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHost() string`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterHost() string`
 
 GetMasterHost returns the MasterHost field if non-nil, zero value otherwise.
 
 ### GetMasterHostOk
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHostOk() (*string, bool)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterHostOk() (*string, bool)`
 
 GetMasterHostOk returns a tuple with the MasterHost field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasterHost
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) SetMasterHost(v string)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterHost(v string)`
 
 SetMasterHost sets MasterHost field to given value.
 
 ### HasMasterHost
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterHost() bool`
+`func (o *ClusterResponseHostsInnerReplicationSlave) HasMasterHost() bool`
 
 HasMasterHost returns a boolean if a field has been set.
 
 ### GetMasterClusterId
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterId() int32`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() int32`
 
 GetMasterClusterId returns the MasterClusterId field if non-nil, zero value otherwise.
 
 ### GetMasterClusterIdOk
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterIdOk() (*int32, bool)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*int32, bool)`
 
 GetMasterClusterIdOk returns a tuple with the MasterClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasterClusterId
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) SetMasterClusterId(v int32)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v int32)`
 
 SetMasterClusterId sets MasterClusterId field to given value.
 
 ### HasMasterClusterId
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterClusterId() bool`
+`func (o *ClusterResponseHostsInnerReplicationSlave) HasMasterClusterId() bool`
 
 HasMasterClusterId returns a boolean if a field has been set.
 
 ### GetSemisyncStatus
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatus() string`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetSemisyncStatus() string`
 
 GetSemisyncStatus returns the SemisyncStatus field if non-nil, zero value otherwise.
 
 ### GetSemisyncStatusOk
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatusOk() (*string, bool)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetSemisyncStatusOk() (*string, bool)`
 
 GetSemisyncStatusOk returns a tuple with the SemisyncStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSemisyncStatus
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) SetSemisyncStatus(v string)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) SetSemisyncStatus(v string)`
 
 SetSemisyncStatus sets SemisyncStatus field to given value.
 
 ### HasSemisyncStatus
 
-`func (o *ClusterResponseHostsInnerReplicaitonSlave) HasSemisyncStatus() bool`
+`func (o *ClusterResponseHostsInnerReplicationSlave) HasSemisyncStatus() bool`
 
 HasSemisyncStatus returns a boolean if a field has been set.
 

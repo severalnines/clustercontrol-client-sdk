@@ -471,6 +471,7 @@ func (c *APIClient) prepareRequest(
 		}
 
 		// Walk through any authentication.
+
 	}
 
 	for header, value := range c.cfg.DefaultHeader {

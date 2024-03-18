@@ -15,35 +15,35 @@ import (
 	"encoding/json"
 )
 
-// checks if the ClusterResponseHostsInnerReplicaitonSlave type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ClusterResponseHostsInnerReplicaitonSlave{}
+// checks if the ClusterResponseHostsInnerReplicationSlave type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ClusterResponseHostsInnerReplicationSlave{}
 
-// ClusterResponseHostsInnerReplicaitonSlave struct for ClusterResponseHostsInnerReplicaitonSlave
-type ClusterResponseHostsInnerReplicaitonSlave struct {
+// ClusterResponseHostsInnerReplicationSlave struct for ClusterResponseHostsInnerReplicationSlave
+type ClusterResponseHostsInnerReplicationSlave struct {
 	MasterHost *string `json:"master_host,omitempty"`
 	MasterClusterId *int32 `json:"master_cluster_id,omitempty"`
 	SemisyncStatus *string `json:"semisync_status,omitempty"`
 }
 
-// NewClusterResponseHostsInnerReplicaitonSlave instantiates a new ClusterResponseHostsInnerReplicaitonSlave object
+// NewClusterResponseHostsInnerReplicationSlave instantiates a new ClusterResponseHostsInnerReplicationSlave object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterResponseHostsInnerReplicaitonSlave() *ClusterResponseHostsInnerReplicaitonSlave {
-	this := ClusterResponseHostsInnerReplicaitonSlave{}
+func NewClusterResponseHostsInnerReplicationSlave() *ClusterResponseHostsInnerReplicationSlave {
+	this := ClusterResponseHostsInnerReplicationSlave{}
 	return &this
 }
 
-// NewClusterResponseHostsInnerReplicaitonSlaveWithDefaults instantiates a new ClusterResponseHostsInnerReplicaitonSlave object
+// NewClusterResponseHostsInnerReplicationSlaveWithDefaults instantiates a new ClusterResponseHostsInnerReplicationSlave object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewClusterResponseHostsInnerReplicaitonSlaveWithDefaults() *ClusterResponseHostsInnerReplicaitonSlave {
-	this := ClusterResponseHostsInnerReplicaitonSlave{}
+func NewClusterResponseHostsInnerReplicationSlaveWithDefaults() *ClusterResponseHostsInnerReplicationSlave {
+	this := ClusterResponseHostsInnerReplicationSlave{}
 	return &this
 }
 
 // GetMasterHost returns the MasterHost field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHost() string {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterHost() string {
 	if o == nil || IsNil(o.MasterHost) {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHost() string {
 
 // GetMasterHostOk returns a tuple with the MasterHost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHostOk() (*string, bool) {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterHostOk() (*string, bool) {
 	if o == nil || IsNil(o.MasterHost) {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterHostOk() (*string, 
 }
 
 // HasMasterHost returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterHost() bool {
+func (o *ClusterResponseHostsInnerReplicationSlave) HasMasterHost() bool {
 	if o != nil && !IsNil(o.MasterHost) {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterHost() bool {
 }
 
 // SetMasterHost gets a reference to the given string and assigns it to the MasterHost field.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) SetMasterHost(v string) {
+func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterHost(v string) {
 	o.MasterHost = &v
 }
 
 // GetMasterClusterId returns the MasterClusterId field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterId() int32 {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() int32 {
 	if o == nil || IsNil(o.MasterClusterId) {
 		var ret int32
 		return ret
@@ -85,7 +85,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterId() int32 {
 
 // GetMasterClusterIdOk returns a tuple with the MasterClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterIdOk() (*int32, bool) {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.MasterClusterId) {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetMasterClusterIdOk() (*int
 }
 
 // HasMasterClusterId returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterClusterId() bool {
+func (o *ClusterResponseHostsInnerReplicationSlave) HasMasterClusterId() bool {
 	if o != nil && !IsNil(o.MasterClusterId) {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) HasMasterClusterId() bool {
 }
 
 // SetMasterClusterId gets a reference to the given int32 and assigns it to the MasterClusterId field.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) SetMasterClusterId(v int32) {
+func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v int32) {
 	o.MasterClusterId = &v
 }
 
 // GetSemisyncStatus returns the SemisyncStatus field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatus() string {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetSemisyncStatus() string {
 	if o == nil || IsNil(o.SemisyncStatus) {
 		var ret string
 		return ret
@@ -117,7 +117,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatus() string {
 
 // GetSemisyncStatusOk returns a tuple with the SemisyncStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatusOk() (*string, bool) {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetSemisyncStatusOk() (*string, bool) {
 	if o == nil || IsNil(o.SemisyncStatus) {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) GetSemisyncStatusOk() (*stri
 }
 
 // HasSemisyncStatus returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) HasSemisyncStatus() bool {
+func (o *ClusterResponseHostsInnerReplicationSlave) HasSemisyncStatus() bool {
 	if o != nil && !IsNil(o.SemisyncStatus) {
 		return true
 	}
@@ -134,11 +134,11 @@ func (o *ClusterResponseHostsInnerReplicaitonSlave) HasSemisyncStatus() bool {
 }
 
 // SetSemisyncStatus gets a reference to the given string and assigns it to the SemisyncStatus field.
-func (o *ClusterResponseHostsInnerReplicaitonSlave) SetSemisyncStatus(v string) {
+func (o *ClusterResponseHostsInnerReplicationSlave) SetSemisyncStatus(v string) {
 	o.SemisyncStatus = &v
 }
 
-func (o ClusterResponseHostsInnerReplicaitonSlave) MarshalJSON() ([]byte, error) {
+func (o ClusterResponseHostsInnerReplicationSlave) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -146,7 +146,7 @@ func (o ClusterResponseHostsInnerReplicaitonSlave) MarshalJSON() ([]byte, error)
 	return json.Marshal(toSerialize)
 }
 
-func (o ClusterResponseHostsInnerReplicaitonSlave) ToMap() (map[string]interface{}, error) {
+func (o ClusterResponseHostsInnerReplicationSlave) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.MasterHost) {
 		toSerialize["master_host"] = o.MasterHost
@@ -160,38 +160,38 @@ func (o ClusterResponseHostsInnerReplicaitonSlave) ToMap() (map[string]interface
 	return toSerialize, nil
 }
 
-type NullableClusterResponseHostsInnerReplicaitonSlave struct {
-	value *ClusterResponseHostsInnerReplicaitonSlave
+type NullableClusterResponseHostsInnerReplicationSlave struct {
+	value *ClusterResponseHostsInnerReplicationSlave
 	isSet bool
 }
 
-func (v NullableClusterResponseHostsInnerReplicaitonSlave) Get() *ClusterResponseHostsInnerReplicaitonSlave {
+func (v NullableClusterResponseHostsInnerReplicationSlave) Get() *ClusterResponseHostsInnerReplicationSlave {
 	return v.value
 }
 
-func (v *NullableClusterResponseHostsInnerReplicaitonSlave) Set(val *ClusterResponseHostsInnerReplicaitonSlave) {
+func (v *NullableClusterResponseHostsInnerReplicationSlave) Set(val *ClusterResponseHostsInnerReplicationSlave) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableClusterResponseHostsInnerReplicaitonSlave) IsSet() bool {
+func (v NullableClusterResponseHostsInnerReplicationSlave) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableClusterResponseHostsInnerReplicaitonSlave) Unset() {
+func (v *NullableClusterResponseHostsInnerReplicationSlave) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableClusterResponseHostsInnerReplicaitonSlave(val *ClusterResponseHostsInnerReplicaitonSlave) *NullableClusterResponseHostsInnerReplicaitonSlave {
-	return &NullableClusterResponseHostsInnerReplicaitonSlave{value: val, isSet: true}
+func NewNullableClusterResponseHostsInnerReplicationSlave(val *ClusterResponseHostsInnerReplicationSlave) *NullableClusterResponseHostsInnerReplicationSlave {
+	return &NullableClusterResponseHostsInnerReplicationSlave{value: val, isSet: true}
 }
 
-func (v NullableClusterResponseHostsInnerReplicaitonSlave) MarshalJSON() ([]byte, error) {
+func (v NullableClusterResponseHostsInnerReplicationSlave) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableClusterResponseHostsInnerReplicaitonSlave) UnmarshalJSON(src []byte) error {
+func (v *NullableClusterResponseHostsInnerReplicationSlave) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -665,7 +665,7 @@ components:
                     type: string
                   connected_state:
                     type: string              
-              replicaiton_slave:
+              replication_slave:
                 type: object
                 properties:
                   master_host:
