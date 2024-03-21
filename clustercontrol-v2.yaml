@@ -933,7 +933,9 @@ components:
                   "disable_recovery","enable_recovery","restart","enable_db_readonly",
                   "error_report","calculate_db_growth","enable_node_recovery",
                   "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
-                  "success","add_replication_slave","deploy_cmonagents","delete_backup"]
+                  "success","add_replication_slave","deploy_cmonagents","delete_backup",
+                  "registernode","removenode","add_shard","garbd","pgbouncer","haproxy"
+                  "proxysql"]
                 id:
                   type: integer
                 job_data:

@@ -12,6 +12,7 @@
 
 # IDEs
 .idea
+.vscode
 
 # Package Files #
 *.jar
