@@ -229,7 +229,7 @@ paths:
     post:
       tags:
       - maintenance
-      summary: CreateJobInstance | etc
+      summary: Set a maintenance window for a managed database cluster
       requestBody:
         description: Creating, deleting and obtaining maintenance periods
         content:
@@ -241,6 +241,12 @@ paths:
         200:
           description: Successful operation
           content: {}
+        # 200:
+        #   description: Successful operation
+        #   content:
+        #     application/json:
+        #       schema:
+        #         $ref: '#/components/schemas/MaintenanceResponse'
         405:
           description: Unauthorized
           content: {}
@@ -934,7 +940,7 @@ components:
                   "error_report","calculate_db_growth","enable_node_recovery",
                   "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
                   "success","add_replication_slave","deploy_cmonagents","delete_backup",
-                  "registernode","removenode","add_shard","garbd","pgbouncer","haproxy"
+                  "registernode","removenode","add_shard","garbd","pgbouncer","haproxy",
                   "proxysql"]
                 id:
                   type: integer
@@ -943,7 +949,8 @@ components:
                   properties:
                     action:
                       type: string
-                      enum: ["enable","setup","setupHaProxy","setupProxySql"]
+                      enum: ["enable","setup","setupHaProxy","setupProxySql",
+                      "registerProxySQL","registerHAProxy"]
                     addnode:
                       type: boolean
                     admin_username:
@@ -1380,7 +1387,7 @@ components:
             status:
               type: string
               enum: ["PAUSED","SCHEDULED"]
-    Maintenance:
+    Maintenance: #Maintenance request
       type: object
       required:
       - operation
@@ -1389,6 +1396,10 @@ components:
           type: string
           enum: ["addMaintenance","removeMaintenance","getMaintenance",
             "getCurrentMaintenance","getNextMaintenance"]
+        pagesize: #paging for get operation
+          type: integer
+        page: #paging for get operation
+          type: integer
         cluster_id:
           type: integer
         deadline:
@@ -1399,6 +1410,46 @@ components:
           type: string
         UUID:
           type: string
+        reason:
+          type: string
+    MaintenanceResponse: #Mostly used for getMaintenance operation
+      type: object
+      properties:
+        maintenance_records:
+          type: array
+          items:
+            type: object
+            properties:
+              cluster_id:
+                type: integer
+              is_active:
+                type: boolean
+              cluster:
+                type: object
+                properties:
+                  cluster_name:
+                    type: string
+                  cluster_id:
+                    type: integer
+                  cluster_auto_recovery:
+                    type: boolean
+                  maintenance_mode_active:
+                    type: boolean
+                  maintenance_periods:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        UUID:
+                          type: string
+                        initiate:
+                          type: string
+                        deadline:
+                          type: string
+                        is_active:
+                          type: boolean
+                        reason:
+                          type: string
     Reports:
       type: object
       required:
