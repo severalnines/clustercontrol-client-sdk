@@ -478,7 +478,7 @@ components:
           schedule: schedule
           job:
             job_data:
-              cc_storage: cc_storage
+              cc_storage: true
               backup_retention: 2
               backupdir: backupdir
               backup_method: pg_basebackup
@@ -1481,7 +1481,7 @@ components:
       type: object
     Backup_schedule_job_job_data:
       example:
-        cc_storage: cc_storage
+        cc_storage: true
         backup_retention: 2
         backupdir: backupdir
         backup_method: pg_basebackup
@@ -1534,7 +1534,7 @@ components:
         backupsubdir:
           type: string
         cc_storage:
-          type: string
+          type: boolean
         compression:
           type: boolean
         compresion_level:
@@ -1553,7 +1553,7 @@ components:
     Backup_schedule_job:
       example:
         job_data:
-          cc_storage: cc_storage
+          cc_storage: true
           backup_retention: 2
           backupdir: backupdir
           backup_method: pg_basebackup
@@ -1587,7 +1587,7 @@ components:
         schedule: schedule
         job:
           job_data:
-            cc_storage: cc_storage
+            cc_storage: true
             backup_retention: 2
             backupdir: backupdir
             backup_method: pg_basebackup

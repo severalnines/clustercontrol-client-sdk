@@ -27,7 +27,7 @@ type BackupScheduleJobJobData struct {
 	BackupRetention *int32 `json:"backup_retention,omitempty"`
 	Backupdir *string `json:"backupdir,omitempty"`
 	Backupsubdir *string `json:"backupsubdir,omitempty"`
-	CcStorage *string `json:"cc_storage,omitempty"`
+	CcStorage *bool `json:"cc_storage,omitempty"`
 	Compression *bool `json:"compression,omitempty"`
 	CompresionLevel *int32 `json:"compresion_level,omitempty"`
 	EncryptBackup *bool `json:"encrypt_backup,omitempty"`
@@ -279,9 +279,9 @@ func (o *BackupScheduleJobJobData) SetBackupsubdir(v string) {
 }
 
 // GetCcStorage returns the CcStorage field value if set, zero value otherwise.
-func (o *BackupScheduleJobJobData) GetCcStorage() string {
+func (o *BackupScheduleJobJobData) GetCcStorage() bool {
 	if o == nil || IsNil(o.CcStorage) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.CcStorage
@@ -289,7 +289,7 @@ func (o *BackupScheduleJobJobData) GetCcStorage() string {
 
 // GetCcStorageOk returns a tuple with the CcStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BackupScheduleJobJobData) GetCcStorageOk() (*string, bool) {
+func (o *BackupScheduleJobJobData) GetCcStorageOk() (*bool, bool) {
 	if o == nil || IsNil(o.CcStorage) {
 		return nil, false
 	}
@@ -305,8 +305,8 @@ func (o *BackupScheduleJobJobData) HasCcStorage() bool {
 	return false
 }
 
-// SetCcStorage gets a reference to the given string and assigns it to the CcStorage field.
-func (o *BackupScheduleJobJobData) SetCcStorage(v string) {
+// SetCcStorage gets a reference to the given bool and assigns it to the CcStorage field.
+func (o *BackupScheduleJobJobData) SetCcStorage(v bool) {
 	o.CcStorage = &v
 }
 
