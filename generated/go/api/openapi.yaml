@@ -990,7 +990,7 @@ components:
               enable_mysql_uninstall: true
               update_lb: true
               include_databases: include_databases
-              cc_storage: cc_storage
+              cc_storage: true
               snapshot_location: snapshot_location
               backup_failover: true
               server_address: server_address
@@ -2535,7 +2535,7 @@ components:
         enable_mysql_uninstall: true
         update_lb: true
         include_databases: include_databases
-        cc_storage: cc_storage
+        cc_storage: true
         snapshot_location: snapshot_location
         backup_failover: true
         server_address: server_address
@@ -2771,7 +2771,7 @@ components:
         backupsubdir:
           type: string
         cc_storage:
-          type: string
+          type: boolean
         compression:
           type: boolean
         compression_level:
@@ -3080,7 +3080,7 @@ components:
           enable_mysql_uninstall: true
           update_lb: true
           include_databases: include_databases
-          cc_storage: cc_storage
+          cc_storage: true
           snapshot_location: snapshot_location
           backup_failover: true
           server_address: server_address
@@ -3384,7 +3384,7 @@ components:
             enable_mysql_uninstall: true
             update_lb: true
             include_databases: include_databases
-            cc_storage: cc_storage
+            cc_storage: true
             snapshot_location: snapshot_location
             backup_failover: true
             server_address: server_address

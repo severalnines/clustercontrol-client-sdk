@@ -1074,7 +1074,7 @@ components:
                     backupsubdir:
                       type: string
                     cc_storage:
-                      type: string
+                      type: boolean
                     compression:
                       type: boolean
                     compression_level:

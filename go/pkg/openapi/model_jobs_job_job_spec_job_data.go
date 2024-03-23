@@ -44,7 +44,7 @@ type JobsJobJobSpecJobData struct {
 	ExtendedInsert *bool `json:"extended_insert,omitempty"`
 	BackupDir *string `json:"backup_dir,omitempty"`
 	Backupsubdir *string `json:"backupsubdir,omitempty"`
-	CcStorage *string `json:"cc_storage,omitempty"`
+	CcStorage *bool `json:"cc_storage,omitempty"`
 	Compression *bool `json:"compression,omitempty"`
 	CompressionLevel *int32 `json:"compression_level,omitempty"`
 	DbDatabase *string `json:"db_database,omitempty"`
@@ -917,9 +917,9 @@ func (o *JobsJobJobSpecJobData) SetBackupsubdir(v string) {
 }
 
 // GetCcStorage returns the CcStorage field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobData) GetCcStorage() string {
+func (o *JobsJobJobSpecJobData) GetCcStorage() bool {
 	if o == nil || IsNil(o.CcStorage) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.CcStorage
@@ -927,7 +927,7 @@ func (o *JobsJobJobSpecJobData) GetCcStorage() string {
 
 // GetCcStorageOk returns a tuple with the CcStorage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobData) GetCcStorageOk() (*string, bool) {
+func (o *JobsJobJobSpecJobData) GetCcStorageOk() (*bool, bool) {
 	if o == nil || IsNil(o.CcStorage) {
 		return nil, false
 	}
@@ -943,8 +943,8 @@ func (o *JobsJobJobSpecJobData) HasCcStorage() bool {
 	return false
 }
 
-// SetCcStorage gets a reference to the given string and assigns it to the CcStorage field.
-func (o *JobsJobJobSpecJobData) SetCcStorage(v string) {
+// SetCcStorage gets a reference to the given bool and assigns it to the CcStorage field.
+func (o *JobsJobJobSpecJobData) SetCcStorage(v bool) {
 	o.CcStorage = &v
 }
 

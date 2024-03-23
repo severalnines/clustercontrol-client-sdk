@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **ExtendedInsert** | Pointer to **bool** |  | [optional] 
 **BackupDir** | Pointer to **string** |  | [optional] 
 **Backupsubdir** | Pointer to **string** |  | [optional] 
-**CcStorage** | Pointer to **string** |  | [optional] 
+**CcStorage** | Pointer to **bool** |  | [optional] 
 **Compression** | Pointer to **bool** |  | [optional] 
 **CompressionLevel** | Pointer to **int32** |  | [optional] 
 **DbDatabase** | Pointer to **string** |  | [optional] 
@@ -735,20 +735,20 @@ HasBackupsubdir returns a boolean if a field has been set.
 
 ### GetCcStorage
 
-`func (o *JobsJobJobSpecJobData) GetCcStorage() string`
+`func (o *JobsJobJobSpecJobData) GetCcStorage() bool`
 
 GetCcStorage returns the CcStorage field if non-nil, zero value otherwise.
 
 ### GetCcStorageOk
 
-`func (o *JobsJobJobSpecJobData) GetCcStorageOk() (*string, bool)`
+`func (o *JobsJobJobSpecJobData) GetCcStorageOk() (*bool, bool)`
 
 GetCcStorageOk returns a tuple with the CcStorage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCcStorage
 
-`func (o *JobsJobJobSpecJobData) SetCcStorage(v string)`
+`func (o *JobsJobJobSpecJobData) SetCcStorage(v bool)`
 
 SetCcStorage sets CcStorage field to given value.
 
