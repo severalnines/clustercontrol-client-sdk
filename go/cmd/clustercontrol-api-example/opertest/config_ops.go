@@ -8,7 +8,7 @@ import (
 
 func listTemplates() {
 	config := *openapi.NewConfig("listTemplates")
-	resp, err := gApiClient.ConfigApi.ConfigPost(gNewCtx).Config(config).Execute()
+	resp, err := gApiClient.ConfigAPI.ConfigPost(gNewCtx).Config(config).Execute()
 	if err != nil {
 		printError(err, resp)
 		return

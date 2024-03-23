@@ -25,6 +25,10 @@ type Backup struct {
 	Operation string `json:"operation"`
 	ClusterId *int32 `json:"cluster_id,omitempty"`
 	Ascending *bool `json:"ascending,omitempty"`
+	Order *string `json:"order,omitempty"`
+	BackupRecordVersion *int32 `json:"backup_record_version,omitempty"`
+	Limit *int32 `json:"limit,omitempty"`
+	Offset *int32 `json:"offset,omitempty"`
 	Schedule *BackupSchedule `json:"schedule,omitempty"`
 	BackupRecord *BackupBackupRecord `json:"backup_record,omitempty"`
 }
@@ -137,6 +141,134 @@ func (o *Backup) SetAscending(v bool) {
 	o.Ascending = &v
 }
 
+// GetOrder returns the Order field value if set, zero value otherwise.
+func (o *Backup) GetOrder() string {
+	if o == nil || IsNil(o.Order) {
+		var ret string
+		return ret
+	}
+	return *o.Order
+}
+
+// GetOrderOk returns a tuple with the Order field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Backup) GetOrderOk() (*string, bool) {
+	if o == nil || IsNil(o.Order) {
+		return nil, false
+	}
+	return o.Order, true
+}
+
+// HasOrder returns a boolean if a field has been set.
+func (o *Backup) HasOrder() bool {
+	if o != nil && !IsNil(o.Order) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrder gets a reference to the given string and assigns it to the Order field.
+func (o *Backup) SetOrder(v string) {
+	o.Order = &v
+}
+
+// GetBackupRecordVersion returns the BackupRecordVersion field value if set, zero value otherwise.
+func (o *Backup) GetBackupRecordVersion() int32 {
+	if o == nil || IsNil(o.BackupRecordVersion) {
+		var ret int32
+		return ret
+	}
+	return *o.BackupRecordVersion
+}
+
+// GetBackupRecordVersionOk returns a tuple with the BackupRecordVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Backup) GetBackupRecordVersionOk() (*int32, bool) {
+	if o == nil || IsNil(o.BackupRecordVersion) {
+		return nil, false
+	}
+	return o.BackupRecordVersion, true
+}
+
+// HasBackupRecordVersion returns a boolean if a field has been set.
+func (o *Backup) HasBackupRecordVersion() bool {
+	if o != nil && !IsNil(o.BackupRecordVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackupRecordVersion gets a reference to the given int32 and assigns it to the BackupRecordVersion field.
+func (o *Backup) SetBackupRecordVersion(v int32) {
+	o.BackupRecordVersion = &v
+}
+
+// GetLimit returns the Limit field value if set, zero value otherwise.
+func (o *Backup) GetLimit() int32 {
+	if o == nil || IsNil(o.Limit) {
+		var ret int32
+		return ret
+	}
+	return *o.Limit
+}
+
+// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Backup) GetLimitOk() (*int32, bool) {
+	if o == nil || IsNil(o.Limit) {
+		return nil, false
+	}
+	return o.Limit, true
+}
+
+// HasLimit returns a boolean if a field has been set.
+func (o *Backup) HasLimit() bool {
+	if o != nil && !IsNil(o.Limit) {
+		return true
+	}
+
+	return false
+}
+
+// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
+func (o *Backup) SetLimit(v int32) {
+	o.Limit = &v
+}
+
+// GetOffset returns the Offset field value if set, zero value otherwise.
+func (o *Backup) GetOffset() int32 {
+	if o == nil || IsNil(o.Offset) {
+		var ret int32
+		return ret
+	}
+	return *o.Offset
+}
+
+// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Backup) GetOffsetOk() (*int32, bool) {
+	if o == nil || IsNil(o.Offset) {
+		return nil, false
+	}
+	return o.Offset, true
+}
+
+// HasOffset returns a boolean if a field has been set.
+func (o *Backup) HasOffset() bool {
+	if o != nil && !IsNil(o.Offset) {
+		return true
+	}
+
+	return false
+}
+
+// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
+func (o *Backup) SetOffset(v int32) {
+	o.Offset = &v
+}
+
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *Backup) GetSchedule() BackupSchedule {
 	if o == nil || IsNil(o.Schedule) {
@@ -217,6 +349,18 @@ func (o Backup) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Ascending) {
 		toSerialize["ascending"] = o.Ascending
+	}
+	if !IsNil(o.Order) {
+		toSerialize["order"] = o.Order
+	}
+	if !IsNil(o.BackupRecordVersion) {
+		toSerialize["backup_record_version"] = o.BackupRecordVersion
+	}
+	if !IsNil(o.Limit) {
+		toSerialize["limit"] = o.Limit
+	}
+	if !IsNil(o.Offset) {
+		toSerialize["offset"] = o.Offset
 	}
 	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule

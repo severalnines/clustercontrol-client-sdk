@@ -33,6 +33,13 @@ docs/Authenticate.md
 docs/Backup.md
 docs/BackupAPI.md
 docs/BackupBackupRecord.md
+docs/BackupResponse.md
+docs/BackupResponseBackupRecordsInner.md
+docs/BackupResponseBackupRecordsInnerCloudLocationsInner.md
+docs/BackupResponseBackupRecordsInnerCluster.md
+docs/BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner.md
+docs/BackupResponseBackupRecordsInnerHostLocationsInner.md
+docs/BackupResponseBackupRecordsInnerMetadata.md
 docs/BackupSchedule.md
 docs/BackupScheduleJob.md
 docs/BackupScheduleJobJobData.md
@@ -90,6 +97,8 @@ docs/JobsJobJobSpecJobDataTopology.md
 docs/JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md
 docs/Maintenance.md
 docs/MaintenanceAPI.md
+docs/MaintenanceResponse.md
+docs/MaintenanceResponseMaintenanceRecordsInner.md
 docs/Reports.md
 docs/ReportsAPI.md
 docs/ReportsReport.md
@@ -119,6 +128,13 @@ model_audit.go
 model_authenticate.go
 model_backup.go
 model_backup_backup_record.go
+model_backup_response.go
+model_backup_response_backup_records_inner.go
+model_backup_response_backup_records_inner_cloud_locations_inner.go
+model_backup_response_backup_records_inner_cluster.go
+model_backup_response_backup_records_inner_cluster_maintenance_periods_inner.go
+model_backup_response_backup_records_inner_host_locations_inner.go
+model_backup_response_backup_records_inner_metadata.go
 model_backup_schedule.go
 model_backup_schedule_job.go
 model_backup_schedule_job_job_data.go
@@ -168,6 +184,8 @@ model_jobs_job_job_spec_job_data_replica_sets_inner_members_inner.go
 model_jobs_job_job_spec_job_data_topology.go
 model_jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage.go
 model_maintenance.go
+model_maintenance_response.go
+model_maintenance_response_maintenance_records_inner.go
 model_reports.go
 model_reports_report.go
 model_stat.go

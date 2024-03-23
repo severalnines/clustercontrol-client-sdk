@@ -40,7 +40,7 @@ func (r ApiMaintenancePostRequest) Execute() (*http.Response, error) {
 }
 
 /*
-MaintenancePost CreateJobInstance | etc
+MaintenancePost Set a maintenance window for a managed database cluster
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMaintenancePostRequest

@@ -23,11 +23,14 @@ var _ MappedNullable = &Maintenance{}
 // Maintenance struct for Maintenance
 type Maintenance struct {
 	Operation string `json:"operation"`
+	Pagesize *int32 `json:"pagesize,omitempty"`
+	Page *int32 `json:"page,omitempty"`
 	ClusterId *int32 `json:"cluster_id,omitempty"`
 	Deadline *string `json:"deadline,omitempty"`
 	Initiate *string `json:"initiate,omitempty"`
 	Hostname *string `json:"hostname,omitempty"`
 	UUID *string `json:"UUID,omitempty"`
+	Reason *string `json:"reason,omitempty"`
 }
 
 type _Maintenance Maintenance
@@ -72,6 +75,70 @@ func (o *Maintenance) GetOperationOk() (*string, bool) {
 // SetOperation sets field value
 func (o *Maintenance) SetOperation(v string) {
 	o.Operation = v
+}
+
+// GetPagesize returns the Pagesize field value if set, zero value otherwise.
+func (o *Maintenance) GetPagesize() int32 {
+	if o == nil || IsNil(o.Pagesize) {
+		var ret int32
+		return ret
+	}
+	return *o.Pagesize
+}
+
+// GetPagesizeOk returns a tuple with the Pagesize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Maintenance) GetPagesizeOk() (*int32, bool) {
+	if o == nil || IsNil(o.Pagesize) {
+		return nil, false
+	}
+	return o.Pagesize, true
+}
+
+// HasPagesize returns a boolean if a field has been set.
+func (o *Maintenance) HasPagesize() bool {
+	if o != nil && !IsNil(o.Pagesize) {
+		return true
+	}
+
+	return false
+}
+
+// SetPagesize gets a reference to the given int32 and assigns it to the Pagesize field.
+func (o *Maintenance) SetPagesize(v int32) {
+	o.Pagesize = &v
+}
+
+// GetPage returns the Page field value if set, zero value otherwise.
+func (o *Maintenance) GetPage() int32 {
+	if o == nil || IsNil(o.Page) {
+		var ret int32
+		return ret
+	}
+	return *o.Page
+}
+
+// GetPageOk returns a tuple with the Page field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Maintenance) GetPageOk() (*int32, bool) {
+	if o == nil || IsNil(o.Page) {
+		return nil, false
+	}
+	return o.Page, true
+}
+
+// HasPage returns a boolean if a field has been set.
+func (o *Maintenance) HasPage() bool {
+	if o != nil && !IsNil(o.Page) {
+		return true
+	}
+
+	return false
+}
+
+// SetPage gets a reference to the given int32 and assigns it to the Page field.
+func (o *Maintenance) SetPage(v int32) {
+	o.Page = &v
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
@@ -234,6 +301,38 @@ func (o *Maintenance) SetUUID(v string) {
 	o.UUID = &v
 }
 
+// GetReason returns the Reason field value if set, zero value otherwise.
+func (o *Maintenance) GetReason() string {
+	if o == nil || IsNil(o.Reason) {
+		var ret string
+		return ret
+	}
+	return *o.Reason
+}
+
+// GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Maintenance) GetReasonOk() (*string, bool) {
+	if o == nil || IsNil(o.Reason) {
+		return nil, false
+	}
+	return o.Reason, true
+}
+
+// HasReason returns a boolean if a field has been set.
+func (o *Maintenance) HasReason() bool {
+	if o != nil && !IsNil(o.Reason) {
+		return true
+	}
+
+	return false
+}
+
+// SetReason gets a reference to the given string and assigns it to the Reason field.
+func (o *Maintenance) SetReason(v string) {
+	o.Reason = &v
+}
+
 func (o Maintenance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -245,6 +344,12 @@ func (o Maintenance) MarshalJSON() ([]byte, error) {
 func (o Maintenance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["operation"] = o.Operation
+	if !IsNil(o.Pagesize) {
+		toSerialize["pagesize"] = o.Pagesize
+	}
+	if !IsNil(o.Page) {
+		toSerialize["page"] = o.Page
+	}
 	if !IsNil(o.ClusterId) {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
@@ -259,6 +364,9 @@ func (o Maintenance) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UUID) {
 		toSerialize["UUID"] = o.UUID
+	}
+	if !IsNil(o.Reason) {
+		toSerialize["reason"] = o.Reason
 	}
 	return toSerialize, nil
 }

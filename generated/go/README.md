@@ -89,7 +89,7 @@ Class | Method | HTTP request | Description
 *DiscoveryAPI* | [**DiscoveryPost**](docs/DiscoveryAPI.md#discoverypost) | **Post** /discovery | CheckClusterName | CheckHosts | GetSupportedClusterTypes
 *HostAPI* | [**HostPost**](docs/HostAPI.md#hostpost) | **Post** /host | Path for managing servers
 *JobsAPI* | [**JobsPost**](docs/JobsAPI.md#jobspost) | **Post** /jobs | CreateJobInstance | etc
-*MaintenanceAPI* | [**MaintenancePost**](docs/MaintenanceAPI.md#maintenancepost) | **Post** /maintenance | CreateJobInstance | etc
+*MaintenanceAPI* | [**MaintenancePost**](docs/MaintenanceAPI.md#maintenancepost) | **Post** /maintenance | Set a maintenance window for a managed database cluster
 *ReportsAPI* | [**ReportsPost**](docs/ReportsAPI.md#reportspost) | **Post** /reports | GenerateReport | etc
 *StatAPI* | [**StatPost**](docs/StatAPI.md#statpost) | **Post** /stat | GetInfo | etc
 *StatCmonAgentAPI* | [**StatCmonagentPost**](docs/StatCmonAgentAPI.md#statcmonagentpost) | **Post** /stat/cmonagent | GetInfo | etc
@@ -106,6 +106,13 @@ Class | Method | HTTP request | Description
  - [Authenticate](docs/Authenticate.md)
  - [Backup](docs/Backup.md)
  - [BackupBackupRecord](docs/BackupBackupRecord.md)
+ - [BackupResponse](docs/BackupResponse.md)
+ - [BackupResponseBackupRecordsInner](docs/BackupResponseBackupRecordsInner.md)
+ - [BackupResponseBackupRecordsInnerCloudLocationsInner](docs/BackupResponseBackupRecordsInnerCloudLocationsInner.md)
+ - [BackupResponseBackupRecordsInnerCluster](docs/BackupResponseBackupRecordsInnerCluster.md)
+ - [BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner](docs/BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner.md)
+ - [BackupResponseBackupRecordsInnerHostLocationsInner](docs/BackupResponseBackupRecordsInnerHostLocationsInner.md)
+ - [BackupResponseBackupRecordsInnerMetadata](docs/BackupResponseBackupRecordsInnerMetadata.md)
  - [BackupSchedule](docs/BackupSchedule.md)
  - [BackupScheduleJob](docs/BackupScheduleJob.md)
  - [BackupScheduleJobJobData](docs/BackupScheduleJobJobData.md)
@@ -155,6 +162,8 @@ Class | Method | HTTP request | Description
  - [JobsJobJobSpecJobDataTopology](docs/JobsJobJobSpecJobDataTopology.md)
  - [JobsJobJobSpecJobDataUploadBackupDataToCloudStorage](docs/JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md)
  - [Maintenance](docs/Maintenance.md)
+ - [MaintenanceResponse](docs/MaintenanceResponse.md)
+ - [MaintenanceResponseMaintenanceRecordsInner](docs/MaintenanceResponseMaintenanceRecordsInner.md)
  - [Reports](docs/Reports.md)
  - [ReportsReport](docs/ReportsReport.md)
  - [Stat](docs/Stat.md)

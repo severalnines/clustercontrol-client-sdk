@@ -11,7 +11,7 @@ import (
 func getAllClusterInfo() {
 	clusters := *openapi.NewClusters("getallclusterinfo")
 	// resp, err = apiClient.AuthApi.ClustersPost(newCtx).Clusters(clusters).Execute()
-	resp, err := gApiClient.ClustersApi.ClustersPost(gNewCtx).Clusters(clusters).Execute()
+	resp, err := gApiClient.ClustersAPI.ClustersPost(gNewCtx).Clusters(clusters).Execute()
 	if err != nil {
 		printError(err, resp)
 		return
@@ -30,7 +30,7 @@ func getClusterInfo(cn *string, ci *int32) {
 
 	}
 	// resp, err = apiClient.AuthApi.ClustersPost(newCtx).Clusters(clusters).Execute()
-	resp, err := gApiClient.ClustersApi.ClustersPost(gNewCtx).Clusters(clusters).Execute()
+	resp, err := gApiClient.ClustersAPI.ClustersPost(gNewCtx).Clusters(clusters).Execute()
 	if err != nil {
 		printError(err, resp)
 		return
@@ -65,7 +65,7 @@ func isClusterNameAcceptable(cn *string) bool {
 	}
 	// resp, err = apiClient.AuthApi.ClustersPost(newCtx).Clusters(clusters).Execute()
 	// resp, err := gApiClient.DiscoveryApi.DiscoveryPost(gNewCtx).Execute()
-	resp, err := gApiClient.DiscoveryApi.DiscoveryPost(gNewCtx).Discovery(discovery).Execute()
+	resp, err := gApiClient.DiscoveryAPI.DiscoveryPost(gNewCtx).Discovery(discovery).Execute()
 	if err != nil {
 		printError(err, resp)
 		return ret
@@ -95,7 +95,7 @@ func isClusterNameAcceptable(cn *string) bool {
 func getClusterTypes() {
 	clusTypes := *openapi.NewDiscovery("getSupportedClusterTypes")
 	// resp, err = apiClient.AuthApi.ClustersPost(newCtx).Clusters(clusters).Execute()
-	resp, err := gApiClient.DiscoveryApi.DiscoveryPost(gNewCtx).Discovery(clusTypes).Execute()
+	resp, err := gApiClient.DiscoveryAPI.DiscoveryPost(gNewCtx).Discovery(clusTypes).Execute()
 	if err != nil {
 		printError(err, resp)
 		return

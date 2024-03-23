@@ -87,7 +87,7 @@ func AuthenticateWithCmon() {
 	authenticate.SetUserName(os.Getenv("API_USER"))
 	authenticate.SetPassword(os.Getenv("API_USER_PW"))
 	ctx := context.Background()
-	resp, err := gApiClient.AuthApi.AuthPost(ctx).Authenticate(authenticate).Execute()
+	resp, err := gApiClient.AuthAPI.AuthPost(ctx).Authenticate(authenticate).Execute()
 	if err != nil {
 		printError(err, resp)
 		return

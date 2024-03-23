@@ -443,6 +443,14 @@ components:
           type: integer
         ascending:
           type: boolean
+        order:
+          type: string
+        backup_record_version:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
         schedule:
           type: object
           properties:
@@ -513,6 +521,67 @@ components:
           properties:
             backup_id:
               type: integer
+    BackupResponse: #Mostly used for getBackups operation
+      type: object
+      properties:
+        backup_records:
+          type: array
+          items:
+            type: object
+            properties:
+              version:
+                type: integer
+              cloud_locations:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    host_location_uuid:
+                      type: string
+              host_locations:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    host_location_uuid:
+                      type: string
+                    root_dir:
+                      type: string
+                    storage_host:
+                      type: string
+              metadata:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  job_id:
+                    type: integer
+              cluster:
+                type: object
+                properties:
+                  cluster_name:
+                    type: string
+                  cluster_id:
+                    type: integer
+                  cluster_auto_recovery:
+                    type: boolean
+                  maintenance_mode_active:
+                    type: boolean
+                  maintenance_periods:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        UUID:
+                          type: string
+                        initiate:
+                          type: string
+                        deadline:
+                          type: string
+                        is_active:
+                          type: boolean
+                        reason:
+                          type: string
     Cloud:
       type: object
       required:
