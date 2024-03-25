@@ -991,6 +991,7 @@ components:
               backup_id: 9
               monitor_password: monitor_password
               db_username: db_username
+              unregister_only: true
               db_user: db_user
               use_pigz: true
               enable_mysql_uninstall: true
@@ -1074,6 +1075,7 @@ components:
                   priority: 6
                   hostname_data: hostname_data
               xtrabackup_lock_ddl_per_table: true
+              galera_segment: galera_segment
               xtrabackup_backup_locks: true
               monitor_user: monitor_user
               node_adresses:
@@ -1820,7 +1822,7 @@ components:
         hostname_internal:
           type: string
         port:
-          type: integer
+          type: string
         role:
           type: string
         synchronous:
@@ -2562,6 +2564,7 @@ components:
         backup_id: 9
         monitor_password: monitor_password
         db_username: db_username
+        unregister_only: true
         db_user: db_user
         use_pigz: true
         enable_mysql_uninstall: true
@@ -2645,6 +2648,7 @@ components:
             priority: 6
             hostname_data: hostname_data
         xtrabackup_lock_ddl_per_table: true
+        galera_segment: galera_segment
         xtrabackup_backup_locks: true
         monitor_user: monitor_user
         node_adresses:
@@ -2856,6 +2860,8 @@ components:
           type: boolean
         wsrep_desync:
           type: boolean
+        galera_segment:
+          type: string
         xtrabackup_backup_locks:
           type: boolean
         xtrabackup_lock_ddl_per_table:
@@ -2873,6 +2879,8 @@ components:
         disable_selinux:
           type: boolean
         enable_uninstall:
+          type: boolean
+        unregister_only:
           type: boolean
         generate_token:
           type: boolean
@@ -3113,6 +3121,7 @@ components:
           backup_id: 9
           monitor_password: monitor_password
           db_username: db_username
+          unregister_only: true
           db_user: db_user
           use_pigz: true
           enable_mysql_uninstall: true
@@ -3196,6 +3205,7 @@ components:
               priority: 6
               hostname_data: hostname_data
           xtrabackup_lock_ddl_per_table: true
+          galera_segment: galera_segment
           xtrabackup_backup_locks: true
           monitor_user: monitor_user
           node_adresses:
@@ -3423,6 +3433,7 @@ components:
             backup_id: 9
             monitor_password: monitor_password
             db_username: db_username
+            unregister_only: true
             db_user: db_user
             use_pigz: true
             enable_mysql_uninstall: true
@@ -3506,6 +3517,7 @@ components:
                 priority: 6
                 hostname_data: hostname_data
             xtrabackup_lock_ddl_per_table: true
+            galera_segment: galera_segment
             xtrabackup_backup_locks: true
             monitor_user: monitor_user
             node_adresses:

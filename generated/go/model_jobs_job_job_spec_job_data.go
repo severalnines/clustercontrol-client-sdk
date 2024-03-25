@@ -71,6 +71,7 @@ type JobsJobJobSpecJobData struct {
 	UsePigz *bool `json:"use_pigz,omitempty"`
 	UseQpress *bool `json:"use_qpress,omitempty"`
 	WsrepDesync *bool `json:"wsrep_desync,omitempty"`
+	GaleraSegment *string `json:"galera_segment,omitempty"`
 	XtrabackupBackupLocks *bool `json:"xtrabackup_backup_locks,omitempty"`
 	XtrabackupLockDdlPerTable *bool `json:"xtrabackup_lock_ddl_per_table,omitempty"`
 	XtrabackupParallellism *int32 `json:"xtrabackup_parallellism,omitempty"`
@@ -80,6 +81,7 @@ type JobsJobJobSpecJobData struct {
 	DisableFirewall *bool `json:"disable_firewall,omitempty"`
 	DisableSelinux *bool `json:"disable_selinux,omitempty"`
 	EnableUninstall *bool `json:"enable_uninstall,omitempty"`
+	UnregisterOnly *bool `json:"unregister_only,omitempty"`
 	GenerateToken *bool `json:"generate_token,omitempty"`
 	InstallSoftware *bool `json:"install_software,omitempty"`
 	UseInternalRepos *bool `json:"use_internal_repos,omitempty"`
@@ -1780,6 +1782,38 @@ func (o *JobsJobJobSpecJobData) SetWsrepDesync(v bool) {
 	o.WsrepDesync = &v
 }
 
+// GetGaleraSegment returns the GaleraSegment field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetGaleraSegment() string {
+	if o == nil || IsNil(o.GaleraSegment) {
+		var ret string
+		return ret
+	}
+	return *o.GaleraSegment
+}
+
+// GetGaleraSegmentOk returns a tuple with the GaleraSegment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetGaleraSegmentOk() (*string, bool) {
+	if o == nil || IsNil(o.GaleraSegment) {
+		return nil, false
+	}
+	return o.GaleraSegment, true
+}
+
+// HasGaleraSegment returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasGaleraSegment() bool {
+	if o != nil && !IsNil(o.GaleraSegment) {
+		return true
+	}
+
+	return false
+}
+
+// SetGaleraSegment gets a reference to the given string and assigns it to the GaleraSegment field.
+func (o *JobsJobJobSpecJobData) SetGaleraSegment(v string) {
+	o.GaleraSegment = &v
+}
+
 // GetXtrabackupBackupLocks returns the XtrabackupBackupLocks field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetXtrabackupBackupLocks() bool {
 	if o == nil || IsNil(o.XtrabackupBackupLocks) {
@@ -2066,6 +2100,38 @@ func (o *JobsJobJobSpecJobData) HasEnableUninstall() bool {
 // SetEnableUninstall gets a reference to the given bool and assigns it to the EnableUninstall field.
 func (o *JobsJobJobSpecJobData) SetEnableUninstall(v bool) {
 	o.EnableUninstall = &v
+}
+
+// GetUnregisterOnly returns the UnregisterOnly field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetUnregisterOnly() bool {
+	if o == nil || IsNil(o.UnregisterOnly) {
+		var ret bool
+		return ret
+	}
+	return *o.UnregisterOnly
+}
+
+// GetUnregisterOnlyOk returns a tuple with the UnregisterOnly field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetUnregisterOnlyOk() (*bool, bool) {
+	if o == nil || IsNil(o.UnregisterOnly) {
+		return nil, false
+	}
+	return o.UnregisterOnly, true
+}
+
+// HasUnregisterOnly returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasUnregisterOnly() bool {
+	if o != nil && !IsNil(o.UnregisterOnly) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnregisterOnly gets a reference to the given bool and assigns it to the UnregisterOnly field.
+func (o *JobsJobJobSpecJobData) SetUnregisterOnly(v bool) {
+	o.UnregisterOnly = &v
 }
 
 // GetGenerateToken returns the GenerateToken field value if set, zero value otherwise.
@@ -3799,6 +3865,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WsrepDesync) {
 		toSerialize["wsrep_desync"] = o.WsrepDesync
 	}
+	if !IsNil(o.GaleraSegment) {
+		toSerialize["galera_segment"] = o.GaleraSegment
+	}
 	if !IsNil(o.XtrabackupBackupLocks) {
 		toSerialize["xtrabackup_backup_locks"] = o.XtrabackupBackupLocks
 	}
@@ -3825,6 +3894,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EnableUninstall) {
 		toSerialize["enable_uninstall"] = o.EnableUninstall
+	}
+	if !IsNil(o.UnregisterOnly) {
+		toSerialize["unregister_only"] = o.UnregisterOnly
 	}
 	if !IsNil(o.GenerateToken) {
 		toSerialize["generate_token"] = o.GenerateToken

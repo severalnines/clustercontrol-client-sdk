@@ -715,7 +715,7 @@ components:
               hostname_internal:
                 type: string
               port:
-                type: integer
+                type: string
               role:
                 type: string
               synchronous:
@@ -1129,6 +1129,8 @@ components:
                       type: boolean
                     wsrep_desync:
                       type: boolean
+                    galera_segment:
+                      type: string
                     xtrabackup_backup_locks:
                       type: boolean
                     xtrabackup_lock_ddl_per_table:
@@ -1146,6 +1148,8 @@ components:
                     disable_selinux:
                       type: boolean
                     enable_uninstall:
+                      type: boolean
+                    unregister_only:
                       type: boolean
                     generate_token:
                       type: boolean

@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **UsePigz** | Pointer to **bool** |  | [optional] 
 **UseQpress** | Pointer to **bool** |  | [optional] 
 **WsrepDesync** | Pointer to **bool** |  | [optional] 
+**GaleraSegment** | Pointer to **string** |  | [optional] 
 **XtrabackupBackupLocks** | Pointer to **bool** |  | [optional] 
 **XtrabackupLockDdlPerTable** | Pointer to **bool** |  | [optional] 
 **XtrabackupParallellism** | Pointer to **int32** |  | [optional] 
@@ -64,6 +65,7 @@ Name | Type | Description | Notes
 **DisableFirewall** | Pointer to **bool** |  | [optional] 
 **DisableSelinux** | Pointer to **bool** |  | [optional] 
 **EnableUninstall** | Pointer to **bool** |  | [optional] 
+**UnregisterOnly** | Pointer to **bool** |  | [optional] 
 **GenerateToken** | Pointer to **bool** |  | [optional] 
 **InstallSoftware** | Pointer to **bool** |  | [optional] 
 **UseInternalRepos** | Pointer to **bool** |  | [optional] 
@@ -1408,6 +1410,31 @@ SetWsrepDesync sets WsrepDesync field to given value.
 
 HasWsrepDesync returns a boolean if a field has been set.
 
+### GetGaleraSegment
+
+`func (o *JobsJobJobSpecJobData) GetGaleraSegment() string`
+
+GetGaleraSegment returns the GaleraSegment field if non-nil, zero value otherwise.
+
+### GetGaleraSegmentOk
+
+`func (o *JobsJobJobSpecJobData) GetGaleraSegmentOk() (*string, bool)`
+
+GetGaleraSegmentOk returns a tuple with the GaleraSegment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGaleraSegment
+
+`func (o *JobsJobJobSpecJobData) SetGaleraSegment(v string)`
+
+SetGaleraSegment sets GaleraSegment field to given value.
+
+### HasGaleraSegment
+
+`func (o *JobsJobJobSpecJobData) HasGaleraSegment() bool`
+
+HasGaleraSegment returns a boolean if a field has been set.
+
 ### GetXtrabackupBackupLocks
 
 `func (o *JobsJobJobSpecJobData) GetXtrabackupBackupLocks() bool`
@@ -1632,6 +1659,31 @@ SetEnableUninstall sets EnableUninstall field to given value.
 `func (o *JobsJobJobSpecJobData) HasEnableUninstall() bool`
 
 HasEnableUninstall returns a boolean if a field has been set.
+
+### GetUnregisterOnly
+
+`func (o *JobsJobJobSpecJobData) GetUnregisterOnly() bool`
+
+GetUnregisterOnly returns the UnregisterOnly field if non-nil, zero value otherwise.
+
+### GetUnregisterOnlyOk
+
+`func (o *JobsJobJobSpecJobData) GetUnregisterOnlyOk() (*bool, bool)`
+
+GetUnregisterOnlyOk returns a tuple with the UnregisterOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnregisterOnly
+
+`func (o *JobsJobJobSpecJobData) SetUnregisterOnly(v bool)`
+
+SetUnregisterOnly sets UnregisterOnly field to given value.
+
+### HasUnregisterOnly
+
+`func (o *JobsJobJobSpecJobData) HasUnregisterOnly() bool`
+
+HasUnregisterOnly returns a boolean if a field has been set.
 
 ### GetGenerateToken
 

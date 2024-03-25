@@ -26,7 +26,7 @@ type ClusterResponseHostsInner struct {
 	Hostname *string `json:"hostname,omitempty"`
 	HostnameData *string `json:"hostname_data,omitempty"`
 	HostnameInternal *string `json:"hostname_internal,omitempty"`
-	Port *int32 `json:"port,omitempty"`
+	Port *string `json:"port,omitempty"`
 	Role *string `json:"role,omitempty"`
 	Synchronous *bool `json:"synchronous,omitempty"`
 	MemberRole *string `json:"member_role,omitempty"`
@@ -249,9 +249,9 @@ func (o *ClusterResponseHostsInner) SetHostnameInternal(v string) {
 }
 
 // GetPort returns the Port field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInner) GetPort() int32 {
+func (o *ClusterResponseHostsInner) GetPort() string {
 	if o == nil || IsNil(o.Port) {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.Port
@@ -259,7 +259,7 @@ func (o *ClusterResponseHostsInner) GetPort() int32 {
 
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInner) GetPortOk() (*int32, bool) {
+func (o *ClusterResponseHostsInner) GetPortOk() (*string, bool) {
 	if o == nil || IsNil(o.Port) {
 		return nil, false
 	}
@@ -275,8 +275,8 @@ func (o *ClusterResponseHostsInner) HasPort() bool {
 	return false
 }
 
-// SetPort gets a reference to the given int32 and assigns it to the Port field.
-func (o *ClusterResponseHostsInner) SetPort(v int32) {
+// SetPort gets a reference to the given string and assigns it to the Port field.
+func (o *ClusterResponseHostsInner) SetPort(v string) {
 	o.Port = &v
 }
 
