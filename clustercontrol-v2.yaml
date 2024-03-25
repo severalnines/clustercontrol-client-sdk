@@ -744,8 +744,6 @@ components:
                 properties:
                   master_host:
                     type: string
-                  master_cluster_id:
-                    type: string
                   semisync_status:
                     type: string
               replication_master:
