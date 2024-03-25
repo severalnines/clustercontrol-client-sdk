@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MasterHost** | Pointer to **string** |  | [optional] 
-**MasterClusterId** | Pointer to **int32** |  | [optional] 
+**MasterClusterId** | Pointer to **string** |  | [optional] 
 **SemisyncStatus** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasMasterHost returns a boolean if a field has been set.
 
 ### GetMasterClusterId
 
-`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() int32`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() string`
 
 GetMasterClusterId returns the MasterClusterId field if non-nil, zero value otherwise.
 
 ### GetMasterClusterIdOk
 
-`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*int32, bool)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*string, bool)`
 
 GetMasterClusterIdOk returns a tuple with the MasterClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasterClusterId
 
-`func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v int32)`
+`func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v string)`
 
 SetMasterClusterId sets MasterClusterId field to given value.
 

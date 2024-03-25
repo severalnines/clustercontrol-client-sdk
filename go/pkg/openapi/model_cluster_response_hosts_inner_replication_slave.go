@@ -21,7 +21,7 @@ var _ MappedNullable = &ClusterResponseHostsInnerReplicationSlave{}
 // ClusterResponseHostsInnerReplicationSlave struct for ClusterResponseHostsInnerReplicationSlave
 type ClusterResponseHostsInnerReplicationSlave struct {
 	MasterHost *string `json:"master_host,omitempty"`
-	MasterClusterId *int32 `json:"master_cluster_id,omitempty"`
+	MasterClusterId *string `json:"master_cluster_id,omitempty"`
 	SemisyncStatus *string `json:"semisync_status,omitempty"`
 }
 
@@ -75,9 +75,9 @@ func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterHost(v string) {
 }
 
 // GetMasterClusterId returns the MasterClusterId field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() int32 {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() string {
 	if o == nil || IsNil(o.MasterClusterId) {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.MasterClusterId
@@ -85,7 +85,7 @@ func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterId() int32 {
 
 // GetMasterClusterIdOk returns a tuple with the MasterClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*int32, bool) {
+func (o *ClusterResponseHostsInnerReplicationSlave) GetMasterClusterIdOk() (*string, bool) {
 	if o == nil || IsNil(o.MasterClusterId) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *ClusterResponseHostsInnerReplicationSlave) HasMasterClusterId() bool {
 	return false
 }
 
-// SetMasterClusterId gets a reference to the given int32 and assigns it to the MasterClusterId field.
-func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v int32) {
+// SetMasterClusterId gets a reference to the given string and assigns it to the MasterClusterId field.
+func (o *ClusterResponseHostsInnerReplicationSlave) SetMasterClusterId(v string) {
 	o.MasterClusterId = &v
 }
 
