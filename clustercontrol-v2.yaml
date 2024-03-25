@@ -715,7 +715,7 @@ components:
               hostname_internal:
                 type: string
               port:
-                type: string
+                type: integer
               role:
                 type: string
               synchronous:
