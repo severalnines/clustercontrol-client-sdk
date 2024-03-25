@@ -25,6 +25,12 @@ type JobsJobJobSpecJobDataNode struct {
 	DataRetention *string `json:"data_retention,omitempty"`
 	DataRetentionSize *int32 `json:"data_retention_size,omitempty"`
 	Hostname *string `json:"hostname,omitempty"`
+	HostnameData *string `json:"hostname_data,omitempty"`
+	HostnameInternal *string `json:"hostname_internal,omitempty"`
+	Configfile *string `json:"configfile,omitempty"`
+	Datadir *string `json:"datadir,omitempty"`
+	Pgname *string `json:"pgname,omitempty"`
+	Synchronous *bool `json:"synchronous,omitempty"`
 	LbAdmin *string `json:"lb_admin,omitempty"`
 	LbPassword *string `json:"lb_password,omitempty"`
 	LbPolicy *string `json:"lb_policy,omitempty"`
@@ -217,6 +223,198 @@ func (o *JobsJobJobSpecJobDataNode) HasHostname() bool {
 // SetHostname gets a reference to the given string and assigns it to the Hostname field.
 func (o *JobsJobJobSpecJobDataNode) SetHostname(v string) {
 	o.Hostname = &v
+}
+
+// GetHostnameData returns the HostnameData field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetHostnameData() string {
+	if o == nil || IsNil(o.HostnameData) {
+		var ret string
+		return ret
+	}
+	return *o.HostnameData
+}
+
+// GetHostnameDataOk returns a tuple with the HostnameData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetHostnameDataOk() (*string, bool) {
+	if o == nil || IsNil(o.HostnameData) {
+		return nil, false
+	}
+	return o.HostnameData, true
+}
+
+// HasHostnameData returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasHostnameData() bool {
+	if o != nil && !IsNil(o.HostnameData) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostnameData gets a reference to the given string and assigns it to the HostnameData field.
+func (o *JobsJobJobSpecJobDataNode) SetHostnameData(v string) {
+	o.HostnameData = &v
+}
+
+// GetHostnameInternal returns the HostnameInternal field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetHostnameInternal() string {
+	if o == nil || IsNil(o.HostnameInternal) {
+		var ret string
+		return ret
+	}
+	return *o.HostnameInternal
+}
+
+// GetHostnameInternalOk returns a tuple with the HostnameInternal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetHostnameInternalOk() (*string, bool) {
+	if o == nil || IsNil(o.HostnameInternal) {
+		return nil, false
+	}
+	return o.HostnameInternal, true
+}
+
+// HasHostnameInternal returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasHostnameInternal() bool {
+	if o != nil && !IsNil(o.HostnameInternal) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostnameInternal gets a reference to the given string and assigns it to the HostnameInternal field.
+func (o *JobsJobJobSpecJobDataNode) SetHostnameInternal(v string) {
+	o.HostnameInternal = &v
+}
+
+// GetConfigfile returns the Configfile field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetConfigfile() string {
+	if o == nil || IsNil(o.Configfile) {
+		var ret string
+		return ret
+	}
+	return *o.Configfile
+}
+
+// GetConfigfileOk returns a tuple with the Configfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetConfigfileOk() (*string, bool) {
+	if o == nil || IsNil(o.Configfile) {
+		return nil, false
+	}
+	return o.Configfile, true
+}
+
+// HasConfigfile returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasConfigfile() bool {
+	if o != nil && !IsNil(o.Configfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigfile gets a reference to the given string and assigns it to the Configfile field.
+func (o *JobsJobJobSpecJobDataNode) SetConfigfile(v string) {
+	o.Configfile = &v
+}
+
+// GetDatadir returns the Datadir field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetDatadir() string {
+	if o == nil || IsNil(o.Datadir) {
+		var ret string
+		return ret
+	}
+	return *o.Datadir
+}
+
+// GetDatadirOk returns a tuple with the Datadir field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetDatadirOk() (*string, bool) {
+	if o == nil || IsNil(o.Datadir) {
+		return nil, false
+	}
+	return o.Datadir, true
+}
+
+// HasDatadir returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasDatadir() bool {
+	if o != nil && !IsNil(o.Datadir) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatadir gets a reference to the given string and assigns it to the Datadir field.
+func (o *JobsJobJobSpecJobDataNode) SetDatadir(v string) {
+	o.Datadir = &v
+}
+
+// GetPgname returns the Pgname field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetPgname() string {
+	if o == nil || IsNil(o.Pgname) {
+		var ret string
+		return ret
+	}
+	return *o.Pgname
+}
+
+// GetPgnameOk returns a tuple with the Pgname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetPgnameOk() (*string, bool) {
+	if o == nil || IsNil(o.Pgname) {
+		return nil, false
+	}
+	return o.Pgname, true
+}
+
+// HasPgname returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasPgname() bool {
+	if o != nil && !IsNil(o.Pgname) {
+		return true
+	}
+
+	return false
+}
+
+// SetPgname gets a reference to the given string and assigns it to the Pgname field.
+func (o *JobsJobJobSpecJobDataNode) SetPgname(v string) {
+	o.Pgname = &v
+}
+
+// GetSynchronous returns the Synchronous field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNode) GetSynchronous() bool {
+	if o == nil || IsNil(o.Synchronous) {
+		var ret bool
+		return ret
+	}
+	return *o.Synchronous
+}
+
+// GetSynchronousOk returns a tuple with the Synchronous field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNode) GetSynchronousOk() (*bool, bool) {
+	if o == nil || IsNil(o.Synchronous) {
+		return nil, false
+	}
+	return o.Synchronous, true
+}
+
+// HasSynchronous returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNode) HasSynchronous() bool {
+	if o != nil && !IsNil(o.Synchronous) {
+		return true
+	}
+
+	return false
+}
+
+// SetSynchronous gets a reference to the given bool and assigns it to the Synchronous field.
+func (o *JobsJobJobSpecJobDataNode) SetSynchronous(v bool) {
+	o.Synchronous = &v
 }
 
 // GetLbAdmin returns the LbAdmin field value if set, zero value otherwise.
@@ -723,6 +921,24 @@ func (o JobsJobJobSpecJobDataNode) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Hostname) {
 		toSerialize["hostname"] = o.Hostname
+	}
+	if !IsNil(o.HostnameData) {
+		toSerialize["hostname_data"] = o.HostnameData
+	}
+	if !IsNil(o.HostnameInternal) {
+		toSerialize["hostname_internal"] = o.HostnameInternal
+	}
+	if !IsNil(o.Configfile) {
+		toSerialize["configfile"] = o.Configfile
+	}
+	if !IsNil(o.Datadir) {
+		toSerialize["datadir"] = o.Datadir
+	}
+	if !IsNil(o.Pgname) {
+		toSerialize["pgname"] = o.Pgname
+	}
+	if !IsNil(o.Synchronous) {
+		toSerialize["synchronous"] = o.Synchronous
 	}
 	if !IsNil(o.LbAdmin) {
 		toSerialize["lb_admin"] = o.LbAdmin

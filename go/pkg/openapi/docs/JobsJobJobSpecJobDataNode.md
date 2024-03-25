@@ -9,6 +9,12 @@ Name | Type | Description | Notes
 **DataRetention** | Pointer to **string** |  | [optional] 
 **DataRetentionSize** | Pointer to **int32** |  | [optional] 
 **Hostname** | Pointer to **string** |  | [optional] 
+**HostnameData** | Pointer to **string** |  | [optional] 
+**HostnameInternal** | Pointer to **string** |  | [optional] 
+**Configfile** | Pointer to **string** |  | [optional] 
+**Datadir** | Pointer to **string** |  | [optional] 
+**Pgname** | Pointer to **string** |  | [optional] 
+**Synchronous** | Pointer to **bool** |  | [optional] 
 **LbAdmin** | Pointer to **string** |  | [optional] 
 **LbPassword** | Pointer to **string** |  | [optional] 
 **LbPolicy** | Pointer to **string** |  | [optional] 
@@ -168,6 +174,156 @@ SetHostname sets Hostname field to given value.
 `func (o *JobsJobJobSpecJobDataNode) HasHostname() bool`
 
 HasHostname returns a boolean if a field has been set.
+
+### GetHostnameData
+
+`func (o *JobsJobJobSpecJobDataNode) GetHostnameData() string`
+
+GetHostnameData returns the HostnameData field if non-nil, zero value otherwise.
+
+### GetHostnameDataOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetHostnameDataOk() (*string, bool)`
+
+GetHostnameDataOk returns a tuple with the HostnameData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostnameData
+
+`func (o *JobsJobJobSpecJobDataNode) SetHostnameData(v string)`
+
+SetHostnameData sets HostnameData field to given value.
+
+### HasHostnameData
+
+`func (o *JobsJobJobSpecJobDataNode) HasHostnameData() bool`
+
+HasHostnameData returns a boolean if a field has been set.
+
+### GetHostnameInternal
+
+`func (o *JobsJobJobSpecJobDataNode) GetHostnameInternal() string`
+
+GetHostnameInternal returns the HostnameInternal field if non-nil, zero value otherwise.
+
+### GetHostnameInternalOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetHostnameInternalOk() (*string, bool)`
+
+GetHostnameInternalOk returns a tuple with the HostnameInternal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostnameInternal
+
+`func (o *JobsJobJobSpecJobDataNode) SetHostnameInternal(v string)`
+
+SetHostnameInternal sets HostnameInternal field to given value.
+
+### HasHostnameInternal
+
+`func (o *JobsJobJobSpecJobDataNode) HasHostnameInternal() bool`
+
+HasHostnameInternal returns a boolean if a field has been set.
+
+### GetConfigfile
+
+`func (o *JobsJobJobSpecJobDataNode) GetConfigfile() string`
+
+GetConfigfile returns the Configfile field if non-nil, zero value otherwise.
+
+### GetConfigfileOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetConfigfileOk() (*string, bool)`
+
+GetConfigfileOk returns a tuple with the Configfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigfile
+
+`func (o *JobsJobJobSpecJobDataNode) SetConfigfile(v string)`
+
+SetConfigfile sets Configfile field to given value.
+
+### HasConfigfile
+
+`func (o *JobsJobJobSpecJobDataNode) HasConfigfile() bool`
+
+HasConfigfile returns a boolean if a field has been set.
+
+### GetDatadir
+
+`func (o *JobsJobJobSpecJobDataNode) GetDatadir() string`
+
+GetDatadir returns the Datadir field if non-nil, zero value otherwise.
+
+### GetDatadirOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetDatadirOk() (*string, bool)`
+
+GetDatadirOk returns a tuple with the Datadir field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDatadir
+
+`func (o *JobsJobJobSpecJobDataNode) SetDatadir(v string)`
+
+SetDatadir sets Datadir field to given value.
+
+### HasDatadir
+
+`func (o *JobsJobJobSpecJobDataNode) HasDatadir() bool`
+
+HasDatadir returns a boolean if a field has been set.
+
+### GetPgname
+
+`func (o *JobsJobJobSpecJobDataNode) GetPgname() string`
+
+GetPgname returns the Pgname field if non-nil, zero value otherwise.
+
+### GetPgnameOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetPgnameOk() (*string, bool)`
+
+GetPgnameOk returns a tuple with the Pgname field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPgname
+
+`func (o *JobsJobJobSpecJobDataNode) SetPgname(v string)`
+
+SetPgname sets Pgname field to given value.
+
+### HasPgname
+
+`func (o *JobsJobJobSpecJobDataNode) HasPgname() bool`
+
+HasPgname returns a boolean if a field has been set.
+
+### GetSynchronous
+
+`func (o *JobsJobJobSpecJobDataNode) GetSynchronous() bool`
+
+GetSynchronous returns the Synchronous field if non-nil, zero value otherwise.
+
+### GetSynchronousOk
+
+`func (o *JobsJobJobSpecJobDataNode) GetSynchronousOk() (*bool, bool)`
+
+GetSynchronousOk returns a tuple with the Synchronous field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSynchronous
+
+`func (o *JobsJobJobSpecJobDataNode) SetSynchronous(v bool)`
+
+SetSynchronous sets Synchronous field to given value.
+
+### HasSynchronous
+
+`func (o *JobsJobJobSpecJobDataNode) HasSynchronous() bool`
+
+HasSynchronous returns a boolean if a field has been set.
 
 ### GetLbAdmin
 

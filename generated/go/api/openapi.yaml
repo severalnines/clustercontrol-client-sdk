@@ -925,8 +925,6 @@ components:
                 max_connection_be: 6
                 lb_admin: lb_admin
                 lb_password: lb_password
-                backend_name_rw: backend_name_rw
-                data_retention_size: 9
                 configuration:
                 - arguments: arguments
                   scrape_interval: scrape_interval
@@ -934,20 +932,28 @@ components:
                 - arguments: arguments
                   scrape_interval: scrape_interval
                   job: node
-                backend_name_ro: backend_name_ro
+                synchronous: true
                 max_connection_fe: 3
-                timeout_client: 6
-                stats_socket: stats_socket
                 hostname: hostname
-                lb_policy: lb_policy
-                port: 6
                 timeout_server: 6
-                data_retention: data_retention
-                xinetd_allow_from: xinetd_allow_from
                 rw_splitting: true
                 scrape_interval: scrape_interval
                 ro_port: 1
+                backend_name_rw: backend_name_rw
+                data_retention_size: 9
+                hostname_internal: hostname_internal
+                configfile: configfile
+                datadir: datadir
+                backend_name_ro: backend_name_ro
+                timeout_client: 6
+                stats_socket: stats_socket
+                lb_policy: lb_policy
+                port: 6
+                data_retention: data_retention
+                xinetd_allow_from: xinetd_allow_from
                 rw_port: 2
+                hostname_data: hostname_data
+                pgname: pgname
               mongos_conf_template: mongos_conf_template
               user_id: 4
               db_privs: db_privs
@@ -2188,8 +2194,6 @@ components:
         max_connection_be: 6
         lb_admin: lb_admin
         lb_password: lb_password
-        backend_name_rw: backend_name_rw
-        data_retention_size: 9
         configuration:
         - arguments: arguments
           scrape_interval: scrape_interval
@@ -2197,20 +2201,28 @@ components:
         - arguments: arguments
           scrape_interval: scrape_interval
           job: node
-        backend_name_ro: backend_name_ro
+        synchronous: true
         max_connection_fe: 3
-        timeout_client: 6
-        stats_socket: stats_socket
         hostname: hostname
-        lb_policy: lb_policy
-        port: 6
         timeout_server: 6
-        data_retention: data_retention
-        xinetd_allow_from: xinetd_allow_from
         rw_splitting: true
         scrape_interval: scrape_interval
         ro_port: 1
+        backend_name_rw: backend_name_rw
+        data_retention_size: 9
+        hostname_internal: hostname_internal
+        configfile: configfile
+        datadir: datadir
+        backend_name_ro: backend_name_ro
+        timeout_client: 6
+        stats_socket: stats_socket
+        lb_policy: lb_policy
+        port: 6
+        data_retention: data_retention
+        xinetd_allow_from: xinetd_allow_from
         rw_port: 2
+        hostname_data: hostname_data
+        pgname: pgname
       properties:
         backend_name_ro:
           type: string
@@ -2222,6 +2234,18 @@ components:
           type: integer
         hostname:
           type: string
+        hostname_data:
+          type: string
+        hostname_internal:
+          type: string
+        configfile:
+          type: string
+        datadir:
+          type: string
+        pgname:
+          type: string
+        synchronous:
+          type: boolean
         lb_admin:
           type: string
         lb_password:
@@ -2470,8 +2494,6 @@ components:
           max_connection_be: 6
           lb_admin: lb_admin
           lb_password: lb_password
-          backend_name_rw: backend_name_rw
-          data_retention_size: 9
           configuration:
           - arguments: arguments
             scrape_interval: scrape_interval
@@ -2479,20 +2501,28 @@ components:
           - arguments: arguments
             scrape_interval: scrape_interval
             job: node
-          backend_name_ro: backend_name_ro
+          synchronous: true
           max_connection_fe: 3
-          timeout_client: 6
-          stats_socket: stats_socket
           hostname: hostname
-          lb_policy: lb_policy
-          port: 6
           timeout_server: 6
-          data_retention: data_retention
-          xinetd_allow_from: xinetd_allow_from
           rw_splitting: true
           scrape_interval: scrape_interval
           ro_port: 1
+          backend_name_rw: backend_name_rw
+          data_retention_size: 9
+          hostname_internal: hostname_internal
+          configfile: configfile
+          datadir: datadir
+          backend_name_ro: backend_name_ro
+          timeout_client: 6
+          stats_socket: stats_socket
+          lb_policy: lb_policy
+          port: 6
+          data_retention: data_retention
+          xinetd_allow_from: xinetd_allow_from
           rw_port: 2
+          hostname_data: hostname_data
+          pgname: pgname
         mongos_conf_template: mongos_conf_template
         user_id: 4
         db_privs: db_privs
@@ -3015,8 +3045,6 @@ components:
             max_connection_be: 6
             lb_admin: lb_admin
             lb_password: lb_password
-            backend_name_rw: backend_name_rw
-            data_retention_size: 9
             configuration:
             - arguments: arguments
               scrape_interval: scrape_interval
@@ -3024,20 +3052,28 @@ components:
             - arguments: arguments
               scrape_interval: scrape_interval
               job: node
-            backend_name_ro: backend_name_ro
+            synchronous: true
             max_connection_fe: 3
-            timeout_client: 6
-            stats_socket: stats_socket
             hostname: hostname
-            lb_policy: lb_policy
-            port: 6
             timeout_server: 6
-            data_retention: data_retention
-            xinetd_allow_from: xinetd_allow_from
             rw_splitting: true
             scrape_interval: scrape_interval
             ro_port: 1
+            backend_name_rw: backend_name_rw
+            data_retention_size: 9
+            hostname_internal: hostname_internal
+            configfile: configfile
+            datadir: datadir
+            backend_name_ro: backend_name_ro
+            timeout_client: 6
+            stats_socket: stats_socket
+            lb_policy: lb_policy
+            port: 6
+            data_retention: data_retention
+            xinetd_allow_from: xinetd_allow_from
             rw_port: 2
+            hostname_data: hostname_data
+            pgname: pgname
           mongos_conf_template: mongos_conf_template
           user_id: 4
           db_privs: db_privs
@@ -3319,8 +3355,6 @@ components:
               max_connection_be: 6
               lb_admin: lb_admin
               lb_password: lb_password
-              backend_name_rw: backend_name_rw
-              data_retention_size: 9
               configuration:
               - arguments: arguments
                 scrape_interval: scrape_interval
@@ -3328,20 +3362,28 @@ components:
               - arguments: arguments
                 scrape_interval: scrape_interval
                 job: node
-              backend_name_ro: backend_name_ro
+              synchronous: true
               max_connection_fe: 3
-              timeout_client: 6
-              stats_socket: stats_socket
               hostname: hostname
-              lb_policy: lb_policy
-              port: 6
               timeout_server: 6
-              data_retention: data_retention
-              xinetd_allow_from: xinetd_allow_from
               rw_splitting: true
               scrape_interval: scrape_interval
               ro_port: 1
+              backend_name_rw: backend_name_rw
+              data_retention_size: 9
+              hostname_internal: hostname_internal
+              configfile: configfile
+              datadir: datadir
+              backend_name_ro: backend_name_ro
+              timeout_client: 6
+              stats_socket: stats_socket
+              lb_policy: lb_policy
+              port: 6
+              data_retention: data_retention
+              xinetd_allow_from: xinetd_allow_from
               rw_port: 2
+              hostname_data: hostname_data
+              pgname: pgname
             mongos_conf_template: mongos_conf_template
             user_id: 4
             db_privs: db_privs
