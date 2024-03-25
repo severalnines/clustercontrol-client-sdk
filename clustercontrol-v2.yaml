@@ -1297,6 +1297,18 @@ components:
                           type: integer
                         hostname:
                           type: string
+                        hostname_data:
+                          type: string
+                        hostname_internal:
+                          type: string
+                        configfile:
+                          type: string
+                        datadir:
+                          type: string
+                        pgname:
+                          type: string
+                        synchronous:
+                          type: boolean
                         lb_admin:
                           type: string
                         lb_password:
