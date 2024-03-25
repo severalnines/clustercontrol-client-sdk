@@ -714,8 +714,8 @@ components:
                 type: string
               hostname_internal:
                 type: string
-              port:
-                type: integer
+              # port:
+              #   type: integer
               role:
                 type: string
               synchronous:
@@ -730,37 +730,37 @@ components:
                 type: string
               elastic_roles:
                 type: string
-              replica:
-                type: object
-                properties:
-                  availability_mode:
-                    type: string
-                  failover_mode:
-                    type: string
-                  connected_state:
-                    type: string              
-              replication_slave:
-                type: object
-                properties:
-                  master_host:
-                    type: string
-                  master_cluster_id:
-                    type: string
-                  semisync_status:
-                    type: string
-              replication_master:
-                type: object
-                properties:
-                  slave_info:
-                    type: object
-                    properties:
-                      slaves:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            failover_mode:
-                              type: string
+              # replica:
+              #   type: object
+              #   properties:
+              #     availability_mode:
+              #       type: string
+              #     failover_mode:
+              #       type: string
+              #     connected_state:
+              #       type: string              
+              # replication_slave:
+              #   type: object
+              #   properties:
+              #     master_host:
+              #       type: string
+              #     master_cluster_id:
+              #       type: string
+              #     semisync_status:
+              #       type: string
+              # replication_master:
+              #   type: object
+              #   properties:
+              #     slave_info:
+              #       type: object
+              #       properties:
+              #         slaves:
+              #           type: array
+              #           items:
+              #             type: object
+              #             properties:
+              #               failover_mode:
+              #                 type: string
     Config:
       type: object
       required:

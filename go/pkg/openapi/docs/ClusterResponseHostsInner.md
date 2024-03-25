@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Hostname** | Pointer to **string** |  | [optional] 
 **HostnameData** | Pointer to **string** |  | [optional] 
 **HostnameInternal** | Pointer to **string** |  | [optional] 
-**Port** | Pointer to **int32** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **Synchronous** | Pointer to **bool** |  | [optional] 
 **MemberRole** | Pointer to **string** |  | [optional] 
@@ -18,9 +17,6 @@ Name | Type | Description | Notes
 **Rs** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **ElasticRoles** | Pointer to **string** |  | [optional] 
-**Replica** | Pointer to [**ClusterResponseHostsInnerReplica**](ClusterResponseHostsInnerReplica.md) |  | [optional] 
-**ReplicationSlave** | Pointer to [**ClusterResponseHostsInnerReplicationSlave**](ClusterResponseHostsInnerReplicationSlave.md) |  | [optional] 
-**ReplicationMaster** | Pointer to [**ClusterResponseHostsInnerReplicationMaster**](ClusterResponseHostsInnerReplicationMaster.md) |  | [optional] 
 
 ## Methods
 
@@ -190,31 +186,6 @@ SetHostnameInternal sets HostnameInternal field to given value.
 `func (o *ClusterResponseHostsInner) HasHostnameInternal() bool`
 
 HasHostnameInternal returns a boolean if a field has been set.
-
-### GetPort
-
-`func (o *ClusterResponseHostsInner) GetPort() int32`
-
-GetPort returns the Port field if non-nil, zero value otherwise.
-
-### GetPortOk
-
-`func (o *ClusterResponseHostsInner) GetPortOk() (*int32, bool)`
-
-GetPortOk returns a tuple with the Port field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPort
-
-`func (o *ClusterResponseHostsInner) SetPort(v int32)`
-
-SetPort sets Port field to given value.
-
-### HasPort
-
-`func (o *ClusterResponseHostsInner) HasPort() bool`
-
-HasPort returns a boolean if a field has been set.
 
 ### GetRole
 
@@ -390,81 +361,6 @@ SetElasticRoles sets ElasticRoles field to given value.
 `func (o *ClusterResponseHostsInner) HasElasticRoles() bool`
 
 HasElasticRoles returns a boolean if a field has been set.
-
-### GetReplica
-
-`func (o *ClusterResponseHostsInner) GetReplica() ClusterResponseHostsInnerReplica`
-
-GetReplica returns the Replica field if non-nil, zero value otherwise.
-
-### GetReplicaOk
-
-`func (o *ClusterResponseHostsInner) GetReplicaOk() (*ClusterResponseHostsInnerReplica, bool)`
-
-GetReplicaOk returns a tuple with the Replica field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReplica
-
-`func (o *ClusterResponseHostsInner) SetReplica(v ClusterResponseHostsInnerReplica)`
-
-SetReplica sets Replica field to given value.
-
-### HasReplica
-
-`func (o *ClusterResponseHostsInner) HasReplica() bool`
-
-HasReplica returns a boolean if a field has been set.
-
-### GetReplicationSlave
-
-`func (o *ClusterResponseHostsInner) GetReplicationSlave() ClusterResponseHostsInnerReplicationSlave`
-
-GetReplicationSlave returns the ReplicationSlave field if non-nil, zero value otherwise.
-
-### GetReplicationSlaveOk
-
-`func (o *ClusterResponseHostsInner) GetReplicationSlaveOk() (*ClusterResponseHostsInnerReplicationSlave, bool)`
-
-GetReplicationSlaveOk returns a tuple with the ReplicationSlave field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReplicationSlave
-
-`func (o *ClusterResponseHostsInner) SetReplicationSlave(v ClusterResponseHostsInnerReplicationSlave)`
-
-SetReplicationSlave sets ReplicationSlave field to given value.
-
-### HasReplicationSlave
-
-`func (o *ClusterResponseHostsInner) HasReplicationSlave() bool`
-
-HasReplicationSlave returns a boolean if a field has been set.
-
-### GetReplicationMaster
-
-`func (o *ClusterResponseHostsInner) GetReplicationMaster() ClusterResponseHostsInnerReplicationMaster`
-
-GetReplicationMaster returns the ReplicationMaster field if non-nil, zero value otherwise.
-
-### GetReplicationMasterOk
-
-`func (o *ClusterResponseHostsInner) GetReplicationMasterOk() (*ClusterResponseHostsInnerReplicationMaster, bool)`
-
-GetReplicationMasterOk returns a tuple with the ReplicationMaster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReplicationMaster
-
-`func (o *ClusterResponseHostsInner) SetReplicationMaster(v ClusterResponseHostsInnerReplicationMaster)`
-
-SetReplicationMaster sets ReplicationMaster field to given value.
-
-### HasReplicationMaster
-
-`func (o *ClusterResponseHostsInner) HasReplicationMaster() bool`
-
-HasReplicationMaster returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

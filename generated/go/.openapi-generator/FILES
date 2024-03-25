@@ -49,11 +49,6 @@ docs/CloudAPI.md
 docs/CloudCredentials.md
 docs/ClusterResponse.md
 docs/ClusterResponseHostsInner.md
-docs/ClusterResponseHostsInnerReplica.md
-docs/ClusterResponseHostsInnerReplicationMaster.md
-docs/ClusterResponseHostsInnerReplicationMasterSlaveInfo.md
-docs/ClusterResponseHostsInnerReplicationMasterSlaveInfoSlavesInner.md
-docs/ClusterResponseHostsInnerReplicationSlave.md
 docs/Clusters.md
 docs/ClustersAPI.md
 docs/ClustersAccount.md
@@ -143,11 +138,6 @@ model_cloud.go
 model_cloud_credentials.go
 model_cluster_response.go
 model_cluster_response_hosts_inner.go
-model_cluster_response_hosts_inner_replica.go
-model_cluster_response_hosts_inner_replication_master.go
-model_cluster_response_hosts_inner_replication_master_slave_info.go
-model_cluster_response_hosts_inner_replication_master_slave_info_slaves_inner.go
-model_cluster_response_hosts_inner_replication_slave.go
 model_clusters.go
 model_clusters_account.go
 model_clusters_configuration_inner.go

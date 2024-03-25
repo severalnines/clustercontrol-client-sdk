@@ -26,7 +26,6 @@ type ClusterResponseHostsInner struct {
 	Hostname *string `json:"hostname,omitempty"`
 	HostnameData *string `json:"hostname_data,omitempty"`
 	HostnameInternal *string `json:"hostname_internal,omitempty"`
-	Port *int32 `json:"port,omitempty"`
 	Role *string `json:"role,omitempty"`
 	Synchronous *bool `json:"synchronous,omitempty"`
 	MemberRole *string `json:"member_role,omitempty"`
@@ -34,9 +33,6 @@ type ClusterResponseHostsInner struct {
 	Rs *string `json:"rs,omitempty"`
 	Version *string `json:"version,omitempty"`
 	ElasticRoles *string `json:"elastic_roles,omitempty"`
-	Replica *ClusterResponseHostsInnerReplica `json:"replica,omitempty"`
-	ReplicationSlave *ClusterResponseHostsInnerReplicationSlave `json:"replication_slave,omitempty"`
-	ReplicationMaster *ClusterResponseHostsInnerReplicationMaster `json:"replication_master,omitempty"`
 }
 
 // NewClusterResponseHostsInner instantiates a new ClusterResponseHostsInner object
@@ -246,38 +242,6 @@ func (o *ClusterResponseHostsInner) HasHostnameInternal() bool {
 // SetHostnameInternal gets a reference to the given string and assigns it to the HostnameInternal field.
 func (o *ClusterResponseHostsInner) SetHostnameInternal(v string) {
 	o.HostnameInternal = &v
-}
-
-// GetPort returns the Port field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInner) GetPort() int32 {
-	if o == nil || IsNil(o.Port) {
-		var ret int32
-		return ret
-	}
-	return *o.Port
-}
-
-// GetPortOk returns a tuple with the Port field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInner) GetPortOk() (*int32, bool) {
-	if o == nil || IsNil(o.Port) {
-		return nil, false
-	}
-	return o.Port, true
-}
-
-// HasPort returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInner) HasPort() bool {
-	if o != nil && !IsNil(o.Port) {
-		return true
-	}
-
-	return false
-}
-
-// SetPort gets a reference to the given int32 and assigns it to the Port field.
-func (o *ClusterResponseHostsInner) SetPort(v int32) {
-	o.Port = &v
 }
 
 // GetRole returns the Role field value if set, zero value otherwise.
@@ -504,102 +468,6 @@ func (o *ClusterResponseHostsInner) SetElasticRoles(v string) {
 	o.ElasticRoles = &v
 }
 
-// GetReplica returns the Replica field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInner) GetReplica() ClusterResponseHostsInnerReplica {
-	if o == nil || IsNil(o.Replica) {
-		var ret ClusterResponseHostsInnerReplica
-		return ret
-	}
-	return *o.Replica
-}
-
-// GetReplicaOk returns a tuple with the Replica field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInner) GetReplicaOk() (*ClusterResponseHostsInnerReplica, bool) {
-	if o == nil || IsNil(o.Replica) {
-		return nil, false
-	}
-	return o.Replica, true
-}
-
-// HasReplica returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInner) HasReplica() bool {
-	if o != nil && !IsNil(o.Replica) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplica gets a reference to the given ClusterResponseHostsInnerReplica and assigns it to the Replica field.
-func (o *ClusterResponseHostsInner) SetReplica(v ClusterResponseHostsInnerReplica) {
-	o.Replica = &v
-}
-
-// GetReplicationSlave returns the ReplicationSlave field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInner) GetReplicationSlave() ClusterResponseHostsInnerReplicationSlave {
-	if o == nil || IsNil(o.ReplicationSlave) {
-		var ret ClusterResponseHostsInnerReplicationSlave
-		return ret
-	}
-	return *o.ReplicationSlave
-}
-
-// GetReplicationSlaveOk returns a tuple with the ReplicationSlave field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInner) GetReplicationSlaveOk() (*ClusterResponseHostsInnerReplicationSlave, bool) {
-	if o == nil || IsNil(o.ReplicationSlave) {
-		return nil, false
-	}
-	return o.ReplicationSlave, true
-}
-
-// HasReplicationSlave returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInner) HasReplicationSlave() bool {
-	if o != nil && !IsNil(o.ReplicationSlave) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplicationSlave gets a reference to the given ClusterResponseHostsInnerReplicationSlave and assigns it to the ReplicationSlave field.
-func (o *ClusterResponseHostsInner) SetReplicationSlave(v ClusterResponseHostsInnerReplicationSlave) {
-	o.ReplicationSlave = &v
-}
-
-// GetReplicationMaster returns the ReplicationMaster field value if set, zero value otherwise.
-func (o *ClusterResponseHostsInner) GetReplicationMaster() ClusterResponseHostsInnerReplicationMaster {
-	if o == nil || IsNil(o.ReplicationMaster) {
-		var ret ClusterResponseHostsInnerReplicationMaster
-		return ret
-	}
-	return *o.ReplicationMaster
-}
-
-// GetReplicationMasterOk returns a tuple with the ReplicationMaster field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ClusterResponseHostsInner) GetReplicationMasterOk() (*ClusterResponseHostsInnerReplicationMaster, bool) {
-	if o == nil || IsNil(o.ReplicationMaster) {
-		return nil, false
-	}
-	return o.ReplicationMaster, true
-}
-
-// HasReplicationMaster returns a boolean if a field has been set.
-func (o *ClusterResponseHostsInner) HasReplicationMaster() bool {
-	if o != nil && !IsNil(o.ReplicationMaster) {
-		return true
-	}
-
-	return false
-}
-
-// SetReplicationMaster gets a reference to the given ClusterResponseHostsInnerReplicationMaster and assigns it to the ReplicationMaster field.
-func (o *ClusterResponseHostsInner) SetReplicationMaster(v ClusterResponseHostsInnerReplicationMaster) {
-	o.ReplicationMaster = &v
-}
-
 func (o ClusterResponseHostsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -628,9 +496,6 @@ func (o ClusterResponseHostsInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HostnameInternal) {
 		toSerialize["hostname_internal"] = o.HostnameInternal
 	}
-	if !IsNil(o.Port) {
-		toSerialize["port"] = o.Port
-	}
 	if !IsNil(o.Role) {
 		toSerialize["role"] = o.Role
 	}
@@ -651,15 +516,6 @@ func (o ClusterResponseHostsInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ElasticRoles) {
 		toSerialize["elastic_roles"] = o.ElasticRoles
-	}
-	if !IsNil(o.Replica) {
-		toSerialize["replica"] = o.Replica
-	}
-	if !IsNil(o.ReplicationSlave) {
-		toSerialize["replication_slave"] = o.ReplicationSlave
-	}
-	if !IsNil(o.ReplicationMaster) {
-		toSerialize["replication_master"] = o.ReplicationMaster
 	}
 	return toSerialize, nil
 }

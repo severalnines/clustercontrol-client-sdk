@@ -1772,41 +1772,6 @@ components:
         database_name:
           type: string
       type: object
-    ClusterResponse_hosts_inner_replica:
-      properties:
-        availability_mode:
-          type: string
-        failover_mode:
-          type: string
-        connected_state:
-          type: string
-      type: object
-    ClusterResponse_hosts_inner_replication_slave:
-      properties:
-        master_host:
-          type: string
-        master_cluster_id:
-          type: string
-        semisync_status:
-          type: string
-      type: object
-    ClusterResponse_hosts_inner_replication_master_slave_info_slaves_inner:
-      properties:
-        failover_mode:
-          type: string
-      type: object
-    ClusterResponse_hosts_inner_replication_master_slave_info:
-      properties:
-        slaves:
-          items:
-            $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master_slave_info_slaves_inner'
-          type: array
-      type: object
-    ClusterResponse_hosts_inner_replication_master:
-      properties:
-        slave_info:
-          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master_slave_info'
-      type: object
     ClusterResponse_hosts_inner:
       properties:
         class_name:
@@ -1821,8 +1786,6 @@ components:
           type: string
         hostname_internal:
           type: string
-        port:
-          type: integer
         role:
           type: string
         synchronous:
@@ -1837,12 +1800,6 @@ components:
           type: string
         elastic_roles:
           type: string
-        replica:
-          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replica'
-        replication_slave:
-          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_slave'
-        replication_master:
-          $ref: '#/components/schemas/ClusterResponse_hosts_inner_replication_master'
       type: object
     Config_configuration_inner:
       example:
