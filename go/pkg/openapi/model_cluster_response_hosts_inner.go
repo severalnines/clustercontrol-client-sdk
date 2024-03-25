@@ -26,6 +26,7 @@ type ClusterResponseHostsInner struct {
 	Hostname *string `json:"hostname,omitempty"`
 	HostnameData *string `json:"hostname_data,omitempty"`
 	HostnameInternal *string `json:"hostname_internal,omitempty"`
+	Port *int32 `json:"port,omitempty"`
 	Role *string `json:"role,omitempty"`
 	Synchronous *bool `json:"synchronous,omitempty"`
 	MemberRole *string `json:"member_role,omitempty"`
@@ -245,6 +246,38 @@ func (o *ClusterResponseHostsInner) HasHostnameInternal() bool {
 // SetHostnameInternal gets a reference to the given string and assigns it to the HostnameInternal field.
 func (o *ClusterResponseHostsInner) SetHostnameInternal(v string) {
 	o.HostnameInternal = &v
+}
+
+// GetPort returns the Port field value if set, zero value otherwise.
+func (o *ClusterResponseHostsInner) GetPort() int32 {
+	if o == nil || IsNil(o.Port) {
+		var ret int32
+		return ret
+	}
+	return *o.Port
+}
+
+// GetPortOk returns a tuple with the Port field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ClusterResponseHostsInner) GetPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.Port) {
+		return nil, false
+	}
+	return o.Port, true
+}
+
+// HasPort returns a boolean if a field has been set.
+func (o *ClusterResponseHostsInner) HasPort() bool {
+	if o != nil && !IsNil(o.Port) {
+		return true
+	}
+
+	return false
+}
+
+// SetPort gets a reference to the given int32 and assigns it to the Port field.
+func (o *ClusterResponseHostsInner) SetPort(v int32) {
+	o.Port = &v
 }
 
 // GetRole returns the Role field value if set, zero value otherwise.
@@ -594,6 +627,9 @@ func (o ClusterResponseHostsInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HostnameInternal) {
 		toSerialize["hostname_internal"] = o.HostnameInternal
+	}
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
 	}
 	if !IsNil(o.Role) {
 		toSerialize["role"] = o.Role

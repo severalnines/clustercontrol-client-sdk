@@ -1819,6 +1819,8 @@ components:
           type: string
         hostname_internal:
           type: string
+        port:
+          type: integer
         role:
           type: string
         synchronous:

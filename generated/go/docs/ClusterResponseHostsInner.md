@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Hostname** | Pointer to **string** |  | [optional] 
 **HostnameData** | Pointer to **string** |  | [optional] 
 **HostnameInternal** | Pointer to **string** |  | [optional] 
+**Port** | Pointer to **int32** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **Synchronous** | Pointer to **bool** |  | [optional] 
 **MemberRole** | Pointer to **string** |  | [optional] 
@@ -189,6 +190,31 @@ SetHostnameInternal sets HostnameInternal field to given value.
 `func (o *ClusterResponseHostsInner) HasHostnameInternal() bool`
 
 HasHostnameInternal returns a boolean if a field has been set.
+
+### GetPort
+
+`func (o *ClusterResponseHostsInner) GetPort() int32`
+
+GetPort returns the Port field if non-nil, zero value otherwise.
+
+### GetPortOk
+
+`func (o *ClusterResponseHostsInner) GetPortOk() (*int32, bool)`
+
+GetPortOk returns a tuple with the Port field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPort
+
+`func (o *ClusterResponseHostsInner) SetPort(v int32)`
+
+SetPort sets Port field to given value.
+
+### HasPort
+
+`func (o *ClusterResponseHostsInner) HasPort() bool`
+
+HasPort returns a boolean if a field has been set.
 
 ### GetRole
 
