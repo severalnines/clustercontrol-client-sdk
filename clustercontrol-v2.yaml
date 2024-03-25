@@ -739,26 +739,28 @@ components:
                     type: string
                   connected_state:
                     type: string              
-              replication_slave:
-                type: object
-                properties:
-                  master_host:
-                    type: string
-                  semisync_status:
-                    type: string
-              replication_master:
-                type: object
-                properties:
-                  slave_info:
-                    type: object
-                    properties:
-                      slaves:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            failover_mode:
-                              type: string
+              # replication_slave:
+              #   type: object
+              #   properties:
+              #     master_host:
+              #       type: string
+              #     master_cluster_id:
+              #       type: string
+              #     semisync_status:
+              #       type: string
+              # replication_master:
+              #   type: object
+              #   properties:
+              #     slave_info:
+              #       type: object
+              #       properties:
+              #         slaves:
+              #           type: array
+              #           items:
+              #             type: object
+              #             properties:
+              #               failover_mode:
+              #                 type: string
     Config:
       type: object
       required:
