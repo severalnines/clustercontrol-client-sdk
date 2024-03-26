@@ -1139,7 +1139,9 @@ components:
                       type: integer
                     verify_backup_delay:
                       type: integer
-                    data_dir:
+                    # data_dir:
+                    #   type: string
+                    datadir:
                       type: string
                     db_user:
                       type: string

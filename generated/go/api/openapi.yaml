@@ -1017,6 +1017,7 @@ components:
               backup_retention: 2
               backup_individual_schemas: true
               backupsubdir: backupsubdir
+              datadir: datadir
               pitr_stop_log: pitr_stop_log
               admin_password: admin_password
               local_repository: local_repository
@@ -1090,7 +1091,6 @@ components:
                 weight: 7
                 max_replication_lag: 7
               force_stop: true
-              data_dir: data_dir
               ssh_user: ssh_user
               use_clustering: true
               reboot: true
@@ -2547,6 +2547,7 @@ components:
         backup_retention: 2
         backup_individual_schemas: true
         backupsubdir: backupsubdir
+        datadir: datadir
         pitr_stop_log: pitr_stop_log
         admin_password: admin_password
         local_repository: local_repository
@@ -2620,7 +2621,6 @@ components:
           weight: 7
           max_replication_lag: 7
         force_stop: true
-        data_dir: data_dir
         ssh_user: ssh_user
         use_clustering: true
         reboot: true
@@ -2827,7 +2827,7 @@ components:
           type: integer
         verify_backup_delay:
           type: integer
-        data_dir:
+        datadir:
           type: string
         db_user:
           type: string
@@ -3104,6 +3104,7 @@ components:
           backup_retention: 2
           backup_individual_schemas: true
           backupsubdir: backupsubdir
+          datadir: datadir
           pitr_stop_log: pitr_stop_log
           admin_password: admin_password
           local_repository: local_repository
@@ -3177,7 +3178,6 @@ components:
             weight: 7
             max_replication_lag: 7
           force_stop: true
-          data_dir: data_dir
           ssh_user: ssh_user
           use_clustering: true
           reboot: true
@@ -3416,6 +3416,7 @@ components:
             backup_retention: 2
             backup_individual_schemas: true
             backupsubdir: backupsubdir
+            datadir: datadir
             pitr_stop_log: pitr_stop_log
             admin_password: admin_password
             local_repository: local_repository
@@ -3489,7 +3490,6 @@ components:
               weight: 7
               max_replication_lag: 7
             force_stop: true
-            data_dir: data_dir
             ssh_user: ssh_user
             use_clustering: true
             reboot: true

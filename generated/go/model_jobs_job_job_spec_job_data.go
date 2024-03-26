@@ -76,7 +76,7 @@ type JobsJobJobSpecJobData struct {
 	XtrabackupLockDdlPerTable *bool `json:"xtrabackup_lock_ddl_per_table,omitempty"`
 	XtrabackupParallellism *int32 `json:"xtrabackup_parallellism,omitempty"`
 	VerifyBackupDelay *int32 `json:"verify_backup_delay,omitempty"`
-	DataDir *string `json:"data_dir,omitempty"`
+	Datadir *string `json:"datadir,omitempty"`
 	DbUser *string `json:"db_user,omitempty"`
 	DisableFirewall *bool `json:"disable_firewall,omitempty"`
 	DisableSelinux *bool `json:"disable_selinux,omitempty"`
@@ -1942,36 +1942,36 @@ func (o *JobsJobJobSpecJobData) SetVerifyBackupDelay(v int32) {
 	o.VerifyBackupDelay = &v
 }
 
-// GetDataDir returns the DataDir field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobData) GetDataDir() string {
-	if o == nil || IsNil(o.DataDir) {
+// GetDatadir returns the Datadir field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetDatadir() string {
+	if o == nil || IsNil(o.Datadir) {
 		var ret string
 		return ret
 	}
-	return *o.DataDir
+	return *o.Datadir
 }
 
-// GetDataDirOk returns a tuple with the DataDir field value if set, nil otherwise
+// GetDatadirOk returns a tuple with the Datadir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobData) GetDataDirOk() (*string, bool) {
-	if o == nil || IsNil(o.DataDir) {
+func (o *JobsJobJobSpecJobData) GetDatadirOk() (*string, bool) {
+	if o == nil || IsNil(o.Datadir) {
 		return nil, false
 	}
-	return o.DataDir, true
+	return o.Datadir, true
 }
 
-// HasDataDir returns a boolean if a field has been set.
-func (o *JobsJobJobSpecJobData) HasDataDir() bool {
-	if o != nil && !IsNil(o.DataDir) {
+// HasDatadir returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasDatadir() bool {
+	if o != nil && !IsNil(o.Datadir) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataDir gets a reference to the given string and assigns it to the DataDir field.
-func (o *JobsJobJobSpecJobData) SetDataDir(v string) {
-	o.DataDir = &v
+// SetDatadir gets a reference to the given string and assigns it to the Datadir field.
+func (o *JobsJobJobSpecJobData) SetDatadir(v string) {
+	o.Datadir = &v
 }
 
 // GetDbUser returns the DbUser field value if set, zero value otherwise.
@@ -3880,8 +3880,8 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VerifyBackupDelay) {
 		toSerialize["verify_backup_delay"] = o.VerifyBackupDelay
 	}
-	if !IsNil(o.DataDir) {
-		toSerialize["data_dir"] = o.DataDir
+	if !IsNil(o.Datadir) {
+		toSerialize["datadir"] = o.Datadir
 	}
 	if !IsNil(o.DbUser) {
 		toSerialize["db_user"] = o.DbUser

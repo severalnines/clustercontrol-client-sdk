@@ -60,7 +60,7 @@ Name | Type | Description | Notes
 **XtrabackupLockDdlPerTable** | Pointer to **bool** |  | [optional] 
 **XtrabackupParallellism** | Pointer to **int32** |  | [optional] 
 **VerifyBackupDelay** | Pointer to **int32** |  | [optional] 
-**DataDir** | Pointer to **string** |  | [optional] 
+**Datadir** | Pointer to **string** |  | [optional] 
 **DbUser** | Pointer to **string** |  | [optional] 
 **DisableFirewall** | Pointer to **bool** |  | [optional] 
 **DisableSelinux** | Pointer to **bool** |  | [optional] 
@@ -1535,30 +1535,30 @@ SetVerifyBackupDelay sets VerifyBackupDelay field to given value.
 
 HasVerifyBackupDelay returns a boolean if a field has been set.
 
-### GetDataDir
+### GetDatadir
 
-`func (o *JobsJobJobSpecJobData) GetDataDir() string`
+`func (o *JobsJobJobSpecJobData) GetDatadir() string`
 
-GetDataDir returns the DataDir field if non-nil, zero value otherwise.
+GetDatadir returns the Datadir field if non-nil, zero value otherwise.
 
-### GetDataDirOk
+### GetDatadirOk
 
-`func (o *JobsJobJobSpecJobData) GetDataDirOk() (*string, bool)`
+`func (o *JobsJobJobSpecJobData) GetDatadirOk() (*string, bool)`
 
-GetDataDirOk returns a tuple with the DataDir field if it's non-nil, zero value otherwise
+GetDatadirOk returns a tuple with the Datadir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDataDir
+### SetDatadir
 
-`func (o *JobsJobJobSpecJobData) SetDataDir(v string)`
+`func (o *JobsJobJobSpecJobData) SetDatadir(v string)`
 
-SetDataDir sets DataDir field to given value.
+SetDatadir sets Datadir field to given value.
 
-### HasDataDir
+### HasDatadir
 
-`func (o *JobsJobJobSpecJobData) HasDataDir() bool`
+`func (o *JobsJobJobSpecJobData) HasDatadir() bool`
 
-HasDataDir returns a boolean if a field has been set.
+HasDatadir returns a boolean if a field has been set.
 
 ### GetDbUser
 
