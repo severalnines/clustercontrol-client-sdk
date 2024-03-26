@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **ExtendedInsert** | Pointer to **bool** |  | [optional] 
 **BackupDir** | Pointer to **string** |  | [optional] 
 **Backupsubdir** | Pointer to **string** |  | [optional] 
+**RemoveBackups** | Pointer to **bool** |  | [optional] 
 **CcStorage** | Pointer to **bool** |  | [optional] 
 **Compression** | Pointer to **bool** |  | [optional] 
 **CompressionLevel** | Pointer to **int32** |  | [optional] 
@@ -46,6 +47,7 @@ Name | Type | Description | Notes
 **UseRwSplit** | Pointer to **bool** |  | [optional] 
 **Hostname** | Pointer to **string** |  | [optional] 
 **MasterAddress** | Pointer to **string** |  | [optional] 
+**MasterDelay** | Pointer to **int32** |  | [optional] 
 **IncludeDatabases** | Pointer to **string** |  | [optional] 
 **InstallTimescaledb** | Pointer to **bool** |  | [optional] 
 **UpdateLb** | Pointer to **bool** |  | [optional] 
@@ -735,6 +737,31 @@ SetBackupsubdir sets Backupsubdir field to given value.
 
 HasBackupsubdir returns a boolean if a field has been set.
 
+### GetRemoveBackups
+
+`func (o *JobsJobJobSpecJobData) GetRemoveBackups() bool`
+
+GetRemoveBackups returns the RemoveBackups field if non-nil, zero value otherwise.
+
+### GetRemoveBackupsOk
+
+`func (o *JobsJobJobSpecJobData) GetRemoveBackupsOk() (*bool, bool)`
+
+GetRemoveBackupsOk returns a tuple with the RemoveBackups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemoveBackups
+
+`func (o *JobsJobJobSpecJobData) SetRemoveBackups(v bool)`
+
+SetRemoveBackups sets RemoveBackups field to given value.
+
+### HasRemoveBackups
+
+`func (o *JobsJobJobSpecJobData) HasRemoveBackups() bool`
+
+HasRemoveBackups returns a boolean if a field has been set.
+
 ### GetCcStorage
 
 `func (o *JobsJobJobSpecJobData) GetCcStorage() bool`
@@ -1184,6 +1211,31 @@ SetMasterAddress sets MasterAddress field to given value.
 `func (o *JobsJobJobSpecJobData) HasMasterAddress() bool`
 
 HasMasterAddress returns a boolean if a field has been set.
+
+### GetMasterDelay
+
+`func (o *JobsJobJobSpecJobData) GetMasterDelay() int32`
+
+GetMasterDelay returns the MasterDelay field if non-nil, zero value otherwise.
+
+### GetMasterDelayOk
+
+`func (o *JobsJobJobSpecJobData) GetMasterDelayOk() (*int32, bool)`
+
+GetMasterDelayOk returns a tuple with the MasterDelay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMasterDelay
+
+`func (o *JobsJobJobSpecJobData) SetMasterDelay(v int32)`
+
+SetMasterDelay sets MasterDelay field to given value.
+
+### HasMasterDelay
+
+`func (o *JobsJobJobSpecJobData) HasMasterDelay() bool`
+
+HasMasterDelay returns a boolean if a field has been set.
 
 ### GetIncludeDatabases
 

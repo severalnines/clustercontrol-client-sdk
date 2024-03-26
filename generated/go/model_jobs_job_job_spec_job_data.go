@@ -44,6 +44,7 @@ type JobsJobJobSpecJobData struct {
 	ExtendedInsert *bool `json:"extended_insert,omitempty"`
 	BackupDir *string `json:"backup_dir,omitempty"`
 	Backupsubdir *string `json:"backupsubdir,omitempty"`
+	RemoveBackups *bool `json:"remove_backups,omitempty"`
 	CcStorage *bool `json:"cc_storage,omitempty"`
 	Compression *bool `json:"compression,omitempty"`
 	CompressionLevel *int32 `json:"compression_level,omitempty"`
@@ -62,6 +63,7 @@ type JobsJobJobSpecJobData struct {
 	UseRwSplit *bool `json:"use_rw_split,omitempty"`
 	Hostname *string `json:"hostname,omitempty"`
 	MasterAddress *string `json:"master_address,omitempty"`
+	MasterDelay *int32 `json:"master_delay,omitempty"`
 	IncludeDatabases *string `json:"include_databases,omitempty"`
 	InstallTimescaledb *bool `json:"install_timescaledb,omitempty"`
 	UpdateLb *bool `json:"update_lb,omitempty"`
@@ -918,6 +920,38 @@ func (o *JobsJobJobSpecJobData) SetBackupsubdir(v string) {
 	o.Backupsubdir = &v
 }
 
+// GetRemoveBackups returns the RemoveBackups field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetRemoveBackups() bool {
+	if o == nil || IsNil(o.RemoveBackups) {
+		var ret bool
+		return ret
+	}
+	return *o.RemoveBackups
+}
+
+// GetRemoveBackupsOk returns a tuple with the RemoveBackups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetRemoveBackupsOk() (*bool, bool) {
+	if o == nil || IsNil(o.RemoveBackups) {
+		return nil, false
+	}
+	return o.RemoveBackups, true
+}
+
+// HasRemoveBackups returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasRemoveBackups() bool {
+	if o != nil && !IsNil(o.RemoveBackups) {
+		return true
+	}
+
+	return false
+}
+
+// SetRemoveBackups gets a reference to the given bool and assigns it to the RemoveBackups field.
+func (o *JobsJobJobSpecJobData) SetRemoveBackups(v bool) {
+	o.RemoveBackups = &v
+}
+
 // GetCcStorage returns the CcStorage field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetCcStorage() bool {
 	if o == nil || IsNil(o.CcStorage) {
@@ -1492,6 +1526,38 @@ func (o *JobsJobJobSpecJobData) HasMasterAddress() bool {
 // SetMasterAddress gets a reference to the given string and assigns it to the MasterAddress field.
 func (o *JobsJobJobSpecJobData) SetMasterAddress(v string) {
 	o.MasterAddress = &v
+}
+
+// GetMasterDelay returns the MasterDelay field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetMasterDelay() int32 {
+	if o == nil || IsNil(o.MasterDelay) {
+		var ret int32
+		return ret
+	}
+	return *o.MasterDelay
+}
+
+// GetMasterDelayOk returns a tuple with the MasterDelay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetMasterDelayOk() (*int32, bool) {
+	if o == nil || IsNil(o.MasterDelay) {
+		return nil, false
+	}
+	return o.MasterDelay, true
+}
+
+// HasMasterDelay returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasMasterDelay() bool {
+	if o != nil && !IsNil(o.MasterDelay) {
+		return true
+	}
+
+	return false
+}
+
+// SetMasterDelay gets a reference to the given int32 and assigns it to the MasterDelay field.
+func (o *JobsJobJobSpecJobData) SetMasterDelay(v int32) {
+	o.MasterDelay = &v
 }
 
 // GetIncludeDatabases returns the IncludeDatabases field value if set, zero value otherwise.
@@ -3784,6 +3850,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Backupsubdir) {
 		toSerialize["backupsubdir"] = o.Backupsubdir
 	}
+	if !IsNil(o.RemoveBackups) {
+		toSerialize["remove_backups"] = o.RemoveBackups
+	}
 	if !IsNil(o.CcStorage) {
 		toSerialize["cc_storage"] = o.CcStorage
 	}
@@ -3837,6 +3906,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.MasterAddress) {
 		toSerialize["master_address"] = o.MasterAddress
+	}
+	if !IsNil(o.MasterDelay) {
+		toSerialize["master_delay"] = o.MasterDelay
 	}
 	if !IsNil(o.IncludeDatabases) {
 		toSerialize["include_databases"] = o.IncludeDatabases

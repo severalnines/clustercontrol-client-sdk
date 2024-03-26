@@ -1075,6 +1075,8 @@ components:
                       type: string
                     backupsubdir:
                       type: string
+                    remove_backups:
+                      type: boolean
                     cc_storage:
                       type: boolean
                     compression:
@@ -1111,6 +1113,8 @@ components:
                       type: string
                     master_address:
                       type: string
+                    master_delay:
+                      type: integer
                     include_databases:
                       type: string
                     install_timescaledb:
