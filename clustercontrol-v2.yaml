@@ -1181,6 +1181,8 @@ components:
                       type: boolean
                     port:
                       type: integer
+                    sentinel_port:
+                      type: string
                     ssh_keyfile:
                       type: string
                     ssh_port:

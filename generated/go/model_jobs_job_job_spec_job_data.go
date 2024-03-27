@@ -96,6 +96,7 @@ type JobsJobJobSpecJobData struct {
 	NodeType *int32 `json:"node_type,omitempty"`
 	OverwriteMysqlchk *bool `json:"overwrite_mysqlchk,omitempty"`
 	Port *int32 `json:"port,omitempty"`
+	SentinelPort *string `json:"sentinel_port,omitempty"`
 	SshKeyfile *string `json:"ssh_keyfile,omitempty"`
 	SshPort *string `json:"ssh_port,omitempty"`
 	SshUser *string `json:"ssh_user,omitempty"`
@@ -2584,6 +2585,38 @@ func (o *JobsJobJobSpecJobData) SetPort(v int32) {
 	o.Port = &v
 }
 
+// GetSentinelPort returns the SentinelPort field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSentinelPort() string {
+	if o == nil || IsNil(o.SentinelPort) {
+		var ret string
+		return ret
+	}
+	return *o.SentinelPort
+}
+
+// GetSentinelPortOk returns a tuple with the SentinelPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSentinelPortOk() (*string, bool) {
+	if o == nil || IsNil(o.SentinelPort) {
+		return nil, false
+	}
+	return o.SentinelPort, true
+}
+
+// HasSentinelPort returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSentinelPort() bool {
+	if o != nil && !IsNil(o.SentinelPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetSentinelPort gets a reference to the given string and assigns it to the SentinelPort field.
+func (o *JobsJobJobSpecJobData) SetSentinelPort(v string) {
+	o.SentinelPort = &v
+}
+
 // GetSshKeyfile returns the SshKeyfile field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshKeyfile() string {
 	if o == nil || IsNil(o.SshKeyfile) {
@@ -4005,6 +4038,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Port) {
 		toSerialize["port"] = o.Port
+	}
+	if !IsNil(o.SentinelPort) {
+		toSerialize["sentinel_port"] = o.SentinelPort
 	}
 	if !IsNil(o.SshKeyfile) {
 		toSerialize["ssh_keyfile"] = o.SshKeyfile

@@ -80,6 +80,7 @@ Name | Type | Description | Notes
 **NodeType** | Pointer to **int32** |  | [optional] 
 **OverwriteMysqlchk** | Pointer to **bool** |  | [optional] 
 **Port** | Pointer to **int32** |  | [optional] 
+**SentinelPort** | Pointer to **string** |  | [optional] 
 **SshKeyfile** | Pointer to **string** |  | [optional] 
 **SshPort** | Pointer to **string** |  | [optional] 
 **SshUser** | Pointer to **string** |  | [optional] 
@@ -2036,6 +2037,31 @@ SetPort sets Port field to given value.
 `func (o *JobsJobJobSpecJobData) HasPort() bool`
 
 HasPort returns a boolean if a field has been set.
+
+### GetSentinelPort
+
+`func (o *JobsJobJobSpecJobData) GetSentinelPort() string`
+
+GetSentinelPort returns the SentinelPort field if non-nil, zero value otherwise.
+
+### GetSentinelPortOk
+
+`func (o *JobsJobJobSpecJobData) GetSentinelPortOk() (*string, bool)`
+
+GetSentinelPortOk returns a tuple with the SentinelPort field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSentinelPort
+
+`func (o *JobsJobJobSpecJobData) SetSentinelPort(v string)`
+
+SetSentinelPort sets SentinelPort field to given value.
+
+### HasSentinelPort
+
+`func (o *JobsJobJobSpecJobData) HasSentinelPort() bool`
+
+HasSentinelPort returns a boolean if a field has been set.
 
 ### GetSshKeyfile
 
