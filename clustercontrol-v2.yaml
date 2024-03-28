@@ -999,6 +999,17 @@ components:
           properties:
             class_name:
               type: string
+            title:
+              type: string
+            status:
+              type: string
+            recurrence:
+              type: string
+              description: e.g. "2 * * * *"
+            tags:
+              type: array
+              items:
+                type: string
             job_spec:
               type: object
               properties:
@@ -1473,19 +1484,6 @@ components:
                       type: array
                       items:
                         type: string
-            recurrence:
-              type: string
-              description: e.g. "2 * * * *"
-            tags:
-              type: array
-              items:
-                type: string
-            title:
-              type: string
-              enum: ["Rolling Restart","Simulated Success"]
-            status:
-              type: string
-              enum: ["PAUSED","SCHEDULED"]
     Maintenance: #Maintenance request
       type: object
       required:

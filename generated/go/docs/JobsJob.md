@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | Pointer to **string** |  | [optional] 
-**JobSpec** | Pointer to [**JobsJobJobSpec**](JobsJobJobSpec.md) |  | [optional] 
-**Recurrence** | Pointer to **string** | e.g. \&quot;2 * * * *\&quot; | [optional] 
-**Tags** | Pointer to **[]string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
+**Recurrence** | Pointer to **string** | e.g. \&quot;2 * * * *\&quot; | [optional] 
+**Tags** | Pointer to **[]string** |  | [optional] 
+**JobSpec** | Pointer to [**JobsJobJobSpec**](JobsJobJobSpec.md) |  | [optional] 
 
 ## Methods
 
@@ -55,30 +55,55 @@ SetClassName sets ClassName field to given value.
 
 HasClassName returns a boolean if a field has been set.
 
-### GetJobSpec
+### GetTitle
 
-`func (o *JobsJob) GetJobSpec() JobsJobJobSpec`
+`func (o *JobsJob) GetTitle() string`
 
-GetJobSpec returns the JobSpec field if non-nil, zero value otherwise.
+GetTitle returns the Title field if non-nil, zero value otherwise.
 
-### GetJobSpecOk
+### GetTitleOk
 
-`func (o *JobsJob) GetJobSpecOk() (*JobsJobJobSpec, bool)`
+`func (o *JobsJob) GetTitleOk() (*string, bool)`
 
-GetJobSpecOk returns a tuple with the JobSpec field if it's non-nil, zero value otherwise
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobSpec
+### SetTitle
 
-`func (o *JobsJob) SetJobSpec(v JobsJobJobSpec)`
+`func (o *JobsJob) SetTitle(v string)`
 
-SetJobSpec sets JobSpec field to given value.
+SetTitle sets Title field to given value.
 
-### HasJobSpec
+### HasTitle
 
-`func (o *JobsJob) HasJobSpec() bool`
+`func (o *JobsJob) HasTitle() bool`
 
-HasJobSpec returns a boolean if a field has been set.
+HasTitle returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *JobsJob) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *JobsJob) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *JobsJob) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *JobsJob) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetRecurrence
 
@@ -130,55 +155,30 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### GetTitle
+### GetJobSpec
 
-`func (o *JobsJob) GetTitle() string`
+`func (o *JobsJob) GetJobSpec() JobsJobJobSpec`
 
-GetTitle returns the Title field if non-nil, zero value otherwise.
+GetJobSpec returns the JobSpec field if non-nil, zero value otherwise.
 
-### GetTitleOk
+### GetJobSpecOk
 
-`func (o *JobsJob) GetTitleOk() (*string, bool)`
+`func (o *JobsJob) GetJobSpecOk() (*JobsJobJobSpec, bool)`
 
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+GetJobSpecOk returns a tuple with the JobSpec field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTitle
+### SetJobSpec
 
-`func (o *JobsJob) SetTitle(v string)`
+`func (o *JobsJob) SetJobSpec(v JobsJobJobSpec)`
 
-SetTitle sets Title field to given value.
+SetJobSpec sets JobSpec field to given value.
 
-### HasTitle
+### HasJobSpec
 
-`func (o *JobsJob) HasTitle() bool`
+`func (o *JobsJob) HasJobSpec() bool`
 
-HasTitle returns a boolean if a field has been set.
-
-### GetStatus
-
-`func (o *JobsJob) GetStatus() string`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *JobsJob) GetStatusOk() (*string, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *JobsJob) SetStatus(v string)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *JobsJob) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
+HasJobSpec returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

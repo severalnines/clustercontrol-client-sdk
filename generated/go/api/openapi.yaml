@@ -1150,12 +1150,12 @@ components:
               slave_address: slave_address
             id: 2
             command: rolling_restart
-          title: Rolling Restart
+          title: title
           class_name: class_name
+          status: status
           tags:
           - tags
           - tags
-          status: PAUSED
         operation: createJobInstance
         signal: 1
       properties:
@@ -3574,17 +3574,19 @@ components:
             slave_address: slave_address
           id: 2
           command: rolling_restart
-        title: Rolling Restart
+        title: title
         class_name: class_name
+        status: status
         tags:
         - tags
         - tags
-        status: PAUSED
       properties:
         class_name:
           type: string
-        job_spec:
-          $ref: '#/components/schemas/Jobs_job_job_spec'
+        title:
+          type: string
+        status:
+          type: string
         recurrence:
           description: e.g. "2 * * * *"
           type: string
@@ -3592,16 +3594,8 @@ components:
           items:
             type: string
           type: array
-        title:
-          enum:
-          - Rolling Restart
-          - Simulated Success
-          type: string
-        status:
-          enum:
-          - PAUSED
-          - SCHEDULED
-          type: string
+        job_spec:
+          $ref: '#/components/schemas/Jobs_job_job_spec'
       type: object
     MaintenanceResponse_maintenance_records_inner:
       properties:

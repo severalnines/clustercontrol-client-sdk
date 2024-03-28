@@ -21,12 +21,12 @@ var _ MappedNullable = &JobsJob{}
 // JobsJob struct for JobsJob
 type JobsJob struct {
 	ClassName *string `json:"class_name,omitempty"`
-	JobSpec *JobsJobJobSpec `json:"job_spec,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Status *string `json:"status,omitempty"`
 	// e.g. \"2 * * * *\"
 	Recurrence *string `json:"recurrence,omitempty"`
 	Tags []string `json:"tags,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Status *string `json:"status,omitempty"`
+	JobSpec *JobsJobJobSpec `json:"job_spec,omitempty"`
 }
 
 // NewJobsJob instantiates a new JobsJob object
@@ -76,102 +76,6 @@ func (o *JobsJob) HasClassName() bool {
 // SetClassName gets a reference to the given string and assigns it to the ClassName field.
 func (o *JobsJob) SetClassName(v string) {
 	o.ClassName = &v
-}
-
-// GetJobSpec returns the JobSpec field value if set, zero value otherwise.
-func (o *JobsJob) GetJobSpec() JobsJobJobSpec {
-	if o == nil || IsNil(o.JobSpec) {
-		var ret JobsJobJobSpec
-		return ret
-	}
-	return *o.JobSpec
-}
-
-// GetJobSpecOk returns a tuple with the JobSpec field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJob) GetJobSpecOk() (*JobsJobJobSpec, bool) {
-	if o == nil || IsNil(o.JobSpec) {
-		return nil, false
-	}
-	return o.JobSpec, true
-}
-
-// HasJobSpec returns a boolean if a field has been set.
-func (o *JobsJob) HasJobSpec() bool {
-	if o != nil && !IsNil(o.JobSpec) {
-		return true
-	}
-
-	return false
-}
-
-// SetJobSpec gets a reference to the given JobsJobJobSpec and assigns it to the JobSpec field.
-func (o *JobsJob) SetJobSpec(v JobsJobJobSpec) {
-	o.JobSpec = &v
-}
-
-// GetRecurrence returns the Recurrence field value if set, zero value otherwise.
-func (o *JobsJob) GetRecurrence() string {
-	if o == nil || IsNil(o.Recurrence) {
-		var ret string
-		return ret
-	}
-	return *o.Recurrence
-}
-
-// GetRecurrenceOk returns a tuple with the Recurrence field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJob) GetRecurrenceOk() (*string, bool) {
-	if o == nil || IsNil(o.Recurrence) {
-		return nil, false
-	}
-	return o.Recurrence, true
-}
-
-// HasRecurrence returns a boolean if a field has been set.
-func (o *JobsJob) HasRecurrence() bool {
-	if o != nil && !IsNil(o.Recurrence) {
-		return true
-	}
-
-	return false
-}
-
-// SetRecurrence gets a reference to the given string and assigns it to the Recurrence field.
-func (o *JobsJob) SetRecurrence(v string) {
-	o.Recurrence = &v
-}
-
-// GetTags returns the Tags field value if set, zero value otherwise.
-func (o *JobsJob) GetTags() []string {
-	if o == nil || IsNil(o.Tags) {
-		var ret []string
-		return ret
-	}
-	return o.Tags
-}
-
-// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJob) GetTagsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Tags) {
-		return nil, false
-	}
-	return o.Tags, true
-}
-
-// HasTags returns a boolean if a field has been set.
-func (o *JobsJob) HasTags() bool {
-	if o != nil && !IsNil(o.Tags) {
-		return true
-	}
-
-	return false
-}
-
-// SetTags gets a reference to the given []string and assigns it to the Tags field.
-func (o *JobsJob) SetTags(v []string) {
-	o.Tags = v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
@@ -238,6 +142,102 @@ func (o *JobsJob) SetStatus(v string) {
 	o.Status = &v
 }
 
+// GetRecurrence returns the Recurrence field value if set, zero value otherwise.
+func (o *JobsJob) GetRecurrence() string {
+	if o == nil || IsNil(o.Recurrence) {
+		var ret string
+		return ret
+	}
+	return *o.Recurrence
+}
+
+// GetRecurrenceOk returns a tuple with the Recurrence field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJob) GetRecurrenceOk() (*string, bool) {
+	if o == nil || IsNil(o.Recurrence) {
+		return nil, false
+	}
+	return o.Recurrence, true
+}
+
+// HasRecurrence returns a boolean if a field has been set.
+func (o *JobsJob) HasRecurrence() bool {
+	if o != nil && !IsNil(o.Recurrence) {
+		return true
+	}
+
+	return false
+}
+
+// SetRecurrence gets a reference to the given string and assigns it to the Recurrence field.
+func (o *JobsJob) SetRecurrence(v string) {
+	o.Recurrence = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *JobsJob) GetTags() []string {
+	if o == nil || IsNil(o.Tags) {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJob) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *JobsJob) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *JobsJob) SetTags(v []string) {
+	o.Tags = v
+}
+
+// GetJobSpec returns the JobSpec field value if set, zero value otherwise.
+func (o *JobsJob) GetJobSpec() JobsJobJobSpec {
+	if o == nil || IsNil(o.JobSpec) {
+		var ret JobsJobJobSpec
+		return ret
+	}
+	return *o.JobSpec
+}
+
+// GetJobSpecOk returns a tuple with the JobSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJob) GetJobSpecOk() (*JobsJobJobSpec, bool) {
+	if o == nil || IsNil(o.JobSpec) {
+		return nil, false
+	}
+	return o.JobSpec, true
+}
+
+// HasJobSpec returns a boolean if a field has been set.
+func (o *JobsJob) HasJobSpec() bool {
+	if o != nil && !IsNil(o.JobSpec) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobSpec gets a reference to the given JobsJobJobSpec and assigns it to the JobSpec field.
+func (o *JobsJob) SetJobSpec(v JobsJobJobSpec) {
+	o.JobSpec = &v
+}
+
 func (o JobsJob) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -251,8 +251,11 @@ func (o JobsJob) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ClassName) {
 		toSerialize["class_name"] = o.ClassName
 	}
-	if !IsNil(o.JobSpec) {
-		toSerialize["job_spec"] = o.JobSpec
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	if !IsNil(o.Recurrence) {
 		toSerialize["recurrence"] = o.Recurrence
@@ -260,11 +263,8 @@ func (o JobsJob) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
-	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if !IsNil(o.JobSpec) {
+		toSerialize["job_spec"] = o.JobSpec
 	}
 	return toSerialize, nil
 }
