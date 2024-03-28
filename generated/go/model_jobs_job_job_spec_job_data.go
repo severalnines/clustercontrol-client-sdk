@@ -45,6 +45,7 @@ type JobsJobJobSpecJobData struct {
 	BackupDir *string `json:"backup_dir,omitempty"`
 	Backupsubdir *string `json:"backupsubdir,omitempty"`
 	RemoveBackups *bool `json:"remove_backups,omitempty"`
+	BackupSystemDb *bool `json:"backup_system_db,omitempty"`
 	CcStorage *bool `json:"cc_storage,omitempty"`
 	Compression *bool `json:"compression,omitempty"`
 	CompressionLevel *int32 `json:"compression_level,omitempty"`
@@ -951,6 +952,38 @@ func (o *JobsJobJobSpecJobData) HasRemoveBackups() bool {
 // SetRemoveBackups gets a reference to the given bool and assigns it to the RemoveBackups field.
 func (o *JobsJobJobSpecJobData) SetRemoveBackups(v bool) {
 	o.RemoveBackups = &v
+}
+
+// GetBackupSystemDb returns the BackupSystemDb field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetBackupSystemDb() bool {
+	if o == nil || IsNil(o.BackupSystemDb) {
+		var ret bool
+		return ret
+	}
+	return *o.BackupSystemDb
+}
+
+// GetBackupSystemDbOk returns a tuple with the BackupSystemDb field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetBackupSystemDbOk() (*bool, bool) {
+	if o == nil || IsNil(o.BackupSystemDb) {
+		return nil, false
+	}
+	return o.BackupSystemDb, true
+}
+
+// HasBackupSystemDb returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasBackupSystemDb() bool {
+	if o != nil && !IsNil(o.BackupSystemDb) {
+		return true
+	}
+
+	return false
+}
+
+// SetBackupSystemDb gets a reference to the given bool and assigns it to the BackupSystemDb field.
+func (o *JobsJobJobSpecJobData) SetBackupSystemDb(v bool) {
+	o.BackupSystemDb = &v
 }
 
 // GetCcStorage returns the CcStorage field value if set, zero value otherwise.
@@ -3885,6 +3918,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RemoveBackups) {
 		toSerialize["remove_backups"] = o.RemoveBackups
+	}
+	if !IsNil(o.BackupSystemDb) {
+		toSerialize["backup_system_db"] = o.BackupSystemDb
 	}
 	if !IsNil(o.CcStorage) {
 		toSerialize["cc_storage"] = o.CcStorage

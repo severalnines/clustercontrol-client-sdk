@@ -911,6 +911,7 @@ components:
                 disable_firewall: true
                 terminate_db_server: true
                 server_address: server_address
+              backup_system_db: true
               generate_token: true
               install_software: true
               snapshot_repository: snapshot_repository
@@ -2444,6 +2445,7 @@ components:
           disable_firewall: true
           terminate_db_server: true
           server_address: server_address
+        backup_system_db: true
         generate_token: true
         install_software: true
         snapshot_repository: snapshot_repository
@@ -2771,6 +2773,8 @@ components:
           type: string
         remove_backups:
           type: boolean
+        backup_system_db:
+          type: boolean
         cc_storage:
           type: boolean
         compression:
@@ -3010,6 +3014,7 @@ components:
             disable_firewall: true
             terminate_db_server: true
             server_address: server_address
+          backup_system_db: true
           generate_token: true
           install_software: true
           snapshot_repository: snapshot_repository
@@ -3325,6 +3330,7 @@ components:
               disable_firewall: true
               terminate_db_server: true
               server_address: server_address
+            backup_system_db: true
             generate_token: true
             install_software: true
             snapshot_repository: snapshot_repository

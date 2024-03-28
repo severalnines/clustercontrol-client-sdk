@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **BackupDir** | Pointer to **string** |  | [optional] 
 **Backupsubdir** | Pointer to **string** |  | [optional] 
 **RemoveBackups** | Pointer to **bool** |  | [optional] 
+**BackupSystemDb** | Pointer to **bool** |  | [optional] 
 **CcStorage** | Pointer to **bool** |  | [optional] 
 **Compression** | Pointer to **bool** |  | [optional] 
 **CompressionLevel** | Pointer to **int32** |  | [optional] 
@@ -762,6 +763,31 @@ SetRemoveBackups sets RemoveBackups field to given value.
 `func (o *JobsJobJobSpecJobData) HasRemoveBackups() bool`
 
 HasRemoveBackups returns a boolean if a field has been set.
+
+### GetBackupSystemDb
+
+`func (o *JobsJobJobSpecJobData) GetBackupSystemDb() bool`
+
+GetBackupSystemDb returns the BackupSystemDb field if non-nil, zero value otherwise.
+
+### GetBackupSystemDbOk
+
+`func (o *JobsJobJobSpecJobData) GetBackupSystemDbOk() (*bool, bool)`
+
+GetBackupSystemDbOk returns a tuple with the BackupSystemDb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupSystemDb
+
+`func (o *JobsJobJobSpecJobData) SetBackupSystemDb(v bool)`
+
+SetBackupSystemDb sets BackupSystemDb field to given value.
+
+### HasBackupSystemDb
+
+`func (o *JobsJobJobSpecJobData) HasBackupSystemDb() bool`
+
+HasBackupSystemDb returns a boolean if a field has been set.
 
 ### GetCcStorage
 
