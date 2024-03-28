@@ -123,6 +123,7 @@ type JobsJobJobSpecJobData struct {
 	Bootstrap *bool `json:"bootstrap,omitempty"`
 	SnapshotLocation *string `json:"snapshot_location,omitempty"`
 	SnapshotRepository *string `json:"snapshot_repository,omitempty"`
+	SnapshotHost *string `json:"snapshot_host,omitempty"`
 	StorageHost *string `json:"storage_host,omitempty"`
 	DeployAgents *bool `json:"deploy_agents,omitempty"`
 	UploadBackupDataToCloudStorage *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage `json:"upload_backup_data_to_cloud_storage,omitempty"`
@@ -3450,6 +3451,38 @@ func (o *JobsJobJobSpecJobData) SetSnapshotRepository(v string) {
 	o.SnapshotRepository = &v
 }
 
+// GetSnapshotHost returns the SnapshotHost field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSnapshotHost() string {
+	if o == nil || IsNil(o.SnapshotHost) {
+		var ret string
+		return ret
+	}
+	return *o.SnapshotHost
+}
+
+// GetSnapshotHostOk returns a tuple with the SnapshotHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSnapshotHostOk() (*string, bool) {
+	if o == nil || IsNil(o.SnapshotHost) {
+		return nil, false
+	}
+	return o.SnapshotHost, true
+}
+
+// HasSnapshotHost returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSnapshotHost() bool {
+	if o != nil && !IsNil(o.SnapshotHost) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotHost gets a reference to the given string and assigns it to the SnapshotHost field.
+func (o *JobsJobJobSpecJobData) SetSnapshotHost(v string) {
+	o.SnapshotHost = &v
+}
+
 // GetStorageHost returns the StorageHost field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetStorageHost() string {
 	if o == nil || IsNil(o.StorageHost) {
@@ -4152,6 +4185,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SnapshotRepository) {
 		toSerialize["snapshot_repository"] = o.SnapshotRepository
+	}
+	if !IsNil(o.SnapshotHost) {
+		toSerialize["snapshot_host"] = o.SnapshotHost
 	}
 	if !IsNil(o.StorageHost) {
 		toSerialize["storage_host"] = o.StorageHost

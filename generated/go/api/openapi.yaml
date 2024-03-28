@@ -915,6 +915,7 @@ components:
               generate_token: true
               install_software: true
               snapshot_repository: snapshot_repository
+              snapshot_host: snapshot_host
               ssh_port: ssh_port
               topology:
                 master_slave_links:
@@ -2449,6 +2450,7 @@ components:
         generate_token: true
         install_software: true
         snapshot_repository: snapshot_repository
+        snapshot_host: snapshot_host
         ssh_port: ssh_port
         topology:
           master_slave_links:
@@ -2945,6 +2947,8 @@ components:
           type: string
         snapshot_repository:
           type: string
+        snapshot_host:
+          type: string
         storage_host:
           type: string
         deploy_agents:
@@ -3018,6 +3022,7 @@ components:
           generate_token: true
           install_software: true
           snapshot_repository: snapshot_repository
+          snapshot_host: snapshot_host
           ssh_port: ssh_port
           topology:
             master_slave_links:
@@ -3334,6 +3339,7 @@ components:
             generate_token: true
             install_software: true
             snapshot_repository: snapshot_repository
+            snapshot_host: snapshot_host
             ssh_port: ssh_port
             topology:
               master_slave_links:

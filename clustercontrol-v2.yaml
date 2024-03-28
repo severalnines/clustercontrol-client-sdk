@@ -1237,6 +1237,8 @@ components:
                       type: string
                     snapshot_repository:
                       type: string
+                    snapshot_host:
+                      type: string
                     storage_host:
                       type: string
                     deploy_agents:

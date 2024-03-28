@@ -107,6 +107,7 @@ Name | Type | Description | Notes
 **Bootstrap** | Pointer to **bool** |  | [optional] 
 **SnapshotLocation** | Pointer to **string** |  | [optional] 
 **SnapshotRepository** | Pointer to **string** |  | [optional] 
+**SnapshotHost** | Pointer to **string** |  | [optional] 
 **StorageHost** | Pointer to **string** |  | [optional] 
 **DeployAgents** | Pointer to **bool** |  | [optional] 
 **UploadBackupDataToCloudStorage** | Pointer to [**JobsJobJobSpecJobDataUploadBackupDataToCloudStorage**](JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md) |  | [optional] 
@@ -2713,6 +2714,31 @@ SetSnapshotRepository sets SnapshotRepository field to given value.
 `func (o *JobsJobJobSpecJobData) HasSnapshotRepository() bool`
 
 HasSnapshotRepository returns a boolean if a field has been set.
+
+### GetSnapshotHost
+
+`func (o *JobsJobJobSpecJobData) GetSnapshotHost() string`
+
+GetSnapshotHost returns the SnapshotHost field if non-nil, zero value otherwise.
+
+### GetSnapshotHostOk
+
+`func (o *JobsJobJobSpecJobData) GetSnapshotHostOk() (*string, bool)`
+
+GetSnapshotHostOk returns a tuple with the SnapshotHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotHost
+
+`func (o *JobsJobJobSpecJobData) SetSnapshotHost(v string)`
+
+SetSnapshotHost sets SnapshotHost field to given value.
+
+### HasSnapshotHost
+
+`func (o *JobsJobJobSpecJobData) HasSnapshotHost() bool`
+
+HasSnapshotHost returns a boolean if a field has been set.
 
 ### GetStorageHost
 
