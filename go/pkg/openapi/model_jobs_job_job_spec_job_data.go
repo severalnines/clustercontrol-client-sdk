@@ -125,6 +125,7 @@ type JobsJobJobSpecJobData struct {
 	SnapshotRepository *string `json:"snapshot_repository,omitempty"`
 	SnapshotHost *string `json:"snapshot_host,omitempty"`
 	StorageHost *string `json:"storage_host,omitempty"`
+	Replicaset *string `json:"replicaset,omitempty"`
 	DeployAgents *bool `json:"deploy_agents,omitempty"`
 	UploadBackupDataToCloudStorage *JobsJobJobSpecJobDataUploadBackupDataToCloudStorage `json:"upload_backup_data_to_cloud_storage,omitempty"`
 	VerifyBackup *BackupScheduleJobJobDataVerifyBackup `json:"verify_backup,omitempty"`
@@ -3515,6 +3516,38 @@ func (o *JobsJobJobSpecJobData) SetStorageHost(v string) {
 	o.StorageHost = &v
 }
 
+// GetReplicaset returns the Replicaset field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetReplicaset() string {
+	if o == nil || IsNil(o.Replicaset) {
+		var ret string
+		return ret
+	}
+	return *o.Replicaset
+}
+
+// GetReplicasetOk returns a tuple with the Replicaset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetReplicasetOk() (*string, bool) {
+	if o == nil || IsNil(o.Replicaset) {
+		return nil, false
+	}
+	return o.Replicaset, true
+}
+
+// HasReplicaset returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasReplicaset() bool {
+	if o != nil && !IsNil(o.Replicaset) {
+		return true
+	}
+
+	return false
+}
+
+// SetReplicaset gets a reference to the given string and assigns it to the Replicaset field.
+func (o *JobsJobJobSpecJobData) SetReplicaset(v string) {
+	o.Replicaset = &v
+}
+
 // GetDeployAgents returns the DeployAgents field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetDeployAgents() bool {
 	if o == nil || IsNil(o.DeployAgents) {
@@ -4191,6 +4224,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StorageHost) {
 		toSerialize["storage_host"] = o.StorageHost
+	}
+	if !IsNil(o.Replicaset) {
+		toSerialize["replicaset"] = o.Replicaset
 	}
 	if !IsNil(o.DeployAgents) {
 		toSerialize["deploy_agents"] = o.DeployAgents

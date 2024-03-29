@@ -1005,6 +1005,7 @@ components:
               snapshot_location: snapshot_location
               backup_failover: true
               server_address: server_address
+              replicaset: replicaset
               exec_upgrade_script: true
               enable_ssl: true
               overwrite_mysqlchk: true
@@ -2540,6 +2541,7 @@ components:
         snapshot_location: snapshot_location
         backup_failover: true
         server_address: server_address
+        replicaset: replicaset
         exec_upgrade_script: true
         enable_ssl: true
         overwrite_mysqlchk: true
@@ -2951,6 +2953,8 @@ components:
           type: string
         storage_host:
           type: string
+        replicaset:
+          type: string
         deploy_agents:
           type: boolean
         upload_backup_data_to_cloud_storage:
@@ -3112,6 +3116,7 @@ components:
           snapshot_location: snapshot_location
           backup_failover: true
           server_address: server_address
+          replicaset: replicaset
           exec_upgrade_script: true
           enable_ssl: true
           overwrite_mysqlchk: true
@@ -3429,6 +3434,7 @@ components:
             snapshot_location: snapshot_location
             backup_failover: true
             server_address: server_address
+            replicaset: replicaset
             exec_upgrade_script: true
             enable_ssl: true
             overwrite_mysqlchk: true

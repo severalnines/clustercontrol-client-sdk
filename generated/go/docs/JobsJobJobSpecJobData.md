@@ -109,6 +109,7 @@ Name | Type | Description | Notes
 **SnapshotRepository** | Pointer to **string** |  | [optional] 
 **SnapshotHost** | Pointer to **string** |  | [optional] 
 **StorageHost** | Pointer to **string** |  | [optional] 
+**Replicaset** | Pointer to **string** |  | [optional] 
 **DeployAgents** | Pointer to **bool** |  | [optional] 
 **UploadBackupDataToCloudStorage** | Pointer to [**JobsJobJobSpecJobDataUploadBackupDataToCloudStorage**](JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md) |  | [optional] 
 **VerifyBackup** | Pointer to [**BackupScheduleJobJobDataVerifyBackup**](BackupScheduleJobJobDataVerifyBackup.md) |  | [optional] 
@@ -2764,6 +2765,31 @@ SetStorageHost sets StorageHost field to given value.
 `func (o *JobsJobJobSpecJobData) HasStorageHost() bool`
 
 HasStorageHost returns a boolean if a field has been set.
+
+### GetReplicaset
+
+`func (o *JobsJobJobSpecJobData) GetReplicaset() string`
+
+GetReplicaset returns the Replicaset field if non-nil, zero value otherwise.
+
+### GetReplicasetOk
+
+`func (o *JobsJobJobSpecJobData) GetReplicasetOk() (*string, bool)`
+
+GetReplicasetOk returns a tuple with the Replicaset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplicaset
+
+`func (o *JobsJobJobSpecJobData) SetReplicaset(v string)`
+
+SetReplicaset sets Replicaset field to given value.
+
+### HasReplicaset
+
+`func (o *JobsJobJobSpecJobData) HasReplicaset() bool`
+
+HasReplicaset returns a boolean if a field has been set.
 
 ### GetDeployAgents
 
