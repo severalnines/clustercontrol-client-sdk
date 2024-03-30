@@ -888,6 +888,7 @@ components:
               master_address: master_address
               usePackageForDataDir: true
               type: postgresql
+              config_server_port: config_server_port
               enable_uninstall: true
               hostname: hostname
               master_delay: 1
@@ -993,6 +994,7 @@ components:
               backup_failover_host: auto
               xtrabackup_parallellism: 6
               backup_id: 9
+              admin_port: admin_port
               monitor_password: monitor_password
               db_username: db_username
               unregister_only: true
@@ -2424,6 +2426,7 @@ components:
         master_address: master_address
         usePackageForDataDir: true
         type: postgresql
+        config_server_port: config_server_port
         enable_uninstall: true
         hostname: hostname
         master_delay: 1
@@ -2529,6 +2532,7 @@ components:
         backup_failover_host: auto
         xtrabackup_parallellism: 6
         backup_id: 9
+        admin_port: admin_port
         monitor_password: monitor_password
         db_username: db_username
         unregister_only: true
@@ -2883,6 +2887,10 @@ components:
           type: integer
         sentinel_port:
           type: string
+        config_server_port:
+          type: string
+        admin_port:
+          type: string
         ssh_keyfile:
           type: string
         ssh_port:
@@ -2999,6 +3007,7 @@ components:
           master_address: master_address
           usePackageForDataDir: true
           type: postgresql
+          config_server_port: config_server_port
           enable_uninstall: true
           hostname: hostname
           master_delay: 1
@@ -3104,6 +3113,7 @@ components:
           backup_failover_host: auto
           xtrabackup_parallellism: 6
           backup_id: 9
+          admin_port: admin_port
           monitor_password: monitor_password
           db_username: db_username
           unregister_only: true
@@ -3317,6 +3327,7 @@ components:
             master_address: master_address
             usePackageForDataDir: true
             type: postgresql
+            config_server_port: config_server_port
             enable_uninstall: true
             hostname: hostname
             master_delay: 1
@@ -3422,6 +3433,7 @@ components:
             backup_failover_host: auto
             xtrabackup_parallellism: 6
             backup_id: 9
+            admin_port: admin_port
             monitor_password: monitor_password
             db_username: db_username
             unregister_only: true
