@@ -82,8 +82,6 @@ Name | Type | Description | Notes
 **OverwriteMysqlchk** | Pointer to **bool** |  | [optional] 
 **Port** | Pointer to **int32** |  | [optional] 
 **SentinelPort** | Pointer to **string** |  | [optional] 
-**ConfigServerPort** | Pointer to **string** |  | [optional] 
-**AdminPort** | Pointer to **string** |  | [optional] 
 **SshKeyfile** | Pointer to **string** |  | [optional] 
 **SshPort** | Pointer to **string** |  | [optional] 
 **SshUser** | Pointer to **string** |  | [optional] 
@@ -2092,56 +2090,6 @@ SetSentinelPort sets SentinelPort field to given value.
 `func (o *JobsJobJobSpecJobData) HasSentinelPort() bool`
 
 HasSentinelPort returns a boolean if a field has been set.
-
-### GetConfigServerPort
-
-`func (o *JobsJobJobSpecJobData) GetConfigServerPort() string`
-
-GetConfigServerPort returns the ConfigServerPort field if non-nil, zero value otherwise.
-
-### GetConfigServerPortOk
-
-`func (o *JobsJobJobSpecJobData) GetConfigServerPortOk() (*string, bool)`
-
-GetConfigServerPortOk returns a tuple with the ConfigServerPort field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConfigServerPort
-
-`func (o *JobsJobJobSpecJobData) SetConfigServerPort(v string)`
-
-SetConfigServerPort sets ConfigServerPort field to given value.
-
-### HasConfigServerPort
-
-`func (o *JobsJobJobSpecJobData) HasConfigServerPort() bool`
-
-HasConfigServerPort returns a boolean if a field has been set.
-
-### GetAdminPort
-
-`func (o *JobsJobJobSpecJobData) GetAdminPort() string`
-
-GetAdminPort returns the AdminPort field if non-nil, zero value otherwise.
-
-### GetAdminPortOk
-
-`func (o *JobsJobJobSpecJobData) GetAdminPortOk() (*string, bool)`
-
-GetAdminPortOk returns a tuple with the AdminPort field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAdminPort
-
-`func (o *JobsJobJobSpecJobData) SetAdminPort(v string)`
-
-SetAdminPort sets AdminPort field to given value.
-
-### HasAdminPort
-
-`func (o *JobsJobJobSpecJobData) HasAdminPort() bool`
-
-HasAdminPort returns a boolean if a field has been set.
 
 ### GetSshKeyfile
 

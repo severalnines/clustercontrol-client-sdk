@@ -98,8 +98,6 @@ type JobsJobJobSpecJobData struct {
 	OverwriteMysqlchk *bool `json:"overwrite_mysqlchk,omitempty"`
 	Port *int32 `json:"port,omitempty"`
 	SentinelPort *string `json:"sentinel_port,omitempty"`
-	ConfigServerPort *string `json:"config_server_port,omitempty"`
-	AdminPort *string `json:"admin_port,omitempty"`
 	SshKeyfile *string `json:"ssh_keyfile,omitempty"`
 	SshPort *string `json:"ssh_port,omitempty"`
 	SshUser *string `json:"ssh_user,omitempty"`
@@ -2654,70 +2652,6 @@ func (o *JobsJobJobSpecJobData) SetSentinelPort(v string) {
 	o.SentinelPort = &v
 }
 
-// GetConfigServerPort returns the ConfigServerPort field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobData) GetConfigServerPort() string {
-	if o == nil || IsNil(o.ConfigServerPort) {
-		var ret string
-		return ret
-	}
-	return *o.ConfigServerPort
-}
-
-// GetConfigServerPortOk returns a tuple with the ConfigServerPort field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobData) GetConfigServerPortOk() (*string, bool) {
-	if o == nil || IsNil(o.ConfigServerPort) {
-		return nil, false
-	}
-	return o.ConfigServerPort, true
-}
-
-// HasConfigServerPort returns a boolean if a field has been set.
-func (o *JobsJobJobSpecJobData) HasConfigServerPort() bool {
-	if o != nil && !IsNil(o.ConfigServerPort) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfigServerPort gets a reference to the given string and assigns it to the ConfigServerPort field.
-func (o *JobsJobJobSpecJobData) SetConfigServerPort(v string) {
-	o.ConfigServerPort = &v
-}
-
-// GetAdminPort returns the AdminPort field value if set, zero value otherwise.
-func (o *JobsJobJobSpecJobData) GetAdminPort() string {
-	if o == nil || IsNil(o.AdminPort) {
-		var ret string
-		return ret
-	}
-	return *o.AdminPort
-}
-
-// GetAdminPortOk returns a tuple with the AdminPort field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *JobsJobJobSpecJobData) GetAdminPortOk() (*string, bool) {
-	if o == nil || IsNil(o.AdminPort) {
-		return nil, false
-	}
-	return o.AdminPort, true
-}
-
-// HasAdminPort returns a boolean if a field has been set.
-func (o *JobsJobJobSpecJobData) HasAdminPort() bool {
-	if o != nil && !IsNil(o.AdminPort) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdminPort gets a reference to the given string and assigns it to the AdminPort field.
-func (o *JobsJobJobSpecJobData) SetAdminPort(v string) {
-	o.AdminPort = &v
-}
-
 // GetSshKeyfile returns the SshKeyfile field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshKeyfile() string {
 	if o == nil || IsNil(o.SshKeyfile) {
@@ -4209,12 +4143,6 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SentinelPort) {
 		toSerialize["sentinel_port"] = o.SentinelPort
-	}
-	if !IsNil(o.ConfigServerPort) {
-		toSerialize["config_server_port"] = o.ConfigServerPort
-	}
-	if !IsNil(o.AdminPort) {
-		toSerialize["admin_port"] = o.AdminPort
 	}
 	if !IsNil(o.SshKeyfile) {
 		toSerialize["ssh_keyfile"] = o.SshKeyfile
