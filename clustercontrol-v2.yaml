@@ -1196,10 +1196,10 @@ components:
                       type: integer
                     sentinel_port:
                       type: string
-                    config_server_port: # e.g. mongo
-                      type: string
-                    admin_port: # e.g. proxysql
-                      type: string
+                    # config_server_port: # e.g. mongo
+                    #   type: string
+                    # admin_port: # e.g. proxysql
+                    #   type: string
                     ssh_keyfile:
                       type: string
                     ssh_port:
