@@ -1148,6 +1148,7 @@ components:
                 class_name: CmonRedisHost
                 hostname_data: hostname_data
                 timestamp: 3
+              snapshot_repository_type: snapshot_repository_type
               slave_address: slave_address
             id: 2
             command: rolling_restart
@@ -2684,6 +2685,7 @@ components:
           class_name: CmonRedisHost
           hostname_data: hostname_data
           timestamp: 3
+        snapshot_repository_type: snapshot_repository_type
         slave_address: slave_address
       properties:
         action:
@@ -2948,6 +2950,8 @@ components:
         snapshot_location:
           type: string
         snapshot_repository:
+          type: string
+        snapshot_repository_type:
           type: string
         snapshot_host:
           type: string
@@ -3259,6 +3263,7 @@ components:
             class_name: CmonRedisHost
             hostname_data: hostname_data
             timestamp: 3
+          snapshot_repository_type: snapshot_repository_type
           slave_address: slave_address
         id: 2
         command: rolling_restart
@@ -3577,6 +3582,7 @@ components:
               class_name: CmonRedisHost
               hostname_data: hostname_data
               timestamp: 3
+            snapshot_repository_type: snapshot_repository_type
             slave_address: slave_address
           id: 2
           command: rolling_restart

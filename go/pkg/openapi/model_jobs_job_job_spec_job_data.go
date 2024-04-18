@@ -123,6 +123,7 @@ type JobsJobJobSpecJobData struct {
 	Bootstrap *bool `json:"bootstrap,omitempty"`
 	SnapshotLocation *string `json:"snapshot_location,omitempty"`
 	SnapshotRepository *string `json:"snapshot_repository,omitempty"`
+	SnapshotRepositoryType *string `json:"snapshot_repository_type,omitempty"`
 	SnapshotHost *string `json:"snapshot_host,omitempty"`
 	StorageHost *string `json:"storage_host,omitempty"`
 	Replicaset *string `json:"replicaset,omitempty"`
@@ -3452,6 +3453,38 @@ func (o *JobsJobJobSpecJobData) SetSnapshotRepository(v string) {
 	o.SnapshotRepository = &v
 }
 
+// GetSnapshotRepositoryType returns the SnapshotRepositoryType field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSnapshotRepositoryType() string {
+	if o == nil || IsNil(o.SnapshotRepositoryType) {
+		var ret string
+		return ret
+	}
+	return *o.SnapshotRepositoryType
+}
+
+// GetSnapshotRepositoryTypeOk returns a tuple with the SnapshotRepositoryType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSnapshotRepositoryTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.SnapshotRepositoryType) {
+		return nil, false
+	}
+	return o.SnapshotRepositoryType, true
+}
+
+// HasSnapshotRepositoryType returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSnapshotRepositoryType() bool {
+	if o != nil && !IsNil(o.SnapshotRepositoryType) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotRepositoryType gets a reference to the given string and assigns it to the SnapshotRepositoryType field.
+func (o *JobsJobJobSpecJobData) SetSnapshotRepositoryType(v string) {
+	o.SnapshotRepositoryType = &v
+}
+
 // GetSnapshotHost returns the SnapshotHost field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSnapshotHost() string {
 	if o == nil || IsNil(o.SnapshotHost) {
@@ -4218,6 +4251,9 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SnapshotRepository) {
 		toSerialize["snapshot_repository"] = o.SnapshotRepository
+	}
+	if !IsNil(o.SnapshotRepositoryType) {
+		toSerialize["snapshot_repository_type"] = o.SnapshotRepositoryType
 	}
 	if !IsNil(o.SnapshotHost) {
 		toSerialize["snapshot_host"] = o.SnapshotHost

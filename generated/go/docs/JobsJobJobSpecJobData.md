@@ -107,6 +107,7 @@ Name | Type | Description | Notes
 **Bootstrap** | Pointer to **bool** |  | [optional] 
 **SnapshotLocation** | Pointer to **string** |  | [optional] 
 **SnapshotRepository** | Pointer to **string** |  | [optional] 
+**SnapshotRepositoryType** | Pointer to **string** |  | [optional] 
 **SnapshotHost** | Pointer to **string** |  | [optional] 
 **StorageHost** | Pointer to **string** |  | [optional] 
 **Replicaset** | Pointer to **string** |  | [optional] 
@@ -2715,6 +2716,31 @@ SetSnapshotRepository sets SnapshotRepository field to given value.
 `func (o *JobsJobJobSpecJobData) HasSnapshotRepository() bool`
 
 HasSnapshotRepository returns a boolean if a field has been set.
+
+### GetSnapshotRepositoryType
+
+`func (o *JobsJobJobSpecJobData) GetSnapshotRepositoryType() string`
+
+GetSnapshotRepositoryType returns the SnapshotRepositoryType field if non-nil, zero value otherwise.
+
+### GetSnapshotRepositoryTypeOk
+
+`func (o *JobsJobJobSpecJobData) GetSnapshotRepositoryTypeOk() (*string, bool)`
+
+GetSnapshotRepositoryTypeOk returns a tuple with the SnapshotRepositoryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotRepositoryType
+
+`func (o *JobsJobJobSpecJobData) SetSnapshotRepositoryType(v string)`
+
+SetSnapshotRepositoryType sets SnapshotRepositoryType field to given value.
+
+### HasSnapshotRepositoryType
+
+`func (o *JobsJobJobSpecJobData) HasSnapshotRepositoryType() bool`
+
+HasSnapshotRepositoryType returns a boolean if a field has been set.
 
 ### GetSnapshotHost
 

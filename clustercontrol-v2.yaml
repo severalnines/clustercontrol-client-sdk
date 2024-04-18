@@ -1252,6 +1252,8 @@ components:
                       type: string
                     snapshot_repository:
                       type: string
+                    snapshot_repository_type:
+                      type: string
                     snapshot_host:
                       type: string
                     storage_host:
