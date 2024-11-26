@@ -98,6 +98,13 @@ type JobsJobJobSpecJobData struct {
 	OverwriteMysqlchk *bool `json:"overwrite_mysqlchk,omitempty"`
 	Port *int32 `json:"port,omitempty"`
 	SentinelPort *string `json:"sentinel_port,omitempty"`
+	RedisShardedPort *int32 `json:"redis_sharded_port,omitempty"`
+	ValkeyShardedPort *int32 `json:"valkey_sharded_port,omitempty"`
+	RedisShardedBusPort *int32 `json:"redis_sharded_bus_port,omitempty"`
+	ValkeyShardedBusPort *int32 `json:"valkey_sharded_bus_port,omitempty"`
+	RedisClusterReplicaValidityFactor *int32 `json:"redis_cluster_replica_validity_factor,omitempty"`
+	ValkeyClusterReplicaValidityFactor *int32 `json:"valkey_cluster_replica_validity_factor,omitempty"`
+	NodeTimeoutMs *int32 `json:"node_timeout_ms,omitempty"`
 	SshKeyfile *string `json:"ssh_keyfile,omitempty"`
 	SshPort *string `json:"ssh_port,omitempty"`
 	SshUser *string `json:"ssh_user,omitempty"`
@@ -2653,6 +2660,230 @@ func (o *JobsJobJobSpecJobData) SetSentinelPort(v string) {
 	o.SentinelPort = &v
 }
 
+// GetRedisShardedPort returns the RedisShardedPort field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetRedisShardedPort() int32 {
+	if o == nil || IsNil(o.RedisShardedPort) {
+		var ret int32
+		return ret
+	}
+	return *o.RedisShardedPort
+}
+
+// GetRedisShardedPortOk returns a tuple with the RedisShardedPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetRedisShardedPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.RedisShardedPort) {
+		return nil, false
+	}
+	return o.RedisShardedPort, true
+}
+
+// HasRedisShardedPort returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasRedisShardedPort() bool {
+	if o != nil && !IsNil(o.RedisShardedPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetRedisShardedPort gets a reference to the given int32 and assigns it to the RedisShardedPort field.
+func (o *JobsJobJobSpecJobData) SetRedisShardedPort(v int32) {
+	o.RedisShardedPort = &v
+}
+
+// GetValkeyShardedPort returns the ValkeyShardedPort field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetValkeyShardedPort() int32 {
+	if o == nil || IsNil(o.ValkeyShardedPort) {
+		var ret int32
+		return ret
+	}
+	return *o.ValkeyShardedPort
+}
+
+// GetValkeyShardedPortOk returns a tuple with the ValkeyShardedPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetValkeyShardedPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.ValkeyShardedPort) {
+		return nil, false
+	}
+	return o.ValkeyShardedPort, true
+}
+
+// HasValkeyShardedPort returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasValkeyShardedPort() bool {
+	if o != nil && !IsNil(o.ValkeyShardedPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetValkeyShardedPort gets a reference to the given int32 and assigns it to the ValkeyShardedPort field.
+func (o *JobsJobJobSpecJobData) SetValkeyShardedPort(v int32) {
+	o.ValkeyShardedPort = &v
+}
+
+// GetRedisShardedBusPort returns the RedisShardedBusPort field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetRedisShardedBusPort() int32 {
+	if o == nil || IsNil(o.RedisShardedBusPort) {
+		var ret int32
+		return ret
+	}
+	return *o.RedisShardedBusPort
+}
+
+// GetRedisShardedBusPortOk returns a tuple with the RedisShardedBusPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetRedisShardedBusPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.RedisShardedBusPort) {
+		return nil, false
+	}
+	return o.RedisShardedBusPort, true
+}
+
+// HasRedisShardedBusPort returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasRedisShardedBusPort() bool {
+	if o != nil && !IsNil(o.RedisShardedBusPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetRedisShardedBusPort gets a reference to the given int32 and assigns it to the RedisShardedBusPort field.
+func (o *JobsJobJobSpecJobData) SetRedisShardedBusPort(v int32) {
+	o.RedisShardedBusPort = &v
+}
+
+// GetValkeyShardedBusPort returns the ValkeyShardedBusPort field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetValkeyShardedBusPort() int32 {
+	if o == nil || IsNil(o.ValkeyShardedBusPort) {
+		var ret int32
+		return ret
+	}
+	return *o.ValkeyShardedBusPort
+}
+
+// GetValkeyShardedBusPortOk returns a tuple with the ValkeyShardedBusPort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetValkeyShardedBusPortOk() (*int32, bool) {
+	if o == nil || IsNil(o.ValkeyShardedBusPort) {
+		return nil, false
+	}
+	return o.ValkeyShardedBusPort, true
+}
+
+// HasValkeyShardedBusPort returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasValkeyShardedBusPort() bool {
+	if o != nil && !IsNil(o.ValkeyShardedBusPort) {
+		return true
+	}
+
+	return false
+}
+
+// SetValkeyShardedBusPort gets a reference to the given int32 and assigns it to the ValkeyShardedBusPort field.
+func (o *JobsJobJobSpecJobData) SetValkeyShardedBusPort(v int32) {
+	o.ValkeyShardedBusPort = &v
+}
+
+// GetRedisClusterReplicaValidityFactor returns the RedisClusterReplicaValidityFactor field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetRedisClusterReplicaValidityFactor() int32 {
+	if o == nil || IsNil(o.RedisClusterReplicaValidityFactor) {
+		var ret int32
+		return ret
+	}
+	return *o.RedisClusterReplicaValidityFactor
+}
+
+// GetRedisClusterReplicaValidityFactorOk returns a tuple with the RedisClusterReplicaValidityFactor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetRedisClusterReplicaValidityFactorOk() (*int32, bool) {
+	if o == nil || IsNil(o.RedisClusterReplicaValidityFactor) {
+		return nil, false
+	}
+	return o.RedisClusterReplicaValidityFactor, true
+}
+
+// HasRedisClusterReplicaValidityFactor returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasRedisClusterReplicaValidityFactor() bool {
+	if o != nil && !IsNil(o.RedisClusterReplicaValidityFactor) {
+		return true
+	}
+
+	return false
+}
+
+// SetRedisClusterReplicaValidityFactor gets a reference to the given int32 and assigns it to the RedisClusterReplicaValidityFactor field.
+func (o *JobsJobJobSpecJobData) SetRedisClusterReplicaValidityFactor(v int32) {
+	o.RedisClusterReplicaValidityFactor = &v
+}
+
+// GetValkeyClusterReplicaValidityFactor returns the ValkeyClusterReplicaValidityFactor field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetValkeyClusterReplicaValidityFactor() int32 {
+	if o == nil || IsNil(o.ValkeyClusterReplicaValidityFactor) {
+		var ret int32
+		return ret
+	}
+	return *o.ValkeyClusterReplicaValidityFactor
+}
+
+// GetValkeyClusterReplicaValidityFactorOk returns a tuple with the ValkeyClusterReplicaValidityFactor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetValkeyClusterReplicaValidityFactorOk() (*int32, bool) {
+	if o == nil || IsNil(o.ValkeyClusterReplicaValidityFactor) {
+		return nil, false
+	}
+	return o.ValkeyClusterReplicaValidityFactor, true
+}
+
+// HasValkeyClusterReplicaValidityFactor returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasValkeyClusterReplicaValidityFactor() bool {
+	if o != nil && !IsNil(o.ValkeyClusterReplicaValidityFactor) {
+		return true
+	}
+
+	return false
+}
+
+// SetValkeyClusterReplicaValidityFactor gets a reference to the given int32 and assigns it to the ValkeyClusterReplicaValidityFactor field.
+func (o *JobsJobJobSpecJobData) SetValkeyClusterReplicaValidityFactor(v int32) {
+	o.ValkeyClusterReplicaValidityFactor = &v
+}
+
+// GetNodeTimeoutMs returns the NodeTimeoutMs field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetNodeTimeoutMs() int32 {
+	if o == nil || IsNil(o.NodeTimeoutMs) {
+		var ret int32
+		return ret
+	}
+	return *o.NodeTimeoutMs
+}
+
+// GetNodeTimeoutMsOk returns a tuple with the NodeTimeoutMs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetNodeTimeoutMsOk() (*int32, bool) {
+	if o == nil || IsNil(o.NodeTimeoutMs) {
+		return nil, false
+	}
+	return o.NodeTimeoutMs, true
+}
+
+// HasNodeTimeoutMs returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasNodeTimeoutMs() bool {
+	if o != nil && !IsNil(o.NodeTimeoutMs) {
+		return true
+	}
+
+	return false
+}
+
+// SetNodeTimeoutMs gets a reference to the given int32 and assigns it to the NodeTimeoutMs field.
+func (o *JobsJobJobSpecJobData) SetNodeTimeoutMs(v int32) {
+	o.NodeTimeoutMs = &v
+}
+
 // GetSshKeyfile returns the SshKeyfile field value if set, zero value otherwise.
 func (o *JobsJobJobSpecJobData) GetSshKeyfile() string {
 	if o == nil || IsNil(o.SshKeyfile) {
@@ -4176,6 +4407,27 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SentinelPort) {
 		toSerialize["sentinel_port"] = o.SentinelPort
+	}
+	if !IsNil(o.RedisShardedPort) {
+		toSerialize["redis_sharded_port"] = o.RedisShardedPort
+	}
+	if !IsNil(o.ValkeyShardedPort) {
+		toSerialize["valkey_sharded_port"] = o.ValkeyShardedPort
+	}
+	if !IsNil(o.RedisShardedBusPort) {
+		toSerialize["redis_sharded_bus_port"] = o.RedisShardedBusPort
+	}
+	if !IsNil(o.ValkeyShardedBusPort) {
+		toSerialize["valkey_sharded_bus_port"] = o.ValkeyShardedBusPort
+	}
+	if !IsNil(o.RedisClusterReplicaValidityFactor) {
+		toSerialize["redis_cluster_replica_validity_factor"] = o.RedisClusterReplicaValidityFactor
+	}
+	if !IsNil(o.ValkeyClusterReplicaValidityFactor) {
+		toSerialize["valkey_cluster_replica_validity_factor"] = o.ValkeyClusterReplicaValidityFactor
+	}
+	if !IsNil(o.NodeTimeoutMs) {
+		toSerialize["node_timeout_ms"] = o.NodeTimeoutMs
 	}
 	if !IsNil(o.SshKeyfile) {
 		toSerialize["ssh_keyfile"] = o.SshKeyfile

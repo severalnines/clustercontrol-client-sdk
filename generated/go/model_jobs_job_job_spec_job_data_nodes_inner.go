@@ -40,6 +40,7 @@ type JobsJobJobSpecJobDataNodesInner struct {
 	Synchronous *bool `json:"synchronous,omitempty"`
 	Protocol *string `json:"protocol,omitempty"`
 	Roles *string `json:"roles,omitempty"`
+	Role *string `json:"role,omitempty"`
 }
 
 // NewJobsJobJobSpecJobDataNodesInner instantiates a new JobsJobJobSpecJobDataNodesInner object
@@ -699,6 +700,38 @@ func (o *JobsJobJobSpecJobDataNodesInner) SetRoles(v string) {
 	o.Roles = &v
 }
 
+// GetRole returns the Role field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobDataNodesInner) GetRole() string {
+	if o == nil || IsNil(o.Role) {
+		var ret string
+		return ret
+	}
+	return *o.Role
+}
+
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) GetRoleOk() (*string, bool) {
+	if o == nil || IsNil(o.Role) {
+		return nil, false
+	}
+	return o.Role, true
+}
+
+// HasRole returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobDataNodesInner) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
+func (o *JobsJobJobSpecJobDataNodesInner) SetRole(v string) {
+	o.Role = &v
+}
+
 func (o JobsJobJobSpecJobDataNodesInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -768,6 +801,9 @@ func (o JobsJobJobSpecJobDataNodesInner) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.Roles) {
 		toSerialize["roles"] = o.Roles
+	}
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	return toSerialize, nil
 }
