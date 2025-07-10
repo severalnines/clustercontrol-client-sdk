@@ -1,10 +1,10 @@
-# SeveralninesClusterControl.JobsJobJobSpecJobDataConfigServers
+# SeveralninesClusterControlRestApiV2.JobsJobJobSpecJobDataConfigServers
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rs** | **String** |  | [optional] 
-**members** | [**[JobsJobJobSpecJobDataConfigServersMembers]**](JobsJobJobSpecJobDataConfigServersMembers.md) |  | [optional] 
+**members** | [**[JobsJobJobSpecJobDataConfigServersMembersInner]**](JobsJobJobSpecJobDataConfigServersMembersInner.md) |  | [optional] 
 
 

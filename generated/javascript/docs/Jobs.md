@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Jobs
+# SeveralninesClusterControlRestApiV2.Jobs
 
 ## Properties
 

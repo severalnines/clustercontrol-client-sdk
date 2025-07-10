@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Clusters
+# SeveralninesClusterControlRestApiV2.Clusters
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **clusterName** | **String** |  | [optional] 
 **withHosts** | **Boolean** |  | [optional] 
 **withSheetInfo** | **Boolean** |  | [optional] 
-**configuration** | [**[ClustersConfiguration]**](ClustersConfiguration.md) |  | [optional] 
+**configuration** | [**[ClustersConfigurationInner]**](ClustersConfigurationInner.md) |  | [optional] 
 **account** | [**ClustersAccount**](ClustersAccount.md) |  | [optional] 
 **filterStrings** | **String** |  | [optional] 
 **limit** | **Number** |  | [optional] 

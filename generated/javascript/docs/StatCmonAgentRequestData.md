@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.StatCmonAgentRequestData
+# SeveralninesClusterControlRestApiV2.StatCmonAgentRequestData
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.ClustersAccount
+# SeveralninesClusterControlRestApiV2.ClustersAccount
 
 ## Properties
 

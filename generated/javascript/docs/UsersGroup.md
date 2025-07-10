@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.UsersGroup
+# SeveralninesClusterControlRestApiV2.UsersGroup
 
 ## Properties
 

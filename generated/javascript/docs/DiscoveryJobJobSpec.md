@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.DiscoveryJobJobSpec
+# SeveralninesClusterControlRestApiV2.DiscoveryJobJobSpec
 
 ## Properties
 

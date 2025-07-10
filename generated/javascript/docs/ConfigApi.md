@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.ConfigApi
+# SeveralninesClusterControlRestApiV2.ConfigApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ GetConfig | xxx | xxx | etc
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.ConfigApi();
-let config = new SeveralninesClusterControl.Config(); // Config | Provides access to various Cmon configuration files
+let apiInstance = new SeveralninesClusterControlRestApiV2.ConfigApi();
+let config = new SeveralninesClusterControlRestApiV2.Config(); // Config | Provides access to various Cmon configuration files
 apiInstance.configPost(config, (error, data, response) => {
   if (error) {
     console.error(error);

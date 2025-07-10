@@ -1,11 +1,11 @@
-# SeveralninesClusterControl.Host
+# SeveralninesClusterControlRestApiV2.Host
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | **String** |  | 
-**servers** | [**[HostServers]**](HostServers.md) |  | [optional] 
+**servers** | [**[HostServersInner]**](HostServersInner.md) |  | [optional] 
 **clusterId** | **Number** |  | [optional] 
 **dryRun** | **Boolean** |  | [optional] 
 **host** | [**HostHost**](HostHost.md) |  | [optional] 

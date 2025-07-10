@@ -1,16 +1,16 @@
 #!/bin/sh
 
-GODIR=./generated/go
-echo "Cleaning up GoLang code in $GODIR"
-/bin/rm -rf $GODIR
-echo "Generating GoLang code in $GODIR"
-openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name go --output $GODIR
+#GODIR=./generated/go
+#echo "Cleaning up GoLang code in $GODIR"
+#/bin/rm -rf $GODIR
+#echo "Generating GoLang code in $GODIR"
+#openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name go --output $GODIR
 #
-/bin/rm ./go/pkg/openapi/*.go
-/bin/rm -rf ./go/pkg/openapi/test
-cp $GODIR/*.go ./go/pkg/openapi/
-cp -rp $GODIR/test ./go/pkg/openapi/
-cp -rp $GODIR/docs ./go/pkg/openapi/
+#/bin/rm ./go/pkg/openapi/*.go
+#/bin/rm -rf ./go/pkg/openapi/test
+#cp $GODIR/*.go ./go/pkg/openapi/
+#cp -rp $GODIR/test ./go/pkg/openapi/
+#cp -rp $GODIR/docs ./go/pkg/openapi/
 #
 #
 #PYDIR=./generated/python
@@ -32,15 +32,17 @@ cp -rp $GODIR/docs ./go/pkg/openapi/
 #/bin/rm -rf ./java/src
 #cp -rp $JAVADIR/src ./java
 #
-#JSDIR=./generated/javascript
-#JSDIR=./generated/javascript echo "Cleaning up JavaScript code in $JSDIR"
-#/bin/rm -rf $JSDIR
-#echo "Generating JavaScript code in $JSDIR"
-#openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name javascript --output $JSDIR
+JSDIR=./generated/javascript
+JSDIR=./generated/javascript 
+echo "Cleaning up JavaScript code in $JSDIR"
+/bin/rm -rf $JSDIR
+echo "Generating JavaScript code in $JSDIR"
+openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name javascript --output $JSDIR
 #
 #
 #TSDIR=./generated/typescript
-#TSDIR=./generated/javascript echo "Cleaning up TypeScript code in $TSDIR"
+#TSDIR=./generated/javascript 
+#echo "Cleaning up TypeScript code in $TSDIR"
 #/bin/rm -rf $TSDIR
 #echo "Generating TypeScript code in $TSDIR"
 #openapi-generator generate --input-spec ./clustercontrol-v2.yaml --generator-name typescript --output $TSDIR

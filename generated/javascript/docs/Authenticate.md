@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Authenticate
+# SeveralninesClusterControlRestApiV2.Authenticate
 
 ## Properties
 

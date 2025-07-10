@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.StatPrometheusApi
+# SeveralninesClusterControlRestApiV2.StatPrometheusApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ GetInfo | etc
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.StatPrometheusApi();
-let statPrometheus = new SeveralninesClusterControl.StatPrometheus(); // StatPrometheus | Provides calls to access various statistical information about the cluster
+let apiInstance = new SeveralninesClusterControlRestApiV2.StatPrometheusApi();
+let statPrometheus = new SeveralninesClusterControlRestApiV2.StatPrometheus(); // StatPrometheus | Provides calls to access various statistical information about the cluster
 apiInstance.statPrometheusQueryPost(statPrometheus, (error, data, response) => {
   if (error) {
     console.error(error);

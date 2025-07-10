@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Config
+# SeveralninesClusterControlRestApiV2.Config
 
 ## Properties
 
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **operation** | **String** |  | 
 **hostname** | **String** |  | [optional] 
 **port** | **Number** |  | [optional] 
-**configuration** | [**[ConfigConfiguration]**](ConfigConfiguration.md) |  | [optional] 
+**configuration** | [**[ConfigConfigurationInner]**](ConfigConfigurationInner.md) |  | [optional] 
 **ldapConfiguration** | [**ConfigLdapConfiguration**](ConfigLdapConfiguration.md) |  | [optional] 
 **licensedata** | **String** |  | [optional] 
 

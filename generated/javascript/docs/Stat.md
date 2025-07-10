@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Stat
+# SeveralninesClusterControlRestApiV2.Stat
 
 ## Properties
 

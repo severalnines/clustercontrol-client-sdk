@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Discovery
+# SeveralninesClusterControlRestApiV2.Discovery
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **checkIfAlreadyRegistered** | **Boolean** |  | [optional] 
 **checkJob** | **Boolean** |  | [optional] 
 **checkSshSudo** | **Boolean** |  | [optional] 
-**nodes** | [**[DiscoveryNodes]**](DiscoveryNodes.md) |  | [optional] 
+**nodes** | [**[DiscoveryNodesInner]**](DiscoveryNodesInner.md) |  | [optional] 
 **job** | [**DiscoveryJob**](DiscoveryJob.md) |  | [optional] 
 **sshCredentials** | [**DiscoverySshCredentials**](DiscoverySshCredentials.md) |  | [optional] 
 

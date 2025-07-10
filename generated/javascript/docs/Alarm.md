@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.Alarm
+# SeveralninesClusterControlRestApiV2.Alarm
 
 ## Properties
 

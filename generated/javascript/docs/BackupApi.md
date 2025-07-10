@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.BackupApi
+# SeveralninesClusterControlRestApiV2.BackupApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.BackupApi();
-let backup = new SeveralninesClusterControl.Backup(); // Backup | All things related to Backups
+let apiInstance = new SeveralninesClusterControlRestApiV2.BackupApi();
+let backup = new SeveralninesClusterControlRestApiV2.Backup(); // Backup | All things related to Backups
 apiInstance.backupPost(backup, (error, data, response) => {
   if (error) {
     console.error(error);

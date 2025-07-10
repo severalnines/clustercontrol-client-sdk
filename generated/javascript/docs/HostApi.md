@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.HostApi
+# SeveralninesClusterControlRestApiV2.HostApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ Path for managing servers
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.HostApi();
-let host = new SeveralninesClusterControl.Host(); // Host | (Un)Register servers, Shutdown servers, etc
+let apiInstance = new SeveralninesClusterControlRestApiV2.HostApi();
+let host = new SeveralninesClusterControlRestApiV2.Host(); // Host | (Un)Register servers, Shutdown servers, etc
 apiInstance.hostPost(host, (error, data, response) => {
   if (error) {
     console.error(error);

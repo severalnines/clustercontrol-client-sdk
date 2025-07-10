@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.JobsApi
+# SeveralninesClusterControlRestApiV2.JobsApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ CreateJobInstance | etc
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.JobsApi();
-let jobs = new SeveralninesClusterControl.Jobs(); // Jobs | Creating, manipulating, and obtaining information about jobs
+let apiInstance = new SeveralninesClusterControlRestApiV2.JobsApi();
+let jobs = new SeveralninesClusterControlRestApiV2.Jobs(); // Jobs | Creating, manipulating, and obtaining information about jobs
 apiInstance.jobsPost(jobs, (error, data, response) => {
   if (error) {
     console.error(error);

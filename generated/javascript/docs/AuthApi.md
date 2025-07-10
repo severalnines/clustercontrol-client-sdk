@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.AuthApi
+# SeveralninesClusterControlRestApiV2.AuthApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ Authenticate | Logout | Password Reset | Authenticate response (with challenge)
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.AuthApi();
-let authenticate = new SeveralninesClusterControl.Authenticate(); // Authenticate | Authentication parameters
+let apiInstance = new SeveralninesClusterControlRestApiV2.AuthApi();
+let authenticate = new SeveralninesClusterControlRestApiV2.Authenticate(); // Authenticate | Authentication parameters
 apiInstance.authPost(authenticate, (error, data, response) => {
   if (error) {
     console.error(error);

@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.ClustersDatabase
+# SeveralninesClusterControlRestApiV2.ClustersDatabase
 
 ## Properties
 

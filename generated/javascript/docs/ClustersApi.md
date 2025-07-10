@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.ClustersApi
+# SeveralninesClusterControlRestApiV2.ClustersApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ GetClusterInfo | Get/Set Config | etc
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.ClustersApi();
-let clusters = new SeveralninesClusterControl.Clusters(); // Clusters | Get cluster information
+let apiInstance = new SeveralninesClusterControlRestApiV2.ClustersApi();
+let clusters = new SeveralninesClusterControlRestApiV2.Clusters(); // Clusters | Get cluster information
 apiInstance.clustersPost(clusters, (error, data, response) => {
   if (error) {
     console.error(error);

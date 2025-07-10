@@ -1,10 +1,10 @@
-# SeveralninesClusterControl.MaintenanceApi
+# SeveralninesClusterControlRestApiV2.MaintenanceApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**maintenancePost**](MaintenanceApi.md#maintenancePost) | **POST** /maintenance | CreateJobInstance | etc
+[**maintenancePost**](MaintenanceApi.md#maintenancePost) | **POST** /maintenance | Set a maintenance window for a managed database cluster
 
 
 
@@ -12,15 +12,15 @@ Method | HTTP request | Description
 
 > maintenancePost(maintenance)
 
-CreateJobInstance | etc
+Set a maintenance window for a managed database cluster
 
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.MaintenanceApi();
-let maintenance = new SeveralninesClusterControl.Maintenance(); // Maintenance | Creating, deleting and obtaining maintenance periods
+let apiInstance = new SeveralninesClusterControlRestApiV2.MaintenanceApi();
+let maintenance = new SeveralninesClusterControlRestApiV2.Maintenance(); // Maintenance | Creating, deleting and obtaining maintenance periods
 apiInstance.maintenancePost(maintenance, (error, data, response) => {
   if (error) {
     console.error(error);

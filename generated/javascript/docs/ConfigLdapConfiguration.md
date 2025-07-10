@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.ConfigLdapConfiguration
+# SeveralninesClusterControlRestApiV2.ConfigLdapConfiguration
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ldapGroupSearchRoot** | **String** |  | [optional] 
 **ldapServerUri** | **String** |  | [optional] 
 **ldapUserSearchRoot** | **String** |  | [optional] 
-**groupMappings** | [**[ConfigLdapConfigurationGroupMappings]**](ConfigLdapConfigurationGroupMappings.md) |  | [optional] 
+**groupMappings** | [**[ConfigLdapConfigurationGroupMappingsInner]**](ConfigLdapConfigurationGroupMappingsInner.md) |  | [optional] 
 **ldapSettings** | [**ConfigLdapConfigurationLdapSettings**](ConfigLdapConfigurationLdapSettings.md) |  | [optional] 
 **security** | [**ConfigLdapConfigurationSecurity**](ConfigLdapConfigurationSecurity.md) |  | [optional] 
 

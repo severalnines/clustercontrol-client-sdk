@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.AuditApi
+# SeveralninesClusterControlRestApiV2.AuditApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.AuditApi();
-let audit = new SeveralninesClusterControl.Audit(); // Audit | Used to get the audit log entries
+let apiInstance = new SeveralninesClusterControlRestApiV2.AuditApi();
+let audit = new SeveralninesClusterControlRestApiV2.Audit(); // Audit | Used to get the audit log entries
 apiInstance.auditPost(audit, (error, data, response) => {
   if (error) {
     console.error(error);

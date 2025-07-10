@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.HostHost
+# SeveralninesClusterControlRestApiV2.HostHost
 
 ## Properties
 

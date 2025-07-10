@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.ControllerApi
+# SeveralninesClusterControlRestApiV2.ControllerApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ Ping | Heartbeat | etc
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.ControllerApi();
-let controller = new SeveralninesClusterControl.Controller(); // Controller | Managing controller and operate the Cmon HA subsystem
+let apiInstance = new SeveralninesClusterControlRestApiV2.ControllerApi();
+let controller = new SeveralninesClusterControlRestApiV2.Controller(); // Controller | Managing controller and operate the Cmon HA subsystem
 apiInstance.controllerPost(controller, (error, data, response) => {
   if (error) {
     console.error(error);

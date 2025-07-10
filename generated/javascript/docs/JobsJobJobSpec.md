@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.JobsJobJobSpec
+# SeveralninesClusterControlRestApiV2.JobsJobJobSpec
 
 ## Properties
 
@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 * `create_cluster` (value: `"create_cluster"`)
 
 * `remove_cluster` (value: `"remove_cluster"`)
+
+* `add_cluster` (value: `"add_cluster"`)
 
 * `backup` (value: `"backup"`)
 
@@ -60,6 +62,22 @@ Name | Type | Description | Notes
 * `add_replication_slave` (value: `"add_replication_slave"`)
 
 * `deploy_cmonagents` (value: `"deploy_cmonagents"`)
+
+* `delete_backup` (value: `"delete_backup"`)
+
+* `registernode` (value: `"registernode"`)
+
+* `removenode` (value: `"removenode"`)
+
+* `add_shard` (value: `"add_shard"`)
+
+* `garbd` (value: `"garbd"`)
+
+* `pgbouncer2` (value: `"pgbouncer"`)
+
+* `haproxy` (value: `"haproxy"`)
+
+* `proxysql` (value: `"proxysql"`)
 
 
 

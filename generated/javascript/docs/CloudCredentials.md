@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.CloudCredentials
+# SeveralninesClusterControlRestApiV2.CloudCredentials
 
 ## Properties
 

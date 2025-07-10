@@ -1,6 +1,6 @@
-# SeveralninesClusterControl.DiscoveryApi
+# SeveralninesClusterControlRestApiV2.DiscoveryApi
 
-All URIs are relative to *https://cchost:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,10 +17,10 @@ CheckClusterName | CheckHosts | GetSupportedClusterTypes
 ### Example
 
 ```javascript
-import SeveralninesClusterControl from 'severalnines_cluster_control';
+import SeveralninesClusterControlRestApiV2 from 'severalnines_cluster_control_rest_api__v2';
 
-let apiInstance = new SeveralninesClusterControl.DiscoveryApi();
-let discovery = new SeveralninesClusterControl.Discovery(); // Discovery | All things related to Clusters and cluster Hosts
+let apiInstance = new SeveralninesClusterControlRestApiV2.DiscoveryApi();
+let discovery = new SeveralninesClusterControlRestApiV2.Discovery(); // Discovery | All things related to Clusters and cluster Hosts
 apiInstance.discoveryPost(discovery, (error, data, response) => {
   if (error) {
     console.error(error);

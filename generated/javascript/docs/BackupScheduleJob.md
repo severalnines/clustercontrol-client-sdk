@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.BackupScheduleJob
+# SeveralninesClusterControlRestApiV2.BackupScheduleJob
 
 ## Properties
 

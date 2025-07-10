@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.JobsJobJobSpecJobDataNode
+# SeveralninesClusterControlRestApiV2.JobsJobJobSpecJobDataNode
 
 ## Properties
 
@@ -9,6 +9,12 @@ Name | Type | Description | Notes
 **dataRetention** | **String** |  | [optional] 
 **dataRetentionSize** | **Number** |  | [optional] 
 **hostname** | **String** |  | [optional] 
+**hostnameData** | **String** |  | [optional] 
+**hostnameInternal** | **String** |  | [optional] 
+**configfile** | **String** |  | [optional] 
+**datadir** | **String** |  | [optional] 
+**pgname** | **String** |  | [optional] 
+**synchronous** | **Boolean** |  | [optional] 
 **lbAdmin** | **String** |  | [optional] 
 **lbPassword** | **String** |  | [optional] 
 **lbPolicy** | **String** |  | [optional] 
@@ -23,6 +29,6 @@ Name | Type | Description | Notes
 **timeoutServer** | **Number** |  | [optional] 
 **xinetdAllowFrom** | **String** |  | [optional] 
 **scrapeInterval** | **String** |  | [optional] 
-**configuration** | [**[JobsJobJobSpecJobDataNodeConfiguration]**](JobsJobJobSpecJobDataNodeConfiguration.md) |  | [optional] 
+**configuration** | [**[JobsJobJobSpecJobDataNodeConfigurationInner]**](JobsJobJobSpecJobDataNodeConfigurationInner.md) |  | [optional] 
 
 

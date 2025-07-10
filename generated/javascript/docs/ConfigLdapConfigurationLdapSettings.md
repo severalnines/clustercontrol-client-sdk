@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.ConfigLdapConfigurationLdapSettings
+# SeveralninesClusterControlRestApiV2.ConfigLdapConfigurationLdapSettings
 
 ## Properties
 

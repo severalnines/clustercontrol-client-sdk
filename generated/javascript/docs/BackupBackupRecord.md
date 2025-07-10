@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.BackupBackupRecord
+# SeveralninesClusterControlRestApiV2.BackupBackupRecord
 
 ## Properties
 

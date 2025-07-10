@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.DiscoverySshCredentials
+# SeveralninesClusterControlRestApiV2.DiscoverySshCredentials
 
 ## Properties
 

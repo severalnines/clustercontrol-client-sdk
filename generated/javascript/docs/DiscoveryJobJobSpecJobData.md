@@ -1,4 +1,4 @@
-# SeveralninesClusterControl.DiscoveryJobJobSpecJobData
+# SeveralninesClusterControlRestApiV2.DiscoveryJobJobSpecJobData
 
 ## Properties
 
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **clusterType** | **String** |  | [optional] 
 **mysqlVersion** | **String** |  | [optional] 
 **vendor** | **String** |  | [optional] 
-**nodes** | [**[DiscoveryJobJobSpecJobDataNodes]**](DiscoveryJobJobSpecJobDataNodes.md) |  | [optional] 
+**nodes** | [**[DiscoveryJobJobSpecJobDataNodesInner]**](DiscoveryJobJobSpecJobDataNodesInner.md) |  | [optional] 
 
 
 

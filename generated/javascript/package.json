@@ -1,7 +1,7 @@
 {
-  "name": "severalnines_cluster_control",
-  "version": "1.0.0",
-  "description": "This_is_a____",
+  "name": "severalnines_cluster_control_rest_api__v2",
+  "version": "OpenAPI specification v1.0.0",
+  "description": "REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.",
   "license": "Unlicense",
   "main": "dist/index.js",
   "scripts": {
