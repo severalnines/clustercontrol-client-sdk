@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.users import Users  # noqa: E501
+from openapi_cc_client.models.users import Users
 
 class TestUsers(unittest.TestCase):
     """Users unit test stubs"""
@@ -29,12 +28,12 @@ class TestUsers(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Users:
         """Test Users
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Users`
         """
-        model = Users()  # noqa: E501
+        model = Users()
         if include_optional:
             return Users(
                 operation = 'createUser',

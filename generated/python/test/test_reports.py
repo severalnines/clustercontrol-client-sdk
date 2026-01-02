@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.reports import Reports  # noqa: E501
+from openapi_cc_client.models.reports import Reports
 
 class TestReports(unittest.TestCase):
     """Reports unit test stubs"""
@@ -29,12 +28,12 @@ class TestReports(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Reports:
         """Test Reports
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Reports`
         """
-        model = Reports()  # noqa: E501
+        model = Reports()
         if include_optional:
             return Reports(
                 operation = 'generateReport',

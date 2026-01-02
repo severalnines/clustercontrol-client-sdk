@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **begin** | **str** | e.g. \&quot;2021-06-07T09:41:43.636Z\&quot; | [optional] 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of StatCmonAgentRequestData from a JSON string
 stat_cmon_agent_request_data_instance = StatCmonAgentRequestData.from_json(json)
 # print the JSON string representation of the object
-print StatCmonAgentRequestData.to_json()
+print(StatCmonAgentRequestData.to_json())
 
 # convert the object into a dict
 stat_cmon_agent_request_data_dict = stat_cmon_agent_request_data_instance.to_dict()
 # create an instance of StatCmonAgentRequestData from a dict
-stat_cmon_agent_request_data_form_dict = stat_cmon_agent_request_data.from_dict(stat_cmon_agent_request_data_dict)
+stat_cmon_agent_request_data_from_dict = StatCmonAgentRequestData.from_dict(stat_cmon_agent_request_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

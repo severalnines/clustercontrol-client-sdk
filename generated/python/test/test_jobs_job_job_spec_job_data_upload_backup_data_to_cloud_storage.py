@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage import JobsJobJobSpecJobDataUploadBackupDataToCloudStorage  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage import JobsJobJobSpecJobDataUploadBackupDataToCloudStorage
 
 class TestJobsJobJobSpecJobDataUploadBackupDataToCloudStorage(unittest.TestCase):
     """JobsJobJobSpecJobDataUploadBackupDataToCloudStorage unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataUploadBackupDataToCloudStorage(unittest.TestCase)
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataUploadBackupDataToCloudStorage:
         """Test JobsJobJobSpecJobDataUploadBackupDataToCloudStorage
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataUploadBackupDataToCloudStorage`
         """
-        model = JobsJobJobSpecJobDataUploadBackupDataToCloudStorage()  # noqa: E501
+        model = JobsJobJobSpecJobDataUploadBackupDataToCloudStorage()
         if include_optional:
             return JobsJobJobSpecJobDataUploadBackupDataToCloudStorage(
                 backup_retention = 56,

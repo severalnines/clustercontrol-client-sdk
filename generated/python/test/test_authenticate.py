@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.authenticate import Authenticate  # noqa: E501
+from openapi_cc_client.models.authenticate import Authenticate
 
 class TestAuthenticate(unittest.TestCase):
     """Authenticate unit test stubs"""
@@ -29,12 +28,12 @@ class TestAuthenticate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Authenticate:
         """Test Authenticate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Authenticate`
         """
-        model = Authenticate()  # noqa: E501
+        model = Authenticate()
         if include_optional:
             return Authenticate(
                 operation = 'authenticateWithPassword',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.cloud_credentials import CloudCredentials  # noqa: E501
+from openapi_cc_client.models.cloud_credentials import CloudCredentials
 
 class TestCloudCredentials(unittest.TestCase):
     """CloudCredentials unit test stubs"""
@@ -29,12 +28,12 @@ class TestCloudCredentials(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CloudCredentials:
         """Test CloudCredentials
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CloudCredentials`
         """
-        model = CloudCredentials()  # noqa: E501
+        model = CloudCredentials()
         if include_optional:
             return CloudCredentials(
                 access_key_id = '',

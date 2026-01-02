@@ -18,79 +18,95 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist, validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.stat_prometheus_queries_inner import StatPrometheusQueriesInner
+from typing import Optional, Set
+from typing_extensions import Self
 
 class StatPrometheus(BaseModel):
     """
     StatPrometheus
-    """
-    operation: StrictStr = Field(...)
+    """ # noqa: E501
+    operation: StrictStr
     cluster_id: Optional[StrictInt] = None
     cluster_name: Optional[StrictStr] = None
-    queries: Optional[conlist(StatPrometheusQueriesInner)] = None
-    start: Optional[StrictInt] = Field(None, description="Seconds since 1970. e.g. 1622105617")
-    end: Optional[StrictInt] = Field(None, description="Seconds since 1970. e.g. 1622108317")
+    queries: Optional[List[StatPrometheusQueriesInner]] = None
+    start: Optional[StrictInt] = Field(default=None, description="Seconds since 1970. e.g. 1622105617")
+    end: Optional[StrictInt] = Field(default=None, description="Seconds since 1970. e.g. 1622108317")
     step: Optional[StrictInt] = None
     returnfrom: Optional[StrictInt] = None
-    __properties = ["operation", "cluster_id", "cluster_name", "queries", "start", "end", "step", "returnfrom"]
+    __properties: ClassVar[List[str]] = ["operation", "cluster_id", "cluster_name", "queries", "start", "end", "step", "returnfrom"]
 
-    @validator('operation')
+    @field_validator('operation')
     def operation_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('/prometheus'):
+        if value not in set(['/prometheus']):
             raise ValueError("must be one of enum values ('/prometheus')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> StatPrometheus:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of StatPrometheus from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in queries (list)
         _items = []
         if self.queries:
-            for _item in self.queries:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_queries in self.queries:
+                if _item_queries:
+                    _items.append(_item_queries.to_dict())
             _dict['queries'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> StatPrometheus:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of StatPrometheus from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return StatPrometheus.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = StatPrometheus.parse_obj({
+        _obj = cls.model_validate({
             "operation": obj.get("operation"),
             "cluster_id": obj.get("cluster_id"),
             "cluster_name": obj.get("cluster_name"),
-            "queries": [StatPrometheusQueriesInner.from_dict(_item) for _item in obj.get("queries")] if obj.get("queries") is not None else None,
+            "queries": [StatPrometheusQueriesInner.from_dict(_item) for _item in obj["queries"]] if obj.get("queries") is not None else None,
             "start": obj.get("start"),
             "end": obj.get("end"),
             "step": obj.get("step"),

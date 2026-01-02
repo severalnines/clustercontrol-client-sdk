@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.discovery_nodes_inner import DiscoveryNodesInner  # noqa: E501
+from openapi_cc_client.models.discovery_nodes_inner import DiscoveryNodesInner
 
 class TestDiscoveryNodesInner(unittest.TestCase):
     """DiscoveryNodesInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestDiscoveryNodesInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DiscoveryNodesInner:
         """Test DiscoveryNodesInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DiscoveryNodesInner`
         """
-        model = DiscoveryNodesInner()  # noqa: E501
+        model = DiscoveryNodesInner()
         if include_optional:
             return DiscoveryNodesInner(
                 class_name = 'CmonHost',

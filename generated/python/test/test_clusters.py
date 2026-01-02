@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.clusters import Clusters  # noqa: E501
+from openapi_cc_client.models.clusters import Clusters
 
 class TestClusters(unittest.TestCase):
     """Clusters unit test stubs"""
@@ -29,12 +28,12 @@ class TestClusters(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Clusters:
         """Test Clusters
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Clusters`
         """
-        model = Clusters()  # noqa: E501
+        model = Clusters()
         if include_optional:
             return Clusters(
                 operation = 'getallclusterinfo',

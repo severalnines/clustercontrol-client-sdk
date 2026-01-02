@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner_members_inner import JobsJobJobSpecJobDataReplicaSetsInnerMembersInner  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner_members_inner import JobsJobJobSpecJobDataReplicaSetsInnerMembersInner
 
 class TestJobsJobJobSpecJobDataReplicaSetsInnerMembersInner(unittest.TestCase):
     """JobsJobJobSpecJobDataReplicaSetsInnerMembersInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataReplicaSetsInnerMembersInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataReplicaSetsInnerMembersInner:
         """Test JobsJobJobSpecJobDataReplicaSetsInnerMembersInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataReplicaSetsInnerMembersInner`
         """
-        model = JobsJobJobSpecJobDataReplicaSetsInnerMembersInner()  # noqa: E501
+        model = JobsJobJobSpecJobDataReplicaSetsInnerMembersInner()
         if include_optional:
             return JobsJobJobSpecJobDataReplicaSetsInnerMembersInner(
                 hostname = '',
@@ -43,7 +42,7 @@ class TestJobsJobJobSpecJobDataReplicaSetsInnerMembersInner(unittest.TestCase):
                 port = '',
                 arbiter_only = True,
                 hidden = True,
-                priority = '',
+                priority = 56,
                 slave_delay = ''
             )
         else:

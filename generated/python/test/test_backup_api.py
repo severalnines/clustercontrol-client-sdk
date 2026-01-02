@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.backup_api import BackupApi  # noqa: E501
+from openapi_cc_client.api.backup_api import BackupApi
 
 
 class TestBackupApi(unittest.TestCase):
     """BackupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = BackupApi()  # noqa: E501
+        self.api = BackupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestBackupApi(unittest.TestCase):
     def test_backup_post(self) -> None:
         """Test case for backup_post
 
-        GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord  # noqa: E501
+        GetBackups | GetBackupSchedules | ScheduleBackup | DeleteBackupRecord
         """
         pass
 

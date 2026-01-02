@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.users_user_public_keys_inner import UsersUserPublicKeysInner  # noqa: E501
+from openapi_cc_client.models.users_user_public_keys_inner import UsersUserPublicKeysInner
 
 class TestUsersUserPublicKeysInner(unittest.TestCase):
     """UsersUserPublicKeysInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestUsersUserPublicKeysInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsersUserPublicKeysInner:
         """Test UsersUserPublicKeysInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsersUserPublicKeysInner`
         """
-        model = UsersUserPublicKeysInner()  # noqa: E501
+        model = UsersUserPublicKeysInner()
         if include_optional:
             return UsersUserPublicKeysInner(
                 key = '',

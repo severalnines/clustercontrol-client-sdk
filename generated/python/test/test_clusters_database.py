@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.clusters_database import ClustersDatabase  # noqa: E501
+from openapi_cc_client.models.clusters_database import ClustersDatabase
 
 class TestClustersDatabase(unittest.TestCase):
     """ClustersDatabase unit test stubs"""
@@ -29,12 +28,12 @@ class TestClustersDatabase(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClustersDatabase:
         """Test ClustersDatabase
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClustersDatabase`
         """
-        model = ClustersDatabase()  # noqa: E501
+        model = ClustersDatabase()
         if include_optional:
             return ClustersDatabase(
                 class_name = 'CmonDataBase',

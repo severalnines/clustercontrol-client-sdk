@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **backup_retention** | **int** |  | [optional] 
 **backupdir** | **str** |  | [optional] 
 **backupsubdir** | **str** |  | [optional] 
-**cc_storage** | **str** |  | [optional] 
+**cc_storage** | **bool** |  | [optional] 
 **compression** | **bool** |  | [optional] 
 **compresion_level** | **int** |  | [optional] 
 **encrypt_backup** | **bool** |  | [optional] 
@@ -30,12 +31,12 @@ json = "{}"
 # create an instance of BackupScheduleJobJobData from a JSON string
 backup_schedule_job_job_data_instance = BackupScheduleJobJobData.from_json(json)
 # print the JSON string representation of the object
-print BackupScheduleJobJobData.to_json()
+print(BackupScheduleJobJobData.to_json())
 
 # convert the object into a dict
 backup_schedule_job_job_data_dict = backup_schedule_job_job_data_instance.to_dict()
 # create an instance of BackupScheduleJobJobData from a dict
-backup_schedule_job_job_data_form_dict = backup_schedule_job_job_data.from_dict(backup_schedule_job_job_data_dict)
+backup_schedule_job_job_data_from_dict = BackupScheduleJobJobData.from_dict(backup_schedule_job_job_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

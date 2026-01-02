@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_node import JobsJobJobSpecJobDataNode  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_node import JobsJobJobSpecJobDataNode
 
 class TestJobsJobJobSpecJobDataNode(unittest.TestCase):
     """JobsJobJobSpecJobDataNode unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataNode(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataNode:
         """Test JobsJobJobSpecJobDataNode
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataNode`
         """
-        model = JobsJobJobSpecJobDataNode()  # noqa: E501
+        model = JobsJobJobSpecJobDataNode()
         if include_optional:
             return JobsJobJobSpecJobDataNode(
                 backend_name_ro = '',
@@ -42,6 +41,12 @@ class TestJobsJobJobSpecJobDataNode(unittest.TestCase):
                 data_retention = '',
                 data_retention_size = 56,
                 hostname = '',
+                hostname_data = '',
+                hostname_internal = '',
+                configfile = '',
+                datadir = '',
+                pgname = '',
+                synchronous = True,
                 lb_admin = '',
                 lb_password = '',
                 lb_policy = '',

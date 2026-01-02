@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.controller_api import ControllerApi  # noqa: E501
+from openapi_cc_client.api.controller_api import ControllerApi
 
 
 class TestControllerApi(unittest.TestCase):
     """ControllerApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ControllerApi()  # noqa: E501
+        self.api = ControllerApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestControllerApi(unittest.TestCase):
     def test_controller_post(self) -> None:
         """Test case for controller_post
 
-        Ping | Heartbeat | etc  # noqa: E501
+        Ping | Heartbeat | etc
         """
         pass
 

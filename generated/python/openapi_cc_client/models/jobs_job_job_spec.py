@@ -18,72 +18,88 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, StrictInt, StrictStr, validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.jobs_job_job_spec_job_data import JobsJobJobSpecJobData
+from typing import Optional, Set
+from typing_extensions import Self
 
 class JobsJobJobSpec(BaseModel):
     """
     JobsJobJobSpec
-    """
+    """ # noqa: E501
     command: Optional[StrictStr] = None
     id: Optional[StrictInt] = None
     job_data: Optional[JobsJobJobSpecJobData] = None
-    __properties = ["command", "id", "job_data"]
+    __properties: ClassVar[List[str]] = ["command", "id", "job_data"]
 
-    @validator('command')
+    @field_validator('command')
     def command_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('rolling_restart', 'create_cluster', 'remove_cluster', 'backup', 'verify_backup', 'deploy_agents', 'pbmagent', 'addnode', 'pgbouncer', 'promote_replication_slave', 'setup_audit_logging', 'disable_recovery', 'enable_recovery', 'restart', 'enable_db_readonly', 'error_report', 'calculate_db_growth', 'enable_node_recovery', 'disable_node_recovery', 'check_pkg_upgrades', 'upgrade_cluster', 'success', 'add_replication_slave', 'deploy_cmonagents', 'delete_backup'):
-            raise ValueError("must be one of enum values ('rolling_restart', 'create_cluster', 'remove_cluster', 'backup', 'verify_backup', 'deploy_agents', 'pbmagent', 'addnode', 'pgbouncer', 'promote_replication_slave', 'setup_audit_logging', 'disable_recovery', 'enable_recovery', 'restart', 'enable_db_readonly', 'error_report', 'calculate_db_growth', 'enable_node_recovery', 'disable_node_recovery', 'check_pkg_upgrades', 'upgrade_cluster', 'success', 'add_replication_slave', 'deploy_cmonagents', 'delete_backup')")
+        if value not in set(['rolling_restart', 'create_cluster', 'remove_cluster', 'add_cluster', 'backup', 'verify_backup', 'deploy_agents', 'pbmagent', 'addnode', 'pgbouncer', 'promote_replication_slave', 'setup_audit_logging', 'disable_recovery', 'enable_recovery', 'restart', 'enable_db_readonly', 'error_report', 'calculate_db_growth', 'enable_node_recovery', 'disable_node_recovery', 'check_pkg_upgrades', 'upgrade_cluster', 'success', 'add_replication_slave', 'deploy_cmonagents', 'delete_backup', 'registernode', 'removenode', 'add_shard', 'garbd', 'pgbouncer', 'haproxy', 'proxysql']):
+            raise ValueError("must be one of enum values ('rolling_restart', 'create_cluster', 'remove_cluster', 'add_cluster', 'backup', 'verify_backup', 'deploy_agents', 'pbmagent', 'addnode', 'pgbouncer', 'promote_replication_slave', 'setup_audit_logging', 'disable_recovery', 'enable_recovery', 'restart', 'enable_db_readonly', 'error_report', 'calculate_db_growth', 'enable_node_recovery', 'disable_node_recovery', 'check_pkg_upgrades', 'upgrade_cluster', 'success', 'add_replication_slave', 'deploy_cmonagents', 'delete_backup', 'registernode', 'removenode', 'add_shard', 'garbd', 'pgbouncer', 'haproxy', 'proxysql')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> JobsJobJobSpec:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of JobsJobJobSpec from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of job_data
         if self.job_data:
             _dict['job_data'] = self.job_data.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> JobsJobJobSpec:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of JobsJobJobSpec from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return JobsJobJobSpec.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = JobsJobJobSpec.parse_obj({
+        _obj = cls.model_validate({
             "command": obj.get("command"),
             "id": obj.get("id"),
-            "job_data": JobsJobJobSpecJobData.from_dict(obj.get("job_data")) if obj.get("job_data") is not None else None
+            "job_data": JobsJobJobSpecJobData.from_dict(obj["job_data"]) if obj.get("job_data") is not None else None
         })
         return _obj
 

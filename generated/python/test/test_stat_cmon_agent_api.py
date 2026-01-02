@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.stat_cmon_agent_api import StatCmonAgentApi  # noqa: E501
+from openapi_cc_client.api.stat_cmon_agent_api import StatCmonAgentApi
 
 
 class TestStatCmonAgentApi(unittest.TestCase):
     """StatCmonAgentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = StatCmonAgentApi()  # noqa: E501
+        self.api = StatCmonAgentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestStatCmonAgentApi(unittest.TestCase):
     def test_stat_cmonagent_post(self) -> None:
         """Test case for stat_cmonagent_post
 
-        GetInfo | etc  # noqa: E501
+        GetInfo | etc
         """
         pass
 

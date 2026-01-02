@@ -13,7 +13,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from openapi_cc_client.models.alarm import Alarm
 from openapi_cc_client.models.alarm_response import AlarmResponse
@@ -21,12 +20,21 @@ from openapi_cc_client.models.audit import Audit
 from openapi_cc_client.models.authenticate import Authenticate
 from openapi_cc_client.models.backup import Backup
 from openapi_cc_client.models.backup_backup_record import BackupBackupRecord
+from openapi_cc_client.models.backup_response import BackupResponse
+from openapi_cc_client.models.backup_response_backup_records_inner import BackupResponseBackupRecordsInner
+from openapi_cc_client.models.backup_response_backup_records_inner_cloud_locations_inner import BackupResponseBackupRecordsInnerCloudLocationsInner
+from openapi_cc_client.models.backup_response_backup_records_inner_cluster import BackupResponseBackupRecordsInnerCluster
+from openapi_cc_client.models.backup_response_backup_records_inner_cluster_maintenance_periods_inner import BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner
+from openapi_cc_client.models.backup_response_backup_records_inner_host_locations_inner import BackupResponseBackupRecordsInnerHostLocationsInner
+from openapi_cc_client.models.backup_response_backup_records_inner_metadata import BackupResponseBackupRecordsInnerMetadata
 from openapi_cc_client.models.backup_schedule import BackupSchedule
 from openapi_cc_client.models.backup_schedule_job import BackupScheduleJob
 from openapi_cc_client.models.backup_schedule_job_job_data import BackupScheduleJobJobData
 from openapi_cc_client.models.backup_schedule_job_job_data_verify_backup import BackupScheduleJobJobDataVerifyBackup
 from openapi_cc_client.models.cloud import Cloud
 from openapi_cc_client.models.cloud_credentials import CloudCredentials
+from openapi_cc_client.models.cluster_response import ClusterResponse
+from openapi_cc_client.models.cluster_response_hosts_inner import ClusterResponseHostsInner
 from openapi_cc_client.models.clusters import Clusters
 from openapi_cc_client.models.clusters_account import ClustersAccount
 from openapi_cc_client.models.clusters_configuration_inner import ClustersConfigurationInner
@@ -63,6 +71,8 @@ from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner_memb
 from openapi_cc_client.models.jobs_job_job_spec_job_data_topology import JobsJobJobSpecJobDataTopology
 from openapi_cc_client.models.jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage import JobsJobJobSpecJobDataUploadBackupDataToCloudStorage
 from openapi_cc_client.models.maintenance import Maintenance
+from openapi_cc_client.models.maintenance_response import MaintenanceResponse
+from openapi_cc_client.models.maintenance_response_maintenance_records_inner import MaintenanceResponseMaintenanceRecordsInner
 from openapi_cc_client.models.reports import Reports
 from openapi_cc_client.models.reports_report import ReportsReport
 from openapi_cc_client.models.stat import Stat
@@ -77,3 +87,4 @@ from openapi_cc_client.models.users_user import UsersUser
 from openapi_cc_client.models.users_user_groups_inner import UsersUserGroupsInner
 from openapi_cc_client.models.users_user_public_keys_inner import UsersUserPublicKeysInner
 from openapi_cc_client.models.users_user_timezone import UsersUserTimezone
+

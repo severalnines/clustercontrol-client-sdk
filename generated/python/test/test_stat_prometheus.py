@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.stat_prometheus import StatPrometheus  # noqa: E501
+from openapi_cc_client.models.stat_prometheus import StatPrometheus
 
 class TestStatPrometheus(unittest.TestCase):
     """StatPrometheus unit test stubs"""
@@ -29,12 +28,12 @@ class TestStatPrometheus(unittest.TestCase):
 
     def make_instance(self, include_optional) -> StatPrometheus:
         """Test StatPrometheus
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `StatPrometheus`
         """
-        model = StatPrometheus()  # noqa: E501
+        model = StatPrometheus()
         if include_optional:
             return StatPrometheus(
                 operation = '/prometheus',

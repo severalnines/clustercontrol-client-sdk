@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.config_api import ConfigApi  # noqa: E501
+from openapi_cc_client.api.config_api import ConfigApi
 
 
 class TestConfigApi(unittest.TestCase):
     """ConfigApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ConfigApi()  # noqa: E501
+        self.api = ConfigApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestConfigApi(unittest.TestCase):
     def test_config_post(self) -> None:
         """Test case for config_post
 
-        GetConfig | xxx | xxx | etc  # noqa: E501
+        GetConfig | xxx | xxx | etc
         """
         pass
 

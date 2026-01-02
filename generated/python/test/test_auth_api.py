@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.auth_api import AuthApi  # noqa: E501
+from openapi_cc_client.api.auth_api import AuthApi
 
 
 class TestAuthApi(unittest.TestCase):
     """AuthApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AuthApi()  # noqa: E501
+        self.api = AuthApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestAuthApi(unittest.TestCase):
     def test_auth_post(self) -> None:
         """Test case for auth_post
 
-        Authenticate | Logout | Password Reset | Authenticate response (with challenge)  # noqa: E501
+        Authenticate | Logout | Password Reset | Authenticate response (with challenge)
         """
         pass
 

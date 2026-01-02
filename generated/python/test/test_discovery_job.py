@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.discovery_job import DiscoveryJob  # noqa: E501
+from openapi_cc_client.models.discovery_job import DiscoveryJob
 
 class TestDiscoveryJob(unittest.TestCase):
     """DiscoveryJob unit test stubs"""
@@ -29,12 +28,12 @@ class TestDiscoveryJob(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DiscoveryJob:
         """Test DiscoveryJob
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DiscoveryJob`
         """
-        model = DiscoveryJob()  # noqa: E501
+        model = DiscoveryJob()
         if include_optional:
             return DiscoveryJob(
                 class_name = 'CmonJobInstance',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.clusters_account import ClustersAccount  # noqa: E501
+from openapi_cc_client.models.clusters_account import ClustersAccount
 
 class TestClustersAccount(unittest.TestCase):
     """ClustersAccount unit test stubs"""
@@ -29,12 +28,12 @@ class TestClustersAccount(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClustersAccount:
         """Test ClustersAccount
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClustersAccount`
         """
-        model = ClustersAccount()  # noqa: E501
+        model = ClustersAccount()
         if include_optional:
             return ClustersAccount(
                 class_name = 'CmonAccount',

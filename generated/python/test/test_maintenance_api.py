@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.maintenance_api import MaintenanceApi  # noqa: E501
+from openapi_cc_client.api.maintenance_api import MaintenanceApi
 
 
 class TestMaintenanceApi(unittest.TestCase):
     """MaintenanceApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = MaintenanceApi()  # noqa: E501
+        self.api = MaintenanceApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestMaintenanceApi(unittest.TestCase):
     def test_maintenance_post(self) -> None:
         """Test case for maintenance_post
 
-        CreateJobInstance | etc  # noqa: E501
+        Set a maintenance window for a managed database cluster
         """
         pass
 

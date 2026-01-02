@@ -1,31 +1,30 @@
 # openapi_cc_client.MaintenanceApi
 
-All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**maintenance_post**](MaintenanceApi.md#maintenance_post) | **POST** /maintenance | CreateJobInstance | etc
+[**maintenance_post**](MaintenanceApi.md#maintenance_post) | **POST** /maintenance | Set a maintenance window for a managed database cluster
 
 
 # **maintenance_post**
 > maintenance_post(maintenance)
 
-CreateJobInstance | etc
+Set a maintenance window for a managed database cluster
 
 ### Example
 
+
 ```python
-import time
-import os
 import openapi_cc_client
 from openapi_cc_client.models.maintenance import Maintenance
 from openapi_cc_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://<cchost>:9501/v2
+# Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_cc_client.Configuration(
-    host = "https://<cchost>:9501/v2"
+    host = "http://localhost"
 )
 
 
@@ -36,7 +35,7 @@ with openapi_cc_client.ApiClient(configuration) as api_client:
     maintenance = openapi_cc_client.Maintenance() # Maintenance | Creating, deleting and obtaining maintenance periods
 
     try:
-        # CreateJobInstance | etc
+        # Set a maintenance window for a managed database cluster
         api_instance.maintenance_post(maintenance)
     except Exception as e:
         print("Exception when calling MaintenanceApi->maintenance_post: %s\n" % e)
@@ -45,6 +44,7 @@ with openapi_cc_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -64,6 +64,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |

@@ -18,58 +18,74 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.config_ldap_configuration_group_mappings_inner import ConfigLdapConfigurationGroupMappingsInner
 from openapi_cc_client.models.config_ldap_configuration_ldap_settings import ConfigLdapConfigurationLdapSettings
 from openapi_cc_client.models.config_ldap_configuration_security import ConfigLdapConfigurationSecurity
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ConfigLdapConfiguration(BaseModel):
     """
     ConfigLdapConfiguration
-    """
+    """ # noqa: E501
     enabled: Optional[StrictBool] = None
-    ldap_admin_password: Optional[StrictStr] = Field(None, alias="ldapAdminPassword")
-    ldap_admin_user: Optional[StrictStr] = Field(None, alias="ldapAdminUser")
-    ldap_group_search_root: Optional[StrictStr] = Field(None, alias="ldapGroupSearchRoot")
-    ldap_server_uri: Optional[StrictStr] = Field(None, alias="ldapServerUri")
-    ldap_user_search_root: Optional[StrictStr] = Field(None, alias="ldapUserSearchRoot")
-    group_mappings: Optional[conlist(ConfigLdapConfigurationGroupMappingsInner)] = Field(None, alias="groupMappings")
-    ldap_settings: Optional[ConfigLdapConfigurationLdapSettings] = Field(None, alias="ldapSettings")
+    ldap_admin_password: Optional[StrictStr] = Field(default=None, alias="ldapAdminPassword")
+    ldap_admin_user: Optional[StrictStr] = Field(default=None, alias="ldapAdminUser")
+    ldap_group_search_root: Optional[StrictStr] = Field(default=None, alias="ldapGroupSearchRoot")
+    ldap_server_uri: Optional[StrictStr] = Field(default=None, alias="ldapServerUri")
+    ldap_user_search_root: Optional[StrictStr] = Field(default=None, alias="ldapUserSearchRoot")
+    group_mappings: Optional[List[ConfigLdapConfigurationGroupMappingsInner]] = Field(default=None, alias="groupMappings")
+    ldap_settings: Optional[ConfigLdapConfigurationLdapSettings] = Field(default=None, alias="ldapSettings")
     security: Optional[ConfigLdapConfigurationSecurity] = None
-    __properties = ["enabled", "ldapAdminPassword", "ldapAdminUser", "ldapGroupSearchRoot", "ldapServerUri", "ldapUserSearchRoot", "groupMappings", "ldapSettings", "security"]
+    __properties: ClassVar[List[str]] = ["enabled", "ldapAdminPassword", "ldapAdminUser", "ldapGroupSearchRoot", "ldapServerUri", "ldapUserSearchRoot", "groupMappings", "ldapSettings", "security"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ConfigLdapConfiguration:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ConfigLdapConfiguration from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in group_mappings (list)
         _items = []
         if self.group_mappings:
-            for _item in self.group_mappings:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_group_mappings in self.group_mappings:
+                if _item_group_mappings:
+                    _items.append(_item_group_mappings.to_dict())
             _dict['groupMappings'] = _items
         # override the default output from pydantic by calling `to_dict()` of ldap_settings
         if self.ldap_settings:
@@ -80,24 +96,24 @@ class ConfigLdapConfiguration(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ConfigLdapConfiguration:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ConfigLdapConfiguration from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ConfigLdapConfiguration.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ConfigLdapConfiguration.parse_obj({
+        _obj = cls.model_validate({
             "enabled": obj.get("enabled"),
-            "ldap_admin_password": obj.get("ldapAdminPassword"),
-            "ldap_admin_user": obj.get("ldapAdminUser"),
-            "ldap_group_search_root": obj.get("ldapGroupSearchRoot"),
-            "ldap_server_uri": obj.get("ldapServerUri"),
-            "ldap_user_search_root": obj.get("ldapUserSearchRoot"),
-            "group_mappings": [ConfigLdapConfigurationGroupMappingsInner.from_dict(_item) for _item in obj.get("groupMappings")] if obj.get("groupMappings") is not None else None,
-            "ldap_settings": ConfigLdapConfigurationLdapSettings.from_dict(obj.get("ldapSettings")) if obj.get("ldapSettings") is not None else None,
-            "security": ConfigLdapConfigurationSecurity.from_dict(obj.get("security")) if obj.get("security") is not None else None
+            "ldapAdminPassword": obj.get("ldapAdminPassword"),
+            "ldapAdminUser": obj.get("ldapAdminUser"),
+            "ldapGroupSearchRoot": obj.get("ldapGroupSearchRoot"),
+            "ldapServerUri": obj.get("ldapServerUri"),
+            "ldapUserSearchRoot": obj.get("ldapUserSearchRoot"),
+            "groupMappings": [ConfigLdapConfigurationGroupMappingsInner.from_dict(_item) for _item in obj["groupMappings"]] if obj.get("groupMappings") is not None else None,
+            "ldapSettings": ConfigLdapConfigurationLdapSettings.from_dict(obj["ldapSettings"]) if obj.get("ldapSettings") is not None else None,
+            "security": ConfigLdapConfigurationSecurity.from_dict(obj["security"]) if obj.get("security") is not None else None
         })
         return _obj
 

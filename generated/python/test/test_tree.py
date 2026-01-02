@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.tree import Tree  # noqa: E501
+from openapi_cc_client.models.tree import Tree
 
 class TestTree(unittest.TestCase):
     """Tree unit test stubs"""
@@ -29,12 +28,12 @@ class TestTree(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Tree:
         """Test Tree
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Tree`
         """
-        model = Tree()  # noqa: E501
+        model = Tree()
         if include_optional:
             return Tree(
                 operation = 'addAcl',

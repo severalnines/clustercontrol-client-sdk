@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job import JobsJob  # noqa: E501
+from openapi_cc_client.models.jobs_job import JobsJob
 
 class TestJobsJob(unittest.TestCase):
     """JobsJob unit test stubs"""
@@ -29,15 +28,21 @@ class TestJobsJob(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJob:
         """Test JobsJob
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJob`
         """
-        model = JobsJob()  # noqa: E501
+        model = JobsJob()
         if include_optional:
             return JobsJob(
                 class_name = '',
+                title = '',
+                status = '',
+                recurrence = '',
+                tags = [
+                    ''
+                    ],
                 job_spec = openapi_cc_client.models.jobs_job_job_spec.Jobs_job_job_spec(
                     command = 'rolling_restart', 
                     id = 56, 
@@ -66,7 +71,9 @@ class TestJobsJob(unittest.TestCase):
                         extended_insert = True, 
                         backup_dir = '', 
                         backupsubdir = '', 
-                        cc_storage = '', 
+                        remove_backups = True, 
+                        backup_system_db = True, 
+                        cc_storage = True, 
                         compression = True, 
                         compression_level = 56, 
                         db_database = '', 
@@ -84,6 +91,7 @@ class TestJobsJob(unittest.TestCase):
                         use_rw_split = True, 
                         hostname = '', 
                         master_address = '', 
+                        master_delay = 56, 
                         include_databases = '', 
                         install_timescaledb = True, 
                         update_lb = True, 
@@ -93,15 +101,17 @@ class TestJobsJob(unittest.TestCase):
                         use_pigz = True, 
                         use_qpress = True, 
                         wsrep_desync = True, 
+                        galera_segment = '', 
                         xtrabackup_backup_locks = True, 
                         xtrabackup_lock_ddl_per_table = True, 
                         xtrabackup_parallellism = 56, 
                         verify_backup_delay = 56, 
-                        data_dir = '', 
+                        datadir = '', 
                         db_user = '', 
                         disable_firewall = True, 
                         disable_selinux = True, 
                         enable_uninstall = True, 
+                        unregister_only = True, 
                         generate_token = True, 
                         install_software = True, 
                         use_internal_repos = True, 
@@ -114,6 +124,14 @@ class TestJobsJob(unittest.TestCase):
                         node_type = 56, 
                         overwrite_mysqlchk = True, 
                         port = 56, 
+                        sentinel_port = '', 
+                        redis_sharded_port = 56, 
+                        valkey_sharded_port = 56, 
+                        redis_sharded_bus_port = 56, 
+                        valkey_sharded_bus_port = 56, 
+                        redis_cluster_replica_validity_factor = 56, 
+                        valkey_cluster_replica_validity_factor = 56, 
+                        node_timeout_ms = 56, 
                         ssh_keyfile = '', 
                         ssh_port = '', 
                         ssh_user = '', 
@@ -137,9 +155,13 @@ class TestJobsJob(unittest.TestCase):
                         pitr_stop_pos = 56, 
                         host_location_uuid = '', 
                         bootstrap = True, 
-                        snapshot_locaiton = '', 
+                        snapshot_location = '', 
                         snapshot_repository = '', 
+                        snapshot_repository_type = '', 
+                        snapshot_host = '', 
                         storage_host = '', 
+                        replicaset = '', 
+                        deploy_agents = True, 
                         upload_backup_data_to_cloud_storage = openapi_cc_client.models.jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage.Jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage(
                             backup_retention = 56, 
                             bucket = '', 
@@ -175,6 +197,12 @@ class TestJobsJob(unittest.TestCase):
                             data_retention = '', 
                             data_retention_size = 56, 
                             hostname = '', 
+                            hostname_data = '', 
+                            hostname_internal = '', 
+                            configfile = '', 
+                            datadir = '', 
+                            pgname = '', 
+                            synchronous = True, 
                             lb_admin = '', 
                             lb_password = '', 
                             lb_policy = '', 
@@ -216,7 +244,8 @@ class TestJobsJob(unittest.TestCase):
                                 backup_dir = '', 
                                 synchronous = True, 
                                 protocol = 'elastic', 
-                                roles = 'master', )
+                                roles = 'master', 
+                                role = 'primary', )
                             ], 
                         node_adresses = [
                             openapi_cc_client.models.jobs_job_job_spec_job_data_node_adresses_inner.Jobs_job_job_spec_job_data_node_adresses_inner(
@@ -238,13 +267,7 @@ class TestJobsJob(unittest.TestCase):
                             ], 
                         with_tags = [
                             ''
-                            ], ), ),
-                recurrence = '',
-                tags = [
-                    ''
-                    ],
-                title = 'Rolling Restart',
-                status = 'PAUSED'
+                            ], ), )
             )
         else:
             return JobsJob(

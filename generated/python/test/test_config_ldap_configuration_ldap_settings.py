@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.config_ldap_configuration_ldap_settings import ConfigLdapConfigurationLdapSettings  # noqa: E501
+from openapi_cc_client.models.config_ldap_configuration_ldap_settings import ConfigLdapConfigurationLdapSettings
 
 class TestConfigLdapConfigurationLdapSettings(unittest.TestCase):
     """ConfigLdapConfigurationLdapSettings unit test stubs"""
@@ -29,12 +28,12 @@ class TestConfigLdapConfigurationLdapSettings(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ConfigLdapConfigurationLdapSettings:
         """Test ConfigLdapConfigurationLdapSettings
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ConfigLdapConfigurationLdapSettings`
         """
-        model = ConfigLdapConfigurationLdapSettings()  # noqa: E501
+        model = ConfigLdapConfigurationLdapSettings()
         if include_optional:
             return ConfigLdapConfigurationLdapSettings(
                 ldap_email_attributes = '',

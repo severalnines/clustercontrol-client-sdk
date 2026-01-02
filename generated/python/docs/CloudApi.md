@@ -1,6 +1,6 @@
 # openapi_cc_client.CloudApi
 
-All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,18 +14,17 @@ VerifyCredentials | ListCredentials | etc
 
 ### Example
 
+
 ```python
-import time
-import os
 import openapi_cc_client
 from openapi_cc_client.models.cloud import Cloud
 from openapi_cc_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://<cchost>:9501/v2
+# Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_cc_client.Configuration(
-    host = "https://<cchost>:9501/v2"
+    host = "http://localhost"
 )
 
 
@@ -46,6 +45,7 @@ with openapi_cc_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cloud** | [**Cloud**](Cloud.md)| calls to manage the cloud-credentials | 
@@ -64,6 +64,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.users_user_timezone import UsersUserTimezone  # noqa: E501
+from openapi_cc_client.models.users_user_timezone import UsersUserTimezone
 
 class TestUsersUserTimezone(unittest.TestCase):
     """UsersUserTimezone unit test stubs"""
@@ -29,12 +28,12 @@ class TestUsersUserTimezone(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsersUserTimezone:
         """Test UsersUserTimezone
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsersUserTimezone`
         """
-        model = UsersUserTimezone()  # noqa: E501
+        model = UsersUserTimezone()
         if include_optional:
             return UsersUserTimezone(
                 class_name = '',

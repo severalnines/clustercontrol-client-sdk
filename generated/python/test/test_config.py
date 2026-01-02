@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.config import Config  # noqa: E501
+from openapi_cc_client.models.config import Config
 
 class TestConfig(unittest.TestCase):
     """Config unit test stubs"""
@@ -29,12 +28,12 @@ class TestConfig(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Config:
         """Test Config
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Config`
         """
-        model = Config()  # noqa: E501
+        model = Config()
         if include_optional:
             return Config(
                 operation = 'getConfig',

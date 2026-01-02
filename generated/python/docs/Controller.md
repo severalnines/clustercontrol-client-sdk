@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | **str** |  | 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of Controller from a JSON string
 controller_instance = Controller.from_json(json)
 # print the JSON string representation of the object
-print Controller.to_json()
+print(Controller.to_json())
 
 # convert the object into a dict
 controller_dict = controller_instance.to_dict()
 # create an instance of Controller from a dict
-controller_form_dict = controller.from_dict(controller_dict)
+controller_from_dict = Controller.from_dict(controller_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

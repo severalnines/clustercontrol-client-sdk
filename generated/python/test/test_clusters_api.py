@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.clusters_api import ClustersApi  # noqa: E501
+from openapi_cc_client.api.clusters_api import ClustersApi
 
 
 class TestClustersApi(unittest.TestCase):
     """ClustersApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ClustersApi()  # noqa: E501
+        self.api = ClustersApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestClustersApi(unittest.TestCase):
     def test_clusters_post(self) -> None:
         """Test case for clusters_post
 
-        GetClusterInfo | Get/Set Config | etc  # noqa: E501
+        GetClusterInfo | Get/Set Config | etc
         """
         pass
 

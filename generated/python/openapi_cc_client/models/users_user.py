@@ -18,17 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr, conlist, validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.users_user_groups_inner import UsersUserGroupsInner
 from openapi_cc_client.models.users_user_public_keys_inner import UsersUserPublicKeysInner
 from openapi_cc_client.models.users_user_timezone import UsersUserTimezone
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UsersUser(BaseModel):
     """
     UsersUser
-    """
+    """ # noqa: E501
     class_name: Optional[StrictStr] = None
     user_name: Optional[StrictStr] = None
     user_id: Optional[StrictInt] = None
@@ -37,52 +38,67 @@ class UsersUser(BaseModel):
     email_address: Optional[StrictStr] = None
     new_password: Optional[StrictStr] = None
     old_password: Optional[StrictStr] = None
-    groups: Optional[conlist(UsersUserGroupsInner)] = None
+    groups: Optional[List[UsersUserGroupsInner]] = None
     timezone: Optional[UsersUserTimezone] = None
-    public_keys: Optional[conlist(UsersUserPublicKeysInner)] = None
-    public_key: Optional[conlist(UsersUserPublicKeysInner)] = None
-    __properties = ["class_name", "user_name", "user_id", "first_name", "last_name", "email_address", "new_password", "old_password", "groups", "timezone", "public_keys", "public_key"]
+    public_keys: Optional[List[UsersUserPublicKeysInner]] = None
+    public_key: Optional[List[UsersUserPublicKeysInner]] = None
+    __properties: ClassVar[List[str]] = ["class_name", "user_name", "user_id", "first_name", "last_name", "email_address", "new_password", "old_password", "groups", "timezone", "public_keys", "public_key"]
 
-    @validator('class_name')
+    @field_validator('class_name')
     def class_name_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('CmonUser'):
+        if value not in set(['CmonUser']):
             raise ValueError("must be one of enum values ('CmonUser')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> UsersUser:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UsersUser from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in groups (list)
         _items = []
         if self.groups:
-            for _item in self.groups:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_groups in self.groups:
+                if _item_groups:
+                    _items.append(_item_groups.to_dict())
             _dict['groups'] = _items
         # override the default output from pydantic by calling `to_dict()` of timezone
         if self.timezone:
@@ -90,29 +106,29 @@ class UsersUser(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in public_keys (list)
         _items = []
         if self.public_keys:
-            for _item in self.public_keys:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_public_keys in self.public_keys:
+                if _item_public_keys:
+                    _items.append(_item_public_keys.to_dict())
             _dict['public_keys'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in public_key (list)
         _items = []
         if self.public_key:
-            for _item in self.public_key:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_public_key in self.public_key:
+                if _item_public_key:
+                    _items.append(_item_public_key.to_dict())
             _dict['public_key'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> UsersUser:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UsersUser from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return UsersUser.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = UsersUser.parse_obj({
+        _obj = cls.model_validate({
             "class_name": obj.get("class_name"),
             "user_name": obj.get("user_name"),
             "user_id": obj.get("user_id"),
@@ -121,10 +137,10 @@ class UsersUser(BaseModel):
             "email_address": obj.get("email_address"),
             "new_password": obj.get("new_password"),
             "old_password": obj.get("old_password"),
-            "groups": [UsersUserGroupsInner.from_dict(_item) for _item in obj.get("groups")] if obj.get("groups") is not None else None,
-            "timezone": UsersUserTimezone.from_dict(obj.get("timezone")) if obj.get("timezone") is not None else None,
-            "public_keys": [UsersUserPublicKeysInner.from_dict(_item) for _item in obj.get("public_keys")] if obj.get("public_keys") is not None else None,
-            "public_key": [UsersUserPublicKeysInner.from_dict(_item) for _item in obj.get("public_key")] if obj.get("public_key") is not None else None
+            "groups": [UsersUserGroupsInner.from_dict(_item) for _item in obj["groups"]] if obj.get("groups") is not None else None,
+            "timezone": UsersUserTimezone.from_dict(obj["timezone"]) if obj.get("timezone") is not None else None,
+            "public_keys": [UsersUserPublicKeysInner.from_dict(_item) for _item in obj["public_keys"]] if obj.get("public_keys") is not None else None,
+            "public_key": [UsersUserPublicKeysInner.from_dict(_item) for _item in obj["public_key"]] if obj.get("public_key") is not None else None
         })
         return _obj
 

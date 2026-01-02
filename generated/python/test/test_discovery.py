@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.discovery import Discovery  # noqa: E501
+from openapi_cc_client.models.discovery import Discovery
 
 class TestDiscovery(unittest.TestCase):
     """Discovery unit test stubs"""
@@ -29,12 +28,12 @@ class TestDiscovery(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Discovery:
         """Test Discovery
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Discovery`
         """
-        model = Discovery()  # noqa: E501
+        model = Discovery()
         if include_optional:
             return Discovery(
                 operation = 'checkClusterName',

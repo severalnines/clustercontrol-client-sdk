@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.tree_api import TreeApi  # noqa: E501
+from openapi_cc_client.api.tree_api import TreeApi
 
 
 class TestTreeApi(unittest.TestCase):
     """TreeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = TreeApi()  # noqa: E501
+        self.api = TreeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestTreeApi(unittest.TestCase):
     def test_tree_post(self) -> None:
         """Test case for tree_post
 
-        AddACL | RemoveAcl | etc  # noqa: E501
+        AddACL | RemoveAcl | etc
         """
         pass
 

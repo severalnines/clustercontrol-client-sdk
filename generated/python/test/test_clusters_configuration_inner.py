@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.clusters_configuration_inner import ClustersConfigurationInner  # noqa: E501
+from openapi_cc_client.models.clusters_configuration_inner import ClustersConfigurationInner
 
 class TestClustersConfigurationInner(unittest.TestCase):
     """ClustersConfigurationInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestClustersConfigurationInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ClustersConfigurationInner:
         """Test ClustersConfigurationInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ClustersConfigurationInner`
         """
-        model = ClustersConfigurationInner()  # noqa: E501
+        model = ClustersConfigurationInner()
         if include_optional:
             return ClustersConfigurationInner(
                 name = '',

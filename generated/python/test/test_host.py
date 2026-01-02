@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.host import Host  # noqa: E501
+from openapi_cc_client.models.host import Host
 
 class TestHost(unittest.TestCase):
     """Host unit test stubs"""
@@ -29,12 +28,12 @@ class TestHost(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Host:
         """Test Host
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Host`
         """
-        model = Host()  # noqa: E501
+        model = Host()
         if include_optional:
             return Host(
                 operation = 'startServers',

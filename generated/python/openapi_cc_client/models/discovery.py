@@ -18,64 +18,80 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.discovery_job import DiscoveryJob
 from openapi_cc_client.models.discovery_nodes_inner import DiscoveryNodesInner
 from openapi_cc_client.models.discovery_ssh_credentials import DiscoverySshCredentials
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Discovery(BaseModel):
     """
     Discovery
-    """
-    operation: StrictStr = Field(...)
+    """ # noqa: E501
+    operation: StrictStr
     new_cluster_name: Optional[StrictStr] = None
     check_if_already_registered: Optional[StrictBool] = None
     check_job: Optional[StrictBool] = None
     check_ssh_sudo: Optional[StrictBool] = None
-    nodes: Optional[conlist(DiscoveryNodesInner)] = None
+    nodes: Optional[List[DiscoveryNodesInner]] = None
     job: Optional[DiscoveryJob] = None
     ssh_credentials: Optional[DiscoverySshCredentials] = None
-    __properties = ["operation", "new_cluster_name", "check_if_already_registered", "check_job", "check_ssh_sudo", "nodes", "job", "ssh_credentials"]
+    __properties: ClassVar[List[str]] = ["operation", "new_cluster_name", "check_if_already_registered", "check_job", "check_ssh_sudo", "nodes", "job", "ssh_credentials"]
 
-    @validator('operation')
+    @field_validator('operation')
     def operation_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('checkClusterName', 'getSupportedClusterTypes', 'checkHosts'):
+        if value not in set(['checkClusterName', 'getSupportedClusterTypes', 'checkHosts']):
             raise ValueError("must be one of enum values ('checkClusterName', 'getSupportedClusterTypes', 'checkHosts')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Discovery:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Discovery from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in nodes (list)
         _items = []
         if self.nodes:
-            for _item in self.nodes:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_nodes in self.nodes:
+                if _item_nodes:
+                    _items.append(_item_nodes.to_dict())
             _dict['nodes'] = _items
         # override the default output from pydantic by calling `to_dict()` of job
         if self.job:
@@ -86,23 +102,23 @@ class Discovery(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Discovery:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Discovery from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Discovery.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Discovery.parse_obj({
+        _obj = cls.model_validate({
             "operation": obj.get("operation"),
             "new_cluster_name": obj.get("new_cluster_name"),
             "check_if_already_registered": obj.get("check_if_already_registered"),
             "check_job": obj.get("check_job"),
             "check_ssh_sudo": obj.get("check_ssh_sudo"),
-            "nodes": [DiscoveryNodesInner.from_dict(_item) for _item in obj.get("nodes")] if obj.get("nodes") is not None else None,
-            "job": DiscoveryJob.from_dict(obj.get("job")) if obj.get("job") is not None else None,
-            "ssh_credentials": DiscoverySshCredentials.from_dict(obj.get("ssh_credentials")) if obj.get("ssh_credentials") is not None else None
+            "nodes": [DiscoveryNodesInner.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,
+            "job": DiscoveryJob.from_dict(obj["job"]) if obj.get("job") is not None else None,
+            "ssh_credentials": DiscoverySshCredentials.from_dict(obj["ssh_credentials"]) if obj.get("ssh_credentials") is not None else None
         })
         return _obj
 

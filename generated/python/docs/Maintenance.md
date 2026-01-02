@@ -2,14 +2,18 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | **str** |  | 
+**pagesize** | **int** |  | [optional] 
+**page** | **int** |  | [optional] 
 **cluster_id** | **int** |  | [optional] 
 **deadline** | **str** |  | [optional] 
 **initiate** | **str** |  | [optional] 
 **hostname** | **str** |  | [optional] 
 **uuid** | **str** |  | [optional] 
+**reason** | **str** |  | [optional] 
 
 ## Example
 
@@ -21,12 +25,12 @@ json = "{}"
 # create an instance of Maintenance from a JSON string
 maintenance_instance = Maintenance.from_json(json)
 # print the JSON string representation of the object
-print Maintenance.to_json()
+print(Maintenance.to_json())
 
 # convert the object into a dict
 maintenance_dict = maintenance_instance.to_dict()
 # create an instance of Maintenance from a dict
-maintenance_form_dict = maintenance.from_dict(maintenance_dict)
+maintenance_from_dict = Maintenance.from_dict(maintenance_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

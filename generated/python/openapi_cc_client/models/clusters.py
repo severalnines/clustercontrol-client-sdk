@@ -18,68 +18,84 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.clusters_account import ClustersAccount
 from openapi_cc_client.models.clusters_configuration_inner import ClustersConfigurationInner
 from openapi_cc_client.models.clusters_database import ClustersDatabase
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Clusters(BaseModel):
     """
     Clusters
-    """
-    operation: StrictStr = Field(...)
+    """ # noqa: E501
+    operation: StrictStr
     cluster_id: Optional[StrictInt] = None
     cluster_name: Optional[StrictStr] = None
     with_hosts: Optional[StrictBool] = None
     with_sheet_info: Optional[StrictBool] = None
-    configuration: Optional[conlist(ClustersConfigurationInner)] = None
+    configuration: Optional[List[ClustersConfigurationInner]] = None
     account: Optional[ClustersAccount] = None
     filter_strings: Optional[StrictStr] = None
     limit: Optional[StrictInt] = None
     offset: Optional[StrictInt] = None
     database: Optional[ClustersDatabase] = None
-    nodes: Optional[conlist(StrictStr)] = None
-    __properties = ["operation", "cluster_id", "cluster_name", "with_hosts", "with_sheet_info", "configuration", "account", "filter_strings", "limit", "offset", "database", "nodes"]
+    nodes: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["operation", "cluster_id", "cluster_name", "with_hosts", "with_sheet_info", "configuration", "account", "filter_strings", "limit", "offset", "database", "nodes"]
 
-    @validator('operation')
+    @field_validator('operation')
     def operation_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('getallclusterinfo', 'getclusterinfo', 'getConfig', 'setConfig', 'createAccount', 'getAccounts', 'deleteAccount', 'grantPrivileges', 'revokePrivileges', 'revokeAllPrivileges', 'getSqlProcesses', 'getTopQueries', 'createDatabase', 'ping', 'availableUpgrades'):
+        if value not in set(['getallclusterinfo', 'getclusterinfo', 'getConfig', 'setConfig', 'createAccount', 'getAccounts', 'deleteAccount', 'grantPrivileges', 'revokePrivileges', 'revokeAllPrivileges', 'getSqlProcesses', 'getTopQueries', 'createDatabase', 'ping', 'availableUpgrades']):
             raise ValueError("must be one of enum values ('getallclusterinfo', 'getclusterinfo', 'getConfig', 'setConfig', 'createAccount', 'getAccounts', 'deleteAccount', 'grantPrivileges', 'revokePrivileges', 'revokeAllPrivileges', 'getSqlProcesses', 'getTopQueries', 'createDatabase', 'ping', 'availableUpgrades')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Clusters:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Clusters from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in configuration (list)
         _items = []
         if self.configuration:
-            for _item in self.configuration:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_configuration in self.configuration:
+                if _item_configuration:
+                    _items.append(_item_configuration.to_dict())
             _dict['configuration'] = _items
         # override the default output from pydantic by calling `to_dict()` of account
         if self.account:
@@ -90,26 +106,26 @@ class Clusters(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Clusters:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Clusters from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Clusters.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Clusters.parse_obj({
+        _obj = cls.model_validate({
             "operation": obj.get("operation"),
             "cluster_id": obj.get("cluster_id"),
             "cluster_name": obj.get("cluster_name"),
             "with_hosts": obj.get("with_hosts"),
             "with_sheet_info": obj.get("with_sheet_info"),
-            "configuration": [ClustersConfigurationInner.from_dict(_item) for _item in obj.get("configuration")] if obj.get("configuration") is not None else None,
-            "account": ClustersAccount.from_dict(obj.get("account")) if obj.get("account") is not None else None,
+            "configuration": [ClustersConfigurationInner.from_dict(_item) for _item in obj["configuration"]] if obj.get("configuration") is not None else None,
+            "account": ClustersAccount.from_dict(obj["account"]) if obj.get("account") is not None else None,
             "filter_strings": obj.get("filter_strings"),
             "limit": obj.get("limit"),
             "offset": obj.get("offset"),
-            "database": ClustersDatabase.from_dict(obj.get("database")) if obj.get("database") is not None else None,
+            "database": ClustersDatabase.from_dict(obj["database"]) if obj.get("database") is not None else None,
             "nodes": obj.get("nodes")
         })
         return _obj

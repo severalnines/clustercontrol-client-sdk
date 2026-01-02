@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.stat_prometheus_api import StatPrometheusApi  # noqa: E501
+from openapi_cc_client.api.stat_prometheus_api import StatPrometheusApi
 
 
 class TestStatPrometheusApi(unittest.TestCase):
     """StatPrometheusApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = StatPrometheusApi()  # noqa: E501
+        self.api = StatPrometheusApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestStatPrometheusApi(unittest.TestCase):
     def test_stat_prometheus_query_post(self) -> None:
         """Test case for stat_prometheus_query_post
 
-        GetInfo | etc  # noqa: E501
+        GetInfo | etc
         """
         pass
 

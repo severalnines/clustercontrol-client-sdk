@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.stat_prometheus_queries_inner import StatPrometheusQueriesInner  # noqa: E501
+from openapi_cc_client.models.stat_prometheus_queries_inner import StatPrometheusQueriesInner
 
 class TestStatPrometheusQueriesInner(unittest.TestCase):
     """StatPrometheusQueriesInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestStatPrometheusQueriesInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> StatPrometheusQueriesInner:
         """Test StatPrometheusQueriesInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `StatPrometheusQueriesInner`
         """
-        model = StatPrometheusQueriesInner()  # noqa: E501
+        model = StatPrometheusQueriesInner()
         if include_optional:
             return StatPrometheusQueriesInner(
                 query = '',

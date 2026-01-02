@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.maintenance import Maintenance  # noqa: E501
+from openapi_cc_client.models.maintenance import Maintenance
 
 class TestMaintenance(unittest.TestCase):
     """Maintenance unit test stubs"""
@@ -29,20 +28,23 @@ class TestMaintenance(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Maintenance:
         """Test Maintenance
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Maintenance`
         """
-        model = Maintenance()  # noqa: E501
+        model = Maintenance()
         if include_optional:
             return Maintenance(
                 operation = 'addMaintenance',
+                pagesize = 56,
+                page = 56,
                 cluster_id = 56,
                 deadline = '',
                 initiate = '',
                 hostname = '',
-                uuid = ''
+                uuid = '',
+                reason = ''
             )
         else:
             return Maintenance(

@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.alarms_api import AlarmsApi  # noqa: E501
+from openapi_cc_client.api.alarms_api import AlarmsApi
 
 
 class TestAlarmsApi(unittest.TestCase):
     """AlarmsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AlarmsApi()  # noqa: E501
+        self.api = AlarmsApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestAlarmsApi(unittest.TestCase):
     def test_alarm_post(self) -> None:
         """Test case for alarm_post
 
-        GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm  # noqa: E501
+        GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
         """
         pass
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **backend_name_ro** | **str** |  | [optional] 
@@ -9,6 +10,12 @@ Name | Type | Description | Notes
 **data_retention** | **str** |  | [optional] 
 **data_retention_size** | **int** |  | [optional] 
 **hostname** | **str** |  | [optional] 
+**hostname_data** | **str** |  | [optional] 
+**hostname_internal** | **str** |  | [optional] 
+**configfile** | **str** |  | [optional] 
+**datadir** | **str** |  | [optional] 
+**pgname** | **str** |  | [optional] 
+**synchronous** | **bool** |  | [optional] 
 **lb_admin** | **str** |  | [optional] 
 **lb_password** | **str** |  | [optional] 
 **lb_policy** | **str** |  | [optional] 
@@ -35,12 +42,12 @@ json = "{}"
 # create an instance of JobsJobJobSpecJobDataNode from a JSON string
 jobs_job_job_spec_job_data_node_instance = JobsJobJobSpecJobDataNode.from_json(json)
 # print the JSON string representation of the object
-print JobsJobJobSpecJobDataNode.to_json()
+print(JobsJobJobSpecJobDataNode.to_json())
 
 # convert the object into a dict
 jobs_job_job_spec_job_data_node_dict = jobs_job_job_spec_job_data_node_instance.to_dict()
 # create an instance of JobsJobJobSpecJobDataNode from a dict
-jobs_job_job_spec_job_data_node_form_dict = jobs_job_job_spec_job_data_node.from_dict(jobs_job_job_spec_job_data_node_dict)
+jobs_job_job_spec_job_data_node_from_dict = JobsJobJobSpecJobDataNode.from_dict(jobs_job_job_spec_job_data_node_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

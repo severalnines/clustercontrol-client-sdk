@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enabled** | **bool** |  | [optional] 
@@ -24,12 +25,12 @@ json = "{}"
 # create an instance of ConfigLdapConfiguration from a JSON string
 config_ldap_configuration_instance = ConfigLdapConfiguration.from_json(json)
 # print the JSON string representation of the object
-print ConfigLdapConfiguration.to_json()
+print(ConfigLdapConfiguration.to_json())
 
 # convert the object into a dict
 config_ldap_configuration_dict = config_ldap_configuration_instance.to_dict()
 # create an instance of ConfigLdapConfiguration from a dict
-config_ldap_configuration_form_dict = config_ldap_configuration.from_dict(config_ldap_configuration_dict)
+config_ldap_configuration_from_dict = ConfigLdapConfiguration.from_dict(config_ldap_configuration_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

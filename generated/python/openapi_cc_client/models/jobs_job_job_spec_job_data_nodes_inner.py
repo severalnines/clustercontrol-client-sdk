@@ -18,14 +18,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing import Optional, Set
+from typing_extensions import Self
 
 class JobsJobJobSpecJobDataNodesInner(BaseModel):
     """
     JobsJobJobSpecJobDataNodesInner
-    """
+    """ # noqa: E501
     class_name: Optional[StrictStr] = None
     cdt_path: Optional[StrictStr] = None
     acl: Optional[StrictStr] = None
@@ -46,84 +47,110 @@ class JobsJobJobSpecJobDataNodesInner(BaseModel):
     synchronous: Optional[StrictBool] = None
     protocol: Optional[StrictStr] = None
     roles: Optional[StrictStr] = None
-    __properties = ["class_name", "cdt_path", "acl", "clusterid", "ip", "maintenance_mode", "maintenance_mode_active", "timestamp", "unique_id", "hostname", "hostname_data", "hostname_internal", "port", "nodetype", "configfile", "datadir", "backup_dir", "synchronous", "protocol", "roles"]
+    role: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["class_name", "cdt_path", "acl", "clusterid", "ip", "maintenance_mode", "maintenance_mode_active", "timestamp", "unique_id", "hostname", "hostname_data", "hostname_internal", "port", "nodetype", "configfile", "datadir", "backup_dir", "synchronous", "protocol", "roles", "role"]
 
-    @validator('class_name')
+    @field_validator('class_name')
     def class_name_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('CmonRedisHost', 'CmonRedisSentinelHost', 'CmonHost', 'CmonPBMAgentHost', 'CmonPgBouncerHost', 'CmonMsSqlHost', 'CmonElasticHost'):
-            raise ValueError("must be one of enum values ('CmonRedisHost', 'CmonRedisSentinelHost', 'CmonHost', 'CmonPBMAgentHost', 'CmonPgBouncerHost', 'CmonMsSqlHost', 'CmonElasticHost')")
+        if value not in set(['CmonRedisHost', 'CmonRedisSentinelHost', 'CmonHost', 'CmonPBMAgentHost', 'CmonPgBouncerHost', 'CmonMsSqlHost', 'CmonElasticHost', 'RedisShardedHost']):
+            raise ValueError("must be one of enum values ('CmonRedisHost', 'CmonRedisSentinelHost', 'CmonHost', 'CmonPBMAgentHost', 'CmonPgBouncerHost', 'CmonMsSqlHost', 'CmonElasticHost', 'RedisShardedHost')")
         return value
 
-    @validator('maintenance_mode')
+    @field_validator('maintenance_mode')
     def maintenance_mode_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('none'):
+        if value not in set(['none']):
             raise ValueError("must be one of enum values ('none')")
         return value
 
-    @validator('protocol')
+    @field_validator('protocol')
     def protocol_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('elastic'):
-            raise ValueError("must be one of enum values ('elastic')")
+        if value not in set(['elastic', 'redis-sharded']):
+            raise ValueError("must be one of enum values ('elastic', 'redis-sharded')")
         return value
 
-    @validator('roles')
+    @field_validator('roles')
     def roles_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('master', 'data', 'master-data'):
+        if value not in set(['master', 'data', 'master-data']):
             raise ValueError("must be one of enum values ('master', 'data', 'master-data')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    @field_validator('role')
+    def role_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['primary', 'replica']):
+            raise ValueError("must be one of enum values ('primary', 'replica')")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> JobsJobJobSpecJobDataNodesInner:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of JobsJobJobSpecJobDataNodesInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> JobsJobJobSpecJobDataNodesInner:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of JobsJobJobSpecJobDataNodesInner from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return JobsJobJobSpecJobDataNodesInner.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = JobsJobJobSpecJobDataNodesInner.parse_obj({
+        _obj = cls.model_validate({
             "class_name": obj.get("class_name"),
             "cdt_path": obj.get("cdt_path"),
             "acl": obj.get("acl"),
@@ -143,7 +170,8 @@ class JobsJobJobSpecJobDataNodesInner(BaseModel):
             "backup_dir": obj.get("backup_dir"),
             "synchronous": obj.get("synchronous"),
             "protocol": obj.get("protocol"),
-            "roles": obj.get("roles")
+            "roles": obj.get("roles"),
+            "role": obj.get("role")
         })
         return _obj
 

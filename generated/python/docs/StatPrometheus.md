@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | **str** |  | 
@@ -23,12 +24,12 @@ json = "{}"
 # create an instance of StatPrometheus from a JSON string
 stat_prometheus_instance = StatPrometheus.from_json(json)
 # print the JSON string representation of the object
-print StatPrometheus.to_json()
+print(StatPrometheus.to_json())
 
 # convert the object into a dict
 stat_prometheus_dict = stat_prometheus_instance.to_dict()
 # create an instance of StatPrometheus from a dict
-stat_prometheus_form_dict = stat_prometheus.from_dict(stat_prometheus_dict)
+stat_prometheus_from_dict = StatPrometheus.from_dict(stat_prometheus_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

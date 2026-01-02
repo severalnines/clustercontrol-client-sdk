@@ -18,74 +18,90 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ConfigLdapConfigurationLdapSettings(BaseModel):
     """
     ConfigLdapConfigurationLdapSettings
-    """
-    ldap_email_attributes: Optional[StrictStr] = Field(None, alias="ldapEmailAttributes")
-    ldap_group_class_name: Optional[StrictStr] = Field(None, alias="ldapGroupClassName")
-    ldap_group_id_attributes: Optional[StrictStr] = Field(None, alias="ldapGroupIdAttributes")
-    ldap_group_name_attribute: Optional[StrictStr] = Field(None, alias="ldapGroupNameAttribute")
-    ldap_member_attributes: Optional[StrictStr] = Field(None, alias="ldapMemberAttributes")
-    ldap_network_timeout: Optional[StrictStr] = Field(None, alias="ldapNetworkTimeout")
-    ldap_protocol_version: Optional[StrictStr] = Field(None, alias="ldapProtocolVersion")
-    ldap_query_time_limit: Optional[StrictStr] = Field(None, alias="ldapQueryTimeLimit")
-    ldap_realname_attributes: Optional[StrictStr] = Field(None, alias="ldapRealnameAttributes")
-    ldap_user_class_name: Optional[StrictStr] = Field(None, alias="ldapUserClassName")
-    ldap_username_attributes: Optional[StrictStr] = Field(None, alias="ldapUsernameAttributes")
-    __properties = ["ldapEmailAttributes", "ldapGroupClassName", "ldapGroupIdAttributes", "ldapGroupNameAttribute", "ldapMemberAttributes", "ldapNetworkTimeout", "ldapProtocolVersion", "ldapQueryTimeLimit", "ldapRealnameAttributes", "ldapUserClassName", "ldapUsernameAttributes"]
+    """ # noqa: E501
+    ldap_email_attributes: Optional[StrictStr] = Field(default=None, alias="ldapEmailAttributes")
+    ldap_group_class_name: Optional[StrictStr] = Field(default=None, alias="ldapGroupClassName")
+    ldap_group_id_attributes: Optional[StrictStr] = Field(default=None, alias="ldapGroupIdAttributes")
+    ldap_group_name_attribute: Optional[StrictStr] = Field(default=None, alias="ldapGroupNameAttribute")
+    ldap_member_attributes: Optional[StrictStr] = Field(default=None, alias="ldapMemberAttributes")
+    ldap_network_timeout: Optional[StrictStr] = Field(default=None, alias="ldapNetworkTimeout")
+    ldap_protocol_version: Optional[StrictStr] = Field(default=None, alias="ldapProtocolVersion")
+    ldap_query_time_limit: Optional[StrictStr] = Field(default=None, alias="ldapQueryTimeLimit")
+    ldap_realname_attributes: Optional[StrictStr] = Field(default=None, alias="ldapRealnameAttributes")
+    ldap_user_class_name: Optional[StrictStr] = Field(default=None, alias="ldapUserClassName")
+    ldap_username_attributes: Optional[StrictStr] = Field(default=None, alias="ldapUsernameAttributes")
+    __properties: ClassVar[List[str]] = ["ldapEmailAttributes", "ldapGroupClassName", "ldapGroupIdAttributes", "ldapGroupNameAttribute", "ldapMemberAttributes", "ldapNetworkTimeout", "ldapProtocolVersion", "ldapQueryTimeLimit", "ldapRealnameAttributes", "ldapUserClassName", "ldapUsernameAttributes"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ConfigLdapConfigurationLdapSettings:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ConfigLdapConfigurationLdapSettings from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ConfigLdapConfigurationLdapSettings:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ConfigLdapConfigurationLdapSettings from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ConfigLdapConfigurationLdapSettings.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ConfigLdapConfigurationLdapSettings.parse_obj({
-            "ldap_email_attributes": obj.get("ldapEmailAttributes"),
-            "ldap_group_class_name": obj.get("ldapGroupClassName"),
-            "ldap_group_id_attributes": obj.get("ldapGroupIdAttributes"),
-            "ldap_group_name_attribute": obj.get("ldapGroupNameAttribute"),
-            "ldap_member_attributes": obj.get("ldapMemberAttributes"),
-            "ldap_network_timeout": obj.get("ldapNetworkTimeout"),
-            "ldap_protocol_version": obj.get("ldapProtocolVersion"),
-            "ldap_query_time_limit": obj.get("ldapQueryTimeLimit"),
-            "ldap_realname_attributes": obj.get("ldapRealnameAttributes"),
-            "ldap_user_class_name": obj.get("ldapUserClassName"),
-            "ldap_username_attributes": obj.get("ldapUsernameAttributes")
+        _obj = cls.model_validate({
+            "ldapEmailAttributes": obj.get("ldapEmailAttributes"),
+            "ldapGroupClassName": obj.get("ldapGroupClassName"),
+            "ldapGroupIdAttributes": obj.get("ldapGroupIdAttributes"),
+            "ldapGroupNameAttribute": obj.get("ldapGroupNameAttribute"),
+            "ldapMemberAttributes": obj.get("ldapMemberAttributes"),
+            "ldapNetworkTimeout": obj.get("ldapNetworkTimeout"),
+            "ldapProtocolVersion": obj.get("ldapProtocolVersion"),
+            "ldapQueryTimeLimit": obj.get("ldapQueryTimeLimit"),
+            "ldapRealnameAttributes": obj.get("ldapRealnameAttributes"),
+            "ldapUserClassName": obj.get("ldapUserClassName"),
+            "ldapUsernameAttributes": obj.get("ldapUsernameAttributes")
         })
         return _obj
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **str** |  | [optional] 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of HostServersInner from a JSON string
 host_servers_inner_instance = HostServersInner.from_json(json)
 # print the JSON string representation of the object
-print HostServersInner.to_json()
+print(HostServersInner.to_json())
 
 # convert the object into a dict
 host_servers_inner_dict = host_servers_inner_instance.to_dict()
 # create an instance of HostServersInner from a dict
-host_servers_inner_form_dict = host_servers_inner.from_dict(host_servers_inner_dict)
+host_servers_inner_from_dict = HostServersInner.from_dict(host_servers_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

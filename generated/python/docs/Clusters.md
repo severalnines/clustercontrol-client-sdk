@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | **str** |  | 
@@ -27,12 +28,12 @@ json = "{}"
 # create an instance of Clusters from a JSON string
 clusters_instance = Clusters.from_json(json)
 # print the JSON string representation of the object
-print Clusters.to_json()
+print(Clusters.to_json())
 
 # convert the object into a dict
 clusters_dict = clusters_instance.to_dict()
 # create an instance of Clusters from a dict
-clusters_form_dict = clusters.from_dict(clusters_dict)
+clusters_from_dict = Clusters.from_dict(clusters_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

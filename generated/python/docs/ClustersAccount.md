@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **class_name** | **str** |  | [optional] 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of ClustersAccount from a JSON string
 clusters_account_instance = ClustersAccount.from_json(json)
 # print the JSON string representation of the object
-print ClustersAccount.to_json()
+print(ClustersAccount.to_json())
 
 # convert the object into a dict
 clusters_account_dict = clusters_account_instance.to_dict()
 # create an instance of ClustersAccount from a dict
-clusters_account_form_dict = clusters_account.from_dict(clusters_account_dict)
+clusters_account_from_dict = ClustersAccount.from_dict(clusters_account_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

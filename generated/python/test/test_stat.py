@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.stat import Stat  # noqa: E501
+from openapi_cc_client.models.stat import Stat
 
 class TestStat(unittest.TestCase):
     """Stat unit test stubs"""
@@ -29,12 +28,12 @@ class TestStat(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Stat:
         """Test Stat
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Stat`
         """
-        model = Stat()  # noqa: E501
+        model = Stat()
         if include_optional:
             return Stat(
                 operation = 'getInfo',

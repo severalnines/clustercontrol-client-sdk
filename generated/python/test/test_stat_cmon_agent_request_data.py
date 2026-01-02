@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.stat_cmon_agent_request_data import StatCmonAgentRequestData  # noqa: E501
+from openapi_cc_client.models.stat_cmon_agent_request_data import StatCmonAgentRequestData
 
 class TestStatCmonAgentRequestData(unittest.TestCase):
     """StatCmonAgentRequestData unit test stubs"""
@@ -29,12 +28,12 @@ class TestStatCmonAgentRequestData(unittest.TestCase):
 
     def make_instance(self, include_optional) -> StatCmonAgentRequestData:
         """Test StatCmonAgentRequestData
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `StatCmonAgentRequestData`
         """
-        model = StatCmonAgentRequestData()  # noqa: E501
+        model = StatCmonAgentRequestData()
         if include_optional:
             return StatCmonAgentRequestData(
                 begin = '',

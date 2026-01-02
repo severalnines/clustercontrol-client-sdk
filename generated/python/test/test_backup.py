@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.backup import Backup  # noqa: E501
+from openapi_cc_client.models.backup import Backup
 
 class TestBackup(unittest.TestCase):
     """Backup unit test stubs"""
@@ -29,17 +28,21 @@ class TestBackup(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Backup:
         """Test Backup
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Backup`
         """
-        model = Backup()  # noqa: E501
+        model = Backup()
         if include_optional:
             return Backup(
                 operation = 'getBackups',
                 cluster_id = 56,
                 ascending = True,
+                order = '',
+                backup_record_version = 56,
+                limit = 56,
+                offset = 56,
                 schedule = openapi_cc_client.models.backup_schedule.Backup_schedule(
                     class_name = 'CmonBackupSchedule', 
                     enabled = True, 
@@ -55,7 +58,7 @@ class TestBackup(unittest.TestCase):
                             backup_retention = 56, 
                             backupdir = '', 
                             backupsubdir = '', 
-                            cc_storage = '', 
+                            cc_storage = True, 
                             compression = True, 
                             compresion_level = 56, 
                             encrypt_backup = True, 

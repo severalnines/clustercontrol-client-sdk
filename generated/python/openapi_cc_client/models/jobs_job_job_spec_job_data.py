@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_cc_client.models.backup_schedule_job_job_data_verify_backup import BackupScheduleJobJobDataVerifyBackup
 from openapi_cc_client.models.jobs_job_job_spec_job_data_config_servers import JobsJobJobSpecJobDataConfigServers
 from openapi_cc_client.models.jobs_job_job_spec_job_data_config_servers_members_inner import JobsJobJobSpecJobDataConfigServersMembersInner
@@ -30,11 +29,13 @@ from openapi_cc_client.models.jobs_job_job_spec_job_data_nodes_inner import Jobs
 from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner import JobsJobJobSpecJobDataReplicaSetsInner
 from openapi_cc_client.models.jobs_job_job_spec_job_data_topology import JobsJobJobSpecJobDataTopology
 from openapi_cc_client.models.jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage import JobsJobJobSpecJobDataUploadBackupDataToCloudStorage
+from typing import Optional, Set
+from typing_extensions import Self
 
 class JobsJobJobSpecJobData(BaseModel):
     """
     JobsJobJobSpecJobData
-    """
+    """ # noqa: E501
     action: Optional[StrictStr] = None
     addnode: Optional[StrictBool] = None
     admin_username: Optional[StrictStr] = None
@@ -59,7 +60,9 @@ class JobsJobJobSpecJobData(BaseModel):
     extended_insert: Optional[StrictBool] = None
     backup_dir: Optional[StrictStr] = None
     backupsubdir: Optional[StrictStr] = None
-    cc_storage: Optional[StrictStr] = None
+    remove_backups: Optional[StrictBool] = None
+    backup_system_db: Optional[StrictBool] = None
+    cc_storage: Optional[StrictBool] = None
     compression: Optional[StrictBool] = None
     compression_level: Optional[StrictInt] = None
     db_database: Optional[StrictStr] = None
@@ -77,24 +80,27 @@ class JobsJobJobSpecJobData(BaseModel):
     use_rw_split: Optional[StrictBool] = None
     hostname: Optional[StrictStr] = None
     master_address: Optional[StrictStr] = None
+    master_delay: Optional[StrictInt] = None
     include_databases: Optional[StrictStr] = None
     install_timescaledb: Optional[StrictBool] = None
     update_lb: Optional[StrictBool] = None
-    use_package_for_data_dir: Optional[StrictBool] = Field(None, alias="usePackageForDataDir")
+    use_package_for_data_dir: Optional[StrictBool] = Field(default=None, alias="usePackageForDataDir")
     encrypt_backup: Optional[StrictBool] = None
     throttle_rate_netbw: Optional[StrictInt] = None
     use_pigz: Optional[StrictBool] = None
     use_qpress: Optional[StrictBool] = None
     wsrep_desync: Optional[StrictBool] = None
+    galera_segment: Optional[StrictStr] = None
     xtrabackup_backup_locks: Optional[StrictBool] = None
     xtrabackup_lock_ddl_per_table: Optional[StrictBool] = None
     xtrabackup_parallellism: Optional[StrictInt] = None
     verify_backup_delay: Optional[StrictInt] = None
-    data_dir: Optional[StrictStr] = None
+    datadir: Optional[StrictStr] = None
     db_user: Optional[StrictStr] = None
     disable_firewall: Optional[StrictBool] = None
     disable_selinux: Optional[StrictBool] = None
     enable_uninstall: Optional[StrictBool] = None
+    unregister_only: Optional[StrictBool] = None
     generate_token: Optional[StrictBool] = None
     install_software: Optional[StrictBool] = None
     use_internal_repos: Optional[StrictBool] = None
@@ -107,6 +113,14 @@ class JobsJobJobSpecJobData(BaseModel):
     node_type: Optional[StrictInt] = None
     overwrite_mysqlchk: Optional[StrictBool] = None
     port: Optional[StrictInt] = None
+    sentinel_port: Optional[StrictStr] = None
+    redis_sharded_port: Optional[StrictInt] = None
+    valkey_sharded_port: Optional[StrictInt] = None
+    redis_sharded_bus_port: Optional[StrictInt] = None
+    valkey_sharded_bus_port: Optional[StrictInt] = None
+    redis_cluster_replica_validity_factor: Optional[StrictInt] = None
+    valkey_cluster_replica_validity_factor: Optional[StrictInt] = None
+    node_timeout_ms: Optional[StrictInt] = None
     ssh_keyfile: Optional[StrictStr] = None
     ssh_port: Optional[StrictStr] = None
     ssh_user: Optional[StrictStr] = None
@@ -130,125 +144,144 @@ class JobsJobJobSpecJobData(BaseModel):
     pitr_stop_pos: Optional[StrictInt] = None
     host_location_uuid: Optional[StrictStr] = None
     bootstrap: Optional[StrictBool] = None
-    snapshot_locaiton: Optional[StrictStr] = None
+    snapshot_location: Optional[StrictStr] = None
     snapshot_repository: Optional[StrictStr] = None
+    snapshot_repository_type: Optional[StrictStr] = None
+    snapshot_host: Optional[StrictStr] = None
     storage_host: Optional[StrictStr] = None
+    replicaset: Optional[StrictStr] = None
+    deploy_agents: Optional[StrictBool] = None
     upload_backup_data_to_cloud_storage: Optional[JobsJobJobSpecJobDataUploadBackupDataToCloudStorage] = None
     verify_backup: Optional[BackupScheduleJobJobDataVerifyBackup] = None
     config_servers: Optional[JobsJobJobSpecJobDataConfigServers] = None
-    mongos_servers: Optional[conlist(JobsJobJobSpecJobDataConfigServersMembersInner)] = None
+    mongos_servers: Optional[List[JobsJobJobSpecJobDataConfigServersMembersInner]] = None
     node: Optional[JobsJobJobSpecJobDataNode] = None
-    nodes: Optional[conlist(JobsJobJobSpecJobDataNodesInner)] = None
-    node_adresses: Optional[conlist(JobsJobJobSpecJobDataNodeAdressesInner)] = None
+    nodes: Optional[List[JobsJobJobSpecJobDataNodesInner]] = None
+    node_adresses: Optional[List[JobsJobJobSpecJobDataNodeAdressesInner]] = None
     topology: Optional[JobsJobJobSpecJobDataTopology] = None
-    replica_sets: Optional[conlist(JobsJobJobSpecJobDataReplicaSetsInner)] = None
-    with_tags: Optional[conlist(StrictStr)] = None
-    __properties = ["action", "addnode", "admin_username", "admin_user", "admin_password", "audit_events", "archive_mode", "backupid", "backup_id", "build_from_source", "cluster_name", "clusterid", "cluster_type", "company_id", "config_template", "backup_failover", "backup_failover_host", "backup_method", "backup_mysqldump_type", "backup_individual_schemas", "backup_retention", "extended_insert", "backup_dir", "backupsubdir", "cc_storage", "compression", "compression_level", "db_database", "db_password", "db_privs", "db_username", "data_center", "exec_upgrade_script", "extended", "listening_port", "mask_passwords", "monitor_password", "monitor_user", "use_clustering", "use_rw_split", "hostname", "master_address", "include_databases", "install_timescaledb", "update_lb", "usePackageForDataDir", "encrypt_backup", "throttle_rate_netbw", "use_pigz", "use_qpress", "wsrep_desync", "xtrabackup_backup_locks", "xtrabackup_lock_ddl_per_table", "xtrabackup_parallellism", "verify_backup_delay", "data_dir", "db_user", "disable_firewall", "disable_selinux", "enable_uninstall", "generate_token", "install_software", "use_internal_repos", "local_repository", "enable_mysql_uninstall", "mysql_semi_sync", "enable_ssl", "mongos_conf_template", "mongodb_authdb", "node_type", "overwrite_mysqlchk", "port", "ssh_keyfile", "ssh_port", "ssh_user", "sudo_password", "user_id", "vendor", "type", "version", "software_package", "server_address", "terminate_db_server", "xtrabackup_use_memory", "initial", "reboot", "slave_address", "force", "force_stop", "stop_timeout", "pitr_stop_time", "pitr_stop_log", "pitr_stop_pos", "host_location_uuid", "bootstrap", "snapshot_locaiton", "snapshot_repository", "storage_host", "upload_backup_data_to_cloud_storage", "verify_backup", "config_servers", "mongos_servers", "node", "nodes", "node_adresses", "topology", "replica_sets", "with_tags"]
+    replica_sets: Optional[List[JobsJobJobSpecJobDataReplicaSetsInner]] = None
+    with_tags: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["action", "addnode", "admin_username", "admin_user", "admin_password", "audit_events", "archive_mode", "backupid", "backup_id", "build_from_source", "cluster_name", "clusterid", "cluster_type", "company_id", "config_template", "backup_failover", "backup_failover_host", "backup_method", "backup_mysqldump_type", "backup_individual_schemas", "backup_retention", "extended_insert", "backup_dir", "backupsubdir", "remove_backups", "backup_system_db", "cc_storage", "compression", "compression_level", "db_database", "db_password", "db_privs", "db_username", "data_center", "exec_upgrade_script", "extended", "listening_port", "mask_passwords", "monitor_password", "monitor_user", "use_clustering", "use_rw_split", "hostname", "master_address", "master_delay", "include_databases", "install_timescaledb", "update_lb", "usePackageForDataDir", "encrypt_backup", "throttle_rate_netbw", "use_pigz", "use_qpress", "wsrep_desync", "galera_segment", "xtrabackup_backup_locks", "xtrabackup_lock_ddl_per_table", "xtrabackup_parallellism", "verify_backup_delay", "datadir", "db_user", "disable_firewall", "disable_selinux", "enable_uninstall", "unregister_only", "generate_token", "install_software", "use_internal_repos", "local_repository", "enable_mysql_uninstall", "mysql_semi_sync", "enable_ssl", "mongos_conf_template", "mongodb_authdb", "node_type", "overwrite_mysqlchk", "port", "sentinel_port", "redis_sharded_port", "valkey_sharded_port", "redis_sharded_bus_port", "valkey_sharded_bus_port", "redis_cluster_replica_validity_factor", "valkey_cluster_replica_validity_factor", "node_timeout_ms", "ssh_keyfile", "ssh_port", "ssh_user", "sudo_password", "user_id", "vendor", "type", "version", "software_package", "server_address", "terminate_db_server", "xtrabackup_use_memory", "initial", "reboot", "slave_address", "force", "force_stop", "stop_timeout", "pitr_stop_time", "pitr_stop_log", "pitr_stop_pos", "host_location_uuid", "bootstrap", "snapshot_location", "snapshot_repository", "snapshot_repository_type", "snapshot_host", "storage_host", "replicaset", "deploy_agents", "upload_backup_data_to_cloud_storage", "verify_backup", "config_servers", "mongos_servers", "node", "nodes", "node_adresses", "topology", "replica_sets", "with_tags"]
 
-    @validator('action')
+    @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('enable', 'setup', 'setupHaProxy', 'setupProxySql'):
-            raise ValueError("must be one of enum values ('enable', 'setup', 'setupHaProxy', 'setupProxySql')")
+        if value not in set(['enable', 'setup', 'setupHaProxy', 'setupProxySql', 'registerProxySQL', 'registerHAProxy']):
+            raise ValueError("must be one of enum values ('enable', 'setup', 'setupHaProxy', 'setupProxySql', 'registerProxySQL', 'registerHAProxy')")
         return value
 
-    @validator('archive_mode')
+    @field_validator('archive_mode')
     def archive_mode_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('always'):
+        if value not in set(['always']):
             raise ValueError("must be one of enum values ('always')")
         return value
 
-    @validator('cluster_type')
+    @field_validator('cluster_type')
     def cluster_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('mssql_single', 'redis', 'mongodb', 'mssql_ao_async', 'postgresql_single', 'replication', 'galera', 'elastic'):
-            raise ValueError("must be one of enum values ('mssql_single', 'redis', 'mongodb', 'mssql_ao_async', 'postgresql_single', 'replication', 'galera', 'elastic')")
+        if value not in set(['mssql_single', 'redis', 'mongodb', 'mssql_ao_async', 'postgresql_single', 'replication', 'galera', 'elastic', 'redis_sharded', 'valkey_sharded']):
+            raise ValueError("must be one of enum values ('mssql_single', 'redis', 'mongodb', 'mssql_ao_async', 'postgresql_single', 'replication', 'galera', 'elastic', 'redis_sharded', 'valkey_sharded')")
         return value
 
-    @validator('backup_failover_host')
+    @field_validator('backup_failover_host')
     def backup_failover_host_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('auto'):
+        if value not in set(['auto']):
             raise ValueError("must be one of enum values ('auto')")
         return value
 
-    @validator('backup_method')
+    @field_validator('backup_method')
     def backup_method_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('pg_basebackup', 'xtrabackupfull', 'xtrabackupincr', 'pgbackrestfull', 'pgbackrestincr', 'pgbackrestdiff', 'mysqldump', 'mongodump', 'percona-backup-mongodb', 'pgdumpall', 'mariabackupfull', 'mariabackupincr', 'mssqlcert', 'ndb'):
+        if value not in set(['pg_basebackup', 'xtrabackupfull', 'xtrabackupincr', 'pgbackrestfull', 'pgbackrestincr', 'pgbackrestdiff', 'mysqldump', 'mongodump', 'percona-backup-mongodb', 'pgdumpall', 'mariabackupfull', 'mariabackupincr', 'mssqlcert', 'ndb']):
             raise ValueError("must be one of enum values ('pg_basebackup', 'xtrabackupfull', 'xtrabackupincr', 'pgbackrestfull', 'pgbackrestincr', 'pgbackrestdiff', 'mysqldump', 'mongodump', 'percona-backup-mongodb', 'pgdumpall', 'mariabackupfull', 'mariabackupincr', 'mssqlcert', 'ndb')")
         return value
 
-    @validator('backup_mysqldump_type')
+    @field_validator('backup_mysqldump_type')
     def backup_mysqldump_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('Complete', 'SchemaAndData', 'SchemaOnly', 'DataOnly', 'MySQLDbOnly'):
+        if value not in set(['Complete', 'SchemaAndData', 'SchemaOnly', 'DataOnly', 'MySQLDbOnly']):
             raise ValueError("must be one of enum values ('Complete', 'SchemaAndData', 'SchemaOnly', 'DataOnly', 'MySQLDbOnly')")
         return value
 
-    @validator('vendor')
+    @field_validator('vendor')
     def vendor_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('default', 'percona', 'microsoft', 'redis', 'oracle', 'mariadb', 'elasticsearch', '10gen'):
-            raise ValueError("must be one of enum values ('default', 'percona', 'microsoft', 'redis', 'oracle', 'mariadb', 'elasticsearch', '10gen')")
+        if value not in set(['default', 'percona', 'microsoft', 'redis', 'oracle', 'mariadb', 'elasticsearch', '10gen', 'valkey']):
+            raise ValueError("must be one of enum values ('default', 'percona', 'microsoft', 'redis', 'oracle', 'mariadb', 'elasticsearch', '10gen', 'valkey')")
         return value
 
-    @validator('type')
+    @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in ('postgresql', 'redis', 'microsoft', 'elasticsearch', 'mysql', 'mongodb'):
+        if value not in set(['postgresql', 'redis', 'microsoft', 'elasticsearch', 'mysql', 'mongodb']):
             raise ValueError("must be one of enum values ('postgresql', 'redis', 'microsoft', 'elasticsearch', 'mysql', 'mongodb')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> JobsJobJobSpecJobData:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of JobsJobJobSpecJobData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of upload_backup_data_to_cloud_storage
         if self.upload_backup_data_to_cloud_storage:
             _dict['upload_backup_data_to_cloud_storage'] = self.upload_backup_data_to_cloud_storage.to_dict()
@@ -261,9 +294,9 @@ class JobsJobJobSpecJobData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in mongos_servers (list)
         _items = []
         if self.mongos_servers:
-            for _item in self.mongos_servers:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_mongos_servers in self.mongos_servers:
+                if _item_mongos_servers:
+                    _items.append(_item_mongos_servers.to_dict())
             _dict['mongos_servers'] = _items
         # override the default output from pydantic by calling `to_dict()` of node
         if self.node:
@@ -271,16 +304,16 @@ class JobsJobJobSpecJobData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in nodes (list)
         _items = []
         if self.nodes:
-            for _item in self.nodes:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_nodes in self.nodes:
+                if _item_nodes:
+                    _items.append(_item_nodes.to_dict())
             _dict['nodes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in node_adresses (list)
         _items = []
         if self.node_adresses:
-            for _item in self.node_adresses:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_node_adresses in self.node_adresses:
+                if _item_node_adresses:
+                    _items.append(_item_node_adresses.to_dict())
             _dict['node_adresses'] = _items
         # override the default output from pydantic by calling `to_dict()` of topology
         if self.topology:
@@ -288,22 +321,22 @@ class JobsJobJobSpecJobData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in replica_sets (list)
         _items = []
         if self.replica_sets:
-            for _item in self.replica_sets:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_replica_sets in self.replica_sets:
+                if _item_replica_sets:
+                    _items.append(_item_replica_sets.to_dict())
             _dict['replica_sets'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> JobsJobJobSpecJobData:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of JobsJobJobSpecJobData from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return JobsJobJobSpecJobData.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = JobsJobJobSpecJobData.parse_obj({
+        _obj = cls.model_validate({
             "action": obj.get("action"),
             "addnode": obj.get("addnode"),
             "admin_username": obj.get("admin_username"),
@@ -328,6 +361,8 @@ class JobsJobJobSpecJobData(BaseModel):
             "extended_insert": obj.get("extended_insert"),
             "backup_dir": obj.get("backup_dir"),
             "backupsubdir": obj.get("backupsubdir"),
+            "remove_backups": obj.get("remove_backups"),
+            "backup_system_db": obj.get("backup_system_db"),
             "cc_storage": obj.get("cc_storage"),
             "compression": obj.get("compression"),
             "compression_level": obj.get("compression_level"),
@@ -346,24 +381,27 @@ class JobsJobJobSpecJobData(BaseModel):
             "use_rw_split": obj.get("use_rw_split"),
             "hostname": obj.get("hostname"),
             "master_address": obj.get("master_address"),
+            "master_delay": obj.get("master_delay"),
             "include_databases": obj.get("include_databases"),
             "install_timescaledb": obj.get("install_timescaledb"),
             "update_lb": obj.get("update_lb"),
-            "use_package_for_data_dir": obj.get("usePackageForDataDir"),
+            "usePackageForDataDir": obj.get("usePackageForDataDir"),
             "encrypt_backup": obj.get("encrypt_backup"),
             "throttle_rate_netbw": obj.get("throttle_rate_netbw"),
             "use_pigz": obj.get("use_pigz"),
             "use_qpress": obj.get("use_qpress"),
             "wsrep_desync": obj.get("wsrep_desync"),
+            "galera_segment": obj.get("galera_segment"),
             "xtrabackup_backup_locks": obj.get("xtrabackup_backup_locks"),
             "xtrabackup_lock_ddl_per_table": obj.get("xtrabackup_lock_ddl_per_table"),
             "xtrabackup_parallellism": obj.get("xtrabackup_parallellism"),
             "verify_backup_delay": obj.get("verify_backup_delay"),
-            "data_dir": obj.get("data_dir"),
+            "datadir": obj.get("datadir"),
             "db_user": obj.get("db_user"),
             "disable_firewall": obj.get("disable_firewall"),
             "disable_selinux": obj.get("disable_selinux"),
             "enable_uninstall": obj.get("enable_uninstall"),
+            "unregister_only": obj.get("unregister_only"),
             "generate_token": obj.get("generate_token"),
             "install_software": obj.get("install_software"),
             "use_internal_repos": obj.get("use_internal_repos"),
@@ -376,6 +414,14 @@ class JobsJobJobSpecJobData(BaseModel):
             "node_type": obj.get("node_type"),
             "overwrite_mysqlchk": obj.get("overwrite_mysqlchk"),
             "port": obj.get("port"),
+            "sentinel_port": obj.get("sentinel_port"),
+            "redis_sharded_port": obj.get("redis_sharded_port"),
+            "valkey_sharded_port": obj.get("valkey_sharded_port"),
+            "redis_sharded_bus_port": obj.get("redis_sharded_bus_port"),
+            "valkey_sharded_bus_port": obj.get("valkey_sharded_bus_port"),
+            "redis_cluster_replica_validity_factor": obj.get("redis_cluster_replica_validity_factor"),
+            "valkey_cluster_replica_validity_factor": obj.get("valkey_cluster_replica_validity_factor"),
+            "node_timeout_ms": obj.get("node_timeout_ms"),
             "ssh_keyfile": obj.get("ssh_keyfile"),
             "ssh_port": obj.get("ssh_port"),
             "ssh_user": obj.get("ssh_user"),
@@ -399,18 +445,22 @@ class JobsJobJobSpecJobData(BaseModel):
             "pitr_stop_pos": obj.get("pitr_stop_pos"),
             "host_location_uuid": obj.get("host_location_uuid"),
             "bootstrap": obj.get("bootstrap"),
-            "snapshot_locaiton": obj.get("snapshot_locaiton"),
+            "snapshot_location": obj.get("snapshot_location"),
             "snapshot_repository": obj.get("snapshot_repository"),
+            "snapshot_repository_type": obj.get("snapshot_repository_type"),
+            "snapshot_host": obj.get("snapshot_host"),
             "storage_host": obj.get("storage_host"),
-            "upload_backup_data_to_cloud_storage": JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.from_dict(obj.get("upload_backup_data_to_cloud_storage")) if obj.get("upload_backup_data_to_cloud_storage") is not None else None,
-            "verify_backup": BackupScheduleJobJobDataVerifyBackup.from_dict(obj.get("verify_backup")) if obj.get("verify_backup") is not None else None,
-            "config_servers": JobsJobJobSpecJobDataConfigServers.from_dict(obj.get("config_servers")) if obj.get("config_servers") is not None else None,
-            "mongos_servers": [JobsJobJobSpecJobDataConfigServersMembersInner.from_dict(_item) for _item in obj.get("mongos_servers")] if obj.get("mongos_servers") is not None else None,
-            "node": JobsJobJobSpecJobDataNode.from_dict(obj.get("node")) if obj.get("node") is not None else None,
-            "nodes": [JobsJobJobSpecJobDataNodesInner.from_dict(_item) for _item in obj.get("nodes")] if obj.get("nodes") is not None else None,
-            "node_adresses": [JobsJobJobSpecJobDataNodeAdressesInner.from_dict(_item) for _item in obj.get("node_adresses")] if obj.get("node_adresses") is not None else None,
-            "topology": JobsJobJobSpecJobDataTopology.from_dict(obj.get("topology")) if obj.get("topology") is not None else None,
-            "replica_sets": [JobsJobJobSpecJobDataReplicaSetsInner.from_dict(_item) for _item in obj.get("replica_sets")] if obj.get("replica_sets") is not None else None,
+            "replicaset": obj.get("replicaset"),
+            "deploy_agents": obj.get("deploy_agents"),
+            "upload_backup_data_to_cloud_storage": JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.from_dict(obj["upload_backup_data_to_cloud_storage"]) if obj.get("upload_backup_data_to_cloud_storage") is not None else None,
+            "verify_backup": BackupScheduleJobJobDataVerifyBackup.from_dict(obj["verify_backup"]) if obj.get("verify_backup") is not None else None,
+            "config_servers": JobsJobJobSpecJobDataConfigServers.from_dict(obj["config_servers"]) if obj.get("config_servers") is not None else None,
+            "mongos_servers": [JobsJobJobSpecJobDataConfigServersMembersInner.from_dict(_item) for _item in obj["mongos_servers"]] if obj.get("mongos_servers") is not None else None,
+            "node": JobsJobJobSpecJobDataNode.from_dict(obj["node"]) if obj.get("node") is not None else None,
+            "nodes": [JobsJobJobSpecJobDataNodesInner.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,
+            "node_adresses": [JobsJobJobSpecJobDataNodeAdressesInner.from_dict(_item) for _item in obj["node_adresses"]] if obj.get("node_adresses") is not None else None,
+            "topology": JobsJobJobSpecJobDataTopology.from_dict(obj["topology"]) if obj.get("topology") is not None else None,
+            "replica_sets": [JobsJobJobSpecJobDataReplicaSetsInner.from_dict(_item) for _item in obj["replica_sets"]] if obj.get("replica_sets") is not None else None,
             "with_tags": obj.get("with_tags")
         })
         return _obj

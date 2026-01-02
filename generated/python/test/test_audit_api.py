@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.audit_api import AuditApi  # noqa: E501
+from openapi_cc_client.api.audit_api import AuditApi
 
 
 class TestAuditApi(unittest.TestCase):
     """AuditApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = AuditApi()  # noqa: E501
+        self.api = AuditApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestAuditApi(unittest.TestCase):
     def test_audit_post(self) -> None:
         """Test case for audit_post
 
-        GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm  # noqa: E501
+        GetStatistics | GetAlarm | GetAlarms | IgnoreAlarm
         """
         pass
 

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.alarm import Alarm  # noqa: E501
+from openapi_cc_client.models.alarm import Alarm
 
 class TestAlarm(unittest.TestCase):
     """Alarm unit test stubs"""
@@ -29,12 +28,12 @@ class TestAlarm(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Alarm:
         """Test Alarm
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Alarm`
         """
-        model = Alarm()  # noqa: E501
+        model = Alarm()
         if include_optional:
             return Alarm(
                 operation = 'getStatistics',

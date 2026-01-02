@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner import JobsJobJobSpecJobDataReplicaSetsInner  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_replica_sets_inner import JobsJobJobSpecJobDataReplicaSetsInner
 
 class TestJobsJobJobSpecJobDataReplicaSetsInner(unittest.TestCase):
     """JobsJobJobSpecJobDataReplicaSetsInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataReplicaSetsInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataReplicaSetsInner:
         """Test JobsJobJobSpecJobDataReplicaSetsInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataReplicaSetsInner`
         """
-        model = JobsJobJobSpecJobDataReplicaSetsInner()  # noqa: E501
+        model = JobsJobJobSpecJobDataReplicaSetsInner()
         if include_optional:
             return JobsJobJobSpecJobDataReplicaSetsInner(
                 rs = '',
@@ -46,7 +45,7 @@ class TestJobsJobJobSpecJobDataReplicaSetsInner(unittest.TestCase):
                         port = '', 
                         arbiter_only = True, 
                         hidden = True, 
-                        priority = '', 
+                        priority = 56, 
                         slave_delay = '', )
                     ]
             )

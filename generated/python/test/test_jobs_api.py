@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.jobs_api import JobsApi  # noqa: E501
+from openapi_cc_client.api.jobs_api import JobsApi
 
 
 class TestJobsApi(unittest.TestCase):
     """JobsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = JobsApi()  # noqa: E501
+        self.api = JobsApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestJobsApi(unittest.TestCase):
     def test_jobs_post(self) -> None:
         """Test case for jobs_post
 
-        CreateJobInstance | etc  # noqa: E501
+        CreateJobInstance | etc
         """
         pass
 

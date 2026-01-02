@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_topology import JobsJobJobSpecJobDataTopology  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_topology import JobsJobJobSpecJobDataTopology
 
 class TestJobsJobJobSpecJobDataTopology(unittest.TestCase):
     """JobsJobJobSpecJobDataTopology unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataTopology(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataTopology:
         """Test JobsJobJobSpecJobDataTopology
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataTopology`
         """
-        model = JobsJobJobSpecJobDataTopology()  # noqa: E501
+        model = JobsJobJobSpecJobDataTopology()
         if include_optional:
             return JobsJobJobSpecJobDataTopology(
                 master_slave_links = [

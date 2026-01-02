@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | [optional] 
@@ -28,7 +29,9 @@ Name | Type | Description | Notes
 **extended_insert** | **bool** |  | [optional] 
 **backup_dir** | **str** |  | [optional] 
 **backupsubdir** | **str** |  | [optional] 
-**cc_storage** | **str** |  | [optional] 
+**remove_backups** | **bool** |  | [optional] 
+**backup_system_db** | **bool** |  | [optional] 
+**cc_storage** | **bool** |  | [optional] 
 **compression** | **bool** |  | [optional] 
 **compression_level** | **int** |  | [optional] 
 **db_database** | **str** |  | [optional] 
@@ -46,6 +49,7 @@ Name | Type | Description | Notes
 **use_rw_split** | **bool** |  | [optional] 
 **hostname** | **str** |  | [optional] 
 **master_address** | **str** |  | [optional] 
+**master_delay** | **int** |  | [optional] 
 **include_databases** | **str** |  | [optional] 
 **install_timescaledb** | **bool** |  | [optional] 
 **update_lb** | **bool** |  | [optional] 
@@ -55,15 +59,17 @@ Name | Type | Description | Notes
 **use_pigz** | **bool** |  | [optional] 
 **use_qpress** | **bool** |  | [optional] 
 **wsrep_desync** | **bool** |  | [optional] 
+**galera_segment** | **str** |  | [optional] 
 **xtrabackup_backup_locks** | **bool** |  | [optional] 
 **xtrabackup_lock_ddl_per_table** | **bool** |  | [optional] 
 **xtrabackup_parallellism** | **int** |  | [optional] 
 **verify_backup_delay** | **int** |  | [optional] 
-**data_dir** | **str** |  | [optional] 
+**datadir** | **str** |  | [optional] 
 **db_user** | **str** |  | [optional] 
 **disable_firewall** | **bool** |  | [optional] 
 **disable_selinux** | **bool** |  | [optional] 
 **enable_uninstall** | **bool** |  | [optional] 
+**unregister_only** | **bool** |  | [optional] 
 **generate_token** | **bool** |  | [optional] 
 **install_software** | **bool** |  | [optional] 
 **use_internal_repos** | **bool** |  | [optional] 
@@ -76,6 +82,14 @@ Name | Type | Description | Notes
 **node_type** | **int** |  | [optional] 
 **overwrite_mysqlchk** | **bool** |  | [optional] 
 **port** | **int** |  | [optional] 
+**sentinel_port** | **str** |  | [optional] 
+**redis_sharded_port** | **int** |  | [optional] 
+**valkey_sharded_port** | **int** |  | [optional] 
+**redis_sharded_bus_port** | **int** |  | [optional] 
+**valkey_sharded_bus_port** | **int** |  | [optional] 
+**redis_cluster_replica_validity_factor** | **int** |  | [optional] 
+**valkey_cluster_replica_validity_factor** | **int** |  | [optional] 
+**node_timeout_ms** | **int** |  | [optional] 
 **ssh_keyfile** | **str** |  | [optional] 
 **ssh_port** | **str** |  | [optional] 
 **ssh_user** | **str** |  | [optional] 
@@ -99,9 +113,13 @@ Name | Type | Description | Notes
 **pitr_stop_pos** | **int** |  | [optional] 
 **host_location_uuid** | **str** |  | [optional] 
 **bootstrap** | **bool** |  | [optional] 
-**snapshot_locaiton** | **str** |  | [optional] 
+**snapshot_location** | **str** |  | [optional] 
 **snapshot_repository** | **str** |  | [optional] 
+**snapshot_repository_type** | **str** |  | [optional] 
+**snapshot_host** | **str** |  | [optional] 
 **storage_host** | **str** |  | [optional] 
+**replicaset** | **str** |  | [optional] 
+**deploy_agents** | **bool** |  | [optional] 
 **upload_backup_data_to_cloud_storage** | [**JobsJobJobSpecJobDataUploadBackupDataToCloudStorage**](JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md) |  | [optional] 
 **verify_backup** | [**BackupScheduleJobJobDataVerifyBackup**](BackupScheduleJobJobDataVerifyBackup.md) |  | [optional] 
 **config_servers** | [**JobsJobJobSpecJobDataConfigServers**](JobsJobJobSpecJobDataConfigServers.md) |  | [optional] 
@@ -123,12 +141,12 @@ json = "{}"
 # create an instance of JobsJobJobSpecJobData from a JSON string
 jobs_job_job_spec_job_data_instance = JobsJobJobSpecJobData.from_json(json)
 # print the JSON string representation of the object
-print JobsJobJobSpecJobData.to_json()
+print(JobsJobJobSpecJobData.to_json())
 
 # convert the object into a dict
 jobs_job_job_spec_job_data_dict = jobs_job_job_spec_job_data_instance.to_dict()
 # create an instance of JobsJobJobSpecJobData from a dict
-jobs_job_job_spec_job_data_form_dict = jobs_job_job_spec_job_data.from_dict(jobs_job_job_spec_job_data_dict)
+jobs_job_job_spec_job_data_from_dict = JobsJobJobSpecJobData.from_dict(jobs_job_job_spec_job_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

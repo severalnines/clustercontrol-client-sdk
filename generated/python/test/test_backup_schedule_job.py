@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.backup_schedule_job import BackupScheduleJob  # noqa: E501
+from openapi_cc_client.models.backup_schedule_job import BackupScheduleJob
 
 class TestBackupScheduleJob(unittest.TestCase):
     """BackupScheduleJob unit test stubs"""
@@ -29,12 +28,12 @@ class TestBackupScheduleJob(unittest.TestCase):
 
     def make_instance(self, include_optional) -> BackupScheduleJob:
         """Test BackupScheduleJob
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BackupScheduleJob`
         """
-        model = BackupScheduleJob()  # noqa: E501
+        model = BackupScheduleJob()
         if include_optional:
             return BackupScheduleJob(
                 command = 'backup',
@@ -46,7 +45,7 @@ class TestBackupScheduleJob(unittest.TestCase):
                     backup_retention = 56, 
                     backupdir = '', 
                     backupsubdir = '', 
-                    cc_storage = '', 
+                    cc_storage = True, 
                     compression = True, 
                     compresion_level = 56, 
                     encrypt_backup = True, 

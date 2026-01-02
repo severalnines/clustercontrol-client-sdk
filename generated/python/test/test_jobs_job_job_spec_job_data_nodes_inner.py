@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_nodes_inner import JobsJobJobSpecJobDataNodesInner  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_nodes_inner import JobsJobJobSpecJobDataNodesInner
 
 class TestJobsJobJobSpecJobDataNodesInner(unittest.TestCase):
     """JobsJobJobSpecJobDataNodesInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataNodesInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataNodesInner:
         """Test JobsJobJobSpecJobDataNodesInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataNodesInner`
         """
-        model = JobsJobJobSpecJobDataNodesInner()  # noqa: E501
+        model = JobsJobJobSpecJobDataNodesInner()
         if include_optional:
             return JobsJobJobSpecJobDataNodesInner(
                 class_name = 'CmonRedisHost',
@@ -56,7 +55,8 @@ class TestJobsJobJobSpecJobDataNodesInner(unittest.TestCase):
                 backup_dir = '',
                 synchronous = True,
                 protocol = 'elastic',
-                roles = 'master'
+                roles = 'master',
+                role = 'primary'
             )
         else:
             return JobsJobJobSpecJobDataNodesInner(

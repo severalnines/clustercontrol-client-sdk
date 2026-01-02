@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.cloud_api import CloudApi  # noqa: E501
+from openapi_cc_client.api.cloud_api import CloudApi
 
 
 class TestCloudApi(unittest.TestCase):
     """CloudApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = CloudApi()  # noqa: E501
+        self.api = CloudApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestCloudApi(unittest.TestCase):
     def test_cloud_post(self) -> None:
         """Test case for cloud_post
 
-        VerifyCredentials | ListCredentials | etc  # noqa: E501
+        VerifyCredentials | ListCredentials | etc
         """
         pass
 

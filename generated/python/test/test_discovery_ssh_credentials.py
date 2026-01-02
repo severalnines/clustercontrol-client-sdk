@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.discovery_ssh_credentials import DiscoverySshCredentials  # noqa: E501
+from openapi_cc_client.models.discovery_ssh_credentials import DiscoverySshCredentials
 
 class TestDiscoverySshCredentials(unittest.TestCase):
     """DiscoverySshCredentials unit test stubs"""
@@ -29,12 +28,12 @@ class TestDiscoverySshCredentials(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DiscoverySshCredentials:
         """Test DiscoverySshCredentials
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DiscoverySshCredentials`
         """
-        model = DiscoverySshCredentials()  # noqa: E501
+        model = DiscoverySshCredentials()
         if include_optional:
             return DiscoverySshCredentials(
                 class_name = '',

@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.audit import Audit  # noqa: E501
+from openapi_cc_client.models.audit import Audit
 
 class TestAudit(unittest.TestCase):
     """Audit unit test stubs"""
@@ -29,12 +28,12 @@ class TestAudit(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Audit:
         """Test Audit
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Audit`
         """
-        model = Audit()  # noqa: E501
+        model = Audit()
         if include_optional:
             return Audit(
                 operation = 'getEntries',

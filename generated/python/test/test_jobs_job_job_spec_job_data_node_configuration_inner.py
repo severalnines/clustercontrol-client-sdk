@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.jobs_job_job_spec_job_data_node_configuration_inner import JobsJobJobSpecJobDataNodeConfigurationInner  # noqa: E501
+from openapi_cc_client.models.jobs_job_job_spec_job_data_node_configuration_inner import JobsJobJobSpecJobDataNodeConfigurationInner
 
 class TestJobsJobJobSpecJobDataNodeConfigurationInner(unittest.TestCase):
     """JobsJobJobSpecJobDataNodeConfigurationInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestJobsJobJobSpecJobDataNodeConfigurationInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> JobsJobJobSpecJobDataNodeConfigurationInner:
         """Test JobsJobJobSpecJobDataNodeConfigurationInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `JobsJobJobSpecJobDataNodeConfigurationInner`
         """
-        model = JobsJobJobSpecJobDataNodeConfigurationInner()  # noqa: E501
+        model = JobsJobJobSpecJobDataNodeConfigurationInner()
         if include_optional:
             return JobsJobJobSpecJobDataNodeConfigurationInner(
                 arguments = '',

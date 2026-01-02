@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.users_api import UsersApi  # noqa: E501
+from openapi_cc_client.api.users_api import UsersApi
 
 
 class TestUsersApi(unittest.TestCase):
     """UsersApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = UsersApi()  # noqa: E501
+        self.api = UsersApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestUsersApi(unittest.TestCase):
     def test_users_post(self) -> None:
         """Test case for users_post
 
-        CreateUser | etc  # noqa: E501
+        CreateUser | etc
         """
         pass
 

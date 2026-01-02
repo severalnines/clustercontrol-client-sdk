@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.host_api import HostApi  # noqa: E501
+from openapi_cc_client.api.host_api import HostApi
 
 
 class TestHostApi(unittest.TestCase):
     """HostApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = HostApi()  # noqa: E501
+        self.api = HostApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestHostApi(unittest.TestCase):
     def test_host_post(self) -> None:
         """Test case for host_post
 
-        Path for managing servers  # noqa: E501
+        Path for managing servers
         """
         pass
 

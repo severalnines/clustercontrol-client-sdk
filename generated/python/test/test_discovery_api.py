@@ -15,14 +15,14 @@
 
 import unittest
 
-from openapi_cc_client.api.discovery_api import DiscoveryApi  # noqa: E501
+from openapi_cc_client.api.discovery_api import DiscoveryApi
 
 
 class TestDiscoveryApi(unittest.TestCase):
     """DiscoveryApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = DiscoveryApi()  # noqa: E501
+        self.api = DiscoveryApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestDiscoveryApi(unittest.TestCase):
     def test_discovery_post(self) -> None:
         """Test case for discovery_post
 
-        CheckClusterName | CheckHosts | GetSupportedClusterTypes  # noqa: E501
+        CheckClusterName | CheckHosts | GetSupportedClusterTypes
         """
         pass
 

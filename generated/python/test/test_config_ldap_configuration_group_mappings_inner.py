@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from openapi_cc_client.models.config_ldap_configuration_group_mappings_inner import ConfigLdapConfigurationGroupMappingsInner  # noqa: E501
+from openapi_cc_client.models.config_ldap_configuration_group_mappings_inner import ConfigLdapConfigurationGroupMappingsInner
 
 class TestConfigLdapConfigurationGroupMappingsInner(unittest.TestCase):
     """ConfigLdapConfigurationGroupMappingsInner unit test stubs"""
@@ -29,12 +28,12 @@ class TestConfigLdapConfigurationGroupMappingsInner(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ConfigLdapConfigurationGroupMappingsInner:
         """Test ConfigLdapConfigurationGroupMappingsInner
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ConfigLdapConfigurationGroupMappingsInner`
         """
-        model = ConfigLdapConfigurationGroupMappingsInner()  # noqa: E501
+        model = ConfigLdapConfigurationGroupMappingsInner()
         if include_optional:
             return ConfigLdapConfigurationGroupMappingsInner(
                 cmon_group_name = '',
