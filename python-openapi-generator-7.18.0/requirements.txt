@@ -1,5 +1,5 @@
-future; python_version<="2.7"
-six >= 1.10
-python_dateutil >= 2.5.3
-setuptools >= 21.0.0
-urllib3 >= 1.25.3
+future; python_version<="3.12"
+urllib3 >= 2.1.0, < 3.0.0
+python_dateutil >= 2.8.2
+pydantic >= 2
+typing-extensions >= 4.7.1

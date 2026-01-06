@@ -1,4 +1,5 @@
 from clustercontrol_api_example import authenticate
+from clustercontrol_api_example import cluster
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
@@ -9,4 +10,5 @@ print("Starting....")
 authenticate.authenticateWithCC()
 authenticate.getClusterInfo()
 authenticate.getAllClusterInfo()
+cluster.createCluster()
 
