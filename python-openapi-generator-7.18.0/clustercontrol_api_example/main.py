@@ -10,5 +10,5 @@ print("Starting....")
 authenticate.authenticateWithCC()
 authenticate.getClusterInfo()
 authenticate.getAllClusterInfo()
-cluster.createCluster()
+cluster.create_cluster()
 

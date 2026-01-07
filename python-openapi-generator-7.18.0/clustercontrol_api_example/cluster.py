@@ -1,14 +1,15 @@
 import client
 import openapi_cc_client
+from clustercontrol_api_example.job import send_and_wait_for_job_completion
 from openapi_cc_client.models.jobs import Jobs
 from openapi_cc_client.models.jobs_job import JobsJob
 from openapi_cc_client.models.jobs_job_job_spec import JobsJobJobSpec
 from openapi_cc_client.models.jobs_job_job_spec_job_data import JobsJobJobSpecJobData
 from openapi_cc_client.models.jobs_job_job_spec_job_data_nodes_inner import JobsJobJobSpecJobDataNodesInner
 
-def createCluster():
+def create_cluster():
     with openapi_cc_client.ApiClient(client.configuration) as api_client:
-        api_instance = openapi_cc_client.JobsApi(api_client)
+        # api_instance = openapi_cc_client.JobsApi(api_client)
         jobs = Jobs(
             operation='createJobInstance',
         )
@@ -53,8 +54,9 @@ def createCluster():
 
         try:
             # CreateJobInstance | etc
-            resp = api_instance.jobs_post_with_http_info(jobs)
-            print(resp.raw_data.decode('utf8'))
+            # resp = api_instance.jobs_post_with_http_info(jobs)
+            # print(resp.raw_data.decode('utf8'))
+            send_and_wait_for_job_completion(jobs)
         except Exception as e:
             print("Exception when calling JobsApi->jobs_post: %s\n" % e)
 
