@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Severalnines ClusterControl REST API (V2)
   description: 'REST API (V2) specification for ClusterControl - AI Powered Database automation tool
-  for multi/hybrid cloud database deployment.'
+    for multi/hybrid cloud database deployment.'
   termsOfService: https://severalnines.com/terms/
   contact:
     email: sales@severalnines.com
@@ -11,7 +11,7 @@ externalDocs:
   description: Find out more about ClusterControl
   url: https://docs.severalnines.com/docs/clustercontrol/
 servers:
-- url: https://<cchost>:9501/v2
+- url: https://cchost:9501/v2
 paths:
   /auth:
     post:
@@ -482,7 +482,7 @@ components:
                     backup_method:
                       type: string
                       enum: ["pg_basebackup","xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr","pgbackrestdiff","mysqldump",
-                      "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
+                        "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
                     backup_retention:
                       type: integer
                     backupdir:
@@ -1015,15 +1015,17 @@ components:
               properties:
                 command:
                   type: string
-                  enum: ["rolling_restart","create_cluster","remove_cluster","add_cluster",
-                  "backup","verify_backup","deploy_agents","pbmagent","addnode",
-                  "pgbouncer","promote_replication_slave","setup_audit_logging",
-                  "disable_recovery","enable_recovery","restart","enable_db_readonly",
-                  "error_report","calculate_db_growth","enable_node_recovery",
-                  "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
-                  "success","add_replication_slave","deploy_cmonagents","delete_backup",
-                  "registernode","removenode","add_shard","garbd","pgbouncer","haproxy",
-                  "proxysql"]
+                  enum: [
+                    "rolling_restart","create_cluster","remove_cluster","add_cluster",
+                    "backup","verify_backup","deploy_agents","pbmagent","addnode",
+                    "promote_replication_slave","setup_audit_logging",
+                    "disable_recovery","enable_recovery","restart","enable_db_readonly",
+                    "error_report","calculate_db_growth","enable_node_recovery",
+                    "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
+                    "success","add_replication_slave","deploy_cmonagents","delete_backup",
+                    "registernode","removenode","add_shard","garbd","pgbouncer","haproxy",
+                    "proxysql"
+                  ]
                 id:
                   type: integer
                 job_data:
@@ -1032,7 +1034,7 @@ components:
                     action:
                       type: string
                       enum: ["enable","setup","setupHaProxy","setupProxySql",
-                      "registerProxySQL","registerHAProxy"]
+                        "registerProxySQL","registerHAProxy"]
                     addnode:
                       type: boolean
                     admin_username:
@@ -1072,7 +1074,7 @@ components:
                     backup_method:
                       type: string
                       enum: ["pg_basebackup","xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr","pgbackrestdiff","mysqldump",
-                      "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
+                        "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
                     backup_mysqldump_type:
                       type: string
                       enum: ["Complete","SchemaAndData","SchemaOnly","DataOnly","MySQLDbOnly"]
