@@ -1228,7 +1228,7 @@ components:
                       type: integer
                     vendor:
                       type: string
-                      enum: ["default","percona","microsoft","redis","oracle","mariadb","elasticsearch","10gen","valkey"]
+                      enum: ["default","postgresql","percona","microsoft","redis","oracle","mariadb","elasticsearch","10gen","valkey"]
                     type:
                       type: string
                       enum: ["postgresql","redis","microsoft","elasticsearch","mysql","mongodb"]

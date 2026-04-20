@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: Severalnines ClusterControl Proxy - REST API
+  description: 'REST API specification for ClusterControl Proxy. The Proxy is the foundation for Controller of Controllers,
+    (a.k.a. multi-controllers).'
+  termsOfService: https://severalnines.com/terms/
+  contact:
+    email: sales@severalnines.com
+  version: OpenAPI specification v1.0.0
+externalDocs:
+  description: Find out more about ClusterControl
+  url: https://docs.severalnines.com/clustercontrol/
+servers:
+- url: https://cchost/proxy
+paths:
+  /auth/login:
+    post:
+      tags:
+      - auth
+      summary: Authenticate 
+      requestBody:
+        description: Authentication parameters
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Authenticate'
+        required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticateResponse'
+        405:
+          description: Unauthorized
+          content: {}
+components:
+  schemas:
+    Authenticate:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AuthenticateResponse:
+      type: object
+      properties:
+        request_created:
+          type: string
+        request_processed:
+          type: string
+        request_status:
+          type: string
+        user:
+          type: object
+          properties:
+            username:
+              type: string
+            email:
+              type: string
+            firstname:
+              type: string
+            lastname:
+              type: string
+            cmon:
+              type: boolean
+            groups:
+              type: array
+              items:
+                type: string

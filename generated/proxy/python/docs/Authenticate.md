@@ -1,0 +1,30 @@
+# Authenticate
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**username** | **str** |  | [optional] 
+**password** | **str** |  | [optional] 
+
+## Example
+
+```python
+from openapi_proxy_client.models.authenticate import Authenticate
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Authenticate from a JSON string
+authenticate_instance = Authenticate.from_json(json)
+# print the JSON string representation of the object
+print(Authenticate.to_json())
+
+# convert the object into a dict
+authenticate_dict = authenticate_instance.to_dict()
+# create an instance of Authenticate from a dict
+authenticate_from_dict = Authenticate.from_dict(authenticate_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
