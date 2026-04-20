@@ -91,7 +91,7 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "https://<cchost>:9501/v2",
+				URL: "https://cchost:9501/v2",
 				Description: "No description provided",
 			},
 		},
