@@ -13,11 +13,9 @@
 ## cp -rp $GODIR/docs ./go/proxy/pkg/openapi/
 #
 #
-PYDIR=./generated/proxy/python
-echo "Cleaning up Python code in $PYDIR"
-/bin/rm -rf $PYDIR
-echo "Generating Python code in $PYDIR"
-openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name python -c config_proxy_py.json --output $PYDIR
+JSDIR=./generated/proxy/javascript
+echo "Cleaning up JavaScript code in $JSDIR"
+/bin/rm -rf $JSDIR
+echo "Generating JavaScript code in $JSDIR"
+openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name javascript --output $JSDIR
 #
-/bin/rm -rf ./python-openapi-generator-7.18.0/proxy/openapi_proxy_client
-cp -rp $PYDIR ./python-openapi-generator-7.18.0/proxy

@@ -13,11 +13,9 @@
 ## cp -rp $GODIR/docs ./go/proxy/pkg/openapi/
 #
 #
-PYDIR=./generated/proxy/python
-echo "Cleaning up Python code in $PYDIR"
-/bin/rm -rf $PYDIR
-echo "Generating Python code in $PYDIR"
-openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name python -c config_proxy_py.json --output $PYDIR
+RUSTDIR=./generated/proxy/rust
+echo "Cleaning up Rust code in $RUSTDIR"
+/bin/rm -rf $RUSTDIR
+echo "Generating Rust code in $RUSTDIR"
+openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name rust --output $RUSTDIR
 #
-/bin/rm -rf ./python-openapi-generator-7.18.0/proxy/openapi_proxy_client
-cp -rp $PYDIR ./python-openapi-generator-7.18.0/proxy

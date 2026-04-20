@@ -13,11 +13,11 @@
 ## cp -rp $GODIR/docs ./go/proxy/pkg/openapi/
 #
 #
-PYDIR=./generated/proxy/python
-echo "Cleaning up Python code in $PYDIR"
-/bin/rm -rf $PYDIR
-echo "Generating Python code in $PYDIR"
-openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name python -c config_proxy_py.json --output $PYDIR
+JAVADIR=./generated/proxy/java
+echo "Cleaning up Java code in $JAVADIR"
+/bin/rm -rf $JAVADIR
+echo "Generating Java code in $JAVADIR"
+openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name java -c config_proxy_java.json --output $JAVADIR
 #
-/bin/rm -rf ./python-openapi-generator-7.18.0/proxy/openapi_proxy_client
-cp -rp $PYDIR ./python-openapi-generator-7.18.0/proxy
+/bin/rm -rf ./java/proxy/src
+cp -rp $JAVADIR/src ./java/proxy
