@@ -1,2 +1,2 @@
-github.com/severalnines/clustercontrol-client-sdk/go v0.0.0-20260420210248-c93cb9acfe1a h1:qi5k5+dWTDpb+lcBTjAdJCn3HJlaRnJN0KkaKcg5d7c=
-github.com/severalnines/clustercontrol-client-sdk/go v0.0.0-20260420210248-c93cb9acfe1a/go.mod h1:IMml/pWWW6AwE7RzOBnppEYXpQT72S+7t/zt3ECHexg=
+github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi v0.0.0-20260421203513-edcaa79ca691 h1:ZjM6B+8lqN33d8CRcb8Mj0T0Bg5hL/3XXnGQZ2zSe3I=
+github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi v0.0.0-20260421203513-edcaa79ca691/go.mod h1:Pngloj1DpT4Ujx5rao3WRDz09YsYfGbOr6d9xABfsbI=
