@@ -1,6 +1,6 @@
 module github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi
 
-go 1.23
+go 1.26.2
 
 require github.com/stretchr/testify v1.11.1
 

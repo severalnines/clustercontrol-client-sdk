@@ -23,7 +23,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi"
 )
 
 func main() {
