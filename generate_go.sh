@@ -20,10 +20,4 @@ cp -rp $GODIR/test $DEST_BASE
 cp -rp $GODIR/docs $DEST_BASE
 #
 echo "Done."
-# cp -rp $GODIR $DEST_BASE
-# #
-# echo "Cleaning up unwanted files"
-# rm go/pkg/openapi/.gitignore
-# git restore go/pkg/openapi/go.mod
-# git restore go/pkg/openapi/go.sum
 #
