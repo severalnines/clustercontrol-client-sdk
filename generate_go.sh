@@ -10,3 +10,8 @@ DEST_BASE=./go/pkg/openapi
 /bin/rm -rf $DEST_BASE
 cp -rp $GODIR $DEST_BASE
 #
+echo "Cleaning up unwanted files"
+rm go/pkg/openapi/.gitignore
+git restore go/pkg/openapi/go.mod
+git restore go/pkg/openapi/go.sum
+#
