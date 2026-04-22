@@ -11,8 +11,8 @@ DEST_BASE=./go/pkg/openapi
 # Cleanup files
 echo "Cleaning up old content from $DEST_BASE - source code, test code and docs"
 /bin/rm $DEST_BASE/*.go
-/bin/rm $DEST_BASE/test/*.go
-/bin/rm $DEST_BASE/docs/*.md
+/bin/rm -rf $DEST_BASE/test
+/bin/rm -rf $DEST_BASE/docs
 # Copy over newly generated files
 echo "Copying over newly generated content to $DEST_BASE - source code, test code and docs"
 cp $GODIR/*.go $DEST_BASE
