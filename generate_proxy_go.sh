@@ -18,6 +18,7 @@ echo "Copying over newly generated content to $DEST_BASE - source code, test cod
 cp $GODIR/*.go $DEST_BASE
 cp -rp $GODIR/test $DEST_BASE
 cp -rp $GODIR/docs $DEST_BASE
+cp -rp $GODIR/.openapi-generator $DEST_BASE
 #
 echo "Done."
 #
