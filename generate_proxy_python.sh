@@ -6,7 +6,18 @@ echo "Cleaning up Python code in $PYDIR"
 echo "Generating Python code in $PYDIR"
 openapi-generator generate --input-spec ./clustercontrol-proxy.yaml --generator-name python -c config_proxy_py.json --output $PYDIR
 #
-DEST_BASE=./python-openapi-generator-7.18.0/proxy
-/bin/rm -rf $DEST_BASE
-cp -rp $PYDIR $DEST_BASE
+DEST_BASE=./python2/proxy
+#
+echo "Cleaning up old content from $DEST_BASE - source code, test code and docs"
+/bin/rm -rf $DEST_BASE/openapi_cc_proxy_client
+/bin/rm -rf $DEST_BASE/test
+/bin/rm -rf $DEST_BASE/docs
+# Copy over newly generated files
+echo "Copying over newly generated content to $DEST_BASE - source code, test code and docs"
+cp -rp $PYDIR/openapi_cc_proxy_client $DEST_BASE
+cp -rp $PYDIR/test $DEST_BASE
+cp -rp $PYDIR/docs $DEST_BASE
+cp -rp $PYDIR/.openapi-generator $DEST_BASE
+cp $PYDIR/setup.* $DEST_BASE
+cp $PYDIR/*-requirements.txt $DEST_BASE
 #
