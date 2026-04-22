@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Severalnines ClusterControl Proxy - REST API
 
@@ -11,6 +9,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 
 import datetime
@@ -28,11 +27,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from openapi_proxy_client.configuration import Configuration
-from openapi_proxy_client.api_response import ApiResponse, T as ApiResponseT
-import openapi_proxy_client.models
-from openapi_proxy_client import rest
-from openapi_proxy_client.exceptions import (
+from openapi_cc_proxy_client.configuration import Configuration
+from openapi_cc_proxy_client.api_response import ApiResponse, T as ApiResponseT
+import openapi_cc_proxy_client.models
+from openapi_cc_proxy_client import rest
+from openapi_cc_proxy_client.exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,
@@ -70,6 +69,7 @@ class ApiClient:
         'date': datetime.date,
         'datetime': datetime.datetime,
         'decimal': decimal.Decimal,
+        'UUID': uuid.UUID,
         'object': object,
     }
     _pool = None
@@ -307,7 +307,7 @@ class ApiClient:
         response_text = None
         return_data = None
         try:
-            if response_type == "bytearray":
+            if response_type in ("bytearray", "bytes"):
                 return_data = response_data.data
             elif response_type == "file":
                 return_data = self.__deserialize_file(response_data)
@@ -457,7 +457,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_proxy_client.models, klass)
+                klass = getattr(openapi_cc_proxy_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
@@ -469,6 +469,8 @@ class ApiClient:
             return self.__deserialize_datetime(data)
         elif klass is decimal.Decimal:
             return decimal.Decimal(data)
+        elif klass is uuid.UUID:
+            return uuid.UUID(data)
         elif issubclass(klass, Enum):
             return self.__deserialize_enum(data, klass)
         else:
@@ -709,7 +711,9 @@ class ApiClient:
                 content_disposition
             )
             assert m is not None, "Unexpected 'content-disposition' header value"
-            filename = m.group(1)
+            filename = os.path.basename(m.group(1))  # Strip any directory traversal
+            if filename in ("", ".", ".."):  # fall back to tmp filename
+                filename = os.path.basename(path)
             path = os.path.join(os.path.dirname(path), filename)
 
         with open(path, "wb") as f:

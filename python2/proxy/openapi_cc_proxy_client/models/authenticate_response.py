@@ -20,19 +20,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_cc_proxy_client.models.authenticate_response_user import AuthenticateResponseUser
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
-class Authenticate(BaseModel):
+class AuthenticateResponse(BaseModel):
     """
-    Authenticate
+    AuthenticateResponse
     """ # noqa: E501
-    username: Optional[StrictStr] = None
-    password: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["username", "password"]
+    request_created: Optional[StrictStr] = None
+    request_processed: Optional[StrictStr] = None
+    request_status: Optional[StrictStr] = None
+    user: Optional[AuthenticateResponseUser] = None
+    __properties: ClassVar[List[str]] = ["request_created", "request_processed", "request_status", "user"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -44,12 +49,11 @@ class Authenticate(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Authenticate from a JSON string"""
+        """Create an instance of AuthenticateResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +74,14 @@ class Authenticate(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of user
+        if self.user:
+            _dict['user'] = self.user.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Authenticate from a dict"""
+        """Create an instance of AuthenticateResponse from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +89,10 @@ class Authenticate(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "username": obj.get("username"),
-            "password": obj.get("password")
+            "request_created": obj.get("request_created"),
+            "request_processed": obj.get("request_processed"),
+            "request_status": obj.get("request_status"),
+            "user": AuthenticateResponseUser.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj
 

@@ -1,5 +1,5 @@
 [project]
-name = "openapi_proxy_client"
+name = "openapi_cc_proxy_client"
 version = "1.0.0"
 description = "Severalnines ClusterControl Proxy - REST API"
 authors = [
@@ -12,7 +12,7 @@ requires-python = ">=3.9"
 dependencies = [
   "urllib3 (>=2.1.0,<3.0.0)",
   "python-dateutil (>=2.8.2)",
-  "pydantic (>=2)",
+  "pydantic (>=2.11)",
   "typing-extensions (>=4.7.1)",
 ]
 
@@ -40,7 +40,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "openapi_proxy_client",
+  "openapi_cc_proxy_client",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -78,7 +78,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "openapi_proxy_client.configuration",
+  "openapi_cc_proxy_client.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

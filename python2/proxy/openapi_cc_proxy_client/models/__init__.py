@@ -1,5 +1,6 @@
 # coding: utf-8
 
+# flake8: noqa
 """
     Severalnines ClusterControl Proxy - REST API
 
@@ -12,28 +13,8 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+# import models into model package
+from openapi_cc_proxy_client.models.authenticate import Authenticate
+from openapi_cc_proxy_client.models.authenticate_response import AuthenticateResponse
+from openapi_cc_proxy_client.models.authenticate_response_user import AuthenticateResponseUser
 
-import unittest
-
-from openapi_cc_proxy_client.api.auth_api import AuthApi
-
-
-class TestAuthApi(unittest.TestCase):
-    """AuthApi unit test stubs"""
-
-    def setUp(self) -> None:
-        self.api = AuthApi()
-
-    def tearDown(self) -> None:
-        pass
-
-    def test_auth_login_post(self) -> None:
-        """Test case for auth_login_post
-
-        Authenticate
-        """
-        pass
-
-
-if __name__ == '__main__':
-    unittest.main()

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Severalnines ClusterControl Proxy - REST API
 
@@ -12,6 +10,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
@@ -19,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from openapi_proxy_client.models.authenticate import Authenticate
-from openapi_proxy_client.models.authenticate_response import AuthenticateResponse
+from openapi_cc_proxy_client.models.authenticate import Authenticate
+from openapi_cc_proxy_client.models.authenticate_response import AuthenticateResponse
 
-from openapi_proxy_client.api_client import ApiClient, RequestSerialized
-from openapi_proxy_client.api_response import ApiResponse
-from openapi_proxy_client.rest import RESTResponseType
+from openapi_cc_proxy_client.api_client import ApiClient, RequestSerialized
+from openapi_cc_proxy_client.api_response import ApiResponse
+from openapi_cc_proxy_client.rest import RESTResponseType
 
 
 class AuthApi:
