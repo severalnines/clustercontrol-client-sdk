@@ -43,6 +43,10 @@ from openapi_cc_client.exceptions import (
 
 RequestSerialized = Tuple[str, str, Dict[str, str], Optional[str], List[str]]
 
+# Prem: BEGIN
+gCookie = None
+# Prem: END
+
 class ApiClient:
     """Generic API client for OpenAPI client library builds.
 
@@ -90,7 +94,16 @@ class ApiClient:
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
-        self.cookie = cookie
+
+        # Prem: BEGIN
+        # self.cookie = cookie
+        if cookie is not None:
+            self.cookie = cookie
+        else:
+            global gCookie
+            self.cookie = gCookie
+        # Prem: END
+
         # Set default User-Agent.
         self.user_agent = 'OpenAPI-Generator/1.0.0/python'
         self.client_side_validation = configuration.client_side_validation
@@ -278,6 +291,13 @@ class ApiClient:
                 body=body, post_params=post_params,
                 _request_timeout=_request_timeout
             )
+
+            # Prem: BEGIN
+            cookie = response_data.getheader('Set-Cookie')
+            if cookie is not None:
+                global gCookie
+                gCookie = cookie
+            # Prem: END
 
         except ApiException as e:
             raise e
