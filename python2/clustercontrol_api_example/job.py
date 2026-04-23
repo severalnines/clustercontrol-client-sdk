@@ -22,6 +22,7 @@ def send_and_wait_for_job_completion(jobs: Jobs):
     with openapi_cc_client.ApiClient(client.configuration) as api_client:
         api_instance = openapi_cc_client.JobsApi(api_client)
         try:
+            print(jobs.to_json())
             resp = api_instance.jobs_post_with_http_info(jobs)
             print(resp.raw_data.decode('utf8'))
             job_response = JobResponse.model_validate_json(resp.raw_data)

@@ -24,6 +24,7 @@ def authenticateWithCC():
             # Authenticate | Logout | Password Reset | Authenticate response (with challenge)
             # resp = api_instance.auth_post(authenticate, async_req=False)
             # resp = api_instance.auth_post(authenticate)
+            print(authenticate.to_json())
             resp = api_instance.auth_post_with_http_info(authenticate)
             print(resp.raw_data.decode('utf8'))
         except openapi_cc_client.ApiException as e:
@@ -45,6 +46,7 @@ def getClusterInfo():
         try:
             # GetClusterInfo | Get/Set Config | etc
             #resp = api_instance.clusters_post(clusters, async_req=False)
+            print(clusters.to_json())
             resp = api_instance.clusters_post_with_http_info(clusters)
             print(resp.raw_data.decode('utf8'))
         except openapi_cc_client.ApiException as e:
@@ -65,6 +67,7 @@ def getAllClusterInfo():
         try:
             # GetClusterInfo | Get/Set Config | etc
             #resp = api_instance.clusters_post(clusters, async_req=False)
+            print(clusters.to_json())
             resp = api_instance.clusters_post_with_http_info(clusters)
             print(resp.raw_data.decode('utf8'))
         except openapi_cc_client.ApiException as e:
