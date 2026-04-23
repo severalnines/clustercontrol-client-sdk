@@ -24,11 +24,15 @@ dist/
 modules-dev/
 
 ## Terraform
-example.tf
-terraform.tfplan
-terraform.tfstate
-./*.tfstate
-.terraform/
+#example.tf
+#terraform.tfplan
+#terraform.tfstate
+#./*.tfstate
+#.terraform/
+# terraform
+#.terraform*
+#terraform*
+
 
 #/pkg/
 website/.vagrant
@@ -65,10 +69,6 @@ build
 bin/
 vendor/
 
-# terraform
-.terraform*
-terraform*
-
 /bin
 /.go
 /.container-*
@@ -91,3 +91,4 @@ go.work.sum
 # env file
 .env
 
+*.egg-info/
