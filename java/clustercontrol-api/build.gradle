@@ -29,22 +29,23 @@ dependencies {
 
     // ── HTTP client ───────────────────────────────────────────────────────────
     // OkHttp is the transport used by the OpenAPI Java generator.
-    api "com.squareup.okhttp3:okhttp:${okhttpVersion}"
-    api "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
+    implementation "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
 
     // ── JSON serialisation ────────────────────────────────────────────────────
     // Gson is the default serialiser for the openapi-generator 'java' target.
-    api "com.google.code.gson:gson:${gsonVersion}"
+    implementation "com.google.code.gson:gson:${gsonVersion}"
     // Gson-fire adds extra type adaptors (dates, enums, etc.) that the
     // generator relies on.
-    api "io.gsonfire:gson-fire:${gsonFireVersion}"
+    implementation "io.gsonfire:gson-fire:${gsonFireVersion}"
 
     // ── OpenAPI / annotation helpers ──────────────────────────────────────────
     // Swagger annotations (@Api, @ApiModel, …) are referenced in generated
     // source but are not needed at runtime.
     // compileOnly "io.swagger:swagger-annotations:${swaggerAnnotationsVersion}"
     // compileOnly "io.swagger:swagger-annotations:1.6.14"
-    implementation("io.swagger:swagger-annotations:1.6.16")
+    // compileOnly("io.swagger.core.v3:swagger-annotations:${swaggerAnnotationsVersion}")
+    compileOnly "io.swagger:swagger-annotations:${swaggerAnnotationsVersion}"
 
     // Jackson-databind-nullable provides the JsonNullable<T> wrapper that the
     // generator emits for optional fields.
