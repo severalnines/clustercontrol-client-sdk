@@ -17,7 +17,7 @@ echo "Cleaning up old content from $DEST_BASE - source code, test code and docs"
 echo "Copying over newly generated content to $DEST_BASE - source code, test code and docs"
 cp -rp $JAVADIR/src $DEST_BASE
 cp -rp $JAVADIR/docs $DEST_BASE
-cp -rp $GODIR/.openapi-generator $DEST_BASE
+cp -rp $JAVADIR/.openapi-generator $DEST_BASE
 rm $DEST_BASE/src/main/AndroidManifest.xml
 #
 echo "Done."
