@@ -92,3 +92,5 @@ go.work.sum
 .env
 
 *.egg-info/
+
+AndroidManifest.xml
