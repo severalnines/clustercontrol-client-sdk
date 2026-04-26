@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,61 +48,55 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * StatPrometheusQueriesInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class StatPrometheusQueriesInner {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
+  @javax.annotation.Nullable
   private String query;
 
   public static final String SERIALIZED_NAME_STEP = "step";
   @SerializedName(SERIALIZED_NAME_STEP)
+  @javax.annotation.Nullable
   private Integer step;
 
   public StatPrometheusQueriesInner() {
   }
 
-  public StatPrometheusQueriesInner query(String query) {
-    
+  public StatPrometheusQueriesInner query(@javax.annotation.Nullable String query) {
     this.query = query;
     return this;
   }
 
-   /**
+  /**
    * mysql_global_status_wsrep_cert_deps_distance{instance&#x3D;~\&quot;10.117.12.165(:[0-9]+)?\&quot;}
    * @return query
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "mysql_global_status_wsrep_cert_deps_distance{instance=~\"10.117.12.165(:[0-9]+)?\"}")
-
   public String getQuery() {
     return query;
   }
 
-
-  public void setQuery(String query) {
+  public void setQuery(@javax.annotation.Nullable String query) {
     this.query = query;
   }
 
 
-  public StatPrometheusQueriesInner step(Integer step) {
-    
+  public StatPrometheusQueriesInner step(@javax.annotation.Nullable Integer step) {
     this.step = step;
     return this;
   }
 
-   /**
+  /**
    * e.g. 10
    * @return step
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. 10")
-
   public Integer getStep() {
     return step;
   }
 
-
-  public void setStep(Integer step) {
+  public void setStep(@javax.annotation.Nullable Integer step) {
     this.step = step;
   }
 
@@ -141,10 +135,7 @@ public class StatPrometheusQueriesInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -153,36 +144,35 @@ public class StatPrometheusQueriesInner {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("query");
-    openapiFields.add("step");
+    openapiFields = new HashSet<String>(Arrays.asList("query", "step"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StatPrometheusQueriesInner
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StatPrometheusQueriesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StatPrometheusQueriesInner is not found in the empty JSON string", StatPrometheusQueriesInner.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StatPrometheusQueriesInner
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StatPrometheusQueriesInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StatPrometheusQueriesInner is not found in the empty JSON string", StatPrometheusQueriesInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StatPrometheusQueriesInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatPrometheusQueriesInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StatPrometheusQueriesInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
       }
   }
 
@@ -206,31 +196,31 @@ public class StatPrometheusQueriesInner {
 
            @Override
            public StatPrometheusQueriesInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StatPrometheusQueriesInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StatPrometheusQueriesInner
-  * @throws IOException if the JSON string is invalid with respect to StatPrometheusQueriesInner
-  */
+  /**
+   * Create an instance of StatPrometheusQueriesInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StatPrometheusQueriesInner
+   * @throws IOException if the JSON string is invalid with respect to StatPrometheusQueriesInner
+   */
   public static StatPrometheusQueriesInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StatPrometheusQueriesInner.class);
   }
 
- /**
-  * Convert an instance of StatPrometheusQueriesInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StatPrometheusQueriesInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

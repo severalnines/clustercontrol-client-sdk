@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.ConfigConfigurationInner;
 import org.openapitools.ccapi.client.model.ConfigLdapConfiguration;
@@ -38,13 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -52,28 +52,28 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Config
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Config {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    GETCONFIG("getConfig"),
+    GET_CONFIG("getConfig"),
     
-    SETCONFIG("setConfig"),
+    SET_CONFIG("setConfig"),
     
-    UNSETCONFIG("unsetConfig"),
+    UNSET_CONFIG("unsetConfig"),
     
-    GETLDAPCONFIG("getLdapConfig"),
+    GET_LDAP_CONFIG("getLdapConfig"),
     
-    SETLDAPCONFIG("setLdapConfig"),
+    SET_LDAP_CONFIG("setLdapConfig"),
     
-    SETLICENSE("setLicense"),
+    SET_LICENSE("setLicense"),
     
-    GETLICENSE("getLicense"),
+    GET_LICENSE("getLicense"),
     
-    LISTTEMPLATES("listTemplates");
+    LIST_TEMPLATES("listTemplates");
 
     private String value;
 
@@ -111,106 +111,104 @@ public class Config {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @javax.annotation.Nullable
   private String hostname;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @javax.annotation.Nullable
   private Integer port;
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private List<ConfigConfigurationInner> _configuration = null;
+  @javax.annotation.Nullable
+  private List<ConfigConfigurationInner> _configuration = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LDAP_CONFIGURATION = "ldap_configuration";
   @SerializedName(SERIALIZED_NAME_LDAP_CONFIGURATION)
+  @javax.annotation.Nullable
   private ConfigLdapConfiguration ldapConfiguration;
 
   public static final String SERIALIZED_NAME_LICENSEDATA = "licensedata";
   @SerializedName(SERIALIZED_NAME_LICENSEDATA)
+  @javax.annotation.Nullable
   private String licensedata;
 
   public Config() {
   }
 
-  public Config operation(OperationEnum operation) {
-    
+  public Config operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Config hostname(String hostname) {
-    
+  public Config hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostname() {
     return hostname;
   }
 
-
-  public void setHostname(String hostname) {
+  public void setHostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public Config port(Integer port) {
-    
+  public Config port(@javax.annotation.Nullable Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Get port
    * @return port
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPort() {
     return port;
   }
 
-
-  public void setPort(Integer port) {
+  public void setPort(@javax.annotation.Nullable Integer port) {
     this.port = port;
   }
 
 
-  public Config _configuration(List<ConfigConfigurationInner> _configuration) {
-    
+  public Config _configuration(@javax.annotation.Nullable List<ConfigConfigurationInner> _configuration) {
     this._configuration = _configuration;
     return this;
   }
@@ -223,65 +221,54 @@ public class Config {
     return this;
   }
 
-   /**
+  /**
    * Get _configuration
    * @return _configuration
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ConfigConfigurationInner> getConfiguration() {
     return _configuration;
   }
 
-
-  public void setConfiguration(List<ConfigConfigurationInner> _configuration) {
+  public void setConfiguration(@javax.annotation.Nullable List<ConfigConfigurationInner> _configuration) {
     this._configuration = _configuration;
   }
 
 
-  public Config ldapConfiguration(ConfigLdapConfiguration ldapConfiguration) {
-    
+  public Config ldapConfiguration(@javax.annotation.Nullable ConfigLdapConfiguration ldapConfiguration) {
     this.ldapConfiguration = ldapConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get ldapConfiguration
    * @return ldapConfiguration
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ConfigLdapConfiguration getLdapConfiguration() {
     return ldapConfiguration;
   }
 
-
-  public void setLdapConfiguration(ConfigLdapConfiguration ldapConfiguration) {
+  public void setLdapConfiguration(@javax.annotation.Nullable ConfigLdapConfiguration ldapConfiguration) {
     this.ldapConfiguration = ldapConfiguration;
   }
 
 
-  public Config licensedata(String licensedata) {
-    
+  public Config licensedata(@javax.annotation.Nullable String licensedata) {
     this.licensedata = licensedata;
     return this;
   }
 
-   /**
+  /**
    * Get licensedata
    * @return licensedata
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLicensedata() {
     return licensedata;
   }
 
-
-  public void setLicensedata(String licensedata) {
+  public void setLicensedata(@javax.annotation.Nullable String licensedata) {
     this.licensedata = licensedata;
   }
 
@@ -328,10 +315,7 @@ public class Config {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -340,72 +324,68 @@ public class Config {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("hostname");
-    openapiFields.add("port");
-    openapiFields.add("configuration");
-    openapiFields.add("ldap_configuration");
-    openapiFields.add("licensedata");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "hostname", "port", "configuration", "ldap_configuration", "licensedata"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Config
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Config.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Config is not found in the empty JSON string", Config.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Config
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Config.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Config is not found in the empty JSON string", Config.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Config.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Config` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Config` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Config.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if (jsonObj.get("configuration") != null && !jsonObj.get("configuration").isJsonNull()) {
         JsonArray jsonArray_configuration = jsonObj.getAsJsonArray("configuration");
         if (jsonArray_configuration != null) {
           // ensure the json data is an array
           if (!jsonObj.get("configuration").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
           }
 
           // validate the optional field `configuration` (array)
           for (int i = 0; i < jsonArray_configuration.size(); i++) {
-            ConfigConfigurationInner.validateJsonObject(jsonArray_configuration.get(i).getAsJsonObject());
+            ConfigConfigurationInner.validateJsonElement(jsonArray_configuration.get(i));
           };
         }
       }
       // validate the optional field `ldap_configuration`
       if (jsonObj.get("ldap_configuration") != null && !jsonObj.get("ldap_configuration").isJsonNull()) {
-        ConfigLdapConfiguration.validateJsonObject(jsonObj.getAsJsonObject("ldap_configuration"));
+        ConfigLdapConfiguration.validateJsonElement(jsonObj.get("ldap_configuration"));
       }
       if ((jsonObj.get("licensedata") != null && !jsonObj.get("licensedata").isJsonNull()) && !jsonObj.get("licensedata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `licensedata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("licensedata").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `licensedata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("licensedata").toString()));
       }
   }
 
@@ -429,31 +409,31 @@ public class Config {
 
            @Override
            public Config read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Config given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Config
-  * @throws IOException if the JSON string is invalid with respect to Config
-  */
+  /**
+   * Create an instance of Config given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Config
+   * @throws IOException if the JSON string is invalid with respect to Config
+   */
   public static Config fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Config.class);
   }
 
- /**
-  * Convert an instance of Config to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Config to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

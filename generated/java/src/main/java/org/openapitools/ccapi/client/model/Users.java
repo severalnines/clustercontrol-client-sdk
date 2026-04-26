@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.UsersGroup;
 import org.openapitools.ccapi.client.model.UsersUser;
@@ -38,13 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -52,46 +52,46 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Users
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Users {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    CREATEUSER("createUser"),
+    CREATE_USER("createUser"),
     
-    GETUSERS("getUsers"),
+    GET_USERS("getUsers"),
     
-    SETUSER("setUser"),
+    SET_USER("setUser"),
     
     DISABLE("disable"),
     
-    DELETEUSER("deleteUser"),
+    DELETE_USER("deleteUser"),
     
     ENABLE("enable"),
     
-    CHANGEPASSWORD("changePassword"),
+    CHANGE_PASSWORD("changePassword"),
     
-    GETKEYS("getKeys"),
+    GET_KEYS("getKeys"),
     
-    ADDKEY("addKey"),
+    ADD_KEY("addKey"),
     
-    DELETEKEY("deleteKey"),
+    DELETE_KEY("deleteKey"),
     
-    CREATEGROUP("createGroup"),
+    CREATE_GROUP("createGroup"),
     
-    DELETEGROUP("deleteGroup"),
+    DELETE_GROUP("deleteGroup"),
     
-    GETGROUPS("getGroups"),
+    GET_GROUPS("getGroups"),
     
-    ADDTOGROUP("addToGroup"),
+    ADD_TO_GROUP("addToGroup"),
     
-    REMOVEFROMGROUP("removeFromGroup"),
+    REMOVE_FROM_GROUP("removeFromGroup"),
     
-    CANCREATEUSER("canCreateUser"),
+    CAN_CREATE_USER("canCreateUser"),
     
-    CANCREATEGROUP("canCreateGroup");
+    CAN_CREATE_GROUP("canCreateGroup");
 
     private String value;
 
@@ -129,187 +129,176 @@ public class Users {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CREATE_GROUP = "create_group";
   @SerializedName(SERIALIZED_NAME_CREATE_GROUP)
+  @javax.annotation.Nullable
   private Boolean createGroup;
 
   public static final String SERIALIZED_NAME_NEW_PASSWORD = "new_password";
   @SerializedName(SERIALIZED_NAME_NEW_PASSWORD)
+  @javax.annotation.Nullable
   private String newPassword;
 
   public static final String SERIALIZED_NAME_OLD_PASSWORD = "old_password";
   @SerializedName(SERIALIZED_NAME_OLD_PASSWORD)
+  @javax.annotation.Nullable
   private String oldPassword;
 
   public static final String SERIALIZED_NAME_GROUP_NAME = "group_name";
   @SerializedName(SERIALIZED_NAME_GROUP_NAME)
+  @javax.annotation.Nullable
   private String groupName;
 
   public static final String SERIALIZED_NAME_REPLACE_PRIMARY_GROUP = "replace_primary_group";
   @SerializedName(SERIALIZED_NAME_REPLACE_PRIMARY_GROUP)
+  @javax.annotation.Nullable
   private Boolean replacePrimaryGroup;
 
   public static final String SERIALIZED_NAME_WITH_TAGS = "with_tags";
   @SerializedName(SERIALIZED_NAME_WITH_TAGS)
-  private List<String> withTags = null;
+  @javax.annotation.Nullable
+  private List<String> withTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private UsersUser user;
 
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
+  @javax.annotation.Nullable
   private UsersGroup group;
 
   public Users() {
   }
 
-  public Users operation(OperationEnum operation) {
-    
+  public Users operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Users createGroup(Boolean createGroup) {
-    
+  public Users createGroup(@javax.annotation.Nullable Boolean createGroup) {
     this.createGroup = createGroup;
     return this;
   }
 
-   /**
+  /**
    * Get createGroup
    * @return createGroup
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getCreateGroup() {
     return createGroup;
   }
 
-
-  public void setCreateGroup(Boolean createGroup) {
+  public void setCreateGroup(@javax.annotation.Nullable Boolean createGroup) {
     this.createGroup = createGroup;
   }
 
 
-  public Users newPassword(String newPassword) {
-    
+  public Users newPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
     return this;
   }
 
-   /**
+  /**
    * Get newPassword
    * @return newPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getNewPassword() {
     return newPassword;
   }
 
-
-  public void setNewPassword(String newPassword) {
+  public void setNewPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
   }
 
 
-  public Users oldPassword(String oldPassword) {
-    
+  public Users oldPassword(@javax.annotation.Nullable String oldPassword) {
     this.oldPassword = oldPassword;
     return this;
   }
 
-   /**
+  /**
    * Get oldPassword
    * @return oldPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOldPassword() {
     return oldPassword;
   }
 
-
-  public void setOldPassword(String oldPassword) {
+  public void setOldPassword(@javax.annotation.Nullable String oldPassword) {
     this.oldPassword = oldPassword;
   }
 
 
-  public Users groupName(String groupName) {
-    
+  public Users groupName(@javax.annotation.Nullable String groupName) {
     this.groupName = groupName;
     return this;
   }
 
-   /**
+  /**
    * Get groupName
    * @return groupName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getGroupName() {
     return groupName;
   }
 
-
-  public void setGroupName(String groupName) {
+  public void setGroupName(@javax.annotation.Nullable String groupName) {
     this.groupName = groupName;
   }
 
 
-  public Users replacePrimaryGroup(Boolean replacePrimaryGroup) {
-    
+  public Users replacePrimaryGroup(@javax.annotation.Nullable Boolean replacePrimaryGroup) {
     this.replacePrimaryGroup = replacePrimaryGroup;
     return this;
   }
 
-   /**
+  /**
    * Get replacePrimaryGroup
    * @return replacePrimaryGroup
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getReplacePrimaryGroup() {
     return replacePrimaryGroup;
   }
 
-
-  public void setReplacePrimaryGroup(Boolean replacePrimaryGroup) {
+  public void setReplacePrimaryGroup(@javax.annotation.Nullable Boolean replacePrimaryGroup) {
     this.replacePrimaryGroup = replacePrimaryGroup;
   }
 
 
-  public Users withTags(List<String> withTags) {
-    
+  public Users withTags(@javax.annotation.Nullable List<String> withTags) {
     this.withTags = withTags;
     return this;
   }
@@ -322,65 +311,54 @@ public class Users {
     return this;
   }
 
-   /**
+  /**
    * Get withTags
    * @return withTags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getWithTags() {
     return withTags;
   }
 
-
-  public void setWithTags(List<String> withTags) {
+  public void setWithTags(@javax.annotation.Nullable List<String> withTags) {
     this.withTags = withTags;
   }
 
 
-  public Users user(UsersUser user) {
-    
+  public Users user(@javax.annotation.Nullable UsersUser user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UsersUser getUser() {
     return user;
   }
 
-
-  public void setUser(UsersUser user) {
+  public void setUser(@javax.annotation.Nullable UsersUser user) {
     this.user = user;
   }
 
 
-  public Users group(UsersGroup group) {
-    
+  public Users group(@javax.annotation.Nullable UsersGroup group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Get group
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UsersGroup getGroup() {
     return group;
   }
 
-
-  public void setGroup(UsersGroup group) {
+  public void setGroup(@javax.annotation.Nullable UsersGroup group) {
     this.group = group;
   }
 
@@ -433,10 +411,7 @@ public class Users {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -445,72 +420,65 @@ public class Users {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("create_group");
-    openapiFields.add("new_password");
-    openapiFields.add("old_password");
-    openapiFields.add("group_name");
-    openapiFields.add("replace_primary_group");
-    openapiFields.add("with_tags");
-    openapiFields.add("user");
-    openapiFields.add("group");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "create_group", "new_password", "old_password", "group_name", "replace_primary_group", "with_tags", "user", "group"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Users
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Users.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Users is not found in the empty JSON string", Users.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Users
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Users.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Users is not found in the empty JSON string", Users.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Users.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Users` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Users` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Users.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("new_password") != null && !jsonObj.get("new_password").isJsonNull()) && !jsonObj.get("new_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
       }
       if ((jsonObj.get("old_password") != null && !jsonObj.get("old_password").isJsonNull()) && !jsonObj.get("old_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `old_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("old_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `old_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("old_password").toString()));
       }
       if ((jsonObj.get("group_name") != null && !jsonObj.get("group_name").isJsonNull()) && !jsonObj.get("group_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("with_tags") != null && !jsonObj.get("with_tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `with_tags` to be an array in the JSON string but got `%s`", jsonObj.get("with_tags").toString()));
+      if (jsonObj.get("with_tags") != null && !jsonObj.get("with_tags").isJsonNull() && !jsonObj.get("with_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `with_tags` to be an array in the JSON string but got `%s`", jsonObj.get("with_tags").toString()));
       }
       // validate the optional field `user`
       if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
-        UsersUser.validateJsonObject(jsonObj.getAsJsonObject("user"));
+        UsersUser.validateJsonElement(jsonObj.get("user"));
       }
       // validate the optional field `group`
       if (jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) {
-        UsersGroup.validateJsonObject(jsonObj.getAsJsonObject("group"));
+        UsersGroup.validateJsonElement(jsonObj.get("group"));
       }
   }
 
@@ -534,31 +502,31 @@ public class Users {
 
            @Override
            public Users read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Users given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Users
-  * @throws IOException if the JSON string is invalid with respect to Users
-  */
+  /**
+   * Create an instance of Users given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Users
+   * @throws IOException if the JSON string is invalid with respect to Users
+   */
   public static Users fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Users.class);
   }
 
- /**
-  * Convert an instance of Users to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Users to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

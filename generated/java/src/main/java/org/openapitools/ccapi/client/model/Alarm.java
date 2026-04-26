@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,20 +48,20 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Alarm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Alarm {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    GETSTATISTICS("getStatistics"),
+    GET_STATISTICS("getStatistics"),
     
-    GETALARM("getAlarm"),
+    GET_ALARM("getAlarm"),
     
-    GETALARMS("getAlarms"),
+    GET_ALARMS("getAlarms"),
     
-    IGNOREALARM("ignoreAlarm");
+    IGNORE_ALARM("ignoreAlarm");
 
     private String value;
 
@@ -99,18 +99,26 @@ public class Alarm {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_ALARM_ID = "alarm_id";
   @SerializedName(SERIALIZED_NAME_ALARM_ID)
+  @javax.annotation.Nullable
   private Integer alarmId;
 
   /**
@@ -118,7 +126,7 @@ public class Alarm {
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMONRPCREQUEST("CmonRpcRequest");
+    CMON_RPC_REQUEST("CmonRpcRequest");
 
     private String value;
 
@@ -156,130 +164,117 @@ public class Alarm {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "class_name";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_IGNORE = "ignore";
   @SerializedName(SERIALIZED_NAME_IGNORE)
+  @javax.annotation.Nullable
   private Boolean ignore;
 
   public Alarm() {
   }
 
-  public Alarm operation(OperationEnum operation) {
-    
+  public Alarm operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Alarm clusterId(Integer clusterId) {
-    
+  public Alarm clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Alarm alarmId(Integer alarmId) {
-    
+  public Alarm alarmId(@javax.annotation.Nullable Integer alarmId) {
     this.alarmId = alarmId;
     return this;
   }
 
-   /**
+  /**
    * Get alarmId
    * @return alarmId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getAlarmId() {
     return alarmId;
   }
 
-
-  public void setAlarmId(Integer alarmId) {
+  public void setAlarmId(@javax.annotation.Nullable Integer alarmId) {
     this.alarmId = alarmId;
   }
 
 
-  public Alarm className(ClassNameEnum className) {
-    
+  public Alarm className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public Alarm ignore(Boolean ignore) {
-    
+  public Alarm ignore(@javax.annotation.Nullable Boolean ignore) {
     this.ignore = ignore;
     return this;
   }
 
-   /**
+  /**
    * Get ignore
    * @return ignore
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIgnore() {
     return ignore;
   }
 
-
-  public void setIgnore(Boolean ignore) {
+  public void setIgnore(@javax.annotation.Nullable Boolean ignore) {
     this.ignore = ignore;
   }
 
@@ -324,10 +319,7 @@ public class Alarm {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -336,50 +328,51 @@ public class Alarm {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("alarm_id");
-    openapiFields.add("class_name");
-    openapiFields.add("ignore");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "cluster_id", "alarm_id", "class_name", "ignore"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Alarm
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Alarm.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Alarm is not found in the empty JSON string", Alarm.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Alarm
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Alarm.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Alarm is not found in the empty JSON string", Alarm.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Alarm.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Alarm` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Alarm` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Alarm.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) && !jsonObj.get("class_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+      }
+      // validate the optional field `class_name`
+      if (jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("class_name"));
       }
   }
 
@@ -403,31 +396,31 @@ public class Alarm {
 
            @Override
            public Alarm read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Alarm given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Alarm
-  * @throws IOException if the JSON string is invalid with respect to Alarm
-  */
+  /**
+   * Create an instance of Alarm given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Alarm
+   * @throws IOException if the JSON string is invalid with respect to Alarm
+   */
   public static Alarm fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Alarm.class);
   }
 
- /**
-  * Convert an instance of Alarm to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Alarm to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

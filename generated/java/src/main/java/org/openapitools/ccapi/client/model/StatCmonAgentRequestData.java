@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,10 +48,11 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * StatCmonAgentRequestData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class StatCmonAgentRequestData {
   public static final String SERIALIZED_NAME_BEGIN = "begin";
   @SerializedName(SERIALIZED_NAME_BEGIN)
+  @javax.annotation.Nullable
   private String begin;
 
   /**
@@ -59,7 +60,7 @@ public class StatCmonAgentRequestData {
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMNREADPARAM("CmnReadParam");
+    CMN_READ_PARAM("CmnReadParam");
 
     private String value;
 
@@ -97,26 +98,36 @@ public class StatCmonAgentRequestData {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_END = "end";
   @SerializedName(SERIALIZED_NAME_END)
+  @javax.annotation.Nullable
   private String end;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
+  @javax.annotation.Nullable
   private Integer limit;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
+  @javax.annotation.Nullable
   private String mimeType;
 
   public static final String SERIALIZED_NAME_OBJECT_NAME = "objectName";
   @SerializedName(SERIALIZED_NAME_OBJECT_NAME)
+  @javax.annotation.Nullable
   private String objectName;
 
   /**
@@ -162,172 +173,150 @@ public class StatCmonAgentRequestData {
         return OriginEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OriginEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
+  @javax.annotation.Nullable
   private OriginEnum origin;
 
   public StatCmonAgentRequestData() {
   }
 
-  public StatCmonAgentRequestData begin(String begin) {
-    
+  public StatCmonAgentRequestData begin(@javax.annotation.Nullable String begin) {
     this.begin = begin;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;2021-06-07T09:41:43.636Z\&quot;
    * @return begin
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"2021-06-07T09:41:43.636Z\"")
-
   public String getBegin() {
     return begin;
   }
 
-
-  public void setBegin(String begin) {
+  public void setBegin(@javax.annotation.Nullable String begin) {
     this.begin = begin;
   }
 
 
-  public StatCmonAgentRequestData className(ClassNameEnum className) {
-    
+  public StatCmonAgentRequestData className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public StatCmonAgentRequestData end(String end) {
-    
+  public StatCmonAgentRequestData end(@javax.annotation.Nullable String end) {
     this.end = end;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;2021-06-07T09:41:43.636Z\&quot;
    * @return end
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"2021-06-07T09:41:43.636Z\"")
-
   public String getEnd() {
     return end;
   }
 
-
-  public void setEnd(String end) {
+  public void setEnd(@javax.annotation.Nullable String end) {
     this.end = end;
   }
 
 
-  public StatCmonAgentRequestData limit(Integer limit) {
-    
+  public StatCmonAgentRequestData limit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Get limit
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getLimit() {
     return limit;
   }
 
-
-  public void setLimit(Integer limit) {
+  public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
   }
 
 
-  public StatCmonAgentRequestData mimeType(String mimeType) {
-    
+  public StatCmonAgentRequestData mimeType(@javax.annotation.Nullable String mimeType) {
     this.mimeType = mimeType;
     return this;
   }
 
-   /**
+  /**
    * Get mimeType
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMimeType() {
     return mimeType;
   }
 
-
-  public void setMimeType(String mimeType) {
+  public void setMimeType(@javax.annotation.Nullable String mimeType) {
     this.mimeType = mimeType;
   }
 
 
-  public StatCmonAgentRequestData objectName(String objectName) {
-    
+  public StatCmonAgentRequestData objectName(@javax.annotation.Nullable String objectName) {
     this.objectName = objectName;
     return this;
   }
 
-   /**
+  /**
    * Get objectName
    * @return objectName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getObjectName() {
     return objectName;
   }
 
-
-  public void setObjectName(String objectName) {
+  public void setObjectName(@javax.annotation.Nullable String objectName) {
     this.objectName = objectName;
   }
 
 
-  public StatCmonAgentRequestData origin(OriginEnum origin) {
-    
+  public StatCmonAgentRequestData origin(@javax.annotation.Nullable OriginEnum origin) {
     this.origin = origin;
     return this;
   }
 
-   /**
+  /**
    * Get origin
    * @return origin
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public OriginEnum getOrigin() {
     return origin;
   }
 
-
-  public void setOrigin(OriginEnum origin) {
+  public void setOrigin(@javax.annotation.Nullable OriginEnum origin) {
     this.origin = origin;
   }
 
@@ -376,10 +365,7 @@ public class StatCmonAgentRequestData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -388,56 +374,58 @@ public class StatCmonAgentRequestData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("begin");
-    openapiFields.add("className");
-    openapiFields.add("end");
-    openapiFields.add("limit");
-    openapiFields.add("mimeType");
-    openapiFields.add("objectName");
-    openapiFields.add("origin");
+    openapiFields = new HashSet<String>(Arrays.asList("begin", "className", "end", "limit", "mimeType", "objectName", "origin"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StatCmonAgentRequestData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StatCmonAgentRequestData.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StatCmonAgentRequestData is not found in the empty JSON string", StatCmonAgentRequestData.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StatCmonAgentRequestData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StatCmonAgentRequestData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StatCmonAgentRequestData is not found in the empty JSON string", StatCmonAgentRequestData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StatCmonAgentRequestData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatCmonAgentRequestData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StatCmonAgentRequestData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("begin") != null && !jsonObj.get("begin").isJsonNull()) && !jsonObj.get("begin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `begin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("begin").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `begin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("begin").toString()));
       }
       if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+      }
+      // validate the optional field `className`
+      if (jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("className"));
       }
       if ((jsonObj.get("end") != null && !jsonObj.get("end").isJsonNull()) && !jsonObj.get("end").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `end` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `end` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end").toString()));
       }
       if ((jsonObj.get("mimeType") != null && !jsonObj.get("mimeType").isJsonNull()) && !jsonObj.get("mimeType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
       }
       if ((jsonObj.get("objectName") != null && !jsonObj.get("objectName").isJsonNull()) && !jsonObj.get("objectName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `objectName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("objectName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `objectName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("objectName").toString()));
       }
       if ((jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull()) && !jsonObj.get("origin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `origin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("origin").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `origin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("origin").toString()));
+      }
+      // validate the optional field `origin`
+      if (jsonObj.get("origin") != null && !jsonObj.get("origin").isJsonNull()) {
+        OriginEnum.validateJsonElement(jsonObj.get("origin"));
       }
   }
 
@@ -461,31 +449,31 @@ public class StatCmonAgentRequestData {
 
            @Override
            public StatCmonAgentRequestData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StatCmonAgentRequestData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StatCmonAgentRequestData
-  * @throws IOException if the JSON string is invalid with respect to StatCmonAgentRequestData
-  */
+  /**
+   * Create an instance of StatCmonAgentRequestData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StatCmonAgentRequestData
+   * @throws IOException if the JSON string is invalid with respect to StatCmonAgentRequestData
+   */
   public static StatCmonAgentRequestData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StatCmonAgentRequestData.class);
   }
 
- /**
-  * Convert an instance of StatCmonAgentRequestData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StatCmonAgentRequestData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

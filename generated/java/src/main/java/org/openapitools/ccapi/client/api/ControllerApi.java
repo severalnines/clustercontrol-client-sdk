@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ControllerApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class ControllerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call controllerPostCall(Controller controller, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call controllerPostCall(@javax.annotation.Nonnull Controller controller, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class ControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call controllerPostValidateBeforeCall(Controller controller, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call controllerPostValidateBeforeCall(@javax.annotation.Nonnull Controller controller, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'controller' is set
         if (controller == null) {
             throw new ApiException("Missing the required parameter 'controller' when calling controllerPost(Async)");
@@ -147,13 +147,14 @@ public class ControllerApi {
      * @param controller Managing controller and operate the Cmon HA subsystem (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void controllerPost(Controller controller) throws ApiException {
+    public void controllerPost(@javax.annotation.Nonnull Controller controller) throws ApiException {
         controllerPostWithHttpInfo(controller);
     }
 
@@ -164,13 +165,14 @@ public class ControllerApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> controllerPostWithHttpInfo(Controller controller) throws ApiException {
+    public ApiResponse<Void> controllerPostWithHttpInfo(@javax.annotation.Nonnull Controller controller) throws ApiException {
         okhttp3.Call localVarCall = controllerPostValidateBeforeCall(controller, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class ControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call controllerPostAsync(Controller controller, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call controllerPostAsync(@javax.annotation.Nonnull Controller controller, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = controllerPostValidateBeforeCall(controller, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.ccapi.client.model.StatCmonAgentRequestData;
 
 import com.google.gson.Gson;
@@ -35,13 +33,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -49,7 +49,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * StatCmonAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class StatCmonAgent {
   /**
    * Gets or Sets operation
@@ -94,14 +94,21 @@ public class StatCmonAgent {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_API_KEY = "apiKey";
   @SerializedName(SERIALIZED_NAME_API_KEY)
+  @javax.annotation.Nullable
   private String apiKey;
 
   /**
@@ -109,7 +116,7 @@ public class StatCmonAgent {
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMNREQUEST("CmnRequest");
+    CMN_REQUEST("CmnRequest");
 
     private String value;
 
@@ -147,107 +154,98 @@ public class StatCmonAgent {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_REQUEST_DATA = "requestData";
   @SerializedName(SERIALIZED_NAME_REQUEST_DATA)
+  @javax.annotation.Nullable
   private StatCmonAgentRequestData requestData;
 
   public StatCmonAgent() {
   }
 
-  public StatCmonAgent operation(OperationEnum operation) {
-    
+  public StatCmonAgent operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public StatCmonAgent apiKey(String apiKey) {
-    
+  public StatCmonAgent apiKey(@javax.annotation.Nullable String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
-   /**
+  /**
    * Get apiKey
    * @return apiKey
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getApiKey() {
     return apiKey;
   }
 
-
-  public void setApiKey(String apiKey) {
+  public void setApiKey(@javax.annotation.Nullable String apiKey) {
     this.apiKey = apiKey;
   }
 
 
-  public StatCmonAgent className(ClassNameEnum className) {
-    
+  public StatCmonAgent className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public StatCmonAgent requestData(StatCmonAgentRequestData requestData) {
-    
+  public StatCmonAgent requestData(@javax.annotation.Nullable StatCmonAgentRequestData requestData) {
     this.requestData = requestData;
     return this;
   }
 
-   /**
+  /**
    * Get requestData
    * @return requestData
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public StatCmonAgentRequestData getRequestData() {
     return requestData;
   }
 
-
-  public void setRequestData(StatCmonAgentRequestData requestData) {
+  public void setRequestData(@javax.annotation.Nullable StatCmonAgentRequestData requestData) {
     this.requestData = requestData;
   }
 
@@ -290,10 +288,7 @@ public class StatCmonAgent {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -302,56 +297,58 @@ public class StatCmonAgent {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("apiKey");
-    openapiFields.add("className");
-    openapiFields.add("requestData");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "apiKey", "className", "requestData"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StatCmonAgent
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StatCmonAgent.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StatCmonAgent is not found in the empty JSON string", StatCmonAgent.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StatCmonAgent
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StatCmonAgent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StatCmonAgent is not found in the empty JSON string", StatCmonAgent.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StatCmonAgent.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatCmonAgent` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StatCmonAgent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StatCmonAgent.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("apiKey") != null && !jsonObj.get("apiKey").isJsonNull()) && !jsonObj.get("apiKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiKey").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiKey").toString()));
       }
       if ((jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) && !jsonObj.get("className").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `className` to be a primitive type in the JSON string but got `%s`", jsonObj.get("className").toString()));
+      }
+      // validate the optional field `className`
+      if (jsonObj.get("className") != null && !jsonObj.get("className").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("className"));
       }
       // validate the optional field `requestData`
       if (jsonObj.get("requestData") != null && !jsonObj.get("requestData").isJsonNull()) {
-        StatCmonAgentRequestData.validateJsonObject(jsonObj.getAsJsonObject("requestData"));
+        StatCmonAgentRequestData.validateJsonElement(jsonObj.get("requestData"));
       }
   }
 
@@ -375,31 +372,31 @@ public class StatCmonAgent {
 
            @Override
            public StatCmonAgent read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StatCmonAgent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StatCmonAgent
-  * @throws IOException if the JSON string is invalid with respect to StatCmonAgent
-  */
+  /**
+   * Create an instance of StatCmonAgent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StatCmonAgent
+   * @throws IOException if the JSON string is invalid with respect to StatCmonAgent
+   */
   public static StatCmonAgent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StatCmonAgent.class);
   }
 
- /**
-  * Convert an instance of StatCmonAgent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StatCmonAgent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

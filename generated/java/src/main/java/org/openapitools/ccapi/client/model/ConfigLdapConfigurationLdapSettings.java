@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,304 +48,271 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * ConfigLdapConfigurationLdapSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class ConfigLdapConfigurationLdapSettings {
   public static final String SERIALIZED_NAME_LDAP_EMAIL_ATTRIBUTES = "ldapEmailAttributes";
   @SerializedName(SERIALIZED_NAME_LDAP_EMAIL_ATTRIBUTES)
+  @javax.annotation.Nullable
   private String ldapEmailAttributes;
 
   public static final String SERIALIZED_NAME_LDAP_GROUP_CLASS_NAME = "ldapGroupClassName";
   @SerializedName(SERIALIZED_NAME_LDAP_GROUP_CLASS_NAME)
+  @javax.annotation.Nullable
   private String ldapGroupClassName;
 
   public static final String SERIALIZED_NAME_LDAP_GROUP_ID_ATTRIBUTES = "ldapGroupIdAttributes";
   @SerializedName(SERIALIZED_NAME_LDAP_GROUP_ID_ATTRIBUTES)
+  @javax.annotation.Nullable
   private String ldapGroupIdAttributes;
 
   public static final String SERIALIZED_NAME_LDAP_GROUP_NAME_ATTRIBUTE = "ldapGroupNameAttribute";
   @SerializedName(SERIALIZED_NAME_LDAP_GROUP_NAME_ATTRIBUTE)
+  @javax.annotation.Nullable
   private String ldapGroupNameAttribute;
 
   public static final String SERIALIZED_NAME_LDAP_MEMBER_ATTRIBUTES = "ldapMemberAttributes";
   @SerializedName(SERIALIZED_NAME_LDAP_MEMBER_ATTRIBUTES)
+  @javax.annotation.Nullable
   private String ldapMemberAttributes;
 
   public static final String SERIALIZED_NAME_LDAP_NETWORK_TIMEOUT = "ldapNetworkTimeout";
   @SerializedName(SERIALIZED_NAME_LDAP_NETWORK_TIMEOUT)
+  @javax.annotation.Nullable
   private String ldapNetworkTimeout;
 
   public static final String SERIALIZED_NAME_LDAP_PROTOCOL_VERSION = "ldapProtocolVersion";
   @SerializedName(SERIALIZED_NAME_LDAP_PROTOCOL_VERSION)
+  @javax.annotation.Nullable
   private String ldapProtocolVersion;
 
   public static final String SERIALIZED_NAME_LDAP_QUERY_TIME_LIMIT = "ldapQueryTimeLimit";
   @SerializedName(SERIALIZED_NAME_LDAP_QUERY_TIME_LIMIT)
+  @javax.annotation.Nullable
   private String ldapQueryTimeLimit;
 
   public static final String SERIALIZED_NAME_LDAP_REALNAME_ATTRIBUTES = "ldapRealnameAttributes";
   @SerializedName(SERIALIZED_NAME_LDAP_REALNAME_ATTRIBUTES)
+  @javax.annotation.Nullable
   private String ldapRealnameAttributes;
 
   public static final String SERIALIZED_NAME_LDAP_USER_CLASS_NAME = "ldapUserClassName";
   @SerializedName(SERIALIZED_NAME_LDAP_USER_CLASS_NAME)
+  @javax.annotation.Nullable
   private String ldapUserClassName;
 
   public static final String SERIALIZED_NAME_LDAP_USERNAME_ATTRIBUTES = "ldapUsernameAttributes";
   @SerializedName(SERIALIZED_NAME_LDAP_USERNAME_ATTRIBUTES)
+  @javax.annotation.Nullable
   private String ldapUsernameAttributes;
 
   public ConfigLdapConfigurationLdapSettings() {
   }
 
-  public ConfigLdapConfigurationLdapSettings ldapEmailAttributes(String ldapEmailAttributes) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapEmailAttributes(@javax.annotation.Nullable String ldapEmailAttributes) {
     this.ldapEmailAttributes = ldapEmailAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get ldapEmailAttributes
    * @return ldapEmailAttributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapEmailAttributes() {
     return ldapEmailAttributes;
   }
 
-
-  public void setLdapEmailAttributes(String ldapEmailAttributes) {
+  public void setLdapEmailAttributes(@javax.annotation.Nullable String ldapEmailAttributes) {
     this.ldapEmailAttributes = ldapEmailAttributes;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapGroupClassName(String ldapGroupClassName) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapGroupClassName(@javax.annotation.Nullable String ldapGroupClassName) {
     this.ldapGroupClassName = ldapGroupClassName;
     return this;
   }
 
-   /**
+  /**
    * Get ldapGroupClassName
    * @return ldapGroupClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapGroupClassName() {
     return ldapGroupClassName;
   }
 
-
-  public void setLdapGroupClassName(String ldapGroupClassName) {
+  public void setLdapGroupClassName(@javax.annotation.Nullable String ldapGroupClassName) {
     this.ldapGroupClassName = ldapGroupClassName;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapGroupIdAttributes(String ldapGroupIdAttributes) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapGroupIdAttributes(@javax.annotation.Nullable String ldapGroupIdAttributes) {
     this.ldapGroupIdAttributes = ldapGroupIdAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get ldapGroupIdAttributes
    * @return ldapGroupIdAttributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapGroupIdAttributes() {
     return ldapGroupIdAttributes;
   }
 
-
-  public void setLdapGroupIdAttributes(String ldapGroupIdAttributes) {
+  public void setLdapGroupIdAttributes(@javax.annotation.Nullable String ldapGroupIdAttributes) {
     this.ldapGroupIdAttributes = ldapGroupIdAttributes;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapGroupNameAttribute(String ldapGroupNameAttribute) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapGroupNameAttribute(@javax.annotation.Nullable String ldapGroupNameAttribute) {
     this.ldapGroupNameAttribute = ldapGroupNameAttribute;
     return this;
   }
 
-   /**
+  /**
    * Get ldapGroupNameAttribute
    * @return ldapGroupNameAttribute
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapGroupNameAttribute() {
     return ldapGroupNameAttribute;
   }
 
-
-  public void setLdapGroupNameAttribute(String ldapGroupNameAttribute) {
+  public void setLdapGroupNameAttribute(@javax.annotation.Nullable String ldapGroupNameAttribute) {
     this.ldapGroupNameAttribute = ldapGroupNameAttribute;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapMemberAttributes(String ldapMemberAttributes) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapMemberAttributes(@javax.annotation.Nullable String ldapMemberAttributes) {
     this.ldapMemberAttributes = ldapMemberAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get ldapMemberAttributes
    * @return ldapMemberAttributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapMemberAttributes() {
     return ldapMemberAttributes;
   }
 
-
-  public void setLdapMemberAttributes(String ldapMemberAttributes) {
+  public void setLdapMemberAttributes(@javax.annotation.Nullable String ldapMemberAttributes) {
     this.ldapMemberAttributes = ldapMemberAttributes;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapNetworkTimeout(String ldapNetworkTimeout) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapNetworkTimeout(@javax.annotation.Nullable String ldapNetworkTimeout) {
     this.ldapNetworkTimeout = ldapNetworkTimeout;
     return this;
   }
 
-   /**
+  /**
    * Get ldapNetworkTimeout
    * @return ldapNetworkTimeout
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapNetworkTimeout() {
     return ldapNetworkTimeout;
   }
 
-
-  public void setLdapNetworkTimeout(String ldapNetworkTimeout) {
+  public void setLdapNetworkTimeout(@javax.annotation.Nullable String ldapNetworkTimeout) {
     this.ldapNetworkTimeout = ldapNetworkTimeout;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapProtocolVersion(String ldapProtocolVersion) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapProtocolVersion(@javax.annotation.Nullable String ldapProtocolVersion) {
     this.ldapProtocolVersion = ldapProtocolVersion;
     return this;
   }
 
-   /**
+  /**
    * Get ldapProtocolVersion
    * @return ldapProtocolVersion
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapProtocolVersion() {
     return ldapProtocolVersion;
   }
 
-
-  public void setLdapProtocolVersion(String ldapProtocolVersion) {
+  public void setLdapProtocolVersion(@javax.annotation.Nullable String ldapProtocolVersion) {
     this.ldapProtocolVersion = ldapProtocolVersion;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapQueryTimeLimit(String ldapQueryTimeLimit) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapQueryTimeLimit(@javax.annotation.Nullable String ldapQueryTimeLimit) {
     this.ldapQueryTimeLimit = ldapQueryTimeLimit;
     return this;
   }
 
-   /**
+  /**
    * Get ldapQueryTimeLimit
    * @return ldapQueryTimeLimit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapQueryTimeLimit() {
     return ldapQueryTimeLimit;
   }
 
-
-  public void setLdapQueryTimeLimit(String ldapQueryTimeLimit) {
+  public void setLdapQueryTimeLimit(@javax.annotation.Nullable String ldapQueryTimeLimit) {
     this.ldapQueryTimeLimit = ldapQueryTimeLimit;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapRealnameAttributes(String ldapRealnameAttributes) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapRealnameAttributes(@javax.annotation.Nullable String ldapRealnameAttributes) {
     this.ldapRealnameAttributes = ldapRealnameAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get ldapRealnameAttributes
    * @return ldapRealnameAttributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapRealnameAttributes() {
     return ldapRealnameAttributes;
   }
 
-
-  public void setLdapRealnameAttributes(String ldapRealnameAttributes) {
+  public void setLdapRealnameAttributes(@javax.annotation.Nullable String ldapRealnameAttributes) {
     this.ldapRealnameAttributes = ldapRealnameAttributes;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapUserClassName(String ldapUserClassName) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapUserClassName(@javax.annotation.Nullable String ldapUserClassName) {
     this.ldapUserClassName = ldapUserClassName;
     return this;
   }
 
-   /**
+  /**
    * Get ldapUserClassName
    * @return ldapUserClassName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapUserClassName() {
     return ldapUserClassName;
   }
 
-
-  public void setLdapUserClassName(String ldapUserClassName) {
+  public void setLdapUserClassName(@javax.annotation.Nullable String ldapUserClassName) {
     this.ldapUserClassName = ldapUserClassName;
   }
 
 
-  public ConfigLdapConfigurationLdapSettings ldapUsernameAttributes(String ldapUsernameAttributes) {
-    
+  public ConfigLdapConfigurationLdapSettings ldapUsernameAttributes(@javax.annotation.Nullable String ldapUsernameAttributes) {
     this.ldapUsernameAttributes = ldapUsernameAttributes;
     return this;
   }
 
-   /**
+  /**
    * Get ldapUsernameAttributes
    * @return ldapUsernameAttributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLdapUsernameAttributes() {
     return ldapUsernameAttributes;
   }
 
-
-  public void setLdapUsernameAttributes(String ldapUsernameAttributes) {
+  public void setLdapUsernameAttributes(@javax.annotation.Nullable String ldapUsernameAttributes) {
     this.ldapUsernameAttributes = ldapUsernameAttributes;
   }
 
@@ -402,10 +369,7 @@ public class ConfigLdapConfigurationLdapSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -414,75 +378,65 @@ public class ConfigLdapConfigurationLdapSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ldapEmailAttributes");
-    openapiFields.add("ldapGroupClassName");
-    openapiFields.add("ldapGroupIdAttributes");
-    openapiFields.add("ldapGroupNameAttribute");
-    openapiFields.add("ldapMemberAttributes");
-    openapiFields.add("ldapNetworkTimeout");
-    openapiFields.add("ldapProtocolVersion");
-    openapiFields.add("ldapQueryTimeLimit");
-    openapiFields.add("ldapRealnameAttributes");
-    openapiFields.add("ldapUserClassName");
-    openapiFields.add("ldapUsernameAttributes");
+    openapiFields = new HashSet<String>(Arrays.asList("ldapEmailAttributes", "ldapGroupClassName", "ldapGroupIdAttributes", "ldapGroupNameAttribute", "ldapMemberAttributes", "ldapNetworkTimeout", "ldapProtocolVersion", "ldapQueryTimeLimit", "ldapRealnameAttributes", "ldapUserClassName", "ldapUsernameAttributes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ConfigLdapConfigurationLdapSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ConfigLdapConfigurationLdapSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigLdapConfigurationLdapSettings is not found in the empty JSON string", ConfigLdapConfigurationLdapSettings.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ConfigLdapConfigurationLdapSettings
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ConfigLdapConfigurationLdapSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConfigLdapConfigurationLdapSettings is not found in the empty JSON string", ConfigLdapConfigurationLdapSettings.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConfigLdapConfigurationLdapSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigLdapConfigurationLdapSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConfigLdapConfigurationLdapSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ldapEmailAttributes") != null && !jsonObj.get("ldapEmailAttributes").isJsonNull()) && !jsonObj.get("ldapEmailAttributes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapEmailAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapEmailAttributes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapEmailAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapEmailAttributes").toString()));
       }
       if ((jsonObj.get("ldapGroupClassName") != null && !jsonObj.get("ldapGroupClassName").isJsonNull()) && !jsonObj.get("ldapGroupClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapGroupClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapGroupClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupClassName").toString()));
       }
       if ((jsonObj.get("ldapGroupIdAttributes") != null && !jsonObj.get("ldapGroupIdAttributes").isJsonNull()) && !jsonObj.get("ldapGroupIdAttributes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapGroupIdAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupIdAttributes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapGroupIdAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupIdAttributes").toString()));
       }
       if ((jsonObj.get("ldapGroupNameAttribute") != null && !jsonObj.get("ldapGroupNameAttribute").isJsonNull()) && !jsonObj.get("ldapGroupNameAttribute").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapGroupNameAttribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupNameAttribute").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapGroupNameAttribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapGroupNameAttribute").toString()));
       }
       if ((jsonObj.get("ldapMemberAttributes") != null && !jsonObj.get("ldapMemberAttributes").isJsonNull()) && !jsonObj.get("ldapMemberAttributes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapMemberAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapMemberAttributes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapMemberAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapMemberAttributes").toString()));
       }
       if ((jsonObj.get("ldapNetworkTimeout") != null && !jsonObj.get("ldapNetworkTimeout").isJsonNull()) && !jsonObj.get("ldapNetworkTimeout").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapNetworkTimeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapNetworkTimeout").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapNetworkTimeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapNetworkTimeout").toString()));
       }
       if ((jsonObj.get("ldapProtocolVersion") != null && !jsonObj.get("ldapProtocolVersion").isJsonNull()) && !jsonObj.get("ldapProtocolVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapProtocolVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapProtocolVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapProtocolVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapProtocolVersion").toString()));
       }
       if ((jsonObj.get("ldapQueryTimeLimit") != null && !jsonObj.get("ldapQueryTimeLimit").isJsonNull()) && !jsonObj.get("ldapQueryTimeLimit").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapQueryTimeLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapQueryTimeLimit").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapQueryTimeLimit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapQueryTimeLimit").toString()));
       }
       if ((jsonObj.get("ldapRealnameAttributes") != null && !jsonObj.get("ldapRealnameAttributes").isJsonNull()) && !jsonObj.get("ldapRealnameAttributes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapRealnameAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapRealnameAttributes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapRealnameAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapRealnameAttributes").toString()));
       }
       if ((jsonObj.get("ldapUserClassName") != null && !jsonObj.get("ldapUserClassName").isJsonNull()) && !jsonObj.get("ldapUserClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapUserClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapUserClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapUserClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapUserClassName").toString()));
       }
       if ((jsonObj.get("ldapUsernameAttributes") != null && !jsonObj.get("ldapUsernameAttributes").isJsonNull()) && !jsonObj.get("ldapUsernameAttributes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldapUsernameAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapUsernameAttributes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldapUsernameAttributes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldapUsernameAttributes").toString()));
       }
   }
 
@@ -506,31 +460,31 @@ public class ConfigLdapConfigurationLdapSettings {
 
            @Override
            public ConfigLdapConfigurationLdapSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ConfigLdapConfigurationLdapSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ConfigLdapConfigurationLdapSettings
-  * @throws IOException if the JSON string is invalid with respect to ConfigLdapConfigurationLdapSettings
-  */
+  /**
+   * Create an instance of ConfigLdapConfigurationLdapSettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ConfigLdapConfigurationLdapSettings
+   * @throws IOException if the JSON string is invalid with respect to ConfigLdapConfigurationLdapSettings
+   */
   public static ConfigLdapConfigurationLdapSettings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConfigLdapConfigurationLdapSettings.class);
   }
 
- /**
-  * Convert an instance of ConfigLdapConfigurationLdapSettings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ConfigLdapConfigurationLdapSettings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class UsersApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class UsersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usersPostCall(Users users, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call usersPostCall(@javax.annotation.Nonnull Users users, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call usersPostValidateBeforeCall(Users users, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call usersPostValidateBeforeCall(@javax.annotation.Nonnull Users users, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'users' is set
         if (users == null) {
             throw new ApiException("Missing the required parameter 'users' when calling usersPost(Async)");
@@ -147,13 +147,14 @@ public class UsersApi {
      * @param users Manipulate Cmon Users, users that are maintained by the Cmon controller (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void usersPost(Users users) throws ApiException {
+    public void usersPost(@javax.annotation.Nonnull Users users) throws ApiException {
         usersPostWithHttpInfo(users);
     }
 
@@ -164,13 +165,14 @@ public class UsersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> usersPostWithHttpInfo(Users users) throws ApiException {
+    public ApiResponse<Void> usersPostWithHttpInfo(@javax.annotation.Nonnull Users users) throws ApiException {
         okhttp3.Call localVarCall = usersPostValidateBeforeCall(users, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class UsersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usersPostAsync(Users users, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call usersPostAsync(@javax.annotation.Nonnull Users users, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = usersPostValidateBeforeCall(users, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

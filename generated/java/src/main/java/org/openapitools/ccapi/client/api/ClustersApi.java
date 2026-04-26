@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ClustersApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class ClustersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call clustersPostCall(Clusters clusters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call clustersPostCall(@javax.annotation.Nonnull Clusters clusters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class ClustersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call clustersPostValidateBeforeCall(Clusters clusters, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call clustersPostValidateBeforeCall(@javax.annotation.Nonnull Clusters clusters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'clusters' is set
         if (clusters == null) {
             throw new ApiException("Missing the required parameter 'clusters' when calling clustersPost(Async)");
@@ -147,13 +147,14 @@ public class ClustersApi {
      * @param clusters Get cluster information (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void clustersPost(Clusters clusters) throws ApiException {
+    public void clustersPost(@javax.annotation.Nonnull Clusters clusters) throws ApiException {
         clustersPostWithHttpInfo(clusters);
     }
 
@@ -164,13 +165,14 @@ public class ClustersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> clustersPostWithHttpInfo(Clusters clusters) throws ApiException {
+    public ApiResponse<Void> clustersPostWithHttpInfo(@javax.annotation.Nonnull Clusters clusters) throws ApiException {
         okhttp3.Call localVarCall = clustersPostValidateBeforeCall(clusters, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class ClustersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call clustersPostAsync(Clusters clusters, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call clustersPostAsync(@javax.annotation.Nonnull Clusters clusters, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = clustersPostValidateBeforeCall(clusters, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

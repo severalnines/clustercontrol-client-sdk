@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.StatPrometheusQueriesInner;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,7 +51,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * StatPrometheus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class StatPrometheus {
   /**
    * Gets or Sets operation
@@ -96,114 +96,114 @@ public class StatPrometheus {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "cluster_name";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)
+  @javax.annotation.Nullable
   private String clusterName;
 
   public static final String SERIALIZED_NAME_QUERIES = "queries";
   @SerializedName(SERIALIZED_NAME_QUERIES)
-  private List<StatPrometheusQueriesInner> queries = null;
+  @javax.annotation.Nullable
+  private List<StatPrometheusQueriesInner> queries = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
+  @javax.annotation.Nullable
   private Integer start;
 
   public static final String SERIALIZED_NAME_END = "end";
   @SerializedName(SERIALIZED_NAME_END)
+  @javax.annotation.Nullable
   private Integer end;
 
   public static final String SERIALIZED_NAME_STEP = "step";
   @SerializedName(SERIALIZED_NAME_STEP)
+  @javax.annotation.Nullable
   private Integer step;
 
   public static final String SERIALIZED_NAME_RETURNFROM = "returnfrom";
   @SerializedName(SERIALIZED_NAME_RETURNFROM)
+  @javax.annotation.Nullable
   private Integer returnfrom;
 
   public StatPrometheus() {
   }
 
-  public StatPrometheus operation(OperationEnum operation) {
-    
+  public StatPrometheus operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public StatPrometheus clusterId(Integer clusterId) {
-    
+  public StatPrometheus clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public StatPrometheus clusterName(String clusterName) {
-    
+  public StatPrometheus clusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
     return this;
   }
 
-   /**
+  /**
    * Get clusterName
    * @return clusterName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getClusterName() {
     return clusterName;
   }
 
-
-  public void setClusterName(String clusterName) {
+  public void setClusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
   }
 
 
-  public StatPrometheus queries(List<StatPrometheusQueriesInner> queries) {
-    
+  public StatPrometheus queries(@javax.annotation.Nullable List<StatPrometheusQueriesInner> queries) {
     this.queries = queries;
     return this;
   }
@@ -216,111 +216,92 @@ public class StatPrometheus {
     return this;
   }
 
-   /**
+  /**
    * Get queries
    * @return queries
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<StatPrometheusQueriesInner> getQueries() {
     return queries;
   }
 
-
-  public void setQueries(List<StatPrometheusQueriesInner> queries) {
+  public void setQueries(@javax.annotation.Nullable List<StatPrometheusQueriesInner> queries) {
     this.queries = queries;
   }
 
 
-  public StatPrometheus start(Integer start) {
-    
+  public StatPrometheus start(@javax.annotation.Nullable Integer start) {
     this.start = start;
     return this;
   }
 
-   /**
+  /**
    * Seconds since 1970. e.g. 1622105617
    * @return start
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Seconds since 1970. e.g. 1622105617")
-
   public Integer getStart() {
     return start;
   }
 
-
-  public void setStart(Integer start) {
+  public void setStart(@javax.annotation.Nullable Integer start) {
     this.start = start;
   }
 
 
-  public StatPrometheus end(Integer end) {
-    
+  public StatPrometheus end(@javax.annotation.Nullable Integer end) {
     this.end = end;
     return this;
   }
 
-   /**
+  /**
    * Seconds since 1970. e.g. 1622108317
    * @return end
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Seconds since 1970. e.g. 1622108317")
-
   public Integer getEnd() {
     return end;
   }
 
-
-  public void setEnd(Integer end) {
+  public void setEnd(@javax.annotation.Nullable Integer end) {
     this.end = end;
   }
 
 
-  public StatPrometheus step(Integer step) {
-    
+  public StatPrometheus step(@javax.annotation.Nullable Integer step) {
     this.step = step;
     return this;
   }
 
-   /**
+  /**
    * Get step
    * @return step
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getStep() {
     return step;
   }
 
-
-  public void setStep(Integer step) {
+  public void setStep(@javax.annotation.Nullable Integer step) {
     this.step = step;
   }
 
 
-  public StatPrometheus returnfrom(Integer returnfrom) {
-    
+  public StatPrometheus returnfrom(@javax.annotation.Nullable Integer returnfrom) {
     this.returnfrom = returnfrom;
     return this;
   }
 
-   /**
+  /**
    * Get returnfrom
    * @return returnfrom
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getReturnfrom() {
     return returnfrom;
   }
 
-
-  public void setReturnfrom(Integer returnfrom) {
+  public void setReturnfrom(@javax.annotation.Nullable Integer returnfrom) {
     this.returnfrom = returnfrom;
   }
 
@@ -371,10 +352,7 @@ public class StatPrometheus {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -383,65 +361,59 @@ public class StatPrometheus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("cluster_name");
-    openapiFields.add("queries");
-    openapiFields.add("start");
-    openapiFields.add("end");
-    openapiFields.add("step");
-    openapiFields.add("returnfrom");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "cluster_id", "cluster_name", "queries", "start", "end", "step", "returnfrom"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StatPrometheus
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!StatPrometheus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StatPrometheus is not found in the empty JSON string", StatPrometheus.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to StatPrometheus
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StatPrometheus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StatPrometheus is not found in the empty JSON string", StatPrometheus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StatPrometheus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatPrometheus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StatPrometheus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StatPrometheus.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if (jsonObj.get("queries") != null && !jsonObj.get("queries").isJsonNull()) {
         JsonArray jsonArrayqueries = jsonObj.getAsJsonArray("queries");
         if (jsonArrayqueries != null) {
           // ensure the json data is an array
           if (!jsonObj.get("queries").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `queries` to be an array in the JSON string but got `%s`", jsonObj.get("queries").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `queries` to be an array in the JSON string but got `%s`", jsonObj.get("queries").toString()));
           }
 
           // validate the optional field `queries` (array)
           for (int i = 0; i < jsonArrayqueries.size(); i++) {
-            StatPrometheusQueriesInner.validateJsonObject(jsonArrayqueries.get(i).getAsJsonObject());
+            StatPrometheusQueriesInner.validateJsonElement(jsonArrayqueries.get(i));
           };
         }
       }
@@ -467,31 +439,31 @@ public class StatPrometheus {
 
            @Override
            public StatPrometheus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of StatPrometheus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of StatPrometheus
-  * @throws IOException if the JSON string is invalid with respect to StatPrometheus
-  */
+  /**
+   * Create an instance of StatPrometheus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of StatPrometheus
+   * @throws IOException if the JSON string is invalid with respect to StatPrometheus
+   */
   public static StatPrometheus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, StatPrometheus.class);
   }
 
- /**
-  * Convert an instance of StatPrometheus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of StatPrometheus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ConfigApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class ConfigApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call configPostCall(Config config, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call configPostCall(@javax.annotation.Nonnull Config config, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class ConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call configPostValidateBeforeCall(Config config, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call configPostValidateBeforeCall(@javax.annotation.Nonnull Config config, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'config' is set
         if (config == null) {
             throw new ApiException("Missing the required parameter 'config' when calling configPost(Async)");
@@ -147,13 +147,14 @@ public class ConfigApi {
      * @param config Provides access to various Cmon configuration files (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void configPost(Config config) throws ApiException {
+    public void configPost(@javax.annotation.Nonnull Config config) throws ApiException {
         configPostWithHttpInfo(config);
     }
 
@@ -164,13 +165,14 @@ public class ConfigApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> configPostWithHttpInfo(Config config) throws ApiException {
+    public ApiResponse<Void> configPostWithHttpInfo(@javax.annotation.Nonnull Config config) throws ApiException {
         okhttp3.Call localVarCall = configPostValidateBeforeCall(config, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class ConfigApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call configPostAsync(Config config, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call configPostAsync(@javax.annotation.Nonnull Config config, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = configPostValidateBeforeCall(config, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

@@ -58,7 +58,7 @@ public class MsSqlClusterJob extends AbstractDbClusterJob {
 
     @Override
     protected void setDefaultDataDir(JobsJobJobSpecJobData jsjD) {
-        jsjD.setDataDir("/var/opt/mssql/data");
+        jsjD.setDatadir("/var/opt/mssql/data");
     }
 
     @Override
@@ -83,7 +83,7 @@ public class MsSqlClusterJob extends AbstractDbClusterJob {
         try {
             for (Host h : createDetails.getHosts()) {
                 JobsJobJobSpecJobDataNodesInner sqls = new JobsJobJobSpecJobDataNodesInner();
-                sqls.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMONMSSQLHOST);
+                sqls.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMON_MS_SQL_HOST);
                 sqls.setHostname(h.getHostname());
                 sqls.setHostnameData(h.getHostname());
                 sqls.setPort(jsjD.getPort().toString());

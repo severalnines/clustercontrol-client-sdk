@@ -18,14 +18,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.ccapi.client.model.BackupBackupRecord;
 import org.openapitools.ccapi.client.model.BackupSchedule;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for Backup
@@ -63,6 +61,38 @@ public class BackupTest {
     @Test
     public void ascendingTest() {
         // TODO: test ascending
+    }
+
+    /**
+     * Test the property 'order'
+     */
+    @Test
+    public void orderTest() {
+        // TODO: test order
+    }
+
+    /**
+     * Test the property 'backupRecordVersion'
+     */
+    @Test
+    public void backupRecordVersionTest() {
+        // TODO: test backupRecordVersion
+    }
+
+    /**
+     * Test the property 'limit'
+     */
+    @Test
+    public void limitTest() {
+        // TODO: test limit
+    }
+
+    /**
+     * Test the property 'offset'
+     */
+    @Test
+    public void offsetTest() {
+        // TODO: test offset
     }
 
     /**

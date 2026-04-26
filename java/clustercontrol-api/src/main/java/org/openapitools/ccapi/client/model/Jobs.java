@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.ccapi.client.model.JobsJob;
 
 import com.google.gson.Gson;
@@ -35,13 +33,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -49,29 +49,28 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Creating and manipulating jobs, reading information about jobs
  */
-@ApiModel(description = "Creating and manipulating jobs, reading information about jobs")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Jobs {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    CREATEJOBINSTANCE("createJobInstance"),
+    CREATE_JOB_INSTANCE("createJobInstance"),
     
-    UPDATEJOBINSTANCE("updateJobInstance"),
+    UPDATE_JOB_INSTANCE("updateJobInstance"),
     
-    DELETEJOBINSTANCE("deleteJobInstance"),
+    DELETE_JOB_INSTANCE("deleteJobInstance"),
     
-    KILLJOBINSTANCE("killJobInstance"),
+    KILL_JOB_INSTANCE("killJobInstance"),
     
-    CLONEJOBINSTANCE("cloneJobInstance"),
+    CLONE_JOB_INSTANCE("cloneJobInstance"),
     
-    GETJOBINSTANCE("getJobInstance"),
+    GET_JOB_INSTANCE("getJobInstance"),
     
-    GETJOBINSTANCES("getJobInstances"),
+    GET_JOB_INSTANCES("getJobInstances"),
     
-    GETJOBLOG("getJobLog");
+    GET_JOB_LOG("getJobLog");
 
     private String value;
 
@@ -109,250 +108,228 @@ public class Jobs {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_JOB_ID = "job_id";
   @SerializedName(SERIALIZED_NAME_JOB_ID)
+  @javax.annotation.Nullable
   private Integer jobId;
 
   public static final String SERIALIZED_NAME_SIGNAL = "signal";
   @SerializedName(SERIALIZED_NAME_SIGNAL)
+  @javax.annotation.Nullable
   private Integer signal;
 
   public static final String SERIALIZED_NAME_ASCENDING = "ascending";
   @SerializedName(SERIALIZED_NAME_ASCENDING)
+  @javax.annotation.Nullable
   private Boolean ascending;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
+  @javax.annotation.Nullable
   private Integer limit;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
   @SerializedName(SERIALIZED_NAME_OFFSET)
+  @javax.annotation.Nullable
   private Integer offset;
 
   public static final String SERIALIZED_NAME_LOG_LEVEL = "log_level";
   @SerializedName(SERIALIZED_NAME_LOG_LEVEL)
+  @javax.annotation.Nullable
   private String logLevel;
 
   public static final String SERIALIZED_NAME_JOB = "job";
   @SerializedName(SERIALIZED_NAME_JOB)
+  @javax.annotation.Nullable
   private JobsJob job;
 
   public Jobs() {
   }
 
-  public Jobs operation(OperationEnum operation) {
-    
+  public Jobs operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Jobs clusterId(Integer clusterId) {
-    
+  public Jobs clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Jobs jobId(Integer jobId) {
-    
+  public Jobs jobId(@javax.annotation.Nullable Integer jobId) {
     this.jobId = jobId;
     return this;
   }
 
-   /**
+  /**
    * Get jobId
    * @return jobId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getJobId() {
     return jobId;
   }
 
-
-  public void setJobId(Integer jobId) {
+  public void setJobId(@javax.annotation.Nullable Integer jobId) {
     this.jobId = jobId;
   }
 
 
-  public Jobs signal(Integer signal) {
-    
+  public Jobs signal(@javax.annotation.Nullable Integer signal) {
     this.signal = signal;
     return this;
   }
 
-   /**
+  /**
    * Get signal
    * @return signal
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getSignal() {
     return signal;
   }
 
-
-  public void setSignal(Integer signal) {
+  public void setSignal(@javax.annotation.Nullable Integer signal) {
     this.signal = signal;
   }
 
 
-  public Jobs ascending(Boolean ascending) {
-    
+  public Jobs ascending(@javax.annotation.Nullable Boolean ascending) {
     this.ascending = ascending;
     return this;
   }
 
-   /**
+  /**
    * Get ascending
    * @return ascending
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getAscending() {
     return ascending;
   }
 
-
-  public void setAscending(Boolean ascending) {
+  public void setAscending(@javax.annotation.Nullable Boolean ascending) {
     this.ascending = ascending;
   }
 
 
-  public Jobs limit(Integer limit) {
-    
+  public Jobs limit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Get limit
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getLimit() {
     return limit;
   }
 
-
-  public void setLimit(Integer limit) {
+  public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
   }
 
 
-  public Jobs offset(Integer offset) {
-    
+  public Jobs offset(@javax.annotation.Nullable Integer offset) {
     this.offset = offset;
     return this;
   }
 
-   /**
+  /**
    * Get offset
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getOffset() {
     return offset;
   }
 
-
-  public void setOffset(Integer offset) {
+  public void setOffset(@javax.annotation.Nullable Integer offset) {
     this.offset = offset;
   }
 
 
-  public Jobs logLevel(String logLevel) {
-    
+  public Jobs logLevel(@javax.annotation.Nullable String logLevel) {
     this.logLevel = logLevel;
     return this;
   }
 
-   /**
+  /**
    * Get logLevel
    * @return logLevel
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLogLevel() {
     return logLevel;
   }
 
-
-  public void setLogLevel(String logLevel) {
+  public void setLogLevel(@javax.annotation.Nullable String logLevel) {
     this.logLevel = logLevel;
   }
 
 
-  public Jobs job(JobsJob job) {
-    
+  public Jobs job(@javax.annotation.Nullable JobsJob job) {
     this.job = job;
     return this;
   }
 
-   /**
+  /**
    * Get job
    * @return job
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobsJob getJob() {
     return job;
   }
 
-
-  public void setJob(JobsJob job) {
+  public void setJob(@javax.annotation.Nullable JobsJob job) {
     this.job = job;
   }
 
@@ -405,10 +382,7 @@ public class Jobs {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -417,58 +391,51 @@ public class Jobs {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("job_id");
-    openapiFields.add("signal");
-    openapiFields.add("ascending");
-    openapiFields.add("limit");
-    openapiFields.add("offset");
-    openapiFields.add("log_level");
-    openapiFields.add("job");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "cluster_id", "job_id", "signal", "ascending", "limit", "offset", "log_level", "job"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Jobs
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Jobs.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Jobs is not found in the empty JSON string", Jobs.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Jobs
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Jobs.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Jobs is not found in the empty JSON string", Jobs.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Jobs.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Jobs` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Jobs` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Jobs.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("log_level") != null && !jsonObj.get("log_level").isJsonNull()) && !jsonObj.get("log_level").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `log_level` to be a primitive type in the JSON string but got `%s`", jsonObj.get("log_level").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `log_level` to be a primitive type in the JSON string but got `%s`", jsonObj.get("log_level").toString()));
       }
       // validate the optional field `job`
       if (jsonObj.get("job") != null && !jsonObj.get("job").isJsonNull()) {
-        JobsJob.validateJsonObject(jsonObj.getAsJsonObject("job"));
+        JobsJob.validateJsonElement(jsonObj.get("job"));
       }
   }
 
@@ -492,31 +459,31 @@ public class Jobs {
 
            @Override
            public Jobs read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Jobs given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Jobs
-  * @throws IOException if the JSON string is invalid with respect to Jobs
-  */
+  /**
+   * Create an instance of Jobs given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Jobs
+   * @throws IOException if the JSON string is invalid with respect to Jobs
+   */
   public static Jobs fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Jobs.class);
   }
 
- /**
-  * Convert an instance of Jobs to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Jobs to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

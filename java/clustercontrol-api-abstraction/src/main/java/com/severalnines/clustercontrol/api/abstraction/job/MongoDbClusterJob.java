@@ -44,7 +44,7 @@ public class MongoDbClusterJob extends AbstractDbClusterJob {
 
     @Override
     protected void setDefaultDataDir(JobsJobJobSpecJobData jsjD) {
-        jsjD.setDataDir("/var/lib/mongodb");
+        jsjD.setDatadir("/var/lib/mongodb");
     }
 
     @Override
@@ -121,7 +121,7 @@ public class MongoDbClusterJob extends AbstractDbClusterJob {
                 }
                 tmp = h.getPriority();
                 if (tmp != null && tmp.length() > 0) {
-                    mem.setPriority(tmp);
+                    mem.setPriority(Integer.getInteger(tmp));
                 }
                 rsets.addMembersItem(mem);
             }

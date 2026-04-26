@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,17 +51,17 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataTopology
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobDataTopology {
   public static final String SERIALIZED_NAME_MASTER_SLAVE_LINKS = "master_slave_links";
   @SerializedName(SERIALIZED_NAME_MASTER_SLAVE_LINKS)
-  private List<Map<String, String>> masterSlaveLinks = null;
+  @javax.annotation.Nullable
+  private List<Map<String, String>> masterSlaveLinks = new ArrayList<>();
 
   public JobsJobJobSpecJobDataTopology() {
   }
 
-  public JobsJobJobSpecJobDataTopology masterSlaveLinks(List<Map<String, String>> masterSlaveLinks) {
-    
+  public JobsJobJobSpecJobDataTopology masterSlaveLinks(@javax.annotation.Nullable List<Map<String, String>> masterSlaveLinks) {
     this.masterSlaveLinks = masterSlaveLinks;
     return this;
   }
@@ -74,19 +74,16 @@ public class JobsJobJobSpecJobDataTopology {
     return this;
   }
 
-   /**
+  /**
    * Get masterSlaveLinks
    * @return masterSlaveLinks
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<Map<String, String>> getMasterSlaveLinks() {
     return masterSlaveLinks;
   }
 
-
-  public void setMasterSlaveLinks(List<Map<String, String>> masterSlaveLinks) {
+  public void setMasterSlaveLinks(@javax.annotation.Nullable List<Map<String, String>> masterSlaveLinks) {
     this.masterSlaveLinks = masterSlaveLinks;
   }
 
@@ -123,10 +120,7 @@ public class JobsJobJobSpecJobDataTopology {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -135,36 +129,36 @@ public class JobsJobJobSpecJobDataTopology {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("master_slave_links");
+    openapiFields = new HashSet<String>(Arrays.asList("master_slave_links"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobDataTopology
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobDataTopology.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobDataTopology is not found in the empty JSON string", JobsJobJobSpecJobDataTopology.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobDataTopology
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobDataTopology.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobDataTopology is not found in the empty JSON string", JobsJobJobSpecJobDataTopology.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobDataTopology.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataTopology` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataTopology` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
-      if (jsonObj.get("master_slave_links") != null && !jsonObj.get("master_slave_links").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `master_slave_links` to be an array in the JSON string but got `%s`", jsonObj.get("master_slave_links").toString()));
+      if (jsonObj.get("master_slave_links") != null && !jsonObj.get("master_slave_links").isJsonNull() && !jsonObj.get("master_slave_links").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `master_slave_links` to be an array in the JSON string but got `%s`", jsonObj.get("master_slave_links").toString()));
       }
   }
 
@@ -188,31 +182,31 @@ public class JobsJobJobSpecJobDataTopology {
 
            @Override
            public JobsJobJobSpecJobDataTopology read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobDataTopology given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobDataTopology
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataTopology
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobDataTopology given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobDataTopology
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataTopology
+   */
   public static JobsJobJobSpecJobDataTopology fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobDataTopology.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobDataTopology to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobDataTopology to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

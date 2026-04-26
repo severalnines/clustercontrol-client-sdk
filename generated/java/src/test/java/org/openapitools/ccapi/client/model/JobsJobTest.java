@@ -18,15 +18,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.JobsJobJobSpec;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for JobsJob
@@ -51,11 +49,19 @@ public class JobsJobTest {
     }
 
     /**
-     * Test the property 'jobSpec'
+     * Test the property 'title'
      */
     @Test
-    public void jobSpecTest() {
-        // TODO: test jobSpec
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
     }
 
     /**
@@ -75,19 +81,11 @@ public class JobsJobTest {
     }
 
     /**
-     * Test the property 'title'
+     * Test the property 'jobSpec'
      */
     @Test
-    public void titleTest() {
-        // TODO: test title
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
+    public void jobSpecTest() {
+        // TODO: test jobSpec
     }
 
 }

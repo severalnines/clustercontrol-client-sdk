@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class StatCmonAgentApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class StatCmonAgentApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statCmonagentPostCall(StatCmonAgent statCmonAgent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call statCmonagentPostCall(@javax.annotation.Nonnull StatCmonAgent statCmonAgent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class StatCmonAgentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call statCmonagentPostValidateBeforeCall(StatCmonAgent statCmonAgent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call statCmonagentPostValidateBeforeCall(@javax.annotation.Nonnull StatCmonAgent statCmonAgent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'statCmonAgent' is set
         if (statCmonAgent == null) {
             throw new ApiException("Missing the required parameter 'statCmonAgent' when calling statCmonagentPost(Async)");
@@ -147,13 +147,14 @@ public class StatCmonAgentApi {
      * @param statCmonAgent Provides calls to access various statistical information about the cluster (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void statCmonagentPost(StatCmonAgent statCmonAgent) throws ApiException {
+    public void statCmonagentPost(@javax.annotation.Nonnull StatCmonAgent statCmonAgent) throws ApiException {
         statCmonagentPostWithHttpInfo(statCmonAgent);
     }
 
@@ -164,13 +165,14 @@ public class StatCmonAgentApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> statCmonagentPostWithHttpInfo(StatCmonAgent statCmonAgent) throws ApiException {
+    public ApiResponse<Void> statCmonagentPostWithHttpInfo(@javax.annotation.Nonnull StatCmonAgent statCmonAgent) throws ApiException {
         okhttp3.Call localVarCall = statCmonagentPostValidateBeforeCall(statCmonAgent, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class StatCmonAgentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statCmonagentPostAsync(StatCmonAgent statCmonAgent, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call statCmonagentPostAsync(@javax.annotation.Nonnull StatCmonAgent statCmonAgent, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = statCmonagentPostValidateBeforeCall(statCmonAgent, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

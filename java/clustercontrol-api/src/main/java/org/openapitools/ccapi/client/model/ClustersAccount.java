@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,14 +48,14 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * ClustersAccount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class ClustersAccount {
   /**
    * Gets or Sets className
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMONACCOUNT("CmonAccount");
+    CMON_ACCOUNT("CmonAccount");
 
     private String value;
 
@@ -93,196 +93,180 @@ public class ClustersAccount {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "class_name";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_GRANTS = "grants";
   @SerializedName(SERIALIZED_NAME_GRANTS)
+  @javax.annotation.Nullable
   private String grants;
 
   public static final String SERIALIZED_NAME_HOST_ALLOW = "host_allow";
   @SerializedName(SERIALIZED_NAME_HOST_ALLOW)
+  @javax.annotation.Nullable
   private String hostAllow;
 
   public static final String SERIALIZED_NAME_OWN_DATABASE = "own_database";
   @SerializedName(SERIALIZED_NAME_OWN_DATABASE)
+  @javax.annotation.Nullable
   private String ownDatabase;
 
   public static final String SERIALIZED_NAME_PRIVILEGES = "privileges";
   @SerializedName(SERIALIZED_NAME_PRIVILEGES)
+  @javax.annotation.Nullable
   private String privileges;
 
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
+  @javax.annotation.Nullable
   private String userName;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
+  @javax.annotation.Nullable
   private String password;
 
   public ClustersAccount() {
   }
 
-  public ClustersAccount className(ClassNameEnum className) {
-    
+  public ClustersAccount className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public ClustersAccount grants(String grants) {
-    
+  public ClustersAccount grants(@javax.annotation.Nullable String grants) {
     this.grants = grants;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;john:ALL;pipas:INSERT\&quot;
    * @return grants
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"john:ALL;pipas:INSERT\"")
-
   public String getGrants() {
     return grants;
   }
 
-
-  public void setGrants(String grants) {
+  public void setGrants(@javax.annotation.Nullable String grants) {
     this.grants = grants;
   }
 
 
-  public ClustersAccount hostAllow(String hostAllow) {
-    
+  public ClustersAccount hostAllow(@javax.annotation.Nullable String hostAllow) {
     this.hostAllow = hostAllow;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;1.2.3.4\&quot;
    * @return hostAllow
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"1.2.3.4\"")
-
   public String getHostAllow() {
     return hostAllow;
   }
 
-
-  public void setHostAllow(String hostAllow) {
+  public void setHostAllow(@javax.annotation.Nullable String hostAllow) {
     this.hostAllow = hostAllow;
   }
 
 
-  public ClustersAccount ownDatabase(String ownDatabase) {
-    
+  public ClustersAccount ownDatabase(@javax.annotation.Nullable String ownDatabase) {
     this.ownDatabase = ownDatabase;
     return this;
   }
 
-   /**
+  /**
    * Get ownDatabase
    * @return ownDatabase
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOwnDatabase() {
     return ownDatabase;
   }
 
-
-  public void setOwnDatabase(String ownDatabase) {
+  public void setOwnDatabase(@javax.annotation.Nullable String ownDatabase) {
     this.ownDatabase = ownDatabase;
   }
 
 
-  public ClustersAccount privileges(String privileges) {
-    
+  public ClustersAccount privileges(@javax.annotation.Nullable String privileges) {
     this.privileges = privileges;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;testCreateDatabase.*:DELETE,TRUNCATE\&quot;
    * @return privileges
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"testCreateDatabase.*:DELETE,TRUNCATE\"")
-
   public String getPrivileges() {
     return privileges;
   }
 
-
-  public void setPrivileges(String privileges) {
+  public void setPrivileges(@javax.annotation.Nullable String privileges) {
     this.privileges = privileges;
   }
 
 
-  public ClustersAccount userName(String userName) {
-    
+  public ClustersAccount userName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;pipas\&quot;
    * @return userName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"pipas\"")
-
   public String getUserName() {
     return userName;
   }
 
-
-  public void setUserName(String userName) {
+  public void setUserName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
   }
 
 
-  public ClustersAccount password(String password) {
-    
+  public ClustersAccount password(@javax.annotation.Nullable String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * Get password
    * @return password
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPassword() {
     return password;
   }
 
-
-  public void setPassword(String password) {
+  public void setPassword(@javax.annotation.Nullable String password) {
     this.password = password;
   }
 
@@ -331,10 +315,7 @@ public class ClustersAccount {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -343,59 +324,57 @@ public class ClustersAccount {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("class_name");
-    openapiFields.add("grants");
-    openapiFields.add("host_allow");
-    openapiFields.add("own_database");
-    openapiFields.add("privileges");
-    openapiFields.add("user_name");
-    openapiFields.add("password");
+    openapiFields = new HashSet<String>(Arrays.asList("class_name", "grants", "host_allow", "own_database", "privileges", "user_name", "password"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ClustersAccount
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ClustersAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ClustersAccount is not found in the empty JSON string", ClustersAccount.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ClustersAccount
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ClustersAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ClustersAccount is not found in the empty JSON string", ClustersAccount.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ClustersAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ClustersAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ClustersAccount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) && !jsonObj.get("class_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+      }
+      // validate the optional field `class_name`
+      if (jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("class_name"));
       }
       if ((jsonObj.get("grants") != null && !jsonObj.get("grants").isJsonNull()) && !jsonObj.get("grants").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grants` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grants").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grants` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grants").toString()));
       }
       if ((jsonObj.get("host_allow") != null && !jsonObj.get("host_allow").isJsonNull()) && !jsonObj.get("host_allow").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `host_allow` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_allow").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host_allow` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_allow").toString()));
       }
       if ((jsonObj.get("own_database") != null && !jsonObj.get("own_database").isJsonNull()) && !jsonObj.get("own_database").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `own_database` to be a primitive type in the JSON string but got `%s`", jsonObj.get("own_database").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `own_database` to be a primitive type in the JSON string but got `%s`", jsonObj.get("own_database").toString()));
       }
       if ((jsonObj.get("privileges") != null && !jsonObj.get("privileges").isJsonNull()) && !jsonObj.get("privileges").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `privileges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privileges").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `privileges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privileges").toString()));
       }
       if ((jsonObj.get("user_name") != null && !jsonObj.get("user_name").isJsonNull()) && !jsonObj.get("user_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
   }
 
@@ -419,31 +398,31 @@ public class ClustersAccount {
 
            @Override
            public ClustersAccount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ClustersAccount given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ClustersAccount
-  * @throws IOException if the JSON string is invalid with respect to ClustersAccount
-  */
+  /**
+   * Create an instance of ClustersAccount given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ClustersAccount
+   * @throws IOException if the JSON string is invalid with respect to ClustersAccount
+   */
   public static ClustersAccount fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ClustersAccount.class);
   }
 
- /**
-  * Convert an instance of ClustersAccount to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ClustersAccount to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

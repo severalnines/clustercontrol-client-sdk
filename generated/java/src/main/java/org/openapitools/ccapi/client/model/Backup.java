@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.ccapi.client.model.BackupBackupRecord;
 import org.openapitools.ccapi.client.model.BackupSchedule;
 
@@ -36,13 +34,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -50,20 +50,20 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Backup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Backup {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    GETBACKUPS("getBackups"),
+    GET_BACKUPS("getBackups"),
     
-    GETBACKUPSCHEDULES("getBackupSchedules"),
+    GET_BACKUP_SCHEDULES("getBackupSchedules"),
     
-    SCHEDULEBACKUP("scheduleBackup"),
+    SCHEDULE_BACKUP("scheduleBackup"),
     
-    DELETEBACKUPRECORD("deleteBackupRecord");
+    DELETE_BACKUP_RECORD("deleteBackupRecord");
 
     private String value;
 
@@ -101,142 +101,228 @@ public class Backup {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_ASCENDING = "ascending";
   @SerializedName(SERIALIZED_NAME_ASCENDING)
+  @javax.annotation.Nullable
   private Boolean ascending;
+
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  @javax.annotation.Nullable
+  private String order;
+
+  public static final String SERIALIZED_NAME_BACKUP_RECORD_VERSION = "backup_record_version";
+  @SerializedName(SERIALIZED_NAME_BACKUP_RECORD_VERSION)
+  @javax.annotation.Nullable
+  private Integer backupRecordVersion;
+
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  @javax.annotation.Nullable
+  private Integer limit;
+
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  @javax.annotation.Nullable
+  private Integer offset;
 
   public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
   @SerializedName(SERIALIZED_NAME_SCHEDULE)
+  @javax.annotation.Nullable
   private BackupSchedule schedule;
 
   public static final String SERIALIZED_NAME_BACKUP_RECORD = "backup_record";
   @SerializedName(SERIALIZED_NAME_BACKUP_RECORD)
+  @javax.annotation.Nullable
   private BackupBackupRecord backupRecord;
 
   public Backup() {
   }
 
-  public Backup operation(OperationEnum operation) {
-    
+  public Backup operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Backup clusterId(Integer clusterId) {
-    
+  public Backup clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Backup ascending(Boolean ascending) {
-    
+  public Backup ascending(@javax.annotation.Nullable Boolean ascending) {
     this.ascending = ascending;
     return this;
   }
 
-   /**
+  /**
    * Get ascending
    * @return ascending
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getAscending() {
     return ascending;
   }
 
-
-  public void setAscending(Boolean ascending) {
+  public void setAscending(@javax.annotation.Nullable Boolean ascending) {
     this.ascending = ascending;
   }
 
 
-  public Backup schedule(BackupSchedule schedule) {
-    
+  public Backup order(@javax.annotation.Nullable String order) {
+    this.order = order;
+    return this;
+  }
+
+  /**
+   * Get order
+   * @return order
+   */
+  @javax.annotation.Nullable
+  public String getOrder() {
+    return order;
+  }
+
+  public void setOrder(@javax.annotation.Nullable String order) {
+    this.order = order;
+  }
+
+
+  public Backup backupRecordVersion(@javax.annotation.Nullable Integer backupRecordVersion) {
+    this.backupRecordVersion = backupRecordVersion;
+    return this;
+  }
+
+  /**
+   * Get backupRecordVersion
+   * @return backupRecordVersion
+   */
+  @javax.annotation.Nullable
+  public Integer getBackupRecordVersion() {
+    return backupRecordVersion;
+  }
+
+  public void setBackupRecordVersion(@javax.annotation.Nullable Integer backupRecordVersion) {
+    this.backupRecordVersion = backupRecordVersion;
+  }
+
+
+  public Backup limit(@javax.annotation.Nullable Integer limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * Get limit
+   * @return limit
+   */
+  @javax.annotation.Nullable
+  public Integer getLimit() {
+    return limit;
+  }
+
+  public void setLimit(@javax.annotation.Nullable Integer limit) {
+    this.limit = limit;
+  }
+
+
+  public Backup offset(@javax.annotation.Nullable Integer offset) {
+    this.offset = offset;
+    return this;
+  }
+
+  /**
+   * Get offset
+   * @return offset
+   */
+  @javax.annotation.Nullable
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(@javax.annotation.Nullable Integer offset) {
+    this.offset = offset;
+  }
+
+
+  public Backup schedule(@javax.annotation.Nullable BackupSchedule schedule) {
     this.schedule = schedule;
     return this;
   }
 
-   /**
+  /**
    * Get schedule
    * @return schedule
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupSchedule getSchedule() {
     return schedule;
   }
 
-
-  public void setSchedule(BackupSchedule schedule) {
+  public void setSchedule(@javax.annotation.Nullable BackupSchedule schedule) {
     this.schedule = schedule;
   }
 
 
-  public Backup backupRecord(BackupBackupRecord backupRecord) {
-    
+  public Backup backupRecord(@javax.annotation.Nullable BackupBackupRecord backupRecord) {
     this.backupRecord = backupRecord;
     return this;
   }
 
-   /**
+  /**
    * Get backupRecord
    * @return backupRecord
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupBackupRecord getBackupRecord() {
     return backupRecord;
   }
 
-
-  public void setBackupRecord(BackupBackupRecord backupRecord) {
+  public void setBackupRecord(@javax.annotation.Nullable BackupBackupRecord backupRecord) {
     this.backupRecord = backupRecord;
   }
 
@@ -254,13 +340,17 @@ public class Backup {
     return Objects.equals(this.operation, backup.operation) &&
         Objects.equals(this.clusterId, backup.clusterId) &&
         Objects.equals(this.ascending, backup.ascending) &&
+        Objects.equals(this.order, backup.order) &&
+        Objects.equals(this.backupRecordVersion, backup.backupRecordVersion) &&
+        Objects.equals(this.limit, backup.limit) &&
+        Objects.equals(this.offset, backup.offset) &&
         Objects.equals(this.schedule, backup.schedule) &&
         Objects.equals(this.backupRecord, backup.backupRecord);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, clusterId, ascending, schedule, backupRecord);
+    return Objects.hash(operation, clusterId, ascending, order, backupRecordVersion, limit, offset, schedule, backupRecord);
   }
 
   @Override
@@ -270,6 +360,10 @@ public class Backup {
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    ascending: ").append(toIndentedString(ascending)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    backupRecordVersion: ").append(toIndentedString(backupRecordVersion)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    backupRecord: ").append(toIndentedString(backupRecord)).append("\n");
     sb.append("}");
@@ -281,10 +375,7 @@ public class Backup {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -293,55 +384,55 @@ public class Backup {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("ascending");
-    openapiFields.add("schedule");
-    openapiFields.add("backup_record");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "cluster_id", "ascending", "order", "backup_record_version", "limit", "offset", "schedule", "backup_record"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Backup
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Backup.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Backup is not found in the empty JSON string", Backup.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Backup
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Backup.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Backup is not found in the empty JSON string", Backup.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Backup.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Backup` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Backup` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Backup.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+      }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
+      if ((jsonObj.get("order") != null && !jsonObj.get("order").isJsonNull()) && !jsonObj.get("order").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `order` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order").toString()));
       }
       // validate the optional field `schedule`
       if (jsonObj.get("schedule") != null && !jsonObj.get("schedule").isJsonNull()) {
-        BackupSchedule.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
+        BackupSchedule.validateJsonElement(jsonObj.get("schedule"));
       }
       // validate the optional field `backup_record`
       if (jsonObj.get("backup_record") != null && !jsonObj.get("backup_record").isJsonNull()) {
-        BackupBackupRecord.validateJsonObject(jsonObj.getAsJsonObject("backup_record"));
+        BackupBackupRecord.validateJsonElement(jsonObj.get("backup_record"));
       }
   }
 
@@ -365,31 +456,31 @@ public class Backup {
 
            @Override
            public Backup read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Backup given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Backup
-  * @throws IOException if the JSON string is invalid with respect to Backup
-  */
+  /**
+   * Create an instance of Backup given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Backup
+   * @throws IOException if the JSON string is invalid with respect to Backup
+   */
   public static Backup fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Backup.class);
   }
 
- /**
-  * Convert an instance of Backup to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Backup to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -45,7 +45,7 @@ public class ClusterDiscovery extends AbstractClusterControlOperation {
     @Override
     public String execute() throws ClusterControlApiException {
         switch (getOpType()) {
-            case GETSUPPORTEDCLUSTERTYPES:
+            case GET_SUPPORTED_CLUSTER_TYPES:
                 return getSupportedClusterTypes();
             default:
                 logger.warn("Unsupported Op (enum:{})", getOpType());
@@ -61,7 +61,7 @@ public class ClusterDiscovery extends AbstractClusterControlOperation {
             ApiClient defaultClient = getAuthStrategy().getApiClient();
             DiscoveryApi discovApiInstance = new DiscoveryApi(defaultClient);
             Discovery discovery = new Discovery(); // Discovery | All things related to Clusters and cluster Hosts
-            discovery.setOperation(Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
+            discovery.setOperation(Discovery.OperationEnum.GET_SUPPORTED_CLUSTER_TYPES);
 
             logger.debug("Discovery request: {}", discovery);
             if (!AbstractAuthenticationStrategy.IsDebugMode()) {

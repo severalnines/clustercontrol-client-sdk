@@ -18,12 +18,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for Maintenance
@@ -45,6 +43,22 @@ public class MaintenanceTest {
     @Test
     public void operationTest() {
         // TODO: test operation
+    }
+
+    /**
+     * Test the property 'pagesize'
+     */
+    @Test
+    public void pagesizeTest() {
+        // TODO: test pagesize
+    }
+
+    /**
+     * Test the property 'page'
+     */
+    @Test
+    public void pageTest() {
+        // TODO: test page
     }
 
     /**
@@ -85,6 +99,14 @@ public class MaintenanceTest {
     @Test
     public void UUIDTest() {
         // TODO: test UUID
+    }
+
+    /**
+     * Test the property 'reason'
+     */
+    @Test
+    public void reasonTest() {
+        // TODO: test reason
     }
 
 }

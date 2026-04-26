@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.UsersUserGroupsInner;
 import org.openapitools.ccapi.client.model.UsersUserPublicKeysInner;
@@ -39,13 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -53,14 +53,14 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * UsersUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class UsersUser {
   /**
    * Gets or Sets className
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMONUSER("CmonUser");
+    CMON_USER("CmonUser");
 
     private String value;
 
@@ -98,245 +98,229 @@ public class UsersUser {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "class_name";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
+  @javax.annotation.Nullable
   private String userName;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
   private Integer userId;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  @javax.annotation.Nullable
   private String firstName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  @javax.annotation.Nullable
   private String lastName;
 
   public static final String SERIALIZED_NAME_EMAIL_ADDRESS = "email_address";
   @SerializedName(SERIALIZED_NAME_EMAIL_ADDRESS)
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String SERIALIZED_NAME_NEW_PASSWORD = "new_password";
   @SerializedName(SERIALIZED_NAME_NEW_PASSWORD)
+  @javax.annotation.Nullable
   private String newPassword;
 
   public static final String SERIALIZED_NAME_OLD_PASSWORD = "old_password";
   @SerializedName(SERIALIZED_NAME_OLD_PASSWORD)
+  @javax.annotation.Nullable
   private String oldPassword;
 
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)
-  private List<UsersUserGroupsInner> groups = null;
+  @javax.annotation.Nullable
+  private List<UsersUserGroupsInner> groups = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
+  @javax.annotation.Nullable
   private UsersUserTimezone timezone;
 
   public static final String SERIALIZED_NAME_PUBLIC_KEYS = "public_keys";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEYS)
-  private List<UsersUserPublicKeysInner> publicKeys = null;
+  @javax.annotation.Nullable
+  private List<UsersUserPublicKeysInner> publicKeys = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
-  private List<UsersUserPublicKeysInner> publicKey = null;
+  @javax.annotation.Nullable
+  private List<UsersUserPublicKeysInner> publicKey = new ArrayList<>();
 
   public UsersUser() {
   }
 
-  public UsersUser className(ClassNameEnum className) {
-    
+  public UsersUser className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public UsersUser userName(String userName) {
-    
+  public UsersUser userName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
     return this;
   }
 
-   /**
+  /**
    * Get userName
    * @return userName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getUserName() {
     return userName;
   }
 
-
-  public void setUserName(String userName) {
+  public void setUserName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
   }
 
 
-  public UsersUser userId(Integer userId) {
-    
+  public UsersUser userId(@javax.annotation.Nullable Integer userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
    * @return userId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getUserId() {
     return userId;
   }
 
-
-  public void setUserId(Integer userId) {
+  public void setUserId(@javax.annotation.Nullable Integer userId) {
     this.userId = userId;
   }
 
 
-  public UsersUser firstName(String firstName) {
-    
+  public UsersUser firstName(@javax.annotation.Nullable String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
+  /**
    * Get firstName
    * @return firstName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getFirstName() {
     return firstName;
   }
 
-
-  public void setFirstName(String firstName) {
+  public void setFirstName(@javax.annotation.Nullable String firstName) {
     this.firstName = firstName;
   }
 
 
-  public UsersUser lastName(String lastName) {
-    
+  public UsersUser lastName(@javax.annotation.Nullable String lastName) {
     this.lastName = lastName;
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLastName() {
     return lastName;
   }
 
-
-  public void setLastName(String lastName) {
+  public void setLastName(@javax.annotation.Nullable String lastName) {
     this.lastName = lastName;
   }
 
 
-  public UsersUser emailAddress(String emailAddress) {
-    
+  public UsersUser emailAddress(@javax.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
 
-   /**
+  /**
    * Get emailAddress
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getEmailAddress() {
     return emailAddress;
   }
 
-
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
 
-  public UsersUser newPassword(String newPassword) {
-    
+  public UsersUser newPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
     return this;
   }
 
-   /**
+  /**
    * Get newPassword
    * @return newPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getNewPassword() {
     return newPassword;
   }
 
-
-  public void setNewPassword(String newPassword) {
+  public void setNewPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
   }
 
 
-  public UsersUser oldPassword(String oldPassword) {
-    
+  public UsersUser oldPassword(@javax.annotation.Nullable String oldPassword) {
     this.oldPassword = oldPassword;
     return this;
   }
 
-   /**
+  /**
    * Get oldPassword
    * @return oldPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getOldPassword() {
     return oldPassword;
   }
 
-
-  public void setOldPassword(String oldPassword) {
+  public void setOldPassword(@javax.annotation.Nullable String oldPassword) {
     this.oldPassword = oldPassword;
   }
 
 
-  public UsersUser groups(List<UsersUserGroupsInner> groups) {
-    
+  public UsersUser groups(@javax.annotation.Nullable List<UsersUserGroupsInner> groups) {
     this.groups = groups;
     return this;
   }
@@ -349,48 +333,40 @@ public class UsersUser {
     return this;
   }
 
-   /**
+  /**
    * Get groups
    * @return groups
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<UsersUserGroupsInner> getGroups() {
     return groups;
   }
 
-
-  public void setGroups(List<UsersUserGroupsInner> groups) {
+  public void setGroups(@javax.annotation.Nullable List<UsersUserGroupsInner> groups) {
     this.groups = groups;
   }
 
 
-  public UsersUser timezone(UsersUserTimezone timezone) {
-    
+  public UsersUser timezone(@javax.annotation.Nullable UsersUserTimezone timezone) {
     this.timezone = timezone;
     return this;
   }
 
-   /**
+  /**
    * Get timezone
    * @return timezone
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public UsersUserTimezone getTimezone() {
     return timezone;
   }
 
-
-  public void setTimezone(UsersUserTimezone timezone) {
+  public void setTimezone(@javax.annotation.Nullable UsersUserTimezone timezone) {
     this.timezone = timezone;
   }
 
 
-  public UsersUser publicKeys(List<UsersUserPublicKeysInner> publicKeys) {
-    
+  public UsersUser publicKeys(@javax.annotation.Nullable List<UsersUserPublicKeysInner> publicKeys) {
     this.publicKeys = publicKeys;
     return this;
   }
@@ -403,25 +379,21 @@ public class UsersUser {
     return this;
   }
 
-   /**
+  /**
    * Get publicKeys
    * @return publicKeys
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<UsersUserPublicKeysInner> getPublicKeys() {
     return publicKeys;
   }
 
-
-  public void setPublicKeys(List<UsersUserPublicKeysInner> publicKeys) {
+  public void setPublicKeys(@javax.annotation.Nullable List<UsersUserPublicKeysInner> publicKeys) {
     this.publicKeys = publicKeys;
   }
 
 
-  public UsersUser publicKey(List<UsersUserPublicKeysInner> publicKey) {
-    
+  public UsersUser publicKey(@javax.annotation.Nullable List<UsersUserPublicKeysInner> publicKey) {
     this.publicKey = publicKey;
     return this;
   }
@@ -434,19 +406,16 @@ public class UsersUser {
     return this;
   }
 
-   /**
+  /**
    * Get publicKey
    * @return publicKey
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<UsersUserPublicKeysInner> getPublicKey() {
     return publicKey;
   }
 
-
-  public void setPublicKey(List<UsersUserPublicKeysInner> publicKey) {
+  public void setPublicKey(@javax.annotation.Nullable List<UsersUserPublicKeysInner> publicKey) {
     this.publicKey = publicKey;
   }
 
@@ -505,10 +474,7 @@ public class UsersUser {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -517,94 +483,87 @@ public class UsersUser {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("class_name");
-    openapiFields.add("user_name");
-    openapiFields.add("user_id");
-    openapiFields.add("first_name");
-    openapiFields.add("last_name");
-    openapiFields.add("email_address");
-    openapiFields.add("new_password");
-    openapiFields.add("old_password");
-    openapiFields.add("groups");
-    openapiFields.add("timezone");
-    openapiFields.add("public_keys");
-    openapiFields.add("public_key");
+    openapiFields = new HashSet<String>(Arrays.asList("class_name", "user_name", "user_id", "first_name", "last_name", "email_address", "new_password", "old_password", "groups", "timezone", "public_keys", "public_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UsersUser
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!UsersUser.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UsersUser is not found in the empty JSON string", UsersUser.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to UsersUser
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!UsersUser.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UsersUser is not found in the empty JSON string", UsersUser.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UsersUser.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UsersUser` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UsersUser` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) && !jsonObj.get("class_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+      }
+      // validate the optional field `class_name`
+      if (jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("class_name"));
       }
       if ((jsonObj.get("user_name") != null && !jsonObj.get("user_name").isJsonNull()) && !jsonObj.get("user_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
       }
       if ((jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()) && !jsonObj.get("first_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
       }
       if ((jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()) && !jsonObj.get("last_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
       if ((jsonObj.get("email_address") != null && !jsonObj.get("email_address").isJsonNull()) && !jsonObj.get("email_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_address").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_address").toString()));
       }
       if ((jsonObj.get("new_password") != null && !jsonObj.get("new_password").isJsonNull()) && !jsonObj.get("new_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
       }
       if ((jsonObj.get("old_password") != null && !jsonObj.get("old_password").isJsonNull()) && !jsonObj.get("old_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `old_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("old_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `old_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("old_password").toString()));
       }
       if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
         JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
         if (jsonArraygroups != null) {
           // ensure the json data is an array
           if (!jsonObj.get("groups").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `groups` to be an array in the JSON string but got `%s`", jsonObj.get("groups").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `groups` to be an array in the JSON string but got `%s`", jsonObj.get("groups").toString()));
           }
 
           // validate the optional field `groups` (array)
           for (int i = 0; i < jsonArraygroups.size(); i++) {
-            UsersUserGroupsInner.validateJsonObject(jsonArraygroups.get(i).getAsJsonObject());
+            UsersUserGroupsInner.validateJsonElement(jsonArraygroups.get(i));
           };
         }
       }
       // validate the optional field `timezone`
       if (jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonNull()) {
-        UsersUserTimezone.validateJsonObject(jsonObj.getAsJsonObject("timezone"));
+        UsersUserTimezone.validateJsonElement(jsonObj.get("timezone"));
       }
       if (jsonObj.get("public_keys") != null && !jsonObj.get("public_keys").isJsonNull()) {
         JsonArray jsonArraypublicKeys = jsonObj.getAsJsonArray("public_keys");
         if (jsonArraypublicKeys != null) {
           // ensure the json data is an array
           if (!jsonObj.get("public_keys").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `public_keys` to be an array in the JSON string but got `%s`", jsonObj.get("public_keys").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_keys` to be an array in the JSON string but got `%s`", jsonObj.get("public_keys").toString()));
           }
 
           // validate the optional field `public_keys` (array)
           for (int i = 0; i < jsonArraypublicKeys.size(); i++) {
-            UsersUserPublicKeysInner.validateJsonObject(jsonArraypublicKeys.get(i).getAsJsonObject());
+            UsersUserPublicKeysInner.validateJsonElement(jsonArraypublicKeys.get(i));
           };
         }
       }
@@ -613,12 +572,12 @@ public class UsersUser {
         if (jsonArraypublicKey != null) {
           // ensure the json data is an array
           if (!jsonObj.get("public_key").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `public_key` to be an array in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_key` to be an array in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
           }
 
           // validate the optional field `public_key` (array)
           for (int i = 0; i < jsonArraypublicKey.size(); i++) {
-            UsersUserPublicKeysInner.validateJsonObject(jsonArraypublicKey.get(i).getAsJsonObject());
+            UsersUserPublicKeysInner.validateJsonElement(jsonArraypublicKey.get(i));
           };
         }
       }
@@ -644,31 +603,31 @@ public class UsersUser {
 
            @Override
            public UsersUser read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of UsersUser given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UsersUser
-  * @throws IOException if the JSON string is invalid with respect to UsersUser
-  */
+  /**
+   * Create an instance of UsersUser given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UsersUser
+   * @throws IOException if the JSON string is invalid with respect to UsersUser
+   */
   public static UsersUser fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UsersUser.class);
   }
 
- /**
-  * Convert an instance of UsersUser to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of UsersUser to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

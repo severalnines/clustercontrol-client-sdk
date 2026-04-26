@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.HostHost;
 import org.openapitools.ccapi.client.model.HostServersInner;
@@ -38,13 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -52,22 +52,22 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Host
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Host {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    STARTSERVERS("startServers"),
+    START_SERVERS("startServers"),
     
-    SHUTDOWNSERVERS("shutdownServers"),
+    SHUTDOWN_SERVERS("shutdownServers"),
     
-    REGISTERSERVERS("registerServers"),
+    REGISTER_SERVERS("registerServers"),
     
-    UNREGISTERSERVERS("unregisterServers"),
+    UNREGISTER_SERVERS("unregisterServers"),
     
-    UNREGISTERHOST("unregisterHost");
+    UNREGISTER_HOST("unregisterHost");
 
     private String value;
 
@@ -105,56 +105,61 @@ public class Host {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_SERVERS = "servers";
   @SerializedName(SERIALIZED_NAME_SERVERS)
-  private List<HostServersInner> servers = null;
+  @javax.annotation.Nullable
+  private List<HostServersInner> servers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_DRY_RUN = "dry_run";
   @SerializedName(SERIALIZED_NAME_DRY_RUN)
+  @javax.annotation.Nullable
   private Boolean dryRun;
 
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
+  @javax.annotation.Nullable
   private HostHost host;
 
   public Host() {
   }
 
-  public Host operation(OperationEnum operation) {
-    
+  public Host operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Host servers(List<HostServersInner> servers) {
-    
+  public Host servers(@javax.annotation.Nullable List<HostServersInner> servers) {
     this.servers = servers;
     return this;
   }
@@ -167,88 +172,73 @@ public class Host {
     return this;
   }
 
-   /**
+  /**
    * Get servers
    * @return servers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<HostServersInner> getServers() {
     return servers;
   }
 
-
-  public void setServers(List<HostServersInner> servers) {
+  public void setServers(@javax.annotation.Nullable List<HostServersInner> servers) {
     this.servers = servers;
   }
 
 
-  public Host clusterId(Integer clusterId) {
-    
+  public Host clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Host dryRun(Boolean dryRun) {
-    
+  public Host dryRun(@javax.annotation.Nullable Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
 
-   /**
+  /**
    * Get dryRun
    * @return dryRun
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getDryRun() {
     return dryRun;
   }
 
-
-  public void setDryRun(Boolean dryRun) {
+  public void setDryRun(@javax.annotation.Nullable Boolean dryRun) {
     this.dryRun = dryRun;
   }
 
 
-  public Host host(HostHost host) {
-    
+  public Host host(@javax.annotation.Nullable HostHost host) {
     this.host = host;
     return this;
   }
 
-   /**
+  /**
    * Get host
    * @return host
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public HostHost getHost() {
     return host;
   }
 
-
-  public void setHost(HostHost host) {
+  public void setHost(@javax.annotation.Nullable HostHost host) {
     this.host = host;
   }
 
@@ -293,10 +283,7 @@ public class Host {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -305,65 +292,62 @@ public class Host {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("servers");
-    openapiFields.add("cluster_id");
-    openapiFields.add("dry_run");
-    openapiFields.add("host");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "servers", "cluster_id", "dry_run", "host"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Host
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Host.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Host is not found in the empty JSON string", Host.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Host
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Host.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Host is not found in the empty JSON string", Host.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Host.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Host` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Host` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Host.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if (jsonObj.get("servers") != null && !jsonObj.get("servers").isJsonNull()) {
         JsonArray jsonArrayservers = jsonObj.getAsJsonArray("servers");
         if (jsonArrayservers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("servers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `servers` to be an array in the JSON string but got `%s`", jsonObj.get("servers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `servers` to be an array in the JSON string but got `%s`", jsonObj.get("servers").toString()));
           }
 
           // validate the optional field `servers` (array)
           for (int i = 0; i < jsonArrayservers.size(); i++) {
-            HostServersInner.validateJsonObject(jsonArrayservers.get(i).getAsJsonObject());
+            HostServersInner.validateJsonElement(jsonArrayservers.get(i));
           };
         }
       }
       // validate the optional field `host`
       if (jsonObj.get("host") != null && !jsonObj.get("host").isJsonNull()) {
-        HostHost.validateJsonObject(jsonObj.getAsJsonObject("host"));
+        HostHost.validateJsonElement(jsonObj.get("host"));
       }
   }
 
@@ -387,31 +371,31 @@ public class Host {
 
            @Override
            public Host read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Host given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Host
-  * @throws IOException if the JSON string is invalid with respect to Host
-  */
+  /**
+   * Create an instance of Host given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Host
+   * @throws IOException if the JSON string is invalid with respect to Host
+   */
   public static Host fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Host.class);
   }
 
- /**
-  * Convert an instance of Host to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Host to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

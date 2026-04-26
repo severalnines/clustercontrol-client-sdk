@@ -65,7 +65,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
     }
 
     protected void setBackupCommon(Jobs jobs, BackupSpec backupSpec) {
-        jobs.setOperation(Jobs.OperationEnum.CREATEJOBINSTANCE);
+        jobs.setOperation(Jobs.OperationEnum.CREATE_JOB_INSTANCE);
         jobs.setClusterId(backupSpec.getClusterId());
     }
 
@@ -145,7 +145,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             jsjD.setBackupRetention(backupSpec.getBackupRetention());
             jsjD.setBackupDir("/root/backups");
             jsjD.setBackupsubdir("BACKUP-%I");
-            jsjD.setCcStorage("0");
+            jsjD.setCcStorage(false);
             jsjD.setCompression(true);
             jsjD.setCompressionLevel(16);
             jsjD.setHostname(backupSpec.getHostname());
@@ -186,7 +186,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             ApiClient defaultClient = getAuthStrategy().getApiClient();
             JobsApi apiInstance = new JobsApi(defaultClient);
             Jobs jobs = new Jobs();
-            jobs.setOperation(Jobs.OperationEnum.CREATEJOBINSTANCE);
+            jobs.setOperation(Jobs.OperationEnum.CREATE_JOB_INSTANCE);
             jobs.setClusterId(createDetails.getClusterId());
 
             JobsJob jj = new JobsJob();
@@ -226,7 +226,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
             ApiClient defaultClient = getAuthStrategy().getApiClient();
             JobsApi apiInstance = new JobsApi(defaultClient);
             Jobs jobs = new Jobs();
-            jobs.setOperation(Jobs.OperationEnum.CREATEJOBINSTANCE);
+            jobs.setOperation(Jobs.OperationEnum.CREATE_JOB_INSTANCE);
 
             JobsJob jj = new JobsJob();
             jj.setClassName("CmonJobInstance");
@@ -315,7 +315,7 @@ public abstract class AbstractDbClusterJob extends AbstractClusterControlOperati
     protected void setDataDir(JobsJobJobSpecJobData jsjD, DbCluster createDetails) {
         String dataDir = createDetails.getDataDir();
         if (dataDir != null && dataDir.length() > 0) {
-            jsjD.setDataDir(dataDir);
+            jsjD.setDatadir(dataDir);
         } else {
             setDefaultDataDir(jsjD);
         }

@@ -41,7 +41,7 @@ public class MysqlMariaClusterJob extends AbstractDbClusterJob {
 
     @Override
     protected void setDefaultDataDir(JobsJobJobSpecJobData jsjD) {
-        jsjD.setDataDir("/var/lib/mysql");
+        jsjD.setDatadir("/var/lib/mysql");
     }
 
     @Override

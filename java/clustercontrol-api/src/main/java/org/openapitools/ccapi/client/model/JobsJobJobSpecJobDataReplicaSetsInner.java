@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataReplicaSetsInnerMembersInner;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,44 +51,41 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataReplicaSetsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobDataReplicaSetsInner {
   public static final String SERIALIZED_NAME_RS = "rs";
   @SerializedName(SERIALIZED_NAME_RS)
+  @javax.annotation.Nullable
   private String rs;
 
   public static final String SERIALIZED_NAME_MEMBERS = "members";
   @SerializedName(SERIALIZED_NAME_MEMBERS)
-  private List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members = new ArrayList<>();
 
   public JobsJobJobSpecJobDataReplicaSetsInner() {
   }
 
-  public JobsJobJobSpecJobDataReplicaSetsInner rs(String rs) {
-    
+  public JobsJobJobSpecJobDataReplicaSetsInner rs(@javax.annotation.Nullable String rs) {
     this.rs = rs;
     return this;
   }
 
-   /**
+  /**
    * Get rs
    * @return rs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getRs() {
     return rs;
   }
 
-
-  public void setRs(String rs) {
+  public void setRs(@javax.annotation.Nullable String rs) {
     this.rs = rs;
   }
 
 
-  public JobsJobJobSpecJobDataReplicaSetsInner members(List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members) {
-    
+  public JobsJobJobSpecJobDataReplicaSetsInner members(@javax.annotation.Nullable List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members) {
     this.members = members;
     return this;
   }
@@ -101,19 +98,16 @@ public class JobsJobJobSpecJobDataReplicaSetsInner {
     return this;
   }
 
-   /**
+  /**
    * Get members
    * @return members
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> getMembers() {
     return members;
   }
 
-
-  public void setMembers(List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members) {
+  public void setMembers(@javax.annotation.Nullable List<JobsJobJobSpecJobDataReplicaSetsInnerMembersInner> members) {
     this.members = members;
   }
 
@@ -152,10 +146,7 @@ public class JobsJobJobSpecJobDataReplicaSetsInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -164,48 +155,47 @@ public class JobsJobJobSpecJobDataReplicaSetsInner {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("rs");
-    openapiFields.add("members");
+    openapiFields = new HashSet<String>(Arrays.asList("rs", "members"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobDataReplicaSetsInner
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobDataReplicaSetsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobDataReplicaSetsInner is not found in the empty JSON string", JobsJobJobSpecJobDataReplicaSetsInner.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobDataReplicaSetsInner
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobDataReplicaSetsInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobDataReplicaSetsInner is not found in the empty JSON string", JobsJobJobSpecJobDataReplicaSetsInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobDataReplicaSetsInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataReplicaSetsInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataReplicaSetsInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("rs") != null && !jsonObj.get("rs").isJsonNull()) && !jsonObj.get("rs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rs").toString()));
       }
       if (jsonObj.get("members") != null && !jsonObj.get("members").isJsonNull()) {
         JsonArray jsonArraymembers = jsonObj.getAsJsonArray("members");
         if (jsonArraymembers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("members").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
           }
 
           // validate the optional field `members` (array)
           for (int i = 0; i < jsonArraymembers.size(); i++) {
-            JobsJobJobSpecJobDataReplicaSetsInnerMembersInner.validateJsonObject(jsonArraymembers.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataReplicaSetsInnerMembersInner.validateJsonElement(jsonArraymembers.get(i));
           };
         }
       }
@@ -231,31 +221,31 @@ public class JobsJobJobSpecJobDataReplicaSetsInner {
 
            @Override
            public JobsJobJobSpecJobDataReplicaSetsInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobDataReplicaSetsInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobDataReplicaSetsInner
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataReplicaSetsInner
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobDataReplicaSetsInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobDataReplicaSetsInner
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataReplicaSetsInner
+   */
   public static JobsJobJobSpecJobDataReplicaSetsInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobDataReplicaSetsInner.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobDataReplicaSetsInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobDataReplicaSetsInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

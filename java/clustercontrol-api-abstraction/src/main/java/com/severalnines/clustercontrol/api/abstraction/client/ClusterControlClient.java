@@ -45,7 +45,7 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     @Override
     public String getSuportedClusterTypes(String jsonStr) throws ClusterControlApiException {
         ClusterDiscovery discov = new ClusterDiscovery(
-                getAuthStrategy(), jsonStr, Discovery.OperationEnum.GETSUPPORTEDCLUSTERTYPES);
+                getAuthStrategy(), jsonStr, Discovery.OperationEnum.GET_SUPPORTED_CLUSTER_TYPES);
 
         DefaultClusterControlOperationProxy proxy =
                 new DefaultClusterControlOperationProxy(getAuthStrategy(), discov);
@@ -204,7 +204,7 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     @Override
     public String createBackupSchedule(String jsonStr) throws ClusterControlApiException {
         BackupSchedule backupSchedule = new BackupSchedule(
-                getAuthStrategy(), jsonStr, Backup.OperationEnum.SCHEDULEBACKUP);
+                getAuthStrategy(), jsonStr, Backup.OperationEnum.SCHEDULE_BACKUP);
 
         DefaultClusterControlOperationProxy proxy =
                 new DefaultClusterControlOperationProxy(getAuthStrategy(), backupSchedule);
@@ -240,7 +240,7 @@ public class ClusterControlClient extends AbstractClusterControlClient {
     @Override
     public String deleteBackupRecord(String jsonStr) throws ClusterControlApiException {
         BackupSchedule backupSchedule = new BackupSchedule(
-                getAuthStrategy(), jsonStr, Backup.OperationEnum.DELETEBACKUPRECORD);
+                getAuthStrategy(), jsonStr, Backup.OperationEnum.DELETE_BACKUP_RECORD);
 
         DefaultClusterControlOperationProxy proxy =
                 new DefaultClusterControlOperationProxy(getAuthStrategy(), backupSchedule);
