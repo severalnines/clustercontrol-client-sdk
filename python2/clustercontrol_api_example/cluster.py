@@ -1,4 +1,4 @@
-import client
+from . import client
 import openapi_cc_client
 from clustercontrol_api_example.job import send_and_wait_for_job_completion
 from openapi_cc_client.models.jobs import Jobs

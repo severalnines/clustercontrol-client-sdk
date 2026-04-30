@@ -4,7 +4,7 @@ from openapi_cc_client.api import auth_api
 from openapi_cc_client.models.authenticate import Authenticate
 from openapi_cc_client.api import clusters_api
 from openapi_cc_client.models.clusters import Clusters
-import client
+from . import client
 
 def authenticateWithCC():
 # Enter a context with an instance of the API client
@@ -72,3 +72,4 @@ def getAllClusterInfo():
             print(resp.raw_data.decode('utf8'))
         except openapi_cc_client.ApiException as e:
             print("Exception when calling ClustersApi->clusters_post: %s\n" % e)
+

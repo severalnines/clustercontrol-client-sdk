@@ -19,5 +19,5 @@ cp -rp $PYDIR/test $DEST_BASE
 cp -rp $PYDIR/docs $DEST_BASE
 cp -rp $PYDIR/.openapi-generator $DEST_BASE
 cp $PYDIR/setup.* $DEST_BASE
-cp $PYDIR/*-requirements.txt $DEST_BASE
+cp $PYDIR/*requirements.txt $DEST_BASE
 #

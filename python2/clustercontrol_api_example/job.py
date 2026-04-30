@@ -1,5 +1,5 @@
 import time
-import client
+from . import client
 import openapi_cc_client
 from openapi_cc_client import Jobs
 from dataclasses import dataclass
@@ -61,5 +61,4 @@ def send_and_wait_for_job_completion(jobs: Jobs):
 
         except Exception as e:
             print(f"General exception: {e}")
-
 

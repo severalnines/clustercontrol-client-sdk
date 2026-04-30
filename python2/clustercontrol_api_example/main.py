@@ -5,10 +5,14 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-print("Starting....")
 
-authenticate.authenticateWithCC()
-authenticate.getClusterInfo()
-authenticate.getAllClusterInfo()
-cluster.create_cluster()
+def main():
+    print("Starting....")
+    authenticate.authenticateWithCC()
+    authenticate.getClusterInfo()
+    authenticate.getAllClusterInfo()
+    cluster.create_cluster()
 
+
+if __name__ == "__main__":
+    main()
