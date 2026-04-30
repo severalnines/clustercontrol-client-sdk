@@ -18,15 +18,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataNodeConfigurationInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for JobsJobJobSpecJobDataNode
@@ -80,6 +78,54 @@ public class JobsJobJobSpecJobDataNodeTest {
     @Test
     public void hostnameTest() {
         // TODO: test hostname
+    }
+
+    /**
+     * Test the property 'hostnameData'
+     */
+    @Test
+    public void hostnameDataTest() {
+        // TODO: test hostnameData
+    }
+
+    /**
+     * Test the property 'hostnameInternal'
+     */
+    @Test
+    public void hostnameInternalTest() {
+        // TODO: test hostnameInternal
+    }
+
+    /**
+     * Test the property 'configfile'
+     */
+    @Test
+    public void configfileTest() {
+        // TODO: test configfile
+    }
+
+    /**
+     * Test the property 'datadir'
+     */
+    @Test
+    public void datadirTest() {
+        // TODO: test datadir
+    }
+
+    /**
+     * Test the property 'pgname'
+     */
+    @Test
+    public void pgnameTest() {
+        // TODO: test pgname
+    }
+
+    /**
+     * Test the property 'synchronous'
+     */
+    @Test
+    public void synchronousTest() {
+        // TODO: test synchronous
     }
 
     /**

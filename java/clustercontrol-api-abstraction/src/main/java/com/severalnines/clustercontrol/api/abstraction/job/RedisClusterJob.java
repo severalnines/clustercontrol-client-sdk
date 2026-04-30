@@ -84,12 +84,12 @@ public class RedisClusterJob extends AbstractDbClusterJob {
         try {
             for (Host h : createDetails.getHosts()) {
                 JobsJobJobSpecJobDataNodesInner redis = new JobsJobJobSpecJobDataNodesInner();
-                redis.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMONREDISHOST);
+                redis.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMON_REDIS_HOST);
                 redis.setHostname(h.getHostname());
                 redis.setHostnameData(h.getHostname());
                 nodes.add(redis);
                 JobsJobJobSpecJobDataNodesInner sentinel = new JobsJobJobSpecJobDataNodesInner();
-                sentinel.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMONREDISSENTINELHOST);
+                sentinel.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMON_REDIS_SENTINEL_HOST);
                 sentinel.setHostname(h.getHostname());
                 sentinel.setHostnameData(h.getHostname());
                 nodes.add(sentinel);

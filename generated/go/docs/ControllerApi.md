@@ -1,6 +1,6 @@
 # \ControllerAPI
 
-All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
+All URIs are relative to *https://cchost:9501/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi"
 )
 
 func main() {

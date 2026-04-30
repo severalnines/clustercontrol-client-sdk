@@ -1,18 +1,52 @@
-# Binaries
+## Binaries for programs and plugins
+*.exe~
+*.so
+*.dylib
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
 *.out
+*~
+*.log
+*.bak
+.*.swp
+*.iml
+*.iml
+*.backup
+*.bkp
+.vagrant/
+tmp/
+bkp/
+backup/
+dist/
+modules-dev/
+
+## Terraform
+#example.tf
+#terraform.tfplan
+#terraform.tfstate
+#./*.tfstate
+#.terraform/
+# terraform
+#.terraform*
+#terraform*
+
+
+#/pkg/
+website/.vagrant
+website/.bundle
+website/build
+website/node_modules
 
 # Miscellaneus
 .DS_Store
 .go
 
 # IDEs
-.idea
-.vscode
+.idea/
+.vscode/
 
 # Package Files #
 *.jar
@@ -26,25 +60,37 @@
 !gradle/wrapper/*.jar
 
 # build files
-#**/target
+**/target
 target
 .gradle
 build
 
 # Other
-bin
-vendor
+bin/
+vendor/
 
-# terraform
-.terraform*
-terraform*
-
-#/bin
-#/.go
-#/.container-*
-#/.dockerfile-*
-#/.licenses
+/bin
+/.go
+/.container-*
+/.dockerfile-*
+/.licenses
 
 # pycache
 **/__pycache__/
 
+## Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+
+## Go workspace file
+go.work
+go.work.sum
+
+# env file
+.env
+
+*.egg-info/
+
+AndroidManifest.xml

@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class AuthApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class AuthApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful authentication </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Invalid input </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call authPostCall(Authenticate authenticate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call authPostCall(@javax.annotation.Nonnull Authenticate authenticate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class AuthApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call authPostValidateBeforeCall(Authenticate authenticate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call authPostValidateBeforeCall(@javax.annotation.Nonnull Authenticate authenticate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'authenticate' is set
         if (authenticate == null) {
             throw new ApiException("Missing the required parameter 'authenticate' when calling authPost(Async)");
@@ -147,13 +147,14 @@ public class AuthApi {
      * @param authenticate Authentication parameters (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful authentication </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Invalid input </td><td>  -  </td></tr>
      </table>
      */
-    public void authPost(Authenticate authenticate) throws ApiException {
+    public void authPost(@javax.annotation.Nonnull Authenticate authenticate) throws ApiException {
         authPostWithHttpInfo(authenticate);
     }
 
@@ -164,13 +165,14 @@ public class AuthApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful authentication </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Invalid input </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> authPostWithHttpInfo(Authenticate authenticate) throws ApiException {
+    public ApiResponse<Void> authPostWithHttpInfo(@javax.annotation.Nonnull Authenticate authenticate) throws ApiException {
         okhttp3.Call localVarCall = authPostValidateBeforeCall(authenticate, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class AuthApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful authentication </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Invalid input </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call authPostAsync(Authenticate authenticate, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call authPostAsync(@javax.annotation.Nonnull Authenticate authenticate, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = authPostValidateBeforeCall(authenticate, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

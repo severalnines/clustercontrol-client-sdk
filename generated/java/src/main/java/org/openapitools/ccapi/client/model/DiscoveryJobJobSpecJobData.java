@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.DiscoveryJobJobSpecJobDataNodesInner;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,7 +51,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * DiscoveryJobJobSpecJobData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class DiscoveryJobJobSpecJobData {
   /**
    * Gets or Sets clusterType
@@ -96,98 +96,94 @@ public class DiscoveryJobJobSpecJobData {
         return ClusterTypeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClusterTypeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLUSTER_TYPE = "cluster_type";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TYPE)
+  @javax.annotation.Nullable
   private ClusterTypeEnum clusterType;
 
   public static final String SERIALIZED_NAME_MYSQL_VERSION = "mysql_version";
   @SerializedName(SERIALIZED_NAME_MYSQL_VERSION)
+  @javax.annotation.Nullable
   private String mysqlVersion;
 
   public static final String SERIALIZED_NAME_VENDOR = "vendor";
   @SerializedName(SERIALIZED_NAME_VENDOR)
+  @javax.annotation.Nullable
   private String vendor;
 
   public static final String SERIALIZED_NAME_NODES = "nodes";
   @SerializedName(SERIALIZED_NAME_NODES)
-  private List<DiscoveryJobJobSpecJobDataNodesInner> nodes = null;
+  @javax.annotation.Nullable
+  private List<DiscoveryJobJobSpecJobDataNodesInner> nodes = new ArrayList<>();
 
   public DiscoveryJobJobSpecJobData() {
   }
 
-  public DiscoveryJobJobSpecJobData clusterType(ClusterTypeEnum clusterType) {
-    
+  public DiscoveryJobJobSpecJobData clusterType(@javax.annotation.Nullable ClusterTypeEnum clusterType) {
     this.clusterType = clusterType;
     return this;
   }
 
-   /**
+  /**
    * Get clusterType
    * @return clusterType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClusterTypeEnum getClusterType() {
     return clusterType;
   }
 
-
-  public void setClusterType(ClusterTypeEnum clusterType) {
+  public void setClusterType(@javax.annotation.Nullable ClusterTypeEnum clusterType) {
     this.clusterType = clusterType;
   }
 
 
-  public DiscoveryJobJobSpecJobData mysqlVersion(String mysqlVersion) {
-    
+  public DiscoveryJobJobSpecJobData mysqlVersion(@javax.annotation.Nullable String mysqlVersion) {
     this.mysqlVersion = mysqlVersion;
     return this;
   }
 
-   /**
+  /**
    * Get mysqlVersion
    * @return mysqlVersion
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMysqlVersion() {
     return mysqlVersion;
   }
 
-
-  public void setMysqlVersion(String mysqlVersion) {
+  public void setMysqlVersion(@javax.annotation.Nullable String mysqlVersion) {
     this.mysqlVersion = mysqlVersion;
   }
 
 
-  public DiscoveryJobJobSpecJobData vendor(String vendor) {
-    
+  public DiscoveryJobJobSpecJobData vendor(@javax.annotation.Nullable String vendor) {
     this.vendor = vendor;
     return this;
   }
 
-   /**
+  /**
    * Get vendor
    * @return vendor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getVendor() {
     return vendor;
   }
 
-
-  public void setVendor(String vendor) {
+  public void setVendor(@javax.annotation.Nullable String vendor) {
     this.vendor = vendor;
   }
 
 
-  public DiscoveryJobJobSpecJobData nodes(List<DiscoveryJobJobSpecJobDataNodesInner> nodes) {
-    
+  public DiscoveryJobJobSpecJobData nodes(@javax.annotation.Nullable List<DiscoveryJobJobSpecJobDataNodesInner> nodes) {
     this.nodes = nodes;
     return this;
   }
@@ -200,19 +196,16 @@ public class DiscoveryJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get nodes
    * @return nodes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<DiscoveryJobJobSpecJobDataNodesInner> getNodes() {
     return nodes;
   }
 
-
-  public void setNodes(List<DiscoveryJobJobSpecJobDataNodesInner> nodes) {
+  public void setNodes(@javax.annotation.Nullable List<DiscoveryJobJobSpecJobDataNodesInner> nodes) {
     this.nodes = nodes;
   }
 
@@ -255,10 +248,7 @@ public class DiscoveryJobJobSpecJobData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -267,56 +257,57 @@ public class DiscoveryJobJobSpecJobData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cluster_type");
-    openapiFields.add("mysql_version");
-    openapiFields.add("vendor");
-    openapiFields.add("nodes");
+    openapiFields = new HashSet<String>(Arrays.asList("cluster_type", "mysql_version", "vendor", "nodes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DiscoveryJobJobSpecJobData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!DiscoveryJobJobSpecJobData.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DiscoveryJobJobSpecJobData is not found in the empty JSON string", DiscoveryJobJobSpecJobData.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DiscoveryJobJobSpecJobData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DiscoveryJobJobSpecJobData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DiscoveryJobJobSpecJobData is not found in the empty JSON string", DiscoveryJobJobSpecJobData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DiscoveryJobJobSpecJobData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DiscoveryJobJobSpecJobData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DiscoveryJobJobSpecJobData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cluster_type") != null && !jsonObj.get("cluster_type").isJsonNull()) && !jsonObj.get("cluster_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_type").toString()));
+      }
+      // validate the optional field `cluster_type`
+      if (jsonObj.get("cluster_type") != null && !jsonObj.get("cluster_type").isJsonNull()) {
+        ClusterTypeEnum.validateJsonElement(jsonObj.get("cluster_type"));
       }
       if ((jsonObj.get("mysql_version") != null && !jsonObj.get("mysql_version").isJsonNull()) && !jsonObj.get("mysql_version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mysql_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mysql_version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mysql_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mysql_version").toString()));
       }
       if ((jsonObj.get("vendor") != null && !jsonObj.get("vendor").isJsonNull()) && !jsonObj.get("vendor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vendor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vendor").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vendor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vendor").toString()));
       }
       if (jsonObj.get("nodes") != null && !jsonObj.get("nodes").isJsonNull()) {
         JsonArray jsonArraynodes = jsonObj.getAsJsonArray("nodes");
         if (jsonArraynodes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("nodes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
           }
 
           // validate the optional field `nodes` (array)
           for (int i = 0; i < jsonArraynodes.size(); i++) {
-            DiscoveryJobJobSpecJobDataNodesInner.validateJsonObject(jsonArraynodes.get(i).getAsJsonObject());
+            DiscoveryJobJobSpecJobDataNodesInner.validateJsonElement(jsonArraynodes.get(i));
           };
         }
       }
@@ -342,31 +333,31 @@ public class DiscoveryJobJobSpecJobData {
 
            @Override
            public DiscoveryJobJobSpecJobData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of DiscoveryJobJobSpecJobData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DiscoveryJobJobSpecJobData
-  * @throws IOException if the JSON string is invalid with respect to DiscoveryJobJobSpecJobData
-  */
+  /**
+   * Create an instance of DiscoveryJobJobSpecJobData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DiscoveryJobJobSpecJobData
+   * @throws IOException if the JSON string is invalid with respect to DiscoveryJobJobSpecJobData
+   */
   public static DiscoveryJobJobSpecJobData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, DiscoveryJobJobSpecJobData.class);
   }
 
- /**
-  * Convert an instance of DiscoveryJobJobSpecJobData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of DiscoveryJobJobSpecJobData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

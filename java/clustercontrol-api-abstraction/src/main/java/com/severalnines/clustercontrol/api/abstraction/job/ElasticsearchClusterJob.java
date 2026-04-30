@@ -82,7 +82,7 @@ public class ElasticsearchClusterJob extends AbstractDbClusterJob {
         try {
             for (Host h : createDetails.getHosts()) {
                 JobsJobJobSpecJobDataNodesInner sqls = new JobsJobJobSpecJobDataNodesInner();
-                sqls.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMONMSSQLHOST);
+                sqls.setClassName(JobsJobJobSpecJobDataNodesInner.ClassNameEnum.CMON_ELASTIC_HOST);
                 sqls.setHostname(h.getHostname());
                 sqls.setHostnameData(h.getHostname());
                 sqls.setProtocol(JobsJobJobSpecJobDataNodesInner.ProtocolEnum.ELASTIC);
@@ -99,9 +99,9 @@ public class ElasticsearchClusterJob extends AbstractDbClusterJob {
     protected void setSnapshotLocation(JobsJobJobSpecJobData jsjD, DbCluster createDetails) throws ClusterControlApiException {
         String sl = createDetails.getSnapshotLocaiton();
         if (sl != null && sl.length() > 0) {
-            jsjD.setSnapshotLocaiton(sl);
+            jsjD.setSnapshotLocation(sl);
         } else {
-            jsjD.setSnapshotLocaiton("/home/root/backups/es-snapshot-repositories");
+            jsjD.setSnapshotLocation("/home/root/backups/es-snapshot-repositories");
         }
     }
 

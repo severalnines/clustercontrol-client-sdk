@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class HostApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class HostApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hostPostCall(Host host, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call hostPostCall(@javax.annotation.Nonnull Host host, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class HostApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call hostPostValidateBeforeCall(Host host, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call hostPostValidateBeforeCall(@javax.annotation.Nonnull Host host, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'host' is set
         if (host == null) {
             throw new ApiException("Missing the required parameter 'host' when calling hostPost(Async)");
@@ -147,13 +147,14 @@ public class HostApi {
      * @param host (Un)Register servers, Shutdown servers, etc (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void hostPost(Host host) throws ApiException {
+    public void hostPost(@javax.annotation.Nonnull Host host) throws ApiException {
         hostPostWithHttpInfo(host);
     }
 
@@ -164,13 +165,14 @@ public class HostApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> hostPostWithHttpInfo(Host host) throws ApiException {
+    public ApiResponse<Void> hostPostWithHttpInfo(@javax.annotation.Nonnull Host host) throws ApiException {
         okhttp3.Call localVarCall = hostPostValidateBeforeCall(host, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class HostApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call hostPostAsync(Host host, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call hostPostAsync(@javax.annotation.Nonnull Host host, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = hostPostValidateBeforeCall(host, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

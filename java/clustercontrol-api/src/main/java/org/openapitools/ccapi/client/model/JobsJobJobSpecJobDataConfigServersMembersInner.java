@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,115 +48,103 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataConfigServersMembersInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobDataConfigServersMembersInner {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @javax.annotation.Nullable
   private String hostname;
 
   public static final String SERIALIZED_NAME_HOSTNAME_DATA = "hostname_data";
   @SerializedName(SERIALIZED_NAME_HOSTNAME_DATA)
+  @javax.annotation.Nullable
   private String hostnameData;
 
   public static final String SERIALIZED_NAME_HOSTNAME_INTERNAL = "hostname_internal";
   @SerializedName(SERIALIZED_NAME_HOSTNAME_INTERNAL)
+  @javax.annotation.Nullable
   private String hostnameInternal;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @javax.annotation.Nullable
   private String port;
 
   public JobsJobJobSpecJobDataConfigServersMembersInner() {
   }
 
-  public JobsJobJobSpecJobDataConfigServersMembersInner hostname(String hostname) {
-    
+  public JobsJobJobSpecJobDataConfigServersMembersInner hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostname() {
     return hostname;
   }
 
-
-  public void setHostname(String hostname) {
+  public void setHostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public JobsJobJobSpecJobDataConfigServersMembersInner hostnameData(String hostnameData) {
-    
+  public JobsJobJobSpecJobDataConfigServersMembersInner hostnameData(@javax.annotation.Nullable String hostnameData) {
     this.hostnameData = hostnameData;
     return this;
   }
 
-   /**
+  /**
    * Get hostnameData
    * @return hostnameData
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostnameData() {
     return hostnameData;
   }
 
-
-  public void setHostnameData(String hostnameData) {
+  public void setHostnameData(@javax.annotation.Nullable String hostnameData) {
     this.hostnameData = hostnameData;
   }
 
 
-  public JobsJobJobSpecJobDataConfigServersMembersInner hostnameInternal(String hostnameInternal) {
-    
+  public JobsJobJobSpecJobDataConfigServersMembersInner hostnameInternal(@javax.annotation.Nullable String hostnameInternal) {
     this.hostnameInternal = hostnameInternal;
     return this;
   }
 
-   /**
+  /**
    * Get hostnameInternal
    * @return hostnameInternal
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostnameInternal() {
     return hostnameInternal;
   }
 
-
-  public void setHostnameInternal(String hostnameInternal) {
+  public void setHostnameInternal(@javax.annotation.Nullable String hostnameInternal) {
     this.hostnameInternal = hostnameInternal;
   }
 
 
-  public JobsJobJobSpecJobDataConfigServersMembersInner port(String port) {
-    
+  public JobsJobJobSpecJobDataConfigServersMembersInner port(@javax.annotation.Nullable String port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Get port
    * @return port
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPort() {
     return port;
   }
 
-
-  public void setPort(String port) {
+  public void setPort(@javax.annotation.Nullable String port) {
     this.port = port;
   }
 
@@ -199,10 +187,7 @@ public class JobsJobJobSpecJobDataConfigServersMembersInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -211,47 +196,44 @@ public class JobsJobJobSpecJobDataConfigServersMembersInner {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("hostname");
-    openapiFields.add("hostname_data");
-    openapiFields.add("hostname_internal");
-    openapiFields.add("port");
+    openapiFields = new HashSet<String>(Arrays.asList("hostname", "hostname_data", "hostname_internal", "port"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobDataConfigServersMembersInner
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobDataConfigServersMembersInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobDataConfigServersMembersInner is not found in the empty JSON string", JobsJobJobSpecJobDataConfigServersMembersInner.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobDataConfigServersMembersInner
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobDataConfigServersMembersInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobDataConfigServersMembersInner is not found in the empty JSON string", JobsJobJobSpecJobDataConfigServersMembersInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobDataConfigServersMembersInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataConfigServersMembersInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataConfigServersMembersInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if ((jsonObj.get("hostname_data") != null && !jsonObj.get("hostname_data").isJsonNull()) && !jsonObj.get("hostname_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_data").toString()));
       }
       if ((jsonObj.get("hostname_internal") != null && !jsonObj.get("hostname_internal").isJsonNull()) && !jsonObj.get("hostname_internal").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname_internal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_internal").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname_internal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_internal").toString()));
       }
       if ((jsonObj.get("port") != null && !jsonObj.get("port").isJsonNull()) && !jsonObj.get("port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
       }
   }
 
@@ -275,31 +257,31 @@ public class JobsJobJobSpecJobDataConfigServersMembersInner {
 
            @Override
            public JobsJobJobSpecJobDataConfigServersMembersInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobDataConfigServersMembersInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobDataConfigServersMembersInner
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataConfigServersMembersInner
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobDataConfigServersMembersInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobDataConfigServersMembersInner
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataConfigServersMembersInner
+   */
   public static JobsJobJobSpecJobDataConfigServersMembersInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobDataConfigServersMembersInner.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobDataConfigServersMembersInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobDataConfigServersMembersInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.BackupScheduleJobJobDataVerifyBackup;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataConfigServers;
@@ -45,13 +43,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -59,7 +59,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobData {
   /**
    * Gets or Sets action
@@ -70,9 +70,13 @@ public class JobsJobJobSpecJobData {
     
     SETUP("setup"),
     
-    SETUPHAPROXY("setupHaProxy"),
+    SETUP_HA_PROXY("setupHaProxy"),
     
-    SETUPPROXYSQL("setupProxySql");
+    SETUP_PROXY_SQL("setupProxySql"),
+    
+    REGISTER_PROXY_SQL("registerProxySQL"),
+    
+    REGISTER_HA_PROXY("registerHAProxy");
 
     private String value;
 
@@ -110,30 +114,41 @@ public class JobsJobJobSpecJobData {
         return ActionEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ActionEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
+  @javax.annotation.Nullable
   private ActionEnum action;
 
   public static final String SERIALIZED_NAME_ADDNODE = "addnode";
   @SerializedName(SERIALIZED_NAME_ADDNODE)
+  @javax.annotation.Nullable
   private Boolean addnode;
 
   public static final String SERIALIZED_NAME_ADMIN_USERNAME = "admin_username";
   @SerializedName(SERIALIZED_NAME_ADMIN_USERNAME)
+  @javax.annotation.Nullable
   private String adminUsername;
 
   public static final String SERIALIZED_NAME_ADMIN_USER = "admin_user";
   @SerializedName(SERIALIZED_NAME_ADMIN_USER)
+  @javax.annotation.Nullable
   private String adminUser;
 
   public static final String SERIALIZED_NAME_ADMIN_PASSWORD = "admin_password";
   @SerializedName(SERIALIZED_NAME_ADMIN_PASSWORD)
+  @javax.annotation.Nullable
   private String adminPassword;
 
   public static final String SERIALIZED_NAME_AUDIT_EVENTS = "audit_events";
   @SerializedName(SERIALIZED_NAME_AUDIT_EVENTS)
+  @javax.annotation.Nullable
   private String auditEvents;
 
   /**
@@ -179,30 +194,41 @@ public class JobsJobJobSpecJobData {
         return ArchiveModeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ArchiveModeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_ARCHIVE_MODE = "archive_mode";
   @SerializedName(SERIALIZED_NAME_ARCHIVE_MODE)
+  @javax.annotation.Nullable
   private ArchiveModeEnum archiveMode;
 
   public static final String SERIALIZED_NAME_BACKUPID = "backupid";
   @SerializedName(SERIALIZED_NAME_BACKUPID)
+  @javax.annotation.Nullable
   private Integer backupid;
 
   public static final String SERIALIZED_NAME_BACKUP_ID = "backup_id";
   @SerializedName(SERIALIZED_NAME_BACKUP_ID)
+  @javax.annotation.Nullable
   private Integer backupId;
 
   public static final String SERIALIZED_NAME_BUILD_FROM_SOURCE = "build_from_source";
   @SerializedName(SERIALIZED_NAME_BUILD_FROM_SOURCE)
+  @javax.annotation.Nullable
   private Boolean buildFromSource;
 
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "cluster_name";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)
+  @javax.annotation.Nullable
   private String clusterName;
 
   public static final String SERIALIZED_NAME_CLUSTERID = "clusterid";
   @SerializedName(SERIALIZED_NAME_CLUSTERID)
+  @javax.annotation.Nullable
   private Integer clusterid;
 
   /**
@@ -224,7 +250,11 @@ public class JobsJobJobSpecJobData {
     
     GALERA("galera"),
     
-    ELASTIC("elastic");
+    ELASTIC("elastic"),
+    
+    REDIS_SHARDED("redis_sharded"),
+    
+    VALKEY_SHARDED("valkey_sharded");
 
     private String value;
 
@@ -262,22 +292,31 @@ public class JobsJobJobSpecJobData {
         return ClusterTypeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClusterTypeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLUSTER_TYPE = "cluster_type";
   @SerializedName(SERIALIZED_NAME_CLUSTER_TYPE)
+  @javax.annotation.Nullable
   private ClusterTypeEnum clusterType;
 
   public static final String SERIALIZED_NAME_COMPANY_ID = "company_id";
   @SerializedName(SERIALIZED_NAME_COMPANY_ID)
+  @javax.annotation.Nullable
   private String companyId;
 
   public static final String SERIALIZED_NAME_CONFIG_TEMPLATE = "config_template";
   @SerializedName(SERIALIZED_NAME_CONFIG_TEMPLATE)
+  @javax.annotation.Nullable
   private String configTemplate;
 
   public static final String SERIALIZED_NAME_BACKUP_FAILOVER = "backup_failover";
   @SerializedName(SERIALIZED_NAME_BACKUP_FAILOVER)
+  @javax.annotation.Nullable
   private Boolean backupFailover;
 
   /**
@@ -323,10 +362,16 @@ public class JobsJobJobSpecJobData {
         return BackupFailoverHostEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BackupFailoverHostEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_BACKUP_FAILOVER_HOST = "backup_failover_host";
   @SerializedName(SERIALIZED_NAME_BACKUP_FAILOVER_HOST)
+  @javax.annotation.Nullable
   private BackupFailoverHostEnum backupFailoverHost;
 
   /**
@@ -398,10 +443,16 @@ public class JobsJobJobSpecJobData {
         return BackupMethodEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BackupMethodEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_BACKUP_METHOD = "backup_method";
   @SerializedName(SERIALIZED_NAME_BACKUP_METHOD)
+  @javax.annotation.Nullable
   private BackupMethodEnum backupMethod;
 
   /**
@@ -411,13 +462,13 @@ public class JobsJobJobSpecJobData {
   public enum BackupMysqldumpTypeEnum {
     COMPLETE("Complete"),
     
-    SCHEMAANDDATA("SchemaAndData"),
+    SCHEMA_AND_DATA("SchemaAndData"),
     
-    SCHEMAONLY("SchemaOnly"),
+    SCHEMA_ONLY("SchemaOnly"),
     
-    DATAONLY("DataOnly"),
+    DATA_ONLY("DataOnly"),
     
-    MYSQLDBONLY("MySQLDbOnly");
+    MY_SQLDB_ONLY("MySQLDbOnly");
 
     private String value;
 
@@ -455,242 +506,371 @@ public class JobsJobJobSpecJobData {
         return BackupMysqldumpTypeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      BackupMysqldumpTypeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_BACKUP_MYSQLDUMP_TYPE = "backup_mysqldump_type";
   @SerializedName(SERIALIZED_NAME_BACKUP_MYSQLDUMP_TYPE)
+  @javax.annotation.Nullable
   private BackupMysqldumpTypeEnum backupMysqldumpType;
 
   public static final String SERIALIZED_NAME_BACKUP_INDIVIDUAL_SCHEMAS = "backup_individual_schemas";
   @SerializedName(SERIALIZED_NAME_BACKUP_INDIVIDUAL_SCHEMAS)
+  @javax.annotation.Nullable
   private Boolean backupIndividualSchemas;
 
   public static final String SERIALIZED_NAME_BACKUP_RETENTION = "backup_retention";
   @SerializedName(SERIALIZED_NAME_BACKUP_RETENTION)
+  @javax.annotation.Nullable
   private Integer backupRetention;
 
   public static final String SERIALIZED_NAME_EXTENDED_INSERT = "extended_insert";
   @SerializedName(SERIALIZED_NAME_EXTENDED_INSERT)
+  @javax.annotation.Nullable
   private Boolean extendedInsert;
 
   public static final String SERIALIZED_NAME_BACKUP_DIR = "backup_dir";
   @SerializedName(SERIALIZED_NAME_BACKUP_DIR)
+  @javax.annotation.Nullable
   private String backupDir;
 
   public static final String SERIALIZED_NAME_BACKUPSUBDIR = "backupsubdir";
   @SerializedName(SERIALIZED_NAME_BACKUPSUBDIR)
+  @javax.annotation.Nullable
   private String backupsubdir;
+
+  public static final String SERIALIZED_NAME_REMOVE_BACKUPS = "remove_backups";
+  @SerializedName(SERIALIZED_NAME_REMOVE_BACKUPS)
+  @javax.annotation.Nullable
+  private Boolean removeBackups;
+
+  public static final String SERIALIZED_NAME_BACKUP_SYSTEM_DB = "backup_system_db";
+  @SerializedName(SERIALIZED_NAME_BACKUP_SYSTEM_DB)
+  @javax.annotation.Nullable
+  private Boolean backupSystemDb;
 
   public static final String SERIALIZED_NAME_CC_STORAGE = "cc_storage";
   @SerializedName(SERIALIZED_NAME_CC_STORAGE)
-  private String ccStorage;
+  @javax.annotation.Nullable
+  private Boolean ccStorage;
 
   public static final String SERIALIZED_NAME_COMPRESSION = "compression";
   @SerializedName(SERIALIZED_NAME_COMPRESSION)
+  @javax.annotation.Nullable
   private Boolean compression;
 
   public static final String SERIALIZED_NAME_COMPRESSION_LEVEL = "compression_level";
   @SerializedName(SERIALIZED_NAME_COMPRESSION_LEVEL)
+  @javax.annotation.Nullable
   private Integer compressionLevel;
 
   public static final String SERIALIZED_NAME_DB_DATABASE = "db_database";
   @SerializedName(SERIALIZED_NAME_DB_DATABASE)
+  @javax.annotation.Nullable
   private String dbDatabase;
 
   public static final String SERIALIZED_NAME_DB_PASSWORD = "db_password";
   @SerializedName(SERIALIZED_NAME_DB_PASSWORD)
+  @javax.annotation.Nullable
   private String dbPassword;
 
   public static final String SERIALIZED_NAME_DB_PRIVS = "db_privs";
   @SerializedName(SERIALIZED_NAME_DB_PRIVS)
+  @javax.annotation.Nullable
   private String dbPrivs;
 
   public static final String SERIALIZED_NAME_DB_USERNAME = "db_username";
   @SerializedName(SERIALIZED_NAME_DB_USERNAME)
+  @javax.annotation.Nullable
   private String dbUsername;
 
   public static final String SERIALIZED_NAME_DATA_CENTER = "data_center";
   @SerializedName(SERIALIZED_NAME_DATA_CENTER)
+  @javax.annotation.Nullable
   private Integer dataCenter;
 
   public static final String SERIALIZED_NAME_EXEC_UPGRADE_SCRIPT = "exec_upgrade_script";
   @SerializedName(SERIALIZED_NAME_EXEC_UPGRADE_SCRIPT)
+  @javax.annotation.Nullable
   private Boolean execUpgradeScript;
 
   public static final String SERIALIZED_NAME_EXTENDED = "extended";
   @SerializedName(SERIALIZED_NAME_EXTENDED)
+  @javax.annotation.Nullable
   private Boolean extended;
 
   public static final String SERIALIZED_NAME_LISTENING_PORT = "listening_port";
   @SerializedName(SERIALIZED_NAME_LISTENING_PORT)
+  @javax.annotation.Nullable
   private Integer listeningPort;
 
   public static final String SERIALIZED_NAME_MASK_PASSWORDS = "mask_passwords";
   @SerializedName(SERIALIZED_NAME_MASK_PASSWORDS)
+  @javax.annotation.Nullable
   private Boolean maskPasswords;
 
   public static final String SERIALIZED_NAME_MONITOR_PASSWORD = "monitor_password";
   @SerializedName(SERIALIZED_NAME_MONITOR_PASSWORD)
+  @javax.annotation.Nullable
   private String monitorPassword;
 
   public static final String SERIALIZED_NAME_MONITOR_USER = "monitor_user";
   @SerializedName(SERIALIZED_NAME_MONITOR_USER)
+  @javax.annotation.Nullable
   private String monitorUser;
 
   public static final String SERIALIZED_NAME_USE_CLUSTERING = "use_clustering";
   @SerializedName(SERIALIZED_NAME_USE_CLUSTERING)
+  @javax.annotation.Nullable
   private Boolean useClustering;
 
   public static final String SERIALIZED_NAME_USE_RW_SPLIT = "use_rw_split";
   @SerializedName(SERIALIZED_NAME_USE_RW_SPLIT)
+  @javax.annotation.Nullable
   private Boolean useRwSplit;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @javax.annotation.Nullable
   private String hostname;
 
   public static final String SERIALIZED_NAME_MASTER_ADDRESS = "master_address";
   @SerializedName(SERIALIZED_NAME_MASTER_ADDRESS)
+  @javax.annotation.Nullable
   private String masterAddress;
+
+  public static final String SERIALIZED_NAME_MASTER_DELAY = "master_delay";
+  @SerializedName(SERIALIZED_NAME_MASTER_DELAY)
+  @javax.annotation.Nullable
+  private Integer masterDelay;
 
   public static final String SERIALIZED_NAME_INCLUDE_DATABASES = "include_databases";
   @SerializedName(SERIALIZED_NAME_INCLUDE_DATABASES)
+  @javax.annotation.Nullable
   private String includeDatabases;
 
   public static final String SERIALIZED_NAME_INSTALL_TIMESCALEDB = "install_timescaledb";
   @SerializedName(SERIALIZED_NAME_INSTALL_TIMESCALEDB)
+  @javax.annotation.Nullable
   private Boolean installTimescaledb;
 
   public static final String SERIALIZED_NAME_UPDATE_LB = "update_lb";
   @SerializedName(SERIALIZED_NAME_UPDATE_LB)
+  @javax.annotation.Nullable
   private Boolean updateLb;
 
   public static final String SERIALIZED_NAME_USE_PACKAGE_FOR_DATA_DIR = "usePackageForDataDir";
   @SerializedName(SERIALIZED_NAME_USE_PACKAGE_FOR_DATA_DIR)
+  @javax.annotation.Nullable
   private Boolean usePackageForDataDir;
 
   public static final String SERIALIZED_NAME_ENCRYPT_BACKUP = "encrypt_backup";
   @SerializedName(SERIALIZED_NAME_ENCRYPT_BACKUP)
+  @javax.annotation.Nullable
   private Boolean encryptBackup;
 
   public static final String SERIALIZED_NAME_THROTTLE_RATE_NETBW = "throttle_rate_netbw";
   @SerializedName(SERIALIZED_NAME_THROTTLE_RATE_NETBW)
+  @javax.annotation.Nullable
   private Integer throttleRateNetbw;
 
   public static final String SERIALIZED_NAME_USE_PIGZ = "use_pigz";
   @SerializedName(SERIALIZED_NAME_USE_PIGZ)
+  @javax.annotation.Nullable
   private Boolean usePigz;
 
   public static final String SERIALIZED_NAME_USE_QPRESS = "use_qpress";
   @SerializedName(SERIALIZED_NAME_USE_QPRESS)
+  @javax.annotation.Nullable
   private Boolean useQpress;
 
   public static final String SERIALIZED_NAME_WSREP_DESYNC = "wsrep_desync";
   @SerializedName(SERIALIZED_NAME_WSREP_DESYNC)
+  @javax.annotation.Nullable
   private Boolean wsrepDesync;
+
+  public static final String SERIALIZED_NAME_GALERA_SEGMENT = "galera_segment";
+  @SerializedName(SERIALIZED_NAME_GALERA_SEGMENT)
+  @javax.annotation.Nullable
+  private String galeraSegment;
 
   public static final String SERIALIZED_NAME_XTRABACKUP_BACKUP_LOCKS = "xtrabackup_backup_locks";
   @SerializedName(SERIALIZED_NAME_XTRABACKUP_BACKUP_LOCKS)
+  @javax.annotation.Nullable
   private Boolean xtrabackupBackupLocks;
 
   public static final String SERIALIZED_NAME_XTRABACKUP_LOCK_DDL_PER_TABLE = "xtrabackup_lock_ddl_per_table";
   @SerializedName(SERIALIZED_NAME_XTRABACKUP_LOCK_DDL_PER_TABLE)
+  @javax.annotation.Nullable
   private Boolean xtrabackupLockDdlPerTable;
 
   public static final String SERIALIZED_NAME_XTRABACKUP_PARALLELLISM = "xtrabackup_parallellism";
   @SerializedName(SERIALIZED_NAME_XTRABACKUP_PARALLELLISM)
+  @javax.annotation.Nullable
   private Integer xtrabackupParallellism;
 
   public static final String SERIALIZED_NAME_VERIFY_BACKUP_DELAY = "verify_backup_delay";
   @SerializedName(SERIALIZED_NAME_VERIFY_BACKUP_DELAY)
+  @javax.annotation.Nullable
   private Integer verifyBackupDelay;
 
-  public static final String SERIALIZED_NAME_DATA_DIR = "data_dir";
-  @SerializedName(SERIALIZED_NAME_DATA_DIR)
-  private String dataDir;
+  public static final String SERIALIZED_NAME_DATADIR = "datadir";
+  @SerializedName(SERIALIZED_NAME_DATADIR)
+  @javax.annotation.Nullable
+  private String datadir;
 
   public static final String SERIALIZED_NAME_DB_USER = "db_user";
   @SerializedName(SERIALIZED_NAME_DB_USER)
+  @javax.annotation.Nullable
   private String dbUser;
 
   public static final String SERIALIZED_NAME_DISABLE_FIREWALL = "disable_firewall";
   @SerializedName(SERIALIZED_NAME_DISABLE_FIREWALL)
+  @javax.annotation.Nullable
   private Boolean disableFirewall;
 
   public static final String SERIALIZED_NAME_DISABLE_SELINUX = "disable_selinux";
   @SerializedName(SERIALIZED_NAME_DISABLE_SELINUX)
+  @javax.annotation.Nullable
   private Boolean disableSelinux;
 
   public static final String SERIALIZED_NAME_ENABLE_UNINSTALL = "enable_uninstall";
   @SerializedName(SERIALIZED_NAME_ENABLE_UNINSTALL)
+  @javax.annotation.Nullable
   private Boolean enableUninstall;
+
+  public static final String SERIALIZED_NAME_UNREGISTER_ONLY = "unregister_only";
+  @SerializedName(SERIALIZED_NAME_UNREGISTER_ONLY)
+  @javax.annotation.Nullable
+  private Boolean unregisterOnly;
 
   public static final String SERIALIZED_NAME_GENERATE_TOKEN = "generate_token";
   @SerializedName(SERIALIZED_NAME_GENERATE_TOKEN)
+  @javax.annotation.Nullable
   private Boolean generateToken;
 
   public static final String SERIALIZED_NAME_INSTALL_SOFTWARE = "install_software";
   @SerializedName(SERIALIZED_NAME_INSTALL_SOFTWARE)
+  @javax.annotation.Nullable
   private Boolean installSoftware;
 
   public static final String SERIALIZED_NAME_USE_INTERNAL_REPOS = "use_internal_repos";
   @SerializedName(SERIALIZED_NAME_USE_INTERNAL_REPOS)
+  @javax.annotation.Nullable
   private Boolean useInternalRepos;
 
   public static final String SERIALIZED_NAME_LOCAL_REPOSITORY = "local_repository";
   @SerializedName(SERIALIZED_NAME_LOCAL_REPOSITORY)
+  @javax.annotation.Nullable
   private String localRepository;
 
   public static final String SERIALIZED_NAME_ENABLE_MYSQL_UNINSTALL = "enable_mysql_uninstall";
   @SerializedName(SERIALIZED_NAME_ENABLE_MYSQL_UNINSTALL)
+  @javax.annotation.Nullable
   private Boolean enableMysqlUninstall;
 
   public static final String SERIALIZED_NAME_MYSQL_SEMI_SYNC = "mysql_semi_sync";
   @SerializedName(SERIALIZED_NAME_MYSQL_SEMI_SYNC)
+  @javax.annotation.Nullable
   private Boolean mysqlSemiSync;
 
   public static final String SERIALIZED_NAME_ENABLE_SSL = "enable_ssl";
   @SerializedName(SERIALIZED_NAME_ENABLE_SSL)
+  @javax.annotation.Nullable
   private Boolean enableSsl;
 
   public static final String SERIALIZED_NAME_MONGOS_CONF_TEMPLATE = "mongos_conf_template";
   @SerializedName(SERIALIZED_NAME_MONGOS_CONF_TEMPLATE)
+  @javax.annotation.Nullable
   private String mongosConfTemplate;
 
   public static final String SERIALIZED_NAME_MONGODB_AUTHDB = "mongodb_authdb";
   @SerializedName(SERIALIZED_NAME_MONGODB_AUTHDB)
+  @javax.annotation.Nullable
   private String mongodbAuthdb;
 
   public static final String SERIALIZED_NAME_NODE_TYPE = "node_type";
   @SerializedName(SERIALIZED_NAME_NODE_TYPE)
+  @javax.annotation.Nullable
   private Integer nodeType;
 
   public static final String SERIALIZED_NAME_OVERWRITE_MYSQLCHK = "overwrite_mysqlchk";
   @SerializedName(SERIALIZED_NAME_OVERWRITE_MYSQLCHK)
+  @javax.annotation.Nullable
   private Boolean overwriteMysqlchk;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @javax.annotation.Nullable
   private Integer port;
+
+  public static final String SERIALIZED_NAME_SENTINEL_PORT = "sentinel_port";
+  @SerializedName(SERIALIZED_NAME_SENTINEL_PORT)
+  @javax.annotation.Nullable
+  private String sentinelPort;
+
+  public static final String SERIALIZED_NAME_REDIS_SHARDED_PORT = "redis_sharded_port";
+  @SerializedName(SERIALIZED_NAME_REDIS_SHARDED_PORT)
+  @javax.annotation.Nullable
+  private Integer redisShardedPort;
+
+  public static final String SERIALIZED_NAME_VALKEY_SHARDED_PORT = "valkey_sharded_port";
+  @SerializedName(SERIALIZED_NAME_VALKEY_SHARDED_PORT)
+  @javax.annotation.Nullable
+  private Integer valkeyShardedPort;
+
+  public static final String SERIALIZED_NAME_REDIS_SHARDED_BUS_PORT = "redis_sharded_bus_port";
+  @SerializedName(SERIALIZED_NAME_REDIS_SHARDED_BUS_PORT)
+  @javax.annotation.Nullable
+  private Integer redisShardedBusPort;
+
+  public static final String SERIALIZED_NAME_VALKEY_SHARDED_BUS_PORT = "valkey_sharded_bus_port";
+  @SerializedName(SERIALIZED_NAME_VALKEY_SHARDED_BUS_PORT)
+  @javax.annotation.Nullable
+  private Integer valkeyShardedBusPort;
+
+  public static final String SERIALIZED_NAME_REDIS_CLUSTER_REPLICA_VALIDITY_FACTOR = "redis_cluster_replica_validity_factor";
+  @SerializedName(SERIALIZED_NAME_REDIS_CLUSTER_REPLICA_VALIDITY_FACTOR)
+  @javax.annotation.Nullable
+  private Integer redisClusterReplicaValidityFactor;
+
+  public static final String SERIALIZED_NAME_VALKEY_CLUSTER_REPLICA_VALIDITY_FACTOR = "valkey_cluster_replica_validity_factor";
+  @SerializedName(SERIALIZED_NAME_VALKEY_CLUSTER_REPLICA_VALIDITY_FACTOR)
+  @javax.annotation.Nullable
+  private Integer valkeyClusterReplicaValidityFactor;
+
+  public static final String SERIALIZED_NAME_NODE_TIMEOUT_MS = "node_timeout_ms";
+  @SerializedName(SERIALIZED_NAME_NODE_TIMEOUT_MS)
+  @javax.annotation.Nullable
+  private Integer nodeTimeoutMs;
 
   public static final String SERIALIZED_NAME_SSH_KEYFILE = "ssh_keyfile";
   @SerializedName(SERIALIZED_NAME_SSH_KEYFILE)
+  @javax.annotation.Nullable
   private String sshKeyfile;
 
   public static final String SERIALIZED_NAME_SSH_PORT = "ssh_port";
   @SerializedName(SERIALIZED_NAME_SSH_PORT)
+  @javax.annotation.Nullable
   private String sshPort;
 
   public static final String SERIALIZED_NAME_SSH_USER = "ssh_user";
   @SerializedName(SERIALIZED_NAME_SSH_USER)
+  @javax.annotation.Nullable
   private String sshUser;
 
   public static final String SERIALIZED_NAME_SUDO_PASSWORD = "sudo_password";
   @SerializedName(SERIALIZED_NAME_SUDO_PASSWORD)
+  @javax.annotation.Nullable
   private String sudoPassword;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
   private Integer userId;
 
   /**
@@ -699,6 +879,8 @@ public class JobsJobJobSpecJobData {
   @JsonAdapter(VendorEnum.Adapter.class)
   public enum VendorEnum {
     DEFAULT("default"),
+    
+    POSTGRESQL("postgresql"),
     
     PERCONA("percona"),
     
@@ -712,7 +894,9 @@ public class JobsJobJobSpecJobData {
     
     ELASTICSEARCH("elasticsearch"),
     
-    _10GEN("10gen");
+    _10GEN("10gen"),
+    
+    VALKEY("valkey");
 
     private String value;
 
@@ -750,10 +934,16 @@ public class JobsJobJobSpecJobData {
         return VendorEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      VendorEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_VENDOR = "vendor";
   @SerializedName(SERIALIZED_NAME_VENDOR)
+  @javax.annotation.Nullable
   private VendorEnum vendor;
 
   /**
@@ -809,2456 +999,2429 @@ public class JobsJobJobSpecJobData {
         return TypeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nullable
   private String version;
 
   public static final String SERIALIZED_NAME_SOFTWARE_PACKAGE = "software_package";
   @SerializedName(SERIALIZED_NAME_SOFTWARE_PACKAGE)
+  @javax.annotation.Nullable
   private String softwarePackage;
 
   public static final String SERIALIZED_NAME_SERVER_ADDRESS = "server_address";
   @SerializedName(SERIALIZED_NAME_SERVER_ADDRESS)
+  @javax.annotation.Nullable
   private String serverAddress;
 
   public static final String SERIALIZED_NAME_TERMINATE_DB_SERVER = "terminate_db_server";
   @SerializedName(SERIALIZED_NAME_TERMINATE_DB_SERVER)
+  @javax.annotation.Nullable
   private Boolean terminateDbServer;
 
   public static final String SERIALIZED_NAME_XTRABACKUP_USE_MEMORY = "xtrabackup_use_memory";
   @SerializedName(SERIALIZED_NAME_XTRABACKUP_USE_MEMORY)
+  @javax.annotation.Nullable
   private Integer xtrabackupUseMemory;
 
   public static final String SERIALIZED_NAME_INITIAL = "initial";
   @SerializedName(SERIALIZED_NAME_INITIAL)
+  @javax.annotation.Nullable
   private Boolean initial;
 
   public static final String SERIALIZED_NAME_REBOOT = "reboot";
   @SerializedName(SERIALIZED_NAME_REBOOT)
+  @javax.annotation.Nullable
   private Boolean reboot;
 
   public static final String SERIALIZED_NAME_SLAVE_ADDRESS = "slave_address";
   @SerializedName(SERIALIZED_NAME_SLAVE_ADDRESS)
+  @javax.annotation.Nullable
   private String slaveAddress;
 
   public static final String SERIALIZED_NAME_FORCE = "force";
   @SerializedName(SERIALIZED_NAME_FORCE)
+  @javax.annotation.Nullable
   private Boolean force;
 
   public static final String SERIALIZED_NAME_FORCE_STOP = "force_stop";
   @SerializedName(SERIALIZED_NAME_FORCE_STOP)
+  @javax.annotation.Nullable
   private Boolean forceStop;
 
   public static final String SERIALIZED_NAME_STOP_TIMEOUT = "stop_timeout";
   @SerializedName(SERIALIZED_NAME_STOP_TIMEOUT)
+  @javax.annotation.Nullable
   private Integer stopTimeout;
 
   public static final String SERIALIZED_NAME_PITR_STOP_TIME = "pitr_stop_time";
   @SerializedName(SERIALIZED_NAME_PITR_STOP_TIME)
+  @javax.annotation.Nullable
   private String pitrStopTime;
 
   public static final String SERIALIZED_NAME_PITR_STOP_LOG = "pitr_stop_log";
   @SerializedName(SERIALIZED_NAME_PITR_STOP_LOG)
+  @javax.annotation.Nullable
   private String pitrStopLog;
 
   public static final String SERIALIZED_NAME_PITR_STOP_POS = "pitr_stop_pos";
   @SerializedName(SERIALIZED_NAME_PITR_STOP_POS)
+  @javax.annotation.Nullable
   private Integer pitrStopPos;
 
   public static final String SERIALIZED_NAME_HOST_LOCATION_UUID = "host_location_uuid";
   @SerializedName(SERIALIZED_NAME_HOST_LOCATION_UUID)
+  @javax.annotation.Nullable
   private String hostLocationUuid;
 
   public static final String SERIALIZED_NAME_BOOTSTRAP = "bootstrap";
   @SerializedName(SERIALIZED_NAME_BOOTSTRAP)
+  @javax.annotation.Nullable
   private Boolean bootstrap;
 
-  public static final String SERIALIZED_NAME_SNAPSHOT_LOCAITON = "snapshot_locaiton";
-  @SerializedName(SERIALIZED_NAME_SNAPSHOT_LOCAITON)
-  private String snapshotLocaiton;
+  public static final String SERIALIZED_NAME_SNAPSHOT_LOCATION = "snapshot_location";
+  @SerializedName(SERIALIZED_NAME_SNAPSHOT_LOCATION)
+  @javax.annotation.Nullable
+  private String snapshotLocation;
 
   public static final String SERIALIZED_NAME_SNAPSHOT_REPOSITORY = "snapshot_repository";
   @SerializedName(SERIALIZED_NAME_SNAPSHOT_REPOSITORY)
+  @javax.annotation.Nullable
   private String snapshotRepository;
+
+  public static final String SERIALIZED_NAME_SNAPSHOT_REPOSITORY_TYPE = "snapshot_repository_type";
+  @SerializedName(SERIALIZED_NAME_SNAPSHOT_REPOSITORY_TYPE)
+  @javax.annotation.Nullable
+  private String snapshotRepositoryType;
+
+  public static final String SERIALIZED_NAME_SNAPSHOT_HOST = "snapshot_host";
+  @SerializedName(SERIALIZED_NAME_SNAPSHOT_HOST)
+  @javax.annotation.Nullable
+  private String snapshotHost;
 
   public static final String SERIALIZED_NAME_STORAGE_HOST = "storage_host";
   @SerializedName(SERIALIZED_NAME_STORAGE_HOST)
+  @javax.annotation.Nullable
   private String storageHost;
+
+  public static final String SERIALIZED_NAME_REPLICASET = "replicaset";
+  @SerializedName(SERIALIZED_NAME_REPLICASET)
+  @javax.annotation.Nullable
+  private String replicaset;
+
+  public static final String SERIALIZED_NAME_DEPLOY_AGENTS = "deploy_agents";
+  @SerializedName(SERIALIZED_NAME_DEPLOY_AGENTS)
+  @javax.annotation.Nullable
+  private Boolean deployAgents;
 
   public static final String SERIALIZED_NAME_UPLOAD_BACKUP_DATA_TO_CLOUD_STORAGE = "upload_backup_data_to_cloud_storage";
   @SerializedName(SERIALIZED_NAME_UPLOAD_BACKUP_DATA_TO_CLOUD_STORAGE)
+  @javax.annotation.Nullable
   private JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage;
 
   public static final String SERIALIZED_NAME_VERIFY_BACKUP = "verify_backup";
   @SerializedName(SERIALIZED_NAME_VERIFY_BACKUP)
+  @javax.annotation.Nullable
   private BackupScheduleJobJobDataVerifyBackup verifyBackup;
 
   public static final String SERIALIZED_NAME_CONFIG_SERVERS = "config_servers";
   @SerializedName(SERIALIZED_NAME_CONFIG_SERVERS)
+  @javax.annotation.Nullable
   private JobsJobJobSpecJobDataConfigServers configServers;
 
   public static final String SERIALIZED_NAME_MONGOS_SERVERS = "mongos_servers";
   @SerializedName(SERIALIZED_NAME_MONGOS_SERVERS)
-  private List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NODE = "node";
   @SerializedName(SERIALIZED_NAME_NODE)
+  @javax.annotation.Nullable
   private JobsJobJobSpecJobDataNode node;
 
   public static final String SERIALIZED_NAME_NODES = "nodes";
   @SerializedName(SERIALIZED_NAME_NODES)
-  private List<JobsJobJobSpecJobDataNodesInner> nodes = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataNodesInner> nodes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NODE_ADRESSES = "node_adresses";
   @SerializedName(SERIALIZED_NAME_NODE_ADRESSES)
-  private List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOPOLOGY = "topology";
   @SerializedName(SERIALIZED_NAME_TOPOLOGY)
+  @javax.annotation.Nullable
   private JobsJobJobSpecJobDataTopology topology;
 
   public static final String SERIALIZED_NAME_REPLICA_SETS = "replica_sets";
   @SerializedName(SERIALIZED_NAME_REPLICA_SETS)
-  private List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WITH_TAGS = "with_tags";
   @SerializedName(SERIALIZED_NAME_WITH_TAGS)
-  private List<String> withTags = null;
+  @javax.annotation.Nullable
+  private List<String> withTags = new ArrayList<>();
 
   public JobsJobJobSpecJobData() {
   }
 
-  public JobsJobJobSpecJobData action(ActionEnum action) {
-    
+  public JobsJobJobSpecJobData action(@javax.annotation.Nullable ActionEnum action) {
     this.action = action;
     return this;
   }
 
-   /**
+  /**
    * Get action
    * @return action
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ActionEnum getAction() {
     return action;
   }
 
-
-  public void setAction(ActionEnum action) {
+  public void setAction(@javax.annotation.Nullable ActionEnum action) {
     this.action = action;
   }
 
 
-  public JobsJobJobSpecJobData addnode(Boolean addnode) {
-    
+  public JobsJobJobSpecJobData addnode(@javax.annotation.Nullable Boolean addnode) {
     this.addnode = addnode;
     return this;
   }
 
-   /**
+  /**
    * Get addnode
    * @return addnode
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getAddnode() {
     return addnode;
   }
 
-
-  public void setAddnode(Boolean addnode) {
+  public void setAddnode(@javax.annotation.Nullable Boolean addnode) {
     this.addnode = addnode;
   }
 
 
-  public JobsJobJobSpecJobData adminUsername(String adminUsername) {
-    
+  public JobsJobJobSpecJobData adminUsername(@javax.annotation.Nullable String adminUsername) {
     this.adminUsername = adminUsername;
     return this;
   }
 
-   /**
+  /**
    * Get adminUsername
    * @return adminUsername
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getAdminUsername() {
     return adminUsername;
   }
 
-
-  public void setAdminUsername(String adminUsername) {
+  public void setAdminUsername(@javax.annotation.Nullable String adminUsername) {
     this.adminUsername = adminUsername;
   }
 
 
-  public JobsJobJobSpecJobData adminUser(String adminUser) {
-    
+  public JobsJobJobSpecJobData adminUser(@javax.annotation.Nullable String adminUser) {
     this.adminUser = adminUser;
     return this;
   }
 
-   /**
+  /**
    * Get adminUser
    * @return adminUser
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getAdminUser() {
     return adminUser;
   }
 
-
-  public void setAdminUser(String adminUser) {
+  public void setAdminUser(@javax.annotation.Nullable String adminUser) {
     this.adminUser = adminUser;
   }
 
 
-  public JobsJobJobSpecJobData adminPassword(String adminPassword) {
-    
+  public JobsJobJobSpecJobData adminPassword(@javax.annotation.Nullable String adminPassword) {
     this.adminPassword = adminPassword;
     return this;
   }
 
-   /**
+  /**
    * Get adminPassword
    * @return adminPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getAdminPassword() {
     return adminPassword;
   }
 
-
-  public void setAdminPassword(String adminPassword) {
+  public void setAdminPassword(@javax.annotation.Nullable String adminPassword) {
     this.adminPassword = adminPassword;
   }
 
 
-  public JobsJobJobSpecJobData auditEvents(String auditEvents) {
-    
+  public JobsJobJobSpecJobData auditEvents(@javax.annotation.Nullable String auditEvents) {
     this.auditEvents = auditEvents;
     return this;
   }
 
-   /**
+  /**
    * Get auditEvents
    * @return auditEvents
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getAuditEvents() {
     return auditEvents;
   }
 
-
-  public void setAuditEvents(String auditEvents) {
+  public void setAuditEvents(@javax.annotation.Nullable String auditEvents) {
     this.auditEvents = auditEvents;
   }
 
 
-  public JobsJobJobSpecJobData archiveMode(ArchiveModeEnum archiveMode) {
-    
+  public JobsJobJobSpecJobData archiveMode(@javax.annotation.Nullable ArchiveModeEnum archiveMode) {
     this.archiveMode = archiveMode;
     return this;
   }
 
-   /**
+  /**
    * Get archiveMode
    * @return archiveMode
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ArchiveModeEnum getArchiveMode() {
     return archiveMode;
   }
 
-
-  public void setArchiveMode(ArchiveModeEnum archiveMode) {
+  public void setArchiveMode(@javax.annotation.Nullable ArchiveModeEnum archiveMode) {
     this.archiveMode = archiveMode;
   }
 
 
-  public JobsJobJobSpecJobData backupid(Integer backupid) {
-    
+  public JobsJobJobSpecJobData backupid(@javax.annotation.Nullable Integer backupid) {
     this.backupid = backupid;
     return this;
   }
 
-   /**
+  /**
    * Get backupid
    * @return backupid
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getBackupid() {
     return backupid;
   }
 
-
-  public void setBackupid(Integer backupid) {
+  public void setBackupid(@javax.annotation.Nullable Integer backupid) {
     this.backupid = backupid;
   }
 
 
-  public JobsJobJobSpecJobData backupId(Integer backupId) {
-    
+  public JobsJobJobSpecJobData backupId(@javax.annotation.Nullable Integer backupId) {
     this.backupId = backupId;
     return this;
   }
 
-   /**
+  /**
    * Get backupId
    * @return backupId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getBackupId() {
     return backupId;
   }
 
-
-  public void setBackupId(Integer backupId) {
+  public void setBackupId(@javax.annotation.Nullable Integer backupId) {
     this.backupId = backupId;
   }
 
 
-  public JobsJobJobSpecJobData buildFromSource(Boolean buildFromSource) {
-    
+  public JobsJobJobSpecJobData buildFromSource(@javax.annotation.Nullable Boolean buildFromSource) {
     this.buildFromSource = buildFromSource;
     return this;
   }
 
-   /**
+  /**
    * Get buildFromSource
    * @return buildFromSource
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getBuildFromSource() {
     return buildFromSource;
   }
 
-
-  public void setBuildFromSource(Boolean buildFromSource) {
+  public void setBuildFromSource(@javax.annotation.Nullable Boolean buildFromSource) {
     this.buildFromSource = buildFromSource;
   }
 
 
-  public JobsJobJobSpecJobData clusterName(String clusterName) {
-    
+  public JobsJobJobSpecJobData clusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
     return this;
   }
 
-   /**
+  /**
    * Get clusterName
    * @return clusterName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getClusterName() {
     return clusterName;
   }
 
-
-  public void setClusterName(String clusterName) {
+  public void setClusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
   }
 
 
-  public JobsJobJobSpecJobData clusterid(Integer clusterid) {
-    
+  public JobsJobJobSpecJobData clusterid(@javax.annotation.Nullable Integer clusterid) {
     this.clusterid = clusterid;
     return this;
   }
 
-   /**
+  /**
    * Get clusterid
    * @return clusterid
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterid() {
     return clusterid;
   }
 
-
-  public void setClusterid(Integer clusterid) {
+  public void setClusterid(@javax.annotation.Nullable Integer clusterid) {
     this.clusterid = clusterid;
   }
 
 
-  public JobsJobJobSpecJobData clusterType(ClusterTypeEnum clusterType) {
-    
+  public JobsJobJobSpecJobData clusterType(@javax.annotation.Nullable ClusterTypeEnum clusterType) {
     this.clusterType = clusterType;
     return this;
   }
 
-   /**
+  /**
    * Get clusterType
    * @return clusterType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClusterTypeEnum getClusterType() {
     return clusterType;
   }
 
-
-  public void setClusterType(ClusterTypeEnum clusterType) {
+  public void setClusterType(@javax.annotation.Nullable ClusterTypeEnum clusterType) {
     this.clusterType = clusterType;
   }
 
 
-  public JobsJobJobSpecJobData companyId(String companyId) {
-    
+  public JobsJobJobSpecJobData companyId(@javax.annotation.Nullable String companyId) {
     this.companyId = companyId;
     return this;
   }
 
-   /**
+  /**
    * Get companyId
    * @return companyId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getCompanyId() {
     return companyId;
   }
 
-
-  public void setCompanyId(String companyId) {
+  public void setCompanyId(@javax.annotation.Nullable String companyId) {
     this.companyId = companyId;
   }
 
 
-  public JobsJobJobSpecJobData configTemplate(String configTemplate) {
-    
+  public JobsJobJobSpecJobData configTemplate(@javax.annotation.Nullable String configTemplate) {
     this.configTemplate = configTemplate;
     return this;
   }
 
-   /**
+  /**
    * Get configTemplate
    * @return configTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getConfigTemplate() {
     return configTemplate;
   }
 
-
-  public void setConfigTemplate(String configTemplate) {
+  public void setConfigTemplate(@javax.annotation.Nullable String configTemplate) {
     this.configTemplate = configTemplate;
   }
 
 
-  public JobsJobJobSpecJobData backupFailover(Boolean backupFailover) {
-    
+  public JobsJobJobSpecJobData backupFailover(@javax.annotation.Nullable Boolean backupFailover) {
     this.backupFailover = backupFailover;
     return this;
   }
 
-   /**
+  /**
    * Get backupFailover
    * @return backupFailover
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getBackupFailover() {
     return backupFailover;
   }
 
-
-  public void setBackupFailover(Boolean backupFailover) {
+  public void setBackupFailover(@javax.annotation.Nullable Boolean backupFailover) {
     this.backupFailover = backupFailover;
   }
 
 
-  public JobsJobJobSpecJobData backupFailoverHost(BackupFailoverHostEnum backupFailoverHost) {
-    
+  public JobsJobJobSpecJobData backupFailoverHost(@javax.annotation.Nullable BackupFailoverHostEnum backupFailoverHost) {
     this.backupFailoverHost = backupFailoverHost;
     return this;
   }
 
-   /**
+  /**
    * Get backupFailoverHost
    * @return backupFailoverHost
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupFailoverHostEnum getBackupFailoverHost() {
     return backupFailoverHost;
   }
 
-
-  public void setBackupFailoverHost(BackupFailoverHostEnum backupFailoverHost) {
+  public void setBackupFailoverHost(@javax.annotation.Nullable BackupFailoverHostEnum backupFailoverHost) {
     this.backupFailoverHost = backupFailoverHost;
   }
 
 
-  public JobsJobJobSpecJobData backupMethod(BackupMethodEnum backupMethod) {
-    
+  public JobsJobJobSpecJobData backupMethod(@javax.annotation.Nullable BackupMethodEnum backupMethod) {
     this.backupMethod = backupMethod;
     return this;
   }
 
-   /**
+  /**
    * Get backupMethod
    * @return backupMethod
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupMethodEnum getBackupMethod() {
     return backupMethod;
   }
 
-
-  public void setBackupMethod(BackupMethodEnum backupMethod) {
+  public void setBackupMethod(@javax.annotation.Nullable BackupMethodEnum backupMethod) {
     this.backupMethod = backupMethod;
   }
 
 
-  public JobsJobJobSpecJobData backupMysqldumpType(BackupMysqldumpTypeEnum backupMysqldumpType) {
-    
+  public JobsJobJobSpecJobData backupMysqldumpType(@javax.annotation.Nullable BackupMysqldumpTypeEnum backupMysqldumpType) {
     this.backupMysqldumpType = backupMysqldumpType;
     return this;
   }
 
-   /**
+  /**
    * Get backupMysqldumpType
    * @return backupMysqldumpType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupMysqldumpTypeEnum getBackupMysqldumpType() {
     return backupMysqldumpType;
   }
 
-
-  public void setBackupMysqldumpType(BackupMysqldumpTypeEnum backupMysqldumpType) {
+  public void setBackupMysqldumpType(@javax.annotation.Nullable BackupMysqldumpTypeEnum backupMysqldumpType) {
     this.backupMysqldumpType = backupMysqldumpType;
   }
 
 
-  public JobsJobJobSpecJobData backupIndividualSchemas(Boolean backupIndividualSchemas) {
-    
+  public JobsJobJobSpecJobData backupIndividualSchemas(@javax.annotation.Nullable Boolean backupIndividualSchemas) {
     this.backupIndividualSchemas = backupIndividualSchemas;
     return this;
   }
 
-   /**
+  /**
    * Get backupIndividualSchemas
    * @return backupIndividualSchemas
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getBackupIndividualSchemas() {
     return backupIndividualSchemas;
   }
 
-
-  public void setBackupIndividualSchemas(Boolean backupIndividualSchemas) {
+  public void setBackupIndividualSchemas(@javax.annotation.Nullable Boolean backupIndividualSchemas) {
     this.backupIndividualSchemas = backupIndividualSchemas;
   }
 
 
-  public JobsJobJobSpecJobData backupRetention(Integer backupRetention) {
-    
+  public JobsJobJobSpecJobData backupRetention(@javax.annotation.Nullable Integer backupRetention) {
     this.backupRetention = backupRetention;
     return this;
   }
 
-   /**
+  /**
    * Get backupRetention
    * @return backupRetention
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getBackupRetention() {
     return backupRetention;
   }
 
-
-  public void setBackupRetention(Integer backupRetention) {
+  public void setBackupRetention(@javax.annotation.Nullable Integer backupRetention) {
     this.backupRetention = backupRetention;
   }
 
 
-  public JobsJobJobSpecJobData extendedInsert(Boolean extendedInsert) {
-    
+  public JobsJobJobSpecJobData extendedInsert(@javax.annotation.Nullable Boolean extendedInsert) {
     this.extendedInsert = extendedInsert;
     return this;
   }
 
-   /**
+  /**
    * Get extendedInsert
    * @return extendedInsert
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getExtendedInsert() {
     return extendedInsert;
   }
 
-
-  public void setExtendedInsert(Boolean extendedInsert) {
+  public void setExtendedInsert(@javax.annotation.Nullable Boolean extendedInsert) {
     this.extendedInsert = extendedInsert;
   }
 
 
-  public JobsJobJobSpecJobData backupDir(String backupDir) {
-    
+  public JobsJobJobSpecJobData backupDir(@javax.annotation.Nullable String backupDir) {
     this.backupDir = backupDir;
     return this;
   }
 
-   /**
+  /**
    * Get backupDir
    * @return backupDir
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBackupDir() {
     return backupDir;
   }
 
-
-  public void setBackupDir(String backupDir) {
+  public void setBackupDir(@javax.annotation.Nullable String backupDir) {
     this.backupDir = backupDir;
   }
 
 
-  public JobsJobJobSpecJobData backupsubdir(String backupsubdir) {
-    
+  public JobsJobJobSpecJobData backupsubdir(@javax.annotation.Nullable String backupsubdir) {
     this.backupsubdir = backupsubdir;
     return this;
   }
 
-   /**
+  /**
    * Get backupsubdir
    * @return backupsubdir
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBackupsubdir() {
     return backupsubdir;
   }
 
-
-  public void setBackupsubdir(String backupsubdir) {
+  public void setBackupsubdir(@javax.annotation.Nullable String backupsubdir) {
     this.backupsubdir = backupsubdir;
   }
 
 
-  public JobsJobJobSpecJobData ccStorage(String ccStorage) {
-    
+  public JobsJobJobSpecJobData removeBackups(@javax.annotation.Nullable Boolean removeBackups) {
+    this.removeBackups = removeBackups;
+    return this;
+  }
+
+  /**
+   * Get removeBackups
+   * @return removeBackups
+   */
+  @javax.annotation.Nullable
+  public Boolean getRemoveBackups() {
+    return removeBackups;
+  }
+
+  public void setRemoveBackups(@javax.annotation.Nullable Boolean removeBackups) {
+    this.removeBackups = removeBackups;
+  }
+
+
+  public JobsJobJobSpecJobData backupSystemDb(@javax.annotation.Nullable Boolean backupSystemDb) {
+    this.backupSystemDb = backupSystemDb;
+    return this;
+  }
+
+  /**
+   * Get backupSystemDb
+   * @return backupSystemDb
+   */
+  @javax.annotation.Nullable
+  public Boolean getBackupSystemDb() {
+    return backupSystemDb;
+  }
+
+  public void setBackupSystemDb(@javax.annotation.Nullable Boolean backupSystemDb) {
+    this.backupSystemDb = backupSystemDb;
+  }
+
+
+  public JobsJobJobSpecJobData ccStorage(@javax.annotation.Nullable Boolean ccStorage) {
     this.ccStorage = ccStorage;
     return this;
   }
 
-   /**
+  /**
    * Get ccStorage
    * @return ccStorage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getCcStorage() {
+  public Boolean getCcStorage() {
     return ccStorage;
   }
 
-
-  public void setCcStorage(String ccStorage) {
+  public void setCcStorage(@javax.annotation.Nullable Boolean ccStorage) {
     this.ccStorage = ccStorage;
   }
 
 
-  public JobsJobJobSpecJobData compression(Boolean compression) {
-    
+  public JobsJobJobSpecJobData compression(@javax.annotation.Nullable Boolean compression) {
     this.compression = compression;
     return this;
   }
 
-   /**
+  /**
    * Get compression
    * @return compression
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getCompression() {
     return compression;
   }
 
-
-  public void setCompression(Boolean compression) {
+  public void setCompression(@javax.annotation.Nullable Boolean compression) {
     this.compression = compression;
   }
 
 
-  public JobsJobJobSpecJobData compressionLevel(Integer compressionLevel) {
-    
+  public JobsJobJobSpecJobData compressionLevel(@javax.annotation.Nullable Integer compressionLevel) {
     this.compressionLevel = compressionLevel;
     return this;
   }
 
-   /**
+  /**
    * Get compressionLevel
    * @return compressionLevel
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getCompressionLevel() {
     return compressionLevel;
   }
 
-
-  public void setCompressionLevel(Integer compressionLevel) {
+  public void setCompressionLevel(@javax.annotation.Nullable Integer compressionLevel) {
     this.compressionLevel = compressionLevel;
   }
 
 
-  public JobsJobJobSpecJobData dbDatabase(String dbDatabase) {
-    
+  public JobsJobJobSpecJobData dbDatabase(@javax.annotation.Nullable String dbDatabase) {
     this.dbDatabase = dbDatabase;
     return this;
   }
 
-   /**
+  /**
    * Get dbDatabase
    * @return dbDatabase
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDbDatabase() {
     return dbDatabase;
   }
 
-
-  public void setDbDatabase(String dbDatabase) {
+  public void setDbDatabase(@javax.annotation.Nullable String dbDatabase) {
     this.dbDatabase = dbDatabase;
   }
 
 
-  public JobsJobJobSpecJobData dbPassword(String dbPassword) {
-    
+  public JobsJobJobSpecJobData dbPassword(@javax.annotation.Nullable String dbPassword) {
     this.dbPassword = dbPassword;
     return this;
   }
 
-   /**
+  /**
    * Get dbPassword
    * @return dbPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDbPassword() {
     return dbPassword;
   }
 
-
-  public void setDbPassword(String dbPassword) {
+  public void setDbPassword(@javax.annotation.Nullable String dbPassword) {
     this.dbPassword = dbPassword;
   }
 
 
-  public JobsJobJobSpecJobData dbPrivs(String dbPrivs) {
-    
+  public JobsJobJobSpecJobData dbPrivs(@javax.annotation.Nullable String dbPrivs) {
     this.dbPrivs = dbPrivs;
     return this;
   }
 
-   /**
+  /**
    * Get dbPrivs
    * @return dbPrivs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDbPrivs() {
     return dbPrivs;
   }
 
-
-  public void setDbPrivs(String dbPrivs) {
+  public void setDbPrivs(@javax.annotation.Nullable String dbPrivs) {
     this.dbPrivs = dbPrivs;
   }
 
 
-  public JobsJobJobSpecJobData dbUsername(String dbUsername) {
-    
+  public JobsJobJobSpecJobData dbUsername(@javax.annotation.Nullable String dbUsername) {
     this.dbUsername = dbUsername;
     return this;
   }
 
-   /**
+  /**
    * Get dbUsername
    * @return dbUsername
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDbUsername() {
     return dbUsername;
   }
 
-
-  public void setDbUsername(String dbUsername) {
+  public void setDbUsername(@javax.annotation.Nullable String dbUsername) {
     this.dbUsername = dbUsername;
   }
 
 
-  public JobsJobJobSpecJobData dataCenter(Integer dataCenter) {
-    
+  public JobsJobJobSpecJobData dataCenter(@javax.annotation.Nullable Integer dataCenter) {
     this.dataCenter = dataCenter;
     return this;
   }
 
-   /**
+  /**
    * Get dataCenter
    * @return dataCenter
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getDataCenter() {
     return dataCenter;
   }
 
-
-  public void setDataCenter(Integer dataCenter) {
+  public void setDataCenter(@javax.annotation.Nullable Integer dataCenter) {
     this.dataCenter = dataCenter;
   }
 
 
-  public JobsJobJobSpecJobData execUpgradeScript(Boolean execUpgradeScript) {
-    
+  public JobsJobJobSpecJobData execUpgradeScript(@javax.annotation.Nullable Boolean execUpgradeScript) {
     this.execUpgradeScript = execUpgradeScript;
     return this;
   }
 
-   /**
+  /**
    * Get execUpgradeScript
    * @return execUpgradeScript
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getExecUpgradeScript() {
     return execUpgradeScript;
   }
 
-
-  public void setExecUpgradeScript(Boolean execUpgradeScript) {
+  public void setExecUpgradeScript(@javax.annotation.Nullable Boolean execUpgradeScript) {
     this.execUpgradeScript = execUpgradeScript;
   }
 
 
-  public JobsJobJobSpecJobData extended(Boolean extended) {
-    
+  public JobsJobJobSpecJobData extended(@javax.annotation.Nullable Boolean extended) {
     this.extended = extended;
     return this;
   }
 
-   /**
+  /**
    * Get extended
    * @return extended
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getExtended() {
     return extended;
   }
 
-
-  public void setExtended(Boolean extended) {
+  public void setExtended(@javax.annotation.Nullable Boolean extended) {
     this.extended = extended;
   }
 
 
-  public JobsJobJobSpecJobData listeningPort(Integer listeningPort) {
-    
+  public JobsJobJobSpecJobData listeningPort(@javax.annotation.Nullable Integer listeningPort) {
     this.listeningPort = listeningPort;
     return this;
   }
 
-   /**
+  /**
    * Get listeningPort
    * @return listeningPort
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getListeningPort() {
     return listeningPort;
   }
 
-
-  public void setListeningPort(Integer listeningPort) {
+  public void setListeningPort(@javax.annotation.Nullable Integer listeningPort) {
     this.listeningPort = listeningPort;
   }
 
 
-  public JobsJobJobSpecJobData maskPasswords(Boolean maskPasswords) {
-    
+  public JobsJobJobSpecJobData maskPasswords(@javax.annotation.Nullable Boolean maskPasswords) {
     this.maskPasswords = maskPasswords;
     return this;
   }
 
-   /**
+  /**
    * Get maskPasswords
    * @return maskPasswords
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getMaskPasswords() {
     return maskPasswords;
   }
 
-
-  public void setMaskPasswords(Boolean maskPasswords) {
+  public void setMaskPasswords(@javax.annotation.Nullable Boolean maskPasswords) {
     this.maskPasswords = maskPasswords;
   }
 
 
-  public JobsJobJobSpecJobData monitorPassword(String monitorPassword) {
-    
+  public JobsJobJobSpecJobData monitorPassword(@javax.annotation.Nullable String monitorPassword) {
     this.monitorPassword = monitorPassword;
     return this;
   }
 
-   /**
+  /**
    * Get monitorPassword
    * @return monitorPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMonitorPassword() {
     return monitorPassword;
   }
 
-
-  public void setMonitorPassword(String monitorPassword) {
+  public void setMonitorPassword(@javax.annotation.Nullable String monitorPassword) {
     this.monitorPassword = monitorPassword;
   }
 
 
-  public JobsJobJobSpecJobData monitorUser(String monitorUser) {
-    
+  public JobsJobJobSpecJobData monitorUser(@javax.annotation.Nullable String monitorUser) {
     this.monitorUser = monitorUser;
     return this;
   }
 
-   /**
+  /**
    * Get monitorUser
    * @return monitorUser
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMonitorUser() {
     return monitorUser;
   }
 
-
-  public void setMonitorUser(String monitorUser) {
+  public void setMonitorUser(@javax.annotation.Nullable String monitorUser) {
     this.monitorUser = monitorUser;
   }
 
 
-  public JobsJobJobSpecJobData useClustering(Boolean useClustering) {
-    
+  public JobsJobJobSpecJobData useClustering(@javax.annotation.Nullable Boolean useClustering) {
     this.useClustering = useClustering;
     return this;
   }
 
-   /**
+  /**
    * Get useClustering
    * @return useClustering
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUseClustering() {
     return useClustering;
   }
 
-
-  public void setUseClustering(Boolean useClustering) {
+  public void setUseClustering(@javax.annotation.Nullable Boolean useClustering) {
     this.useClustering = useClustering;
   }
 
 
-  public JobsJobJobSpecJobData useRwSplit(Boolean useRwSplit) {
-    
+  public JobsJobJobSpecJobData useRwSplit(@javax.annotation.Nullable Boolean useRwSplit) {
     this.useRwSplit = useRwSplit;
     return this;
   }
 
-   /**
+  /**
    * Get useRwSplit
    * @return useRwSplit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUseRwSplit() {
     return useRwSplit;
   }
 
-
-  public void setUseRwSplit(Boolean useRwSplit) {
+  public void setUseRwSplit(@javax.annotation.Nullable Boolean useRwSplit) {
     this.useRwSplit = useRwSplit;
   }
 
 
-  public JobsJobJobSpecJobData hostname(String hostname) {
-    
+  public JobsJobJobSpecJobData hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostname() {
     return hostname;
   }
 
-
-  public void setHostname(String hostname) {
+  public void setHostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public JobsJobJobSpecJobData masterAddress(String masterAddress) {
-    
+  public JobsJobJobSpecJobData masterAddress(@javax.annotation.Nullable String masterAddress) {
     this.masterAddress = masterAddress;
     return this;
   }
 
-   /**
+  /**
    * Get masterAddress
    * @return masterAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMasterAddress() {
     return masterAddress;
   }
 
-
-  public void setMasterAddress(String masterAddress) {
+  public void setMasterAddress(@javax.annotation.Nullable String masterAddress) {
     this.masterAddress = masterAddress;
   }
 
 
-  public JobsJobJobSpecJobData includeDatabases(String includeDatabases) {
-    
+  public JobsJobJobSpecJobData masterDelay(@javax.annotation.Nullable Integer masterDelay) {
+    this.masterDelay = masterDelay;
+    return this;
+  }
+
+  /**
+   * Get masterDelay
+   * @return masterDelay
+   */
+  @javax.annotation.Nullable
+  public Integer getMasterDelay() {
+    return masterDelay;
+  }
+
+  public void setMasterDelay(@javax.annotation.Nullable Integer masterDelay) {
+    this.masterDelay = masterDelay;
+  }
+
+
+  public JobsJobJobSpecJobData includeDatabases(@javax.annotation.Nullable String includeDatabases) {
     this.includeDatabases = includeDatabases;
     return this;
   }
 
-   /**
+  /**
    * Get includeDatabases
    * @return includeDatabases
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getIncludeDatabases() {
     return includeDatabases;
   }
 
-
-  public void setIncludeDatabases(String includeDatabases) {
+  public void setIncludeDatabases(@javax.annotation.Nullable String includeDatabases) {
     this.includeDatabases = includeDatabases;
   }
 
 
-  public JobsJobJobSpecJobData installTimescaledb(Boolean installTimescaledb) {
-    
+  public JobsJobJobSpecJobData installTimescaledb(@javax.annotation.Nullable Boolean installTimescaledb) {
     this.installTimescaledb = installTimescaledb;
     return this;
   }
 
-   /**
+  /**
    * Get installTimescaledb
    * @return installTimescaledb
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getInstallTimescaledb() {
     return installTimescaledb;
   }
 
-
-  public void setInstallTimescaledb(Boolean installTimescaledb) {
+  public void setInstallTimescaledb(@javax.annotation.Nullable Boolean installTimescaledb) {
     this.installTimescaledb = installTimescaledb;
   }
 
 
-  public JobsJobJobSpecJobData updateLb(Boolean updateLb) {
-    
+  public JobsJobJobSpecJobData updateLb(@javax.annotation.Nullable Boolean updateLb) {
     this.updateLb = updateLb;
     return this;
   }
 
-   /**
+  /**
    * Get updateLb
    * @return updateLb
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUpdateLb() {
     return updateLb;
   }
 
-
-  public void setUpdateLb(Boolean updateLb) {
+  public void setUpdateLb(@javax.annotation.Nullable Boolean updateLb) {
     this.updateLb = updateLb;
   }
 
 
-  public JobsJobJobSpecJobData usePackageForDataDir(Boolean usePackageForDataDir) {
-    
+  public JobsJobJobSpecJobData usePackageForDataDir(@javax.annotation.Nullable Boolean usePackageForDataDir) {
     this.usePackageForDataDir = usePackageForDataDir;
     return this;
   }
 
-   /**
+  /**
    * Get usePackageForDataDir
    * @return usePackageForDataDir
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUsePackageForDataDir() {
     return usePackageForDataDir;
   }
 
-
-  public void setUsePackageForDataDir(Boolean usePackageForDataDir) {
+  public void setUsePackageForDataDir(@javax.annotation.Nullable Boolean usePackageForDataDir) {
     this.usePackageForDataDir = usePackageForDataDir;
   }
 
 
-  public JobsJobJobSpecJobData encryptBackup(Boolean encryptBackup) {
-    
+  public JobsJobJobSpecJobData encryptBackup(@javax.annotation.Nullable Boolean encryptBackup) {
     this.encryptBackup = encryptBackup;
     return this;
   }
 
-   /**
+  /**
    * Get encryptBackup
    * @return encryptBackup
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getEncryptBackup() {
     return encryptBackup;
   }
 
-
-  public void setEncryptBackup(Boolean encryptBackup) {
+  public void setEncryptBackup(@javax.annotation.Nullable Boolean encryptBackup) {
     this.encryptBackup = encryptBackup;
   }
 
 
-  public JobsJobJobSpecJobData throttleRateNetbw(Integer throttleRateNetbw) {
-    
+  public JobsJobJobSpecJobData throttleRateNetbw(@javax.annotation.Nullable Integer throttleRateNetbw) {
     this.throttleRateNetbw = throttleRateNetbw;
     return this;
   }
 
-   /**
+  /**
    * Get throttleRateNetbw
    * @return throttleRateNetbw
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getThrottleRateNetbw() {
     return throttleRateNetbw;
   }
 
-
-  public void setThrottleRateNetbw(Integer throttleRateNetbw) {
+  public void setThrottleRateNetbw(@javax.annotation.Nullable Integer throttleRateNetbw) {
     this.throttleRateNetbw = throttleRateNetbw;
   }
 
 
-  public JobsJobJobSpecJobData usePigz(Boolean usePigz) {
-    
+  public JobsJobJobSpecJobData usePigz(@javax.annotation.Nullable Boolean usePigz) {
     this.usePigz = usePigz;
     return this;
   }
 
-   /**
+  /**
    * Get usePigz
    * @return usePigz
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUsePigz() {
     return usePigz;
   }
 
-
-  public void setUsePigz(Boolean usePigz) {
+  public void setUsePigz(@javax.annotation.Nullable Boolean usePigz) {
     this.usePigz = usePigz;
   }
 
 
-  public JobsJobJobSpecJobData useQpress(Boolean useQpress) {
-    
+  public JobsJobJobSpecJobData useQpress(@javax.annotation.Nullable Boolean useQpress) {
     this.useQpress = useQpress;
     return this;
   }
 
-   /**
+  /**
    * Get useQpress
    * @return useQpress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUseQpress() {
     return useQpress;
   }
 
-
-  public void setUseQpress(Boolean useQpress) {
+  public void setUseQpress(@javax.annotation.Nullable Boolean useQpress) {
     this.useQpress = useQpress;
   }
 
 
-  public JobsJobJobSpecJobData wsrepDesync(Boolean wsrepDesync) {
-    
+  public JobsJobJobSpecJobData wsrepDesync(@javax.annotation.Nullable Boolean wsrepDesync) {
     this.wsrepDesync = wsrepDesync;
     return this;
   }
 
-   /**
+  /**
    * Get wsrepDesync
    * @return wsrepDesync
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getWsrepDesync() {
     return wsrepDesync;
   }
 
-
-  public void setWsrepDesync(Boolean wsrepDesync) {
+  public void setWsrepDesync(@javax.annotation.Nullable Boolean wsrepDesync) {
     this.wsrepDesync = wsrepDesync;
   }
 
 
-  public JobsJobJobSpecJobData xtrabackupBackupLocks(Boolean xtrabackupBackupLocks) {
-    
+  public JobsJobJobSpecJobData galeraSegment(@javax.annotation.Nullable String galeraSegment) {
+    this.galeraSegment = galeraSegment;
+    return this;
+  }
+
+  /**
+   * Get galeraSegment
+   * @return galeraSegment
+   */
+  @javax.annotation.Nullable
+  public String getGaleraSegment() {
+    return galeraSegment;
+  }
+
+  public void setGaleraSegment(@javax.annotation.Nullable String galeraSegment) {
+    this.galeraSegment = galeraSegment;
+  }
+
+
+  public JobsJobJobSpecJobData xtrabackupBackupLocks(@javax.annotation.Nullable Boolean xtrabackupBackupLocks) {
     this.xtrabackupBackupLocks = xtrabackupBackupLocks;
     return this;
   }
 
-   /**
+  /**
    * Get xtrabackupBackupLocks
    * @return xtrabackupBackupLocks
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getXtrabackupBackupLocks() {
     return xtrabackupBackupLocks;
   }
 
-
-  public void setXtrabackupBackupLocks(Boolean xtrabackupBackupLocks) {
+  public void setXtrabackupBackupLocks(@javax.annotation.Nullable Boolean xtrabackupBackupLocks) {
     this.xtrabackupBackupLocks = xtrabackupBackupLocks;
   }
 
 
-  public JobsJobJobSpecJobData xtrabackupLockDdlPerTable(Boolean xtrabackupLockDdlPerTable) {
-    
+  public JobsJobJobSpecJobData xtrabackupLockDdlPerTable(@javax.annotation.Nullable Boolean xtrabackupLockDdlPerTable) {
     this.xtrabackupLockDdlPerTable = xtrabackupLockDdlPerTable;
     return this;
   }
 
-   /**
+  /**
    * Get xtrabackupLockDdlPerTable
    * @return xtrabackupLockDdlPerTable
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getXtrabackupLockDdlPerTable() {
     return xtrabackupLockDdlPerTable;
   }
 
-
-  public void setXtrabackupLockDdlPerTable(Boolean xtrabackupLockDdlPerTable) {
+  public void setXtrabackupLockDdlPerTable(@javax.annotation.Nullable Boolean xtrabackupLockDdlPerTable) {
     this.xtrabackupLockDdlPerTable = xtrabackupLockDdlPerTable;
   }
 
 
-  public JobsJobJobSpecJobData xtrabackupParallellism(Integer xtrabackupParallellism) {
-    
+  public JobsJobJobSpecJobData xtrabackupParallellism(@javax.annotation.Nullable Integer xtrabackupParallellism) {
     this.xtrabackupParallellism = xtrabackupParallellism;
     return this;
   }
 
-   /**
+  /**
    * Get xtrabackupParallellism
    * @return xtrabackupParallellism
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getXtrabackupParallellism() {
     return xtrabackupParallellism;
   }
 
-
-  public void setXtrabackupParallellism(Integer xtrabackupParallellism) {
+  public void setXtrabackupParallellism(@javax.annotation.Nullable Integer xtrabackupParallellism) {
     this.xtrabackupParallellism = xtrabackupParallellism;
   }
 
 
-  public JobsJobJobSpecJobData verifyBackupDelay(Integer verifyBackupDelay) {
-    
+  public JobsJobJobSpecJobData verifyBackupDelay(@javax.annotation.Nullable Integer verifyBackupDelay) {
     this.verifyBackupDelay = verifyBackupDelay;
     return this;
   }
 
-   /**
+  /**
    * Get verifyBackupDelay
    * @return verifyBackupDelay
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getVerifyBackupDelay() {
     return verifyBackupDelay;
   }
 
-
-  public void setVerifyBackupDelay(Integer verifyBackupDelay) {
+  public void setVerifyBackupDelay(@javax.annotation.Nullable Integer verifyBackupDelay) {
     this.verifyBackupDelay = verifyBackupDelay;
   }
 
 
-  public JobsJobJobSpecJobData dataDir(String dataDir) {
-    
-    this.dataDir = dataDir;
+  public JobsJobJobSpecJobData datadir(@javax.annotation.Nullable String datadir) {
+    this.datadir = datadir;
     return this;
   }
 
-   /**
-   * Get dataDir
-   * @return dataDir
-  **/
+  /**
+   * Get datadir
+   * @return datadir
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  public String getDatadir() {
+    return datadir;
+  }
 
-  public String getDataDir() {
-    return dataDir;
+  public void setDatadir(@javax.annotation.Nullable String datadir) {
+    this.datadir = datadir;
   }
 
 
-  public void setDataDir(String dataDir) {
-    this.dataDir = dataDir;
-  }
-
-
-  public JobsJobJobSpecJobData dbUser(String dbUser) {
-    
+  public JobsJobJobSpecJobData dbUser(@javax.annotation.Nullable String dbUser) {
     this.dbUser = dbUser;
     return this;
   }
 
-   /**
+  /**
    * Get dbUser
    * @return dbUser
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDbUser() {
     return dbUser;
   }
 
-
-  public void setDbUser(String dbUser) {
+  public void setDbUser(@javax.annotation.Nullable String dbUser) {
     this.dbUser = dbUser;
   }
 
 
-  public JobsJobJobSpecJobData disableFirewall(Boolean disableFirewall) {
-    
+  public JobsJobJobSpecJobData disableFirewall(@javax.annotation.Nullable Boolean disableFirewall) {
     this.disableFirewall = disableFirewall;
     return this;
   }
 
-   /**
+  /**
    * Get disableFirewall
    * @return disableFirewall
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getDisableFirewall() {
     return disableFirewall;
   }
 
-
-  public void setDisableFirewall(Boolean disableFirewall) {
+  public void setDisableFirewall(@javax.annotation.Nullable Boolean disableFirewall) {
     this.disableFirewall = disableFirewall;
   }
 
 
-  public JobsJobJobSpecJobData disableSelinux(Boolean disableSelinux) {
-    
+  public JobsJobJobSpecJobData disableSelinux(@javax.annotation.Nullable Boolean disableSelinux) {
     this.disableSelinux = disableSelinux;
     return this;
   }
 
-   /**
+  /**
    * Get disableSelinux
    * @return disableSelinux
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getDisableSelinux() {
     return disableSelinux;
   }
 
-
-  public void setDisableSelinux(Boolean disableSelinux) {
+  public void setDisableSelinux(@javax.annotation.Nullable Boolean disableSelinux) {
     this.disableSelinux = disableSelinux;
   }
 
 
-  public JobsJobJobSpecJobData enableUninstall(Boolean enableUninstall) {
-    
+  public JobsJobJobSpecJobData enableUninstall(@javax.annotation.Nullable Boolean enableUninstall) {
     this.enableUninstall = enableUninstall;
     return this;
   }
 
-   /**
+  /**
    * Get enableUninstall
    * @return enableUninstall
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getEnableUninstall() {
     return enableUninstall;
   }
 
-
-  public void setEnableUninstall(Boolean enableUninstall) {
+  public void setEnableUninstall(@javax.annotation.Nullable Boolean enableUninstall) {
     this.enableUninstall = enableUninstall;
   }
 
 
-  public JobsJobJobSpecJobData generateToken(Boolean generateToken) {
-    
+  public JobsJobJobSpecJobData unregisterOnly(@javax.annotation.Nullable Boolean unregisterOnly) {
+    this.unregisterOnly = unregisterOnly;
+    return this;
+  }
+
+  /**
+   * Get unregisterOnly
+   * @return unregisterOnly
+   */
+  @javax.annotation.Nullable
+  public Boolean getUnregisterOnly() {
+    return unregisterOnly;
+  }
+
+  public void setUnregisterOnly(@javax.annotation.Nullable Boolean unregisterOnly) {
+    this.unregisterOnly = unregisterOnly;
+  }
+
+
+  public JobsJobJobSpecJobData generateToken(@javax.annotation.Nullable Boolean generateToken) {
     this.generateToken = generateToken;
     return this;
   }
 
-   /**
+  /**
    * Get generateToken
    * @return generateToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getGenerateToken() {
     return generateToken;
   }
 
-
-  public void setGenerateToken(Boolean generateToken) {
+  public void setGenerateToken(@javax.annotation.Nullable Boolean generateToken) {
     this.generateToken = generateToken;
   }
 
 
-  public JobsJobJobSpecJobData installSoftware(Boolean installSoftware) {
-    
+  public JobsJobJobSpecJobData installSoftware(@javax.annotation.Nullable Boolean installSoftware) {
     this.installSoftware = installSoftware;
     return this;
   }
 
-   /**
+  /**
    * Get installSoftware
    * @return installSoftware
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getInstallSoftware() {
     return installSoftware;
   }
 
-
-  public void setInstallSoftware(Boolean installSoftware) {
+  public void setInstallSoftware(@javax.annotation.Nullable Boolean installSoftware) {
     this.installSoftware = installSoftware;
   }
 
 
-  public JobsJobJobSpecJobData useInternalRepos(Boolean useInternalRepos) {
-    
+  public JobsJobJobSpecJobData useInternalRepos(@javax.annotation.Nullable Boolean useInternalRepos) {
     this.useInternalRepos = useInternalRepos;
     return this;
   }
 
-   /**
+  /**
    * Get useInternalRepos
    * @return useInternalRepos
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getUseInternalRepos() {
     return useInternalRepos;
   }
 
-
-  public void setUseInternalRepos(Boolean useInternalRepos) {
+  public void setUseInternalRepos(@javax.annotation.Nullable Boolean useInternalRepos) {
     this.useInternalRepos = useInternalRepos;
   }
 
 
-  public JobsJobJobSpecJobData localRepository(String localRepository) {
-    
+  public JobsJobJobSpecJobData localRepository(@javax.annotation.Nullable String localRepository) {
     this.localRepository = localRepository;
     return this;
   }
 
-   /**
+  /**
    * Get localRepository
    * @return localRepository
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLocalRepository() {
     return localRepository;
   }
 
-
-  public void setLocalRepository(String localRepository) {
+  public void setLocalRepository(@javax.annotation.Nullable String localRepository) {
     this.localRepository = localRepository;
   }
 
 
-  public JobsJobJobSpecJobData enableMysqlUninstall(Boolean enableMysqlUninstall) {
-    
+  public JobsJobJobSpecJobData enableMysqlUninstall(@javax.annotation.Nullable Boolean enableMysqlUninstall) {
     this.enableMysqlUninstall = enableMysqlUninstall;
     return this;
   }
 
-   /**
+  /**
    * Get enableMysqlUninstall
    * @return enableMysqlUninstall
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getEnableMysqlUninstall() {
     return enableMysqlUninstall;
   }
 
-
-  public void setEnableMysqlUninstall(Boolean enableMysqlUninstall) {
+  public void setEnableMysqlUninstall(@javax.annotation.Nullable Boolean enableMysqlUninstall) {
     this.enableMysqlUninstall = enableMysqlUninstall;
   }
 
 
-  public JobsJobJobSpecJobData mysqlSemiSync(Boolean mysqlSemiSync) {
-    
+  public JobsJobJobSpecJobData mysqlSemiSync(@javax.annotation.Nullable Boolean mysqlSemiSync) {
     this.mysqlSemiSync = mysqlSemiSync;
     return this;
   }
 
-   /**
+  /**
    * Get mysqlSemiSync
    * @return mysqlSemiSync
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getMysqlSemiSync() {
     return mysqlSemiSync;
   }
 
-
-  public void setMysqlSemiSync(Boolean mysqlSemiSync) {
+  public void setMysqlSemiSync(@javax.annotation.Nullable Boolean mysqlSemiSync) {
     this.mysqlSemiSync = mysqlSemiSync;
   }
 
 
-  public JobsJobJobSpecJobData enableSsl(Boolean enableSsl) {
-    
+  public JobsJobJobSpecJobData enableSsl(@javax.annotation.Nullable Boolean enableSsl) {
     this.enableSsl = enableSsl;
     return this;
   }
 
-   /**
+  /**
    * Get enableSsl
    * @return enableSsl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getEnableSsl() {
     return enableSsl;
   }
 
-
-  public void setEnableSsl(Boolean enableSsl) {
+  public void setEnableSsl(@javax.annotation.Nullable Boolean enableSsl) {
     this.enableSsl = enableSsl;
   }
 
 
-  public JobsJobJobSpecJobData mongosConfTemplate(String mongosConfTemplate) {
-    
+  public JobsJobJobSpecJobData mongosConfTemplate(@javax.annotation.Nullable String mongosConfTemplate) {
     this.mongosConfTemplate = mongosConfTemplate;
     return this;
   }
 
-   /**
+  /**
    * Get mongosConfTemplate
    * @return mongosConfTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMongosConfTemplate() {
     return mongosConfTemplate;
   }
 
-
-  public void setMongosConfTemplate(String mongosConfTemplate) {
+  public void setMongosConfTemplate(@javax.annotation.Nullable String mongosConfTemplate) {
     this.mongosConfTemplate = mongosConfTemplate;
   }
 
 
-  public JobsJobJobSpecJobData mongodbAuthdb(String mongodbAuthdb) {
-    
+  public JobsJobJobSpecJobData mongodbAuthdb(@javax.annotation.Nullable String mongodbAuthdb) {
     this.mongodbAuthdb = mongodbAuthdb;
     return this;
   }
 
-   /**
+  /**
    * Get mongodbAuthdb
    * @return mongodbAuthdb
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getMongodbAuthdb() {
     return mongodbAuthdb;
   }
 
-
-  public void setMongodbAuthdb(String mongodbAuthdb) {
+  public void setMongodbAuthdb(@javax.annotation.Nullable String mongodbAuthdb) {
     this.mongodbAuthdb = mongodbAuthdb;
   }
 
 
-  public JobsJobJobSpecJobData nodeType(Integer nodeType) {
-    
+  public JobsJobJobSpecJobData nodeType(@javax.annotation.Nullable Integer nodeType) {
     this.nodeType = nodeType;
     return this;
   }
 
-   /**
+  /**
    * Get nodeType
    * @return nodeType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getNodeType() {
     return nodeType;
   }
 
-
-  public void setNodeType(Integer nodeType) {
+  public void setNodeType(@javax.annotation.Nullable Integer nodeType) {
     this.nodeType = nodeType;
   }
 
 
-  public JobsJobJobSpecJobData overwriteMysqlchk(Boolean overwriteMysqlchk) {
-    
+  public JobsJobJobSpecJobData overwriteMysqlchk(@javax.annotation.Nullable Boolean overwriteMysqlchk) {
     this.overwriteMysqlchk = overwriteMysqlchk;
     return this;
   }
 
-   /**
+  /**
    * Get overwriteMysqlchk
    * @return overwriteMysqlchk
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getOverwriteMysqlchk() {
     return overwriteMysqlchk;
   }
 
-
-  public void setOverwriteMysqlchk(Boolean overwriteMysqlchk) {
+  public void setOverwriteMysqlchk(@javax.annotation.Nullable Boolean overwriteMysqlchk) {
     this.overwriteMysqlchk = overwriteMysqlchk;
   }
 
 
-  public JobsJobJobSpecJobData port(Integer port) {
-    
+  public JobsJobJobSpecJobData port(@javax.annotation.Nullable Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Get port
    * @return port
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPort() {
     return port;
   }
 
-
-  public void setPort(Integer port) {
+  public void setPort(@javax.annotation.Nullable Integer port) {
     this.port = port;
   }
 
 
-  public JobsJobJobSpecJobData sshKeyfile(String sshKeyfile) {
-    
+  public JobsJobJobSpecJobData sentinelPort(@javax.annotation.Nullable String sentinelPort) {
+    this.sentinelPort = sentinelPort;
+    return this;
+  }
+
+  /**
+   * Get sentinelPort
+   * @return sentinelPort
+   */
+  @javax.annotation.Nullable
+  public String getSentinelPort() {
+    return sentinelPort;
+  }
+
+  public void setSentinelPort(@javax.annotation.Nullable String sentinelPort) {
+    this.sentinelPort = sentinelPort;
+  }
+
+
+  public JobsJobJobSpecJobData redisShardedPort(@javax.annotation.Nullable Integer redisShardedPort) {
+    this.redisShardedPort = redisShardedPort;
+    return this;
+  }
+
+  /**
+   * Get redisShardedPort
+   * @return redisShardedPort
+   */
+  @javax.annotation.Nullable
+  public Integer getRedisShardedPort() {
+    return redisShardedPort;
+  }
+
+  public void setRedisShardedPort(@javax.annotation.Nullable Integer redisShardedPort) {
+    this.redisShardedPort = redisShardedPort;
+  }
+
+
+  public JobsJobJobSpecJobData valkeyShardedPort(@javax.annotation.Nullable Integer valkeyShardedPort) {
+    this.valkeyShardedPort = valkeyShardedPort;
+    return this;
+  }
+
+  /**
+   * Get valkeyShardedPort
+   * @return valkeyShardedPort
+   */
+  @javax.annotation.Nullable
+  public Integer getValkeyShardedPort() {
+    return valkeyShardedPort;
+  }
+
+  public void setValkeyShardedPort(@javax.annotation.Nullable Integer valkeyShardedPort) {
+    this.valkeyShardedPort = valkeyShardedPort;
+  }
+
+
+  public JobsJobJobSpecJobData redisShardedBusPort(@javax.annotation.Nullable Integer redisShardedBusPort) {
+    this.redisShardedBusPort = redisShardedBusPort;
+    return this;
+  }
+
+  /**
+   * Get redisShardedBusPort
+   * @return redisShardedBusPort
+   */
+  @javax.annotation.Nullable
+  public Integer getRedisShardedBusPort() {
+    return redisShardedBusPort;
+  }
+
+  public void setRedisShardedBusPort(@javax.annotation.Nullable Integer redisShardedBusPort) {
+    this.redisShardedBusPort = redisShardedBusPort;
+  }
+
+
+  public JobsJobJobSpecJobData valkeyShardedBusPort(@javax.annotation.Nullable Integer valkeyShardedBusPort) {
+    this.valkeyShardedBusPort = valkeyShardedBusPort;
+    return this;
+  }
+
+  /**
+   * Get valkeyShardedBusPort
+   * @return valkeyShardedBusPort
+   */
+  @javax.annotation.Nullable
+  public Integer getValkeyShardedBusPort() {
+    return valkeyShardedBusPort;
+  }
+
+  public void setValkeyShardedBusPort(@javax.annotation.Nullable Integer valkeyShardedBusPort) {
+    this.valkeyShardedBusPort = valkeyShardedBusPort;
+  }
+
+
+  public JobsJobJobSpecJobData redisClusterReplicaValidityFactor(@javax.annotation.Nullable Integer redisClusterReplicaValidityFactor) {
+    this.redisClusterReplicaValidityFactor = redisClusterReplicaValidityFactor;
+    return this;
+  }
+
+  /**
+   * Get redisClusterReplicaValidityFactor
+   * @return redisClusterReplicaValidityFactor
+   */
+  @javax.annotation.Nullable
+  public Integer getRedisClusterReplicaValidityFactor() {
+    return redisClusterReplicaValidityFactor;
+  }
+
+  public void setRedisClusterReplicaValidityFactor(@javax.annotation.Nullable Integer redisClusterReplicaValidityFactor) {
+    this.redisClusterReplicaValidityFactor = redisClusterReplicaValidityFactor;
+  }
+
+
+  public JobsJobJobSpecJobData valkeyClusterReplicaValidityFactor(@javax.annotation.Nullable Integer valkeyClusterReplicaValidityFactor) {
+    this.valkeyClusterReplicaValidityFactor = valkeyClusterReplicaValidityFactor;
+    return this;
+  }
+
+  /**
+   * Get valkeyClusterReplicaValidityFactor
+   * @return valkeyClusterReplicaValidityFactor
+   */
+  @javax.annotation.Nullable
+  public Integer getValkeyClusterReplicaValidityFactor() {
+    return valkeyClusterReplicaValidityFactor;
+  }
+
+  public void setValkeyClusterReplicaValidityFactor(@javax.annotation.Nullable Integer valkeyClusterReplicaValidityFactor) {
+    this.valkeyClusterReplicaValidityFactor = valkeyClusterReplicaValidityFactor;
+  }
+
+
+  public JobsJobJobSpecJobData nodeTimeoutMs(@javax.annotation.Nullable Integer nodeTimeoutMs) {
+    this.nodeTimeoutMs = nodeTimeoutMs;
+    return this;
+  }
+
+  /**
+   * Get nodeTimeoutMs
+   * @return nodeTimeoutMs
+   */
+  @javax.annotation.Nullable
+  public Integer getNodeTimeoutMs() {
+    return nodeTimeoutMs;
+  }
+
+  public void setNodeTimeoutMs(@javax.annotation.Nullable Integer nodeTimeoutMs) {
+    this.nodeTimeoutMs = nodeTimeoutMs;
+  }
+
+
+  public JobsJobJobSpecJobData sshKeyfile(@javax.annotation.Nullable String sshKeyfile) {
     this.sshKeyfile = sshKeyfile;
     return this;
   }
 
-   /**
+  /**
    * Get sshKeyfile
    * @return sshKeyfile
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSshKeyfile() {
     return sshKeyfile;
   }
 
-
-  public void setSshKeyfile(String sshKeyfile) {
+  public void setSshKeyfile(@javax.annotation.Nullable String sshKeyfile) {
     this.sshKeyfile = sshKeyfile;
   }
 
 
-  public JobsJobJobSpecJobData sshPort(String sshPort) {
-    
+  public JobsJobJobSpecJobData sshPort(@javax.annotation.Nullable String sshPort) {
     this.sshPort = sshPort;
     return this;
   }
 
-   /**
+  /**
    * Get sshPort
    * @return sshPort
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSshPort() {
     return sshPort;
   }
 
-
-  public void setSshPort(String sshPort) {
+  public void setSshPort(@javax.annotation.Nullable String sshPort) {
     this.sshPort = sshPort;
   }
 
 
-  public JobsJobJobSpecJobData sshUser(String sshUser) {
-    
+  public JobsJobJobSpecJobData sshUser(@javax.annotation.Nullable String sshUser) {
     this.sshUser = sshUser;
     return this;
   }
 
-   /**
+  /**
    * Get sshUser
    * @return sshUser
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSshUser() {
     return sshUser;
   }
 
-
-  public void setSshUser(String sshUser) {
+  public void setSshUser(@javax.annotation.Nullable String sshUser) {
     this.sshUser = sshUser;
   }
 
 
-  public JobsJobJobSpecJobData sudoPassword(String sudoPassword) {
-    
+  public JobsJobJobSpecJobData sudoPassword(@javax.annotation.Nullable String sudoPassword) {
     this.sudoPassword = sudoPassword;
     return this;
   }
 
-   /**
+  /**
    * Get sudoPassword
    * @return sudoPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSudoPassword() {
     return sudoPassword;
   }
 
-
-  public void setSudoPassword(String sudoPassword) {
+  public void setSudoPassword(@javax.annotation.Nullable String sudoPassword) {
     this.sudoPassword = sudoPassword;
   }
 
 
-  public JobsJobJobSpecJobData userId(Integer userId) {
-    
+  public JobsJobJobSpecJobData userId(@javax.annotation.Nullable Integer userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
    * @return userId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getUserId() {
     return userId;
   }
 
-
-  public void setUserId(Integer userId) {
+  public void setUserId(@javax.annotation.Nullable Integer userId) {
     this.userId = userId;
   }
 
 
-  public JobsJobJobSpecJobData vendor(VendorEnum vendor) {
-    
+  public JobsJobJobSpecJobData vendor(@javax.annotation.Nullable VendorEnum vendor) {
     this.vendor = vendor;
     return this;
   }
 
-   /**
+  /**
    * Get vendor
    * @return vendor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public VendorEnum getVendor() {
     return vendor;
   }
 
-
-  public void setVendor(VendorEnum vendor) {
+  public void setVendor(@javax.annotation.Nullable VendorEnum vendor) {
     this.vendor = vendor;
   }
 
 
-  public JobsJobJobSpecJobData type(TypeEnum type) {
-    
+  public JobsJobJobSpecJobData type(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TypeEnum getType() {
     return type;
   }
 
-
-  public void setType(TypeEnum type) {
+  public void setType(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
   }
 
 
-  public JobsJobJobSpecJobData version(String version) {
-    
+  public JobsJobJobSpecJobData version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getVersion() {
     return version;
   }
 
-
-  public void setVersion(String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
 
-  public JobsJobJobSpecJobData softwarePackage(String softwarePackage) {
-    
+  public JobsJobJobSpecJobData softwarePackage(@javax.annotation.Nullable String softwarePackage) {
     this.softwarePackage = softwarePackage;
     return this;
   }
 
-   /**
+  /**
    * Get softwarePackage
    * @return softwarePackage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSoftwarePackage() {
     return softwarePackage;
   }
 
-
-  public void setSoftwarePackage(String softwarePackage) {
+  public void setSoftwarePackage(@javax.annotation.Nullable String softwarePackage) {
     this.softwarePackage = softwarePackage;
   }
 
 
-  public JobsJobJobSpecJobData serverAddress(String serverAddress) {
-    
+  public JobsJobJobSpecJobData serverAddress(@javax.annotation.Nullable String serverAddress) {
     this.serverAddress = serverAddress;
     return this;
   }
 
-   /**
+  /**
    * Get serverAddress
    * @return serverAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getServerAddress() {
     return serverAddress;
   }
 
-
-  public void setServerAddress(String serverAddress) {
+  public void setServerAddress(@javax.annotation.Nullable String serverAddress) {
     this.serverAddress = serverAddress;
   }
 
 
-  public JobsJobJobSpecJobData terminateDbServer(Boolean terminateDbServer) {
-    
+  public JobsJobJobSpecJobData terminateDbServer(@javax.annotation.Nullable Boolean terminateDbServer) {
     this.terminateDbServer = terminateDbServer;
     return this;
   }
 
-   /**
+  /**
    * Get terminateDbServer
    * @return terminateDbServer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getTerminateDbServer() {
     return terminateDbServer;
   }
 
-
-  public void setTerminateDbServer(Boolean terminateDbServer) {
+  public void setTerminateDbServer(@javax.annotation.Nullable Boolean terminateDbServer) {
     this.terminateDbServer = terminateDbServer;
   }
 
 
-  public JobsJobJobSpecJobData xtrabackupUseMemory(Integer xtrabackupUseMemory) {
-    
+  public JobsJobJobSpecJobData xtrabackupUseMemory(@javax.annotation.Nullable Integer xtrabackupUseMemory) {
     this.xtrabackupUseMemory = xtrabackupUseMemory;
     return this;
   }
 
-   /**
+  /**
    * Get xtrabackupUseMemory
    * @return xtrabackupUseMemory
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getXtrabackupUseMemory() {
     return xtrabackupUseMemory;
   }
 
-
-  public void setXtrabackupUseMemory(Integer xtrabackupUseMemory) {
+  public void setXtrabackupUseMemory(@javax.annotation.Nullable Integer xtrabackupUseMemory) {
     this.xtrabackupUseMemory = xtrabackupUseMemory;
   }
 
 
-  public JobsJobJobSpecJobData initial(Boolean initial) {
-    
+  public JobsJobJobSpecJobData initial(@javax.annotation.Nullable Boolean initial) {
     this.initial = initial;
     return this;
   }
 
-   /**
+  /**
    * Get initial
    * @return initial
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getInitial() {
     return initial;
   }
 
-
-  public void setInitial(Boolean initial) {
+  public void setInitial(@javax.annotation.Nullable Boolean initial) {
     this.initial = initial;
   }
 
 
-  public JobsJobJobSpecJobData reboot(Boolean reboot) {
-    
+  public JobsJobJobSpecJobData reboot(@javax.annotation.Nullable Boolean reboot) {
     this.reboot = reboot;
     return this;
   }
 
-   /**
+  /**
    * Get reboot
    * @return reboot
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getReboot() {
     return reboot;
   }
 
-
-  public void setReboot(Boolean reboot) {
+  public void setReboot(@javax.annotation.Nullable Boolean reboot) {
     this.reboot = reboot;
   }
 
 
-  public JobsJobJobSpecJobData slaveAddress(String slaveAddress) {
-    
+  public JobsJobJobSpecJobData slaveAddress(@javax.annotation.Nullable String slaveAddress) {
     this.slaveAddress = slaveAddress;
     return this;
   }
 
-   /**
+  /**
    * Get slaveAddress
    * @return slaveAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSlaveAddress() {
     return slaveAddress;
   }
 
-
-  public void setSlaveAddress(String slaveAddress) {
+  public void setSlaveAddress(@javax.annotation.Nullable String slaveAddress) {
     this.slaveAddress = slaveAddress;
   }
 
 
-  public JobsJobJobSpecJobData force(Boolean force) {
-    
+  public JobsJobJobSpecJobData force(@javax.annotation.Nullable Boolean force) {
     this.force = force;
     return this;
   }
 
-   /**
+  /**
    * Get force
    * @return force
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getForce() {
     return force;
   }
 
-
-  public void setForce(Boolean force) {
+  public void setForce(@javax.annotation.Nullable Boolean force) {
     this.force = force;
   }
 
 
-  public JobsJobJobSpecJobData forceStop(Boolean forceStop) {
-    
+  public JobsJobJobSpecJobData forceStop(@javax.annotation.Nullable Boolean forceStop) {
     this.forceStop = forceStop;
     return this;
   }
 
-   /**
+  /**
    * Get forceStop
    * @return forceStop
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getForceStop() {
     return forceStop;
   }
 
-
-  public void setForceStop(Boolean forceStop) {
+  public void setForceStop(@javax.annotation.Nullable Boolean forceStop) {
     this.forceStop = forceStop;
   }
 
 
-  public JobsJobJobSpecJobData stopTimeout(Integer stopTimeout) {
-    
+  public JobsJobJobSpecJobData stopTimeout(@javax.annotation.Nullable Integer stopTimeout) {
     this.stopTimeout = stopTimeout;
     return this;
   }
 
-   /**
+  /**
    * Get stopTimeout
    * @return stopTimeout
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getStopTimeout() {
     return stopTimeout;
   }
 
-
-  public void setStopTimeout(Integer stopTimeout) {
+  public void setStopTimeout(@javax.annotation.Nullable Integer stopTimeout) {
     this.stopTimeout = stopTimeout;
   }
 
 
-  public JobsJobJobSpecJobData pitrStopTime(String pitrStopTime) {
-    
+  public JobsJobJobSpecJobData pitrStopTime(@javax.annotation.Nullable String pitrStopTime) {
     this.pitrStopTime = pitrStopTime;
     return this;
   }
 
-   /**
+  /**
    * Get pitrStopTime
    * @return pitrStopTime
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPitrStopTime() {
     return pitrStopTime;
   }
 
-
-  public void setPitrStopTime(String pitrStopTime) {
+  public void setPitrStopTime(@javax.annotation.Nullable String pitrStopTime) {
     this.pitrStopTime = pitrStopTime;
   }
 
 
-  public JobsJobJobSpecJobData pitrStopLog(String pitrStopLog) {
-    
+  public JobsJobJobSpecJobData pitrStopLog(@javax.annotation.Nullable String pitrStopLog) {
     this.pitrStopLog = pitrStopLog;
     return this;
   }
 
-   /**
+  /**
    * Get pitrStopLog
    * @return pitrStopLog
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPitrStopLog() {
     return pitrStopLog;
   }
 
-
-  public void setPitrStopLog(String pitrStopLog) {
+  public void setPitrStopLog(@javax.annotation.Nullable String pitrStopLog) {
     this.pitrStopLog = pitrStopLog;
   }
 
 
-  public JobsJobJobSpecJobData pitrStopPos(Integer pitrStopPos) {
-    
+  public JobsJobJobSpecJobData pitrStopPos(@javax.annotation.Nullable Integer pitrStopPos) {
     this.pitrStopPos = pitrStopPos;
     return this;
   }
 
-   /**
+  /**
    * Get pitrStopPos
    * @return pitrStopPos
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPitrStopPos() {
     return pitrStopPos;
   }
 
-
-  public void setPitrStopPos(Integer pitrStopPos) {
+  public void setPitrStopPos(@javax.annotation.Nullable Integer pitrStopPos) {
     this.pitrStopPos = pitrStopPos;
   }
 
 
-  public JobsJobJobSpecJobData hostLocationUuid(String hostLocationUuid) {
-    
+  public JobsJobJobSpecJobData hostLocationUuid(@javax.annotation.Nullable String hostLocationUuid) {
     this.hostLocationUuid = hostLocationUuid;
     return this;
   }
 
-   /**
+  /**
    * Get hostLocationUuid
    * @return hostLocationUuid
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostLocationUuid() {
     return hostLocationUuid;
   }
 
-
-  public void setHostLocationUuid(String hostLocationUuid) {
+  public void setHostLocationUuid(@javax.annotation.Nullable String hostLocationUuid) {
     this.hostLocationUuid = hostLocationUuid;
   }
 
 
-  public JobsJobJobSpecJobData bootstrap(Boolean bootstrap) {
-    
+  public JobsJobJobSpecJobData bootstrap(@javax.annotation.Nullable Boolean bootstrap) {
     this.bootstrap = bootstrap;
     return this;
   }
 
-   /**
+  /**
    * Get bootstrap
    * @return bootstrap
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getBootstrap() {
     return bootstrap;
   }
 
-
-  public void setBootstrap(Boolean bootstrap) {
+  public void setBootstrap(@javax.annotation.Nullable Boolean bootstrap) {
     this.bootstrap = bootstrap;
   }
 
 
-  public JobsJobJobSpecJobData snapshotLocaiton(String snapshotLocaiton) {
-    
-    this.snapshotLocaiton = snapshotLocaiton;
+  public JobsJobJobSpecJobData snapshotLocation(@javax.annotation.Nullable String snapshotLocation) {
+    this.snapshotLocation = snapshotLocation;
     return this;
   }
 
-   /**
-   * Get snapshotLocaiton
-   * @return snapshotLocaiton
-  **/
+  /**
+   * Get snapshotLocation
+   * @return snapshotLocation
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  public String getSnapshotLocation() {
+    return snapshotLocation;
+  }
 
-  public String getSnapshotLocaiton() {
-    return snapshotLocaiton;
+  public void setSnapshotLocation(@javax.annotation.Nullable String snapshotLocation) {
+    this.snapshotLocation = snapshotLocation;
   }
 
 
-  public void setSnapshotLocaiton(String snapshotLocaiton) {
-    this.snapshotLocaiton = snapshotLocaiton;
-  }
-
-
-  public JobsJobJobSpecJobData snapshotRepository(String snapshotRepository) {
-    
+  public JobsJobJobSpecJobData snapshotRepository(@javax.annotation.Nullable String snapshotRepository) {
     this.snapshotRepository = snapshotRepository;
     return this;
   }
 
-   /**
+  /**
    * Get snapshotRepository
    * @return snapshotRepository
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSnapshotRepository() {
     return snapshotRepository;
   }
 
-
-  public void setSnapshotRepository(String snapshotRepository) {
+  public void setSnapshotRepository(@javax.annotation.Nullable String snapshotRepository) {
     this.snapshotRepository = snapshotRepository;
   }
 
 
-  public JobsJobJobSpecJobData storageHost(String storageHost) {
-    
+  public JobsJobJobSpecJobData snapshotRepositoryType(@javax.annotation.Nullable String snapshotRepositoryType) {
+    this.snapshotRepositoryType = snapshotRepositoryType;
+    return this;
+  }
+
+  /**
+   * Get snapshotRepositoryType
+   * @return snapshotRepositoryType
+   */
+  @javax.annotation.Nullable
+  public String getSnapshotRepositoryType() {
+    return snapshotRepositoryType;
+  }
+
+  public void setSnapshotRepositoryType(@javax.annotation.Nullable String snapshotRepositoryType) {
+    this.snapshotRepositoryType = snapshotRepositoryType;
+  }
+
+
+  public JobsJobJobSpecJobData snapshotHost(@javax.annotation.Nullable String snapshotHost) {
+    this.snapshotHost = snapshotHost;
+    return this;
+  }
+
+  /**
+   * Get snapshotHost
+   * @return snapshotHost
+   */
+  @javax.annotation.Nullable
+  public String getSnapshotHost() {
+    return snapshotHost;
+  }
+
+  public void setSnapshotHost(@javax.annotation.Nullable String snapshotHost) {
+    this.snapshotHost = snapshotHost;
+  }
+
+
+  public JobsJobJobSpecJobData storageHost(@javax.annotation.Nullable String storageHost) {
     this.storageHost = storageHost;
     return this;
   }
 
-   /**
+  /**
    * Get storageHost
    * @return storageHost
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getStorageHost() {
     return storageHost;
   }
 
-
-  public void setStorageHost(String storageHost) {
+  public void setStorageHost(@javax.annotation.Nullable String storageHost) {
     this.storageHost = storageHost;
   }
 
 
-  public JobsJobJobSpecJobData uploadBackupDataToCloudStorage(JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage) {
-    
+  public JobsJobJobSpecJobData replicaset(@javax.annotation.Nullable String replicaset) {
+    this.replicaset = replicaset;
+    return this;
+  }
+
+  /**
+   * Get replicaset
+   * @return replicaset
+   */
+  @javax.annotation.Nullable
+  public String getReplicaset() {
+    return replicaset;
+  }
+
+  public void setReplicaset(@javax.annotation.Nullable String replicaset) {
+    this.replicaset = replicaset;
+  }
+
+
+  public JobsJobJobSpecJobData deployAgents(@javax.annotation.Nullable Boolean deployAgents) {
+    this.deployAgents = deployAgents;
+    return this;
+  }
+
+  /**
+   * Get deployAgents
+   * @return deployAgents
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeployAgents() {
+    return deployAgents;
+  }
+
+  public void setDeployAgents(@javax.annotation.Nullable Boolean deployAgents) {
+    this.deployAgents = deployAgents;
+  }
+
+
+  public JobsJobJobSpecJobData uploadBackupDataToCloudStorage(@javax.annotation.Nullable JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage) {
     this.uploadBackupDataToCloudStorage = uploadBackupDataToCloudStorage;
     return this;
   }
 
-   /**
+  /**
    * Get uploadBackupDataToCloudStorage
    * @return uploadBackupDataToCloudStorage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobsJobJobSpecJobDataUploadBackupDataToCloudStorage getUploadBackupDataToCloudStorage() {
     return uploadBackupDataToCloudStorage;
   }
 
-
-  public void setUploadBackupDataToCloudStorage(JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage) {
+  public void setUploadBackupDataToCloudStorage(@javax.annotation.Nullable JobsJobJobSpecJobDataUploadBackupDataToCloudStorage uploadBackupDataToCloudStorage) {
     this.uploadBackupDataToCloudStorage = uploadBackupDataToCloudStorage;
   }
 
 
-  public JobsJobJobSpecJobData verifyBackup(BackupScheduleJobJobDataVerifyBackup verifyBackup) {
-    
+  public JobsJobJobSpecJobData verifyBackup(@javax.annotation.Nullable BackupScheduleJobJobDataVerifyBackup verifyBackup) {
     this.verifyBackup = verifyBackup;
     return this;
   }
 
-   /**
+  /**
    * Get verifyBackup
    * @return verifyBackup
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public BackupScheduleJobJobDataVerifyBackup getVerifyBackup() {
     return verifyBackup;
   }
 
-
-  public void setVerifyBackup(BackupScheduleJobJobDataVerifyBackup verifyBackup) {
+  public void setVerifyBackup(@javax.annotation.Nullable BackupScheduleJobJobDataVerifyBackup verifyBackup) {
     this.verifyBackup = verifyBackup;
   }
 
 
-  public JobsJobJobSpecJobData configServers(JobsJobJobSpecJobDataConfigServers configServers) {
-    
+  public JobsJobJobSpecJobData configServers(@javax.annotation.Nullable JobsJobJobSpecJobDataConfigServers configServers) {
     this.configServers = configServers;
     return this;
   }
 
-   /**
+  /**
    * Get configServers
    * @return configServers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobsJobJobSpecJobDataConfigServers getConfigServers() {
     return configServers;
   }
 
-
-  public void setConfigServers(JobsJobJobSpecJobDataConfigServers configServers) {
+  public void setConfigServers(@javax.annotation.Nullable JobsJobJobSpecJobDataConfigServers configServers) {
     this.configServers = configServers;
   }
 
 
-  public JobsJobJobSpecJobData mongosServers(List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers) {
-    
+  public JobsJobJobSpecJobData mongosServers(@javax.annotation.Nullable List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers) {
     this.mongosServers = mongosServers;
     return this;
   }
@@ -3271,48 +3434,40 @@ public class JobsJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get mongosServers
    * @return mongosServers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataConfigServersMembersInner> getMongosServers() {
     return mongosServers;
   }
 
-
-  public void setMongosServers(List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers) {
+  public void setMongosServers(@javax.annotation.Nullable List<JobsJobJobSpecJobDataConfigServersMembersInner> mongosServers) {
     this.mongosServers = mongosServers;
   }
 
 
-  public JobsJobJobSpecJobData node(JobsJobJobSpecJobDataNode node) {
-    
+  public JobsJobJobSpecJobData node(@javax.annotation.Nullable JobsJobJobSpecJobDataNode node) {
     this.node = node;
     return this;
   }
 
-   /**
+  /**
    * Get node
    * @return node
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobsJobJobSpecJobDataNode getNode() {
     return node;
   }
 
-
-  public void setNode(JobsJobJobSpecJobDataNode node) {
+  public void setNode(@javax.annotation.Nullable JobsJobJobSpecJobDataNode node) {
     this.node = node;
   }
 
 
-  public JobsJobJobSpecJobData nodes(List<JobsJobJobSpecJobDataNodesInner> nodes) {
-    
+  public JobsJobJobSpecJobData nodes(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodesInner> nodes) {
     this.nodes = nodes;
     return this;
   }
@@ -3325,25 +3480,21 @@ public class JobsJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get nodes
    * @return nodes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataNodesInner> getNodes() {
     return nodes;
   }
 
-
-  public void setNodes(List<JobsJobJobSpecJobDataNodesInner> nodes) {
+  public void setNodes(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodesInner> nodes) {
     this.nodes = nodes;
   }
 
 
-  public JobsJobJobSpecJobData nodeAdresses(List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses) {
-    
+  public JobsJobJobSpecJobData nodeAdresses(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses) {
     this.nodeAdresses = nodeAdresses;
     return this;
   }
@@ -3356,48 +3507,40 @@ public class JobsJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get nodeAdresses
    * @return nodeAdresses
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataNodeAdressesInner> getNodeAdresses() {
     return nodeAdresses;
   }
 
-
-  public void setNodeAdresses(List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses) {
+  public void setNodeAdresses(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodeAdressesInner> nodeAdresses) {
     this.nodeAdresses = nodeAdresses;
   }
 
 
-  public JobsJobJobSpecJobData topology(JobsJobJobSpecJobDataTopology topology) {
-    
+  public JobsJobJobSpecJobData topology(@javax.annotation.Nullable JobsJobJobSpecJobDataTopology topology) {
     this.topology = topology;
     return this;
   }
 
-   /**
+  /**
    * Get topology
    * @return topology
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobsJobJobSpecJobDataTopology getTopology() {
     return topology;
   }
 
-
-  public void setTopology(JobsJobJobSpecJobDataTopology topology) {
+  public void setTopology(@javax.annotation.Nullable JobsJobJobSpecJobDataTopology topology) {
     this.topology = topology;
   }
 
 
-  public JobsJobJobSpecJobData replicaSets(List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets) {
-    
+  public JobsJobJobSpecJobData replicaSets(@javax.annotation.Nullable List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets) {
     this.replicaSets = replicaSets;
     return this;
   }
@@ -3410,25 +3553,21 @@ public class JobsJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get replicaSets
    * @return replicaSets
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataReplicaSetsInner> getReplicaSets() {
     return replicaSets;
   }
 
-
-  public void setReplicaSets(List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets) {
+  public void setReplicaSets(@javax.annotation.Nullable List<JobsJobJobSpecJobDataReplicaSetsInner> replicaSets) {
     this.replicaSets = replicaSets;
   }
 
 
-  public JobsJobJobSpecJobData withTags(List<String> withTags) {
-    
+  public JobsJobJobSpecJobData withTags(@javax.annotation.Nullable List<String> withTags) {
     this.withTags = withTags;
     return this;
   }
@@ -3441,19 +3580,16 @@ public class JobsJobJobSpecJobData {
     return this;
   }
 
-   /**
+  /**
    * Get withTags
    * @return withTags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getWithTags() {
     return withTags;
   }
 
-
-  public void setWithTags(List<String> withTags) {
+  public void setWithTags(@javax.annotation.Nullable List<String> withTags) {
     this.withTags = withTags;
   }
 
@@ -3492,6 +3628,8 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.extendedInsert, jobsJobJobSpecJobData.extendedInsert) &&
         Objects.equals(this.backupDir, jobsJobJobSpecJobData.backupDir) &&
         Objects.equals(this.backupsubdir, jobsJobJobSpecJobData.backupsubdir) &&
+        Objects.equals(this.removeBackups, jobsJobJobSpecJobData.removeBackups) &&
+        Objects.equals(this.backupSystemDb, jobsJobJobSpecJobData.backupSystemDb) &&
         Objects.equals(this.ccStorage, jobsJobJobSpecJobData.ccStorage) &&
         Objects.equals(this.compression, jobsJobJobSpecJobData.compression) &&
         Objects.equals(this.compressionLevel, jobsJobJobSpecJobData.compressionLevel) &&
@@ -3510,6 +3648,7 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.useRwSplit, jobsJobJobSpecJobData.useRwSplit) &&
         Objects.equals(this.hostname, jobsJobJobSpecJobData.hostname) &&
         Objects.equals(this.masterAddress, jobsJobJobSpecJobData.masterAddress) &&
+        Objects.equals(this.masterDelay, jobsJobJobSpecJobData.masterDelay) &&
         Objects.equals(this.includeDatabases, jobsJobJobSpecJobData.includeDatabases) &&
         Objects.equals(this.installTimescaledb, jobsJobJobSpecJobData.installTimescaledb) &&
         Objects.equals(this.updateLb, jobsJobJobSpecJobData.updateLb) &&
@@ -3519,15 +3658,17 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.usePigz, jobsJobJobSpecJobData.usePigz) &&
         Objects.equals(this.useQpress, jobsJobJobSpecJobData.useQpress) &&
         Objects.equals(this.wsrepDesync, jobsJobJobSpecJobData.wsrepDesync) &&
+        Objects.equals(this.galeraSegment, jobsJobJobSpecJobData.galeraSegment) &&
         Objects.equals(this.xtrabackupBackupLocks, jobsJobJobSpecJobData.xtrabackupBackupLocks) &&
         Objects.equals(this.xtrabackupLockDdlPerTable, jobsJobJobSpecJobData.xtrabackupLockDdlPerTable) &&
         Objects.equals(this.xtrabackupParallellism, jobsJobJobSpecJobData.xtrabackupParallellism) &&
         Objects.equals(this.verifyBackupDelay, jobsJobJobSpecJobData.verifyBackupDelay) &&
-        Objects.equals(this.dataDir, jobsJobJobSpecJobData.dataDir) &&
+        Objects.equals(this.datadir, jobsJobJobSpecJobData.datadir) &&
         Objects.equals(this.dbUser, jobsJobJobSpecJobData.dbUser) &&
         Objects.equals(this.disableFirewall, jobsJobJobSpecJobData.disableFirewall) &&
         Objects.equals(this.disableSelinux, jobsJobJobSpecJobData.disableSelinux) &&
         Objects.equals(this.enableUninstall, jobsJobJobSpecJobData.enableUninstall) &&
+        Objects.equals(this.unregisterOnly, jobsJobJobSpecJobData.unregisterOnly) &&
         Objects.equals(this.generateToken, jobsJobJobSpecJobData.generateToken) &&
         Objects.equals(this.installSoftware, jobsJobJobSpecJobData.installSoftware) &&
         Objects.equals(this.useInternalRepos, jobsJobJobSpecJobData.useInternalRepos) &&
@@ -3540,6 +3681,14 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.nodeType, jobsJobJobSpecJobData.nodeType) &&
         Objects.equals(this.overwriteMysqlchk, jobsJobJobSpecJobData.overwriteMysqlchk) &&
         Objects.equals(this.port, jobsJobJobSpecJobData.port) &&
+        Objects.equals(this.sentinelPort, jobsJobJobSpecJobData.sentinelPort) &&
+        Objects.equals(this.redisShardedPort, jobsJobJobSpecJobData.redisShardedPort) &&
+        Objects.equals(this.valkeyShardedPort, jobsJobJobSpecJobData.valkeyShardedPort) &&
+        Objects.equals(this.redisShardedBusPort, jobsJobJobSpecJobData.redisShardedBusPort) &&
+        Objects.equals(this.valkeyShardedBusPort, jobsJobJobSpecJobData.valkeyShardedBusPort) &&
+        Objects.equals(this.redisClusterReplicaValidityFactor, jobsJobJobSpecJobData.redisClusterReplicaValidityFactor) &&
+        Objects.equals(this.valkeyClusterReplicaValidityFactor, jobsJobJobSpecJobData.valkeyClusterReplicaValidityFactor) &&
+        Objects.equals(this.nodeTimeoutMs, jobsJobJobSpecJobData.nodeTimeoutMs) &&
         Objects.equals(this.sshKeyfile, jobsJobJobSpecJobData.sshKeyfile) &&
         Objects.equals(this.sshPort, jobsJobJobSpecJobData.sshPort) &&
         Objects.equals(this.sshUser, jobsJobJobSpecJobData.sshUser) &&
@@ -3563,9 +3712,13 @@ public class JobsJobJobSpecJobData {
         Objects.equals(this.pitrStopPos, jobsJobJobSpecJobData.pitrStopPos) &&
         Objects.equals(this.hostLocationUuid, jobsJobJobSpecJobData.hostLocationUuid) &&
         Objects.equals(this.bootstrap, jobsJobJobSpecJobData.bootstrap) &&
-        Objects.equals(this.snapshotLocaiton, jobsJobJobSpecJobData.snapshotLocaiton) &&
+        Objects.equals(this.snapshotLocation, jobsJobJobSpecJobData.snapshotLocation) &&
         Objects.equals(this.snapshotRepository, jobsJobJobSpecJobData.snapshotRepository) &&
+        Objects.equals(this.snapshotRepositoryType, jobsJobJobSpecJobData.snapshotRepositoryType) &&
+        Objects.equals(this.snapshotHost, jobsJobJobSpecJobData.snapshotHost) &&
         Objects.equals(this.storageHost, jobsJobJobSpecJobData.storageHost) &&
+        Objects.equals(this.replicaset, jobsJobJobSpecJobData.replicaset) &&
+        Objects.equals(this.deployAgents, jobsJobJobSpecJobData.deployAgents) &&
         Objects.equals(this.uploadBackupDataToCloudStorage, jobsJobJobSpecJobData.uploadBackupDataToCloudStorage) &&
         Objects.equals(this.verifyBackup, jobsJobJobSpecJobData.verifyBackup) &&
         Objects.equals(this.configServers, jobsJobJobSpecJobData.configServers) &&
@@ -3580,7 +3733,7 @@ public class JobsJobJobSpecJobData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, addnode, adminUsername, adminUser, adminPassword, auditEvents, archiveMode, backupid, backupId, buildFromSource, clusterName, clusterid, clusterType, companyId, configTemplate, backupFailover, backupFailoverHost, backupMethod, backupMysqldumpType, backupIndividualSchemas, backupRetention, extendedInsert, backupDir, backupsubdir, ccStorage, compression, compressionLevel, dbDatabase, dbPassword, dbPrivs, dbUsername, dataCenter, execUpgradeScript, extended, listeningPort, maskPasswords, monitorPassword, monitorUser, useClustering, useRwSplit, hostname, masterAddress, includeDatabases, installTimescaledb, updateLb, usePackageForDataDir, encryptBackup, throttleRateNetbw, usePigz, useQpress, wsrepDesync, xtrabackupBackupLocks, xtrabackupLockDdlPerTable, xtrabackupParallellism, verifyBackupDelay, dataDir, dbUser, disableFirewall, disableSelinux, enableUninstall, generateToken, installSoftware, useInternalRepos, localRepository, enableMysqlUninstall, mysqlSemiSync, enableSsl, mongosConfTemplate, mongodbAuthdb, nodeType, overwriteMysqlchk, port, sshKeyfile, sshPort, sshUser, sudoPassword, userId, vendor, type, version, softwarePackage, serverAddress, terminateDbServer, xtrabackupUseMemory, initial, reboot, slaveAddress, force, forceStop, stopTimeout, pitrStopTime, pitrStopLog, pitrStopPos, hostLocationUuid, bootstrap, snapshotLocaiton, snapshotRepository, storageHost, uploadBackupDataToCloudStorage, verifyBackup, configServers, mongosServers, node, nodes, nodeAdresses, topology, replicaSets, withTags);
+    return Objects.hash(action, addnode, adminUsername, adminUser, adminPassword, auditEvents, archiveMode, backupid, backupId, buildFromSource, clusterName, clusterid, clusterType, companyId, configTemplate, backupFailover, backupFailoverHost, backupMethod, backupMysqldumpType, backupIndividualSchemas, backupRetention, extendedInsert, backupDir, backupsubdir, removeBackups, backupSystemDb, ccStorage, compression, compressionLevel, dbDatabase, dbPassword, dbPrivs, dbUsername, dataCenter, execUpgradeScript, extended, listeningPort, maskPasswords, monitorPassword, monitorUser, useClustering, useRwSplit, hostname, masterAddress, masterDelay, includeDatabases, installTimescaledb, updateLb, usePackageForDataDir, encryptBackup, throttleRateNetbw, usePigz, useQpress, wsrepDesync, galeraSegment, xtrabackupBackupLocks, xtrabackupLockDdlPerTable, xtrabackupParallellism, verifyBackupDelay, datadir, dbUser, disableFirewall, disableSelinux, enableUninstall, unregisterOnly, generateToken, installSoftware, useInternalRepos, localRepository, enableMysqlUninstall, mysqlSemiSync, enableSsl, mongosConfTemplate, mongodbAuthdb, nodeType, overwriteMysqlchk, port, sentinelPort, redisShardedPort, valkeyShardedPort, redisShardedBusPort, valkeyShardedBusPort, redisClusterReplicaValidityFactor, valkeyClusterReplicaValidityFactor, nodeTimeoutMs, sshKeyfile, sshPort, sshUser, sudoPassword, userId, vendor, type, version, softwarePackage, serverAddress, terminateDbServer, xtrabackupUseMemory, initial, reboot, slaveAddress, force, forceStop, stopTimeout, pitrStopTime, pitrStopLog, pitrStopPos, hostLocationUuid, bootstrap, snapshotLocation, snapshotRepository, snapshotRepositoryType, snapshotHost, storageHost, replicaset, deployAgents, uploadBackupDataToCloudStorage, verifyBackup, configServers, mongosServers, node, nodes, nodeAdresses, topology, replicaSets, withTags);
   }
 
   @Override
@@ -3611,6 +3764,8 @@ public class JobsJobJobSpecJobData {
     sb.append("    extendedInsert: ").append(toIndentedString(extendedInsert)).append("\n");
     sb.append("    backupDir: ").append(toIndentedString(backupDir)).append("\n");
     sb.append("    backupsubdir: ").append(toIndentedString(backupsubdir)).append("\n");
+    sb.append("    removeBackups: ").append(toIndentedString(removeBackups)).append("\n");
+    sb.append("    backupSystemDb: ").append(toIndentedString(backupSystemDb)).append("\n");
     sb.append("    ccStorage: ").append(toIndentedString(ccStorage)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    compressionLevel: ").append(toIndentedString(compressionLevel)).append("\n");
@@ -3629,6 +3784,7 @@ public class JobsJobJobSpecJobData {
     sb.append("    useRwSplit: ").append(toIndentedString(useRwSplit)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    masterAddress: ").append(toIndentedString(masterAddress)).append("\n");
+    sb.append("    masterDelay: ").append(toIndentedString(masterDelay)).append("\n");
     sb.append("    includeDatabases: ").append(toIndentedString(includeDatabases)).append("\n");
     sb.append("    installTimescaledb: ").append(toIndentedString(installTimescaledb)).append("\n");
     sb.append("    updateLb: ").append(toIndentedString(updateLb)).append("\n");
@@ -3638,15 +3794,17 @@ public class JobsJobJobSpecJobData {
     sb.append("    usePigz: ").append(toIndentedString(usePigz)).append("\n");
     sb.append("    useQpress: ").append(toIndentedString(useQpress)).append("\n");
     sb.append("    wsrepDesync: ").append(toIndentedString(wsrepDesync)).append("\n");
+    sb.append("    galeraSegment: ").append(toIndentedString(galeraSegment)).append("\n");
     sb.append("    xtrabackupBackupLocks: ").append(toIndentedString(xtrabackupBackupLocks)).append("\n");
     sb.append("    xtrabackupLockDdlPerTable: ").append(toIndentedString(xtrabackupLockDdlPerTable)).append("\n");
     sb.append("    xtrabackupParallellism: ").append(toIndentedString(xtrabackupParallellism)).append("\n");
     sb.append("    verifyBackupDelay: ").append(toIndentedString(verifyBackupDelay)).append("\n");
-    sb.append("    dataDir: ").append(toIndentedString(dataDir)).append("\n");
+    sb.append("    datadir: ").append(toIndentedString(datadir)).append("\n");
     sb.append("    dbUser: ").append(toIndentedString(dbUser)).append("\n");
     sb.append("    disableFirewall: ").append(toIndentedString(disableFirewall)).append("\n");
     sb.append("    disableSelinux: ").append(toIndentedString(disableSelinux)).append("\n");
     sb.append("    enableUninstall: ").append(toIndentedString(enableUninstall)).append("\n");
+    sb.append("    unregisterOnly: ").append(toIndentedString(unregisterOnly)).append("\n");
     sb.append("    generateToken: ").append(toIndentedString(generateToken)).append("\n");
     sb.append("    installSoftware: ").append(toIndentedString(installSoftware)).append("\n");
     sb.append("    useInternalRepos: ").append(toIndentedString(useInternalRepos)).append("\n");
@@ -3659,6 +3817,14 @@ public class JobsJobJobSpecJobData {
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    overwriteMysqlchk: ").append(toIndentedString(overwriteMysqlchk)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    sentinelPort: ").append(toIndentedString(sentinelPort)).append("\n");
+    sb.append("    redisShardedPort: ").append(toIndentedString(redisShardedPort)).append("\n");
+    sb.append("    valkeyShardedPort: ").append(toIndentedString(valkeyShardedPort)).append("\n");
+    sb.append("    redisShardedBusPort: ").append(toIndentedString(redisShardedBusPort)).append("\n");
+    sb.append("    valkeyShardedBusPort: ").append(toIndentedString(valkeyShardedBusPort)).append("\n");
+    sb.append("    redisClusterReplicaValidityFactor: ").append(toIndentedString(redisClusterReplicaValidityFactor)).append("\n");
+    sb.append("    valkeyClusterReplicaValidityFactor: ").append(toIndentedString(valkeyClusterReplicaValidityFactor)).append("\n");
+    sb.append("    nodeTimeoutMs: ").append(toIndentedString(nodeTimeoutMs)).append("\n");
     sb.append("    sshKeyfile: ").append(toIndentedString(sshKeyfile)).append("\n");
     sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
     sb.append("    sshUser: ").append(toIndentedString(sshUser)).append("\n");
@@ -3682,9 +3848,13 @@ public class JobsJobJobSpecJobData {
     sb.append("    pitrStopPos: ").append(toIndentedString(pitrStopPos)).append("\n");
     sb.append("    hostLocationUuid: ").append(toIndentedString(hostLocationUuid)).append("\n");
     sb.append("    bootstrap: ").append(toIndentedString(bootstrap)).append("\n");
-    sb.append("    snapshotLocaiton: ").append(toIndentedString(snapshotLocaiton)).append("\n");
+    sb.append("    snapshotLocation: ").append(toIndentedString(snapshotLocation)).append("\n");
     sb.append("    snapshotRepository: ").append(toIndentedString(snapshotRepository)).append("\n");
+    sb.append("    snapshotRepositoryType: ").append(toIndentedString(snapshotRepositoryType)).append("\n");
+    sb.append("    snapshotHost: ").append(toIndentedString(snapshotHost)).append("\n");
     sb.append("    storageHost: ").append(toIndentedString(storageHost)).append("\n");
+    sb.append("    replicaset: ").append(toIndentedString(replicaset)).append("\n");
+    sb.append("    deployAgents: ").append(toIndentedString(deployAgents)).append("\n");
     sb.append("    uploadBackupDataToCloudStorage: ").append(toIndentedString(uploadBackupDataToCloudStorage)).append("\n");
     sb.append("    verifyBackup: ").append(toIndentedString(verifyBackup)).append("\n");
     sb.append("    configServers: ").append(toIndentedString(configServers)).append("\n");
@@ -3704,10 +3874,7 @@ public class JobsJobJobSpecJobData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -3716,319 +3883,256 @@ public class JobsJobJobSpecJobData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("action");
-    openapiFields.add("addnode");
-    openapiFields.add("admin_username");
-    openapiFields.add("admin_user");
-    openapiFields.add("admin_password");
-    openapiFields.add("audit_events");
-    openapiFields.add("archive_mode");
-    openapiFields.add("backupid");
-    openapiFields.add("backup_id");
-    openapiFields.add("build_from_source");
-    openapiFields.add("cluster_name");
-    openapiFields.add("clusterid");
-    openapiFields.add("cluster_type");
-    openapiFields.add("company_id");
-    openapiFields.add("config_template");
-    openapiFields.add("backup_failover");
-    openapiFields.add("backup_failover_host");
-    openapiFields.add("backup_method");
-    openapiFields.add("backup_mysqldump_type");
-    openapiFields.add("backup_individual_schemas");
-    openapiFields.add("backup_retention");
-    openapiFields.add("extended_insert");
-    openapiFields.add("backup_dir");
-    openapiFields.add("backupsubdir");
-    openapiFields.add("cc_storage");
-    openapiFields.add("compression");
-    openapiFields.add("compression_level");
-    openapiFields.add("db_database");
-    openapiFields.add("db_password");
-    openapiFields.add("db_privs");
-    openapiFields.add("db_username");
-    openapiFields.add("data_center");
-    openapiFields.add("exec_upgrade_script");
-    openapiFields.add("extended");
-    openapiFields.add("listening_port");
-    openapiFields.add("mask_passwords");
-    openapiFields.add("monitor_password");
-    openapiFields.add("monitor_user");
-    openapiFields.add("use_clustering");
-    openapiFields.add("use_rw_split");
-    openapiFields.add("hostname");
-    openapiFields.add("master_address");
-    openapiFields.add("include_databases");
-    openapiFields.add("install_timescaledb");
-    openapiFields.add("update_lb");
-    openapiFields.add("usePackageForDataDir");
-    openapiFields.add("encrypt_backup");
-    openapiFields.add("throttle_rate_netbw");
-    openapiFields.add("use_pigz");
-    openapiFields.add("use_qpress");
-    openapiFields.add("wsrep_desync");
-    openapiFields.add("xtrabackup_backup_locks");
-    openapiFields.add("xtrabackup_lock_ddl_per_table");
-    openapiFields.add("xtrabackup_parallellism");
-    openapiFields.add("verify_backup_delay");
-    openapiFields.add("data_dir");
-    openapiFields.add("db_user");
-    openapiFields.add("disable_firewall");
-    openapiFields.add("disable_selinux");
-    openapiFields.add("enable_uninstall");
-    openapiFields.add("generate_token");
-    openapiFields.add("install_software");
-    openapiFields.add("use_internal_repos");
-    openapiFields.add("local_repository");
-    openapiFields.add("enable_mysql_uninstall");
-    openapiFields.add("mysql_semi_sync");
-    openapiFields.add("enable_ssl");
-    openapiFields.add("mongos_conf_template");
-    openapiFields.add("mongodb_authdb");
-    openapiFields.add("node_type");
-    openapiFields.add("overwrite_mysqlchk");
-    openapiFields.add("port");
-    openapiFields.add("ssh_keyfile");
-    openapiFields.add("ssh_port");
-    openapiFields.add("ssh_user");
-    openapiFields.add("sudo_password");
-    openapiFields.add("user_id");
-    openapiFields.add("vendor");
-    openapiFields.add("type");
-    openapiFields.add("version");
-    openapiFields.add("software_package");
-    openapiFields.add("server_address");
-    openapiFields.add("terminate_db_server");
-    openapiFields.add("xtrabackup_use_memory");
-    openapiFields.add("initial");
-    openapiFields.add("reboot");
-    openapiFields.add("slave_address");
-    openapiFields.add("force");
-    openapiFields.add("force_stop");
-    openapiFields.add("stop_timeout");
-    openapiFields.add("pitr_stop_time");
-    openapiFields.add("pitr_stop_log");
-    openapiFields.add("pitr_stop_pos");
-    openapiFields.add("host_location_uuid");
-    openapiFields.add("bootstrap");
-    openapiFields.add("snapshot_locaiton");
-    openapiFields.add("snapshot_repository");
-    openapiFields.add("storage_host");
-    openapiFields.add("upload_backup_data_to_cloud_storage");
-    openapiFields.add("verify_backup");
-    openapiFields.add("config_servers");
-    openapiFields.add("mongos_servers");
-    openapiFields.add("node");
-    openapiFields.add("nodes");
-    openapiFields.add("node_adresses");
-    openapiFields.add("topology");
-    openapiFields.add("replica_sets");
-    openapiFields.add("with_tags");
+    openapiFields = new HashSet<String>(Arrays.asList("action", "addnode", "admin_username", "admin_user", "admin_password", "audit_events", "archive_mode", "backupid", "backup_id", "build_from_source", "cluster_name", "clusterid", "cluster_type", "company_id", "config_template", "backup_failover", "backup_failover_host", "backup_method", "backup_mysqldump_type", "backup_individual_schemas", "backup_retention", "extended_insert", "backup_dir", "backupsubdir", "remove_backups", "backup_system_db", "cc_storage", "compression", "compression_level", "db_database", "db_password", "db_privs", "db_username", "data_center", "exec_upgrade_script", "extended", "listening_port", "mask_passwords", "monitor_password", "monitor_user", "use_clustering", "use_rw_split", "hostname", "master_address", "master_delay", "include_databases", "install_timescaledb", "update_lb", "usePackageForDataDir", "encrypt_backup", "throttle_rate_netbw", "use_pigz", "use_qpress", "wsrep_desync", "galera_segment", "xtrabackup_backup_locks", "xtrabackup_lock_ddl_per_table", "xtrabackup_parallellism", "verify_backup_delay", "datadir", "db_user", "disable_firewall", "disable_selinux", "enable_uninstall", "unregister_only", "generate_token", "install_software", "use_internal_repos", "local_repository", "enable_mysql_uninstall", "mysql_semi_sync", "enable_ssl", "mongos_conf_template", "mongodb_authdb", "node_type", "overwrite_mysqlchk", "port", "sentinel_port", "redis_sharded_port", "valkey_sharded_port", "redis_sharded_bus_port", "valkey_sharded_bus_port", "redis_cluster_replica_validity_factor", "valkey_cluster_replica_validity_factor", "node_timeout_ms", "ssh_keyfile", "ssh_port", "ssh_user", "sudo_password", "user_id", "vendor", "type", "version", "software_package", "server_address", "terminate_db_server", "xtrabackup_use_memory", "initial", "reboot", "slave_address", "force", "force_stop", "stop_timeout", "pitr_stop_time", "pitr_stop_log", "pitr_stop_pos", "host_location_uuid", "bootstrap", "snapshot_location", "snapshot_repository", "snapshot_repository_type", "snapshot_host", "storage_host", "replicaset", "deploy_agents", "upload_backup_data_to_cloud_storage", "verify_backup", "config_servers", "mongos_servers", "node", "nodes", "node_adresses", "topology", "replica_sets", "with_tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobData.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobData is not found in the empty JSON string", JobsJobJobSpecJobData.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobData is not found in the empty JSON string", JobsJobJobSpecJobData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      // validate the optional field `action`
+      if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) {
+        ActionEnum.validateJsonElement(jsonObj.get("action"));
       }
       if ((jsonObj.get("admin_username") != null && !jsonObj.get("admin_username").isJsonNull()) && !jsonObj.get("admin_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_username").toString()));
       }
       if ((jsonObj.get("admin_user") != null && !jsonObj.get("admin_user").isJsonNull()) && !jsonObj.get("admin_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `admin_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `admin_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_user").toString()));
       }
       if ((jsonObj.get("admin_password") != null && !jsonObj.get("admin_password").isJsonNull()) && !jsonObj.get("admin_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `admin_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `admin_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin_password").toString()));
       }
       if ((jsonObj.get("audit_events") != null && !jsonObj.get("audit_events").isJsonNull()) && !jsonObj.get("audit_events").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audit_events` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audit_events").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audit_events` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audit_events").toString()));
       }
       if ((jsonObj.get("archive_mode") != null && !jsonObj.get("archive_mode").isJsonNull()) && !jsonObj.get("archive_mode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `archive_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_mode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_mode").toString()));
+      }
+      // validate the optional field `archive_mode`
+      if (jsonObj.get("archive_mode") != null && !jsonObj.get("archive_mode").isJsonNull()) {
+        ArchiveModeEnum.validateJsonElement(jsonObj.get("archive_mode"));
       }
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if ((jsonObj.get("cluster_type") != null && !jsonObj.get("cluster_type").isJsonNull()) && !jsonObj.get("cluster_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_type").toString()));
+      }
+      // validate the optional field `cluster_type`
+      if (jsonObj.get("cluster_type") != null && !jsonObj.get("cluster_type").isJsonNull()) {
+        ClusterTypeEnum.validateJsonElement(jsonObj.get("cluster_type"));
       }
       if ((jsonObj.get("company_id") != null && !jsonObj.get("company_id").isJsonNull()) && !jsonObj.get("company_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `company_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `company_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company_id").toString()));
       }
       if ((jsonObj.get("config_template") != null && !jsonObj.get("config_template").isJsonNull()) && !jsonObj.get("config_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `config_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("config_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `config_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("config_template").toString()));
       }
       if ((jsonObj.get("backup_failover_host") != null && !jsonObj.get("backup_failover_host").isJsonNull()) && !jsonObj.get("backup_failover_host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backup_failover_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_failover_host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup_failover_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_failover_host").toString()));
+      }
+      // validate the optional field `backup_failover_host`
+      if (jsonObj.get("backup_failover_host") != null && !jsonObj.get("backup_failover_host").isJsonNull()) {
+        BackupFailoverHostEnum.validateJsonElement(jsonObj.get("backup_failover_host"));
       }
       if ((jsonObj.get("backup_method") != null && !jsonObj.get("backup_method").isJsonNull()) && !jsonObj.get("backup_method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backup_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_method").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_method").toString()));
+      }
+      // validate the optional field `backup_method`
+      if (jsonObj.get("backup_method") != null && !jsonObj.get("backup_method").isJsonNull()) {
+        BackupMethodEnum.validateJsonElement(jsonObj.get("backup_method"));
       }
       if ((jsonObj.get("backup_mysqldump_type") != null && !jsonObj.get("backup_mysqldump_type").isJsonNull()) && !jsonObj.get("backup_mysqldump_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backup_mysqldump_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_mysqldump_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup_mysqldump_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_mysqldump_type").toString()));
+      }
+      // validate the optional field `backup_mysqldump_type`
+      if (jsonObj.get("backup_mysqldump_type") != null && !jsonObj.get("backup_mysqldump_type").isJsonNull()) {
+        BackupMysqldumpTypeEnum.validateJsonElement(jsonObj.get("backup_mysqldump_type"));
       }
       if ((jsonObj.get("backup_dir") != null && !jsonObj.get("backup_dir").isJsonNull()) && !jsonObj.get("backup_dir").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backup_dir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_dir").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup_dir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup_dir").toString()));
       }
       if ((jsonObj.get("backupsubdir") != null && !jsonObj.get("backupsubdir").isJsonNull()) && !jsonObj.get("backupsubdir").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backupsubdir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backupsubdir").toString()));
-      }
-      if ((jsonObj.get("cc_storage") != null && !jsonObj.get("cc_storage").isJsonNull()) && !jsonObj.get("cc_storage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cc_storage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cc_storage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backupsubdir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backupsubdir").toString()));
       }
       if ((jsonObj.get("db_database") != null && !jsonObj.get("db_database").isJsonNull()) && !jsonObj.get("db_database").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `db_database` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_database").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_database` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_database").toString()));
       }
       if ((jsonObj.get("db_password") != null && !jsonObj.get("db_password").isJsonNull()) && !jsonObj.get("db_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `db_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_password").toString()));
       }
       if ((jsonObj.get("db_privs") != null && !jsonObj.get("db_privs").isJsonNull()) && !jsonObj.get("db_privs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `db_privs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_privs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_privs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_privs").toString()));
       }
       if ((jsonObj.get("db_username") != null && !jsonObj.get("db_username").isJsonNull()) && !jsonObj.get("db_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `db_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_username").toString()));
       }
       if ((jsonObj.get("monitor_password") != null && !jsonObj.get("monitor_password").isJsonNull()) && !jsonObj.get("monitor_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `monitor_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monitor_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `monitor_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monitor_password").toString()));
       }
       if ((jsonObj.get("monitor_user") != null && !jsonObj.get("monitor_user").isJsonNull()) && !jsonObj.get("monitor_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `monitor_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monitor_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `monitor_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monitor_user").toString()));
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if ((jsonObj.get("master_address") != null && !jsonObj.get("master_address").isJsonNull()) && !jsonObj.get("master_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `master_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("master_address").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `master_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("master_address").toString()));
       }
       if ((jsonObj.get("include_databases") != null && !jsonObj.get("include_databases").isJsonNull()) && !jsonObj.get("include_databases").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `include_databases` to be a primitive type in the JSON string but got `%s`", jsonObj.get("include_databases").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `include_databases` to be a primitive type in the JSON string but got `%s`", jsonObj.get("include_databases").toString()));
       }
-      if ((jsonObj.get("data_dir") != null && !jsonObj.get("data_dir").isJsonNull()) && !jsonObj.get("data_dir").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `data_dir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_dir").toString()));
+      if ((jsonObj.get("galera_segment") != null && !jsonObj.get("galera_segment").isJsonNull()) && !jsonObj.get("galera_segment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `galera_segment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("galera_segment").toString()));
+      }
+      if ((jsonObj.get("datadir") != null && !jsonObj.get("datadir").isJsonNull()) && !jsonObj.get("datadir").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadir").toString()));
       }
       if ((jsonObj.get("db_user") != null && !jsonObj.get("db_user").isJsonNull()) && !jsonObj.get("db_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `db_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_user").toString()));
       }
       if ((jsonObj.get("local_repository") != null && !jsonObj.get("local_repository").isJsonNull()) && !jsonObj.get("local_repository").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `local_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_repository").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `local_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_repository").toString()));
       }
       if ((jsonObj.get("mongos_conf_template") != null && !jsonObj.get("mongos_conf_template").isJsonNull()) && !jsonObj.get("mongos_conf_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongos_conf_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongos_conf_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongos_conf_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongos_conf_template").toString()));
       }
       if ((jsonObj.get("mongodb_authdb") != null && !jsonObj.get("mongodb_authdb").isJsonNull()) && !jsonObj.get("mongodb_authdb").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_authdb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_authdb").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_authdb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_authdb").toString()));
+      }
+      if ((jsonObj.get("sentinel_port") != null && !jsonObj.get("sentinel_port").isJsonNull()) && !jsonObj.get("sentinel_port").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sentinel_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sentinel_port").toString()));
       }
       if ((jsonObj.get("ssh_keyfile") != null && !jsonObj.get("ssh_keyfile").isJsonNull()) && !jsonObj.get("ssh_keyfile").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh_keyfile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_keyfile").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_keyfile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_keyfile").toString()));
       }
       if ((jsonObj.get("ssh_port") != null && !jsonObj.get("ssh_port").isJsonNull()) && !jsonObj.get("ssh_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_port").toString()));
       }
       if ((jsonObj.get("ssh_user") != null && !jsonObj.get("ssh_user").isJsonNull()) && !jsonObj.get("ssh_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_user").toString()));
       }
       if ((jsonObj.get("sudo_password") != null && !jsonObj.get("sudo_password").isJsonNull()) && !jsonObj.get("sudo_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sudo_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sudo_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sudo_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sudo_password").toString()));
       }
       if ((jsonObj.get("vendor") != null && !jsonObj.get("vendor").isJsonNull()) && !jsonObj.get("vendor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vendor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vendor").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vendor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vendor").toString()));
+      }
+      // validate the optional field `vendor`
+      if (jsonObj.get("vendor") != null && !jsonObj.get("vendor").isJsonNull()) {
+        VendorEnum.validateJsonElement(jsonObj.get("vendor"));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // validate the optional field `type`
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
+        TypeEnum.validateJsonElement(jsonObj.get("type"));
       }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
       if ((jsonObj.get("software_package") != null && !jsonObj.get("software_package").isJsonNull()) && !jsonObj.get("software_package").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `software_package` to be a primitive type in the JSON string but got `%s`", jsonObj.get("software_package").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `software_package` to be a primitive type in the JSON string but got `%s`", jsonObj.get("software_package").toString()));
       }
       if ((jsonObj.get("server_address") != null && !jsonObj.get("server_address").isJsonNull()) && !jsonObj.get("server_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `server_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_address").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_address").toString()));
       }
       if ((jsonObj.get("slave_address") != null && !jsonObj.get("slave_address").isJsonNull()) && !jsonObj.get("slave_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `slave_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slave_address").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slave_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slave_address").toString()));
       }
       if ((jsonObj.get("pitr_stop_time") != null && !jsonObj.get("pitr_stop_time").isJsonNull()) && !jsonObj.get("pitr_stop_time").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pitr_stop_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pitr_stop_time").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pitr_stop_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pitr_stop_time").toString()));
       }
       if ((jsonObj.get("pitr_stop_log") != null && !jsonObj.get("pitr_stop_log").isJsonNull()) && !jsonObj.get("pitr_stop_log").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pitr_stop_log` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pitr_stop_log").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pitr_stop_log` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pitr_stop_log").toString()));
       }
       if ((jsonObj.get("host_location_uuid") != null && !jsonObj.get("host_location_uuid").isJsonNull()) && !jsonObj.get("host_location_uuid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `host_location_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_location_uuid").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host_location_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_location_uuid").toString()));
       }
-      if ((jsonObj.get("snapshot_locaiton") != null && !jsonObj.get("snapshot_locaiton").isJsonNull()) && !jsonObj.get("snapshot_locaiton").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `snapshot_locaiton` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_locaiton").toString()));
+      if ((jsonObj.get("snapshot_location") != null && !jsonObj.get("snapshot_location").isJsonNull()) && !jsonObj.get("snapshot_location").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `snapshot_location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_location").toString()));
       }
       if ((jsonObj.get("snapshot_repository") != null && !jsonObj.get("snapshot_repository").isJsonNull()) && !jsonObj.get("snapshot_repository").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `snapshot_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_repository").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `snapshot_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_repository").toString()));
+      }
+      if ((jsonObj.get("snapshot_repository_type") != null && !jsonObj.get("snapshot_repository_type").isJsonNull()) && !jsonObj.get("snapshot_repository_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `snapshot_repository_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_repository_type").toString()));
+      }
+      if ((jsonObj.get("snapshot_host") != null && !jsonObj.get("snapshot_host").isJsonNull()) && !jsonObj.get("snapshot_host").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `snapshot_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_host").toString()));
       }
       if ((jsonObj.get("storage_host") != null && !jsonObj.get("storage_host").isJsonNull()) && !jsonObj.get("storage_host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storage_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_host").toString()));
+      }
+      if ((jsonObj.get("replicaset") != null && !jsonObj.get("replicaset").isJsonNull()) && !jsonObj.get("replicaset").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `replicaset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("replicaset").toString()));
       }
       // validate the optional field `upload_backup_data_to_cloud_storage`
       if (jsonObj.get("upload_backup_data_to_cloud_storage") != null && !jsonObj.get("upload_backup_data_to_cloud_storage").isJsonNull()) {
-        JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.validateJsonObject(jsonObj.getAsJsonObject("upload_backup_data_to_cloud_storage"));
+        JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.validateJsonElement(jsonObj.get("upload_backup_data_to_cloud_storage"));
       }
       // validate the optional field `verify_backup`
       if (jsonObj.get("verify_backup") != null && !jsonObj.get("verify_backup").isJsonNull()) {
-        BackupScheduleJobJobDataVerifyBackup.validateJsonObject(jsonObj.getAsJsonObject("verify_backup"));
+        BackupScheduleJobJobDataVerifyBackup.validateJsonElement(jsonObj.get("verify_backup"));
       }
       // validate the optional field `config_servers`
       if (jsonObj.get("config_servers") != null && !jsonObj.get("config_servers").isJsonNull()) {
-        JobsJobJobSpecJobDataConfigServers.validateJsonObject(jsonObj.getAsJsonObject("config_servers"));
+        JobsJobJobSpecJobDataConfigServers.validateJsonElement(jsonObj.get("config_servers"));
       }
       if (jsonObj.get("mongos_servers") != null && !jsonObj.get("mongos_servers").isJsonNull()) {
         JsonArray jsonArraymongosServers = jsonObj.getAsJsonArray("mongos_servers");
         if (jsonArraymongosServers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("mongos_servers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `mongos_servers` to be an array in the JSON string but got `%s`", jsonObj.get("mongos_servers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongos_servers` to be an array in the JSON string but got `%s`", jsonObj.get("mongos_servers").toString()));
           }
 
           // validate the optional field `mongos_servers` (array)
           for (int i = 0; i < jsonArraymongosServers.size(); i++) {
-            JobsJobJobSpecJobDataConfigServersMembersInner.validateJsonObject(jsonArraymongosServers.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataConfigServersMembersInner.validateJsonElement(jsonArraymongosServers.get(i));
           };
         }
       }
       // validate the optional field `node`
       if (jsonObj.get("node") != null && !jsonObj.get("node").isJsonNull()) {
-        JobsJobJobSpecJobDataNode.validateJsonObject(jsonObj.getAsJsonObject("node"));
+        JobsJobJobSpecJobDataNode.validateJsonElement(jsonObj.get("node"));
       }
       if (jsonObj.get("nodes") != null && !jsonObj.get("nodes").isJsonNull()) {
         JsonArray jsonArraynodes = jsonObj.getAsJsonArray("nodes");
         if (jsonArraynodes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("nodes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
           }
 
           // validate the optional field `nodes` (array)
           for (int i = 0; i < jsonArraynodes.size(); i++) {
-            JobsJobJobSpecJobDataNodesInner.validateJsonObject(jsonArraynodes.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataNodesInner.validateJsonElement(jsonArraynodes.get(i));
           };
         }
       }
@@ -4037,36 +4141,36 @@ public class JobsJobJobSpecJobData {
         if (jsonArraynodeAdresses != null) {
           // ensure the json data is an array
           if (!jsonObj.get("node_adresses").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `node_adresses` to be an array in the JSON string but got `%s`", jsonObj.get("node_adresses").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `node_adresses` to be an array in the JSON string but got `%s`", jsonObj.get("node_adresses").toString()));
           }
 
           // validate the optional field `node_adresses` (array)
           for (int i = 0; i < jsonArraynodeAdresses.size(); i++) {
-            JobsJobJobSpecJobDataNodeAdressesInner.validateJsonObject(jsonArraynodeAdresses.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataNodeAdressesInner.validateJsonElement(jsonArraynodeAdresses.get(i));
           };
         }
       }
       // validate the optional field `topology`
       if (jsonObj.get("topology") != null && !jsonObj.get("topology").isJsonNull()) {
-        JobsJobJobSpecJobDataTopology.validateJsonObject(jsonObj.getAsJsonObject("topology"));
+        JobsJobJobSpecJobDataTopology.validateJsonElement(jsonObj.get("topology"));
       }
       if (jsonObj.get("replica_sets") != null && !jsonObj.get("replica_sets").isJsonNull()) {
         JsonArray jsonArrayreplicaSets = jsonObj.getAsJsonArray("replica_sets");
         if (jsonArrayreplicaSets != null) {
           // ensure the json data is an array
           if (!jsonObj.get("replica_sets").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `replica_sets` to be an array in the JSON string but got `%s`", jsonObj.get("replica_sets").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `replica_sets` to be an array in the JSON string but got `%s`", jsonObj.get("replica_sets").toString()));
           }
 
           // validate the optional field `replica_sets` (array)
           for (int i = 0; i < jsonArrayreplicaSets.size(); i++) {
-            JobsJobJobSpecJobDataReplicaSetsInner.validateJsonObject(jsonArrayreplicaSets.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataReplicaSetsInner.validateJsonElement(jsonArrayreplicaSets.get(i));
           };
         }
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("with_tags") != null && !jsonObj.get("with_tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `with_tags` to be an array in the JSON string but got `%s`", jsonObj.get("with_tags").toString()));
+      if (jsonObj.get("with_tags") != null && !jsonObj.get("with_tags").isJsonNull() && !jsonObj.get("with_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `with_tags` to be an array in the JSON string but got `%s`", jsonObj.get("with_tags").toString()));
       }
   }
 
@@ -4090,31 +4194,31 @@ public class JobsJobJobSpecJobData {
 
            @Override
            public JobsJobJobSpecJobData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobData
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobData
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobData
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobData
+   */
   public static JobsJobJobSpecJobData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobData.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class StatPrometheusApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class StatPrometheusApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statPrometheusQueryPostCall(StatPrometheus statPrometheus, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call statPrometheusQueryPostCall(@javax.annotation.Nonnull StatPrometheus statPrometheus, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class StatPrometheusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call statPrometheusQueryPostValidateBeforeCall(StatPrometheus statPrometheus, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call statPrometheusQueryPostValidateBeforeCall(@javax.annotation.Nonnull StatPrometheus statPrometheus, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'statPrometheus' is set
         if (statPrometheus == null) {
             throw new ApiException("Missing the required parameter 'statPrometheus' when calling statPrometheusQueryPost(Async)");
@@ -147,13 +147,14 @@ public class StatPrometheusApi {
      * @param statPrometheus Provides calls to access various statistical information about the cluster (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void statPrometheusQueryPost(StatPrometheus statPrometheus) throws ApiException {
+    public void statPrometheusQueryPost(@javax.annotation.Nonnull StatPrometheus statPrometheus) throws ApiException {
         statPrometheusQueryPostWithHttpInfo(statPrometheus);
     }
 
@@ -164,13 +165,14 @@ public class StatPrometheusApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> statPrometheusQueryPostWithHttpInfo(StatPrometheus statPrometheus) throws ApiException {
+    public ApiResponse<Void> statPrometheusQueryPostWithHttpInfo(@javax.annotation.Nonnull StatPrometheus statPrometheus) throws ApiException {
         okhttp3.Call localVarCall = statPrometheusQueryPostValidateBeforeCall(statPrometheus, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class StatPrometheusApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statPrometheusQueryPostAsync(StatPrometheus statPrometheus, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call statPrometheusQueryPostAsync(@javax.annotation.Nonnull StatPrometheus statPrometheus, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = statPrometheusQueryPostValidateBeforeCall(statPrometheus, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.ClustersAccount;
 import org.openapitools.ccapi.client.model.ClustersConfigurationInner;
@@ -39,13 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -53,7 +53,7 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Clusters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Clusters {
   /**
    * Gets or Sets operation
@@ -64,31 +64,31 @@ public class Clusters {
     
     GETCLUSTERINFO("getclusterinfo"),
     
-    GETCONFIG("getConfig"),
+    GET_CONFIG("getConfig"),
     
-    SETCONFIG("setConfig"),
+    SET_CONFIG("setConfig"),
     
-    CREATEACCOUNT("createAccount"),
+    CREATE_ACCOUNT("createAccount"),
     
-    GETACCOUNTS("getAccounts"),
+    GET_ACCOUNTS("getAccounts"),
     
-    DELETEACCOUNT("deleteAccount"),
+    DELETE_ACCOUNT("deleteAccount"),
     
-    GRANTPRIVILEGES("grantPrivileges"),
+    GRANT_PRIVILEGES("grantPrivileges"),
     
-    REVOKEPRIVILEGES("revokePrivileges"),
+    REVOKE_PRIVILEGES("revokePrivileges"),
     
-    REVOKEALLPRIVILEGES("revokeAllPrivileges"),
+    REVOKE_ALL_PRIVILEGES("revokeAllPrivileges"),
     
-    GETSQLPROCESSES("getSqlProcesses"),
+    GET_SQL_PROCESSES("getSqlProcesses"),
     
-    GETTOPQUERIES("getTopQueries"),
+    GET_TOP_QUERIES("getTopQueries"),
     
-    CREATEDATABASE("createDatabase"),
+    CREATE_DATABASE("createDatabase"),
     
     PING("ping"),
     
-    AVAILABLEUPGRADES("availableUpgrades");
+    AVAILABLE_UPGRADES("availableUpgrades");
 
     private String value;
 
@@ -126,176 +126,172 @@ public class Clusters {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_CLUSTER_NAME = "cluster_name";
   @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)
+  @javax.annotation.Nullable
   private String clusterName;
 
   public static final String SERIALIZED_NAME_WITH_HOSTS = "with_hosts";
   @SerializedName(SERIALIZED_NAME_WITH_HOSTS)
+  @javax.annotation.Nullable
   private Boolean withHosts;
 
   public static final String SERIALIZED_NAME_WITH_SHEET_INFO = "with_sheet_info";
   @SerializedName(SERIALIZED_NAME_WITH_SHEET_INFO)
+  @javax.annotation.Nullable
   private Boolean withSheetInfo;
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private List<ClustersConfigurationInner> _configuration = null;
+  @javax.annotation.Nullable
+  private List<ClustersConfigurationInner> _configuration = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
+  @javax.annotation.Nullable
   private ClustersAccount account;
 
   public static final String SERIALIZED_NAME_FILTER_STRINGS = "filter_strings";
   @SerializedName(SERIALIZED_NAME_FILTER_STRINGS)
+  @javax.annotation.Nullable
   private String filterStrings;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
+  @javax.annotation.Nullable
   private Integer limit;
 
   public static final String SERIALIZED_NAME_OFFSET = "offset";
   @SerializedName(SERIALIZED_NAME_OFFSET)
+  @javax.annotation.Nullable
   private Integer offset;
 
   public static final String SERIALIZED_NAME_DATABASE = "database";
   @SerializedName(SERIALIZED_NAME_DATABASE)
+  @javax.annotation.Nullable
   private ClustersDatabase database;
 
   public static final String SERIALIZED_NAME_NODES = "nodes";
   @SerializedName(SERIALIZED_NAME_NODES)
-  private List<String> nodes = null;
+  @javax.annotation.Nullable
+  private List<String> nodes = new ArrayList<>();
 
   public Clusters() {
   }
 
-  public Clusters operation(OperationEnum operation) {
-    
+  public Clusters operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Clusters clusterId(Integer clusterId) {
-    
+  public Clusters clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Clusters clusterName(String clusterName) {
-    
+  public Clusters clusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
     return this;
   }
 
-   /**
+  /**
    * Get clusterName
    * @return clusterName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getClusterName() {
     return clusterName;
   }
 
-
-  public void setClusterName(String clusterName) {
+  public void setClusterName(@javax.annotation.Nullable String clusterName) {
     this.clusterName = clusterName;
   }
 
 
-  public Clusters withHosts(Boolean withHosts) {
-    
+  public Clusters withHosts(@javax.annotation.Nullable Boolean withHosts) {
     this.withHosts = withHosts;
     return this;
   }
 
-   /**
+  /**
    * Get withHosts
    * @return withHosts
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getWithHosts() {
     return withHosts;
   }
 
-
-  public void setWithHosts(Boolean withHosts) {
+  public void setWithHosts(@javax.annotation.Nullable Boolean withHosts) {
     this.withHosts = withHosts;
   }
 
 
-  public Clusters withSheetInfo(Boolean withSheetInfo) {
-    
+  public Clusters withSheetInfo(@javax.annotation.Nullable Boolean withSheetInfo) {
     this.withSheetInfo = withSheetInfo;
     return this;
   }
 
-   /**
+  /**
    * Get withSheetInfo
    * @return withSheetInfo
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getWithSheetInfo() {
     return withSheetInfo;
   }
 
-
-  public void setWithSheetInfo(Boolean withSheetInfo) {
+  public void setWithSheetInfo(@javax.annotation.Nullable Boolean withSheetInfo) {
     this.withSheetInfo = withSheetInfo;
   }
 
 
-  public Clusters _configuration(List<ClustersConfigurationInner> _configuration) {
-    
+  public Clusters _configuration(@javax.annotation.Nullable List<ClustersConfigurationInner> _configuration) {
     this._configuration = _configuration;
     return this;
   }
@@ -308,140 +304,116 @@ public class Clusters {
     return this;
   }
 
-   /**
+  /**
    * Get _configuration
    * @return _configuration
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ClustersConfigurationInner> getConfiguration() {
     return _configuration;
   }
 
-
-  public void setConfiguration(List<ClustersConfigurationInner> _configuration) {
+  public void setConfiguration(@javax.annotation.Nullable List<ClustersConfigurationInner> _configuration) {
     this._configuration = _configuration;
   }
 
 
-  public Clusters account(ClustersAccount account) {
-    
+  public Clusters account(@javax.annotation.Nullable ClustersAccount account) {
     this.account = account;
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClustersAccount getAccount() {
     return account;
   }
 
-
-  public void setAccount(ClustersAccount account) {
+  public void setAccount(@javax.annotation.Nullable ClustersAccount account) {
     this.account = account;
   }
 
 
-  public Clusters filterStrings(String filterStrings) {
-    
+  public Clusters filterStrings(@javax.annotation.Nullable String filterStrings) {
     this.filterStrings = filterStrings;
     return this;
   }
 
-   /**
+  /**
    * Get filterStrings
    * @return filterStrings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getFilterStrings() {
     return filterStrings;
   }
 
-
-  public void setFilterStrings(String filterStrings) {
+  public void setFilterStrings(@javax.annotation.Nullable String filterStrings) {
     this.filterStrings = filterStrings;
   }
 
 
-  public Clusters limit(Integer limit) {
-    
+  public Clusters limit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Get limit
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getLimit() {
     return limit;
   }
 
-
-  public void setLimit(Integer limit) {
+  public void setLimit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
   }
 
 
-  public Clusters offset(Integer offset) {
-    
+  public Clusters offset(@javax.annotation.Nullable Integer offset) {
     this.offset = offset;
     return this;
   }
 
-   /**
+  /**
    * Get offset
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getOffset() {
     return offset;
   }
 
-
-  public void setOffset(Integer offset) {
+  public void setOffset(@javax.annotation.Nullable Integer offset) {
     this.offset = offset;
   }
 
 
-  public Clusters database(ClustersDatabase database) {
-    
+  public Clusters database(@javax.annotation.Nullable ClustersDatabase database) {
     this.database = database;
     return this;
   }
 
-   /**
+  /**
    * Get database
    * @return database
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClustersDatabase getDatabase() {
     return database;
   }
 
-
-  public void setDatabase(ClustersDatabase database) {
+  public void setDatabase(@javax.annotation.Nullable ClustersDatabase database) {
     this.database = database;
   }
 
 
-  public Clusters nodes(List<String> nodes) {
-    
+  public Clusters nodes(@javax.annotation.Nullable List<String> nodes) {
     this.nodes = nodes;
     return this;
   }
@@ -454,19 +426,16 @@ public class Clusters {
     return this;
   }
 
-   /**
+  /**
    * Get nodes
    * @return nodes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getNodes() {
     return nodes;
   }
 
-
-  public void setNodes(List<String> nodes) {
+  public void setNodes(@javax.annotation.Nullable List<String> nodes) {
     this.nodes = nodes;
   }
 
@@ -525,10 +494,7 @@ public class Clusters {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -537,86 +503,76 @@ public class Clusters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("cluster_name");
-    openapiFields.add("with_hosts");
-    openapiFields.add("with_sheet_info");
-    openapiFields.add("configuration");
-    openapiFields.add("account");
-    openapiFields.add("filter_strings");
-    openapiFields.add("limit");
-    openapiFields.add("offset");
-    openapiFields.add("database");
-    openapiFields.add("nodes");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "cluster_id", "cluster_name", "with_hosts", "with_sheet_info", "configuration", "account", "filter_strings", "limit", "offset", "database", "nodes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Clusters
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Clusters.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Clusters is not found in the empty JSON string", Clusters.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Clusters
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Clusters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Clusters is not found in the empty JSON string", Clusters.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Clusters.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Clusters` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Clusters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Clusters.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if (jsonObj.get("configuration") != null && !jsonObj.get("configuration").isJsonNull()) {
         JsonArray jsonArray_configuration = jsonObj.getAsJsonArray("configuration");
         if (jsonArray_configuration != null) {
           // ensure the json data is an array
           if (!jsonObj.get("configuration").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
           }
 
           // validate the optional field `configuration` (array)
           for (int i = 0; i < jsonArray_configuration.size(); i++) {
-            ClustersConfigurationInner.validateJsonObject(jsonArray_configuration.get(i).getAsJsonObject());
+            ClustersConfigurationInner.validateJsonElement(jsonArray_configuration.get(i));
           };
         }
       }
       // validate the optional field `account`
       if (jsonObj.get("account") != null && !jsonObj.get("account").isJsonNull()) {
-        ClustersAccount.validateJsonObject(jsonObj.getAsJsonObject("account"));
+        ClustersAccount.validateJsonElement(jsonObj.get("account"));
       }
       if ((jsonObj.get("filter_strings") != null && !jsonObj.get("filter_strings").isJsonNull()) && !jsonObj.get("filter_strings").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `filter_strings` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter_strings").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filter_strings` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter_strings").toString()));
       }
       // validate the optional field `database`
       if (jsonObj.get("database") != null && !jsonObj.get("database").isJsonNull()) {
-        ClustersDatabase.validateJsonObject(jsonObj.getAsJsonObject("database"));
+        ClustersDatabase.validateJsonElement(jsonObj.get("database"));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("nodes") != null && !jsonObj.get("nodes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
+      if (jsonObj.get("nodes") != null && !jsonObj.get("nodes").isJsonNull() && !jsonObj.get("nodes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
       }
   }
 
@@ -640,31 +596,31 @@ public class Clusters {
 
            @Override
            public Clusters read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Clusters given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Clusters
-  * @throws IOException if the JSON string is invalid with respect to Clusters
-  */
+  /**
+   * Create an instance of Clusters given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Clusters
+   * @throws IOException if the JSON string is invalid with respect to Clusters
+   */
   public static Clusters fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Clusters.class);
   }
 
- /**
-  * Convert an instance of Clusters to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Clusters to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

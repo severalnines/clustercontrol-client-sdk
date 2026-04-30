@@ -25,6 +25,8 @@ import org.openapitools.ccapi.client.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.openapitools.ccapi.client.model.Backup.OperationEnum.SCHEDULE_BACKUP;
+
 public class BackupSchedule extends AbstractClusterControlOperation {
 
     private static final Logger logger
@@ -45,16 +47,16 @@ public class BackupSchedule extends AbstractClusterControlOperation {
     @Override
     public String execute() throws ClusterControlApiException {
         switch (getOpType()) {
-            case SCHEDULEBACKUP:
+            case SCHEDULE_BACKUP:
                 return scheduleBackup();
 
             // TODO: need to implement
 /*
-            case GETBACKUPSCHEDULES:
+            case Backup.OperationEnum.GETBACKUPSCHEDULES:
                 break;
-            case GETBACKUPS:
+            case Backup.OperationEnum.GETBACKUPS:
                 break;
-            case DELETEBACKUPRECORD:
+            case Backup.OperationEnum.DELETEBACKUPRECORD:
                 break;
 */
             default:
@@ -73,11 +75,11 @@ public class BackupSchedule extends AbstractClusterControlOperation {
             ApiClient defaultClient = getAuthStrategy().getApiClient();
             BackupApi backupApiInstance = new BackupApi(defaultClient);
             Backup backup = new Backup();
-            backup.setOperation(Backup.OperationEnum.SCHEDULEBACKUP);
+            backup.setOperation(SCHEDULE_BACKUP);
             backup.setClusterId(backupSpec.getClusterId());
 
             org.openapitools.ccapi.client.model.BackupSchedule backupSchedule = new org.openapitools.ccapi.client.model.BackupSchedule();
-            backupSchedule.setClassName(org.openapitools.ccapi.client.model.BackupSchedule.ClassNameEnum.CMONBACKUPSCHEDULE);
+            backupSchedule.setClassName(org.openapitools.ccapi.client.model.BackupSchedule.ClassNameEnum.CMON_BACKUP_SCHEDULE);
             backupSchedule.setEnabled(true);
             backupSchedule.setSchedule(backupSpec.getSchedule());
 

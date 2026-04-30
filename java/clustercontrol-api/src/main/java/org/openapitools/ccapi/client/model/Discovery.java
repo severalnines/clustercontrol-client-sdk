@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.DiscoveryJob;
 import org.openapitools.ccapi.client.model.DiscoveryNodesInner;
@@ -39,13 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -53,18 +53,18 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Discovery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Discovery {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    CHECKCLUSTERNAME("checkClusterName"),
+    CHECK_CLUSTER_NAME("checkClusterName"),
     
-    GETSUPPORTEDCLUSTERTYPES("getSupportedClusterTypes"),
+    GET_SUPPORTED_CLUSTER_TYPES("getSupportedClusterTypes"),
     
-    CHECKHOSTS("checkHosts");
+    CHECK_HOSTS("checkHosts");
 
     private String value;
 
@@ -102,160 +102,152 @@ public class Discovery {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_NEW_CLUSTER_NAME = "new_cluster_name";
   @SerializedName(SERIALIZED_NAME_NEW_CLUSTER_NAME)
+  @javax.annotation.Nullable
   private String newClusterName;
 
   public static final String SERIALIZED_NAME_CHECK_IF_ALREADY_REGISTERED = "check_if_already_registered";
   @SerializedName(SERIALIZED_NAME_CHECK_IF_ALREADY_REGISTERED)
+  @javax.annotation.Nullable
   private Boolean checkIfAlreadyRegistered;
 
   public static final String SERIALIZED_NAME_CHECK_JOB = "check_job";
   @SerializedName(SERIALIZED_NAME_CHECK_JOB)
+  @javax.annotation.Nullable
   private Boolean checkJob;
 
   public static final String SERIALIZED_NAME_CHECK_SSH_SUDO = "check_ssh_sudo";
   @SerializedName(SERIALIZED_NAME_CHECK_SSH_SUDO)
+  @javax.annotation.Nullable
   private Boolean checkSshSudo;
 
   public static final String SERIALIZED_NAME_NODES = "nodes";
   @SerializedName(SERIALIZED_NAME_NODES)
-  private List<DiscoveryNodesInner> nodes = null;
+  @javax.annotation.Nullable
+  private List<DiscoveryNodesInner> nodes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_JOB = "job";
   @SerializedName(SERIALIZED_NAME_JOB)
+  @javax.annotation.Nullable
   private DiscoveryJob job;
 
   public static final String SERIALIZED_NAME_SSH_CREDENTIALS = "ssh_credentials";
   @SerializedName(SERIALIZED_NAME_SSH_CREDENTIALS)
+  @javax.annotation.Nullable
   private DiscoverySshCredentials sshCredentials;
 
   public Discovery() {
   }
 
-  public Discovery operation(OperationEnum operation) {
-    
+  public Discovery operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Discovery newClusterName(String newClusterName) {
-    
+  public Discovery newClusterName(@javax.annotation.Nullable String newClusterName) {
     this.newClusterName = newClusterName;
     return this;
   }
 
-   /**
+  /**
    * Get newClusterName
    * @return newClusterName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getNewClusterName() {
     return newClusterName;
   }
 
-
-  public void setNewClusterName(String newClusterName) {
+  public void setNewClusterName(@javax.annotation.Nullable String newClusterName) {
     this.newClusterName = newClusterName;
   }
 
 
-  public Discovery checkIfAlreadyRegistered(Boolean checkIfAlreadyRegistered) {
-    
+  public Discovery checkIfAlreadyRegistered(@javax.annotation.Nullable Boolean checkIfAlreadyRegistered) {
     this.checkIfAlreadyRegistered = checkIfAlreadyRegistered;
     return this;
   }
 
-   /**
+  /**
    * Get checkIfAlreadyRegistered
    * @return checkIfAlreadyRegistered
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getCheckIfAlreadyRegistered() {
     return checkIfAlreadyRegistered;
   }
 
-
-  public void setCheckIfAlreadyRegistered(Boolean checkIfAlreadyRegistered) {
+  public void setCheckIfAlreadyRegistered(@javax.annotation.Nullable Boolean checkIfAlreadyRegistered) {
     this.checkIfAlreadyRegistered = checkIfAlreadyRegistered;
   }
 
 
-  public Discovery checkJob(Boolean checkJob) {
-    
+  public Discovery checkJob(@javax.annotation.Nullable Boolean checkJob) {
     this.checkJob = checkJob;
     return this;
   }
 
-   /**
+  /**
    * Get checkJob
    * @return checkJob
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getCheckJob() {
     return checkJob;
   }
 
-
-  public void setCheckJob(Boolean checkJob) {
+  public void setCheckJob(@javax.annotation.Nullable Boolean checkJob) {
     this.checkJob = checkJob;
   }
 
 
-  public Discovery checkSshSudo(Boolean checkSshSudo) {
-    
+  public Discovery checkSshSudo(@javax.annotation.Nullable Boolean checkSshSudo) {
     this.checkSshSudo = checkSshSudo;
     return this;
   }
 
-   /**
+  /**
    * Get checkSshSudo
    * @return checkSshSudo
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getCheckSshSudo() {
     return checkSshSudo;
   }
 
-
-  public void setCheckSshSudo(Boolean checkSshSudo) {
+  public void setCheckSshSudo(@javax.annotation.Nullable Boolean checkSshSudo) {
     this.checkSshSudo = checkSshSudo;
   }
 
 
-  public Discovery nodes(List<DiscoveryNodesInner> nodes) {
-    
+  public Discovery nodes(@javax.annotation.Nullable List<DiscoveryNodesInner> nodes) {
     this.nodes = nodes;
     return this;
   }
@@ -268,65 +260,54 @@ public class Discovery {
     return this;
   }
 
-   /**
+  /**
    * Get nodes
    * @return nodes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<DiscoveryNodesInner> getNodes() {
     return nodes;
   }
 
-
-  public void setNodes(List<DiscoveryNodesInner> nodes) {
+  public void setNodes(@javax.annotation.Nullable List<DiscoveryNodesInner> nodes) {
     this.nodes = nodes;
   }
 
 
-  public Discovery job(DiscoveryJob job) {
-    
+  public Discovery job(@javax.annotation.Nullable DiscoveryJob job) {
     this.job = job;
     return this;
   }
 
-   /**
+  /**
    * Get job
    * @return job
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DiscoveryJob getJob() {
     return job;
   }
 
-
-  public void setJob(DiscoveryJob job) {
+  public void setJob(@javax.annotation.Nullable DiscoveryJob job) {
     this.job = job;
   }
 
 
-  public Discovery sshCredentials(DiscoverySshCredentials sshCredentials) {
-    
+  public Discovery sshCredentials(@javax.annotation.Nullable DiscoverySshCredentials sshCredentials) {
     this.sshCredentials = sshCredentials;
     return this;
   }
 
-   /**
+  /**
    * Get sshCredentials
    * @return sshCredentials
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public DiscoverySshCredentials getSshCredentials() {
     return sshCredentials;
   }
 
-
-  public void setSshCredentials(DiscoverySshCredentials sshCredentials) {
+  public void setSshCredentials(@javax.annotation.Nullable DiscoverySshCredentials sshCredentials) {
     this.sshCredentials = sshCredentials;
   }
 
@@ -377,10 +358,7 @@ public class Discovery {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -389,75 +367,69 @@ public class Discovery {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("new_cluster_name");
-    openapiFields.add("check_if_already_registered");
-    openapiFields.add("check_job");
-    openapiFields.add("check_ssh_sudo");
-    openapiFields.add("nodes");
-    openapiFields.add("job");
-    openapiFields.add("ssh_credentials");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "new_cluster_name", "check_if_already_registered", "check_job", "check_ssh_sudo", "nodes", "job", "ssh_credentials"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Discovery
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Discovery.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Discovery is not found in the empty JSON string", Discovery.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Discovery
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Discovery.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Discovery is not found in the empty JSON string", Discovery.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Discovery.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Discovery` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Discovery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Discovery.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("new_cluster_name") != null && !jsonObj.get("new_cluster_name").isJsonNull()) && !jsonObj.get("new_cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_cluster_name").toString()));
       }
       if (jsonObj.get("nodes") != null && !jsonObj.get("nodes").isJsonNull()) {
         JsonArray jsonArraynodes = jsonObj.getAsJsonArray("nodes");
         if (jsonArraynodes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("nodes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodes` to be an array in the JSON string but got `%s`", jsonObj.get("nodes").toString()));
           }
 
           // validate the optional field `nodes` (array)
           for (int i = 0; i < jsonArraynodes.size(); i++) {
-            DiscoveryNodesInner.validateJsonObject(jsonArraynodes.get(i).getAsJsonObject());
+            DiscoveryNodesInner.validateJsonElement(jsonArraynodes.get(i));
           };
         }
       }
       // validate the optional field `job`
       if (jsonObj.get("job") != null && !jsonObj.get("job").isJsonNull()) {
-        DiscoveryJob.validateJsonObject(jsonObj.getAsJsonObject("job"));
+        DiscoveryJob.validateJsonElement(jsonObj.get("job"));
       }
       // validate the optional field `ssh_credentials`
       if (jsonObj.get("ssh_credentials") != null && !jsonObj.get("ssh_credentials").isJsonNull()) {
-        DiscoverySshCredentials.validateJsonObject(jsonObj.getAsJsonObject("ssh_credentials"));
+        DiscoverySshCredentials.validateJsonElement(jsonObj.get("ssh_credentials"));
       }
   }
 
@@ -481,31 +453,31 @@ public class Discovery {
 
            @Override
            public Discovery read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Discovery given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Discovery
-  * @throws IOException if the JSON string is invalid with respect to Discovery
-  */
+  /**
+   * Create an instance of Discovery given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Discovery
+   * @throws IOException if the JSON string is invalid with respect to Discovery
+   */
   public static Discovery fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Discovery.class);
   }
 
- /**
-  * Convert an instance of Discovery to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Discovery to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

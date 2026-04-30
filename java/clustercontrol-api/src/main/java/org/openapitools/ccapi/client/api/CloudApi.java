@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class CloudApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class CloudApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cloudPostCall(Cloud cloud, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cloudPostCall(@javax.annotation.Nonnull Cloud cloud, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class CloudApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cloudPostValidateBeforeCall(Cloud cloud, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cloudPostValidateBeforeCall(@javax.annotation.Nonnull Cloud cloud, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cloud' is set
         if (cloud == null) {
             throw new ApiException("Missing the required parameter 'cloud' when calling cloudPost(Async)");
@@ -147,13 +147,14 @@ public class CloudApi {
      * @param cloud calls to manage the cloud-credentials (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void cloudPost(Cloud cloud) throws ApiException {
+    public void cloudPost(@javax.annotation.Nonnull Cloud cloud) throws ApiException {
         cloudPostWithHttpInfo(cloud);
     }
 
@@ -164,13 +165,14 @@ public class CloudApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> cloudPostWithHttpInfo(Cloud cloud) throws ApiException {
+    public ApiResponse<Void> cloudPostWithHttpInfo(@javax.annotation.Nonnull Cloud cloud) throws ApiException {
         okhttp3.Call localVarCall = cloudPostValidateBeforeCall(cloud, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class CloudApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cloudPostAsync(Cloud cloud, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call cloudPostAsync(@javax.annotation.Nonnull Cloud cloud, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cloudPostValidateBeforeCall(cloud, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

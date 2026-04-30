@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class StatApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class StatApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statPostCall(Stat stat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call statPostCall(@javax.annotation.Nonnull Stat stat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class StatApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call statPostValidateBeforeCall(Stat stat, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call statPostValidateBeforeCall(@javax.annotation.Nonnull Stat stat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'stat' is set
         if (stat == null) {
             throw new ApiException("Missing the required parameter 'stat' when calling statPost(Async)");
@@ -147,13 +147,14 @@ public class StatApi {
      * @param stat Provides calls to access various statistical information about the cluster (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void statPost(Stat stat) throws ApiException {
+    public void statPost(@javax.annotation.Nonnull Stat stat) throws ApiException {
         statPostWithHttpInfo(stat);
     }
 
@@ -164,13 +165,14 @@ public class StatApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> statPostWithHttpInfo(Stat stat) throws ApiException {
+    public ApiResponse<Void> statPostWithHttpInfo(@javax.annotation.Nonnull Stat stat) throws ApiException {
         okhttp3.Call localVarCall = statPostValidateBeforeCall(stat, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class StatApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statPostAsync(Stat stat, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call statPostAsync(@javax.annotation.Nonnull Stat stat, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = statPostValidateBeforeCall(stat, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

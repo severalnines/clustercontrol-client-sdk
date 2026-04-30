@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,14 +48,14 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Authenticate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Authenticate {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    AUTHENTICATEWITHPASSWORD("authenticateWithPassword"),
+    AUTHENTICATE_WITH_PASSWORD("authenticateWithPassword"),
     
     AUTHENTICATE("authenticate"),
     
@@ -63,7 +63,7 @@ public class Authenticate {
     
     LOGOUT("logout"),
     
-    PASSWORDRESET("passwordReset"),
+    PASSWORD_RESET("passwordReset"),
     
     NEWPASSWORD("newpassword");
 
@@ -103,169 +103,156 @@ public class Authenticate {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
 
   public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
+  @javax.annotation.Nullable
   private String userName;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
+  @javax.annotation.Nullable
   private String password;
 
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  @javax.annotation.Nullable
   private String signature;
 
   public static final String SERIALIZED_NAME_NEW_PASSWORD = "new_password";
   @SerializedName(SERIALIZED_NAME_NEW_PASSWORD)
+  @javax.annotation.Nullable
   private String newPassword;
 
   public static final String SERIALIZED_NAME_PASSWORD_RESET_TOKEN = "password_reset_token";
   @SerializedName(SERIALIZED_NAME_PASSWORD_RESET_TOKEN)
+  @javax.annotation.Nullable
   private String passwordResetToken;
 
   public Authenticate() {
   }
 
-  public Authenticate operation(OperationEnum operation) {
-    
+  public Authenticate operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Authenticate userName(String userName) {
-    
+  public Authenticate userName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
     return this;
   }
 
-   /**
+  /**
    * Get userName
    * @return userName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getUserName() {
     return userName;
   }
 
-
-  public void setUserName(String userName) {
+  public void setUserName(@javax.annotation.Nullable String userName) {
     this.userName = userName;
   }
 
 
-  public Authenticate password(String password) {
-    
+  public Authenticate password(@javax.annotation.Nullable String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * Get password
    * @return password
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPassword() {
     return password;
   }
 
-
-  public void setPassword(String password) {
+  public void setPassword(@javax.annotation.Nullable String password) {
     this.password = password;
   }
 
 
-  public Authenticate signature(String signature) {
-    
+  public Authenticate signature(@javax.annotation.Nullable String signature) {
     this.signature = signature;
     return this;
   }
 
-   /**
+  /**
    * Get signature
    * @return signature
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getSignature() {
     return signature;
   }
 
-
-  public void setSignature(String signature) {
+  public void setSignature(@javax.annotation.Nullable String signature) {
     this.signature = signature;
   }
 
 
-  public Authenticate newPassword(String newPassword) {
-    
+  public Authenticate newPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
     return this;
   }
 
-   /**
+  /**
    * Get newPassword
    * @return newPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getNewPassword() {
     return newPassword;
   }
 
-
-  public void setNewPassword(String newPassword) {
+  public void setNewPassword(@javax.annotation.Nullable String newPassword) {
     this.newPassword = newPassword;
   }
 
 
-  public Authenticate passwordResetToken(String passwordResetToken) {
-    
+  public Authenticate passwordResetToken(@javax.annotation.Nullable String passwordResetToken) {
     this.passwordResetToken = passwordResetToken;
     return this;
   }
 
-   /**
+  /**
    * Get passwordResetToken
    * @return passwordResetToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getPasswordResetToken() {
     return passwordResetToken;
   }
 
-
-  public void setPasswordResetToken(String passwordResetToken) {
+  public void setPasswordResetToken(@javax.annotation.Nullable String passwordResetToken) {
     this.passwordResetToken = passwordResetToken;
   }
 
@@ -312,10 +299,7 @@ public class Authenticate {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -324,63 +308,59 @@ public class Authenticate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("user_name");
-    openapiFields.add("password");
-    openapiFields.add("signature");
-    openapiFields.add("new_password");
-    openapiFields.add("password_reset_token");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "user_name", "password", "signature", "new_password", "password_reset_token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Authenticate
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Authenticate.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Authenticate is not found in the empty JSON string", Authenticate.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Authenticate
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Authenticate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Authenticate is not found in the empty JSON string", Authenticate.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Authenticate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Authenticate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Authenticate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Authenticate.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("user_name") != null && !jsonObj.get("user_name").isJsonNull()) && !jsonObj.get("user_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
       if ((jsonObj.get("new_password") != null && !jsonObj.get("new_password").isJsonNull()) && !jsonObj.get("new_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_password").toString()));
       }
       if ((jsonObj.get("password_reset_token") != null && !jsonObj.get("password_reset_token").isJsonNull()) && !jsonObj.get("password_reset_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password_reset_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password_reset_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password_reset_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password_reset_token").toString()));
       }
   }
 
@@ -404,31 +384,31 @@ public class Authenticate {
 
            @Override
            public Authenticate read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Authenticate given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Authenticate
-  * @throws IOException if the JSON string is invalid with respect to Authenticate
-  */
+  /**
+   * Create an instance of Authenticate given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Authenticate
+   * @throws IOException if the JSON string is invalid with respect to Authenticate
+   */
   public static Authenticate fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Authenticate.class);
   }
 
- /**
-  * Convert an instance of Authenticate to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Authenticate to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

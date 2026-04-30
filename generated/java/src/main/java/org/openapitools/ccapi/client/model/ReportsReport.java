@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,14 +48,14 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * ReportsReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class ReportsReport {
   /**
    * Gets or Sets className
    */
   @JsonAdapter(ClassNameEnum.Adapter.class)
   public enum ClassNameEnum {
-    CMONREPORT("CmonReport");
+    CMON_REPORT("CmonReport");
 
     private String value;
 
@@ -93,18 +93,26 @@ public class ReportsReport {
         return ClassNameEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ClassNameEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "class_name";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private ClassNameEnum className;
 
   public static final String SERIALIZED_NAME_RECIPIENTS = "recipients";
   @SerializedName(SERIALIZED_NAME_RECIPIENTS)
+  @javax.annotation.Nullable
   private String recipients;
 
   public static final String SERIALIZED_NAME_REPORT_TYPE = "report_type";
   @SerializedName(SERIALIZED_NAME_REPORT_TYPE)
+  @javax.annotation.Nullable
   private String reportType;
 
   /**
@@ -112,7 +120,7 @@ public class ReportsReport {
    */
   @JsonAdapter(TextFormatEnum.Adapter.class)
   public enum TextFormatEnum {
-    ANSITERMINAL("AnsiTerminal");
+    ANSI_TERMINAL("AnsiTerminal");
 
     private String value;
 
@@ -150,130 +158,117 @@ public class ReportsReport {
         return TextFormatEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TextFormatEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_TEXT_FORMAT = "text_format";
   @SerializedName(SERIALIZED_NAME_TEXT_FORMAT)
+  @javax.annotation.Nullable
   private TextFormatEnum textFormat;
 
   public static final String SERIALIZED_NAME_REPORT_ID = "report_id";
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
+  @javax.annotation.Nullable
   private Integer reportId;
 
   public ReportsReport() {
   }
 
-  public ReportsReport className(ClassNameEnum className) {
-    
+  public ReportsReport className(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public ClassNameEnum getClassName() {
     return className;
   }
 
-
-  public void setClassName(ClassNameEnum className) {
+  public void setClassName(@javax.annotation.Nullable ClassNameEnum className) {
     this.className = className;
   }
 
 
-  public ReportsReport recipients(String recipients) {
-    
+  public ReportsReport recipients(@javax.annotation.Nullable String recipients) {
     this.recipients = recipients;
     return this;
   }
 
-   /**
+  /**
    * Email of recipient
    * @return recipients
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email of recipient")
-
   public String getRecipients() {
     return recipients;
   }
 
-
-  public void setRecipients(String recipients) {
+  public void setRecipients(@javax.annotation.Nullable String recipients) {
     this.recipients = recipients;
   }
 
 
-  public ReportsReport reportType(String reportType) {
-    
+  public ReportsReport reportType(@javax.annotation.Nullable String reportType) {
     this.reportType = reportType;
     return this;
   }
 
-   /**
+  /**
    * TODO
    * @return reportType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO")
-
   public String getReportType() {
     return reportType;
   }
 
-
-  public void setReportType(String reportType) {
+  public void setReportType(@javax.annotation.Nullable String reportType) {
     this.reportType = reportType;
   }
 
 
-  public ReportsReport textFormat(TextFormatEnum textFormat) {
-    
+  public ReportsReport textFormat(@javax.annotation.Nullable TextFormatEnum textFormat) {
     this.textFormat = textFormat;
     return this;
   }
 
-   /**
+  /**
    * Get textFormat
    * @return textFormat
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TextFormatEnum getTextFormat() {
     return textFormat;
   }
 
-
-  public void setTextFormat(TextFormatEnum textFormat) {
+  public void setTextFormat(@javax.annotation.Nullable TextFormatEnum textFormat) {
     this.textFormat = textFormat;
   }
 
 
-  public ReportsReport reportId(Integer reportId) {
-    
+  public ReportsReport reportId(@javax.annotation.Nullable Integer reportId) {
     this.reportId = reportId;
     return this;
   }
 
-   /**
+  /**
    * Get reportId
    * @return reportId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getReportId() {
     return reportId;
   }
 
-
-  public void setReportId(Integer reportId) {
+  public void setReportId(@javax.annotation.Nullable Integer reportId) {
     this.reportId = reportId;
   }
 
@@ -318,10 +313,7 @@ public class ReportsReport {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -330,48 +322,52 @@ public class ReportsReport {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("class_name");
-    openapiFields.add("recipients");
-    openapiFields.add("report_type");
-    openapiFields.add("text_format");
-    openapiFields.add("report_id");
+    openapiFields = new HashSet<String>(Arrays.asList("class_name", "recipients", "report_type", "text_format", "report_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReportsReport
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!ReportsReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReportsReport is not found in the empty JSON string", ReportsReport.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ReportsReport
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ReportsReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReportsReport is not found in the empty JSON string", ReportsReport.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ReportsReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReportsReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReportsReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) && !jsonObj.get("class_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+      }
+      // validate the optional field `class_name`
+      if (jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) {
+        ClassNameEnum.validateJsonElement(jsonObj.get("class_name"));
       }
       if ((jsonObj.get("recipients") != null && !jsonObj.get("recipients").isJsonNull()) && !jsonObj.get("recipients").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recipients` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipients").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recipients` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipients").toString()));
       }
       if ((jsonObj.get("report_type") != null && !jsonObj.get("report_type").isJsonNull()) && !jsonObj.get("report_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `report_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("report_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `report_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("report_type").toString()));
       }
       if ((jsonObj.get("text_format") != null && !jsonObj.get("text_format").isJsonNull()) && !jsonObj.get("text_format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `text_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text_format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `text_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text_format").toString()));
+      }
+      // validate the optional field `text_format`
+      if (jsonObj.get("text_format") != null && !jsonObj.get("text_format").isJsonNull()) {
+        TextFormatEnum.validateJsonElement(jsonObj.get("text_format"));
       }
   }
 
@@ -395,31 +391,31 @@ public class ReportsReport {
 
            @Override
            public ReportsReport read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ReportsReport given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReportsReport
-  * @throws IOException if the JSON string is invalid with respect to ReportsReport
-  */
+  /**
+   * Create an instance of ReportsReport given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ReportsReport
+   * @throws IOException if the JSON string is invalid with respect to ReportsReport
+   */
   public static ReportsReport fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ReportsReport.class);
   }
 
- /**
-  * Convert an instance of ReportsReport to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ReportsReport to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

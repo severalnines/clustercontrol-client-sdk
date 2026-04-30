@@ -2,7 +2,8 @@
 
 Severalnines ClusterControl REST API (V2)
 - API version: OpenAPI specification v1.0.0
-  - Build date: 2022-11-28T20:03:34.941519-05:00[America/New_York]
+  - Build date: 2026-04-25T20:06:39.466573-04:00[America/New_York]
+  - Generator version: 7.21.0
 
 REST API (V2) specification for ClusterControl - AI Powered Database automation tool for multi/hybrid cloud database deployment.
 
@@ -83,13 +84,13 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.ccapi.client.ApiClient;
 import org.openapitools.ccapi.client.ApiException;
 import org.openapitools.ccapi.client.Configuration;
-import org.openapitools.ccapi.client.models.*;
+import org.openapitools.ccapi.client.model.*;
 import org.openapitools.ccapi.client.api.AlarmsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://<cchost>:9501/v2");
+    defaultClient.setBasePath("https://cchost:9501/v2");
 
     AlarmsApi apiInstance = new AlarmsApi(defaultClient);
     Alarm alarm = new Alarm(); // Alarm | All things related to Alarms and Stats
@@ -110,7 +111,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://&lt;cchost&gt;:9501/v2*
+All URIs are relative to *https://cchost:9501/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -125,7 +126,7 @@ Class | Method | HTTP request | Description
 *DiscoveryApi* | [**discoveryPost**](docs/DiscoveryApi.md#discoveryPost) | **POST** /discovery | CheckClusterName | CheckHosts | GetSupportedClusterTypes
 *HostApi* | [**hostPost**](docs/HostApi.md#hostPost) | **POST** /host | Path for managing servers
 *JobsApi* | [**jobsPost**](docs/JobsApi.md#jobsPost) | **POST** /jobs | CreateJobInstance | etc
-*MaintenanceApi* | [**maintenancePost**](docs/MaintenanceApi.md#maintenancePost) | **POST** /maintenance | CreateJobInstance | etc
+*MaintenanceApi* | [**maintenancePost**](docs/MaintenanceApi.md#maintenancePost) | **POST** /maintenance | Set a maintenance window for a managed database cluster
 *ReportsApi* | [**reportsPost**](docs/ReportsApi.md#reportsPost) | **POST** /reports | GenerateReport | etc
 *StatApi* | [**statPost**](docs/StatApi.md#statPost) | **POST** /stat | GetInfo | etc
 *StatCmonAgentApi* | [**statCmonagentPost**](docs/StatCmonAgentApi.md#statCmonagentPost) | **POST** /stat/cmonagent | GetInfo | etc
@@ -142,12 +143,21 @@ Class | Method | HTTP request | Description
  - [Authenticate](docs/Authenticate.md)
  - [Backup](docs/Backup.md)
  - [BackupBackupRecord](docs/BackupBackupRecord.md)
+ - [BackupResponse](docs/BackupResponse.md)
+ - [BackupResponseBackupRecordsInner](docs/BackupResponseBackupRecordsInner.md)
+ - [BackupResponseBackupRecordsInnerCloudLocationsInner](docs/BackupResponseBackupRecordsInnerCloudLocationsInner.md)
+ - [BackupResponseBackupRecordsInnerCluster](docs/BackupResponseBackupRecordsInnerCluster.md)
+ - [BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner](docs/BackupResponseBackupRecordsInnerClusterMaintenancePeriodsInner.md)
+ - [BackupResponseBackupRecordsInnerHostLocationsInner](docs/BackupResponseBackupRecordsInnerHostLocationsInner.md)
+ - [BackupResponseBackupRecordsInnerMetadata](docs/BackupResponseBackupRecordsInnerMetadata.md)
  - [BackupSchedule](docs/BackupSchedule.md)
  - [BackupScheduleJob](docs/BackupScheduleJob.md)
  - [BackupScheduleJobJobData](docs/BackupScheduleJobJobData.md)
  - [BackupScheduleJobJobDataVerifyBackup](docs/BackupScheduleJobJobDataVerifyBackup.md)
  - [Cloud](docs/Cloud.md)
  - [CloudCredentials](docs/CloudCredentials.md)
+ - [ClusterResponse](docs/ClusterResponse.md)
+ - [ClusterResponseHostsInner](docs/ClusterResponseHostsInner.md)
  - [Clusters](docs/Clusters.md)
  - [ClustersAccount](docs/ClustersAccount.md)
  - [ClustersConfigurationInner](docs/ClustersConfigurationInner.md)
@@ -184,6 +194,8 @@ Class | Method | HTTP request | Description
  - [JobsJobJobSpecJobDataTopology](docs/JobsJobJobSpecJobDataTopology.md)
  - [JobsJobJobSpecJobDataUploadBackupDataToCloudStorage](docs/JobsJobJobSpecJobDataUploadBackupDataToCloudStorage.md)
  - [Maintenance](docs/Maintenance.md)
+ - [MaintenanceResponse](docs/MaintenanceResponse.md)
+ - [MaintenanceResponseMaintenanceRecordsInner](docs/MaintenanceResponseMaintenanceRecordsInner.md)
  - [Reports](docs/Reports.md)
  - [ReportsReport](docs/ReportsReport.md)
  - [Stat](docs/Stat.md)
@@ -200,10 +212,11 @@ Class | Method | HTTP request | Description
  - [UsersUserTimezone](docs/UsersUserTimezone.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
+Endpoints do not require authorization.
+
 
 ## Recommendation
 

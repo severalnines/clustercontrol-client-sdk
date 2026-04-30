@@ -1,0 +1,99 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: sales@severalnines.com
+  description: "REST API specification for ClusterControl Proxy. The Proxy is the\
+    \ foundation for Controller of Controllers, (a.k.a. multi-controllers)."
+  termsOfService: https://severalnines.com/terms/
+  title: Severalnines ClusterControl Proxy - REST API
+  version: OpenAPI specification v1.0.0
+externalDocs:
+  description: Find out more about ClusterControl
+  url: https://docs.severalnines.com/clustercontrol/
+servers:
+- url: https://cchost/proxy
+paths:
+  /auth/login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Authenticate"
+        description: Authentication parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthenticateResponse"
+          description: Successful operation
+        "405":
+          content: {}
+          description: Unauthorized
+      summary: Authenticate
+      tags:
+      - auth
+components:
+  schemas:
+    Authenticate:
+      example:
+        password: password
+        username: username
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      type: object
+    AuthenticateResponse:
+      example:
+        request_status: request_status
+        request_processed: request_processed
+        request_created: request_created
+        user:
+          firstname: firstname
+          cmon: true
+          groups:
+          - groups
+          - groups
+          email: email
+          username: username
+          lastname: lastname
+      properties:
+        request_created:
+          type: string
+        request_processed:
+          type: string
+        request_status:
+          type: string
+        user:
+          $ref: "#/components/schemas/AuthenticateResponse_user"
+      type: object
+    AuthenticateResponse_user:
+      example:
+        firstname: firstname
+        cmon: true
+        groups:
+        - groups
+        - groups
+        email: email
+        username: username
+        lastname: lastname
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        cmon:
+          type: boolean
+        groups:
+          items:
+            type: string
+          type: array
+      type: object

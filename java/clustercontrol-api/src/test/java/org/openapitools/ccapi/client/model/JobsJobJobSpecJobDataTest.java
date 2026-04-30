@@ -18,10 +18,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.BackupScheduleJobJobDataVerifyBackup;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataConfigServers;
@@ -34,7 +33,6 @@ import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataTopology;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataUploadBackupDataToCloudStorage;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for JobsJobJobSpecJobData
@@ -243,6 +241,22 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
+     * Test the property 'removeBackups'
+     */
+    @Test
+    public void removeBackupsTest() {
+        // TODO: test removeBackups
+    }
+
+    /**
+     * Test the property 'backupSystemDb'
+     */
+    @Test
+    public void backupSystemDbTest() {
+        // TODO: test backupSystemDb
+    }
+
+    /**
      * Test the property 'ccStorage'
      */
     @Test
@@ -387,6 +401,14 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
+     * Test the property 'masterDelay'
+     */
+    @Test
+    public void masterDelayTest() {
+        // TODO: test masterDelay
+    }
+
+    /**
      * Test the property 'includeDatabases'
      */
     @Test
@@ -459,6 +481,14 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
+     * Test the property 'galeraSegment'
+     */
+    @Test
+    public void galeraSegmentTest() {
+        // TODO: test galeraSegment
+    }
+
+    /**
      * Test the property 'xtrabackupBackupLocks'
      */
     @Test
@@ -491,11 +521,11 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
-     * Test the property 'dataDir'
+     * Test the property 'datadir'
      */
     @Test
-    public void dataDirTest() {
-        // TODO: test dataDir
+    public void datadirTest() {
+        // TODO: test datadir
     }
 
     /**
@@ -528,6 +558,14 @@ public class JobsJobJobSpecJobDataTest {
     @Test
     public void enableUninstallTest() {
         // TODO: test enableUninstall
+    }
+
+    /**
+     * Test the property 'unregisterOnly'
+     */
+    @Test
+    public void unregisterOnlyTest() {
+        // TODO: test unregisterOnly
     }
 
     /**
@@ -624,6 +662,70 @@ public class JobsJobJobSpecJobDataTest {
     @Test
     public void portTest() {
         // TODO: test port
+    }
+
+    /**
+     * Test the property 'sentinelPort'
+     */
+    @Test
+    public void sentinelPortTest() {
+        // TODO: test sentinelPort
+    }
+
+    /**
+     * Test the property 'redisShardedPort'
+     */
+    @Test
+    public void redisShardedPortTest() {
+        // TODO: test redisShardedPort
+    }
+
+    /**
+     * Test the property 'valkeyShardedPort'
+     */
+    @Test
+    public void valkeyShardedPortTest() {
+        // TODO: test valkeyShardedPort
+    }
+
+    /**
+     * Test the property 'redisShardedBusPort'
+     */
+    @Test
+    public void redisShardedBusPortTest() {
+        // TODO: test redisShardedBusPort
+    }
+
+    /**
+     * Test the property 'valkeyShardedBusPort'
+     */
+    @Test
+    public void valkeyShardedBusPortTest() {
+        // TODO: test valkeyShardedBusPort
+    }
+
+    /**
+     * Test the property 'redisClusterReplicaValidityFactor'
+     */
+    @Test
+    public void redisClusterReplicaValidityFactorTest() {
+        // TODO: test redisClusterReplicaValidityFactor
+    }
+
+    /**
+     * Test the property 'valkeyClusterReplicaValidityFactor'
+     */
+    @Test
+    public void valkeyClusterReplicaValidityFactorTest() {
+        // TODO: test valkeyClusterReplicaValidityFactor
+    }
+
+    /**
+     * Test the property 'nodeTimeoutMs'
+     */
+    @Test
+    public void nodeTimeoutMsTest() {
+        // TODO: test nodeTimeoutMs
     }
 
     /**
@@ -811,11 +913,11 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
-     * Test the property 'snapshotLocaiton'
+     * Test the property 'snapshotLocation'
      */
     @Test
-    public void snapshotLocaitonTest() {
-        // TODO: test snapshotLocaiton
+    public void snapshotLocationTest() {
+        // TODO: test snapshotLocation
     }
 
     /**
@@ -827,11 +929,43 @@ public class JobsJobJobSpecJobDataTest {
     }
 
     /**
+     * Test the property 'snapshotRepositoryType'
+     */
+    @Test
+    public void snapshotRepositoryTypeTest() {
+        // TODO: test snapshotRepositoryType
+    }
+
+    /**
+     * Test the property 'snapshotHost'
+     */
+    @Test
+    public void snapshotHostTest() {
+        // TODO: test snapshotHost
+    }
+
+    /**
      * Test the property 'storageHost'
      */
     @Test
     public void storageHostTest() {
         // TODO: test storageHost
+    }
+
+    /**
+     * Test the property 'replicaset'
+     */
+    @Test
+    public void replicasetTest() {
+        // TODO: test replicaset
+    }
+
+    /**
+     * Test the property 'deployAgents'
+     */
+    @Test
+    public void deployAgentsTest() {
+        // TODO: test deployAgents
     }
 
     /**

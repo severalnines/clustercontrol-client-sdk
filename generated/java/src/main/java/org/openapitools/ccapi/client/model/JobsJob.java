@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.JobsJobJobSpec;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,200 +51,118 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJob {
   public static final String SERIALIZED_NAME_CLASS_NAME = "class_name";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
+  @javax.annotation.Nullable
   private String className;
 
-  public static final String SERIALIZED_NAME_JOB_SPEC = "job_spec";
-  @SerializedName(SERIALIZED_NAME_JOB_SPEC)
-  private JobsJobJobSpec jobSpec;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
+  private String title;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private String status;
 
   public static final String SERIALIZED_NAME_RECURRENCE = "recurrence";
   @SerializedName(SERIALIZED_NAME_RECURRENCE)
+  @javax.annotation.Nullable
   private String recurrence;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags = null;
+  @javax.annotation.Nullable
+  private List<String> tags = new ArrayList<>();
 
-  /**
-   * Gets or Sets title
-   */
-  @JsonAdapter(TitleEnum.Adapter.class)
-  public enum TitleEnum {
-    ROLLING_RESTART("Rolling Restart"),
-    
-    SIMULATED_SUCCESS("Simulated Success");
-
-    private String value;
-
-    TitleEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TitleEnum fromValue(String value) {
-      for (TitleEnum b : TitleEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TitleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TitleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TitleEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TitleEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private TitleEnum title;
-
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    PAUSED("PAUSED"),
-    
-    SCHEDULED("SCHEDULED");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
+  public static final String SERIALIZED_NAME_JOB_SPEC = "job_spec";
+  @SerializedName(SERIALIZED_NAME_JOB_SPEC)
+  @javax.annotation.Nullable
+  private JobsJobJobSpec jobSpec;
 
   public JobsJob() {
   }
 
-  public JobsJob className(String className) {
-    
+  public JobsJob className(@javax.annotation.Nullable String className) {
     this.className = className;
     return this;
   }
 
-   /**
+  /**
    * Get className
    * @return className
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getClassName() {
     return className;
   }
 
-
-  public void setClassName(String className) {
+  public void setClassName(@javax.annotation.Nullable String className) {
     this.className = className;
   }
 
 
-  public JobsJob jobSpec(JobsJobJobSpec jobSpec) {
-    
-    this.jobSpec = jobSpec;
+  public JobsJob title(@javax.annotation.Nullable String title) {
+    this.title = title;
     return this;
   }
 
-   /**
-   * Get jobSpec
-   * @return jobSpec
-  **/
+  /**
+   * Get title
+   * @return title
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  public String getTitle() {
+    return title;
+  }
 
-  public JobsJobJobSpec getJobSpec() {
-    return jobSpec;
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
   }
 
 
-  public void setJobSpec(JobsJobJobSpec jobSpec) {
-    this.jobSpec = jobSpec;
+  public JobsJob status(@javax.annotation.Nullable String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable String status) {
+    this.status = status;
   }
 
 
-  public JobsJob recurrence(String recurrence) {
-    
+  public JobsJob recurrence(@javax.annotation.Nullable String recurrence) {
     this.recurrence = recurrence;
     return this;
   }
 
-   /**
+  /**
    * e.g. \&quot;2 * * * *\&quot;
    * @return recurrence
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "e.g. \"2 * * * *\"")
-
   public String getRecurrence() {
     return recurrence;
   }
 
-
-  public void setRecurrence(String recurrence) {
+  public void setRecurrence(@javax.annotation.Nullable String recurrence) {
     this.recurrence = recurrence;
   }
 
 
-  public JobsJob tags(List<String> tags) {
-    
+  public JobsJob tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -257,66 +175,36 @@ public class JobsJob {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<String> getTags() {
     return tags;
   }
 
-
-  public void setTags(List<String> tags) {
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
   }
 
 
-  public JobsJob title(TitleEnum title) {
-    
-    this.title = title;
+  public JobsJob jobSpec(@javax.annotation.Nullable JobsJobJobSpec jobSpec) {
+    this.jobSpec = jobSpec;
     return this;
   }
 
-   /**
-   * Get title
-   * @return title
-  **/
+  /**
+   * Get jobSpec
+   * @return jobSpec
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TitleEnum getTitle() {
-    return title;
+  public JobsJobJobSpec getJobSpec() {
+    return jobSpec;
   }
 
-
-  public void setTitle(TitleEnum title) {
-    this.title = title;
-  }
-
-
-  public JobsJob status(StatusEnum status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setJobSpec(@javax.annotation.Nullable JobsJobJobSpec jobSpec) {
+    this.jobSpec = jobSpec;
   }
 
 
@@ -331,16 +219,16 @@ public class JobsJob {
     }
     JobsJob jobsJob = (JobsJob) o;
     return Objects.equals(this.className, jobsJob.className) &&
-        Objects.equals(this.jobSpec, jobsJob.jobSpec) &&
+        Objects.equals(this.title, jobsJob.title) &&
+        Objects.equals(this.status, jobsJob.status) &&
         Objects.equals(this.recurrence, jobsJob.recurrence) &&
         Objects.equals(this.tags, jobsJob.tags) &&
-        Objects.equals(this.title, jobsJob.title) &&
-        Objects.equals(this.status, jobsJob.status);
+        Objects.equals(this.jobSpec, jobsJob.jobSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(className, jobSpec, recurrence, tags, title, status);
+    return Objects.hash(className, title, status, recurrence, tags, jobSpec);
   }
 
   @Override
@@ -348,11 +236,11 @@ public class JobsJob {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobsJob {\n");
     sb.append("    className: ").append(toIndentedString(className)).append("\n");
-    sb.append("    jobSpec: ").append(toIndentedString(jobSpec)).append("\n");
-    sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    jobSpec: ").append(toIndentedString(jobSpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -362,10 +250,7 @@ public class JobsJob {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -374,57 +259,52 @@ public class JobsJob {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("class_name");
-    openapiFields.add("job_spec");
-    openapiFields.add("recurrence");
-    openapiFields.add("tags");
-    openapiFields.add("title");
-    openapiFields.add("status");
+    openapiFields = new HashSet<String>(Arrays.asList("class_name", "title", "status", "recurrence", "tags", "job_spec"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJob
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJob is not found in the empty JSON string", JobsJob.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJob
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJob is not found in the empty JSON string", JobsJob.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJob` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJob` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("class_name") != null && !jsonObj.get("class_name").isJsonNull()) && !jsonObj.get("class_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `class_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("class_name").toString()));
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if ((jsonObj.get("recurrence") != null && !jsonObj.get("recurrence").isJsonNull()) && !jsonObj.get("recurrence").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recurrence` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurrence").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // validate the optional field `job_spec`
       if (jsonObj.get("job_spec") != null && !jsonObj.get("job_spec").isJsonNull()) {
-        JobsJobJobSpec.validateJsonObject(jsonObj.getAsJsonObject("job_spec"));
-      }
-      if ((jsonObj.get("recurrence") != null && !jsonObj.get("recurrence").isJsonNull()) && !jsonObj.get("recurrence").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurrence` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurrence").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        JobsJobJobSpec.validateJsonElement(jsonObj.get("job_spec"));
       }
   }
 
@@ -448,31 +328,31 @@ public class JobsJob {
 
            @Override
            public JobsJob read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJob given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJob
-  * @throws IOException if the JSON string is invalid with respect to JobsJob
-  */
+  /**
+   * Create an instance of JobsJob given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJob
+   * @throws IOException if the JSON string is invalid with respect to JobsJob
+   */
   public static JobsJob fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJob.class);
   }
 
- /**
-  * Convert an instance of JobsJob to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJob to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

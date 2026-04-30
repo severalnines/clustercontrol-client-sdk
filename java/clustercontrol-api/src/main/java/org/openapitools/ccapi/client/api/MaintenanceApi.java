@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class MaintenanceApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class MaintenanceApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call maintenancePostCall(Maintenance maintenance, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call maintenancePostCall(@javax.annotation.Nonnull Maintenance maintenance, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class MaintenanceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call maintenancePostValidateBeforeCall(Maintenance maintenance, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call maintenancePostValidateBeforeCall(@javax.annotation.Nonnull Maintenance maintenance, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'maintenance' is set
         if (maintenance == null) {
             throw new ApiException("Missing the required parameter 'maintenance' when calling maintenancePost(Async)");
@@ -142,54 +142,57 @@ public class MaintenanceApi {
     }
 
     /**
-     * CreateJobInstance | etc
+     * Set a maintenance window for a managed database cluster
      * 
      * @param maintenance Creating, deleting and obtaining maintenance periods (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void maintenancePost(Maintenance maintenance) throws ApiException {
+    public void maintenancePost(@javax.annotation.Nonnull Maintenance maintenance) throws ApiException {
         maintenancePostWithHttpInfo(maintenance);
     }
 
     /**
-     * CreateJobInstance | etc
+     * Set a maintenance window for a managed database cluster
      * 
      * @param maintenance Creating, deleting and obtaining maintenance periods (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> maintenancePostWithHttpInfo(Maintenance maintenance) throws ApiException {
+    public ApiResponse<Void> maintenancePostWithHttpInfo(@javax.annotation.Nonnull Maintenance maintenance) throws ApiException {
         okhttp3.Call localVarCall = maintenancePostValidateBeforeCall(maintenance, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * CreateJobInstance | etc (asynchronously)
+     * Set a maintenance window for a managed database cluster (asynchronously)
      * 
      * @param maintenance Creating, deleting and obtaining maintenance periods (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call maintenancePostAsync(Maintenance maintenance, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call maintenancePostAsync(@javax.annotation.Nonnull Maintenance maintenance, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = maintenancePostValidateBeforeCall(maintenance, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

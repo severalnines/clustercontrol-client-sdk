@@ -1,6 +1,6 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi
 
-go 1.18
+go 1.23
 
 require (
 )

@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class TreeApi {
     private ApiClient localVarApiClient;
@@ -80,13 +79,14 @@ public class TreeApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call treePostCall(Tree tree, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call treePostCall(@javax.annotation.Nonnull Tree tree, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,7 +131,7 @@ public class TreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call treePostValidateBeforeCall(Tree tree, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call treePostValidateBeforeCall(@javax.annotation.Nonnull Tree tree, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tree' is set
         if (tree == null) {
             throw new ApiException("Missing the required parameter 'tree' when calling treePost(Async)");
@@ -147,13 +147,14 @@ public class TreeApi {
      * @param tree Manipulate ACLs for Groups and Users that are maintained by the Cmon controller (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void treePost(Tree tree) throws ApiException {
+    public void treePost(@javax.annotation.Nonnull Tree tree) throws ApiException {
         treePostWithHttpInfo(tree);
     }
 
@@ -164,13 +165,14 @@ public class TreeApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> treePostWithHttpInfo(Tree tree) throws ApiException {
+    public ApiResponse<Void> treePostWithHttpInfo(@javax.annotation.Nonnull Tree tree) throws ApiException {
         okhttp3.Call localVarCall = treePostValidateBeforeCall(tree, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -183,13 +185,14 @@ public class TreeApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call treePostAsync(Tree tree, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call treePostAsync(@javax.annotation.Nonnull Tree tree, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = treePostValidateBeforeCall(tree, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

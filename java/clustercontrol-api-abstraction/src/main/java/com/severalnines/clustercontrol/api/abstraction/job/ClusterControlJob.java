@@ -46,7 +46,7 @@ public class ClusterControlJob extends AbstractClusterControlOperation {
             ApiClient defaultClient = getAuthStrategy().getApiClient();
             JobsApi apiInstance = new JobsApi(defaultClient);
             Jobs jobs = new Jobs();
-            jobs.setOperation(Jobs.OperationEnum.GETJOBINSTANCE);
+            jobs.setOperation(Jobs.OperationEnum.GET_JOB_INSTANCE);
             jobs.setJobId(job.getJobId());
             logger.debug("GetJobPost request: {}", jobs);
             if (!AbstractAuthenticationStrategy.IsDebugMode()) {

@@ -14,16 +14,14 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.ccapi.client.model.JobsJobJobSpecJobDataNodeConfigurationInner;
 
@@ -37,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -51,530 +51,617 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataNode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobDataNode {
   public static final String SERIALIZED_NAME_BACKEND_NAME_RO = "backend_name_ro";
   @SerializedName(SERIALIZED_NAME_BACKEND_NAME_RO)
+  @javax.annotation.Nullable
   private String backendNameRo;
 
   public static final String SERIALIZED_NAME_BACKEND_NAME_RW = "backend_name_rw";
   @SerializedName(SERIALIZED_NAME_BACKEND_NAME_RW)
+  @javax.annotation.Nullable
   private String backendNameRw;
 
   public static final String SERIALIZED_NAME_DATA_RETENTION = "data_retention";
   @SerializedName(SERIALIZED_NAME_DATA_RETENTION)
+  @javax.annotation.Nullable
   private String dataRetention;
 
   public static final String SERIALIZED_NAME_DATA_RETENTION_SIZE = "data_retention_size";
   @SerializedName(SERIALIZED_NAME_DATA_RETENTION_SIZE)
+  @javax.annotation.Nullable
   private Integer dataRetentionSize;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @javax.annotation.Nullable
   private String hostname;
+
+  public static final String SERIALIZED_NAME_HOSTNAME_DATA = "hostname_data";
+  @SerializedName(SERIALIZED_NAME_HOSTNAME_DATA)
+  @javax.annotation.Nullable
+  private String hostnameData;
+
+  public static final String SERIALIZED_NAME_HOSTNAME_INTERNAL = "hostname_internal";
+  @SerializedName(SERIALIZED_NAME_HOSTNAME_INTERNAL)
+  @javax.annotation.Nullable
+  private String hostnameInternal;
+
+  public static final String SERIALIZED_NAME_CONFIGFILE = "configfile";
+  @SerializedName(SERIALIZED_NAME_CONFIGFILE)
+  @javax.annotation.Nullable
+  private String configfile;
+
+  public static final String SERIALIZED_NAME_DATADIR = "datadir";
+  @SerializedName(SERIALIZED_NAME_DATADIR)
+  @javax.annotation.Nullable
+  private String datadir;
+
+  public static final String SERIALIZED_NAME_PGNAME = "pgname";
+  @SerializedName(SERIALIZED_NAME_PGNAME)
+  @javax.annotation.Nullable
+  private String pgname;
+
+  public static final String SERIALIZED_NAME_SYNCHRONOUS = "synchronous";
+  @SerializedName(SERIALIZED_NAME_SYNCHRONOUS)
+  @javax.annotation.Nullable
+  private Boolean synchronous;
 
   public static final String SERIALIZED_NAME_LB_ADMIN = "lb_admin";
   @SerializedName(SERIALIZED_NAME_LB_ADMIN)
+  @javax.annotation.Nullable
   private String lbAdmin;
 
   public static final String SERIALIZED_NAME_LB_PASSWORD = "lb_password";
   @SerializedName(SERIALIZED_NAME_LB_PASSWORD)
+  @javax.annotation.Nullable
   private String lbPassword;
 
   public static final String SERIALIZED_NAME_LB_POLICY = "lb_policy";
   @SerializedName(SERIALIZED_NAME_LB_POLICY)
+  @javax.annotation.Nullable
   private String lbPolicy;
 
   public static final String SERIALIZED_NAME_MAX_CONNECTION_BE = "max_connection_be";
   @SerializedName(SERIALIZED_NAME_MAX_CONNECTION_BE)
+  @javax.annotation.Nullable
   private Integer maxConnectionBe;
 
   public static final String SERIALIZED_NAME_MAX_CONNECTION_FE = "max_connection_fe";
   @SerializedName(SERIALIZED_NAME_MAX_CONNECTION_FE)
+  @javax.annotation.Nullable
   private Integer maxConnectionFe;
 
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
+  @javax.annotation.Nullable
   private Integer port;
 
   public static final String SERIALIZED_NAME_RO_PORT = "ro_port";
   @SerializedName(SERIALIZED_NAME_RO_PORT)
+  @javax.annotation.Nullable
   private Integer roPort;
 
   public static final String SERIALIZED_NAME_RW_PORT = "rw_port";
   @SerializedName(SERIALIZED_NAME_RW_PORT)
+  @javax.annotation.Nullable
   private Integer rwPort;
 
   public static final String SERIALIZED_NAME_RW_SPLITTING = "rw_splitting";
   @SerializedName(SERIALIZED_NAME_RW_SPLITTING)
+  @javax.annotation.Nullable
   private Boolean rwSplitting;
 
   public static final String SERIALIZED_NAME_STATS_SOCKET = "stats_socket";
   @SerializedName(SERIALIZED_NAME_STATS_SOCKET)
+  @javax.annotation.Nullable
   private String statsSocket;
 
   public static final String SERIALIZED_NAME_TIMEOUT_CLIENT = "timeout_client";
   @SerializedName(SERIALIZED_NAME_TIMEOUT_CLIENT)
+  @javax.annotation.Nullable
   private Integer timeoutClient;
 
   public static final String SERIALIZED_NAME_TIMEOUT_SERVER = "timeout_server";
   @SerializedName(SERIALIZED_NAME_TIMEOUT_SERVER)
+  @javax.annotation.Nullable
   private Integer timeoutServer;
 
   public static final String SERIALIZED_NAME_XINETD_ALLOW_FROM = "xinetd_allow_from";
   @SerializedName(SERIALIZED_NAME_XINETD_ALLOW_FROM)
+  @javax.annotation.Nullable
   private String xinetdAllowFrom;
 
   public static final String SERIALIZED_NAME_SCRAPE_INTERVAL = "scrape_interval";
   @SerializedName(SERIALIZED_NAME_SCRAPE_INTERVAL)
+  @javax.annotation.Nullable
   private String scrapeInterval;
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration = null;
+  @javax.annotation.Nullable
+  private List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration = new ArrayList<>();
 
   public JobsJobJobSpecJobDataNode() {
   }
 
-  public JobsJobJobSpecJobDataNode backendNameRo(String backendNameRo) {
-    
+  public JobsJobJobSpecJobDataNode backendNameRo(@javax.annotation.Nullable String backendNameRo) {
     this.backendNameRo = backendNameRo;
     return this;
   }
 
-   /**
+  /**
    * Get backendNameRo
    * @return backendNameRo
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBackendNameRo() {
     return backendNameRo;
   }
 
-
-  public void setBackendNameRo(String backendNameRo) {
+  public void setBackendNameRo(@javax.annotation.Nullable String backendNameRo) {
     this.backendNameRo = backendNameRo;
   }
 
 
-  public JobsJobJobSpecJobDataNode backendNameRw(String backendNameRw) {
-    
+  public JobsJobJobSpecJobDataNode backendNameRw(@javax.annotation.Nullable String backendNameRw) {
     this.backendNameRw = backendNameRw;
     return this;
   }
 
-   /**
+  /**
    * Get backendNameRw
    * @return backendNameRw
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBackendNameRw() {
     return backendNameRw;
   }
 
-
-  public void setBackendNameRw(String backendNameRw) {
+  public void setBackendNameRw(@javax.annotation.Nullable String backendNameRw) {
     this.backendNameRw = backendNameRw;
   }
 
 
-  public JobsJobJobSpecJobDataNode dataRetention(String dataRetention) {
-    
+  public JobsJobJobSpecJobDataNode dataRetention(@javax.annotation.Nullable String dataRetention) {
     this.dataRetention = dataRetention;
     return this;
   }
 
-   /**
+  /**
    * Get dataRetention
    * @return dataRetention
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDataRetention() {
     return dataRetention;
   }
 
-
-  public void setDataRetention(String dataRetention) {
+  public void setDataRetention(@javax.annotation.Nullable String dataRetention) {
     this.dataRetention = dataRetention;
   }
 
 
-  public JobsJobJobSpecJobDataNode dataRetentionSize(Integer dataRetentionSize) {
-    
+  public JobsJobJobSpecJobDataNode dataRetentionSize(@javax.annotation.Nullable Integer dataRetentionSize) {
     this.dataRetentionSize = dataRetentionSize;
     return this;
   }
 
-   /**
+  /**
    * Get dataRetentionSize
    * @return dataRetentionSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getDataRetentionSize() {
     return dataRetentionSize;
   }
 
-
-  public void setDataRetentionSize(Integer dataRetentionSize) {
+  public void setDataRetentionSize(@javax.annotation.Nullable Integer dataRetentionSize) {
     this.dataRetentionSize = dataRetentionSize;
   }
 
 
-  public JobsJobJobSpecJobDataNode hostname(String hostname) {
-    
+  public JobsJobJobSpecJobDataNode hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostname() {
     return hostname;
   }
 
-
-  public void setHostname(String hostname) {
+  public void setHostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public JobsJobJobSpecJobDataNode lbAdmin(String lbAdmin) {
-    
+  public JobsJobJobSpecJobDataNode hostnameData(@javax.annotation.Nullable String hostnameData) {
+    this.hostnameData = hostnameData;
+    return this;
+  }
+
+  /**
+   * Get hostnameData
+   * @return hostnameData
+   */
+  @javax.annotation.Nullable
+  public String getHostnameData() {
+    return hostnameData;
+  }
+
+  public void setHostnameData(@javax.annotation.Nullable String hostnameData) {
+    this.hostnameData = hostnameData;
+  }
+
+
+  public JobsJobJobSpecJobDataNode hostnameInternal(@javax.annotation.Nullable String hostnameInternal) {
+    this.hostnameInternal = hostnameInternal;
+    return this;
+  }
+
+  /**
+   * Get hostnameInternal
+   * @return hostnameInternal
+   */
+  @javax.annotation.Nullable
+  public String getHostnameInternal() {
+    return hostnameInternal;
+  }
+
+  public void setHostnameInternal(@javax.annotation.Nullable String hostnameInternal) {
+    this.hostnameInternal = hostnameInternal;
+  }
+
+
+  public JobsJobJobSpecJobDataNode configfile(@javax.annotation.Nullable String configfile) {
+    this.configfile = configfile;
+    return this;
+  }
+
+  /**
+   * Get configfile
+   * @return configfile
+   */
+  @javax.annotation.Nullable
+  public String getConfigfile() {
+    return configfile;
+  }
+
+  public void setConfigfile(@javax.annotation.Nullable String configfile) {
+    this.configfile = configfile;
+  }
+
+
+  public JobsJobJobSpecJobDataNode datadir(@javax.annotation.Nullable String datadir) {
+    this.datadir = datadir;
+    return this;
+  }
+
+  /**
+   * Get datadir
+   * @return datadir
+   */
+  @javax.annotation.Nullable
+  public String getDatadir() {
+    return datadir;
+  }
+
+  public void setDatadir(@javax.annotation.Nullable String datadir) {
+    this.datadir = datadir;
+  }
+
+
+  public JobsJobJobSpecJobDataNode pgname(@javax.annotation.Nullable String pgname) {
+    this.pgname = pgname;
+    return this;
+  }
+
+  /**
+   * Get pgname
+   * @return pgname
+   */
+  @javax.annotation.Nullable
+  public String getPgname() {
+    return pgname;
+  }
+
+  public void setPgname(@javax.annotation.Nullable String pgname) {
+    this.pgname = pgname;
+  }
+
+
+  public JobsJobJobSpecJobDataNode synchronous(@javax.annotation.Nullable Boolean synchronous) {
+    this.synchronous = synchronous;
+    return this;
+  }
+
+  /**
+   * Get synchronous
+   * @return synchronous
+   */
+  @javax.annotation.Nullable
+  public Boolean getSynchronous() {
+    return synchronous;
+  }
+
+  public void setSynchronous(@javax.annotation.Nullable Boolean synchronous) {
+    this.synchronous = synchronous;
+  }
+
+
+  public JobsJobJobSpecJobDataNode lbAdmin(@javax.annotation.Nullable String lbAdmin) {
     this.lbAdmin = lbAdmin;
     return this;
   }
 
-   /**
+  /**
    * Get lbAdmin
    * @return lbAdmin
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLbAdmin() {
     return lbAdmin;
   }
 
-
-  public void setLbAdmin(String lbAdmin) {
+  public void setLbAdmin(@javax.annotation.Nullable String lbAdmin) {
     this.lbAdmin = lbAdmin;
   }
 
 
-  public JobsJobJobSpecJobDataNode lbPassword(String lbPassword) {
-    
+  public JobsJobJobSpecJobDataNode lbPassword(@javax.annotation.Nullable String lbPassword) {
     this.lbPassword = lbPassword;
     return this;
   }
 
-   /**
+  /**
    * Get lbPassword
    * @return lbPassword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLbPassword() {
     return lbPassword;
   }
 
-
-  public void setLbPassword(String lbPassword) {
+  public void setLbPassword(@javax.annotation.Nullable String lbPassword) {
     this.lbPassword = lbPassword;
   }
 
 
-  public JobsJobJobSpecJobDataNode lbPolicy(String lbPolicy) {
-    
+  public JobsJobJobSpecJobDataNode lbPolicy(@javax.annotation.Nullable String lbPolicy) {
     this.lbPolicy = lbPolicy;
     return this;
   }
 
-   /**
+  /**
    * Get lbPolicy
    * @return lbPolicy
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLbPolicy() {
     return lbPolicy;
   }
 
-
-  public void setLbPolicy(String lbPolicy) {
+  public void setLbPolicy(@javax.annotation.Nullable String lbPolicy) {
     this.lbPolicy = lbPolicy;
   }
 
 
-  public JobsJobJobSpecJobDataNode maxConnectionBe(Integer maxConnectionBe) {
-    
+  public JobsJobJobSpecJobDataNode maxConnectionBe(@javax.annotation.Nullable Integer maxConnectionBe) {
     this.maxConnectionBe = maxConnectionBe;
     return this;
   }
 
-   /**
+  /**
    * Get maxConnectionBe
    * @return maxConnectionBe
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getMaxConnectionBe() {
     return maxConnectionBe;
   }
 
-
-  public void setMaxConnectionBe(Integer maxConnectionBe) {
+  public void setMaxConnectionBe(@javax.annotation.Nullable Integer maxConnectionBe) {
     this.maxConnectionBe = maxConnectionBe;
   }
 
 
-  public JobsJobJobSpecJobDataNode maxConnectionFe(Integer maxConnectionFe) {
-    
+  public JobsJobJobSpecJobDataNode maxConnectionFe(@javax.annotation.Nullable Integer maxConnectionFe) {
     this.maxConnectionFe = maxConnectionFe;
     return this;
   }
 
-   /**
+  /**
    * Get maxConnectionFe
    * @return maxConnectionFe
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getMaxConnectionFe() {
     return maxConnectionFe;
   }
 
-
-  public void setMaxConnectionFe(Integer maxConnectionFe) {
+  public void setMaxConnectionFe(@javax.annotation.Nullable Integer maxConnectionFe) {
     this.maxConnectionFe = maxConnectionFe;
   }
 
 
-  public JobsJobJobSpecJobDataNode port(Integer port) {
-    
+  public JobsJobJobSpecJobDataNode port(@javax.annotation.Nullable Integer port) {
     this.port = port;
     return this;
   }
 
-   /**
+  /**
    * Get port
    * @return port
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPort() {
     return port;
   }
 
-
-  public void setPort(Integer port) {
+  public void setPort(@javax.annotation.Nullable Integer port) {
     this.port = port;
   }
 
 
-  public JobsJobJobSpecJobDataNode roPort(Integer roPort) {
-    
+  public JobsJobJobSpecJobDataNode roPort(@javax.annotation.Nullable Integer roPort) {
     this.roPort = roPort;
     return this;
   }
 
-   /**
+  /**
    * Get roPort
    * @return roPort
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getRoPort() {
     return roPort;
   }
 
-
-  public void setRoPort(Integer roPort) {
+  public void setRoPort(@javax.annotation.Nullable Integer roPort) {
     this.roPort = roPort;
   }
 
 
-  public JobsJobJobSpecJobDataNode rwPort(Integer rwPort) {
-    
+  public JobsJobJobSpecJobDataNode rwPort(@javax.annotation.Nullable Integer rwPort) {
     this.rwPort = rwPort;
     return this;
   }
 
-   /**
+  /**
    * Get rwPort
    * @return rwPort
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getRwPort() {
     return rwPort;
   }
 
-
-  public void setRwPort(Integer rwPort) {
+  public void setRwPort(@javax.annotation.Nullable Integer rwPort) {
     this.rwPort = rwPort;
   }
 
 
-  public JobsJobJobSpecJobDataNode rwSplitting(Boolean rwSplitting) {
-    
+  public JobsJobJobSpecJobDataNode rwSplitting(@javax.annotation.Nullable Boolean rwSplitting) {
     this.rwSplitting = rwSplitting;
     return this;
   }
 
-   /**
+  /**
    * Get rwSplitting
    * @return rwSplitting
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getRwSplitting() {
     return rwSplitting;
   }
 
-
-  public void setRwSplitting(Boolean rwSplitting) {
+  public void setRwSplitting(@javax.annotation.Nullable Boolean rwSplitting) {
     this.rwSplitting = rwSplitting;
   }
 
 
-  public JobsJobJobSpecJobDataNode statsSocket(String statsSocket) {
-    
+  public JobsJobJobSpecJobDataNode statsSocket(@javax.annotation.Nullable String statsSocket) {
     this.statsSocket = statsSocket;
     return this;
   }
 
-   /**
+  /**
    * Get statsSocket
    * @return statsSocket
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getStatsSocket() {
     return statsSocket;
   }
 
-
-  public void setStatsSocket(String statsSocket) {
+  public void setStatsSocket(@javax.annotation.Nullable String statsSocket) {
     this.statsSocket = statsSocket;
   }
 
 
-  public JobsJobJobSpecJobDataNode timeoutClient(Integer timeoutClient) {
-    
+  public JobsJobJobSpecJobDataNode timeoutClient(@javax.annotation.Nullable Integer timeoutClient) {
     this.timeoutClient = timeoutClient;
     return this;
   }
 
-   /**
+  /**
    * Get timeoutClient
    * @return timeoutClient
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getTimeoutClient() {
     return timeoutClient;
   }
 
-
-  public void setTimeoutClient(Integer timeoutClient) {
+  public void setTimeoutClient(@javax.annotation.Nullable Integer timeoutClient) {
     this.timeoutClient = timeoutClient;
   }
 
 
-  public JobsJobJobSpecJobDataNode timeoutServer(Integer timeoutServer) {
-    
+  public JobsJobJobSpecJobDataNode timeoutServer(@javax.annotation.Nullable Integer timeoutServer) {
     this.timeoutServer = timeoutServer;
     return this;
   }
 
-   /**
+  /**
    * Get timeoutServer
    * @return timeoutServer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getTimeoutServer() {
     return timeoutServer;
   }
 
-
-  public void setTimeoutServer(Integer timeoutServer) {
+  public void setTimeoutServer(@javax.annotation.Nullable Integer timeoutServer) {
     this.timeoutServer = timeoutServer;
   }
 
 
-  public JobsJobJobSpecJobDataNode xinetdAllowFrom(String xinetdAllowFrom) {
-    
+  public JobsJobJobSpecJobDataNode xinetdAllowFrom(@javax.annotation.Nullable String xinetdAllowFrom) {
     this.xinetdAllowFrom = xinetdAllowFrom;
     return this;
   }
 
-   /**
+  /**
    * Get xinetdAllowFrom
    * @return xinetdAllowFrom
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getXinetdAllowFrom() {
     return xinetdAllowFrom;
   }
 
-
-  public void setXinetdAllowFrom(String xinetdAllowFrom) {
+  public void setXinetdAllowFrom(@javax.annotation.Nullable String xinetdAllowFrom) {
     this.xinetdAllowFrom = xinetdAllowFrom;
   }
 
 
-  public JobsJobJobSpecJobDataNode scrapeInterval(String scrapeInterval) {
-    
+  public JobsJobJobSpecJobDataNode scrapeInterval(@javax.annotation.Nullable String scrapeInterval) {
     this.scrapeInterval = scrapeInterval;
     return this;
   }
 
-   /**
+  /**
    * Get scrapeInterval
    * @return scrapeInterval
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getScrapeInterval() {
     return scrapeInterval;
   }
 
-
-  public void setScrapeInterval(String scrapeInterval) {
+  public void setScrapeInterval(@javax.annotation.Nullable String scrapeInterval) {
     this.scrapeInterval = scrapeInterval;
   }
 
 
-  public JobsJobJobSpecJobDataNode _configuration(List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration) {
-    
+  public JobsJobJobSpecJobDataNode _configuration(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration) {
     this._configuration = _configuration;
     return this;
   }
@@ -587,19 +674,16 @@ public class JobsJobJobSpecJobDataNode {
     return this;
   }
 
-   /**
+  /**
    * Get _configuration
    * @return _configuration
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<JobsJobJobSpecJobDataNodeConfigurationInner> getConfiguration() {
     return _configuration;
   }
 
-
-  public void setConfiguration(List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration) {
+  public void setConfiguration(@javax.annotation.Nullable List<JobsJobJobSpecJobDataNodeConfigurationInner> _configuration) {
     this._configuration = _configuration;
   }
 
@@ -619,6 +703,12 @@ public class JobsJobJobSpecJobDataNode {
         Objects.equals(this.dataRetention, jobsJobJobSpecJobDataNode.dataRetention) &&
         Objects.equals(this.dataRetentionSize, jobsJobJobSpecJobDataNode.dataRetentionSize) &&
         Objects.equals(this.hostname, jobsJobJobSpecJobDataNode.hostname) &&
+        Objects.equals(this.hostnameData, jobsJobJobSpecJobDataNode.hostnameData) &&
+        Objects.equals(this.hostnameInternal, jobsJobJobSpecJobDataNode.hostnameInternal) &&
+        Objects.equals(this.configfile, jobsJobJobSpecJobDataNode.configfile) &&
+        Objects.equals(this.datadir, jobsJobJobSpecJobDataNode.datadir) &&
+        Objects.equals(this.pgname, jobsJobJobSpecJobDataNode.pgname) &&
+        Objects.equals(this.synchronous, jobsJobJobSpecJobDataNode.synchronous) &&
         Objects.equals(this.lbAdmin, jobsJobJobSpecJobDataNode.lbAdmin) &&
         Objects.equals(this.lbPassword, jobsJobJobSpecJobDataNode.lbPassword) &&
         Objects.equals(this.lbPolicy, jobsJobJobSpecJobDataNode.lbPolicy) &&
@@ -638,7 +728,7 @@ public class JobsJobJobSpecJobDataNode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backendNameRo, backendNameRw, dataRetention, dataRetentionSize, hostname, lbAdmin, lbPassword, lbPolicy, maxConnectionBe, maxConnectionFe, port, roPort, rwPort, rwSplitting, statsSocket, timeoutClient, timeoutServer, xinetdAllowFrom, scrapeInterval, _configuration);
+    return Objects.hash(backendNameRo, backendNameRw, dataRetention, dataRetentionSize, hostname, hostnameData, hostnameInternal, configfile, datadir, pgname, synchronous, lbAdmin, lbPassword, lbPolicy, maxConnectionBe, maxConnectionFe, port, roPort, rwPort, rwSplitting, statsSocket, timeoutClient, timeoutServer, xinetdAllowFrom, scrapeInterval, _configuration);
   }
 
   @Override
@@ -650,6 +740,12 @@ public class JobsJobJobSpecJobDataNode {
     sb.append("    dataRetention: ").append(toIndentedString(dataRetention)).append("\n");
     sb.append("    dataRetentionSize: ").append(toIndentedString(dataRetentionSize)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    hostnameData: ").append(toIndentedString(hostnameData)).append("\n");
+    sb.append("    hostnameInternal: ").append(toIndentedString(hostnameInternal)).append("\n");
+    sb.append("    configfile: ").append(toIndentedString(configfile)).append("\n");
+    sb.append("    datadir: ").append(toIndentedString(datadir)).append("\n");
+    sb.append("    pgname: ").append(toIndentedString(pgname)).append("\n");
+    sb.append("    synchronous: ").append(toIndentedString(synchronous)).append("\n");
     sb.append("    lbAdmin: ").append(toIndentedString(lbAdmin)).append("\n");
     sb.append("    lbPassword: ").append(toIndentedString(lbPassword)).append("\n");
     sb.append("    lbPolicy: ").append(toIndentedString(lbPolicy)).append("\n");
@@ -674,10 +770,7 @@ public class JobsJobJobSpecJobDataNode {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -686,93 +779,89 @@ public class JobsJobJobSpecJobDataNode {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("backend_name_ro");
-    openapiFields.add("backend_name_rw");
-    openapiFields.add("data_retention");
-    openapiFields.add("data_retention_size");
-    openapiFields.add("hostname");
-    openapiFields.add("lb_admin");
-    openapiFields.add("lb_password");
-    openapiFields.add("lb_policy");
-    openapiFields.add("max_connection_be");
-    openapiFields.add("max_connection_fe");
-    openapiFields.add("port");
-    openapiFields.add("ro_port");
-    openapiFields.add("rw_port");
-    openapiFields.add("rw_splitting");
-    openapiFields.add("stats_socket");
-    openapiFields.add("timeout_client");
-    openapiFields.add("timeout_server");
-    openapiFields.add("xinetd_allow_from");
-    openapiFields.add("scrape_interval");
-    openapiFields.add("configuration");
+    openapiFields = new HashSet<String>(Arrays.asList("backend_name_ro", "backend_name_rw", "data_retention", "data_retention_size", "hostname", "hostname_data", "hostname_internal", "configfile", "datadir", "pgname", "synchronous", "lb_admin", "lb_password", "lb_policy", "max_connection_be", "max_connection_fe", "port", "ro_port", "rw_port", "rw_splitting", "stats_socket", "timeout_client", "timeout_server", "xinetd_allow_from", "scrape_interval", "configuration"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobDataNode
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobDataNode.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobDataNode is not found in the empty JSON string", JobsJobJobSpecJobDataNode.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobDataNode
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobDataNode.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobDataNode is not found in the empty JSON string", JobsJobJobSpecJobDataNode.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobDataNode.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataNode` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataNode` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("backend_name_ro") != null && !jsonObj.get("backend_name_ro").isJsonNull()) && !jsonObj.get("backend_name_ro").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backend_name_ro` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backend_name_ro").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backend_name_ro` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backend_name_ro").toString()));
       }
       if ((jsonObj.get("backend_name_rw") != null && !jsonObj.get("backend_name_rw").isJsonNull()) && !jsonObj.get("backend_name_rw").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backend_name_rw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backend_name_rw").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backend_name_rw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backend_name_rw").toString()));
       }
       if ((jsonObj.get("data_retention") != null && !jsonObj.get("data_retention").isJsonNull()) && !jsonObj.get("data_retention").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `data_retention` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_retention").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data_retention` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_retention").toString()));
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+      }
+      if ((jsonObj.get("hostname_data") != null && !jsonObj.get("hostname_data").isJsonNull()) && !jsonObj.get("hostname_data").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_data").toString()));
+      }
+      if ((jsonObj.get("hostname_internal") != null && !jsonObj.get("hostname_internal").isJsonNull()) && !jsonObj.get("hostname_internal").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname_internal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname_internal").toString()));
+      }
+      if ((jsonObj.get("configfile") != null && !jsonObj.get("configfile").isJsonNull()) && !jsonObj.get("configfile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `configfile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configfile").toString()));
+      }
+      if ((jsonObj.get("datadir") != null && !jsonObj.get("datadir").isJsonNull()) && !jsonObj.get("datadir").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadir").toString()));
+      }
+      if ((jsonObj.get("pgname") != null && !jsonObj.get("pgname").isJsonNull()) && !jsonObj.get("pgname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pgname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pgname").toString()));
       }
       if ((jsonObj.get("lb_admin") != null && !jsonObj.get("lb_admin").isJsonNull()) && !jsonObj.get("lb_admin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lb_admin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_admin").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lb_admin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_admin").toString()));
       }
       if ((jsonObj.get("lb_password") != null && !jsonObj.get("lb_password").isJsonNull()) && !jsonObj.get("lb_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lb_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lb_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_password").toString()));
       }
       if ((jsonObj.get("lb_policy") != null && !jsonObj.get("lb_policy").isJsonNull()) && !jsonObj.get("lb_policy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lb_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_policy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lb_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lb_policy").toString()));
       }
       if ((jsonObj.get("stats_socket") != null && !jsonObj.get("stats_socket").isJsonNull()) && !jsonObj.get("stats_socket").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stats_socket` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stats_socket").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stats_socket` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stats_socket").toString()));
       }
       if ((jsonObj.get("xinetd_allow_from") != null && !jsonObj.get("xinetd_allow_from").isJsonNull()) && !jsonObj.get("xinetd_allow_from").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `xinetd_allow_from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xinetd_allow_from").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `xinetd_allow_from` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xinetd_allow_from").toString()));
       }
       if ((jsonObj.get("scrape_interval") != null && !jsonObj.get("scrape_interval").isJsonNull()) && !jsonObj.get("scrape_interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scrape_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scrape_interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scrape_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scrape_interval").toString()));
       }
       if (jsonObj.get("configuration") != null && !jsonObj.get("configuration").isJsonNull()) {
         JsonArray jsonArray_configuration = jsonObj.getAsJsonArray("configuration");
         if (jsonArray_configuration != null) {
           // ensure the json data is an array
           if (!jsonObj.get("configuration").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `configuration` to be an array in the JSON string but got `%s`", jsonObj.get("configuration").toString()));
           }
 
           // validate the optional field `configuration` (array)
           for (int i = 0; i < jsonArray_configuration.size(); i++) {
-            JobsJobJobSpecJobDataNodeConfigurationInner.validateJsonObject(jsonArray_configuration.get(i).getAsJsonObject());
+            JobsJobJobSpecJobDataNodeConfigurationInner.validateJsonElement(jsonArray_configuration.get(i));
           };
         }
       }
@@ -798,31 +887,31 @@ public class JobsJobJobSpecJobDataNode {
 
            @Override
            public JobsJobJobSpecJobDataNode read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobDataNode given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobDataNode
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataNode
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobDataNode given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobDataNode
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataNode
+   */
   public static JobsJobJobSpecJobDataNode fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobDataNode.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobDataNode to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobDataNode to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

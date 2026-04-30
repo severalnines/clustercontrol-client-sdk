@@ -1,0 +1,6 @@
+{
+   "invokerPackage": "org.openapitools.ccapi.proxy.client",
+   "apiPackage": "org.openapitools.ccapi.proxy.client.api",
+   "modelPackage": "org.openapitools.ccapi.proxy.client.model"
+}
+

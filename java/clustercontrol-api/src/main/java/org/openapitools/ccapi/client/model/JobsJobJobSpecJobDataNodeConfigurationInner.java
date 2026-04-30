@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,10 +48,11 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * JobsJobJobSpecJobDataNodeConfigurationInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class JobsJobJobSpecJobDataNodeConfigurationInner {
   public static final String SERIALIZED_NAME_ARGUMENTS = "arguments";
   @SerializedName(SERIALIZED_NAME_ARGUMENTS)
+  @javax.annotation.Nullable
   private String arguments;
 
   /**
@@ -101,84 +102,79 @@ public class JobsJobJobSpecJobDataNodeConfigurationInner {
         return JobEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      JobEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_JOB = "job";
   @SerializedName(SERIALIZED_NAME_JOB)
+  @javax.annotation.Nullable
   private JobEnum job;
 
   public static final String SERIALIZED_NAME_SCRAPE_INTERVAL = "scrape_interval";
   @SerializedName(SERIALIZED_NAME_SCRAPE_INTERVAL)
+  @javax.annotation.Nullable
   private String scrapeInterval;
 
   public JobsJobJobSpecJobDataNodeConfigurationInner() {
   }
 
-  public JobsJobJobSpecJobDataNodeConfigurationInner arguments(String arguments) {
-    
+  public JobsJobJobSpecJobDataNodeConfigurationInner arguments(@javax.annotation.Nullable String arguments) {
     this.arguments = arguments;
     return this;
   }
 
-   /**
+  /**
    * Get arguments
    * @return arguments
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getArguments() {
     return arguments;
   }
 
-
-  public void setArguments(String arguments) {
+  public void setArguments(@javax.annotation.Nullable String arguments) {
     this.arguments = arguments;
   }
 
 
-  public JobsJobJobSpecJobDataNodeConfigurationInner job(JobEnum job) {
-    
+  public JobsJobJobSpecJobDataNodeConfigurationInner job(@javax.annotation.Nullable JobEnum job) {
     this.job = job;
     return this;
   }
 
-   /**
+  /**
    * Get job
    * @return job
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public JobEnum getJob() {
     return job;
   }
 
-
-  public void setJob(JobEnum job) {
+  public void setJob(@javax.annotation.Nullable JobEnum job) {
     this.job = job;
   }
 
 
-  public JobsJobJobSpecJobDataNodeConfigurationInner scrapeInterval(String scrapeInterval) {
-    
+  public JobsJobJobSpecJobDataNodeConfigurationInner scrapeInterval(@javax.annotation.Nullable String scrapeInterval) {
     this.scrapeInterval = scrapeInterval;
     return this;
   }
 
-   /**
+  /**
    * Get scrapeInterval
    * @return scrapeInterval
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getScrapeInterval() {
     return scrapeInterval;
   }
 
-
-  public void setScrapeInterval(String scrapeInterval) {
+  public void setScrapeInterval(@javax.annotation.Nullable String scrapeInterval) {
     this.scrapeInterval = scrapeInterval;
   }
 
@@ -219,10 +215,7 @@ public class JobsJobJobSpecJobDataNodeConfigurationInner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -231,43 +224,45 @@ public class JobsJobJobSpecJobDataNodeConfigurationInner {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("arguments");
-    openapiFields.add("job");
-    openapiFields.add("scrape_interval");
+    openapiFields = new HashSet<String>(Arrays.asList("arguments", "job", "scrape_interval"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to JobsJobJobSpecJobDataNodeConfigurationInner
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!JobsJobJobSpecJobDataNodeConfigurationInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JobsJobJobSpecJobDataNodeConfigurationInner is not found in the empty JSON string", JobsJobJobSpecJobDataNodeConfigurationInner.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to JobsJobJobSpecJobDataNodeConfigurationInner
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!JobsJobJobSpecJobDataNodeConfigurationInner.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in JobsJobJobSpecJobDataNodeConfigurationInner is not found in the empty JSON string", JobsJobJobSpecJobDataNodeConfigurationInner.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!JobsJobJobSpecJobDataNodeConfigurationInner.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataNodeConfigurationInner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `JobsJobJobSpecJobDataNodeConfigurationInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("arguments") != null && !jsonObj.get("arguments").isJsonNull()) && !jsonObj.get("arguments").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `arguments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arguments").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `arguments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arguments").toString()));
       }
       if ((jsonObj.get("job") != null && !jsonObj.get("job").isJsonNull()) && !jsonObj.get("job").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `job` to be a primitive type in the JSON string but got `%s`", jsonObj.get("job").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `job` to be a primitive type in the JSON string but got `%s`", jsonObj.get("job").toString()));
+      }
+      // validate the optional field `job`
+      if (jsonObj.get("job") != null && !jsonObj.get("job").isJsonNull()) {
+        JobEnum.validateJsonElement(jsonObj.get("job"));
       }
       if ((jsonObj.get("scrape_interval") != null && !jsonObj.get("scrape_interval").isJsonNull()) && !jsonObj.get("scrape_interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scrape_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scrape_interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scrape_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scrape_interval").toString()));
       }
   }
 
@@ -291,31 +286,31 @@ public class JobsJobJobSpecJobDataNodeConfigurationInner {
 
            @Override
            public JobsJobJobSpecJobDataNodeConfigurationInner read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of JobsJobJobSpecJobDataNodeConfigurationInner given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of JobsJobJobSpecJobDataNodeConfigurationInner
-  * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataNodeConfigurationInner
-  */
+  /**
+   * Create an instance of JobsJobJobSpecJobDataNodeConfigurationInner given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of JobsJobJobSpecJobDataNodeConfigurationInner
+   * @throws IOException if the JSON string is invalid with respect to JobsJobJobSpecJobDataNodeConfigurationInner
+   */
   public static JobsJobJobSpecJobDataNodeConfigurationInner fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, JobsJobJobSpecJobDataNodeConfigurationInner.class);
   }
 
- /**
-  * Convert an instance of JobsJobJobSpecJobDataNodeConfigurationInner to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of JobsJobJobSpecJobDataNodeConfigurationInner to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

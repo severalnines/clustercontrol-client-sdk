@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class AlarmsApi {
     private ApiClient localVarApiClient;
@@ -81,13 +80,14 @@ public class AlarmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call alarmPostCall(Alarm alarm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call alarmPostCall(@javax.annotation.Nonnull Alarm alarm, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,7 +133,7 @@ public class AlarmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call alarmPostValidateBeforeCall(Alarm alarm, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call alarmPostValidateBeforeCall(@javax.annotation.Nonnull Alarm alarm, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'alarm' is set
         if (alarm == null) {
             throw new ApiException("Missing the required parameter 'alarm' when calling alarmPost(Async)");
@@ -150,13 +150,14 @@ public class AlarmsApi {
      * @return AlarmResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public AlarmResponse alarmPost(Alarm alarm) throws ApiException {
+    public AlarmResponse alarmPost(@javax.annotation.Nonnull Alarm alarm) throws ApiException {
         ApiResponse<AlarmResponse> localVarResp = alarmPostWithHttpInfo(alarm);
         return localVarResp.getData();
     }
@@ -168,13 +169,14 @@ public class AlarmsApi {
      * @return ApiResponse&lt;AlarmResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlarmResponse> alarmPostWithHttpInfo(Alarm alarm) throws ApiException {
+    public ApiResponse<AlarmResponse> alarmPostWithHttpInfo(@javax.annotation.Nonnull Alarm alarm) throws ApiException {
         okhttp3.Call localVarCall = alarmPostValidateBeforeCall(alarm, null);
         Type localVarReturnType = new TypeToken<AlarmResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -188,13 +190,14 @@ public class AlarmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
         <tr><td> 405 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call alarmPostAsync(Alarm alarm, final ApiCallback<AlarmResponse> _callback) throws ApiException {
+    public okhttp3.Call alarmPostAsync(@javax.annotation.Nonnull Alarm alarm, final ApiCallback<AlarmResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = alarmPostValidateBeforeCall(alarm, _callback);
         Type localVarReturnType = new TypeToken<AlarmResponse>(){}.getType();

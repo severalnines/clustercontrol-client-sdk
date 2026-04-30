@@ -61,7 +61,7 @@ public class AuthenticateWithClusterControl extends AbstractClusterControlOperat
 
         AuthApi authApiInstance = new AuthApi(apiClient);
         Authenticate authenticate = new Authenticate(); // Authenticate | Authentication parameters
-        authenticate.operation(Authenticate.OperationEnum.AUTHENTICATEWITHPASSWORD);
+        authenticate.operation(Authenticate.OperationEnum.AUTHENTICATE_WITH_PASSWORD);
         authenticate.userName(authUser.getUsername());
         authenticate.password(authUser.getPassword());
         try {

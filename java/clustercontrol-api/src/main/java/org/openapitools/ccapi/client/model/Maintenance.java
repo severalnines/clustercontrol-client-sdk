@@ -14,15 +14,13 @@
 package org.openapitools.ccapi.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,13 +32,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.openapitools.ccapi.client.JSON;
@@ -48,22 +48,22 @@ import org.openapitools.ccapi.client.JSON;
 /**
  * Maintenance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-28T20:03:34.941519-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-25T20:06:39.466573-04:00[America/New_York]", comments = "Generator version: 7.21.0")
 public class Maintenance {
   /**
    * Gets or Sets operation
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
-    ADDMAINTENANCE("addMaintenance"),
+    ADD_MAINTENANCE("addMaintenance"),
     
-    REMOVEMAINTENANCE("removeMaintenance"),
+    REMOVE_MAINTENANCE("removeMaintenance"),
     
-    GETMAINTENANCE("getMaintenance"),
+    GET_MAINTENANCE("getMaintenance"),
     
-    GETCURRENTMAINTENANCE("getCurrentMaintenance"),
+    GET_CURRENT_MAINTENANCE("getCurrentMaintenance"),
     
-    GETNEXTMAINTENANCE("getNextMaintenance");
+    GET_NEXT_MAINTENANCE("getNextMaintenance");
 
     private String value;
 
@@ -101,170 +101,229 @@ public class Maintenance {
         return OperationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      OperationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_OPERATION = "operation";
   @SerializedName(SERIALIZED_NAME_OPERATION)
+  @javax.annotation.Nonnull
   private OperationEnum operation;
+
+  public static final String SERIALIZED_NAME_PAGESIZE = "pagesize";
+  @SerializedName(SERIALIZED_NAME_PAGESIZE)
+  @javax.annotation.Nullable
+  private Integer pagesize;
+
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  @javax.annotation.Nullable
+  private Integer page;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
+  @javax.annotation.Nullable
   private Integer clusterId;
 
   public static final String SERIALIZED_NAME_DEADLINE = "deadline";
   @SerializedName(SERIALIZED_NAME_DEADLINE)
+  @javax.annotation.Nullable
   private String deadline;
 
   public static final String SERIALIZED_NAME_INITIATE = "initiate";
   @SerializedName(SERIALIZED_NAME_INITIATE)
+  @javax.annotation.Nullable
   private String initiate;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  @javax.annotation.Nullable
   private String hostname;
 
   public static final String SERIALIZED_NAME_U_U_I_D = "UUID";
   @SerializedName(SERIALIZED_NAME_U_U_I_D)
+  @javax.annotation.Nullable
   private String UUID;
+
+  public static final String SERIALIZED_NAME_REASON = "reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nullable
+  private String reason;
 
   public Maintenance() {
   }
 
-  public Maintenance operation(OperationEnum operation) {
-    
+  public Maintenance operation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Get operation
    * @return operation
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
     this.operation = operation;
   }
 
 
-  public Maintenance clusterId(Integer clusterId) {
-    
+  public Maintenance pagesize(@javax.annotation.Nullable Integer pagesize) {
+    this.pagesize = pagesize;
+    return this;
+  }
+
+  /**
+   * Get pagesize
+   * @return pagesize
+   */
+  @javax.annotation.Nullable
+  public Integer getPagesize() {
+    return pagesize;
+  }
+
+  public void setPagesize(@javax.annotation.Nullable Integer pagesize) {
+    this.pagesize = pagesize;
+  }
+
+
+  public Maintenance page(@javax.annotation.Nullable Integer page) {
+    this.page = page;
+    return this;
+  }
+
+  /**
+   * Get page
+   * @return page
+   */
+  @javax.annotation.Nullable
+  public Integer getPage() {
+    return page;
+  }
+
+  public void setPage(@javax.annotation.Nullable Integer page) {
+    this.page = page;
+  }
+
+
+  public Maintenance clusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
     return this;
   }
 
-   /**
+  /**
    * Get clusterId
    * @return clusterId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getClusterId() {
     return clusterId;
   }
 
-
-  public void setClusterId(Integer clusterId) {
+  public void setClusterId(@javax.annotation.Nullable Integer clusterId) {
     this.clusterId = clusterId;
   }
 
 
-  public Maintenance deadline(String deadline) {
-    
+  public Maintenance deadline(@javax.annotation.Nullable String deadline) {
     this.deadline = deadline;
     return this;
   }
 
-   /**
+  /**
    * Get deadline
    * @return deadline
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getDeadline() {
     return deadline;
   }
 
-
-  public void setDeadline(String deadline) {
+  public void setDeadline(@javax.annotation.Nullable String deadline) {
     this.deadline = deadline;
   }
 
 
-  public Maintenance initiate(String initiate) {
-    
+  public Maintenance initiate(@javax.annotation.Nullable String initiate) {
     this.initiate = initiate;
     return this;
   }
 
-   /**
+  /**
    * Get initiate
    * @return initiate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getInitiate() {
     return initiate;
   }
 
-
-  public void setInitiate(String initiate) {
+  public void setInitiate(@javax.annotation.Nullable String initiate) {
     this.initiate = initiate;
   }
 
 
-  public Maintenance hostname(String hostname) {
-    
+  public Maintenance hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getHostname() {
     return hostname;
   }
 
-
-  public void setHostname(String hostname) {
+  public void setHostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
   }
 
 
-  public Maintenance UUID(String UUID) {
-    
+  public Maintenance UUID(@javax.annotation.Nullable String UUID) {
     this.UUID = UUID;
     return this;
   }
 
-   /**
+  /**
    * Get UUID
    * @return UUID
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getUUID() {
     return UUID;
   }
 
-
-  public void setUUID(String UUID) {
+  public void setUUID(@javax.annotation.Nullable String UUID) {
     this.UUID = UUID;
+  }
+
+
+  public Maintenance reason(@javax.annotation.Nullable String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+  /**
+   * Get reason
+   * @return reason
+   */
+  @javax.annotation.Nullable
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(@javax.annotation.Nullable String reason) {
+    this.reason = reason;
   }
 
 
@@ -279,16 +338,19 @@ public class Maintenance {
     }
     Maintenance maintenance = (Maintenance) o;
     return Objects.equals(this.operation, maintenance.operation) &&
+        Objects.equals(this.pagesize, maintenance.pagesize) &&
+        Objects.equals(this.page, maintenance.page) &&
         Objects.equals(this.clusterId, maintenance.clusterId) &&
         Objects.equals(this.deadline, maintenance.deadline) &&
         Objects.equals(this.initiate, maintenance.initiate) &&
         Objects.equals(this.hostname, maintenance.hostname) &&
-        Objects.equals(this.UUID, maintenance.UUID);
+        Objects.equals(this.UUID, maintenance.UUID) &&
+        Objects.equals(this.reason, maintenance.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operation, clusterId, deadline, initiate, hostname, UUID);
+    return Objects.hash(operation, pagesize, page, clusterId, deadline, initiate, hostname, UUID, reason);
   }
 
   @Override
@@ -296,11 +358,14 @@ public class Maintenance {
     StringBuilder sb = new StringBuilder();
     sb.append("class Maintenance {\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    pagesize: ").append(toIndentedString(pagesize)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    initiate: ").append(toIndentedString(initiate)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    UUID: ").append(toIndentedString(UUID)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -310,10 +375,7 @@ public class Maintenance {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -322,60 +384,59 @@ public class Maintenance {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("operation");
-    openapiFields.add("cluster_id");
-    openapiFields.add("deadline");
-    openapiFields.add("initiate");
-    openapiFields.add("hostname");
-    openapiFields.add("UUID");
+    openapiFields = new HashSet<String>(Arrays.asList("operation", "pagesize", "page", "cluster_id", "deadline", "initiate", "hostname", "UUID", "reason"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("operation");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operation"));
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Maintenance
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Maintenance.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Maintenance is not found in the empty JSON string", Maintenance.openapiRequiredFields.toString()));
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Maintenance
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Maintenance.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Maintenance is not found in the empty JSON string", Maintenance.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Maintenance.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Maintenance` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Maintenance` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Maintenance.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("operation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
+      // validate the required field `operation`
+      OperationEnum.validateJsonElement(jsonObj.get("operation"));
       if ((jsonObj.get("deadline") != null && !jsonObj.get("deadline").isJsonNull()) && !jsonObj.get("deadline").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deadline` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deadline").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deadline` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deadline").toString()));
       }
       if ((jsonObj.get("initiate") != null && !jsonObj.get("initiate").isJsonNull()) && !jsonObj.get("initiate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `initiate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `initiate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiate").toString()));
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if ((jsonObj.get("UUID") != null && !jsonObj.get("UUID").isJsonNull()) && !jsonObj.get("UUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `UUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("UUID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `UUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("UUID").toString()));
+      }
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
   }
 
@@ -399,31 +460,31 @@ public class Maintenance {
 
            @Override
            public Maintenance read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Maintenance given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Maintenance
-  * @throws IOException if the JSON string is invalid with respect to Maintenance
-  */
+  /**
+   * Create an instance of Maintenance given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Maintenance
+   * @throws IOException if the JSON string is invalid with respect to Maintenance
+   */
   public static Maintenance fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Maintenance.class);
   }
 
- /**
-  * Convert an instance of Maintenance to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Maintenance to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

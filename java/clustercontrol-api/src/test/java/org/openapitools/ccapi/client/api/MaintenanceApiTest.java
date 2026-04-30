@@ -32,7 +32,7 @@ public class MaintenanceApiTest {
     private final MaintenanceApi api = new MaintenanceApi();
 
     /**
-     * CreateJobInstance | etc
+     * Set a maintenance window for a managed database cluster
      *
      * @throws ApiException if the Api call fails
      */
