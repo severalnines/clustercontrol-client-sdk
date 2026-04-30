@@ -61,7 +61,8 @@ go run main.go
 OR,
 ```shell
 cd ./go/cmd/clustercontrol-api-example
-go build
+#go build
+go build -o ./bin/ .
 ./clustercontrol-api-example
 ```
 OR,
