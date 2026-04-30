@@ -1,152 +1,111 @@
-# ClusterControl Clinet SDK
+# ClusterControl Client SDK
 ClusterControl Client SDK built on ClusterControl's REST API.
 
-| Directory   | Description of Content                                                                            |
-|-------------|---------------------------------------------------------------------------------------------------|
-| ./generated | The bindings for various probramming languages that are genereted by the openapi-generator        |
-| ./go        | The GoLang binding of with minor modifications to work with ClusterControl                        |
-| ./python    | The Python binding of with minor modifications to work with ClusterControl (generator v7.0.1)     |
-| ./python2   | The Python binding of with minor modifications to work with ClusterControl (the newgen generator) |
-| ./java      | The Java binding of with minor modifications to work with ClusterControl                          |
-
 ## Table of Contents
-1. [How to use the client SDK - **For Developers and Consumers of the SDK**](#how-to-use-the-client-sdk)
-2. [How to use the OpenAPI code generator to generate various language binding - **INTERNAL**](#how-to-generate-language-bindings-for-internal-purposes)
+- [Introduction](#introduction)
+- [SDK for various programming languages](#sdk-for-various-proramming-languages)
+    - [API binding for Java](#api-binding-for-java)
+    - [API binding for Python](#api-binding-for-python)
+    - [API binding for GoLang](#api-binding-for-golang)
+- [Generating Sources from the API definition](#generating-sources-from-api-definition)
 
-## How to use the client SDK
-1. [How to use the GoLang binding](#how-to-use-the-golang-binding)
+## Introduction
+ClusterControl is a platrform which has a HTTPS based 'RPC' API to provide complete access and control of the CMON Controller which is our workflow engine.
+The CMON API documentation is readily available [here](https://severalnines.com/downloads/cmon/cmon-docs/current/rpcv2.html)
 
-| Subdirectory                        | Description of Content                                                                |
-|-------------------------------------|---------------------------------------------------------------------------------------|
-| ./go/pkg/openapi                    | The openapi code used to programatically access ClusterControl REST API endpoints     |
-| ./go/pkg/openapi/docs               | The API documentation                                                                 |
-| ./go/pkg/openapi/test               | The API tests (needs work)                                                            |
-| ./go/cmd/clustercontrol-api-example | A functioning example that uses the ClusterControl API to accomplish some basic tasks |
+Using the CMON RPCv2 API directly though requires that clients are passing JSON documents of jobs specs to be executed.
+Creating these CMON JSON job specs are straightforward however cumbersome given its text based nature where correct syntax and manual validations is needed in order for the jobs to be executed.
 
-2. [How to use the Python binding](#how-to-use-the-python-binding)
+A more user (developer) friendly way of using the CMON RPCv2 API is to use the OpenAPI specification to document and generate API client libraries for various system languages.
+The OpenAPI documentation is machine readable and makes it easy formally describe an API and also use tools such as the [openapi-generator](https://github.com/OpenAPITools/openapi-generator) to generate client libraries.
 
-| Subdirectory                             | Description of Content                                                                |
-|------------------------------------------|---------------------------------------------------------------------------------------|
-| ./python2/openapi_cc_client              | The openapi code used to programatically access ClusterControl REST API endpoints     |
-| ./python2/docs                           | The API documentation                                                                 |
-| ./python2/test                           | The API tests (needs work)                                                            |
-| ./python2/cmd/clustercontrol_api_example | A functioning example that uses the ClusterControl API to accomplish some basic tasks |
+You can use your favourite system language such as Go or Pyton to create applications which integrates with ClusterControl to manage and monitor your databases.
 
-3. [How to use the Java binding](#how-to-use-the-java-binding)
+## SDK for various programming languages
+ClusterControl API (v2) SDK has bindings for various programming languages.
 
-| Subdirectory                                        | Description of Content                                                                |
-|-----------------------------------------------------|---------------------------------------------------------------------------------------|
-| ./java/clustercontrol-api/src/main/java             | The openapi code used to programatically access ClusterControl REST API endpoints     |
-| ./java/clustercontrol-api/docs                      | The API documentation                                                                 |
-| ./java/clustercontrol-api/src/test/java             | The API tests (needs work)                                                            |
-| ./java/clustercontrol-api-abstraction/src/main/java | API abstraction layer                                                                 |
-| ./java/clustercontrol-api-example/src/main/java     | A functioning example that uses the ClusterControl API to accomplish some basic tasks |
+### API binding for Java
+API binding for Java is available in the `java` subdirectory. It requires Apache Maven to build. Here are the build instructions.
+
+Setting up Apache Maven
+Here are instructions on how to setup Maven.
+1. Download the latest maven from <https://maven.apache.org/download.cgi> and extract it to your machine.
+2. Install JDK 8 and set JAVA_HOME to the directory where JDK is installed.
+   ```` bash
+   export JAVA_HOME=<jdk-install-dir>
+   ````
+3. Update PATH environment variable to include the maven and jdk "bin" directories.
+   ```` bash
+   export PATH=<maven-bin-dir>:$JAVA_HOME/bin:$PATH
+   ````
+
+Building Java bindings:
+
+   ```` bash
+   git clone https://github.com/severalnines/clustercontrol-client-sdk.git
+   cd clustercontrol-client-sdk/java
+   mvn -DskipTests clean package
+   ````
+
+We also provide an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/java).
+
+### API binding for Python
+API binding for Python is available in the `python` subdirectory.
+
+We hope to provide in the very near future an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/python).
 
 
-### How to use the GoLang binding
-#### Building & Running
-Setup env variables for ClusterContorl authentication:
-```shell
-export CC_URL="https://<your-cc-host>:9501/v2"
-export API_USER="your_user"
-export API_USER_PW="your_password"
+### API binding for GoLang
+API binding for GoLang is available in the `go` subdirectory.
+
+We hope to provide in the very near future an API Abstraction Layer above the underlying low-level API bindings. This makes it super easy to use the API SDK. Please check-out the instructions [here](https://github.com/severalnines/clustercontrol-client-sdk/tree/main/go).
+
+
+## Generating Sources from the API definition
+(**NOTE:** It is not required for you to generate new sources from the API definition. However, if you happend to modify the API definition, then you will have to generate new sources from the definition in order for the sources to reflect changes to the definition.)
+
+* Install Java Runtime 8. Skip these steps if you already have the latest generated language bindings.
+
+Follow the instructions for Linux at https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html
+Follow the instructions for MacOS at https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html
+
+* Download and setup the openapi-generator
+```
+$ cd clustercontrol-client-sdk
+$ mkdir -p $PWD/bin/openapitools
+$ curl -o $PWD/bin/openapitools/openapi-generator-cli.sh https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh
+$ chmod +x $PWD/bin/openapitools/openapi-generator-cli.sh
+$ export PATH=$PATH:$PWD/bin/openapitools
+
+```
+* Install Apache Maven.
+  Follow the instructions [here](https://maven.apache.org/install.html) for your favourite OS.
+```
+$ curl -o apache-maven-3.8.6-bin.tar.gz https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+$ tar xzvf apache-maven-3.8.6-bin.tar.gz
+$ export PATH=apache-maven-3.8.6/bin:$PATH
 ```
 
-Build & Run...
-
-```shell
-cd ./go/cmd/clustercontrol-api-example
-go run main.go
+* Check if openapi-generator.sh is setup properly
 ```
-OR,
-```shell
-cd ./go/cmd/clustercontrol-api-example
-#go build
-go build -o ./bin/ .
-./clustercontrol-api-example
-```
-OR,
-```shell
-cd ./go/cmd/clustercontrol-api-example
-make
-./bin/clustercontrol-api-example
+$ openapi-generator.sh version
+6.0.1
 ```
 
-### How to use the Python binding
-#### Building
-```shell
-cd ./phthon2
+* Generate API language bindings
+
 ```
-Setup virtual environment
-```shell
-python3 -m venv .venv
-source .venv/bin/activate
-```
-Get/Upgrade pip
-```shell
-pip3 install --upgrade pip
-```
-Install dependencies
-```shell
-# If you have a requirements.txt
-pip3 install -r requirements.txt
-```
-OR,
-```shell
-# If you have setup.py
-pip3 install -e .
+# install make with 'apt install make'
+#make python
+#make java
+make go
+...
+[main] INFO  o.o.codegen.TemplateManager - writing file /root/clustercontrol-client-sdk/./generated/go/.openapi-generator/FILES
+################################################################################
+# Thanks for using OpenAPI Generator.                                          #
+# Please consider donation to help us maintain this project 🙏                 #
+# https://opencollective.com/openapi_generator/donate                          #
+################################################################################
 ```
 
-```shell
-cd ./clustercontrol_api_example
-pip3 install -e .
-```
-
-#### Running
-```shell
-export CC_URL="https://<your-cc-host>:9501/v2"
-export API_USER="your_user"
-export API_USER_PW="your_password"
-cc-api-example
-```
-
-### How to use the Java binding
-#### Building
-##### Building (Gradle)
-```shell
-cd java
-clear && gradle clean build -x javadoc -x test
-```
-##### Building (Maven)
-```shell
-cd java
-clear && mvn -DskipTests clean package
-```
-
-#### Running the test application
-Gradle built jar::
-```shell
-export CC_URL="https://<your-cc-host>:9501/v2"
-export API_USER="your_user"
-export API_USER_PW="your_password"
-java -cp clustercontrol-api-example/build/libs/clustercontrol-api-example-1.0.0-all.jar \
-    com.severalnines.clustercontrol.clientsdk.cc.SampleMain
-```
-Maven built jar:
-```shell
-export CC_URL="https://<your-cc-host>:9501/v2"
-export API_USER="your_user"
-export API_USER_PW="your_password"
-java -cp ccsdk-package/target/ccsdk-package-1.0.0-jar-with-dependencies.jar \
-    com.severalnines.clustercontrol.clientsdk.cc.SampleMain
-```
-
-## How to generate language bindings (INTERNAL USE)
-1. [How to generate GoLang binding](#how-to-generate-golang-binding)
-2. [How to generate Python binding](#how-to-generate-python-binding)
-3. [How to generate Java binding](#how-to-generate-java-binding)
-
-### How to generate GoLang binding
-### How to generate Python binding
-### How to generate Java binding
-
+The next step is to write your first applicaton which calls upon these generated client API stubs. Checkout the respective binding subdirs for `java`, `python` and `go`.

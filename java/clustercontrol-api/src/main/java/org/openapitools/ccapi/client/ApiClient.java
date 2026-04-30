@@ -93,7 +93,7 @@ public class ApiClient {
 
     protected HttpLoggingInterceptor loggingInterceptor;
 
-    // Prem: ADDED
+    // CHANGED: ADDED
     private Map<String, String> mCmonSid = new HashMap<>();
 
     /**
@@ -1084,7 +1084,7 @@ public class ApiClient {
      */
     public <T> ApiResponse<T> execute(Call call) throws ApiException {
         // return execute(call, null);
-        // Prem: CHANGED
+        // CHANGED: CHANGED
         // return execute(call, null);
         return execute(call, String.class);
     }
@@ -1105,7 +1105,7 @@ public class ApiClient {
             Response response = call.execute();
             T data = handleResponse(response, returnType);
 
-            // Prem: ADDED
+            // CHANGED: ADDED
             extractAndStoreCmonCookie(response);
 
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
@@ -1216,7 +1216,7 @@ public class ApiClient {
      * @throws org.openapitools.ccapi.client.ApiException If fail to serialize the request body object
      */
     public Call buildCall(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
-        // Prem: ADDED
+        // CHANGED: ADDED
         // substitute cookie params with cmon-sid
         // Request request = buildRequest(baseUrl, path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
         Request request = buildRequest(baseUrl, path, method, queryParams, collectionQueryParams, body, headerParams, mCmonSid, formParams, authNames, callback);
@@ -1642,7 +1642,7 @@ public class ApiClient {
         return "";
     }
 
-    // Prem: ADDED
+    // CHANGED: ADDED
     /**
      * Extract and store the cmon sessionID returned in the cookie after a successful authentication with CMON.
      */

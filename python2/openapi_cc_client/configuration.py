@@ -535,10 +535,10 @@ class Configuration:
         """
         return [
             {
-                # Prem: BEGIN
+                # CHANGED: BEGIN
                 # 'url': "https://cchost:9501/v2",
                 'url': self._base_path,
-                # Prem: END
+                # CHANGED: END
                 'description': "No description provided",
             }
         ]

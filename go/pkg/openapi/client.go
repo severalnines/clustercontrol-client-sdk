@@ -464,14 +464,14 @@ func (c *APIClient) prepareRequest(
 	// Add the user agent to the request.
 	localVarRequest.Header.Add("User-Agent", c.cfg.UserAgent)
 
-	// Prem: ADDED
+	// CHANGED: ADDED
 	localVarRequest.Header.Add("Expect", "100-continue")
 
 	if ctx != nil {
 		// add context to the request
 		localVarRequest = localVarRequest.WithContext(ctx)
 
-		// Prem: ADDED
+		// CHANGED: ADDED
 		ccCookieCtx := ctx.Value("cookie")
 		if ccCookieCtx != nil {
 			cookie := ccCookieCtx.(*http.Cookie)
