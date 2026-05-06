@@ -27,6 +27,8 @@ type JobsJobJobSpecJobData struct {
 	AdminPassword *string `json:"admin_password,omitempty"`
 	AuditEvents *string `json:"audit_events,omitempty"`
 	ArchiveMode *string `json:"archive_mode,omitempty"`
+	SummarizeWal *bool `json:"summarize_wal,omitempty"`
+	ArchiveDir *string `json:"archive_dir,omitempty"`
 	Backupid *int32 `json:"backupid,omitempty"`
 	BackupId *int32 `json:"backup_id,omitempty"`
 	BuildFromSource *bool `json:"build_from_source,omitempty"`
@@ -386,6 +388,70 @@ func (o *JobsJobJobSpecJobData) HasArchiveMode() bool {
 // SetArchiveMode gets a reference to the given string and assigns it to the ArchiveMode field.
 func (o *JobsJobJobSpecJobData) SetArchiveMode(v string) {
 	o.ArchiveMode = &v
+}
+
+// GetSummarizeWal returns the SummarizeWal field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetSummarizeWal() bool {
+	if o == nil || IsNil(o.SummarizeWal) {
+		var ret bool
+		return ret
+	}
+	return *o.SummarizeWal
+}
+
+// GetSummarizeWalOk returns a tuple with the SummarizeWal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetSummarizeWalOk() (*bool, bool) {
+	if o == nil || IsNil(o.SummarizeWal) {
+		return nil, false
+	}
+	return o.SummarizeWal, true
+}
+
+// HasSummarizeWal returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasSummarizeWal() bool {
+	if o != nil && !IsNil(o.SummarizeWal) {
+		return true
+	}
+
+	return false
+}
+
+// SetSummarizeWal gets a reference to the given bool and assigns it to the SummarizeWal field.
+func (o *JobsJobJobSpecJobData) SetSummarizeWal(v bool) {
+	o.SummarizeWal = &v
+}
+
+// GetArchiveDir returns the ArchiveDir field value if set, zero value otherwise.
+func (o *JobsJobJobSpecJobData) GetArchiveDir() string {
+	if o == nil || IsNil(o.ArchiveDir) {
+		var ret string
+		return ret
+	}
+	return *o.ArchiveDir
+}
+
+// GetArchiveDirOk returns a tuple with the ArchiveDir field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *JobsJobJobSpecJobData) GetArchiveDirOk() (*string, bool) {
+	if o == nil || IsNil(o.ArchiveDir) {
+		return nil, false
+	}
+	return o.ArchiveDir, true
+}
+
+// HasArchiveDir returns a boolean if a field has been set.
+func (o *JobsJobJobSpecJobData) HasArchiveDir() bool {
+	if o != nil && !IsNil(o.ArchiveDir) {
+		return true
+	}
+
+	return false
+}
+
+// SetArchiveDir gets a reference to the given string and assigns it to the ArchiveDir field.
+func (o *JobsJobJobSpecJobData) SetArchiveDir(v string) {
+	o.ArchiveDir = &v
 }
 
 // GetBackupid returns the Backupid field value if set, zero value otherwise.
@@ -4194,6 +4260,12 @@ func (o JobsJobJobSpecJobData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ArchiveMode) {
 		toSerialize["archive_mode"] = o.ArchiveMode
+	}
+	if !IsNil(o.SummarizeWal) {
+		toSerialize["summarize_wal"] = o.SummarizeWal
+	}
+	if !IsNil(o.ArchiveDir) {
+		toSerialize["archive_dir"] = o.ArchiveDir
 	}
 	if !IsNil(o.Backupid) {
 		toSerialize["backupid"] = o.Backupid

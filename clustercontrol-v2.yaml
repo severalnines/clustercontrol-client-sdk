@@ -1024,7 +1024,7 @@ components:
                     "disable_node_recovery","check_pkg_upgrades","upgrade_cluster",
                     "success","add_replication_slave","deploy_cmonagents","delete_backup",
                     "registernode","removenode","add_shard","garbd","pgbouncer","haproxy",
-                    "proxysql"
+                    "proxysql","enable_log_archiving"
                   ]
                 id:
                   type: integer
@@ -1047,7 +1047,11 @@ components:
                       type: string
                     archive_mode:
                       type: string
-                      enum: ["always"]
+                      enum: ["always","on","off"]
+                    summarize_wal:
+                      type: boolean
+                    archive_dir:
+                      type: string
                     backupid:
                       type: integer
                     backup_id:

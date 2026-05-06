@@ -2,4 +2,4 @@ module github.com/severalnines/clustercontrol-client-sdk/go/cmd/clustercontrol-a
 
 go 1.26.2
 
-require github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi v0.0.0-20260421203513-edcaa79ca691
+require github.com/severalnines/clustercontrol-client-sdk/go/pkg/openapi v0.0.0-20260506212340-e0a621b6d2bc
