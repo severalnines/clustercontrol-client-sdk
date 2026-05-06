@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **AdminPassword** | Pointer to **string** |  | [optional] 
 **AuditEvents** | Pointer to **string** |  | [optional] 
 **ArchiveMode** | Pointer to **string** |  | [optional] 
+**SummarizeWal** | Pointer to **bool** |  | [optional] 
+**ArchiveDir** | Pointer to **string** |  | [optional] 
 **Backupid** | Pointer to **int32** |  | [optional] 
 **BackupId** | Pointer to **int32** |  | [optional] 
 **BuildFromSource** | Pointer to **bool** |  | [optional] 
@@ -323,6 +325,56 @@ SetArchiveMode sets ArchiveMode field to given value.
 `func (o *JobsJobJobSpecJobData) HasArchiveMode() bool`
 
 HasArchiveMode returns a boolean if a field has been set.
+
+### GetSummarizeWal
+
+`func (o *JobsJobJobSpecJobData) GetSummarizeWal() bool`
+
+GetSummarizeWal returns the SummarizeWal field if non-nil, zero value otherwise.
+
+### GetSummarizeWalOk
+
+`func (o *JobsJobJobSpecJobData) GetSummarizeWalOk() (*bool, bool)`
+
+GetSummarizeWalOk returns a tuple with the SummarizeWal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSummarizeWal
+
+`func (o *JobsJobJobSpecJobData) SetSummarizeWal(v bool)`
+
+SetSummarizeWal sets SummarizeWal field to given value.
+
+### HasSummarizeWal
+
+`func (o *JobsJobJobSpecJobData) HasSummarizeWal() bool`
+
+HasSummarizeWal returns a boolean if a field has been set.
+
+### GetArchiveDir
+
+`func (o *JobsJobJobSpecJobData) GetArchiveDir() string`
+
+GetArchiveDir returns the ArchiveDir field if non-nil, zero value otherwise.
+
+### GetArchiveDirOk
+
+`func (o *JobsJobJobSpecJobData) GetArchiveDirOk() (*string, bool)`
+
+GetArchiveDirOk returns a tuple with the ArchiveDir field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArchiveDir
+
+`func (o *JobsJobJobSpecJobData) SetArchiveDir(v string)`
+
+SetArchiveDir sets ArchiveDir field to given value.
+
+### HasArchiveDir
+
+`func (o *JobsJobJobSpecJobData) HasArchiveDir() bool`
+
+HasArchiveDir returns a boolean if a field has been set.
 
 ### GetBackupid
 

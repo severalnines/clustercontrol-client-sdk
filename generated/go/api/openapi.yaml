@@ -964,6 +964,7 @@ components:
               force: true
               wsrep_desync: true
               compression: true
+              archive_dir: archive_dir
               build_from_source: true
               verify_backup_delay: 7
               bootstrap: true
@@ -1103,6 +1104,7 @@ components:
                 port: 3
                 weight: 7
                 max_replication_lag: 3
+              summarize_wal: true
               force_stop: true
               ssh_user: ssh_user
               use_clustering: true
@@ -2518,6 +2520,7 @@ components:
         force: true
         wsrep_desync: true
         compression: true
+        archive_dir: archive_dir
         build_from_source: true
         verify_backup_delay: 7
         bootstrap: true
@@ -2657,6 +2660,7 @@ components:
           port: 3
           weight: 7
           max_replication_lag: 3
+        summarize_wal: true
         force_stop: true
         ssh_user: ssh_user
         use_clustering: true
@@ -2736,6 +2740,12 @@ components:
         archive_mode:
           enum:
           - always
+          - "on"
+          - "off"
+          type: string
+        summarize_wal:
+          type: boolean
+        archive_dir:
           type: string
         backupid:
           type: integer
@@ -3123,6 +3133,7 @@ components:
           force: true
           wsrep_desync: true
           compression: true
+          archive_dir: archive_dir
           build_from_source: true
           verify_backup_delay: 7
           bootstrap: true
@@ -3262,6 +3273,7 @@ components:
             port: 3
             weight: 7
             max_replication_lag: 3
+          summarize_wal: true
           force_stop: true
           ssh_user: ssh_user
           use_clustering: true
@@ -3355,6 +3367,7 @@ components:
           - pgbouncer
           - haproxy
           - proxysql
+          - enable_log_archiving
           type: string
         id:
           type: integer
@@ -3450,6 +3463,7 @@ components:
             force: true
             wsrep_desync: true
             compression: true
+            archive_dir: archive_dir
             build_from_source: true
             verify_backup_delay: 7
             bootstrap: true
@@ -3589,6 +3603,7 @@ components:
               port: 3
               weight: 7
               max_replication_lag: 3
+            summarize_wal: true
             force_stop: true
             ssh_user: ssh_user
             use_clustering: true
