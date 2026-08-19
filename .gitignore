@@ -1,96 +1,190 @@
-## Binaries for programs and plugins
-*.exe~
+# ── OS & editor ───────────────────────────────────────────────────────────
+.DS_Store
+*~
+*.swp
+*.swo
+.*.swp
+.idea/
+*.iml
+.vscode/
+.cursorignore
+.cursorindexingignore
+
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[codz]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
 *.so
-*.dylib
+*.sage.py
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing & coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Linters
+.ruff_cache/
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Package managers
+.pdm-python
+.pdm-build/
+.pixi
+__pypackages__/
+
+# Translations
+*.mo
+*.pot
+
+# Notebooks
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# IDEs / notebooks
+.spyderproject
+.spyproject
+.ropeproject
+.abstra/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Cython
+cython_debug/
+
+# Marimo
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+# Misc Python tools
+.pypirc
+
+# ── Django / Flask ────────────────────────────────────────────────────────
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+.webassets-cache
+.scrapy
+
+# Docs
+docs/_build/
+.pybuilder/
+/site
+
+# ── Terraform ─────────────────────────────────────────────────────────────
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform/
+example.tf
+
+# ── Go ────────────────────────────────────────────────────────────────────
 *.exe
 *.exe~
 *.dll
-*.so
 *.dylib
+*.test
 *.out
-*~
+vendor/
+go.work
+bin/
+
+# ── Logs & temp files ─────────────────────────────────────────────────────
 *.log
 *.bak
-.*.swp
-*.iml
-*.iml
 *.backup
-*.bkp
-.vagrant/
-tmp/
-bkp/
-backup/
-dist/
+
+# ── Secrets & SSH keys ────────────────────────────────────────────────────
+.env
+.env.*
+.envrc
+*.pem
+*.key
+*.ppk
+id_rsa
+id_rsa*
+id_ed25519
+id_ed25519*
+
+# ── kafka-ops project ─────────────────────────────────────────────────────
+# Real cluster definition (use nodes.yaml.example as the committed template)
+nodes.yaml
+
+# Generated cluster state (written by setup_kafka.py to ops host)
+cluster.json
+.kafka-ops/
+
+# Application-layer connection config (contains real IPs)
+bootstrap.yaml
+topics.yaml
+
+# ── Misc ──────────────────────────────────────────────────────────────────
+target/
 modules-dev/
-
-## Terraform
-#example.tf
-#terraform.tfplan
-#terraform.tfstate
-#./*.tfstate
-#.terraform/
-# terraform
-#.terraform*
-#terraform*
-
-
-#/pkg/
 website/.vagrant
 website/.bundle
 website/build
 website/node_modules
+.vagrant/
 
-# Miscellaneus
-.DS_Store
-.go
-
-# IDEs
-.idea/
-.vscode/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# Test binary, built with `go test -c`
-*.test
-
-# exclude jar for gradle wrapper
-!gradle/wrapper/*.jar
-
-# build files
-**/target
-target
-.gradle
-build
-
-# Other
-bin/
-vendor/
-
-/bin
-/.go
-/.container-*
-/.dockerfile-*
-/.licenses
-
-# pycache
-**/__pycache__/
-
-## Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-coverage.*
-*.coverprofile
-profile.cov
-
-## Go workspace file
-go.work
-go.work.sum
-
-# env file
-.env
-
-*.egg-info/
-
-AndroidManifest.xml
+# ── Binaries ──────────────────────────────────────────────────────────────────
+#vmagent # moved to the ./bin subdir
+#vmagent-bootstrap # moved to the ./bin subdir
