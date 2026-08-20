@@ -152,6 +152,34 @@ bin/
 *.bak
 *.backup
 
+# ── Java  ─────────────────────────────────────────────────────
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+
+# ── Maven  ─────────────────────────────────────────────────────
+# target/ already present - Maven's build output directory
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ── Gradle  ─────────────────────────────────────────────────────
+.gradle/
+gradle-app.setting
+.gradletasknamecache
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# IDE-generated Gradle project files (if not already covered elsewhere)
+out/
+
 # ── Secrets & SSH keys ────────────────────────────────────────────────────
 .env
 .env.*
