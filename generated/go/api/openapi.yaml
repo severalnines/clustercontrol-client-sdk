@@ -368,12 +368,12 @@ components:
   schemas:
     Authenticate:
       example:
+        operation: authenticateWithPassword
+        user_name: user_name
         password: password
         signature: signature
-        user_name: user_name
         new_password: new_password
         password_reset_token: password_reset_token
-        operation: authenticateWithPassword
       properties:
         operation:
           enum:
@@ -399,11 +399,11 @@ components:
       type: object
     Alarm:
       example:
-        cluster_id: 0
-        ignore: true
-        alarm_id: 6
         operation: getStatistics
+        cluster_id: 0
+        alarm_id: 6
         class_name: CmonRpcRequest
+        ignore: true
       properties:
         operation:
           enum:
@@ -427,11 +427,11 @@ components:
       type: object
     AlarmResponse:
       example:
-        cluster_id: 0
-        ignore: true
-        alarm_id: 6
         operation: getStatistics
+        cluster_id: 0
+        alarm_id: 6
         class_name: CmonRpcRequest
+        ignore: true
       properties:
         operation:
           enum:
@@ -453,11 +453,11 @@ components:
       type: object
     Audit:
       example:
+        operation: getEntries
         cluster_ids:
         - 0
         - 0
         ascending: true
-        operation: getEntries
       properties:
         operation:
           enum:
@@ -474,43 +474,43 @@ components:
       type: object
     Backup:
       example:
+        operation: getBackups
+        cluster_id: 0
+        ascending: true
+        order: order
+        backup_record_version: 6
+        limit: 1
+        offset: 5
         schedule:
+          class_name: CmonBackupSchedule
+          enabled: true
           schedule: schedule
+          schedule_id: 5
           job:
+            command: backup
             job_data:
-              cc_storage: true
+              description: description
+              backup_failover: true
+              backup_failover_host: auto
+              backup_method: pg_basebackup
               backup_retention: 2
               backupdir: backupdir
-              backup_method: pg_basebackup
               backupsubdir: backupsubdir
-              verify_backup_delay: 3
-              backup_failover: true
-              description: description
-              backup_failover_host: auto
+              cc_storage: true
+              compression: true
+              compresion_level: 7
               encrypt_backup: true
               hostname: hostname
               port: 9
-              compression: true
-              compresion_level: 7
+              verify_backup_delay: 3
               verify_backup:
-                install_software: true
-                disable_selinux: true
                 disable_firewall: true
-                terminate_db_server: true
+                disable_selinux: true
+                install_software: true
                 server_address: server_address
-            command: backup
-          class_name: CmonBackupSchedule
-          schedule_id: 5
-          enabled: true
-        cluster_id: 0
+                terminate_db_server: true
         backup_record:
           backup_id: 2
-        backup_record_version: 6
-        offset: 5
-        limit: 1
-        ascending: true
-        operation: getBackups
-        order: order
       properties:
         operation:
           enum:
@@ -547,15 +547,15 @@ components:
       type: object
     Cloud:
       example:
+        operation: verifyCredentials
         provider: provider
+        name: name
+        comment: comment
+        id: 0
         credentials:
           access_key_id: access_key_id
           access_key_secret: access_key_secret
           access_key_region: access_key_region
-        name: name
-        comment: comment
-        id: 0
-        operation: verifyCredentials
       properties:
         operation:
           enum:
@@ -581,33 +581,33 @@ components:
       type: object
     Clusters:
       example:
-        cluster_name: cluster_name
+        operation: getallclusterinfo
         cluster_id: 0
-        database:
-          database_name: database_name
-          class_name: CmonDataBase
-        filter_strings: filter_strings
-        nodes:
-        - nodes
-        - nodes
+        cluster_name: cluster_name
+        with_hosts: true
         with_sheet_info: true
-        offset: 1
         configuration:
         - name: name
           value: value
         - name: name
           value: value
-        limit: 6
-        operation: getallclusterinfo
-        with_hosts: true
         account:
+          class_name: CmonAccount
           grants: grants
           host_allow: host_allow
-          privileges: privileges
-          password: password
           own_database: own_database
+          privileges: privileges
           user_name: user_name
-          class_name: CmonAccount
+          password: password
+        filter_strings: filter_strings
+        limit: 6
+        offset: 1
+        database:
+          class_name: CmonDataBase
+          database_name: database_name
+        nodes:
+        - nodes
+        - nodes
       properties:
         operation:
           enum:
@@ -685,37 +685,8 @@ components:
       type: object
     Config:
       example:
+        operation: getConfig
         hostname: hostname
-        ldap_configuration:
-          ldapGroupSearchRoot: ldapGroupSearchRoot
-          security:
-            keyFile: keyFile
-            certFile: certFile
-            caCertFile: caCertFile
-          ldapServerUri: ldapServerUri
-          ldapUserSearchRoot: ldapUserSearchRoot
-          ldapSettings:
-            ldapQueryTimeLimit: ldapQueryTimeLimit
-            ldapProtocolVersion: ldapProtocolVersion
-            ldapUsernameAttributes: ldapUsernameAttributes
-            ldapGroupClassName: ldapGroupClassName
-            ldapEmailAttributes: ldapEmailAttributes
-            ldapGroupIdAttributes: ldapGroupIdAttributes
-            ldapGroupNameAttribute: ldapGroupNameAttribute
-            ldapMemberAttributes: ldapMemberAttributes
-            ldapNetworkTimeout: ldapNetworkTimeout
-            ldapUserClassName: ldapUserClassName
-            ldapRealnameAttributes: ldapRealnameAttributes
-          ldapAdminPassword: ldapAdminPassword
-          ldapAdminUser: ldapAdminUser
-          groupMappings:
-          - cmonGroupName: cmonGroupName
-            ldapGroupId: ldapGroupId
-            sectionName: sectionName
-          - cmonGroupName: cmonGroupName
-            ldapGroupId: ldapGroupId
-            sectionName: sectionName
-          enabled: true
         port: 0
         configuration:
         - name: name
@@ -724,8 +695,37 @@ components:
         - name: name
           value: value
           group: group
+        ldap_configuration:
+          enabled: true
+          ldapAdminPassword: ldapAdminPassword
+          ldapAdminUser: ldapAdminUser
+          ldapGroupSearchRoot: ldapGroupSearchRoot
+          ldapServerUri: ldapServerUri
+          ldapUserSearchRoot: ldapUserSearchRoot
+          groupMappings:
+          - cmonGroupName: cmonGroupName
+            ldapGroupId: ldapGroupId
+            sectionName: sectionName
+          - cmonGroupName: cmonGroupName
+            ldapGroupId: ldapGroupId
+            sectionName: sectionName
+          ldapSettings:
+            ldapEmailAttributes: ldapEmailAttributes
+            ldapGroupClassName: ldapGroupClassName
+            ldapGroupIdAttributes: ldapGroupIdAttributes
+            ldapGroupNameAttribute: ldapGroupNameAttribute
+            ldapMemberAttributes: ldapMemberAttributes
+            ldapNetworkTimeout: ldapNetworkTimeout
+            ldapProtocolVersion: ldapProtocolVersion
+            ldapQueryTimeLimit: ldapQueryTimeLimit
+            ldapRealnameAttributes: ldapRealnameAttributes
+            ldapUserClassName: ldapUserClassName
+            ldapUsernameAttributes: ldapUsernameAttributes
+          security:
+            caCertFile: caCertFile
+            certFile: certFile
+            keyFile: keyFile
         licensedata: licensedata
-        operation: getConfig
       properties:
         operation:
           enum:
@@ -755,9 +755,9 @@ components:
       type: object
     Controller:
       example:
-        controller_key: controller_key
-        client_ip_address: client_ip_address
         operation: ping
+        client_ip_address: client_ip_address
+        controller_key: controller_key
       properties:
         operation:
           enum:
@@ -773,36 +773,36 @@ components:
       type: object
     Discovery:
       example:
+        operation: checkClusterName
+        new_cluster_name: new_cluster_name
+        check_if_already_registered: true
         check_job: true
         check_ssh_sudo: true
         nodes:
-        - port: 0
-          class_name: CmonHost
+        - class_name: CmonHost
           host_name: host_name
-        - port: 0
-          class_name: CmonHost
+          port: 0
+        - class_name: CmonHost
           host_name: host_name
-        ssh_credentials:
-          ssh_keyfile: ssh_keyfile
-          password: password
-          user_name: user_name
-          class_name: class_name
-        new_cluster_name: new_cluster_name
-        check_if_already_registered: true
+          port: 0
         job:
+          class_name: CmonJobInstance
           job_spec:
+            command: create_cluster
             job_data:
+              cluster_type: group_replication
               mysql_version: mysql_version
+              vendor: vendor
               nodes:
               - class_name: CmonHost
                 host_name: host_name
               - class_name: CmonHost
                 host_name: host_name
-              vendor: vendor
-              cluster_type: group_replication
-            command: create_cluster
-          class_name: CmonJobInstance
-        operation: checkClusterName
+        ssh_credentials:
+          class_name: class_name
+          user_name: user_name
+          password: password
+          ssh_keyfile: ssh_keyfile
       properties:
         operation:
           enum:
@@ -831,20 +831,20 @@ components:
       type: object
     Host:
       example:
-        cluster_id: 0
+        operation: startServers
         servers:
-        - hostname: hostname
+        - class_name: CmonContainerServer
+          hostname: hostname
           cdt_path: cdt_path
-          class_name: CmonContainerServer
-        - hostname: hostname
+        - class_name: CmonContainerServer
+          hostname: hostname
           cdt_path: cdt_path
-          class_name: CmonContainerServer
+        cluster_id: 0
+        dry_run: true
         host:
+          class_name: class_name
           hostname: hostname
           port: 6
-          class_name: class_name
-        dry_run: true
-        operation: startServers
       properties:
         operation:
           enum:
@@ -870,307 +870,307 @@ components:
     Jobs:
       description: "Creating and manipulating jobs, reading information about jobs"
       example:
+        operation: createJobInstance
         cluster_id: 0
-        offset: 5
         job_id: 6
-        limit: 5
-        log_level: log_level
+        signal: 1
         ascending: true
+        limit: 5
+        offset: 5
+        log_level: log_level
         job:
+          class_name: class_name
+          title: title
+          status: status
           recurrence: recurrence
+          tags:
+          - tags
+          - tags
           job_spec:
+            command: rolling_restart
+            id: 2
             job_data:
+              action: enable
+              addnode: true
               admin_username: admin_username
-              sudo_password: sudo_password
-              compression_level: 4
-              terminate_db_server: true
+              admin_user: admin_user
+              admin_password: admin_password
+              audit_events: audit_events
+              archive_mode: always
+              summarize_wal: true
+              archive_dir: archive_dir
+              backupid: 7
+              backup_id: 9
+              build_from_source: true
+              cluster_name: cluster_name
+              clusterid: 3
               cluster_type: mssql_single
-              master_address: master_address
-              usePackageForDataDir: true
-              type: postgresql
-              enable_uninstall: true
+              company_id: company_id
+              config_template: config_template
+              backup_failover: true
+              backup_failover_host: auto
+              backup_method: pg_basebackup
+              backup_mysqldump_type: Complete
+              backup_individual_schemas: true
+              backup_retention: 2
+              extended_insert: true
+              backup_dir: backup_dir
+              backupsubdir: backupsubdir
+              remove_backups: true
+              backup_system_db: true
+              cc_storage: true
+              compression: true
+              compression_level: 4
+              db_database: db_database
+              db_password: db_password
+              db_privs: db_privs
+              db_username: db_username
+              data_center: 7
+              exec_upgrade_script: true
+              extended: true
+              listening_port: 1
+              mask_passwords: true
+              monitor_password: monitor_password
+              monitor_user: monitor_user
+              use_clustering: true
+              use_rw_split: true
               hostname: hostname
+              master_address: master_address
               master_delay: 1
+              include_databases: include_databases
+              install_timescaledb: true
+              update_lb: true
+              usePackageForDataDir: true
+              encrypt_backup: true
+              throttle_rate_netbw: 1
+              use_pigz: true
+              use_qpress: true
+              wsrep_desync: true
+              galera_segment: galera_segment
+              xtrabackup_backup_locks: true
+              xtrabackup_lock_ddl_per_table: true
+              xtrabackup_parallellism: 6
+              verify_backup_delay: 7
+              datadir: datadir
+              db_user: db_user
+              disable_firewall: true
+              disable_selinux: true
+              enable_uninstall: true
+              unregister_only: true
+              generate_token: true
+              install_software: true
+              use_internal_repos: true
+              local_repository: local_repository
+              enable_mysql_uninstall: true
               mysql_semi_sync: true
+              enable_ssl: true
+              mongos_conf_template: mongos_conf_template
+              mongodb_authdb: mongodb_authdb
+              node_type: 1
+              overwrite_mysqlchk: true
+              port: 4
+              sentinel_port: sentinel_port
+              redis_sharded_port: 5
+              valkey_sharded_port: 9
+              redis_sharded_bus_port: 9
+              valkey_sharded_bus_port: 6
+              redis_cluster_replica_validity_factor: 8
+              valkey_cluster_replica_validity_factor: 9
               node_timeout_ms: 6
+              ssh_keyfile: ssh_keyfile
+              ssh_port: ssh_port
+              ssh_user: ssh_user
+              sudo_password: sudo_password
+              user_id: 3
+              vendor: default
+              type: postgresql
+              version: version
+              software_package: software_package
+              server_address: server_address
+              terminate_db_server: true
+              xtrabackup_use_memory: 6
+              initial: true
+              reboot: true
+              slave_address: slave_address
+              force: true
+              force_stop: true
+              stop_timeout: 1
+              pitr_stop_time: pitr_stop_time
+              pitr_stop_log: pitr_stop_log
+              pitr_stop_pos: 2
+              host_location_uuid: host_location_uuid
+              bootstrap: true
+              snapshot_location: snapshot_location
+              snapshot_repository: snapshot_repository
+              snapshot_repository_type: snapshot_repository_type
+              snapshot_host: snapshot_host
+              storage_host: storage_host
+              replicaset: replicaset
+              deploy_agents: true
+              upload_backup_data_to_cloud_storage:
+                backup_retention: 6
+                bucket: bucket
+                cloud_storage_credentials_id: 6
+                cloud_storage_provider: cloud_storage_provider
+                cloud_storage_service: cloud_storage_service
+                delete_after_upload: true
+              verify_backup:
+                disable_firewall: true
+                disable_selinux: true
+                install_software: true
+                server_address: server_address
+                terminate_db_server: true
               config_servers:
                 rs: rs
                 members:
                 - hostname: hostname
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  hostname_data: hostname_data
                 - hostname: hostname
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  hostname_data: hostname_data
-              action: enable
-              listening_port: 1
-              verify_backup:
-                install_software: true
-                disable_selinux: true
-                disable_firewall: true
-                terminate_db_server: true
-                server_address: server_address
-              backup_system_db: true
-              generate_token: true
-              install_software: true
-              snapshot_repository: snapshot_repository
-              snapshot_host: snapshot_host
-              ssh_port: ssh_port
+              mongos_servers:
+              - hostname: hostname
+                hostname_data: hostname_data
+                hostname_internal: hostname_internal
+                port: port
+              - hostname: hostname
+                hostname_data: hostname_data
+                hostname_internal: hostname_internal
+                port: port
+              node:
+                backend_name_ro: backend_name_ro
+                backend_name_rw: backend_name_rw
+                data_retention: data_retention
+                data_retention_size: 5
+                hostname: hostname
+                hostname_data: hostname_data
+                hostname_internal: hostname_internal
+                configfile: configfile
+                datadir: datadir
+                pgname: pgname
+                synchronous: true
+                lb_admin: lb_admin
+                lb_password: lb_password
+                lb_policy: lb_policy
+                max_connection_be: 6
+                max_connection_fe: 3
+                port: 3
+                ro_port: 7
+                rw_port: 0
+                rw_splitting: true
+                stats_socket: stats_socket
+                timeout_client: 7
+                timeout_server: 6
+                xinetd_allow_from: xinetd_allow_from
+                scrape_interval: scrape_interval
+                configuration:
+                - arguments: arguments
+                  job: node
+                  scrape_interval: scrape_interval
+                - arguments: arguments
+                  job: node
+                  scrape_interval: scrape_interval
+              nodes:
+              - class_name: CmonRedisHost
+                cdt_path: cdt_path
+                acl: acl
+                clusterid: 0
+                ip: ip
+                maintenance_mode: none
+                maintenance_mode_active: true
+                timestamp: 4
+                unique_id: 8
+                hostname: hostname
+                hostname_data: hostname_data
+                hostname_internal: hostname_internal
+                port: port
+                nodetype: nodetype
+                configfile: configfile
+                datadir: datadir
+                backup_dir: backup_dir
+                synchronous: true
+                protocol: elastic
+                roles: master
+                role: primary
+              - class_name: CmonRedisHost
+                cdt_path: cdt_path
+                acl: acl
+                clusterid: 0
+                ip: ip
+                maintenance_mode: none
+                maintenance_mode_active: true
+                timestamp: 4
+                unique_id: 8
+                hostname: hostname
+                hostname_data: hostname_data
+                hostname_internal: hostname_internal
+                port: port
+                nodetype: nodetype
+                configfile: configfile
+                datadir: datadir
+                backup_dir: backup_dir
+                synchronous: true
+                protocol: elastic
+                roles: master
+                role: primary
+              node_adresses:
+              - hostname: hostname
+                max_connection: 7
+                max_replication_lag: 3
+                port: 3
+                weight: 7
+              - hostname: hostname
+                max_connection: 7
+                max_replication_lag: 3
+                port: 3
+                weight: 7
               topology:
                 master_slave_links:
                 - key: master_slave_links
                 - key: master_slave_links
-              backupid: 7
-              data_center: 7
-              version: version
-              node:
-                max_connection_be: 6
-                lb_admin: lb_admin
-                lb_password: lb_password
-                configuration:
-                - arguments: arguments
-                  scrape_interval: scrape_interval
-                  job: node
-                - arguments: arguments
-                  scrape_interval: scrape_interval
-                  job: node
-                synchronous: true
-                max_connection_fe: 3
-                hostname: hostname
-                timeout_server: 6
-                rw_splitting: true
-                scrape_interval: scrape_interval
-                ro_port: 7
-                backend_name_rw: backend_name_rw
-                data_retention_size: 5
-                hostname_internal: hostname_internal
-                configfile: configfile
-                datadir: datadir
-                backend_name_ro: backend_name_ro
-                timeout_client: 7
-                stats_socket: stats_socket
-                lb_policy: lb_policy
-                port: 3
-                data_retention: data_retention
-                xinetd_allow_from: xinetd_allow_from
-                rw_port: 0
-                hostname_data: hostname_data
-                pgname: pgname
-              mongos_conf_template: mongos_conf_template
-              user_id: 3
-              db_privs: db_privs
-              force: true
-              wsrep_desync: true
-              compression: true
-              archive_dir: archive_dir
-              build_from_source: true
-              verify_backup_delay: 7
-              bootstrap: true
-              redis_sharded_bus_port: 9
-              extended: true
-              mongos_servers:
-              - hostname: hostname
-                hostname_internal: hostname_internal
-                port: port
-                hostname_data: hostname_data
-              - hostname: hostname
-                hostname_internal: hostname_internal
-                port: port
-                hostname_data: hostname_data
-              stop_timeout: 1
-              disable_selinux: true
-              xtrabackup_use_memory: 6
-              vendor: default
-              deploy_agents: true
-              sentinel_port: sentinel_port
-              db_password: db_password
-              company_id: company_id
-              use_rw_split: true
-              backup_method: pg_basebackup
-              software_package: software_package
-              initial: true
-              pitr_stop_time: pitr_stop_time
-              mongodb_authdb: mongodb_authdb
-              backup_failover_host: auto
-              xtrabackup_parallellism: 6
-              backup_id: 9
-              monitor_password: monitor_password
-              db_username: db_username
-              unregister_only: true
-              db_user: db_user
-              use_pigz: true
-              enable_mysql_uninstall: true
-              redis_cluster_replica_validity_factor: 8
-              update_lb: true
-              include_databases: include_databases
-              cc_storage: true
-              snapshot_location: snapshot_location
-              backup_failover: true
-              server_address: server_address
-              replicaset: replicaset
-              exec_upgrade_script: true
-              enable_ssl: true
-              overwrite_mysqlchk: true
-              backup_mysqldump_type: Complete
-              node_type: 1
-              storage_host: storage_host
-              with_tags:
-              - with_tags
-              - with_tags
-              throttle_rate_netbw: 1
-              archive_mode: always
-              db_database: db_database
-              valkey_sharded_bus_port: 6
-              ssh_keyfile: ssh_keyfile
-              backup_retention: 2
-              backup_individual_schemas: true
-              backupsubdir: backupsubdir
-              datadir: datadir
-              pitr_stop_log: pitr_stop_log
-              admin_password: admin_password
-              local_repository: local_repository
-              valkey_cluster_replica_validity_factor: 9
-              port: 4
-              addnode: true
-              install_timescaledb: true
-              extended_insert: true
-              host_location_uuid: host_location_uuid
-              pitr_stop_pos: 2
-              admin_user: admin_user
-              mask_passwords: true
-              config_template: config_template
-              upload_backup_data_to_cloud_storage:
-                bucket: bucket
-                backup_retention: 6
-                cloud_storage_credentials_id: 6
-                cloud_storage_provider: cloud_storage_provider
-                delete_after_upload: true
-                cloud_storage_service: cloud_storage_service
-              backup_dir: backup_dir
               replica_sets:
               - rs: rs
                 members:
                 - hostname: hostname
-                  hidden: true
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  slave_delay: slave_delay
                   arbiter_only: true
+                  hidden: true
                   priority: 5
-                  hostname_data: hostname_data
+                  slave_delay: slave_delay
                 - hostname: hostname
-                  hidden: true
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  slave_delay: slave_delay
                   arbiter_only: true
+                  hidden: true
                   priority: 5
-                  hostname_data: hostname_data
+                  slave_delay: slave_delay
               - rs: rs
                 members:
                 - hostname: hostname
-                  hidden: true
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  slave_delay: slave_delay
                   arbiter_only: true
+                  hidden: true
                   priority: 5
-                  hostname_data: hostname_data
+                  slave_delay: slave_delay
                 - hostname: hostname
-                  hidden: true
+                  hostname_data: hostname_data
                   hostname_internal: hostname_internal
                   port: port
-                  slave_delay: slave_delay
                   arbiter_only: true
+                  hidden: true
                   priority: 5
-                  hostname_data: hostname_data
-              xtrabackup_lock_ddl_per_table: true
-              remove_backups: true
-              redis_sharded_port: 5
-              galera_segment: galera_segment
-              xtrabackup_backup_locks: true
-              monitor_user: monitor_user
-              valkey_sharded_port: 9
-              node_adresses:
-              - hostname: hostname
-                max_connection: 7
-                port: 3
-                weight: 7
-                max_replication_lag: 3
-              - hostname: hostname
-                max_connection: 7
-                port: 3
-                weight: 7
-                max_replication_lag: 3
-              summarize_wal: true
-              force_stop: true
-              ssh_user: ssh_user
-              use_clustering: true
-              reboot: true
-              cluster_name: cluster_name
-              use_qpress: true
-              use_internal_repos: true
-              disable_firewall: true
-              audit_events: audit_events
-              clusterid: 3
-              encrypt_backup: true
-              nodes:
-              - unique_id: 8
-                nodetype: nodetype
-                role: primary
-                maintenance_mode: none
-                hostname_internal: hostname_internal
-                configfile: configfile
-                datadir: datadir
-                synchronous: true
-                ip: ip
-                roles: master
-                backup_dir: backup_dir
-                acl: acl
-                clusterid: 0
-                hostname: hostname
-                protocol: elastic
-                cdt_path: cdt_path
-                port: port
-                maintenance_mode_active: true
-                class_name: CmonRedisHost
-                hostname_data: hostname_data
-                timestamp: 4
-              - unique_id: 8
-                nodetype: nodetype
-                role: primary
-                maintenance_mode: none
-                hostname_internal: hostname_internal
-                configfile: configfile
-                datadir: datadir
-                synchronous: true
-                ip: ip
-                roles: master
-                backup_dir: backup_dir
-                acl: acl
-                clusterid: 0
-                hostname: hostname
-                protocol: elastic
-                cdt_path: cdt_path
-                port: port
-                maintenance_mode_active: true
-                class_name: CmonRedisHost
-                hostname_data: hostname_data
-                timestamp: 4
-              snapshot_repository_type: snapshot_repository_type
-              slave_address: slave_address
-            id: 2
-            command: rolling_restart
-          title: title
-          class_name: class_name
-          status: status
-          tags:
-          - tags
-          - tags
-        operation: createJobInstance
-        signal: 1
+                  slave_delay: slave_delay
+              with_tags:
+              - with_tags
+              - with_tags
       properties:
         operation:
           enum:
@@ -1204,15 +1204,15 @@ components:
       type: object
     Maintenance:
       example:
-        initiate: initiate
-        reason: reason
-        cluster_id: 1
-        hostname: hostname
+        operation: addMaintenance
         pagesize: 0
         page: 6
+        cluster_id: 1
         deadline: deadline
+        initiate: initiate
+        hostname: hostname
         UUID: UUID
-        operation: addMaintenance
+        reason: reason
       properties:
         operation:
           enum:
@@ -1250,14 +1250,14 @@ components:
       type: object
     Reports:
       example:
+        operation: generateReport
         cluster_id: 0
         report:
-          recipients: recipients
-          report_id: 6
-          report_type: report_type
           class_name: CmonReport
+          recipients: recipients
+          report_type: report_type
           text_format: AnsiTerminal
-        operation: generateReport
+          report_id: 6
       properties:
         operation:
           enum:
@@ -1276,13 +1276,13 @@ components:
       type: object
     Stat:
       example:
+        operation: getInfo
         cluster_id: 0
-        calculate_per_sec: true
+        name: cpustat
         start_datetime: start_datetime
         end_datetime: end_datetime
-        name: cpustat
-        operation: getInfo
         with_hosts: true
+        calculate_per_sec: true
       properties:
         operation:
           enum:
@@ -1313,17 +1313,17 @@ components:
       type: object
     StatCmonAgent:
       example:
+        operation: /cmonagent
         apiKey: apiKey
         className: CmnRequest
         requestData:
-          origin: timeline
-          limit: 0
-          objectName: objectName
+          begin: begin
           className: CmnReadParam
           end: end
+          limit: 0
           mimeType: mimeType
-          begin: begin
-        operation: /cmonagent
+          objectName: objectName
+          origin: timeline
       properties:
         operation:
           enum:
@@ -1342,18 +1342,18 @@ components:
       type: object
     StatPrometheus:
       example:
-        cluster_name: cluster_name
-        cluster_id: 0
-        returnfrom: 2
-        start: 1
-        end: 5
-        step: 5
         operation: /prometheus
+        cluster_id: 0
+        cluster_name: cluster_name
         queries:
         - query: query
           step: 6
         - query: query
           step: 6
+        start: 1
+        end: 5
+        step: 5
+        returnfrom: 2
       properties:
         operation:
           enum:
@@ -1382,50 +1382,50 @@ components:
       type: object
     Users:
       example:
+        operation: createUser
         create_group: true
-        replace_primary_group: true
+        new_password: new_password
         old_password: old_password
+        group_name: group_name
+        replace_primary_group: true
         with_tags:
         - with_tags
         - with_tags
-        group_name: group_name
-        new_password: new_password
-        operation: createUser
         user:
-          public_key:
-          - name: name
-            key: key
-          - name: name
-            key: key
-          public_keys:
-          - name: name
-            key: key
-          - name: name
-            key: key
-          old_password: old_password
-          email_address: email_address
-          user_id: 0
-          user_name: user_name
-          timezone:
-            offset: 1
-            name: name
-            abbreviation: abbreviation
-            class_name: class_name
-            use_dst: true
-          new_password: new_password
-          last_name: last_name
-          groups:
-          - group_name: group_name
-            group_id: 6
-            class_name: class_name
-          - group_name: group_name
-            group_id: 6
-            class_name: class_name
           class_name: CmonUser
+          user_name: user_name
+          user_id: 0
           first_name: first_name
+          last_name: last_name
+          email_address: email_address
+          new_password: new_password
+          old_password: old_password
+          groups:
+          - class_name: class_name
+            group_name: group_name
+            group_id: 6
+          - class_name: class_name
+            group_name: group_name
+            group_id: 6
+          timezone:
+            class_name: class_name
+            abbreviation: abbreviation
+            name: name
+            offset: 1
+            use_dst: true
+          public_keys:
+          - key: key
+            name: name
+          - key: key
+            name: name
+          public_key:
+          - key: key
+            name: name
+          - key: key
+            name: name
         group:
-          group_name: group_name
           class_name: CmonGroup
+          group_name: group_name
       properties:
         operation:
           enum:
@@ -1470,9 +1470,9 @@ components:
       type: object
     Tree:
       example:
-        path: path
-        acl: acl
         operation: addAcl
+        acl: acl
+        path: path
       properties:
         operation:
           enum:
@@ -1488,11 +1488,11 @@ components:
       type: object
     Backup_schedule_job_job_data_verify_backup:
       example:
-        install_software: true
-        disable_selinux: true
         disable_firewall: true
-        terminate_db_server: true
+        disable_selinux: true
+        install_software: true
         server_address: server_address
+        terminate_db_server: true
       properties:
         disable_firewall:
           type: boolean
@@ -1507,26 +1507,26 @@ components:
       type: object
     Backup_schedule_job_job_data:
       example:
-        cc_storage: true
+        description: description
+        backup_failover: true
+        backup_failover_host: auto
+        backup_method: pg_basebackup
         backup_retention: 2
         backupdir: backupdir
-        backup_method: pg_basebackup
         backupsubdir: backupsubdir
-        verify_backup_delay: 3
-        backup_failover: true
-        description: description
-        backup_failover_host: auto
+        cc_storage: true
+        compression: true
+        compresion_level: 7
         encrypt_backup: true
         hostname: hostname
         port: 9
-        compression: true
-        compresion_level: 7
+        verify_backup_delay: 3
         verify_backup:
-          install_software: true
-          disable_selinux: true
           disable_firewall: true
-          terminate_db_server: true
+          disable_selinux: true
+          install_software: true
           server_address: server_address
+          terminate_db_server: true
       properties:
         description:
           type: string
@@ -1578,28 +1578,28 @@ components:
       type: object
     Backup_schedule_job:
       example:
+        command: backup
         job_data:
-          cc_storage: true
+          description: description
+          backup_failover: true
+          backup_failover_host: auto
+          backup_method: pg_basebackup
           backup_retention: 2
           backupdir: backupdir
-          backup_method: pg_basebackup
           backupsubdir: backupsubdir
-          verify_backup_delay: 3
-          backup_failover: true
-          description: description
-          backup_failover_host: auto
+          cc_storage: true
+          compression: true
+          compresion_level: 7
           encrypt_backup: true
           hostname: hostname
           port: 9
-          compression: true
-          compresion_level: 7
+          verify_backup_delay: 3
           verify_backup:
-            install_software: true
-            disable_selinux: true
             disable_firewall: true
-            terminate_db_server: true
+            disable_selinux: true
+            install_software: true
             server_address: server_address
-        command: backup
+            terminate_db_server: true
       properties:
         command:
           enum:
@@ -1610,33 +1610,33 @@ components:
       type: object
     Backup_schedule:
       example:
+        class_name: CmonBackupSchedule
+        enabled: true
         schedule: schedule
+        schedule_id: 5
         job:
+          command: backup
           job_data:
-            cc_storage: true
+            description: description
+            backup_failover: true
+            backup_failover_host: auto
+            backup_method: pg_basebackup
             backup_retention: 2
             backupdir: backupdir
-            backup_method: pg_basebackup
             backupsubdir: backupsubdir
-            verify_backup_delay: 3
-            backup_failover: true
-            description: description
-            backup_failover_host: auto
+            cc_storage: true
+            compression: true
+            compresion_level: 7
             encrypt_backup: true
             hostname: hostname
             port: 9
-            compression: true
-            compresion_level: 7
+            verify_backup_delay: 3
             verify_backup:
-              install_software: true
-              disable_selinux: true
               disable_firewall: true
-              terminate_db_server: true
+              disable_selinux: true
+              install_software: true
               server_address: server_address
-          command: backup
-        class_name: CmonBackupSchedule
-        schedule_id: 5
-        enabled: true
+              terminate_db_server: true
       properties:
         class_name:
           enum:
@@ -1749,13 +1749,13 @@ components:
       type: object
     Clusters_account:
       example:
+        class_name: CmonAccount
         grants: grants
         host_allow: host_allow
-        privileges: privileges
-        password: password
         own_database: own_database
+        privileges: privileges
         user_name: user_name
-        class_name: CmonAccount
+        password: password
       properties:
         class_name:
           enum:
@@ -1780,8 +1780,8 @@ components:
       type: object
     Clusters_database:
       example:
-        database_name: database_name
         class_name: CmonDataBase
+        database_name: database_name
       properties:
         class_name:
           enum:
@@ -1848,17 +1848,17 @@ components:
       type: object
     Config_ldap_configuration_ldapSettings:
       example:
-        ldapQueryTimeLimit: ldapQueryTimeLimit
-        ldapProtocolVersion: ldapProtocolVersion
-        ldapUsernameAttributes: ldapUsernameAttributes
-        ldapGroupClassName: ldapGroupClassName
         ldapEmailAttributes: ldapEmailAttributes
+        ldapGroupClassName: ldapGroupClassName
         ldapGroupIdAttributes: ldapGroupIdAttributes
         ldapGroupNameAttribute: ldapGroupNameAttribute
         ldapMemberAttributes: ldapMemberAttributes
         ldapNetworkTimeout: ldapNetworkTimeout
-        ldapUserClassName: ldapUserClassName
+        ldapProtocolVersion: ldapProtocolVersion
+        ldapQueryTimeLimit: ldapQueryTimeLimit
         ldapRealnameAttributes: ldapRealnameAttributes
+        ldapUserClassName: ldapUserClassName
+        ldapUsernameAttributes: ldapUsernameAttributes
       properties:
         ldapEmailAttributes:
           type: string
@@ -1885,9 +1885,9 @@ components:
       type: object
     Config_ldap_configuration_security:
       example:
-        keyFile: keyFile
-        certFile: certFile
         caCertFile: caCertFile
+        certFile: certFile
+        keyFile: keyFile
       properties:
         caCertFile:
           type: string
@@ -1898,27 +1898,12 @@ components:
       type: object
     Config_ldap_configuration:
       example:
-        ldapGroupSearchRoot: ldapGroupSearchRoot
-        security:
-          keyFile: keyFile
-          certFile: certFile
-          caCertFile: caCertFile
-        ldapServerUri: ldapServerUri
-        ldapUserSearchRoot: ldapUserSearchRoot
-        ldapSettings:
-          ldapQueryTimeLimit: ldapQueryTimeLimit
-          ldapProtocolVersion: ldapProtocolVersion
-          ldapUsernameAttributes: ldapUsernameAttributes
-          ldapGroupClassName: ldapGroupClassName
-          ldapEmailAttributes: ldapEmailAttributes
-          ldapGroupIdAttributes: ldapGroupIdAttributes
-          ldapGroupNameAttribute: ldapGroupNameAttribute
-          ldapMemberAttributes: ldapMemberAttributes
-          ldapNetworkTimeout: ldapNetworkTimeout
-          ldapUserClassName: ldapUserClassName
-          ldapRealnameAttributes: ldapRealnameAttributes
+        enabled: true
         ldapAdminPassword: ldapAdminPassword
         ldapAdminUser: ldapAdminUser
+        ldapGroupSearchRoot: ldapGroupSearchRoot
+        ldapServerUri: ldapServerUri
+        ldapUserSearchRoot: ldapUserSearchRoot
         groupMappings:
         - cmonGroupName: cmonGroupName
           ldapGroupId: ldapGroupId
@@ -1926,7 +1911,22 @@ components:
         - cmonGroupName: cmonGroupName
           ldapGroupId: ldapGroupId
           sectionName: sectionName
-        enabled: true
+        ldapSettings:
+          ldapEmailAttributes: ldapEmailAttributes
+          ldapGroupClassName: ldapGroupClassName
+          ldapGroupIdAttributes: ldapGroupIdAttributes
+          ldapGroupNameAttribute: ldapGroupNameAttribute
+          ldapMemberAttributes: ldapMemberAttributes
+          ldapNetworkTimeout: ldapNetworkTimeout
+          ldapProtocolVersion: ldapProtocolVersion
+          ldapQueryTimeLimit: ldapQueryTimeLimit
+          ldapRealnameAttributes: ldapRealnameAttributes
+          ldapUserClassName: ldapUserClassName
+          ldapUsernameAttributes: ldapUsernameAttributes
+        security:
+          caCertFile: caCertFile
+          certFile: certFile
+          keyFile: keyFile
       properties:
         enabled:
           type: boolean
@@ -1951,9 +1951,9 @@ components:
       type: object
     Discovery_nodes_inner:
       example:
-        port: 0
         class_name: CmonHost
         host_name: host_name
+        port: 0
       properties:
         class_name:
           enum:
@@ -1984,14 +1984,14 @@ components:
       type: object
     Discovery_job_job_spec_job_data:
       example:
+        cluster_type: group_replication
         mysql_version: mysql_version
+        vendor: vendor
         nodes:
         - class_name: CmonHost
           host_name: host_name
         - class_name: CmonHost
           host_name: host_name
-        vendor: vendor
-        cluster_type: group_replication
       properties:
         cluster_type:
           enum:
@@ -2008,16 +2008,16 @@ components:
       type: object
     Discovery_job_job_spec:
       example:
+        command: create_cluster
         job_data:
+          cluster_type: group_replication
           mysql_version: mysql_version
+          vendor: vendor
           nodes:
           - class_name: CmonHost
             host_name: host_name
           - class_name: CmonHost
             host_name: host_name
-          vendor: vendor
-          cluster_type: group_replication
-        command: create_cluster
       properties:
         command:
           enum:
@@ -2029,18 +2029,18 @@ components:
     Discovery_job:
       description: Also ckeck the passed create_cluster job
       example:
+        class_name: CmonJobInstance
         job_spec:
+          command: create_cluster
           job_data:
+            cluster_type: group_replication
             mysql_version: mysql_version
+            vendor: vendor
             nodes:
             - class_name: CmonHost
               host_name: host_name
             - class_name: CmonHost
               host_name: host_name
-            vendor: vendor
-            cluster_type: group_replication
-          command: create_cluster
-        class_name: CmonJobInstance
       properties:
         class_name:
           enum:
@@ -2051,10 +2051,10 @@ components:
       type: object
     Discovery_ssh_credentials:
       example:
-        ssh_keyfile: ssh_keyfile
-        password: password
-        user_name: user_name
         class_name: class_name
+        user_name: user_name
+        password: password
+        ssh_keyfile: ssh_keyfile
       properties:
         class_name:
           type: string
@@ -2067,9 +2067,9 @@ components:
       type: object
     Host_servers_inner:
       example:
+        class_name: CmonContainerServer
         hostname: hostname
         cdt_path: cdt_path
-        class_name: CmonContainerServer
       properties:
         class_name:
           enum:
@@ -2082,9 +2082,9 @@ components:
       type: object
     Host_host:
       example:
+        class_name: class_name
         hostname: hostname
         port: 6
-        class_name: class_name
       properties:
         class_name:
           type: string
@@ -2095,12 +2095,12 @@ components:
       type: object
     Jobs_job_job_spec_job_data_upload_backup_data_to_cloud_storage:
       example:
-        bucket: bucket
         backup_retention: 6
+        bucket: bucket
         cloud_storage_credentials_id: 6
         cloud_storage_provider: cloud_storage_provider
-        delete_after_upload: true
         cloud_storage_service: cloud_storage_service
+        delete_after_upload: true
       properties:
         backup_retention:
           type: integer
@@ -2118,9 +2118,9 @@ components:
     Jobs_job_job_spec_job_data_config_servers_members_inner:
       example:
         hostname: hostname
+        hostname_data: hostname_data
         hostname_internal: hostname_internal
         port: port
-        hostname_data: hostname_data
       properties:
         hostname:
           type: string
@@ -2136,13 +2136,13 @@ components:
         rs: rs
         members:
         - hostname: hostname
+          hostname_data: hostname_data
           hostname_internal: hostname_internal
           port: port
-          hostname_data: hostname_data
         - hostname: hostname
+          hostname_data: hostname_data
           hostname_internal: hostname_internal
           port: port
-          hostname_data: hostname_data
       properties:
         rs:
           type: string
@@ -2154,8 +2154,8 @@ components:
     Jobs_job_job_spec_job_data_node_configuration_inner:
       example:
         arguments: arguments
-        scrape_interval: scrape_interval
         job: node
+        scrape_interval: scrape_interval
       properties:
         arguments:
           type: string
@@ -2170,38 +2170,38 @@ components:
       type: object
     Jobs_job_job_spec_job_data_node:
       example:
-        max_connection_be: 6
-        lb_admin: lb_admin
-        lb_password: lb_password
-        configuration:
-        - arguments: arguments
-          scrape_interval: scrape_interval
-          job: node
-        - arguments: arguments
-          scrape_interval: scrape_interval
-          job: node
-        synchronous: true
-        max_connection_fe: 3
-        hostname: hostname
-        timeout_server: 6
-        rw_splitting: true
-        scrape_interval: scrape_interval
-        ro_port: 7
+        backend_name_ro: backend_name_ro
         backend_name_rw: backend_name_rw
+        data_retention: data_retention
         data_retention_size: 5
+        hostname: hostname
+        hostname_data: hostname_data
         hostname_internal: hostname_internal
         configfile: configfile
         datadir: datadir
-        backend_name_ro: backend_name_ro
-        timeout_client: 7
-        stats_socket: stats_socket
-        lb_policy: lb_policy
-        port: 3
-        data_retention: data_retention
-        xinetd_allow_from: xinetd_allow_from
-        rw_port: 0
-        hostname_data: hostname_data
         pgname: pgname
+        synchronous: true
+        lb_admin: lb_admin
+        lb_password: lb_password
+        lb_policy: lb_policy
+        max_connection_be: 6
+        max_connection_fe: 3
+        port: 3
+        ro_port: 7
+        rw_port: 0
+        rw_splitting: true
+        stats_socket: stats_socket
+        timeout_client: 7
+        timeout_server: 6
+        xinetd_allow_from: xinetd_allow_from
+        scrape_interval: scrape_interval
+        configuration:
+        - arguments: arguments
+          job: node
+          scrape_interval: scrape_interval
+        - arguments: arguments
+          job: node
+          scrape_interval: scrape_interval
       properties:
         backend_name_ro:
           type: string
@@ -2260,38 +2260,46 @@ components:
       type: object
     Jobs_job_job_spec_job_data_nodes_inner:
       example:
-        unique_id: 8
-        nodetype: nodetype
-        role: primary
-        maintenance_mode: none
-        hostname_internal: hostname_internal
-        configfile: configfile
-        datadir: datadir
-        synchronous: true
-        ip: ip
-        roles: master
-        backup_dir: backup_dir
+        class_name: CmonRedisHost
+        cdt_path: cdt_path
         acl: acl
         clusterid: 0
-        hostname: hostname
-        protocol: elastic
-        cdt_path: cdt_path
-        port: port
+        ip: ip
+        maintenance_mode: none
         maintenance_mode_active: true
-        class_name: CmonRedisHost
-        hostname_data: hostname_data
         timestamp: 4
+        unique_id: 8
+        hostname: hostname
+        hostname_data: hostname_data
+        hostname_internal: hostname_internal
+        port: port
+        nodetype: nodetype
+        configfile: configfile
+        datadir: datadir
+        backup_dir: backup_dir
+        synchronous: true
+        protocol: elastic
+        roles: master
+        role: primary
       properties:
         class_name:
           enum:
           - CmonRedisHost
           - CmonRedisSentinelHost
-          - CmonHost
           - CmonPBMAgentHost
           - CmonPgBouncerHost
           - CmonMsSqlHost
           - CmonElasticHost
           - RedisShardedHost
+          - CmonMySqlHost
+          - CmonProxySqlHost
+          - CmonGaleraHost
+          - CmonPostgreSqlHost
+          - CmonHaProxyHost
+          - CmonMongoHost
+          - CmonPgBackRestHost
+          - CmonHost
+          - CmonP
           type: string
         cdt_path:
           type: string
@@ -2350,9 +2358,9 @@ components:
       example:
         hostname: hostname
         max_connection: 7
+        max_replication_lag: 3
         port: 3
         weight: 7
-        max_replication_lag: 3
       properties:
         hostname:
           type: string
@@ -2381,13 +2389,13 @@ components:
     Jobs_job_job_spec_job_data_replica_sets_inner_members_inner:
       example:
         hostname: hostname
-        hidden: true
+        hostname_data: hostname_data
         hostname_internal: hostname_internal
         port: port
-        slave_delay: slave_delay
         arbiter_only: true
+        hidden: true
         priority: 5
-        hostname_data: hostname_data
+        slave_delay: slave_delay
       properties:
         hostname:
           type: string
@@ -2411,21 +2419,21 @@ components:
         rs: rs
         members:
         - hostname: hostname
-          hidden: true
+          hostname_data: hostname_data
           hostname_internal: hostname_internal
           port: port
-          slave_delay: slave_delay
           arbiter_only: true
+          hidden: true
           priority: 5
-          hostname_data: hostname_data
+          slave_delay: slave_delay
         - hostname: hostname
-          hidden: true
+          hostname_data: hostname_data
           hostname_internal: hostname_internal
           port: port
-          slave_delay: slave_delay
           arbiter_only: true
+          hidden: true
           priority: 5
-          hostname_data: hostname_data
+          slave_delay: slave_delay
       properties:
         rs:
           type: string
@@ -2436,287 +2444,287 @@ components:
       type: object
     Jobs_job_job_spec_job_data:
       example:
+        action: enable
+        addnode: true
         admin_username: admin_username
-        sudo_password: sudo_password
-        compression_level: 4
-        terminate_db_server: true
+        admin_user: admin_user
+        admin_password: admin_password
+        audit_events: audit_events
+        archive_mode: always
+        summarize_wal: true
+        archive_dir: archive_dir
+        backupid: 7
+        backup_id: 9
+        build_from_source: true
+        cluster_name: cluster_name
+        clusterid: 3
         cluster_type: mssql_single
-        master_address: master_address
-        usePackageForDataDir: true
-        type: postgresql
-        enable_uninstall: true
+        company_id: company_id
+        config_template: config_template
+        backup_failover: true
+        backup_failover_host: auto
+        backup_method: pg_basebackup
+        backup_mysqldump_type: Complete
+        backup_individual_schemas: true
+        backup_retention: 2
+        extended_insert: true
+        backup_dir: backup_dir
+        backupsubdir: backupsubdir
+        remove_backups: true
+        backup_system_db: true
+        cc_storage: true
+        compression: true
+        compression_level: 4
+        db_database: db_database
+        db_password: db_password
+        db_privs: db_privs
+        db_username: db_username
+        data_center: 7
+        exec_upgrade_script: true
+        extended: true
+        listening_port: 1
+        mask_passwords: true
+        monitor_password: monitor_password
+        monitor_user: monitor_user
+        use_clustering: true
+        use_rw_split: true
         hostname: hostname
+        master_address: master_address
         master_delay: 1
+        include_databases: include_databases
+        install_timescaledb: true
+        update_lb: true
+        usePackageForDataDir: true
+        encrypt_backup: true
+        throttle_rate_netbw: 1
+        use_pigz: true
+        use_qpress: true
+        wsrep_desync: true
+        galera_segment: galera_segment
+        xtrabackup_backup_locks: true
+        xtrabackup_lock_ddl_per_table: true
+        xtrabackup_parallellism: 6
+        verify_backup_delay: 7
+        datadir: datadir
+        db_user: db_user
+        disable_firewall: true
+        disable_selinux: true
+        enable_uninstall: true
+        unregister_only: true
+        generate_token: true
+        install_software: true
+        use_internal_repos: true
+        local_repository: local_repository
+        enable_mysql_uninstall: true
         mysql_semi_sync: true
+        enable_ssl: true
+        mongos_conf_template: mongos_conf_template
+        mongodb_authdb: mongodb_authdb
+        node_type: 1
+        overwrite_mysqlchk: true
+        port: 4
+        sentinel_port: sentinel_port
+        redis_sharded_port: 5
+        valkey_sharded_port: 9
+        redis_sharded_bus_port: 9
+        valkey_sharded_bus_port: 6
+        redis_cluster_replica_validity_factor: 8
+        valkey_cluster_replica_validity_factor: 9
         node_timeout_ms: 6
+        ssh_keyfile: ssh_keyfile
+        ssh_port: ssh_port
+        ssh_user: ssh_user
+        sudo_password: sudo_password
+        user_id: 3
+        vendor: default
+        type: postgresql
+        version: version
+        software_package: software_package
+        server_address: server_address
+        terminate_db_server: true
+        xtrabackup_use_memory: 6
+        initial: true
+        reboot: true
+        slave_address: slave_address
+        force: true
+        force_stop: true
+        stop_timeout: 1
+        pitr_stop_time: pitr_stop_time
+        pitr_stop_log: pitr_stop_log
+        pitr_stop_pos: 2
+        host_location_uuid: host_location_uuid
+        bootstrap: true
+        snapshot_location: snapshot_location
+        snapshot_repository: snapshot_repository
+        snapshot_repository_type: snapshot_repository_type
+        snapshot_host: snapshot_host
+        storage_host: storage_host
+        replicaset: replicaset
+        deploy_agents: true
+        upload_backup_data_to_cloud_storage:
+          backup_retention: 6
+          bucket: bucket
+          cloud_storage_credentials_id: 6
+          cloud_storage_provider: cloud_storage_provider
+          cloud_storage_service: cloud_storage_service
+          delete_after_upload: true
+        verify_backup:
+          disable_firewall: true
+          disable_selinux: true
+          install_software: true
+          server_address: server_address
+          terminate_db_server: true
         config_servers:
           rs: rs
           members:
           - hostname: hostname
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            hostname_data: hostname_data
           - hostname: hostname
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            hostname_data: hostname_data
-        action: enable
-        listening_port: 1
-        verify_backup:
-          install_software: true
-          disable_selinux: true
-          disable_firewall: true
-          terminate_db_server: true
-          server_address: server_address
-        backup_system_db: true
-        generate_token: true
-        install_software: true
-        snapshot_repository: snapshot_repository
-        snapshot_host: snapshot_host
-        ssh_port: ssh_port
+        mongos_servers:
+        - hostname: hostname
+          hostname_data: hostname_data
+          hostname_internal: hostname_internal
+          port: port
+        - hostname: hostname
+          hostname_data: hostname_data
+          hostname_internal: hostname_internal
+          port: port
+        node:
+          backend_name_ro: backend_name_ro
+          backend_name_rw: backend_name_rw
+          data_retention: data_retention
+          data_retention_size: 5
+          hostname: hostname
+          hostname_data: hostname_data
+          hostname_internal: hostname_internal
+          configfile: configfile
+          datadir: datadir
+          pgname: pgname
+          synchronous: true
+          lb_admin: lb_admin
+          lb_password: lb_password
+          lb_policy: lb_policy
+          max_connection_be: 6
+          max_connection_fe: 3
+          port: 3
+          ro_port: 7
+          rw_port: 0
+          rw_splitting: true
+          stats_socket: stats_socket
+          timeout_client: 7
+          timeout_server: 6
+          xinetd_allow_from: xinetd_allow_from
+          scrape_interval: scrape_interval
+          configuration:
+          - arguments: arguments
+            job: node
+            scrape_interval: scrape_interval
+          - arguments: arguments
+            job: node
+            scrape_interval: scrape_interval
+        nodes:
+        - class_name: CmonRedisHost
+          cdt_path: cdt_path
+          acl: acl
+          clusterid: 0
+          ip: ip
+          maintenance_mode: none
+          maintenance_mode_active: true
+          timestamp: 4
+          unique_id: 8
+          hostname: hostname
+          hostname_data: hostname_data
+          hostname_internal: hostname_internal
+          port: port
+          nodetype: nodetype
+          configfile: configfile
+          datadir: datadir
+          backup_dir: backup_dir
+          synchronous: true
+          protocol: elastic
+          roles: master
+          role: primary
+        - class_name: CmonRedisHost
+          cdt_path: cdt_path
+          acl: acl
+          clusterid: 0
+          ip: ip
+          maintenance_mode: none
+          maintenance_mode_active: true
+          timestamp: 4
+          unique_id: 8
+          hostname: hostname
+          hostname_data: hostname_data
+          hostname_internal: hostname_internal
+          port: port
+          nodetype: nodetype
+          configfile: configfile
+          datadir: datadir
+          backup_dir: backup_dir
+          synchronous: true
+          protocol: elastic
+          roles: master
+          role: primary
+        node_adresses:
+        - hostname: hostname
+          max_connection: 7
+          max_replication_lag: 3
+          port: 3
+          weight: 7
+        - hostname: hostname
+          max_connection: 7
+          max_replication_lag: 3
+          port: 3
+          weight: 7
         topology:
           master_slave_links:
           - key: master_slave_links
           - key: master_slave_links
-        backupid: 7
-        data_center: 7
-        version: version
-        node:
-          max_connection_be: 6
-          lb_admin: lb_admin
-          lb_password: lb_password
-          configuration:
-          - arguments: arguments
-            scrape_interval: scrape_interval
-            job: node
-          - arguments: arguments
-            scrape_interval: scrape_interval
-            job: node
-          synchronous: true
-          max_connection_fe: 3
-          hostname: hostname
-          timeout_server: 6
-          rw_splitting: true
-          scrape_interval: scrape_interval
-          ro_port: 7
-          backend_name_rw: backend_name_rw
-          data_retention_size: 5
-          hostname_internal: hostname_internal
-          configfile: configfile
-          datadir: datadir
-          backend_name_ro: backend_name_ro
-          timeout_client: 7
-          stats_socket: stats_socket
-          lb_policy: lb_policy
-          port: 3
-          data_retention: data_retention
-          xinetd_allow_from: xinetd_allow_from
-          rw_port: 0
-          hostname_data: hostname_data
-          pgname: pgname
-        mongos_conf_template: mongos_conf_template
-        user_id: 3
-        db_privs: db_privs
-        force: true
-        wsrep_desync: true
-        compression: true
-        archive_dir: archive_dir
-        build_from_source: true
-        verify_backup_delay: 7
-        bootstrap: true
-        redis_sharded_bus_port: 9
-        extended: true
-        mongos_servers:
-        - hostname: hostname
-          hostname_internal: hostname_internal
-          port: port
-          hostname_data: hostname_data
-        - hostname: hostname
-          hostname_internal: hostname_internal
-          port: port
-          hostname_data: hostname_data
-        stop_timeout: 1
-        disable_selinux: true
-        xtrabackup_use_memory: 6
-        vendor: default
-        deploy_agents: true
-        sentinel_port: sentinel_port
-        db_password: db_password
-        company_id: company_id
-        use_rw_split: true
-        backup_method: pg_basebackup
-        software_package: software_package
-        initial: true
-        pitr_stop_time: pitr_stop_time
-        mongodb_authdb: mongodb_authdb
-        backup_failover_host: auto
-        xtrabackup_parallellism: 6
-        backup_id: 9
-        monitor_password: monitor_password
-        db_username: db_username
-        unregister_only: true
-        db_user: db_user
-        use_pigz: true
-        enable_mysql_uninstall: true
-        redis_cluster_replica_validity_factor: 8
-        update_lb: true
-        include_databases: include_databases
-        cc_storage: true
-        snapshot_location: snapshot_location
-        backup_failover: true
-        server_address: server_address
-        replicaset: replicaset
-        exec_upgrade_script: true
-        enable_ssl: true
-        overwrite_mysqlchk: true
-        backup_mysqldump_type: Complete
-        node_type: 1
-        storage_host: storage_host
-        with_tags:
-        - with_tags
-        - with_tags
-        throttle_rate_netbw: 1
-        archive_mode: always
-        db_database: db_database
-        valkey_sharded_bus_port: 6
-        ssh_keyfile: ssh_keyfile
-        backup_retention: 2
-        backup_individual_schemas: true
-        backupsubdir: backupsubdir
-        datadir: datadir
-        pitr_stop_log: pitr_stop_log
-        admin_password: admin_password
-        local_repository: local_repository
-        valkey_cluster_replica_validity_factor: 9
-        port: 4
-        addnode: true
-        install_timescaledb: true
-        extended_insert: true
-        host_location_uuid: host_location_uuid
-        pitr_stop_pos: 2
-        admin_user: admin_user
-        mask_passwords: true
-        config_template: config_template
-        upload_backup_data_to_cloud_storage:
-          bucket: bucket
-          backup_retention: 6
-          cloud_storage_credentials_id: 6
-          cloud_storage_provider: cloud_storage_provider
-          delete_after_upload: true
-          cloud_storage_service: cloud_storage_service
-        backup_dir: backup_dir
         replica_sets:
         - rs: rs
           members:
           - hostname: hostname
-            hidden: true
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            slave_delay: slave_delay
             arbiter_only: true
+            hidden: true
             priority: 5
-            hostname_data: hostname_data
+            slave_delay: slave_delay
           - hostname: hostname
-            hidden: true
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            slave_delay: slave_delay
             arbiter_only: true
+            hidden: true
             priority: 5
-            hostname_data: hostname_data
+            slave_delay: slave_delay
         - rs: rs
           members:
           - hostname: hostname
-            hidden: true
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            slave_delay: slave_delay
             arbiter_only: true
+            hidden: true
             priority: 5
-            hostname_data: hostname_data
+            slave_delay: slave_delay
           - hostname: hostname
-            hidden: true
+            hostname_data: hostname_data
             hostname_internal: hostname_internal
             port: port
-            slave_delay: slave_delay
             arbiter_only: true
+            hidden: true
             priority: 5
-            hostname_data: hostname_data
-        xtrabackup_lock_ddl_per_table: true
-        remove_backups: true
-        redis_sharded_port: 5
-        galera_segment: galera_segment
-        xtrabackup_backup_locks: true
-        monitor_user: monitor_user
-        valkey_sharded_port: 9
-        node_adresses:
-        - hostname: hostname
-          max_connection: 7
-          port: 3
-          weight: 7
-          max_replication_lag: 3
-        - hostname: hostname
-          max_connection: 7
-          port: 3
-          weight: 7
-          max_replication_lag: 3
-        summarize_wal: true
-        force_stop: true
-        ssh_user: ssh_user
-        use_clustering: true
-        reboot: true
-        cluster_name: cluster_name
-        use_qpress: true
-        use_internal_repos: true
-        disable_firewall: true
-        audit_events: audit_events
-        clusterid: 3
-        encrypt_backup: true
-        nodes:
-        - unique_id: 8
-          nodetype: nodetype
-          role: primary
-          maintenance_mode: none
-          hostname_internal: hostname_internal
-          configfile: configfile
-          datadir: datadir
-          synchronous: true
-          ip: ip
-          roles: master
-          backup_dir: backup_dir
-          acl: acl
-          clusterid: 0
-          hostname: hostname
-          protocol: elastic
-          cdt_path: cdt_path
-          port: port
-          maintenance_mode_active: true
-          class_name: CmonRedisHost
-          hostname_data: hostname_data
-          timestamp: 4
-        - unique_id: 8
-          nodetype: nodetype
-          role: primary
-          maintenance_mode: none
-          hostname_internal: hostname_internal
-          configfile: configfile
-          datadir: datadir
-          synchronous: true
-          ip: ip
-          roles: master
-          backup_dir: backup_dir
-          acl: acl
-          clusterid: 0
-          hostname: hostname
-          protocol: elastic
-          cdt_path: cdt_path
-          port: port
-          maintenance_mode_active: true
-          class_name: CmonRedisHost
-          hostname_data: hostname_data
-          timestamp: 4
-        snapshot_repository_type: snapshot_repository_type
-        slave_address: slave_address
+            slave_delay: slave_delay
+        with_tags:
+        - with_tags
+        - with_tags
       properties:
         action:
           enum:
@@ -2769,6 +2777,7 @@ components:
           - elastic
           - redis_sharded
           - valkey_sharded
+          - clickhouse
           type: string
         company_id:
           type: string
@@ -2796,6 +2805,8 @@ components:
           - mariabackupincr
           - mssqlcert
           - ndb
+          - clickhouse-native
+          - clickhouse-native-incr
           type: string
         backup_mysqldump_type:
           enum:
@@ -2959,6 +2970,7 @@ components:
           - elasticsearch
           - 10gen
           - valkey
+          - clickhouse
           type: string
         type:
           enum:
@@ -2968,6 +2980,7 @@ components:
           - elasticsearch
           - mysql
           - mongodb
+          - clickhouse
           type: string
         version:
           type: string
@@ -3048,290 +3061,290 @@ components:
       type: object
     Jobs_job_job_spec:
       example:
+        command: rolling_restart
+        id: 2
         job_data:
+          action: enable
+          addnode: true
           admin_username: admin_username
-          sudo_password: sudo_password
-          compression_level: 4
-          terminate_db_server: true
+          admin_user: admin_user
+          admin_password: admin_password
+          audit_events: audit_events
+          archive_mode: always
+          summarize_wal: true
+          archive_dir: archive_dir
+          backupid: 7
+          backup_id: 9
+          build_from_source: true
+          cluster_name: cluster_name
+          clusterid: 3
           cluster_type: mssql_single
-          master_address: master_address
-          usePackageForDataDir: true
-          type: postgresql
-          enable_uninstall: true
+          company_id: company_id
+          config_template: config_template
+          backup_failover: true
+          backup_failover_host: auto
+          backup_method: pg_basebackup
+          backup_mysqldump_type: Complete
+          backup_individual_schemas: true
+          backup_retention: 2
+          extended_insert: true
+          backup_dir: backup_dir
+          backupsubdir: backupsubdir
+          remove_backups: true
+          backup_system_db: true
+          cc_storage: true
+          compression: true
+          compression_level: 4
+          db_database: db_database
+          db_password: db_password
+          db_privs: db_privs
+          db_username: db_username
+          data_center: 7
+          exec_upgrade_script: true
+          extended: true
+          listening_port: 1
+          mask_passwords: true
+          monitor_password: monitor_password
+          monitor_user: monitor_user
+          use_clustering: true
+          use_rw_split: true
           hostname: hostname
+          master_address: master_address
           master_delay: 1
+          include_databases: include_databases
+          install_timescaledb: true
+          update_lb: true
+          usePackageForDataDir: true
+          encrypt_backup: true
+          throttle_rate_netbw: 1
+          use_pigz: true
+          use_qpress: true
+          wsrep_desync: true
+          galera_segment: galera_segment
+          xtrabackup_backup_locks: true
+          xtrabackup_lock_ddl_per_table: true
+          xtrabackup_parallellism: 6
+          verify_backup_delay: 7
+          datadir: datadir
+          db_user: db_user
+          disable_firewall: true
+          disable_selinux: true
+          enable_uninstall: true
+          unregister_only: true
+          generate_token: true
+          install_software: true
+          use_internal_repos: true
+          local_repository: local_repository
+          enable_mysql_uninstall: true
           mysql_semi_sync: true
+          enable_ssl: true
+          mongos_conf_template: mongos_conf_template
+          mongodb_authdb: mongodb_authdb
+          node_type: 1
+          overwrite_mysqlchk: true
+          port: 4
+          sentinel_port: sentinel_port
+          redis_sharded_port: 5
+          valkey_sharded_port: 9
+          redis_sharded_bus_port: 9
+          valkey_sharded_bus_port: 6
+          redis_cluster_replica_validity_factor: 8
+          valkey_cluster_replica_validity_factor: 9
           node_timeout_ms: 6
+          ssh_keyfile: ssh_keyfile
+          ssh_port: ssh_port
+          ssh_user: ssh_user
+          sudo_password: sudo_password
+          user_id: 3
+          vendor: default
+          type: postgresql
+          version: version
+          software_package: software_package
+          server_address: server_address
+          terminate_db_server: true
+          xtrabackup_use_memory: 6
+          initial: true
+          reboot: true
+          slave_address: slave_address
+          force: true
+          force_stop: true
+          stop_timeout: 1
+          pitr_stop_time: pitr_stop_time
+          pitr_stop_log: pitr_stop_log
+          pitr_stop_pos: 2
+          host_location_uuid: host_location_uuid
+          bootstrap: true
+          snapshot_location: snapshot_location
+          snapshot_repository: snapshot_repository
+          snapshot_repository_type: snapshot_repository_type
+          snapshot_host: snapshot_host
+          storage_host: storage_host
+          replicaset: replicaset
+          deploy_agents: true
+          upload_backup_data_to_cloud_storage:
+            backup_retention: 6
+            bucket: bucket
+            cloud_storage_credentials_id: 6
+            cloud_storage_provider: cloud_storage_provider
+            cloud_storage_service: cloud_storage_service
+            delete_after_upload: true
+          verify_backup:
+            disable_firewall: true
+            disable_selinux: true
+            install_software: true
+            server_address: server_address
+            terminate_db_server: true
           config_servers:
             rs: rs
             members:
             - hostname: hostname
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              hostname_data: hostname_data
             - hostname: hostname
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              hostname_data: hostname_data
-          action: enable
-          listening_port: 1
-          verify_backup:
-            install_software: true
-            disable_selinux: true
-            disable_firewall: true
-            terminate_db_server: true
-            server_address: server_address
-          backup_system_db: true
-          generate_token: true
-          install_software: true
-          snapshot_repository: snapshot_repository
-          snapshot_host: snapshot_host
-          ssh_port: ssh_port
+          mongos_servers:
+          - hostname: hostname
+            hostname_data: hostname_data
+            hostname_internal: hostname_internal
+            port: port
+          - hostname: hostname
+            hostname_data: hostname_data
+            hostname_internal: hostname_internal
+            port: port
+          node:
+            backend_name_ro: backend_name_ro
+            backend_name_rw: backend_name_rw
+            data_retention: data_retention
+            data_retention_size: 5
+            hostname: hostname
+            hostname_data: hostname_data
+            hostname_internal: hostname_internal
+            configfile: configfile
+            datadir: datadir
+            pgname: pgname
+            synchronous: true
+            lb_admin: lb_admin
+            lb_password: lb_password
+            lb_policy: lb_policy
+            max_connection_be: 6
+            max_connection_fe: 3
+            port: 3
+            ro_port: 7
+            rw_port: 0
+            rw_splitting: true
+            stats_socket: stats_socket
+            timeout_client: 7
+            timeout_server: 6
+            xinetd_allow_from: xinetd_allow_from
+            scrape_interval: scrape_interval
+            configuration:
+            - arguments: arguments
+              job: node
+              scrape_interval: scrape_interval
+            - arguments: arguments
+              job: node
+              scrape_interval: scrape_interval
+          nodes:
+          - class_name: CmonRedisHost
+            cdt_path: cdt_path
+            acl: acl
+            clusterid: 0
+            ip: ip
+            maintenance_mode: none
+            maintenance_mode_active: true
+            timestamp: 4
+            unique_id: 8
+            hostname: hostname
+            hostname_data: hostname_data
+            hostname_internal: hostname_internal
+            port: port
+            nodetype: nodetype
+            configfile: configfile
+            datadir: datadir
+            backup_dir: backup_dir
+            synchronous: true
+            protocol: elastic
+            roles: master
+            role: primary
+          - class_name: CmonRedisHost
+            cdt_path: cdt_path
+            acl: acl
+            clusterid: 0
+            ip: ip
+            maintenance_mode: none
+            maintenance_mode_active: true
+            timestamp: 4
+            unique_id: 8
+            hostname: hostname
+            hostname_data: hostname_data
+            hostname_internal: hostname_internal
+            port: port
+            nodetype: nodetype
+            configfile: configfile
+            datadir: datadir
+            backup_dir: backup_dir
+            synchronous: true
+            protocol: elastic
+            roles: master
+            role: primary
+          node_adresses:
+          - hostname: hostname
+            max_connection: 7
+            max_replication_lag: 3
+            port: 3
+            weight: 7
+          - hostname: hostname
+            max_connection: 7
+            max_replication_lag: 3
+            port: 3
+            weight: 7
           topology:
             master_slave_links:
             - key: master_slave_links
             - key: master_slave_links
-          backupid: 7
-          data_center: 7
-          version: version
-          node:
-            max_connection_be: 6
-            lb_admin: lb_admin
-            lb_password: lb_password
-            configuration:
-            - arguments: arguments
-              scrape_interval: scrape_interval
-              job: node
-            - arguments: arguments
-              scrape_interval: scrape_interval
-              job: node
-            synchronous: true
-            max_connection_fe: 3
-            hostname: hostname
-            timeout_server: 6
-            rw_splitting: true
-            scrape_interval: scrape_interval
-            ro_port: 7
-            backend_name_rw: backend_name_rw
-            data_retention_size: 5
-            hostname_internal: hostname_internal
-            configfile: configfile
-            datadir: datadir
-            backend_name_ro: backend_name_ro
-            timeout_client: 7
-            stats_socket: stats_socket
-            lb_policy: lb_policy
-            port: 3
-            data_retention: data_retention
-            xinetd_allow_from: xinetd_allow_from
-            rw_port: 0
-            hostname_data: hostname_data
-            pgname: pgname
-          mongos_conf_template: mongos_conf_template
-          user_id: 3
-          db_privs: db_privs
-          force: true
-          wsrep_desync: true
-          compression: true
-          archive_dir: archive_dir
-          build_from_source: true
-          verify_backup_delay: 7
-          bootstrap: true
-          redis_sharded_bus_port: 9
-          extended: true
-          mongos_servers:
-          - hostname: hostname
-            hostname_internal: hostname_internal
-            port: port
-            hostname_data: hostname_data
-          - hostname: hostname
-            hostname_internal: hostname_internal
-            port: port
-            hostname_data: hostname_data
-          stop_timeout: 1
-          disable_selinux: true
-          xtrabackup_use_memory: 6
-          vendor: default
-          deploy_agents: true
-          sentinel_port: sentinel_port
-          db_password: db_password
-          company_id: company_id
-          use_rw_split: true
-          backup_method: pg_basebackup
-          software_package: software_package
-          initial: true
-          pitr_stop_time: pitr_stop_time
-          mongodb_authdb: mongodb_authdb
-          backup_failover_host: auto
-          xtrabackup_parallellism: 6
-          backup_id: 9
-          monitor_password: monitor_password
-          db_username: db_username
-          unregister_only: true
-          db_user: db_user
-          use_pigz: true
-          enable_mysql_uninstall: true
-          redis_cluster_replica_validity_factor: 8
-          update_lb: true
-          include_databases: include_databases
-          cc_storage: true
-          snapshot_location: snapshot_location
-          backup_failover: true
-          server_address: server_address
-          replicaset: replicaset
-          exec_upgrade_script: true
-          enable_ssl: true
-          overwrite_mysqlchk: true
-          backup_mysqldump_type: Complete
-          node_type: 1
-          storage_host: storage_host
-          with_tags:
-          - with_tags
-          - with_tags
-          throttle_rate_netbw: 1
-          archive_mode: always
-          db_database: db_database
-          valkey_sharded_bus_port: 6
-          ssh_keyfile: ssh_keyfile
-          backup_retention: 2
-          backup_individual_schemas: true
-          backupsubdir: backupsubdir
-          datadir: datadir
-          pitr_stop_log: pitr_stop_log
-          admin_password: admin_password
-          local_repository: local_repository
-          valkey_cluster_replica_validity_factor: 9
-          port: 4
-          addnode: true
-          install_timescaledb: true
-          extended_insert: true
-          host_location_uuid: host_location_uuid
-          pitr_stop_pos: 2
-          admin_user: admin_user
-          mask_passwords: true
-          config_template: config_template
-          upload_backup_data_to_cloud_storage:
-            bucket: bucket
-            backup_retention: 6
-            cloud_storage_credentials_id: 6
-            cloud_storage_provider: cloud_storage_provider
-            delete_after_upload: true
-            cloud_storage_service: cloud_storage_service
-          backup_dir: backup_dir
           replica_sets:
           - rs: rs
             members:
             - hostname: hostname
-              hidden: true
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              slave_delay: slave_delay
               arbiter_only: true
+              hidden: true
               priority: 5
-              hostname_data: hostname_data
+              slave_delay: slave_delay
             - hostname: hostname
-              hidden: true
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              slave_delay: slave_delay
               arbiter_only: true
+              hidden: true
               priority: 5
-              hostname_data: hostname_data
+              slave_delay: slave_delay
           - rs: rs
             members:
             - hostname: hostname
-              hidden: true
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              slave_delay: slave_delay
               arbiter_only: true
+              hidden: true
               priority: 5
-              hostname_data: hostname_data
+              slave_delay: slave_delay
             - hostname: hostname
-              hidden: true
+              hostname_data: hostname_data
               hostname_internal: hostname_internal
               port: port
-              slave_delay: slave_delay
               arbiter_only: true
+              hidden: true
               priority: 5
-              hostname_data: hostname_data
-          xtrabackup_lock_ddl_per_table: true
-          remove_backups: true
-          redis_sharded_port: 5
-          galera_segment: galera_segment
-          xtrabackup_backup_locks: true
-          monitor_user: monitor_user
-          valkey_sharded_port: 9
-          node_adresses:
-          - hostname: hostname
-            max_connection: 7
-            port: 3
-            weight: 7
-            max_replication_lag: 3
-          - hostname: hostname
-            max_connection: 7
-            port: 3
-            weight: 7
-            max_replication_lag: 3
-          summarize_wal: true
-          force_stop: true
-          ssh_user: ssh_user
-          use_clustering: true
-          reboot: true
-          cluster_name: cluster_name
-          use_qpress: true
-          use_internal_repos: true
-          disable_firewall: true
-          audit_events: audit_events
-          clusterid: 3
-          encrypt_backup: true
-          nodes:
-          - unique_id: 8
-            nodetype: nodetype
-            role: primary
-            maintenance_mode: none
-            hostname_internal: hostname_internal
-            configfile: configfile
-            datadir: datadir
-            synchronous: true
-            ip: ip
-            roles: master
-            backup_dir: backup_dir
-            acl: acl
-            clusterid: 0
-            hostname: hostname
-            protocol: elastic
-            cdt_path: cdt_path
-            port: port
-            maintenance_mode_active: true
-            class_name: CmonRedisHost
-            hostname_data: hostname_data
-            timestamp: 4
-          - unique_id: 8
-            nodetype: nodetype
-            role: primary
-            maintenance_mode: none
-            hostname_internal: hostname_internal
-            configfile: configfile
-            datadir: datadir
-            synchronous: true
-            ip: ip
-            roles: master
-            backup_dir: backup_dir
-            acl: acl
-            clusterid: 0
-            hostname: hostname
-            protocol: elastic
-            cdt_path: cdt_path
-            port: port
-            maintenance_mode_active: true
-            class_name: CmonRedisHost
-            hostname_data: hostname_data
-            timestamp: 4
-          snapshot_repository_type: snapshot_repository_type
-          slave_address: slave_address
-        id: 2
-        command: rolling_restart
+              slave_delay: slave_delay
+          with_tags:
+          - with_tags
+          - with_tags
       properties:
         command:
           enum:
@@ -3376,298 +3389,298 @@ components:
       type: object
     Jobs_job:
       example:
+        class_name: class_name
+        title: title
+        status: status
         recurrence: recurrence
+        tags:
+        - tags
+        - tags
         job_spec:
+          command: rolling_restart
+          id: 2
           job_data:
+            action: enable
+            addnode: true
             admin_username: admin_username
-            sudo_password: sudo_password
-            compression_level: 4
-            terminate_db_server: true
+            admin_user: admin_user
+            admin_password: admin_password
+            audit_events: audit_events
+            archive_mode: always
+            summarize_wal: true
+            archive_dir: archive_dir
+            backupid: 7
+            backup_id: 9
+            build_from_source: true
+            cluster_name: cluster_name
+            clusterid: 3
             cluster_type: mssql_single
-            master_address: master_address
-            usePackageForDataDir: true
-            type: postgresql
-            enable_uninstall: true
+            company_id: company_id
+            config_template: config_template
+            backup_failover: true
+            backup_failover_host: auto
+            backup_method: pg_basebackup
+            backup_mysqldump_type: Complete
+            backup_individual_schemas: true
+            backup_retention: 2
+            extended_insert: true
+            backup_dir: backup_dir
+            backupsubdir: backupsubdir
+            remove_backups: true
+            backup_system_db: true
+            cc_storage: true
+            compression: true
+            compression_level: 4
+            db_database: db_database
+            db_password: db_password
+            db_privs: db_privs
+            db_username: db_username
+            data_center: 7
+            exec_upgrade_script: true
+            extended: true
+            listening_port: 1
+            mask_passwords: true
+            monitor_password: monitor_password
+            monitor_user: monitor_user
+            use_clustering: true
+            use_rw_split: true
             hostname: hostname
+            master_address: master_address
             master_delay: 1
+            include_databases: include_databases
+            install_timescaledb: true
+            update_lb: true
+            usePackageForDataDir: true
+            encrypt_backup: true
+            throttle_rate_netbw: 1
+            use_pigz: true
+            use_qpress: true
+            wsrep_desync: true
+            galera_segment: galera_segment
+            xtrabackup_backup_locks: true
+            xtrabackup_lock_ddl_per_table: true
+            xtrabackup_parallellism: 6
+            verify_backup_delay: 7
+            datadir: datadir
+            db_user: db_user
+            disable_firewall: true
+            disable_selinux: true
+            enable_uninstall: true
+            unregister_only: true
+            generate_token: true
+            install_software: true
+            use_internal_repos: true
+            local_repository: local_repository
+            enable_mysql_uninstall: true
             mysql_semi_sync: true
+            enable_ssl: true
+            mongos_conf_template: mongos_conf_template
+            mongodb_authdb: mongodb_authdb
+            node_type: 1
+            overwrite_mysqlchk: true
+            port: 4
+            sentinel_port: sentinel_port
+            redis_sharded_port: 5
+            valkey_sharded_port: 9
+            redis_sharded_bus_port: 9
+            valkey_sharded_bus_port: 6
+            redis_cluster_replica_validity_factor: 8
+            valkey_cluster_replica_validity_factor: 9
             node_timeout_ms: 6
+            ssh_keyfile: ssh_keyfile
+            ssh_port: ssh_port
+            ssh_user: ssh_user
+            sudo_password: sudo_password
+            user_id: 3
+            vendor: default
+            type: postgresql
+            version: version
+            software_package: software_package
+            server_address: server_address
+            terminate_db_server: true
+            xtrabackup_use_memory: 6
+            initial: true
+            reboot: true
+            slave_address: slave_address
+            force: true
+            force_stop: true
+            stop_timeout: 1
+            pitr_stop_time: pitr_stop_time
+            pitr_stop_log: pitr_stop_log
+            pitr_stop_pos: 2
+            host_location_uuid: host_location_uuid
+            bootstrap: true
+            snapshot_location: snapshot_location
+            snapshot_repository: snapshot_repository
+            snapshot_repository_type: snapshot_repository_type
+            snapshot_host: snapshot_host
+            storage_host: storage_host
+            replicaset: replicaset
+            deploy_agents: true
+            upload_backup_data_to_cloud_storage:
+              backup_retention: 6
+              bucket: bucket
+              cloud_storage_credentials_id: 6
+              cloud_storage_provider: cloud_storage_provider
+              cloud_storage_service: cloud_storage_service
+              delete_after_upload: true
+            verify_backup:
+              disable_firewall: true
+              disable_selinux: true
+              install_software: true
+              server_address: server_address
+              terminate_db_server: true
             config_servers:
               rs: rs
               members:
               - hostname: hostname
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                hostname_data: hostname_data
               - hostname: hostname
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                hostname_data: hostname_data
-            action: enable
-            listening_port: 1
-            verify_backup:
-              install_software: true
-              disable_selinux: true
-              disable_firewall: true
-              terminate_db_server: true
-              server_address: server_address
-            backup_system_db: true
-            generate_token: true
-            install_software: true
-            snapshot_repository: snapshot_repository
-            snapshot_host: snapshot_host
-            ssh_port: ssh_port
+            mongos_servers:
+            - hostname: hostname
+              hostname_data: hostname_data
+              hostname_internal: hostname_internal
+              port: port
+            - hostname: hostname
+              hostname_data: hostname_data
+              hostname_internal: hostname_internal
+              port: port
+            node:
+              backend_name_ro: backend_name_ro
+              backend_name_rw: backend_name_rw
+              data_retention: data_retention
+              data_retention_size: 5
+              hostname: hostname
+              hostname_data: hostname_data
+              hostname_internal: hostname_internal
+              configfile: configfile
+              datadir: datadir
+              pgname: pgname
+              synchronous: true
+              lb_admin: lb_admin
+              lb_password: lb_password
+              lb_policy: lb_policy
+              max_connection_be: 6
+              max_connection_fe: 3
+              port: 3
+              ro_port: 7
+              rw_port: 0
+              rw_splitting: true
+              stats_socket: stats_socket
+              timeout_client: 7
+              timeout_server: 6
+              xinetd_allow_from: xinetd_allow_from
+              scrape_interval: scrape_interval
+              configuration:
+              - arguments: arguments
+                job: node
+                scrape_interval: scrape_interval
+              - arguments: arguments
+                job: node
+                scrape_interval: scrape_interval
+            nodes:
+            - class_name: CmonRedisHost
+              cdt_path: cdt_path
+              acl: acl
+              clusterid: 0
+              ip: ip
+              maintenance_mode: none
+              maintenance_mode_active: true
+              timestamp: 4
+              unique_id: 8
+              hostname: hostname
+              hostname_data: hostname_data
+              hostname_internal: hostname_internal
+              port: port
+              nodetype: nodetype
+              configfile: configfile
+              datadir: datadir
+              backup_dir: backup_dir
+              synchronous: true
+              protocol: elastic
+              roles: master
+              role: primary
+            - class_name: CmonRedisHost
+              cdt_path: cdt_path
+              acl: acl
+              clusterid: 0
+              ip: ip
+              maintenance_mode: none
+              maintenance_mode_active: true
+              timestamp: 4
+              unique_id: 8
+              hostname: hostname
+              hostname_data: hostname_data
+              hostname_internal: hostname_internal
+              port: port
+              nodetype: nodetype
+              configfile: configfile
+              datadir: datadir
+              backup_dir: backup_dir
+              synchronous: true
+              protocol: elastic
+              roles: master
+              role: primary
+            node_adresses:
+            - hostname: hostname
+              max_connection: 7
+              max_replication_lag: 3
+              port: 3
+              weight: 7
+            - hostname: hostname
+              max_connection: 7
+              max_replication_lag: 3
+              port: 3
+              weight: 7
             topology:
               master_slave_links:
               - key: master_slave_links
               - key: master_slave_links
-            backupid: 7
-            data_center: 7
-            version: version
-            node:
-              max_connection_be: 6
-              lb_admin: lb_admin
-              lb_password: lb_password
-              configuration:
-              - arguments: arguments
-                scrape_interval: scrape_interval
-                job: node
-              - arguments: arguments
-                scrape_interval: scrape_interval
-                job: node
-              synchronous: true
-              max_connection_fe: 3
-              hostname: hostname
-              timeout_server: 6
-              rw_splitting: true
-              scrape_interval: scrape_interval
-              ro_port: 7
-              backend_name_rw: backend_name_rw
-              data_retention_size: 5
-              hostname_internal: hostname_internal
-              configfile: configfile
-              datadir: datadir
-              backend_name_ro: backend_name_ro
-              timeout_client: 7
-              stats_socket: stats_socket
-              lb_policy: lb_policy
-              port: 3
-              data_retention: data_retention
-              xinetd_allow_from: xinetd_allow_from
-              rw_port: 0
-              hostname_data: hostname_data
-              pgname: pgname
-            mongos_conf_template: mongos_conf_template
-            user_id: 3
-            db_privs: db_privs
-            force: true
-            wsrep_desync: true
-            compression: true
-            archive_dir: archive_dir
-            build_from_source: true
-            verify_backup_delay: 7
-            bootstrap: true
-            redis_sharded_bus_port: 9
-            extended: true
-            mongos_servers:
-            - hostname: hostname
-              hostname_internal: hostname_internal
-              port: port
-              hostname_data: hostname_data
-            - hostname: hostname
-              hostname_internal: hostname_internal
-              port: port
-              hostname_data: hostname_data
-            stop_timeout: 1
-            disable_selinux: true
-            xtrabackup_use_memory: 6
-            vendor: default
-            deploy_agents: true
-            sentinel_port: sentinel_port
-            db_password: db_password
-            company_id: company_id
-            use_rw_split: true
-            backup_method: pg_basebackup
-            software_package: software_package
-            initial: true
-            pitr_stop_time: pitr_stop_time
-            mongodb_authdb: mongodb_authdb
-            backup_failover_host: auto
-            xtrabackup_parallellism: 6
-            backup_id: 9
-            monitor_password: monitor_password
-            db_username: db_username
-            unregister_only: true
-            db_user: db_user
-            use_pigz: true
-            enable_mysql_uninstall: true
-            redis_cluster_replica_validity_factor: 8
-            update_lb: true
-            include_databases: include_databases
-            cc_storage: true
-            snapshot_location: snapshot_location
-            backup_failover: true
-            server_address: server_address
-            replicaset: replicaset
-            exec_upgrade_script: true
-            enable_ssl: true
-            overwrite_mysqlchk: true
-            backup_mysqldump_type: Complete
-            node_type: 1
-            storage_host: storage_host
-            with_tags:
-            - with_tags
-            - with_tags
-            throttle_rate_netbw: 1
-            archive_mode: always
-            db_database: db_database
-            valkey_sharded_bus_port: 6
-            ssh_keyfile: ssh_keyfile
-            backup_retention: 2
-            backup_individual_schemas: true
-            backupsubdir: backupsubdir
-            datadir: datadir
-            pitr_stop_log: pitr_stop_log
-            admin_password: admin_password
-            local_repository: local_repository
-            valkey_cluster_replica_validity_factor: 9
-            port: 4
-            addnode: true
-            install_timescaledb: true
-            extended_insert: true
-            host_location_uuid: host_location_uuid
-            pitr_stop_pos: 2
-            admin_user: admin_user
-            mask_passwords: true
-            config_template: config_template
-            upload_backup_data_to_cloud_storage:
-              bucket: bucket
-              backup_retention: 6
-              cloud_storage_credentials_id: 6
-              cloud_storage_provider: cloud_storage_provider
-              delete_after_upload: true
-              cloud_storage_service: cloud_storage_service
-            backup_dir: backup_dir
             replica_sets:
             - rs: rs
               members:
               - hostname: hostname
-                hidden: true
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                slave_delay: slave_delay
                 arbiter_only: true
+                hidden: true
                 priority: 5
-                hostname_data: hostname_data
+                slave_delay: slave_delay
               - hostname: hostname
-                hidden: true
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                slave_delay: slave_delay
                 arbiter_only: true
+                hidden: true
                 priority: 5
-                hostname_data: hostname_data
+                slave_delay: slave_delay
             - rs: rs
               members:
               - hostname: hostname
-                hidden: true
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                slave_delay: slave_delay
                 arbiter_only: true
+                hidden: true
                 priority: 5
-                hostname_data: hostname_data
+                slave_delay: slave_delay
               - hostname: hostname
-                hidden: true
+                hostname_data: hostname_data
                 hostname_internal: hostname_internal
                 port: port
-                slave_delay: slave_delay
                 arbiter_only: true
+                hidden: true
                 priority: 5
-                hostname_data: hostname_data
-            xtrabackup_lock_ddl_per_table: true
-            remove_backups: true
-            redis_sharded_port: 5
-            galera_segment: galera_segment
-            xtrabackup_backup_locks: true
-            monitor_user: monitor_user
-            valkey_sharded_port: 9
-            node_adresses:
-            - hostname: hostname
-              max_connection: 7
-              port: 3
-              weight: 7
-              max_replication_lag: 3
-            - hostname: hostname
-              max_connection: 7
-              port: 3
-              weight: 7
-              max_replication_lag: 3
-            summarize_wal: true
-            force_stop: true
-            ssh_user: ssh_user
-            use_clustering: true
-            reboot: true
-            cluster_name: cluster_name
-            use_qpress: true
-            use_internal_repos: true
-            disable_firewall: true
-            audit_events: audit_events
-            clusterid: 3
-            encrypt_backup: true
-            nodes:
-            - unique_id: 8
-              nodetype: nodetype
-              role: primary
-              maintenance_mode: none
-              hostname_internal: hostname_internal
-              configfile: configfile
-              datadir: datadir
-              synchronous: true
-              ip: ip
-              roles: master
-              backup_dir: backup_dir
-              acl: acl
-              clusterid: 0
-              hostname: hostname
-              protocol: elastic
-              cdt_path: cdt_path
-              port: port
-              maintenance_mode_active: true
-              class_name: CmonRedisHost
-              hostname_data: hostname_data
-              timestamp: 4
-            - unique_id: 8
-              nodetype: nodetype
-              role: primary
-              maintenance_mode: none
-              hostname_internal: hostname_internal
-              configfile: configfile
-              datadir: datadir
-              synchronous: true
-              ip: ip
-              roles: master
-              backup_dir: backup_dir
-              acl: acl
-              clusterid: 0
-              hostname: hostname
-              protocol: elastic
-              cdt_path: cdt_path
-              port: port
-              maintenance_mode_active: true
-              class_name: CmonRedisHost
-              hostname_data: hostname_data
-              timestamp: 4
-            snapshot_repository_type: snapshot_repository_type
-            slave_address: slave_address
-          id: 2
-          command: rolling_restart
-        title: title
-        class_name: class_name
-        status: status
-        tags:
-        - tags
-        - tags
+                slave_delay: slave_delay
+            with_tags:
+            - with_tags
+            - with_tags
       properties:
         class_name:
           type: string
@@ -3696,11 +3709,11 @@ components:
       type: object
     Reports_report:
       example:
-        recipients: recipients
-        report_id: 6
-        report_type: report_type
         class_name: CmonReport
+        recipients: recipients
+        report_type: report_type
         text_format: AnsiTerminal
+        report_id: 6
       properties:
         class_name:
           enum:
@@ -3721,13 +3734,13 @@ components:
       type: object
     StatCmonAgent_requestData:
       example:
-        origin: timeline
-        limit: 0
-        objectName: objectName
+        begin: begin
         className: CmnReadParam
         end: end
+        limit: 0
         mimeType: mimeType
-        begin: begin
+        objectName: objectName
+        origin: timeline
       properties:
         begin:
           description: e.g. "2021-06-07T09:41:43.636Z"
@@ -3765,9 +3778,9 @@ components:
       type: object
     Users_user_groups_inner:
       example:
+        class_name: class_name
         group_name: group_name
         group_id: 6
-        class_name: class_name
       properties:
         class_name:
           type: string
@@ -3778,10 +3791,10 @@ components:
       type: object
     Users_user_timezone:
       example:
-        offset: 1
-        name: name
-        abbreviation: abbreviation
         class_name: class_name
+        abbreviation: abbreviation
+        name: name
+        offset: 1
         use_dst: true
       properties:
         class_name:
@@ -3797,8 +3810,8 @@ components:
       type: object
     Users_user_public_keys_inner:
       example:
-        name: name
         key: key
+        name: name
       properties:
         key:
           type: string
@@ -3807,37 +3820,37 @@ components:
       type: object
     Users_user:
       example:
-        public_key:
-        - name: name
-          key: key
-        - name: name
-          key: key
-        public_keys:
-        - name: name
-          key: key
-        - name: name
-          key: key
-        old_password: old_password
-        email_address: email_address
-        user_id: 0
-        user_name: user_name
-        timezone:
-          offset: 1
-          name: name
-          abbreviation: abbreviation
-          class_name: class_name
-          use_dst: true
-        new_password: new_password
-        last_name: last_name
-        groups:
-        - group_name: group_name
-          group_id: 6
-          class_name: class_name
-        - group_name: group_name
-          group_id: 6
-          class_name: class_name
         class_name: CmonUser
+        user_name: user_name
+        user_id: 0
         first_name: first_name
+        last_name: last_name
+        email_address: email_address
+        new_password: new_password
+        old_password: old_password
+        groups:
+        - class_name: class_name
+          group_name: group_name
+          group_id: 6
+        - class_name: class_name
+          group_name: group_name
+          group_id: 6
+        timezone:
+          class_name: class_name
+          abbreviation: abbreviation
+          name: name
+          offset: 1
+          use_dst: true
+        public_keys:
+        - key: key
+          name: name
+        - key: key
+          name: name
+        public_key:
+        - key: key
+          name: name
+        - key: key
+          name: name
       properties:
         class_name:
           enum:
@@ -3874,8 +3887,8 @@ components:
       type: object
     Users_group:
       example:
-        group_name: group_name
         class_name: CmonGroup
+        group_name: group_name
       properties:
         class_name:
           enum:

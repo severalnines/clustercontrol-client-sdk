@@ -1065,7 +1065,7 @@ components:
                     cluster_type:
                       type: string
                       enum: ["mssql_single","redis","mongodb","mssql_ao_async",
-                        "postgresql_single","replication","galera","elastic","redis_sharded","valkey_sharded"]
+                        "postgresql_single","replication","galera","elastic","redis_sharded","valkey_sharded","clickhouse"]
                     company_id:
                       type: string
                     config_template:
@@ -1078,7 +1078,8 @@ components:
                     backup_method:
                       type: string
                       enum: ["pg_basebackup","xtrabackupfull","xtrabackupincr","pgbackrestfull","pgbackrestincr","pgbackrestdiff","mysqldump",
-                        "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb"]
+                        "mongodump","percona-backup-mongodb","pgdumpall","mariabackupfull","mariabackupincr","mssqlcert","ndb",
+                        "clickhouse-native","clickhouse-native-incr"]
                     backup_mysqldump_type:
                       type: string
                       enum: ["Complete","SchemaAndData","SchemaOnly","DataOnly","MySQLDbOnly"]
@@ -1232,10 +1233,11 @@ components:
                       type: integer
                     vendor:
                       type: string
-                      enum: ["default","postgresql","percona","microsoft","redis","oracle","mariadb","elasticsearch","10gen","valkey"]
+                      enum: ["default","postgresql","percona","microsoft","redis","oracle","mariadb",
+                        "elasticsearch","10gen","valkey","clickhouse"]
                     type:
                       type: string
-                      enum: ["postgresql","redis","microsoft","elasticsearch","mysql","mongodb"]
+                      enum: ["postgresql","redis","microsoft","elasticsearch","mysql","mongodb","clickhouse"]
                     version:
                       type: string
                     software_package:
@@ -1413,8 +1415,10 @@ components:
                         properties:
                           class_name:
                             type: string
-                            enum: ["CmonRedisHost","CmonRedisSentinelHost","CmonHost",
-                              "CmonPBMAgentHost","CmonPgBouncerHost","CmonMsSqlHost","CmonElasticHost","RedisShardedHost"]
+                            enum: ["CmonRedisHost","CmonRedisSentinelHost", "CmonPBMAgentHost","CmonPgBouncerHost",
+                              "CmonMsSqlHost","CmonElasticHost","RedisShardedHost","CmonMySqlHost","CmonProxySqlHost",
+                              "CmonGaleraHost","CmonPostgreSqlHost","CmonHaProxyHost","CmonMongoHost","CmonPgBackRestHost",
+                              "CmonHost","CmonP"]
                           cdt_path:
                             type: string
                           acl:
