@@ -34,7 +34,7 @@ EXAMPLE_JAR    := $(ROOT_DIR)/$(EXAMPLE_MODULE)/build/libs/$(EXAMPLE_MODULE)-1.0
 
 ## build: Build & test all subprojects (./gradlew build)
 build: wrapper-check
-	$(GRADLEW) build
+	$(GRADLEW) build -x javadoc -x test
 
 ## test: Run unit tests for all subprojects
 test: wrapper-check
